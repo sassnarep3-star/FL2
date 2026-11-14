@@ -2,6 +2,8 @@
 
 An evidence-first static research site for planning an NFL line-origination and strategy-validation competition. It is a research scaffold, **not** an NFL product, wagering service, betting recommendation, or claim of predictive edge.
 
+**Live site:** [sassnarep3-star.github.io/FL2](https://sassnarep3-star.github.io/FL2/) · [PR #1](https://github.com/sassnarep3-star/FL2/pull/1) (merged)
+
 ## Site map
 
 - `index.html` — executive summary and evidence snapshot
