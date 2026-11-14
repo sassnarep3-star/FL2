@@ -7,7 +7,9 @@
       "severity": "Medium",
       "item": "Repository content is a one-line README",
       "detail": "The repo at main (commit 0f3d2f9) contains only README.md with the text '# FL2'. There is no license, no code, no documentation, and no .gitignore.",
-      "source_urls": ["https://github.com/sassnarep3-star/FL2"],
+      "source_urls": [
+        "https://github.com/sassnarep3-star/FL2"
+      ],
       "status": "Open - for your review"
     },
     {
@@ -16,7 +18,9 @@
       "severity": "Low",
       "item": "Coordination file was missing",
       "detail": "COORDINATION.md did not exist. It was created in this session as the shared task board (see the file in the repo root).",
-      "source_urls": ["https://github.com/sassnarep3-star/FL2/blob/arena/d263eab0-fl2/COORDINATION.md"],
+      "source_urls": [
+        "https://github.com/sassnarep3-star/FL2/blob/arena/d263eab0-fl2/COORDINATION.md"
+      ],
       "status": "Resolved - created"
     },
     {
@@ -43,7 +47,10 @@
       "severity": "High",
       "item": "Thursday game already final but still in the Week 10 injury report",
       "detail": "The NFL.com schedule shows Commanders 24, Giants 21, FINAL (Thu Nov 12). The Week 10 injury report still lists WAS and NYG players with statuses (e.g., Lucas Patrick Out, Colson Yankoff Out). These statuses are stale for a completed game and are kept in the table with a 'Final game' marker, not removed.",
-      "source_urls": ["https://www.nfl.com/schedules/2026/REG10", "https://www.nfl.com/injuries/"],
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/REG10",
+        "https://www.nfl.com/injuries/"
+      ],
       "status": "Open - for your review"
     },
     {
@@ -52,7 +59,11 @@
       "severity": "Medium",
       "item": "Injury field blank while NFL.com news names the injury",
       "detail": "Puka Nacua (LAR) is listed as Did Not Participate with a blank injury column and no game status. NFL.com news says Nacua suffered a knee injury (Week 9) and is 'likely to be placed on injured reserve with turf toe, sprained MCL and PCL'. The report does not show the injury. Left blank as reported.",
-      "source_urls": ["https://www.nfl.com/injuries/", "https://www.nfl.com/news/notable-injuries-news-sunday-week-9-games-2026", "https://www.nfl.com/news/rams-wr-puka-nacua-likely-to-be-placed-on-injured-reserve-with-turf-toe-sprained-mcl-and-pcl"],
+      "source_urls": [
+        "https://www.nfl.com/injuries/",
+        "https://www.nfl.com/news/notable-injuries-news-sunday-week-9-games-2026",
+        "https://www.nfl.com/news/rams-wr-puka-nacua-likely-to-be-placed-on-injured-reserve-with-turf-toe-sprained-mcl-and-pcl"
+      ],
       "status": "Open - for your review"
     },
     {
@@ -61,7 +72,9 @@
       "severity": "Medium",
       "item": "21 players are Did Not Participate with no injury listed and no game status",
       "detail": "These players have no injury or game status on the report, so the reason for non-participation is not shown. Examples: Aaron Donald, Braden Fiske, Malik Hooker, Von Miller, Dexter Lawrence, Ladd McConkey. Shown as reported; not classified.",
-      "source_urls": ["https://www.nfl.com/injuries/"],
+      "source_urls": [
+        "https://www.nfl.com/injuries/"
+      ],
       "status": "Open - for your review"
     },
     {
@@ -70,17 +83,25 @@
       "severity": "Medium",
       "item": "Lamar Jackson recovery timeline differs between two NFL.com headlines",
       "detail": "NFL.com headline (Nov 13 roundup): 'Ravens confirm Lamar Jackson expected to miss 6-10 weeks'. Earlier NFL.com headline: 'NFL Network: Ravens' Lamar Jackson (right thumb) out 6-9 weeks, expects to return this season'. The two headlines disagree on the upper bound. Both are shown; no value chosen.",
-      "source_urls": ["https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13", "https://www.nfl.com/news/ravens-lamar-jackson-right-thumb-out-6-9-weeks-expects-to-return-this-season"],
+      "source_urls": [
+        "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13",
+        "https://www.nfl.com/news/ravens-lamar-jackson-right-thumb-out-6-9-weeks-expects-to-return-this-season"
+      ],
       "status": "Open - for your review"
     },
     {
       "id": "F-09",
       "category": "Data irregularity",
       "severity": "Low",
-      "item": "Player profile slug does not match the name shown",
-      "detail": "Jacob Hummel (HOU) links to /players/jake-hummel/; Kam Curl (LAR) links to /players/kamren-curl/. Same pattern on the BUF roster page: 'Dee Alford' links to /players/deaundre-ford/. These are likely legal-name or nickname slugs, but identity was not confirmed. The link is kept as printed.",
-      "source_urls": ["https://www.nfl.com/injuries/", "https://www.nfl.com/teams/buffalo-bills/roster"],
-      "status": "Open - for your review"
+      "item": "Player profile slugs differ from the printed name (2 spot-checked)",
+      "detail": "Jacob Hummel (HOU) links to /players/jake-hummel/ and Kam Curl (LAR) links to /players/kamren-curl/. Spot-check on 2026-11-14: the Curl profile shows \"Kam Curl, SAF #3, Los Angeles Rams, active\", which matches the report. The Hummel profile shows \"Jacob Hummel, LB #33\" (team not shown in the fetched text), which matches the report position. Identity is consistent for both. The \"Dee Alford\" BUF roster entry linked to /players/deaundre-ford/ was not checked (roster not imported).",
+      "source_urls": [
+        "https://www.nfl.com/injuries/",
+        "https://www.nfl.com/players/jake-hummel/",
+        "https://www.nfl.com/players/kamren-curl/",
+        "https://www.nfl.com/teams/buffalo-bills/roster"
+      ],
+      "status": "Partly resolved - 2 links checked; confirm the Hummel team if needed"
     },
     {
       "id": "F-10",
@@ -88,7 +109,9 @@
       "severity": "High",
       "item": "Starter vs backup status is NOT verified for any player",
       "detail": "No official depth chart was fetched for any of the 32 teams. The unit exposure page therefore counts injury statuses by position group only. It does NOT say who replaced whom or whether a player is a starter. This is the most important gap for the defense/offense backup question.",
-      "source_urls": ["https://www.nfl.com/teams/buffalo-bills/roster"],
+      "source_urls": [
+        "https://www.nfl.com/teams/buffalo-bills/roster"
+      ],
       "status": "Open - needs a depth chart source (see Questions Q6)"
     },
     {
@@ -97,7 +120,9 @@
       "severity": "High",
       "item": "No verified betting line or odds data",
       "detail": "The NFL does not publish betting lines on NFL.com. No licensed or official odds archive was found. The nflverse schedule file that carries line fields could not be downloaded from this environment (TLS error). No lines, spreads, totals, moneylines, or props are included on this site.",
-      "source_urls": ["https://github.com/nflverse/nflverse-data/releases"],
+      "source_urls": [
+        "https://github.com/nflverse/nflverse-data/releases"
+      ],
       "status": "Open - blocks strategy validation"
     },
     {
@@ -115,7 +140,9 @@
       "severity": "Medium",
       "item": "Injury statuses change before kickoff",
       "detail": "Data was pulled 2026-11-14. The NFL report for Week 10 can change before each game (e.g., Sunday games at 1:00 PM ET). The site should be refreshed before any decision uses it.",
-      "source_urls": ["https://www.nfl.com/injuries/"],
+      "source_urls": [
+        "https://www.nfl.com/injuries/"
+      ],
       "status": "Open - refresh process needed"
     },
     {
