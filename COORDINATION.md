@@ -662,4 +662,18 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 
 ## Pull request and merge result
 
-_Pending — filled in after the PR is opened and merged._
+* **PR:** https://github.com/sassnarep3-star/FL2/pull/13 — "FL2 Verified Signals: 137 verified box
+  scores, Week 10 injury report, validation gates, /fl2-signals/ site"
+* **Merge:** merged 2026-11-14T03:40:47Z as `57920b75676b01dd85e03ca8601f865afaf2f824`
+  (`gh pr merge 13 --merge`), without waiting for approval, as instructed.
+* **CI:** `Validate and publish site` run 43552867404 — `validate` **success**, `deploy` **success**
+  (step "Deploy to GitHub Pages" success).
+* **Pages verified live:**
+  - https://sassnarep3-star.github.io/FL2/fl2-signals/index.html — renders; KPI cards, tables and
+    Source links present.
+  - https://sassnarep3-star.github.io/FL2/fl2-signals/assets/style.css — stylesheet served (HTTP 200).
+* **No other session's file was edited.** The only conflict was this file, resolved in `main`'s
+  favour with this section appended. `docs/`, `hub/`, `ledger/`, `fl2-dashboard/`, `signal/`,
+  `scripts/`, `tools/check_links.py` and root `index.html` are untouched by this session.
+* **Deliberate gaps** (also on `/fl2-signals/flagged.html`): no proprietary line and no leaderboard,
+  because no market-odds source is reachable and zero strategies clear the significance gate.

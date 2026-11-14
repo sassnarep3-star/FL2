@@ -709,16 +709,22 @@ def p_flagged():
     establish.</strong> None of these items blocks the merge. Each is published with the official
     links needed to resolve it by hand.</div>"""]
     body.append(table(["#", "Area", "Item", "What is unresolved", "Official sources"],
-                      [[n, area, title, desc,
-                        " · ".join(link(u, u.replace("https://www.nfl.com", "nfl.com")) for u in urls)]
+                      [[n, area, title, desc, " · ".join(link(u) for u in urls)]
                        for n, (title, area, desc, urls) in enumerate(items, 1)],
                       ["https://www.nfl.com/"] * len(items)))
     body.append("<h2>Registry of explicitly missing data</h2>")
-    body.append(table(["Club", "Status"],
-                      [[r.get("team"), r.get("status")] for r in b["clubs_not_acquired"]]
-                      if isinstance(b["clubs_not_acquired"], list) else [["see depth charts", "not acquired"]],
-                      ["https://www.nfl.com/teams/"] * (len(b["clubs_not_acquired"])
-                                                        if isinstance(b["clubs_not_acquired"], list) else 1)))
+    dc = load("depth_charts.json")
+    reg = dc["registry"]
+    reg = reg["rows"] if isinstance(reg, dict) else reg
+    miss = [r for r in reg if r.get("status") != "verified"]
+    body.append(table(["Club", "Status", "Club site URL", "Find the club site via"],
+                      [[r.get("team"), r.get("status"), r.get("url"), r.get("find_official_site_via")]
+                       for r in miss],
+                      [r.get("find_official_site_via") or "https://www.nfl.com/teams/" for r in miss],
+                      note="%d clubs have no depth chart on this site. The club-domain column is blank "
+                           "because this session only confirmed 5 club domains by actually fetching them; "
+                           "the NFL.com team page is the official route to each club site. None was estimated."
+                           % len(miss)))
     return "\n".join(body)
 
 
