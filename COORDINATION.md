@@ -85,3 +85,12 @@ Rule used: one session owns each file scope below. Logged handoffs and conflicts
 - PR: _(to be filled after creation)_
 - Merge result: _(to be filled)_
 - GitHub Pages deploy: _(to be filled)_
+
+### Integration log (d263eab0)
+
+- **Merge conflict (handled):** `COORDINATION.md` and `README.md` were add/add conflicts with `main` (commits from PRs #1, #2, #4 by session `arena/4a77261b-fl2`). Resolved by keeping that session's content in full and appending this session's sections. Nothing was discarded. Merge commit `bd7c0de`, then a second merge of `main` at `2c7b915` (clean).
+- **Overlapping sites (logged):** session `4a77261b` published a root site (Fourth & Signal). This session published a data dashboard in `docs/`. Both are kept and cross-linked from the nav. Consolidation is suggestion SG-11 for your decision.
+- **Shared-file edits made in integration:** added a "Week 10 data" link to the nav of the six root pages; added a build step to `.github/workflows/pages.yml` (validate job). No other root content changed.
+- **Parallel activity seen:** a third session `arena/d10a1d25-fl2` (fetch-nflverse-data) was running CI on GitHub during this session. Its scope is not in this branch and was not touched. Its results, if merged, may affect the lines and historical-data gaps (F-11, F-12).
+- **Pages config:** before this merge the repo's Pages build was `legacy` from `main /`. The workflow deploys with GitHub Actions. Check after merge (see below).
+- **PR:** https://github.com/sassnarep3-star/FL2/pull/3 (validate job passed on the PR: `pass`).
