@@ -31,16 +31,16 @@ this repo at the same time. Read this file before starting any task.
 
 | # | Task | Status | Owner | File scope | Notes |
 | --- | --- | --- | --- | --- | --- |
-| T1 | Repo review (line-by-line) | in progress | arena-48561869-fl2 | `README.md`, `.git` metadata | Repo contains only `README.md` (`# FL2`) at base commit `0f3d2f9`. Reviewed 2026-11-14. |
-| T2 | Official-source research & verification | in progress | arena-48561869-fl2 | `data/verified/*.json`, `docs/site` (verification pages) | Sources: nfl.com standings/schedules/injuries/rosters. Fetch log kept in `data/verified/fetch-log.md`. |
-| T3 | Executive summary | in progress | arena-48561869-fl2 | `docs/site/executive-summary.html` | Key findings, scope, current state. |
-| T4 | Questions / information / answers register | in progress | arena-48561869-fl2 | `docs/site/questions-answers.html` | Questions that must be answered before decisions; missing info flagged. |
-| T5 | Suggestions section (review before implementation) | in progress | arena-48561869-fl2 | `docs/site/suggestions.html` | Suggestions with pros/cons/effort; a reviewer picks the best path before any change. |
-| T6 | Line-origination strategy research (single bet, parlays, player props, leaderboard, validation gates, correlation, luck removal) | in progress | arena-48561869-fl2 | `docs/site/strategies.html`, `docs/site/leaderboard.html` | Methodology documents; no fabricated line values. |
-| T7 | Injury & depth-deficiency tracking design | in progress | arena-48561869-fl2 | `docs/site/injuries.html` | Track starters/backups (2nd/3rd/4th string) for offense & defense. |
-| T8 | Site build (landing page + category subpages, dashboard, tables) | in progress | arena-48561869-fl2 | `docs/site/*` (all HTML/CSS/JS) | GitHub Pages builds from `main / /`. |
-| T9 | Flagged for Review page | in progress | arena-48561869-fl2 | `docs/site/flagged-review.html` | Irregularities + unverified items with source links. |
-| T10 | Final integration, PR, merge, Pages verification | pending | arena-48561869-fl2 | `COORDINATION.md`, PR | Re-verify combined data, confirm build/no broken links, merge, confirm Pages live. |
+| T1 | Repo review (line-by-line) | done | arena-48561869-fl2 | `README.md`, `.git` metadata | Repo contained only `README.md` (`# FL2`) at base commit `0f3d2f9`. Reviewed 2026-11-14. Findings on `repo-review.html`. |
+| T2 | Official-source research & verification | done | arena-48561869-fl2 | `data/verified/*.json`, `data/verified/fetch-log.md` | Fetched nfl.com standings/schedules/injuries, Lions depth chart, NFL roster cross-check. 32 standings teams, 14 Week 10 games + 4 byes, 345 injury rows across 28 teams, 28 depth rows. Fetch log records each fetch. |
+| T3 | Executive summary | done | arena-48561869-fl2 | `executive-summary.html` | Objective, repo state, verified data, strategy status, decisions needed, flagged summary. |
+| T4 | Questions / information / answers register | done | arena-48561869-fl2 | `questions-answers.html` | 6 answered items with official sources; 12 open questions (Q1–Q12) each mapped to a discovery suggestion. |
+| T5 | Suggestions section (review before implementation) | done | arena-48561869-fl2 | `suggestions.html` | 12 decision-gating suggestions (S1–S12) + 6 site-improvement suggestions (S13–S18); review process and decision log. |
+| T6 | Line-origination strategy research | done | arena-48561869-fl2 | `strategies.html`, `leaderboard.html` | Signal families, single/parlay/prop construction, validation gates G1–G9, correlation methodology (values intentionally blank), luck-removal metrics. No strategies registered (no verified odds feed). |
+| T7 | Injury & depth-deficiency tracking design | done | arena-48561869-fl2 | `injuries.html`, `data/verified/injuries-week10.json`, `data/verified/depth-lions-2026.json` | Verified Week 10 injury report for 28 teams; Lions depth chart example; tracking design for starter/backup substitution on offense & defense. |
+| T8 | Site build (landing page + category subpages) | done | arena-48561869-fl2 | all site files at repo root | Static HTML/CSS/JS, 12 pages, dashboard style, tables render from verified JSON with per-row official source links. Internal link check passed; all JSON validated. |
+| T9 | Flagged for Review page | done | arena-48561869-fl2 | `flagged-review.html` | 5 irregularities (F1–F5), 7 unverified/blank items (U1–U7) with source links. |
+| T10 | Final integration, PR, merge, Pages verification | in progress | arena-48561869-fl2 | `COORDINATION.md`, PR | Data re-verified, internal links confirmed, site builds; PR to be merged and Pages confirmed live. |
 
 ## Claim history
 
@@ -53,4 +53,33 @@ None.
 
 ## Completed task records (sources, verification, irregularities)
 
-_Filled in per task when marked done._
+**T1 Repo review.** Verified via `git` (log, tree, remotes) and GitHub API. Base commit
+`0f3d2f9e87f44409fa02fd94aa5d474f58b300a5` contained exactly `README.md` (`# FL2`).
+Pages already enabled at `main / /`. Evidence links on `repo-review.html`.
+Irregularity: Pages enabled with no prior content; no license (S16 pending).
+
+**T2 Verification.** Every verified value fetched directly from official pages on 2026-11-14:
+- Standings: https://www.nfl.com/standings/ (all 32 teams, verified line by line)
+- Schedule: https://www.nfl.com/schedules/ (Week 10, 14 games + 4 bye teams; TNF final: WAS 24 @ NYG 21)
+- Injuries: https://www.nfl.com/injuries/ (Week 10; 28 teams; 345 rows; 66 Out; 94 Questionable/Doubtful)
+- Roster cross-check: https://www.nfl.com/teams/detroit-lions/roster
+- Depth chart: https://www.detroitlions.com/team/depth-chart (28 position rows, offense/defense/ST)
+Irregularity F2: per-team injury URL patterns (`/injuries/team/...`, `/injuries/teams/...`) return 404 —
+rows cite the main official injury report instead.
+
+**T3–T6 Documentation.** Content is design/documentation; no external facts claimed without a source.
+Factual claims link to the official sources above. No strategies registered and no line/odds values
+published because no verified odds feed is selected (Q1/Q2 open) — left blank and flagged (U1), not guessed.
+
+**T7 Injury & depth tracking.** Verified Week 10 designations for all 28 playing teams; bye teams
+(CHI, DEN, PHI, TB) have no Week 10 report — recorded as "no report," not "healthy" (U3). Lions depth
+chart verified as a worked example; teams label their charts "unofficial" (F1). Full 32-team depth
+coverage pending Q8/S8 (U4). Historical archive pending Q7/S7 (U5).
+
+**T8 Site build.** 12 HTML pages, shared `assets/style.css` and `assets/app.js`. Tables render from
+`data/verified/*.json`; each data row links to its official source. Verified: all JSON files parse;
+all internal links resolve across the 12 pages.
+
+**T9 Flagged items.** F1 (team-labeled "unofficial" depth chart), F2 (404 per-team injury URLs),
+F3 (third-party aggregator inconsistency — official page used), F4 (Pages enabled pre-content),
+F5 (no license). U1–U7 list every intentionally blank item and what would un-flag it.
