@@ -1,0 +1,289 @@
+{
+  "meta": {
+    "season": 2026,
+    "retrieved_utc": "2026-11-14",
+    "CRITICAL_CAVEAT": "The NFL does not publish official depth charts. Every depth chart below is published on a club website and is captioned 'Unofficial' by that club. NFL.com returns HTTP 404 for /teams/{team}/depth-chart, confirming no league-official source exists. Treat every string position below as the club's published opinion, not a verified fact.",
+    "nfl_dot_com_404_evidence": "https://www.nfl.com/teams/new-england-patriots/depth-chart -> '404 - Flag on the Play.'",
+    "column_meaning": "position | 1st string | 2nd string | 3rd string | 4th string. Empty string = the club published no player at that depth.",
+    "cross_source_warning": "Club depth charts are not updated daily. Players ruled Out on the official NFL injury report may still be listed as 1st string here. Known Week 10 collisions are listed in 'injury_conflicts'.",
+    "coverage": "5 of 32 clubs were fetched and verified this session. The remaining 27 are listed with status 'not acquired'. No club's depth chart has been estimated or inferred."
+  },
+  "clubs": [
+    {
+      "team": "NE", "club": "New England Patriots",
+      "source": "https://www.patriots.com/team/depth-chart",
+      "title_on_page": "New England Patriots Unofficial Depth Chart",
+      "disclaimer_on_page": "The 2026 depth chart is unofficial and is published by the writers of Patriots.com. The depth chart reflects the opinions of the Patriots.com writers and don't necessarily reflect those of the organization.",
+      "page_date": null,
+      "status": "verified",
+      "units": {
+        "offense": [
+          ["WR", "A.J. Brown", "Efton Chism III", "", ""],
+          ["LT", "Will Campbell", "Dametrious Crownover", "Marcus Bryant", ""],
+          ["LG", "Ben Brown", "Walter Rouse", "", ""],
+          ["C", "Jared Wilson", "Ben Brown", "", ""],
+          ["RG", "Matt Pryor", "Walter Rouse", "", ""],
+          ["RT", "Morgan Moses", "Caleb Lomu", "", ""],
+          ["TE", "Hunter Henry", "Eli Raridon", "Cameron Latu", ""],
+          ["WR", "DeMario Douglas", "Kyle Williams", "", ""],
+          ["WR", "Efton Chism III", "Kyle Williams", "", ""],
+          ["RB", "Rhamondre Stevenson", "TreVeyon Henderson", "Corey Kiner", "Lan Larison"],
+          ["QB", "Drake Maye", "Tommy DeVito", "Behren Morton", ""]
+        ],
+        "defense": [
+          ["OLB", "Dre'Mont Jones", "Gabe Jacas", "", ""],
+          ["DT", "Christian Barmore", "Leonard Taylor III", "", ""],
+          ["DT", "Cory Durden", "DaQuan Jones", "", ""],
+          ["DT", "Milton Williams", "Joshua Farmer", "", ""],
+          ["OLB", "Elijah Ponder", "Gabe Jacas", "", ""],
+          ["LB", "Robert Spillane", "Darius Muasau", "Erick Hunter", ""],
+          ["LB", "Christian Elliss", "Namdi Obiazor", "", ""],
+          ["CB", "Carlton Davis III", "Channing Canada", "", ""],
+          ["S", "Craig Woodson", "Mike Brown", "", ""],
+          ["S", "Kevin Byard III", "Jaylen Reed", "Brenden Schooler", ""],
+          ["CB", "Marcus Jones", "Charles Woods", "", ""],
+          ["CB", "Christian Gonzalez", "Karon Prunty", "", ""]
+        ],
+        "special_teams": [
+          ["K", "Andy Borregales", "", "", ""],
+          ["P", "Mitch Wishnowsky", "", "", ""],
+          ["H", "Mitch Wishnowsky", "", "", ""],
+          ["LS", "Julian Ashby", "", "", ""],
+          ["PR", "Marcus Jones", "DeMario Douglas", "", ""],
+          ["KR", "Kyle Williams", "Corey Kiner", "Lan Larison", ""]
+        ]
+      }
+    },
+    {
+      "team": "DET", "club": "Detroit Lions",
+      "source": "https://www.detroitlions.com/team/depth-chart",
+      "title_on_page": "2026 Unofficial Depth Chart Compiled by Lions Football Communications",
+      "disclaimer_on_page": "Unofficial Depth Chart Compiled by Lions Football Communications",
+      "page_date": null,
+      "status": "verified",
+      "units": {
+        "offense": [
+          ["WR", "Jameson Williams", "", "", "", ""],
+          ["WR", "Amon-Ra St. Brown", "DeAndre Carter", "", "", ""],
+          ["LT", "Penei Sewell", "", "", "", ""],
+          ["LG", "Christian Mahogany", "Miles Frazier", "", "", ""],
+          ["C", "Cade Mays", "Juice Scruggs", "", "", ""],
+          ["RG", "Tate Ratledge", "Seth McLaughlin", "", "", ""],
+          ["RT", "Blake Miller", "Larry Borom", "", "", ""],
+          ["TE", "Sam LaPorta", "Brock Wright", "Tyler Conklin", "Jackson Meeks", ""],
+          ["WR", "Isaac TeSlaa", "Tay Martin", "", "", ""],
+          ["QB", "Jared Goff", "Joshua Dobbs", "", "", ""],
+          ["RB", "Jahmyr Gibbs", "Sione Vaki", "Jacob Saylors", "", ""]
+        ],
+        "defense": [
+          ["EDGE", "Aidan Hutchinson", "Derrick Moore", "Eric O'Neill", "", ""],
+          ["DL", "Alim McNeill", "Skyler Gill-Howard", "Mekhi Wingo", "", ""],
+          ["DL", "Tyleik Williams", "Levi Onwuzurike", "", "", ""],
+          ["EDGE", "DJ Wonnum", "Tyler Lacy", "Ahmed Hassanein", "", ""],
+          ["LB", "Derrick Barnes", "Joe Bachie", "", "", ""],
+          ["LB", "Malcolm Rodriguez", "K.J. Britt", "", "", ""],
+          ["LB", "Trevor Nowaske", "Amen Ogbongbemiga", "", "", ""],
+          ["CB", "D.J. Reed", "Rock Ya-Sin", "Khalil Dorsey", "Nick Whiteside", ""],
+          ["CB", "Roger McCreary", "Ennis Rakestraw Jr.", "Keith Abney II", "", ""],
+          ["S", "Chuck Clark", "", "", "", ""],
+          ["S", "Brian Branch", "Christian Izien", "", "", ""]
+        ],
+        "special_teams": [
+          ["K", "Jake Bates", "", "", "", ""],
+          ["H", "Jack Fox", "", "", "", ""],
+          ["P", "Jack Fox", "", "", "", ""],
+          ["LS", "Hogan Hatten", "", "", "", ""],
+          ["PR", "DeAndre Carter", "", "", "", ""],
+          ["KR", "Jacob Saylors", "DeAndre Carter", "", "", ""]
+        ]
+      }
+    },
+    {
+      "team": "GB", "club": "Green Bay Packers",
+      "source": "https://www.packers.com/team/depth-chart",
+      "title_on_page": "Green Bay Packers Depth Chart",
+      "disclaimer_on_page": "Unofficial, Nov. 10, 2026",
+      "page_date": "2026-11-10",
+      "status": "verified",
+      "units": {
+        "offense": [
+          ["WR", "9 Christian Watson", "16 Bo Melton", "", ""],
+          ["WR", "0 Matthew Golden", "87 J. Michael Sturdivant", "", ""],
+          ["LT", "77 Jordan Morgan", "73 John Williams", "", ""],
+          ["LG", "65 Aaron Banks", "79 Travis Glover", "67 Donovan Jennings", ""],
+          ["C", "75 Sean Rhyan", "52 Jager Burton", "", ""],
+          ["RG", "72 Laken Tomlinson", "70 Kevin Zeitler", "", ""],
+          ["RT", "71 Anthony Belton", "74 Mekhi Becton Sr.", "", ""],
+          ["TE", "85 Tucker Kraft", "18 Jonnu Smith", "86 Mark Redman", "81 Josh Whyle"],
+          ["WR", "83 Savion Williams", "13 Coleman Owen", "", ""],
+          ["QB", "10 Jordan Love", "6 Tyrod Taylor", "", ""],
+          ["RB", "8 Josh Jacobs", "32 MarShawn Lloyd", "22 Pierre Strong Jr.", "26 Kaleb Johnson"]
+        ],
+        "defense": [
+          ["DT", "94 Karl Brooks", "97 Jordon Riley", "93 Anthony Campbell", ""],
+          ["DT", "95 Devonte Wyatt", "55 Chris McClellan", "", ""],
+          ["EDGE", "90 Lukas Van Ness", "57 Brenton Cox Jr", "", ""],
+          ["LB", "44 Zaire Franklin", "59 Ty'Ron Hopper", "54 Kristian Welch", ""],
+          ["LB", "58 Isaiah McDuffie", "31 Nick Niemann", "", ""],
+          ["EDGE", "99 Barryn Sorrell", "51 Dani Dennis-Sutton", "", ""],
+          ["CB", "25 Keisean Nixon", "24 Carrington Valentine", "", ""],
+          ["CB", "2 Brandon Cisse", "21 Benjamin St-Juste", "", ""],
+          ["S", "29 Xavier McKinney", "27 Kitan Oladapo", "", ""],
+          ["S", "33 Evan Williams", "27 Kitan Oladapo", "", ""],
+          ["NB", "7 Javon Bullard", "36 Kamal Hadden", "", ""]
+        ],
+        "special_teams": [
+          ["K", "28 Trey Smack", "", "", ""],
+          ["P", "19 Daniel Whelan", "", "", ""],
+          ["H", "19 Daniel Whelan", "", "", ""],
+          ["PR", "13 Coleman Owen", "0 Matthew Golden", "", ""],
+          ["KR", "16 Bo Melton", "13 Coleman Owen", "", ""],
+          ["LS", "42 Matt Orzech", "", "", ""]
+        ]
+      }
+    },
+    {
+      "team": "KC", "club": "Kansas City Chiefs",
+      "source": "https://www.chiefs.com/team/depth-chart",
+      "title_on_page": "Kansas City Chiefs Unofficial Depth Chart",
+      "disclaimer_on_page": "Unofficial Depth Chart",
+      "page_date": null,
+      "status": "verified",
+      "units": {
+        "offense": [
+          ["WR", "Rashee Rice", "Jalen Royals", "Andrew Armstrong", ""],
+          ["LT", "Kahlil Benson", "Diego Pounds", "", ""],
+          ["LG", "Kingsley Suamataia", "Joshua Ezeudu", "", ""],
+          ["C", "Creed Humphrey", "Hunter Nourzad", "", ""],
+          ["RG", "Trey Smith", "Mike Caliendo", "", ""],
+          ["RT", "Jaylon Moore", "Joshua Ezeudu", "", ""],
+          ["TE", "Travis Kelce", "Noah Gray", "Jared Wiley", "Jake Briningstool"],
+          ["QB", "Patrick Mahomes", "Justin Fields", "Garrett Nussmeier", ""],
+          ["RB", "Kenneth Walker", "Emmett Johnson", "Jaydn Ott", ""],
+          ["FB", "Ben VanSumeren", "", "", ""],
+          ["WR", "Xavier Worthy", "Cyrus Allen", "Josh Downs", ""]
+        ],
+        "defense": [
+          ["DE", "Felix Anudike-Uzomah", "Ashton Gillotte", "", ""],
+          ["DT", "Chris Jones", "Peter Woods", "Marcus Harris", ""],
+          ["DT", "Khyiris Tonga", "Bryson Eason", "", ""],
+          ["DE", "George Karlaftis", "R Mason Thomas", "", ""],
+          ["LB", "Jack Cochrane", "Cooper McDonald", "", ""],
+          ["LB", "Nick Bolton", "Jack Cochrane", "", ""],
+          ["LB", "Drue Tranquill", "Jeffrey Bassa", "", ""],
+          ["CB", "Nohl Williams", "Jadon Canady", "", ""],
+          ["CB", "Mansoor Delane", "Kristian Fulton", "Melvin Smith", ""],
+          ["S", "Alohi Gilman", "Chris Roland-Wallace", "", ""],
+          ["S", "Chamarri Conner", "Jaden Hicks", "Xavier Nwankpa", ""]
+        ],
+        "special_teams": [
+          ["K", "Harrison Butker", "", "", ""],
+          ["H", "Matt Araiza", "", "", ""],
+          ["P", "Matt Araiza", "", "", ""],
+          ["LS", "James Winchester", "", "", ""],
+          ["KR", "Emmett Johnson", "Cyrus Allen", "", ""],
+          ["PR", "Emmett Johnson", "Cyrus Allen", "", ""]
+        ]
+      }
+    },
+    {
+      "team": "SF", "club": "San Francisco 49ers",
+      "source": "https://www.49ers.com/team/depth-chart",
+      "title_on_page": "San Francisco 49ers Depth Chart",
+      "disclaimer_on_page": "Updated as of 11/10/26",
+      "page_date": "2026-11-10",
+      "status": "verified",
+      "units": {
+        "offense": [
+          ["WR", "Mike Evans", "Jordan Watkins", "Brandin Cooks", ""],
+          ["LT", "Trent Williams", "Vederian Lowe", "Enrique Cruz Jr.", ""],
+          ["LG", "Connor Colby", "Carver Willis", "", ""],
+          ["C", "Jake Brendel", "Jarrett Patterson", "", ""],
+          ["RG", "Dominick Puni", "", "", ""],
+          ["RT", "Colton McKivitz", "", "", ""],
+          ["TE", "George Kittle", "Luke Farrell", "Brayden Willis", ""],
+          ["WR", "Deebo Samuel Sr.", "Demarcus Robinson", "Jacob Cowing", ""],
+          ["RB", "Christian McCaffrey", "Kaelon Black", "Jordan James", ""],
+          ["FB", "Kyle Juszczyk", "", "", ""],
+          ["QB", "Brock Purdy", "Mac Jones", "Kurtis Rourke", ""]
+        ],
+        "defense": [
+          ["LDE", "Keion White", "Mykel Williams", "Khalid Kareem", ""],
+          ["LDT", "DeForest Buckner", "Gracen Halton", "Sebastian Valdez", ""],
+          ["RDT", "Osa Odighizuwa", "James Thompson Jr.", "", ""],
+          ["RDE", "Nick Bosa", "Romello Height", "", ""],
+          ["SAM", "Jaden Dugger", "Luke Gifford", "", ""],
+          ["MIKE", "Fred Warner", "Tatum Bethune", "", ""],
+          ["WILL", "Dre Greenlaw", "Garret Wallow", "", ""],
+          ["LCB", "Renardo Green", "", "", ""],
+          ["RCB", "Deommodore Lenoir", "Ephesians Prysock", "", ""],
+          ["NB", "Upton Stout", "", "", ""],
+          ["FS", "Ji'Ayir Brown", "Siran Neal", "", ""],
+          ["SS", "Malik Mustapha", "Marques Sigle", "Ashtyn Davis", ""]
+        ],
+        "special_teams": [
+          ["P", "Corliss Waitman", "", "", ""],
+          ["K", "Eddy Pinheiro", "", "", ""],
+          ["H", "Corliss Waitman", "", "", ""],
+          ["PR", "Jacob Cowing", "Jordan Watkins", "", ""],
+          ["KOR", "Deebo Samuel Sr.", "Jordan James", "", ""],
+          ["LS", "Jon Weeks", "", "", ""]
+        ]
+      }
+    }
+  ],
+  "injury_conflicts": {
+    "note": "Players listed as 1st string on a club depth chart who carry an Out/Doubtful game status on the official NFL Week 10 injury report (https://www.nfl.com/injuries/league/2026/reg10). This is the concrete demonstration that club depth charts lag the official injury report.",
+    "rows": [
+      {"team": "GB", "player": "Josh Jacobs", "pos": "RB", "depth": "1st string", "injury_status": "Out", "injury": "Finger", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "GB", "player": "Sean Rhyan", "pos": "C", "depth": "1st string", "injury_status": "Out", "injury": "Ankle", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "GB", "player": "Zaire Franklin", "pos": "LB", "depth": "1st string", "injury_status": "Doubtful", "injury": "Shin", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "GB", "player": "Josh Whyle", "pos": "TE", "depth": "4th string", "injury_status": "Out", "injury": "Concussion", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "DET", "player": "Cade Mays", "pos": "C", "depth": "1st string", "injury_status": "Out", "injury": "Ankle", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "DET", "player": "D.J. Reed", "pos": "CB", "depth": "1st string", "injury_status": "Out", "injury": "Hip", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "KC", "player": "Jaylon Moore", "pos": "RT", "depth": "1st string", "injury_status": "Out", "injury": "Ankle", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "KC", "player": "Peter Woods", "pos": "DT", "depth": "2nd string", "injury_status": "Out", "injury": "Neck", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "NE", "player": "Ben Brown", "pos": "LG", "depth": "1st string", "injury_status": "Out", "injury": "Knee", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "NE", "player": "Carlton Davis III", "pos": "CB", "depth": "1st string", "injury_status": "Out", "injury": "Knee", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "NE", "player": "TreVeyon Henderson", "pos": "RB", "depth": "2nd string", "injury_status": "Out", "injury": "Illness", "source": "https://www.nfl.com/injuries/league/2026/reg10"},
+      {"team": "SF", "player": "Mike Evans", "pos": "WR", "depth": "1st string", "injury_status": "Out", "injury": "Achilles", "source": "https://www.nfl.com/injuries/league/2026/reg10"}
+    ]
+  },
+  "registry": {
+    "note": "All 32 clubs. 'verified' = fetched and transcribed this session. 'not acquired' = no data held; the acquisition URL is given only where the domain was confirmed by an actual fetch this session, otherwise the row is left as a to-do with the NFL.com team page that links to the official site.",
+    "rows": [
+      {"team": "NE", "status": "verified", "url": "https://www.patriots.com/team/depth-chart", "url_confirmed_by_fetch": true},
+      {"team": "DET", "status": "verified", "url": "https://www.detroitlions.com/team/depth-chart", "url_confirmed_by_fetch": true},
+      {"team": "GB", "status": "verified", "url": "https://www.packers.com/team/depth-chart", "url_confirmed_by_fetch": true},
+      {"team": "KC", "status": "verified", "url": "https://www.chiefs.com/team/depth-chart", "url_confirmed_by_fetch": true},
+      {"team": "SF", "status": "verified", "url": "https://www.49ers.com/team/depth-chart", "url_confirmed_by_fetch": true},
+      {"team": "ARI", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/arizona-cardinals/"},
+      {"team": "ATL", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/atlanta-falcons/"},
+      {"team": "BAL", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/baltimore-ravens/"},
+      {"team": "BUF", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/buffalo-bills/"},
+      {"team": "CAR", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/carolina-panthers/"},
+      {"team": "CHI", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/chicago-bears/"},
+      {"team": "CIN", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/cincinnati-bengals/"},
+      {"team": "CLE", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/cleveland-browns/"},
+      {"team": "DAL", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/dallas-cowboys/"},
+      {"team": "DEN", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/denver-broncos/"},
+      {"team": "HOU", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/houston-texans/"},
+      {"team": "IND", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/indianapolis-colts/"},
+      {"team": "JAX", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/jacksonville-jaguars/"},
+      {"team": "LA", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/los-angeles-rams/"},
+      {"team": "LAC", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/los-angeles-chargers/"},
+      {"team": "LV", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/las-vegas-raiders/"},
+      {"team": "MIA", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/miami-dolphins/"},
+      {"team": "MIN", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/minnesota-vikings/"},
+      {"team": "NO", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/new-orleans-saints/"},
+      {"team": "NYG", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/new-york-giants/"},
+      {"team": "NYJ", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/new-york-jets/"},
+      {"team": "PHI", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/philadelphia-eagles/"},
+      {"team": "PIT", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/pittsburgh-steelers/"},
+      {"team": "SEA", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/seattle-seahawks/"},
+      {"team": "TB", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/tampa-bay-buccaneers/"},
+      {"team": "TEN", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/tennessee-titans/"},
+      {"team": "WAS", "status": "not acquired", "url": null, "url_confirmed_by_fetch": false, "find_official_site_via": "https://www.nfl.com/teams/washington-commanders/"}
+    ]
+  }
+}

@@ -1,0 +1,501 @@
+{
+  "meta": {
+    "season": 2026,
+    "week": 10,
+    "source": "https://www.nfl.com/injuries/league/2026/reg10",
+    "source_name": "NFL.com Official NFL Injury Report for Players - Week 10 of the 2026 Season",
+    "retrieved_utc": "2026-11-14",
+    "blank_rule": "An empty string means the official report showed an empty cell. It does NOT mean the player is healthy; it means the league did not publish a value. The report is a point-in-time snapshot and changes daily.",
+    "practice_status_values": ["Did Not Participate In Practice", "Limited Participation in Practice", "Full Participation in Practice"],
+    "game_status_values": ["Out", "Doubtful", "Questionable", ""],
+    "teams_on_bye_week_10": ["CHI", "PHI", "TB", "DEN"],
+    "source_note": "Teams on bye do not appear on the Week 10 report."
+  },
+  "games": [
+    {
+      "kickoff": "2026-11-12 20:15 ET", "network": "Prime Video", "away": "WAS", "home": "NYG",
+      "away_record": "3-5-1", "home_record": "5-3-1", "final": "Commanders 24, Giants 21",
+      "teams": [
+        {"team": "WAS", "players": [
+          ["John Bates", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/john-bates/"],
+          ["Treylon Burks", "WR", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/treylon-burks/"],
+          ["Jayden Daniels", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jayden-daniels/"],
+          ["Matt Gulbin", "C", "", "Full Participation in Practice", "", "https://www.nfl.com/players/matt-gulbin/"],
+          ["Chig Okonkwo", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/chigoziem-okonkwo/"],
+          ["Lucas Patrick", "C", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/lucas-patrick/"],
+          ["Amik Robertson", "CB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/amik-robertson/"],
+          ["Shy Tuttle", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/shy-tuttle/"],
+          ["Colson Yankoff", "TE", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/colson-yankoff/"]
+        ]},
+        {"team": "NYG", "players": [
+          ["Abdul Carter", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/abdul-carter/"],
+          ["Jermaine Eluemunor", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jermaine-eluemunor/"],
+          ["Malik Harrison", "LB", "Groin", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/malik-harrison/"],
+          ["Colton Hood", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/colton-hood/"],
+          ["Theo Johnson", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/theo-johnson/"],
+          ["Charlie Jones", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/charlie-jones-3/"],
+          ["J.J. McCarthy", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/j-j-mccarthy/"],
+          ["Darnell Mooney", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/darnell-mooney/"],
+          ["Malik Nabers", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/malik-nabers/"],
+          ["Cam Skattebo", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/cam-skattebo/"],
+          ["Andrew Thomas", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/andrew-thomas/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 09:30 ET", "network": "FOX, FOX DEPORTES", "away": "NE", "home": "DET",
+      "away_record": "5-4", "home_record": "6-2", "final": null, "site": "Munich (International Game)",
+      "teams": [
+        {"team": "NE", "players": [
+          ["Ben Brown", "C", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/ben-brown-2/"],
+          ["A.J. Brown", "WR", "Ankle, Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/a-j-brown/"],
+          ["Kevin Byard", "S", "Chest", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/kevin-byard/"],
+          ["Carlton Davis III", "CB", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/carlton-davis/"],
+          ["Reggie Gilliam", "FB", "Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/reggie-gilliam/"],
+          ["TreVeyon Henderson", "RB", "Illness", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/treveyon-henderson/"],
+          ["Hunter Henry", "TE", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/hunter-henry/"],
+          ["Cameron Latu", "TE", "Back", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/cameron-latu/"],
+          ["Drake Maye", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/drake-maye/"],
+          ["Morgan Moses", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/morgan-moses/"],
+          ["Walter Rouse", "T", "Concussion", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/walter-rouse/"],
+          ["Brenden Schooler", "S", "Hamstring", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/brenden-schooler/"],
+          ["Rhamondre Stevenson", "RB", "Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/rhamondre-stevenson/"],
+          ["Greg Van Roten", "G", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/greg-van-roten/"],
+          ["Charles Woods", "CB", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/charles-woods/"]
+        ]},
+        {"team": "DET", "players": [
+          ["Brian Branch", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/brian-branch/"],
+          ["Jared Goff", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jared-goff/"],
+          ["Kerby Joseph", "S", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/kerby-joseph/"],
+          ["Cade Mays", "C", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/cade-mays/"],
+          ["D.J. Reed", "CB", "Hip", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/d-j-reed/"],
+          ["Jacob Saylors", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jacob-saylors/"],
+          ["Amon-Ra St. Brown", "WR", "Rib", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/amon-ra-st-brown/"],
+          ["Sione Vaki", "RB", "Ankle", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/sione-vaki/"],
+          ["DJ Wonnum", "DE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/d-j-wonnum/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "CBS", "away": "KC", "home": "ATL",
+      "away_record": "6-2", "home_record": "3-6", "final": null,
+      "teams": [
+        {"team": "KC", "players": [
+          ["Jeffrey Bassa", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jeffrey-bassa/"],
+          ["Mansoor Delane", "CB", "Shoulder", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/mansoor-delane/"],
+          ["Justin Fields", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/justin-fields/"],
+          ["Jaden Hicks", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jaden-hicks/"],
+          ["Travis Kelce", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/travis-kelce/"],
+          ["Patrick Mahomes", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/patrick-mahomes/"],
+          ["Jaylon Moore", "T", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jaylon-moore-2/"],
+          ["Omarr Norman-Lott", "DT", "Knee", "Limited Participation in Practice", "Out", "https://www.nfl.com/players/omarr-norman-lott/"],
+          ["Jaydn Ott", "RB", "Hamstring", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/jaydn-ott/"],
+          ["Rashee Rice", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/rashee-rice/"],
+          ["Kenneth Walker III", "RB", "Groin", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/kenneth-walker-iii/"],
+          ["Peter Woods", "DT", "Neck", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/peter-woods/"],
+          ["Xavier Worthy", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/xavier-worthy/"]
+        ]},
+        {"team": "ATL", "players": [
+          ["Zachariah Branch", "WR", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/zachariah-branch/"],
+          ["Kendal Daniels", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/kendal-daniels/"],
+          ["Divine Deablo", "LB", "Forearm", "Did Not Participate In Practice", "Doubtful", "https://www.nfl.com/players/divine-deablo/"],
+          ["Gervon Dexter Sr.", "DT", "Illness", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/gervon-dexter/"],
+          ["Jake Matthews", "T", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/jake-matthews/"],
+          ["Liam McCullough", "LS", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/liam-mccullough/"],
+          ["James Pearce Jr.", "DE", "Back", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/james-pearce-jr/"],
+          ["Za'Darius Smith", "DE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/za-darius-smith/"],
+          ["Jawaan Taylor", "T", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/jawaan-taylor/"],
+          ["Cameron Thomas", "DE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/cameron-thomas/"],
+          ["Josh Woods", "LB", "Ankle", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/josh-woods/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "FOX", "away": "MIN", "home": "GB",
+      "away_record": "6-2", "home_record": "6-3", "final": null,
+      "teams": [
+        {"team": "MIN", "players": [
+          ["Jordan Addison", "WR", "Thumb", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/jordan-addison/"],
+          ["Blake Cashman", "LB", "Concussion", "Limited Participation in Practice", "Out", "https://www.nfl.com/players/blake-cashman/"],
+          ["Christian Darrisaw", "T", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/christian-darrisaw/"],
+          ["T.J. Hockenson", "TE", "Wrist, Chest", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/t-j-hockenson/"],
+          ["Tyrion Ingram-Dawkins", "DT", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/tyrion-ingram-dawkins/"],
+          ["Theo Jackson", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/theo-jackson/"],
+          ["Jauan Jennings", "WR", "Calf", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jauan-jennings/"],
+          ["Josh Metellus", "S", "Shoulder", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/josh-metellus/"],
+          ["Kyler Murray", "QB", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/kyler-murray/"],
+          ["Harrison Smith", "S", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/harrison-smith/"],
+          ["Kyle Van Noy", "LB", "Calf", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/kyle-van-noy/"],
+          ["Jay Ward", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jay-ward/"],
+          ["Carson Wentz", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/carson-wentz/"]
+        ]},
+        {"team": "GB", "players": [
+          ["Aaron Banks", "G", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/aaron-banks/"],
+          ["Chris Brooks", "RB", "Ankle", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/christopher-brooks/"],
+          ["Javon Bullard", "S", "Ankle, Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/javon-bullard/"],
+          ["Zaire Franklin", "LB", "Shin", "Did Not Participate In Practice", "Doubtful", "https://www.nfl.com/players/zaire-franklin/"],
+          ["Travis Glover", "G", "Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/travis-glover/"],
+          ["Ty'Ron Hopper", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/ty-ron-hopper/"],
+          ["Josh Jacobs", "RB", "Finger", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/josh-jacobs-x3315/"],
+          ["Xavier McKinney", "S", "Foot", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/xavier-mckinney/"],
+          ["Bo Melton", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/bo-melton/"],
+          ["Skyy Moore", "WR", "Ankle", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/skyy-moore/"],
+          ["Micah Parsons", "LB", "Knee, Illness", "Limited Participation in Practice", "Out", "https://www.nfl.com/players/micah-parsons/"],
+          ["Sean Rhyan", "C", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/sean-rhyan/"],
+          ["Trey Smack", "K", "", "Full Participation in Practice", "", "https://www.nfl.com/players/trey-smack/"],
+          ["Lukas Van Ness", "LB", "Back", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/lukas-van-ness/"],
+          ["Josh Whyle", "TE", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/josh-whyle/"],
+          ["Savion Williams", "WR", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/savion-williams/"],
+          ["Kevin Zeitler", "G", "Ankle, Triceps", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/kevin-zeitler/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "FOX", "away": "JAX", "home": "TEN",
+      "away_record": "6-2", "home_record": "1-7", "final": null,
+      "teams": [
+        {"team": "JAX", "players": [
+          ["Jessie Bates", "S", "Not injury related - resting player", "Limited Participation in Practice", "Out", "https://www.nfl.com/players/jessie-bates/"],
+          ["Ezra Cleveland", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/ezra-cleveland/"],
+          ["Branson Combs", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/branson-combs/"],
+          ["Jordan Davis", "DT", "Not injury related - resting player", "Limited Participation in Practice", "Out", "https://www.nfl.com/players/jordan-davis/"],
+          ["BJ Green II", "DE", "Forearm", "Full Participation in Practice", "Out", "https://www.nfl.com/players/bj-green-ii/"],
+          ["Robert Hainsey", "C", "Concussion", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/robert-hainsey/"],
+          ["Antonio Johnson", "S", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/antonio-johnson-3/"],
+          ["Jakobi Meyers", "WR", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/jakobi-meyers/"],
+          ["Chris Rodriguez Jr.", "RB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/chris-rodriguez-jr/"],
+          ["Bhayshul Tuten", "RB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/bhayshul-tuten/"],
+          ["Travon Walker", "DE", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/travon-walker/"]
+        ]},
+        {"team": "TEN", "players": [
+          ["Cody Barton", "LB", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/cody-barton/"],
+          ["John Franklin-Myers", "DE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/john-franklin-myers/"],
+          ["Marcus Harris", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/marcus-harris-4/"],
+          ["Anthony Hill Jr.", "LB", "Neck", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/anthony-hill-jr/"],
+          ["Jaylon Jones", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jaylon-jones-2/"],
+          ["JC Latham", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jc-latham/"],
+          ["Tony Pollard", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/tony-pollard/"],
+          ["Peter Skoronski", "G", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/peter-skoronski/"],
+          ["Tyjae Spears", "RB", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/tyjae-spears/"],
+          ["Carnell Tate", "WR", "Shoulder", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/carnell-tate/"],
+          ["Tommy Townsend", "P", "Knee, Achilles", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/tommy-townsend/"],
+          ["Kevin Winston Jr.", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/kevin-winston-jr/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "CBS", "away": "BUF", "home": "NYJ",
+      "away_record": "7-1", "home_record": "2-7", "final": null,
+      "teams": [
+        {"team": "BUF", "players": [
+          ["Alec Anderson", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/alec-anderson-2/"],
+          ["Christian Benford", "CB", "Wrist", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/christian-benford/"],
+          ["Terrel Bernard", "LB", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/terrel-bernard/"],
+          ["Spencer Brown", "T", "Ankle", "Did Not Participate In Practice", "Doubtful", "https://www.nfl.com/players/spencer-brown/"],
+          ["Dion Dawkins", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/dion-dawkins/"],
+          ["Sam Franklin Jr.", "S", "Shoulder", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/sam-franklin/"],
+          ["Greg Gaines", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/greg-gaines/"],
+          ["Jordan Hancock", "CB", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/jordan-hancock/"],
+          ["Dalton Kincaid", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/dalton-kincaid/"],
+          ["Connor McGovern", "C", "", "Full Participation in Practice", "", "https://www.nfl.com/players/connor-mcgovern-2/"],
+          ["Ed Oliver", "DE", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/ed-oliver/"],
+          ["Ar'maj Reed-Adams", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/ar-maj-reed-adams/"],
+          ["T.J. Sanders", "DE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/t-j-sanders/"],
+          ["Tyrell Shavers", "WR", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/tyrell-shavers/"]
+        ]},
+        {"team": "NYJ", "players": [
+          ["Jarvis Brownlee Jr.", "CB", "Illness", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/jarvis-brownlee-jr/"],
+          ["Omar Cooper Jr.", "WR", "Ankle", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/omar-cooper-jr/"],
+          ["Adonai Mitchell", "WR", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/adonai-mitchell/"],
+          ["Joseph Ossai", "DE", "Ankle", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/joseph-ossai/"],
+          ["VJ Payne", "S", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/vj-payne/"],
+          ["Harrison Phillips", "DT", "Ankle", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/harrison-phillips/"],
+          ["Trevin Wallace", "LB", "Groin", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/trevin-wallace/"],
+          ["Garrett Wilson", "WR", "Concussion", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/garrett-wilson/"],
+          ["Nahshon Wright", "CB", "Back", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/nahshon-wright/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "CBS", "away": "MIA", "home": "IND",
+      "away_record": "1-7", "home_record": "2-7", "final": null,
+      "teams": [
+        {"team": "MIA", "players": [
+          ["Tucker Addington", "LS", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/tucker-addington/"],
+          ["Kaytron Allen", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/kaytron-allen/"],
+          ["Darrell Baker Jr.", "CB", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/darrell-baker-jr/"],
+          ["Chris Bell", "WR", "Knee", "Did Not Participate In Practice", "Doubtful", "https://www.nfl.com/players/chris-bell-2/"],
+          ["Aaron Brewer", "C", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/aaron-brewer-2/"],
+          ["Malik Herring", "DE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/malik-herring/"],
+          ["Will Kacmarek", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/will-kacmarek/"],
+          ["Michael Taaffe", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/michael-taaffe/"],
+          ["Dante Trader Jr.", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/dante-trader-jr/"],
+          ["Jared Wayne", "WR", "Quadricep", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jared-wayne/"],
+          ["Jaylen Wright", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jaylen-wright/"]
+        ]},
+        {"team": "IND", "players": [
+          ["Mo Alie-Cox", "TE", "Groin", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/mo-alie-cox/"],
+          ["CJ Allen", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/cj-allen/"],
+          ["Jaylon Carlies", "LB", "Neck", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jaylon-carlies/"],
+          ["Akeem Davis-Gaither", "LB", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/akeem-davis-gaither/"],
+          ["A.J. Haulcy", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/a-j-haulcy/"],
+          ["Arden Key", "DE", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/arden-key/"],
+          ["Will Mallory", "TE", "Hamstring", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/will-mallory/"],
+          ["Luke Rhodes", "LS", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/luke-rhodes/"],
+          ["Grover Stewart", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/grover-stewart/"],
+          ["Jonathan Taylor", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jonathan-taylor/"],
+          ["Jerry Tillery", "DT", "Calf", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jerry-tillery/"],
+          ["Jalen Travis", "T", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jalen-travis/"],
+          ["Justin Walley", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/justin-walley/"],
+          ["Charvarius Ward", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/charvarius-ward/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "FOX", "away": "CAR", "home": "NO",
+      "away_record": "3-5", "home_record": "3-5", "final": null,
+      "teams": [
+        {"team": "CAR", "players": [
+          ["Jonathon Brooks", "RB", "Groin", "Limited Participation in Practice", "Doubtful", "https://www.nfl.com/players/jonathon-brooks/"],
+          ["Brady Christensen", "G", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/brady-christensen/"],
+          ["Trevor Etienne", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/trevor-etienne/"],
+          ["Chuba Hubbard", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/chuba-hubbard/"],
+          ["Lee Hunter", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/lee-hunter/"],
+          ["Mike Jackson", "CB", "Groin", "Limited Participation in Practice", "Doubtful", "https://www.nfl.com/players/mike-jackson/"],
+          ["Will Lee III", "CB", "Hamstring", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/will-lee-iii/"],
+          ["Xavier Legette", "WR", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/xavier-legette/"],
+          ["Damien Lewis", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/damien-lewis/"],
+          ["Bobby Okereke", "LB", "Foot", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/bobby-okereke/"],
+          ["Jaelan Phillips", "LB", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/jaelan-phillips/"],
+          ["Torricelli Simpkins III", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/torricelli-simpkins-iii/"]
+        ]},
+        {"team": "NO", "players": [
+          ["Kelvin Banks Jr.", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/kelvin-banks-jr/"],
+          ["CJ Donaldson", "RB", "Shoulder", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/cj-donaldson/"],
+          ["David Edwards", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/david-edwards-x1290/"],
+          ["Martin Emerson", "CB", "Shin", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/martin-emerson/"],
+          ["Travis Etienne", "RB", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/travis-etienne/"],
+          ["Noah Fant", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/noah-fant-x4946/"],
+          ["Taliese Fuaga", "T", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/taliese-fuaga/"],
+          ["Alvin Kamara", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/alvin-kamara/"],
+          ["Erik McCoy", "C", "Biceps", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/erik-mccoy/"],
+          ["Christen Miller", "DT", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/christen-miller/"],
+          ["Asim Richards", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/asim-richards/"],
+          ["Quincy Riley", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/quincy-riley/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 13:00 ET", "network": "FOX", "away": "HOU", "home": "CLE",
+      "away_record": "3-5", "home_record": "5-4", "final": null,
+      "teams": [
+        {"team": "HOU", "players": [
+          ["Azeez Al-Shaair", "LB", "Groin, Not injury related - personal matter", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/azeez-al-shaair/"],
+          ["Will Anderson Jr.", "DE", "Ankle", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/will-anderson-jr/"],
+          ["Reed Blankenship", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/reed-blankenship/"],
+          ["Trent Brown", "T", "Wrist, Illness", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/trent-brown/"],
+          ["Tank Dell", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/tank-dell/"],
+          ["Blake Fisher", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/blake-fisher/"],
+          ["Marvin Harrison Jr.", "WR", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/marvin-harrison-jr/"],
+          ["Jacob Hummel", "LB", "Groin", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/jake-hummel/"],
+          ["Danielle Hunter", "DE", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/danielle-hunter/"],
+          ["Brevin Jordan", "TE", "Finger, Foot", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/brevin-jordan/"],
+          ["Woody Marks", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/woody-marks/"],
+          ["David Montgomery", "RB", "Groin", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/david-montgomery/"],
+          ["Keylan Rutledge", "G", "Neck, Shoulder", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/keylan-rutledge/"],
+          ["Jaylin Smith", "CB", "Hamstring", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/jaylin-smith/"],
+          ["Wyatt Teller", "G", "Illness, Back", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/wyatt-teller/"],
+          ["Tommy Togiai", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/tommy-togiai/"]
+        ]},
+        {"team": "CLE", "players": [
+          ["Austin Barber", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/austin-barber/"],
+          ["Denzel Boston", "WR", "Toe", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/denzel-boston/"],
+          ["Michael Burton", "FB", "Calf", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/michael-burton/"],
+          ["Maliek Collins", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/maliek-collins/"],
+          ["Harold Fannin Jr.", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/harold-fannin-jr/"],
+          ["Ronnie Hickman Jr.", "S", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/ronnie-hickman-jr/"],
+          ["Tytus Howard", "T", "", "Full Participation in Practice", "", "https://www.nfl.com/players/tytus-howard-x1979/"],
+          ["Elgton Jenkins", "C", "", "Full Participation in Practice", "", "https://www.nfl.com/players/elgton-jenkins/"],
+          ["Donovan McMillon", "S", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/donovan-mcmillon-2/"],
+          ["Carson Schwesinger", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/carson-schwesinger/"],
+          ["Denzel Ward", "CB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/denzel-ward/"],
+          ["Quincy Williams", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/quincy-williams/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 16:05 ET", "network": "CBS", "away": "LA", "home": "ARI",
+      "away_record": "5-4", "home_record": "3-6", "final": null,
+      "teams": [
+        {"team": "LA", "players": [
+          ["Davis Allen", "TE", "Oblique", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/davis-allen/"],
+          ["Steve Avila", "G", "Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/steve-avila/"],
+          ["Joe Cardona", "LS", "Ankle", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/joe-cardona/"],
+          ["Kam Curl", "S", "Toe", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/kamren-curl/"],
+          ["Aaron Donald", "DT", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/aaron-donald/"],
+          ["Terrance Ferguson", "TE", "Ankle, Hamstring", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/terrance-ferguson-2/"],
+          ["Braden Fiske", "DT", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/braden-fiske/"],
+          ["Myles Garrett", "LB", "Knee, Not injury related - resting player", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/myles-garrett/"],
+          ["Tyler Higbee", "TE", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/tyler-higbee/"],
+          ["Trent McDuffie", "CB", "Back", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/trent-mcduffie/"],
+          ["Puka Nacua", "WR", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/puka-nacua/"],
+          ["Colby Parkinson", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/colby-parkinson/"],
+          ["Matthew Stafford", "QB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/matthew-stafford/"],
+          ["Byron Young", "LB", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/byron-young-2/"]
+        ]},
+        {"team": "ARI", "players": [
+          ["Budda Baker", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/budda-baker/"],
+          ["Zachary Carter", "DT", "Knee", "Limited Participation in Practice", "Out", "https://www.nfl.com/players/zachary-carter-x9168/"],
+          ["Hjalte Froholdt", "C", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/hjalte-froholdt/"],
+          ["Jon Gaines II", "G", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jon-gaines-ii/"],
+          ["Bam Knight", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/bam-knight/"],
+          ["Hunter Long", "TE", "Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/hunter-long/"],
+          ["Roy Lopez", "DT", "Toe, Ankle", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/roy-lopez/"],
+          ["Max Melton", "CB", "Knee, Hand", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/max-melton/"],
+          ["Darius Robinson", "DT", "Wrist", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/darius-robinson-2/"],
+          ["Isaac Seumalo", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/isaac-seumalo/"],
+          ["Dante Stills", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/dante-stills/"],
+          ["Josh Sweat", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/josh-sweat/"],
+          ["Jayden Williams", "T", "Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/jayden-williams/"],
+          ["Mack Wilson", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/mack-wilson/"],
+          ["Andrew Wingard", "S", "Groin", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/andrew-wingard/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 16:05 ET", "network": "CBS", "away": "SEA", "home": "LV",
+      "away_record": "5-4", "home_record": "4-5", "final": null,
+      "teams": [
+        {"team": "SEA", "players": [
+          ["AJ Barner", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/aj-barner/"],
+          ["Anthony Bradford", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/anthony-bradford/"],
+          ["Charles Cross", "T", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/charles-cross-2/"],
+          ["Sam Darnold", "QB", "Ribs, Quadricep", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/sam-darnold/"],
+          ["Derick Hall", "LB", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/derick-hall/"],
+          ["Drew Lock", "QB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/drew-lock/"],
+          ["Quenton Nelson", "G", "Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/quenton-nelson/"],
+          ["Uchenna Nwosu", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/uchenna-nwosu/"],
+          ["Patrick O'Connell", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/patrick-o-connell/"],
+          ["Connor O'Toole", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/connor-o-toole/"],
+          ["Brandon Pili", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/brandon-pili/"],
+          ["Jarran Reed", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jarran-reed/"],
+          ["Rashid Shaheed", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/rashid-shaheed/"],
+          ["Jaxon Smith-Njigba", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/jaxon-smith-njigba/"],
+          ["Leonard Williams", "DT", "Stinger", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/leonard-williams/"]
+        ]},
+        {"team": "LV", "players": [
+          ["Thomas Booker", "DT", "Ankle", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/thomas-booker/"],
+          ["Foley Fatukasi", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/foley-fatukasi/"],
+          ["Ian Thomas", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/ian-thomas/"],
+          ["Dont'e Thornton Jr.", "WR", "Back", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/dont-e-thornton-jr/"],
+          ["Trey Zuhn III", "C", "", "Full Participation in Practice", "", "https://www.nfl.com/players/trey-zuhn-iii/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 16:25 ET", "network": "FOX, FOX DEPORTES", "away": "SF", "home": "DAL",
+      "away_record": "7-1", "home_record": "4-5", "final": null,
+      "teams": [
+        {"team": "SF", "players": [
+          ["Mike Evans", "WR", "Achilles", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/mike-evans/"],
+          ["Renardo Green", "CB", "Back", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/renardo-green/"],
+          ["Dre Greenlaw", "LB", "Knee", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/dre-greenlaw-x9042/"],
+          ["Nate Hobbs", "CB", "Groin", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/nate-hobbs/"],
+          ["Deommodore Lenoir", "CB", "Foot", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/deommodore-lenoir/"],
+          ["Christian McCaffrey", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/christian-mccaffrey/"],
+          ["Siran Neal", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/siran-neal/"],
+          ["Demarcus Robinson", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/demarcus-robinson/"],
+          ["Deebo Samuel Sr.", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/deebo-samuel/"],
+          ["Upton Stout", "CB", "Shoulder, Neck", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/upton-stout/"],
+          ["C.J. West", "DT", "Knee", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/cj-west/"],
+          ["Trent Williams", "T", "Shoulder", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/trent-williams/"]
+        ]},
+        {"team": "DAL", "players": [
+          ["DaRon Bland", "CB", "Ankle", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/daron-bland/"],
+          ["Jonathan Bullard", "DT", "Calf", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/jonathan-bullard/"],
+          ["Alijah Clark", "S", "Illness", "Did Not Participate In Practice", "Questionable", "https://www.nfl.com/players/alijah-clark/"],
+          ["Donovan Ezeiruaku", "LB", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/donovan-ezeiruaku/"],
+          ["Jake Ferguson", "TE", "Knee, Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jake-ferguson/"],
+          ["Tyler Goodson", "RB", "Ankle, Knee", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/tyler-goodson/"],
+          ["Malik Hooker", "S", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/malik-hooker/"],
+          ["Marist Liufau", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/marist-liufau/"],
+          ["P.J. Locke", "S", "Concussion", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/p-j-locke/"],
+          ["Von Miller", "LB", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/von-miller/"],
+          ["Jonathan Mingo", "WR", "Ankle", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/jonathan-mingo/"],
+          ["Devin Moore", "CB", "Hip", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/devin-moore-2/"],
+          ["DeMarvion Overshown", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/demarvion-overshown/"],
+          ["George Pickens", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/george-pickens/"],
+          ["Joey Porter Jr.", "CB", "Ankle, Foot", "Limited Participation in Practice", "Questionable", "https://www.nfl.com/players/joey-porter-jr/"],
+          ["Luke Schoonmaker", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/luke-schoonmaker/"],
+          ["Brevyn Spann-Ford", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/brevyn-spann-ford/"],
+          ["Juanyeh Thomas", "S", "Hamstring", "Did Not Participate In Practice", "Doubtful", "https://www.nfl.com/players/juanyeh-thomas/"],
+          ["KaVontae Turpin", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/kavontae-turpin/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-15 20:20 ET", "network": "NBC, UNIVERSO", "away": "PIT", "home": "CIN",
+      "away_record": "6-2", "home_record": "6-2", "final": null,
+      "teams": [
+        {"team": "PIT", "players": [
+          ["Brandin Echols", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/brandin-echols/"],
+          ["DeShon Elliott", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/deshon-elliott/"],
+          ["Derrick Harmon", "DT", "Foot", "Full Participation in Practice", "Questionable", "https://www.nfl.com/players/derrick-harmon-2/"],
+          ["Cameron Heyward", "DT", "", "Full Participation in Practice", "", "https://www.nfl.com/players/cameron-heyward/"],
+          ["Ben Skowronek", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/ben-skowronek/"],
+          ["Doneiko Slaughter", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/doneiko-slaughter/"],
+          ["Darnell Washington", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/darnell-washington/"],
+          ["T.J. Watt", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/t-j-watt/"]
+        ]},
+        {"team": "CIN", "players": [
+          ["Jonathan Allen", "DT", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/jonathan-allen/"],
+          ["Jalen Davis", "CB", "Hamstring", "Full Participation in Practice", "Doubtful", "https://www.nfl.com/players/jalen-davis/"],
+          ["Kyle Dugger", "S", "Quadricep", "Did Not Participate In Practice", "Out", "https://www.nfl.com/players/kyle-dugger/"],
+          ["Dylan Fairchild", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/dylan-fairchild/"],
+          ["B.J. Hill", "DT", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/b-j-hill/"],
+          ["Andrei Iosivas", "WR", "Thumb", "Full Participation in Practice", "Doubtful", "https://www.nfl.com/players/andrei-iosivas/"],
+          ["Dexter Lawrence", "DT", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/dexter-lawrence/"],
+          ["Brian Parker II", "G", "Knee", "Full Participation in Practice", "Doubtful", "https://www.nfl.com/players/brian-parker-ii/"],
+          ["DJ Turner II", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/dj-turner-2/"]
+        ]}
+      ]
+    },
+    {
+      "kickoff": "2026-11-16 20:15 ET", "network": "ESPN, ABC, ESPN2, ESPN DEPORTES", "away": "LAC", "home": "BAL",
+      "away_record": "0-8", "home_record": "4-5", "final": null,
+      "teams": [
+        {"team": "LAC", "players": [
+          ["Kayode Awosika", "G", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/kayode-awosika/"],
+          ["Bud Dupree", "DE", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/bud-dupree/"],
+          ["Justin Eboigbe", "DE", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/justin-eboigbe/"],
+          ["Alex Harkey", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/alex-harkey/"],
+          ["Tre Harris", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/tre-harris/"],
+          ["Cam Hart", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/cam-hart/"],
+          ["Daiyan Henley", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/daiyan-henley/"],
+          ["Deane Leonard", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/deane-leonard/"],
+          ["Khalil Mack", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/khalil-mack/"],
+          ["Ladd McConkey", "WR", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/ladd-mcconkey/"],
+          ["Keaton Mitchell", "RB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/keaton-mitchell/"],
+          ["David Njoku", "TE", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/david-njoku/"],
+          ["Denzel Perryman", "LB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/denzel-perryman/"],
+          ["Trey Pipkins", "T", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/trey-pipkins/"],
+          ["Rodney Shelley", "CB", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/rodney-shelley/"],
+          ["Branson Taylor", "G", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/branson-taylor/"],
+          ["Brenen Thompson", "WR", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/brenen-thompson/"],
+          ["Isas Waxter", "CB", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/isas-waxter/"],
+          ["Kendall Williamson", "S", "", "Did Not Participate In Practice", "", "https://www.nfl.com/players/kendall-williamson/"]
+        ]},
+        {"team": "BAL", "players": [
+          ["Rasheen Ali", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/rasheen-ali/"],
+          ["Rashod Bateman", "WR", "", "Full Participation in Practice", "", "https://www.nfl.com/players/rashod-bateman/"],
+          ["Kyle Hamilton", "S", "", "Full Participation in Practice", "", "https://www.nfl.com/players/kyle-hamilton/"],
+          ["Jaylinn Hawkins", "S", "", "Limited Participation in Practice", "", "https://www.nfl.com/players/jaylinn-hawkins/"],
+          ["Matthew Hibner", "TE", "", "Full Participation in Practice", "", "https://www.nfl.com/players/matthew-hibner/"],
+          ["Olaivavega Ioane", "G", "", "Full Participation in Practice", "", "https://www.nfl.com/players/olaivavega-ioane/"],
+          ["Adam Randall", "RB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/adam-randall/"],
+          ["Nate Wiggins", "CB", "", "Full Participation in Practice", "", "https://www.nfl.com/players/nate-wiggins/"]
+        ]}
+      ]
+    }
+  ]
+}
