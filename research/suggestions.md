@@ -43,7 +43,7 @@ stays tolerable; JS filtering would break the "every row is auditable in the HTM
 | Path | Meaning |
 |------|---------|
 | **A. Frozen snapshot** (current) | Every page prints "retrieved 2026-11-14"; numbers never silently change |
-| **B. Scheduled rebuild** | A nightly Action re-fetches NFL.com and rebuilds `docs/` |
+| **B. Scheduled rebuild** | A nightly Action re-fetches NFL.com and rebuilds `signals/` |
 
 **Recommendation: A, with B as an additive later step.** B requires the fetcher to run inside GitHub
 Actions (network reachable there, unlike this sandbox), and it introduces the risk of a silent data

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the GitHub Pages site in docs/ from data/*.json, data/derived/*.json
+"""Build the session-1374049c signal site in signals/ from data/*.json, data/derived/*.json
 and research/*.md.
 
 Hard rules encoded in this script (requirement 8):
@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 DERIVED = os.path.join(DATA, "derived")
 RESEARCH = os.path.join(ROOT, "research")
-DOCS = os.path.join(ROOT, "docs")
+DOCS = os.path.join(ROOT, "signals")
 
 RETRIEVED = "2026-11-14"
 

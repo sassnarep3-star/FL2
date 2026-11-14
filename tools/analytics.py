@@ -7,7 +7,7 @@ transcribed from official NFL.com pages. No value is invented: if an input is
 missing the computed output is None and is flagged downstream.
 
 Run:  python3 tools/analytics.py
-Outputs: data/derived/*.json  (consumed by the docs/ site)
+Outputs: data/derived/*.json  (consumed by the signals/ site)
 """
 import json
 import math

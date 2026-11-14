@@ -1,3 +1,6 @@
-tools/__pycache__/
+engine/.cache/
 __pycache__/
-.DS_Store
+*.pyc
+node_modules/
+package-lock.json
+engine/.check_driver.js

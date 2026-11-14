@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Site integrity check for docs/.
+"""Site integrity check for signals/.
 
 Checks that can be made without network access:
-  1. every internal href resolves to a file that exists in docs/;
+  1. every internal href resolves to a file that exists in signals/;
   2. every <table> carries a final "Source" column header (requirement 8);
   3. every table row has exactly as many cells as the header, so no row can
      silently drop its source link;
@@ -19,7 +19,7 @@ from collections import Counter
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = os.path.join(ROOT, "docs")
+DOCS = os.path.join(ROOT, "signals")
 
 
 class TableAudit(HTMLParser):
@@ -79,7 +79,7 @@ def header_labels(html_text, table_html):
 def main():
     files = sorted(f for f in os.listdir(DOCS) if f.endswith(".html"))
     if not files:
-        print("FAIL: no html files in docs/")
+        print("FAIL: no html files in signals/")
         return 1
 
     href_re = re.compile(r'href="([^"]+)"')
