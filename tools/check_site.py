@@ -261,6 +261,12 @@ def main() -> int:
             problems.append("engine selftest exited non-zero — no computed figure may be published until it passes")
         report = run.stdout
         n_ok = report.count("[ok]")
+        cs = parsed.get("computedSelftest") or {}
+        published = {r[0]: r[1] for r in cs.get("rows", []) if isinstance(r, list)}
+        want = f"{n_ok} / {n_ok}"
+        if published.get("Assertions passing") not in (want, want.replace(" / ", "/")):
+            problems.append(f"computedSelftest says \"{published.get('Assertions passing')}\" assertions passing, "
+                            f"but the fresh run printed {want}")
         if "all assertions passed" not in report:
             problems.append("engine selftest did not report 'all assertions passed'")
         drift = []
