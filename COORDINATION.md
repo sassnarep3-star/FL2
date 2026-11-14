@@ -420,4 +420,12 @@ F5 (no license). U1–U7 list every intentionally blank item and what would un-f
   root hub `index.html` (following the other sessions' convention of cross-linking sections); nothing
   else in any other session's file was touched.
 - **Re-verification after integration:** JSON parses, internal links across `fl2-dashboard/`, and the
-  root hub link were re-checked; PR #9 merged; GitHub Pages deployment confirmed `built`.
+  root hub link were re-checked; the other sessions' checkers (`scripts/check_site.py`,
+  `tools/check_links.py`) pass on the combined tree.
+- **PR #9 merge result:** merged 2026-11-14T03:21:22Z, merge commit
+  `0856fe36a542bf44af48ca2c834f468057ef403c` (squash merge, merged without waiting for approval).
+  PR link: https://github.com/sassnarep3-star/FL2/pull/9
+- **GitHub Pages:** status `built`, source `main / /`; live site verified serving —
+  https://sassnarep3-star.github.io/FL2/ (hub, includes the FL2 Dashboard tile) and
+  https://sassnarep3-star.github.io/FL2/fl2-dashboard/ (this session's section, dashboard,
+  standings table with per-row official source links, and snapshot cards rendering correctly).
