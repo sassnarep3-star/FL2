@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard &middot; FL2</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="layout">
+<nav class="sidebar">
+  <div class="brand"><span class="dot"></span> FL2</div>
+  <div class="tag">NFL analysis &amp; betting signals</div>
+  <div class="navgroup"><div class="navhead">Overview</div>
+  <a class="active" href="index.html">Dashboard</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Official data</div>
+  <a href="standings.html">Standings</a>
+  <a href="games.html">Game results</a>
+  <a href="week10.html">Week 10 slate</a>
+  <a href="injuries.html">Injuries</a>
+  <a href="depth-charts.html">Depth charts</a>
+  <a href="backup-impact.html">Backup impact</a>
+  <a href="team-stats.html">Team stats</a>
+  <a href="player-props.html">Player props</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Analysis</div>
+  <a href="analytics.html">Analytics</a>
+  <a href="strategies.html">Strategies</a>
+  <a href="validation-gates.html">Validation gates</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Governance</div>
+  <a href="requirements.html">Requirements</a>
+  <a href="open-questions.html">Open questions</a>
+  <a href="suggestions.html">Suggestions</a>
+  <a href="flagged.html">Flagged for review</a>
+  <a href="sources.html">Sources</a>
+  <a href="method.html">Method &amp; verification</a>
+  </div>
+  <div class="stamp">Data retrieved<br><strong>2026-11-14</strong></div>
+</nav>
+<main>
+<header class="pagehead">
+  <h1>Dashboard</h1>
+  <p class="sub">2026 NFL season, verified line by line from official sources</p>
+</header>
+<div class="cards">
+<div class="card"><div class="k">Games verified</div><div class="v">137</div><div class="s">Weeks 1&ndash;9 (136) + Week 10 TNF</div></div>
+<div class="card"><div class="k">Standings check</div><div class="v">32/32</div><div class="s">replayed from box scores, exact match</div></div>
+<div class="card"><div class="k">Home win rate</div><div class="v">48.91%</div><div class="s">mean home margin &minus;0.022 pts</div></div>
+<div class="card"><div class="k">Injury rows</div><div class="v">345</div><div class="s">official Week 10 report, 28 team entries</div></div>
+<div class="card"><div class="k">Depth charts</div><div class="v">5 / 32</div><div class="s">clubs verified; 27 not acquired</div></div>
+<div class="card"><div class="k">Strategies passing gates</div><div class="v">0</div><div class="s">see Validation gates</div></div>
+</div>
+<h2>Other sections of this repository</h2>
+<div class="note">This repository holds several independently built sites. This one is
+<code>/fl2-signals/</code>, built by session <code>arena/1374049c-fl2</code>. The others were built by
+different sessions and are linked here for navigation; none of their files was modified by this
+session. A request to add a tile for this section to the shared hub is logged in
+<code>COORDINATION.md</code>.</div>
+<ul>
+<li><a href="../index.html">Repository hub</a> (root)</li>
+<li><a href="../docs/index.html">/docs/</a> &mdash; NFL analysis dashboard (session d263eab0)</li>
+<li><a href="../hub/index.html">/hub/</a> &mdash; decision hub (session e70150db)</li>
+<li><a href="../ledger/overview.html">/ledger/</a> &mdash; evidence ledger (session 68b4e431)</li>
+<li><a href="../fl2-dashboard/index.html">/fl2-dashboard/</a> &mdash; FL2 dashboard (session 48561869)</li>
+<li><a href="../signal/index.html">/signal/</a> &mdash; Signal Lab (session d10a1d25)</li>
+</ul>
+<h2>What this project is</h2>
+<p>A line-by-line transcription of the 2026 NFL season from official sources, plus the analytics
+machinery to test betting strategies against it. Two rules are absolute: every table row links to
+the official page it came from, and any value that cannot be confirmed is left blank rather than
+filled in. There is no inferred number anywhere on this site.</p>
+<h2>Headline findings</h2><ul>
+<li><strong>Home-field advantage is approximately zero in 2026.</strong> Home teams won
+<b>48.91%</b> of 137 games and the mean home margin is <b>&minus;0.022 points</b> (SD 13.225).
+The 95% CI on the mean is roughly [&minus;2.24, +2.20], so this is <em>not</em> proof that HFA
+disappeared &mdash; it is proof that 137 games cannot measure it. Any model hard-coding +2.5 home
+points is wrong for this season.</li>
+<li><strong>Every strategy tested fails its validation gate.</strong> The best walk-forward model
+scores 56.19% straight-up against a 52.38% break-even, but its Brier skill score is
+<b>+0.0017</b> &mdash; i.e. zero. It is published as <em>rejected</em>, with the arithmetic.</li>
+<li><strong>A season leaderboard cannot detect a 55% bettor.</strong> Detecting 55% at
+&alpha;=.05 with 80% power needs <b>2,243 bets</b> (about 11 seasons). Over 200 bets the same
+bettor has p = 0.208.</li>
+<li><strong>Club depth charts lag the official injury report.</strong> 12 players are listed
+1st/2nd string on a club chart while carrying Out/Doubtful on the NFL's own report; 3 Out players
+appear nowhere on their own club's chart.</li>
+<li><strong>Parlay prices move enormously with correlation.</strong> At 3 legs, &rho; = 0.30 versus
+&rho; = 0 changes the fair price by <b>52%</b>. No &rho; has been estimated from data, so the site
+publishes a sensitivity grid instead of a single number.</li>
+</ul>
+<h2>Distribution of the 137 verified games</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Statistic</th><th>Value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Games</td><td>137</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Home margin mean (pts)</td><td>-0.022</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Home margin SD</td><td>13.225</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Home margin standard error</td><td>1.13</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Mean absolute margin</td><td>10.562</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Total points mean</td><td>45.92</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Total points median</td><td>45</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Total points SD</td><td>14.256</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Home win / loss / tie %</td><td>48.91 / 50.36 / 0.73</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+</tbody></table></div>
+<h2>Benchmarks any strategy must beat</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Baseline</th><th>n</th><th>Accuracy</th><th>Comment</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Always pick the home team</td><td>137</td><td>0.4891</td><td>Home teams won less than half of games in this sample - see Flagged for Review.</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Pick the team with the better season-to-date point differential</td><td>121</td><td>0.6033</td><td>The naive power ranking.</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Walk-forward OLS power model</td><td>105</td><td>0.42857142857142855</td><td>Refit weekly on strictly prior games.</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Break-even at -110</td><td class="na" title="Not published by the source - deliberately blank">&mdash;</td><td>0.5238</td><td>Not a pick accuracy - the win rate a bettor must clear to profit at American -110.</td><td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+</tbody></table></div>
+<p class="note">Walk-forward: each game is predicted using only games from strictly earlier weeks.</p>
+<footer class="foot">
+  Every table row on this site carries a link to the official source it was transcribed from.
+  Blank cells mean the source published no value; nothing is inferred.
+  Last built from <code>data/</code> on 2026-11-14.
+</footer>
+</main>
+</div>
+</body></html>

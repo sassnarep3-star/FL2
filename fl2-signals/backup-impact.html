@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backup impact &middot; FL2</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="layout">
+<nav class="sidebar">
+  <div class="brand"><span class="dot"></span> FL2</div>
+  <div class="tag">NFL analysis &amp; betting signals</div>
+  <div class="navgroup"><div class="navhead">Overview</div>
+  <a href="index.html">Dashboard</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Official data</div>
+  <a href="standings.html">Standings</a>
+  <a href="games.html">Game results</a>
+  <a href="week10.html">Week 10 slate</a>
+  <a href="injuries.html">Injuries</a>
+  <a href="depth-charts.html">Depth charts</a>
+  <a class="active" href="backup-impact.html">Backup impact</a>
+  <a href="team-stats.html">Team stats</a>
+  <a href="player-props.html">Player props</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Analysis</div>
+  <a href="analytics.html">Analytics</a>
+  <a href="strategies.html">Strategies</a>
+  <a href="validation-gates.html">Validation gates</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Governance</div>
+  <a href="requirements.html">Requirements</a>
+  <a href="open-questions.html">Open questions</a>
+  <a href="suggestions.html">Suggestions</a>
+  <a href="flagged.html">Flagged for review</a>
+  <a href="sources.html">Sources</a>
+  <a href="method.html">Method &amp; verification</a>
+  </div>
+  <div class="stamp">Data retrieved<br><strong>2026-11-14</strong></div>
+</nav>
+<main>
+<header class="pagehead">
+  <h1>Backup impact</h1>
+  <p class="sub">Starters ruled out and who is next on the chart</p>
+</header>
+<div class="warn"><strong>The NFL publishes no official depth chart, so no row here can be called official. Club charts lag the injury report; a player ruled Out may still be printed as the starter (see depth_charts.json -&gt; injury_conflicts).</strong></div>
+<p class="note">Intersect the official NFL Week 10 injury report (status Out or Doubtful) with every club depth chart that was actually fetched. The backup is the next non-empty name to the right of the injured player on that club&#x27;s published chart.</p>
+<div class="warn"><strong>No quantified deficiency is published.</strong> No &#x27;points per game lost&#x27; or similar number is published. That quantity cannot be derived from any official source and estimating it would be a fabrication. This table identifies WHO is affected and WHO is next, and stops there.</div>
+<div class="cards">
+<div class="card"><div class="k">Clubs covered</div><div class="v">5 / 32</div><div class="s">5 of 32 clubs (NE, DET, GB, KC, SF). The other 27 clubs&#x27; charts were not acquired this session.</div></div>
+<div class="card"><div class="k">Affected players found</div><div class="v">13</div><div class="s">Out/Doubtful and on a club chart</div></div>
+<div class="card"><div class="k">1st-stringers Out/Doubtful</div><div class="v">9</div><div class="s">with a named replacement</div></div>
+<div class="card"><div class="k">Out but absent from chart</div><div class="v">3</div><div class="s">chart integrity problem</div></div>
+</div>
+<h2>Starters Out/Doubtful and the club's next-listed player</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Team</th><th>Unit</th><th>Pos</th><th>Starter</th><th>Status</th><th>Injury</th><th>Next on chart</th><th>Depth</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>DET</td><td>defense</td><td>CB</td><td>D.J. Reed</td><td>Out</td><td>Hip</td><td>Rock Ya-Sin</td><td>2nd</td><td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/d-j-reed/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>DET</td><td>offense</td><td>C</td><td>Cade Mays</td><td>Out</td><td>Ankle</td><td>Juice Scruggs</td><td>2nd</td><td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/cade-mays/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>GB</td><td>defense</td><td>LB</td><td>44 Zaire Franklin</td><td>Doubtful</td><td>Shin</td><td>59 Ty&#x27;Ron Hopper</td><td>2nd</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/zaire-franklin/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>GB</td><td>offense</td><td>C</td><td>75 Sean Rhyan</td><td>Out</td><td>Ankle</td><td>52 Jager Burton</td><td>2nd</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/sean-rhyan/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>GB</td><td>offense</td><td>RB</td><td>8 Josh Jacobs</td><td>Out</td><td>Finger</td><td>32 MarShawn Lloyd</td><td>2nd</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/josh-jacobs-x3315/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>KC</td><td>offense</td><td>RT</td><td>Jaylon Moore</td><td>Out</td><td>Ankle</td><td>Joshua Ezeudu</td><td>2nd</td><td class="src"><a href="https://www.chiefs.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/jaylon-moore-2/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>NE</td><td>defense</td><td>CB</td><td>Carlton Davis III</td><td>Out</td><td>Knee</td><td>Channing Canada</td><td>2nd</td><td class="src"><a href="https://www.patriots.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/carlton-davis/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>NE</td><td>offense</td><td>LG</td><td>Ben Brown</td><td>Out</td><td>Knee</td><td>Walter Rouse</td><td>2nd</td><td class="src"><a href="https://www.patriots.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/ben-brown-2/" target="_blank" rel="noopener">player</a></td></tr>
+<tr><td>SF</td><td>offense</td><td>WR</td><td>Mike Evans</td><td>Out</td><td>Achilles</td><td>Jordan Watkins</td><td>2nd</td><td class="src"><a href="https://www.49ers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.nfl.com/players/mike-evans/" target="_blank" rel="noopener">player</a></td></tr>
+</tbody></table></div>
+<h2>All affected players on a club chart</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Team</th><th>Unit</th><th>Pos</th><th>Player</th><th>Depth</th><th>Status</th><th>Injury</th><th>Next on chart</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>DET</td><td>defense</td><td>CB</td><td>D.J. Reed</td><td>1st</td><td>Out</td><td>Hip</td><td>Rock Ya-Sin</td><td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>DET</td><td>offense</td><td>C</td><td>Cade Mays</td><td>1st</td><td>Out</td><td>Ankle</td><td>Juice Scruggs</td><td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>GB</td><td>defense</td><td>LB</td><td>44 Zaire Franklin</td><td>1st</td><td>Doubtful</td><td>Shin</td><td>59 Ty&#x27;Ron Hopper</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>GB</td><td>offense</td><td>C</td><td>75 Sean Rhyan</td><td>1st</td><td>Out</td><td>Ankle</td><td>52 Jager Burton</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>GB</td><td>offense</td><td>RB</td><td>8 Josh Jacobs</td><td>1st</td><td>Out</td><td>Finger</td><td>32 MarShawn Lloyd</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>GB</td><td>offense</td><td>TE</td><td>81 Josh Whyle</td><td>4th</td><td>Out</td><td>Concussion</td><td class="na" title="Not published by the source - deliberately blank">&mdash;</td><td class="src"><a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>KC</td><td>defense</td><td>DT</td><td>Peter Woods</td><td>2nd</td><td>Out</td><td>Neck</td><td>Marcus Harris</td><td class="src"><a href="https://www.chiefs.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>KC</td><td>offense</td><td>RT</td><td>Jaylon Moore</td><td>1st</td><td>Out</td><td>Ankle</td><td>Joshua Ezeudu</td><td class="src"><a href="https://www.chiefs.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>NE</td><td>defense</td><td>CB</td><td>Carlton Davis III</td><td>1st</td><td>Out</td><td>Knee</td><td>Channing Canada</td><td class="src"><a href="https://www.patriots.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>NE</td><td>offense</td><td>C</td><td>Ben Brown</td><td>2nd</td><td>Out</td><td>Knee</td><td class="na" title="Not published by the source - deliberately blank">&mdash;</td><td class="src"><a href="https://www.patriots.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>NE</td><td>offense</td><td>LG</td><td>Ben Brown</td><td>1st</td><td>Out</td><td>Knee</td><td>Walter Rouse</td><td class="src"><a href="https://www.patriots.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>NE</td><td>offense</td><td>RB</td><td>TreVeyon Henderson</td><td>2nd</td><td>Out</td><td>Illness</td><td>Corey Kiner</td><td class="src"><a href="https://www.patriots.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+<tr><td>SF</td><td>offense</td><td>WR</td><td>Mike Evans</td><td>1st</td><td>Out</td><td>Achilles</td><td>Jordan Watkins</td><td class="src"><a href="https://www.49ers.com/team/depth-chart" target="_blank" rel="noopener">chart</a> · <a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a></td></tr>
+</tbody></table></div>
+<h2>Out/Doubtful but missing from their own club's chart</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Team</th><th>Player</th><th>Pos (report)</th><th>Status</th><th>Injury</th><th>Issue</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>DET</td><td>Kerby Joseph</td><td>S</td><td>Out</td><td>Knee</td><td>Carries an Out/Doubtful status on the official NFL Week 10 injury report but appears nowhere on this club&#x27;s published depth chart.</td><td class="src"><a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">chart</a></td></tr>
+<tr><td>GB</td><td>Micah Parsons</td><td>LB</td><td>Out</td><td>Knee, Illness</td><td>Carries an Out/Doubtful status on the official NFL Week 10 injury report but appears nowhere on this club&#x27;s published depth chart.</td><td class="src"><a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.packers.com/team/depth-chart" target="_blank" rel="noopener">chart</a></td></tr>
+<tr><td>KC</td><td>Omarr Norman-Lott</td><td>DT</td><td>Out</td><td>Knee</td><td>Carries an Out/Doubtful status on the official NFL Week 10 injury report but appears nowhere on this club&#x27;s published depth chart.</td><td class="src"><a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury</a> · <a href="https://www.chiefs.com/team/depth-chart" target="_blank" rel="noopener">chart</a></td></tr>
+</tbody></table></div>
+<footer class="foot">
+  Every table row on this site carries a link to the official source it was transcribed from.
+  Blank cells mean the source published no value; nothing is inferred.
+  Last built from <code>data/</code> on 2026-11-14.
+</footer>
+</main>
+</div>
+</body></html>
