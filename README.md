@@ -34,11 +34,15 @@ dependencies, no CDN.
 ## Verify it yourself
 
 ```bash
-python3 -m engine.selftest      # 46 assertions: the arithmetic behind every "computed" figure
-python3 tools/check_site.py     # link/source/registry audit; exits non-zero on any violation
+python3 -m engine.selftest       # the arithmetic behind every "computed" figure on the site
+python3 tools/check_site.py      # links, citations, register cross-references; exits non-zero on any violation
+python3 tools/gen_markdown.py    # regenerate the .md registers from the data files (--check to verify)
+python3 -m http.server 8081 --bind 127.0.0.1 &
+python3 tools/serve_check.py     # fetch every page and asset from a running server; all must be 200
+node tools/render_test.js        # optional: needs `npm install` (jsdom); proves tables actually populate
 ```
 
-Both must pass before the site is published. Current status is recorded in
+All must pass before the site is published; `.github/workflows/verify.yml` runs them on every push. Current status is recorded in
 [COORDINATION.md](COORDINATION.md#final-integration-record).
 
 ## Data snapshot in this repo

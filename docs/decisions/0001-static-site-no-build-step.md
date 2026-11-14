@@ -19,5 +19,7 @@ Plain HTML pages plus one stylesheet and one runtime (`assets/js/app.js`), with 
 + Every rendered value is traceable to a line in a data file that itself carries `{url, captured}`.
 − No server-side rendering, so tables are built in the browser; a reviewer who disables JS sees the prose only.
   Accepted: the Markdown registers exist precisely for that reader.
+− There is still no build, but there is now a *check* workflow (`.github/workflows/verify.yml`): CI that runs the
+  same commands a reviewer can run locally, rather than CI that produces an artefact nobody can reproduce.
 − Data files must stay parseable as the restricted JSON subset the generator understands (enforced by
   `tools/check_site.py`, which fails the run otherwise).

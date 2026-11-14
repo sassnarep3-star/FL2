@@ -56,11 +56,13 @@
               <code>gh auth status</code></td>
             <td>No history to preserve, so the site is built forward rather than reconciled. Flag
               <a href="review.html">FL-001</a></td></tr>
-          <tr><td class="mono">CI / workflows</td><td>Absent (<code>.github/</code> does not exist)</td>
-            <td>Filesystem inventory</td><td>Deliberately not added: a static site with no build step cannot break on
-              a missing runner; the checker in <code>tools/</code> is the gate instead</td></tr>
+          <tr><td class="mono">CI / workflows</td><td>Absent at review time (<code>.github/</code> did not exist)</td>
+            <td>Filesystem inventory</td><td>A <em>check-only</em> workflow added (<code>.github/workflows/verify.yml</code>):
+              engine self-test, data audit, generated-register currency, served-link fetch, render test. No build job —
+              there is nothing to build, so CI proves the claims rather than producing an artefact nobody can
+              reproduce</td></tr>
           <tr><td class="mono">GitHub Pages config</td><td>Absent at review time (no Pages site)</td>
-            <td><code>gh api repos/…/pages</code> returned “not configured”</td>
+            <td><code>gh api repos/…/pages</code> returned 404 “Repository is not published yet”</td>
             <td>Enabled as part of publishing; recorded in COORDINATION.md</td></tr>
           <tr><td class="mono">.gitignore / .nojekyll</td><td>Absent</td><td>Filesystem inventory</td>
             <td><code>.nojekyll</code> added so Pages serves the site verbatim; ignore file added for the generated
