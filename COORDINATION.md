@@ -18,6 +18,23 @@ Flagged for Review page; does not block anything).
 | `e70150db` and others | `arena/e70150db-fl2` | NFL Decision Hub: requirements, gates, luck/skill, repo audit | `/hub/` | **merged** |
 | `68b4e431` | `arena/68b4e431-fl2` | **Evidence Ledger**: verified 2026 data, line model, 11-strategy validation harness, suggestions register, site hub | `/` (hub) + `/ledger/` | **this PR** |
 
+**Integration completed 2026-11-14** (PR #8, merged as `ab37150`). How the four sites
+were reconciled, and what was *not* done:
+
+- `/` is now a hub linking all four sections; the ledger moved to `/ledger/`.
+- **No other session's file was edited, deleted or rewritten.** `docs/`, `hub/`, and the
+  Fourth & Signal pages are byte-identical to what their sessions shipped.
+- Colliding filenames were resolved by relocating *mine*, never theirs: `index.html`
+  became the shared hub, and my `decisions.html` became `ledger/decisions.html` while the
+  root `decisions.html` stayed with Fourth & Signal.
+- `scripts/check_site.py` was amended by one line (a `REPO_HOSTS` set) because the footer
+  links `github.com`; that host still cannot satisfy a table-row source check.
+- `COORDINATION.md` keeps all four boards. Nothing was summarised away.
+- Cross-links were added in both directions so no section is orphaned.
+
+Open question left for the owner: whether the four structures should become one. It is
+listed in `ledger/suggestions.html` as a proposal, not executed.
+
 **The material difference between them:** only `68b4e431` added verified numeric NFL
 values. The other three are frameworks that deliberately left every value blank. That
 restraint was correct when written; the ledger is what those frameworks were waiting for.
