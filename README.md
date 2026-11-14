@@ -1,47 +1,73 @@
-# Fourth & Signal — NFL research dashboard
+# FL2 — NFL research hub
 
-An evidence-first static research site for planning an NFL line-origination and strategy-validation competition. It is a research scaffold, **not** an NFL product, wagering service, betting recommendation, or claim of predictive edge.
+**Live site:** https://sassnarep3-star.github.io/FL2/
 
-**Live site:** [sassnarep3-star.github.io/FL2](https://sassnarep3-star.github.io/FL2/hub/) · [PR #1](https://github.com/sassnarep3-star/FL2/pull/1) (merged)
+Several agent sessions worked this repository in parallel. All of their work is kept.
+This README explains which section to read and why, without deleting anything.
 
-## Site map
+## Start here: the Evidence Ledger → [`ledger/overview.html`](ledger/overview.html)
 
-- `index.html` — executive summary and evidence snapshot
-- `decisions.html` — prioritized decision questions, known/unknown answers, and suggested discovery work
-- `strategy.html` — candidate single-bet, player-prop, parlay and prop-combo hypotheses; validation gates and correlation requirements
-- `availability.html` — source-backed injury-report fields and a design for offense/defense depth and replacement tracking
-- `data.html` — reviewed source inventory, project inspection notes and proposed data model
-- `review.html` — open unverified items and their closure evidence
+The ledger is the **only** section containing verified numeric NFL data:
 
-## Verification boundary
+| What | Where it comes from | Rows |
+|---|---|---|
+| Week 10 injury report (Out / Doubtful / Questionable) | [nfl.com/injuries](https://www.nfl.com/injuries/) | 76 |
+| 2026 standings — W-L-T, points for/against, streaks | [nfl.com/standings](https://www.nfl.com/standings/) | 32 teams |
+| Team defense — points, yards, takeaways | [Pro-Football-Reference 2026 opp](https://www.pro-football-reference.com/years/2026/opp.htm) | 32 teams |
+| Starting-quarterback decisions | NFL.com news roundups, Nov 11 + Nov 13 | 7 teams (5 confirmed, 2 blank) |
+| 1999–2026 results + closing lines | nflverse `games.csv` | 7,548 games |
 
-Repository inspection began with a 5-byte README and no application, data, odds, player-game records, model or measured results. Official NFL source pages were inspected for schedules, player stats, injuries, players, rules and a hosted gamebook sample. They establish source pathways, not the existence of a usable historical feed, a license, complete coverage, or a profitable signal. The NIST/SEMATECH glossary is used only for general statistical-method terminology. Unknown values are blank; no performance or correlation numbers are fabricated. Details and links are in `data.html` and `COORDINATION.md`.
+| Section | Purpose |
+|---|---|
+| [`ledger/suggestions.html`](ledger/suggestions.html) | 10 proposals with options and a recommendation — accept / reject / defer |
+| [`ledger/decisions.html`](ledger/decisions.html) | 20 questions: verified, partial, unknown, or your call |
+| [`ledger/strategies.html`](ledger/strategies.html) | 11 strategies × 8 validation gates, out-of-sample |
+| [`ledger/injuries.html`](ledger/injuries.html) | availability and lineup depletion |
+| [`ledger/lines.html`](ledger/lines.html) | our own total / margin / win probability per game |
+| [`ledger/verification.html`](ledger/verification.html) | every source, with tier and hash |
+| [`ledger/flagged.html`](ledger/flagged.html) | 13 items to review |
+| [`ledger/summary.html`](ledger/summary.html) | executive summary |
+| [`ledger/method.html`](ledger/method.html) | how every number was produced |
 
-## Run locally
+## The headline
 
-This is plain static HTML/CSS. Open `index.html` directly, or run a static server such as `python3 -m http.server 8000` from the repository root.
+Ten single-bet strategies were tested against 16 seasons of closing lines with eight
+validation gates each. **None passed.** A transparent Elo model scores Brier 0.2277
+versus the market's 0.2106 (−8.1% skill) over 4,041 games — so the negative result is
+exactly what model quality predicts. The deliverable is the harness that proves it in
+an afternoon, plus a fully sourced dataset.
 
-## GitHub Pages
+## Other sections in this repository
 
-`.github/workflows/pages.yml` validates the static site's local links and publishes the repository root to GitHub Pages on pushes to `main`, using GitHub's Pages Actions deployment. The repository's Pages source must be set to **GitHub Actions** in Settings → Pages. Publication happens once the workflow is run with the required repository permissions. The current working branch is intentionally not the default `main` deployment target.
+These were built by other sessions in parallel. They are careful frameworks that
+deliberately left every NFL value **blank** — correct at the time, before the verified
+data existed.
 
-## Limitations
+- [`docs/index.html`](docs/index.html) — NFL Analysis Dashboard (session d263eab0): 16 pages, 345 transcribed injury rows, unit exposure, its own flagged list.
+- [`hub/index.html`](hub/index.html) — NFL Decision Hub (session e70150db + others): requirement coverage, validation gates, luck-vs-skill explainer, repository audit.
+- [`strategy.html`](strategy.html) — Fourth & Signal (session 4a77261b): the original evidence-first blueprint, with [`availability.html`](availability.html), [`data.html`](data.html), [`decisions.html`](decisions.html), [`review.html`](review.html).
 
-No automatic NFL data ingestion, odds provider, historical database, forecasts, user accounts, wagering or rewards are implemented. Before those are added, verify data access and reuse terms, time-stamped source integrity, price/settlement definitions, geography and competition rules, and independent time-ordered validation. See `decisions.html` and `review.html`.
+Consolidating all four structures into one is proposed as a decision — see
+[`ledger/suggestions.html`](ledger/suggestions.html). It was not done silently.
 
-## Week 10 data dashboard (`docs/`)
+## Verification rules
 
-A second, data-first dashboard lives in `docs/` (published at `https://sassnarep3-star.github.io/FL2/hub/docs/`):
+1. **Source or blank.** A cell either links to an official source or shows an em dash.
+2. **No inference.** Missing values are never derived from nearby values or league averages.
+3. **Flag everything.** Unconfirmed, blocked and resolved items all appear on the Flagged page.
 
-- Injury tracking: all 345 entries from the NFL.com Week 10 injury report, each row linked to the player's NFL.com profile.
-- Games, news, unit exposure (counts only; starter/backup status not verified), suggestions, open questions, sources and flagged items.
-- Data lives in `data/` (CSV pipe-delimited for verified rows, JSON for qualitative content).
-
-Rebuild and validate:
+## Rebuild
 
 ```bash
-python3 scripts/make_pages.py
-python3 scripts/build_site.py
+python3 engine/fetch_data.py       # download + hash datasets (needs network)
+python3 engine/run_backtest.py     # 11 strategies, 8 gates, FDR control
+python3 engine/run_parlays.py      # correlations + vig compounding
+python3 engine/build_week10.py     # official injury report + QB decisions
+python3 engine/build_market.py     # totals, margins, win probabilities
+python3 engine/build_site_data.py  # single sanitised bundle for the site
+python3 engine/check_site.py       # render + link gate (needs: npm i jsdom)
 ```
 
-`build_site.py` fails on any missing source link, unknown source ID, broken internal link, or invalid JSON. Starter/backup status, betting lines and strategy results are not included because no verified source for them exists yet (see `docs/flagged.html`).
+Docs: [`docs/SOURCES.md`](docs/SOURCES.md) · [`docs/STRATEGY_VALIDATION.md`](docs/STRATEGY_VALIDATION.md) · [`COORDINATION.md`](COORDINATION.md)
+
+Research tool, not betting advice.

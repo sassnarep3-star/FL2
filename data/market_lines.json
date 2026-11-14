@@ -1,0 +1,777 @@
+{
+  "as_of_utc": "2026-11-14T03:30:00Z",
+  "season": 2026,
+  "week": 10,
+  "method": {
+    "total": "sum of each offence's average of own points-per-game and opponent's points-allowed-per-game, after shrinkage",
+    "margin": "home offence vs away defence minus away offence vs home defence, plus measured home-field advantage",
+    "shrinkage": "k=4 games of league-average prior",
+    "sigma_used_for_win_prob": 12.97,
+    "sigma_source": "residual standard deviation of (home margin - closing line), 2011-2026, nflverse games.csv",
+    "avail_adjustment": "3 points for a full 100-point availability-index gap. Arbitrary scale, declared.",
+    "caveats": [
+      "No quarterback-quality term: FL2 has no verified QB rating series for 2026 within the build environment.",
+      "No injury market adjustment: the availability index is a proxy, not a measured effect.",
+      "The 2026 sample is 8-9 games per team, so all rate inputs are heavily shrunk.",
+      "These are research numbers, not betting recommendations."
+    ]
+  },
+  "games": [
+    {
+      "game_id": "WAS @ NYG",
+      "away": "WAS",
+      "home": "NYG",
+      "kickoff_et": "2026-11-12 20:15",
+      "tv": "Prime Video",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 21.78,
+        "away_off_ppg_regressed": 22.16,
+        "home_off_ppg_raw": 22.56,
+        "home_off_ppg_regressed": 22.7,
+        "away_def_papg_raw": 24.78,
+        "away_def_papg_regressed": 24.23,
+        "home_def_papg_raw": 21.78,
+        "home_def_papg_regressed": 22.16,
+        "away_games": 9,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 45.6,
+      "fl2_exp_home_points": 23.5,
+      "fl2_exp_away_points": 22.2,
+      "fl2_home_margin": 3.1,
+      "avail_adjustment_points": 0.44,
+      "avail_note": "NYG index 100 vs WAS index 85.2 -> +0.44 pts to home",
+      "fl2_spread_home": -3.6,
+      "fl2_p_home": 0.6079,
+      "market": {
+        "spread_line_home_expected_margin": 1.5,
+        "total_line": 40.5,
+        "home_moneyline": -122.0,
+        "away_moneyline": 102.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 1.6,
+        "total_diff": 5.1
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "NE @ DET",
+      "away": "NE",
+      "home": "DET",
+      "kickoff_et": "2026-11-15 09:30",
+      "tv": "FOX",
+      "note": "Munich",
+      "inputs": {
+        "away_off_ppg_raw": 23.44,
+        "away_off_ppg_regressed": 23.3,
+        "home_off_ppg_raw": 27.75,
+        "home_off_ppg_regressed": 26.17,
+        "away_def_papg_raw": 23.0,
+        "away_def_papg_regressed": 23.0,
+        "home_def_papg_raw": 23.62,
+        "home_def_papg_regressed": 23.41,
+        "away_games": 9,
+        "home_games": 8,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 47.9,
+      "fl2_exp_home_points": 24.6,
+      "fl2_exp_away_points": 23.4,
+      "fl2_home_margin": 3.0,
+      "avail_adjustment_points": -0.06,
+      "avail_note": "DET index 73.6 vs NE index 75.6 -> -0.06 pts to home",
+      "fl2_spread_home": -3.0,
+      "fl2_p_home": 0.5904,
+      "market": {
+        "spread_line_home_expected_margin": 2.5,
+        "total_line": 49.5,
+        "home_moneyline": -148.0,
+        "away_moneyline": 124.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 0.5,
+        "total_diff": -1.6
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "KC @ ATL",
+      "away": "KC",
+      "home": "ATL",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "CBS",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 25.25,
+        "away_off_ppg_regressed": 24.5,
+        "home_off_ppg_raw": 20.89,
+        "home_off_ppg_regressed": 21.54,
+        "away_def_papg_raw": 17.88,
+        "away_def_papg_regressed": 19.59,
+        "home_def_papg_raw": 24.78,
+        "home_def_papg_regressed": 24.23,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 44.9,
+      "fl2_exp_home_points": 20.6,
+      "fl2_exp_away_points": 24.4,
+      "fl2_home_margin": -2.0,
+      "avail_adjustment_points": 0.43,
+      "avail_note": "ATL index 88.4 vs KC index 74.0 -> +0.43 pts to home",
+      "fl2_spread_home": 1.6,
+      "fl2_p_home": 0.4518,
+      "market": {
+        "spread_line_home_expected_margin": -3.0,
+        "total_line": 47.5,
+        "home_moneyline": 145.0,
+        "away_moneyline": -175.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 1.0,
+        "total_diff": -2.6
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "MIN @ GB",
+      "away": "MIN",
+      "home": "GB",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "FOX",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 18.25,
+        "away_off_ppg_regressed": 19.83,
+        "home_off_ppg_raw": 24.0,
+        "home_off_ppg_regressed": 23.69,
+        "away_def_papg_raw": 14.5,
+        "away_def_papg_regressed": 17.33,
+        "home_def_papg_raw": 21.22,
+        "home_def_papg_regressed": 21.77,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 41.3,
+      "fl2_exp_home_points": 20.5,
+      "fl2_exp_away_points": 20.8,
+      "fl2_home_margin": 1.5,
+      "avail_adjustment_points": 0.53,
+      "avail_note": "GB index 68.4 vs MIN index 50.8 -> +0.53 pts to home",
+      "fl2_spread_home": -2.0,
+      "fl2_p_home": 0.5625,
+      "market": {
+        "spread_line_home_expected_margin": 2.5,
+        "total_line": 42.5,
+        "home_moneyline": -148.0,
+        "away_moneyline": 124.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": -1.0,
+        "total_diff": -1.2
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "JAX @ TEN",
+      "away": "JAX",
+      "home": "TEN",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "FOX",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 28.62,
+        "away_off_ppg_regressed": 26.75,
+        "home_off_ppg_raw": 18.0,
+        "home_off_ppg_regressed": 19.67,
+        "away_def_papg_raw": 15.12,
+        "away_def_papg_regressed": 17.75,
+        "home_def_papg_raw": 24.88,
+        "home_def_papg_regressed": 24.25,
+        "away_games": 8,
+        "home_games": 8,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 44.2,
+      "fl2_exp_home_points": 18.7,
+      "fl2_exp_away_points": 25.5,
+      "fl2_home_margin": -5.0,
+      "avail_adjustment_points": -0.17,
+      "avail_note": "TEN index 69.6 vs JAX index 75.2 -> -0.17 pts to home",
+      "fl2_spread_home": 5.2,
+      "fl2_p_home": 0.3453,
+      "market": {
+        "spread_line_home_expected_margin": -10.5,
+        "total_line": 46.5,
+        "home_moneyline": 500.0,
+        "away_moneyline": -700.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 5.5,
+        "total_diff": -2.3
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "BUF @ NYJ",
+      "away": "BUF",
+      "home": "NYJ",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "CBS",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 32.0,
+        "away_off_ppg_regressed": 29.0,
+        "home_off_ppg_raw": 20.22,
+        "home_off_ppg_regressed": 21.08,
+        "away_def_papg_raw": 23.38,
+        "away_def_papg_regressed": 23.25,
+        "home_def_papg_raw": 24.78,
+        "home_def_papg_regressed": 24.23,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 48.8,
+      "fl2_exp_home_points": 22.2,
+      "fl2_exp_away_points": 26.6,
+      "fl2_home_margin": -2.7,
+      "avail_adjustment_points": -0.07,
+      "avail_note": "NYJ index 92.8 vs BUF index 95.0 -> -0.07 pts to home",
+      "fl2_spread_home": 2.7,
+      "fl2_p_home": 0.417,
+      "market": {
+        "spread_line_home_expected_margin": -8.5,
+        "total_line": 50.5,
+        "home_moneyline": 330.0,
+        "away_moneyline": -425.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 5.8,
+        "total_diff": -1.7
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "MIA @ IND",
+      "away": "MIA",
+      "home": "IND",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "CBS",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 15.75,
+        "away_off_ppg_regressed": 18.17,
+        "home_off_ppg_raw": 20.44,
+        "home_off_ppg_regressed": 21.23,
+        "away_def_papg_raw": 25.0,
+        "away_def_papg_regressed": 24.33,
+        "home_def_papg_raw": 27.67,
+        "home_def_papg_regressed": 26.23,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 45.0,
+      "fl2_exp_home_points": 22.8,
+      "fl2_exp_away_points": 22.2,
+      "fl2_home_margin": 2.4,
+      "avail_adjustment_points": -0.56,
+      "avail_note": "IND index 60.4 vs MIA index 79.2 -> -0.56 pts to home",
+      "fl2_spread_home": -1.8,
+      "fl2_p_home": 0.5557,
+      "market": {
+        "spread_line_home_expected_margin": 3.5,
+        "total_line": 38.5,
+        "home_moneyline": -218.0,
+        "away_moneyline": 180.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": -1.1,
+        "total_diff": 6.5
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "CAR @ NO",
+      "away": "CAR",
+      "home": "NO",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "FOX",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 24.88,
+        "away_off_ppg_regressed": 24.25,
+        "home_off_ppg_raw": 23.12,
+        "home_off_ppg_regressed": 23.08,
+        "away_def_papg_raw": 27.38,
+        "away_def_papg_regressed": 25.92,
+        "home_def_papg_raw": 27.0,
+        "home_def_papg_regressed": 25.67,
+        "away_games": 8,
+        "home_games": 8,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 49.5,
+      "fl2_exp_home_points": 24.5,
+      "fl2_exp_away_points": 25.0,
+      "fl2_home_margin": 1.3,
+      "avail_adjustment_points": -0.53,
+      "avail_note": "NO index 67.2 vs CAR index 85.0 -> -0.53 pts to home",
+      "fl2_spread_home": -0.8,
+      "fl2_p_home": 0.5248,
+      "market": {
+        "spread_line_home_expected_margin": 2.5,
+        "total_line": 48.5,
+        "home_moneyline": -135.0,
+        "away_moneyline": 114.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": -1.2,
+        "total_diff": 1.0
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "HOU @ CLE",
+      "away": "HOU",
+      "home": "CLE",
+      "kickoff_et": "2026-11-15 13:00",
+      "tv": "FOX",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 26.12,
+        "away_off_ppg_regressed": 25.08,
+        "home_off_ppg_raw": 17.89,
+        "home_off_ppg_regressed": 19.46,
+        "away_def_papg_raw": 24.0,
+        "away_def_papg_regressed": 23.67,
+        "home_def_papg_raw": 21.78,
+        "home_def_papg_regressed": 22.16,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 45.2,
+      "fl2_exp_home_points": 21.6,
+      "fl2_exp_away_points": 23.6,
+      "fl2_home_margin": -0.3,
+      "avail_adjustment_points": 0.8,
+      "avail_note": "CLE index 89.6 vs HOU index 62.8 -> +0.80 pts to home",
+      "fl2_spread_home": -0.6,
+      "fl2_p_home": 0.5169,
+      "market": {
+        "spread_line_home_expected_margin": -4.5,
+        "total_line": 40.5,
+        "home_moneyline": 190.0,
+        "away_moneyline": -230.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 4.2,
+        "total_diff": 4.7
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "LAR @ ARI",
+      "away": "LAR",
+      "home": "ARI",
+      "kickoff_et": "2026-11-15 16:05",
+      "tv": "CBS",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 23.78,
+        "away_off_ppg_regressed": 23.54,
+        "home_off_ppg_raw": 19.78,
+        "home_off_ppg_regressed": 20.77,
+        "away_def_papg_raw": 20.11,
+        "away_def_papg_regressed": 21.0,
+        "home_def_papg_raw": 28.33,
+        "home_def_papg_regressed": 26.69,
+        "away_games": 9,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 46.0,
+      "fl2_exp_home_points": 20.9,
+      "fl2_exp_away_points": 25.1,
+      "fl2_home_margin": -2.4,
+      "avail_adjustment_points": -0.32,
+      "avail_note": "ARI index 76.0 vs LAR index 86.8 -> -0.32 pts to home",
+      "fl2_spread_home": 2.8,
+      "fl2_p_home": 0.4159,
+      "market": {
+        "spread_line_home_expected_margin": null,
+        "total_line": null,
+        "home_moneyline": null,
+        "away_moneyline": null,
+        "source_url": null,
+        "status": "absent"
+      },
+      "fl2_vs_market": {
+        "margin_diff": null,
+        "total_diff": null
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": false
+    },
+    {
+      "game_id": "SEA @ LV",
+      "away": "SEA",
+      "home": "LV",
+      "kickoff_et": "2026-11-15 16:05",
+      "tv": "CBS",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 22.44,
+        "away_off_ppg_regressed": 22.61,
+        "home_off_ppg_raw": 26.44,
+        "home_off_ppg_regressed": 25.38,
+        "away_def_papg_raw": 18.0,
+        "away_def_papg_regressed": 19.54,
+        "home_def_papg_raw": 29.78,
+        "home_def_papg_regressed": 27.69,
+        "away_games": 9,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 47.6,
+      "fl2_exp_home_points": 22.5,
+      "fl2_exp_away_points": 25.2,
+      "fl2_home_margin": -0.9,
+      "avail_adjustment_points": 1.36,
+      "avail_note": "LV index 100 vs SEA index 54.8 -> +1.36 pts to home",
+      "fl2_spread_home": -0.5,
+      "fl2_p_home": 0.5142,
+      "market": {
+        "spread_line_home_expected_margin": -6.5,
+        "total_line": 40.5,
+        "home_moneyline": 245.0,
+        "away_moneyline": -305.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 5.6,
+        "total_diff": 7.1
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "SF @ DAL",
+      "away": "SF",
+      "home": "DAL",
+      "kickoff_et": "2026-11-15 16:25",
+      "tv": "FOX",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 29.38,
+        "away_off_ppg_regressed": 27.25,
+        "home_off_ppg_raw": 27.33,
+        "home_off_ppg_regressed": 26.0,
+        "away_def_papg_raw": 19.5,
+        "away_def_papg_regressed": 20.67,
+        "home_def_papg_raw": 26.22,
+        "home_def_papg_regressed": 25.23,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 49.6,
+      "fl2_exp_home_points": 23.3,
+      "fl2_exp_away_points": 26.2,
+      "fl2_home_margin": -1.1,
+      "avail_adjustment_points": -0.94,
+      "avail_note": "DAL index 60.8 vs SF index 92.0 -> -0.94 pts to home",
+      "fl2_spread_home": 2.0,
+      "fl2_p_home": 0.4373,
+      "market": {
+        "spread_line_home_expected_margin": -4.5,
+        "total_line": 55.5,
+        "home_moneyline": 180.0,
+        "away_moneyline": -218.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": 3.4,
+        "total_diff": -5.9
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "PIT @ CIN",
+      "away": "PIT",
+      "home": "CIN",
+      "kickoff_et": "2026-11-15 20:20",
+      "tv": "NBC",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 22.5,
+        "away_off_ppg_regressed": 22.67,
+        "home_off_ppg_raw": 30.0,
+        "home_off_ppg_regressed": 27.67,
+        "away_def_papg_raw": 18.0,
+        "away_def_papg_regressed": 19.67,
+        "home_def_papg_raw": 21.88,
+        "home_def_papg_regressed": 22.25,
+        "away_games": 8,
+        "home_games": 8,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 46.1,
+      "fl2_exp_home_points": 23.7,
+      "fl2_exp_away_points": 22.5,
+      "fl2_home_margin": 3.0,
+      "avail_adjustment_points": -0.61,
+      "avail_note": "CIN index 79.6 vs PIT index 100 -> -0.61 pts to home",
+      "fl2_spread_home": -2.4,
+      "fl2_p_home": 0.5733,
+      "market": {
+        "spread_line_home_expected_margin": 3.5,
+        "total_line": 49.5,
+        "home_moneyline": -185.0,
+        "away_moneyline": 154.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": -0.5,
+        "total_diff": -3.4
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    },
+    {
+      "game_id": "LAC @ BAL",
+      "away": "LAC",
+      "home": "BAL",
+      "kickoff_et": "2026-11-16 20:15",
+      "tv": "ESPN/ABC",
+      "note": null,
+      "inputs": {
+        "away_off_ppg_raw": 15.12,
+        "away_off_ppg_regressed": 17.75,
+        "home_off_ppg_raw": 21.0,
+        "home_off_ppg_regressed": 21.62,
+        "away_def_papg_raw": 27.38,
+        "away_def_papg_regressed": 25.92,
+        "home_def_papg_raw": 26.22,
+        "home_def_papg_regressed": 25.23,
+        "away_games": 8,
+        "home_games": 9,
+        "hfa_points": 1.8,
+        "league_points_prior": 23.0
+      },
+      "fl2_total": 45.3,
+      "fl2_exp_home_points": 23.8,
+      "fl2_exp_away_points": 21.5,
+      "fl2_home_margin": 4.1,
+      "avail_adjustment_points": 0.0,
+      "avail_note": "BAL index 100 vs LAC index 100 -> +0.00 pts to home",
+      "fl2_spread_home": -4.1,
+      "fl2_p_home": 0.6235,
+      "market": {
+        "spread_line_home_expected_margin": 4.5,
+        "total_line": 38.5,
+        "home_moneyline": -225.0,
+        "away_moneyline": 185.0,
+        "source_url": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+        "status": "present"
+      },
+      "fl2_vs_market": {
+        "margin_diff": -0.4,
+        "total_diff": 6.8
+      },
+      "flows_to": [
+        "comparison vs. market in data/market_lines.json",
+        "feeds candidate strategy signals listed in data/strategies.json (status=experimental)",
+        "NOT used in backtests: backtests use historical closing lines only"
+      ],
+      "sources": [
+        "https://www.nfl.com/standings/",
+        "https://www.pro-football-reference.com/years/2026/opp.htm",
+        "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+      ],
+      "verified_inputs": true,
+      "verified_market": true
+    }
+  ]
+}

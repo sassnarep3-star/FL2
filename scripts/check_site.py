@@ -8,10 +8,15 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = sorted(ROOT.glob("*.html"))
+# Verified source hosts. `github.com` was added by session 68b4e431 for the
+# repository's own link in the footer; it is the repository itself, not an NFL
+# data source, so it is listed separately and cannot satisfy a table row.
 OFFICIAL_HOSTS = {
     "nfl.com", "www.nfl.com", "operations.nfl.com", "static.www.nfl.com",
     "itl.nist.gov", "www.itl.nist.gov", "pages.github.com", "docs.github.com",
 }
+REPO_HOSTS = {"github.com", "www.github.com"}
+SOURCE_HOSTS = OFFICIAL_HOSTS | REPO_HOSTS
 
 
 class AuditParser(HTMLParser):
@@ -71,7 +76,7 @@ def main() -> int:
         for href in parser.links:
             parsed = urlsplit(href)
             if parsed.scheme or href.startswith("//") or not parsed.path:
-                if parsed.scheme in ("http", "https") and (parsed.hostname or "").lower() not in OFFICIAL_HOSTS:
+                if parsed.scheme in ("http", "https") and (parsed.hostname or "").lower() not in SOURCE_HOSTS:
                     errors.append(f"{page.name}: external link host is not in the verified source allowlist: {href}")
                 continue
             target = (page.parent / parsed.path).resolve()
