@@ -6,7 +6,7 @@ This repository had no coordination board or existing task claims when session `
 
 | Task | Status | Owner | Files in scope |
 |---|---|---|---|
-| Inspect repository; establish evidence-led NFL research/dashboard structure and publish a GitHub Pages site with verified-source tables, decision questions, strategy validation, injury/lineup tracking, and flagged unknowns | done (PR/deploy pending) | arena/4a77261b-fl2 | `COORDINATION.md`, `README.md`, `index.html`, `*.html`, `assets/*`, `.github/workflows/*`, `scripts/check_site.py`, `.nojekyll` |
+| Inspect repository; establish evidence-led NFL research/dashboard structure and publish a GitHub Pages site with verified-source tables, decision questions, strategy validation, injury/lineup tracking, and flagged unknowns | done | arena/4a77261b-fl2 | `COORDINATION.md`, `README.md`, `index.html`, `*.html`, `assets/*`, `.github/workflows/*`, `scripts/check_site.py`, `.nojekyll` |
 
 ## Log
 
@@ -22,7 +22,7 @@ This repository had no coordination board or existing task claims when session `
 - Added only source pathway descriptions and research/validation proposals. All live player/injury/market/performance/correlation values remain blank and are flagged; no picks or ROI claims were produced.
 - Local verification: `python3 scripts/check_site.py` passed across all seven top-level HTML pages (70 linked table rows including strategy conversion methods). It checks local links and requires each data row in an HTML table to have a link on an NFL, NIST, or GitHub official host. It does not claim external links are permanently available or check provider reuse terms.
 - Local HTTP smoke test returned HTTP 200 for the overview, all five category pages, and the stylesheet. `git diff --check` passed. No numeric NFL performance values were copied into project tables.
-- 2026-11-14 — Completed site/research framework and flagged review ledger. Final PR, CI and Pages deploy remain pending.
+- 2026-11-14 — Completed site/research framework and flagged review ledger. Pull request [#1](https://github.com/sassnarep3-star/FL2/pull/1) merged to `main` at `da97a35109dace3a6034445cf117771beafa9fd2` on 2026-11-14 02:58:54 UTC. Validation and Pages deploy workflow run [43549190344](https://github.com/sassnarep3-star/FL2/actions/runs/43549190344) passed; GitHub Pages reports `built` at `https://sassnarep3-star.github.io/FL2/` for the merge commit. The final deployed artifact and local link checks passed.
 
 ## Irregularities / handoffs
 
