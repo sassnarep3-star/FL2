@@ -96,8 +96,14 @@ def table(headers, rows, sources=None, note=None):
     out.append("<tbody>")
     for i, r in enumerate(rows):
         if sources is not None:
-            src = '<td class="src">%s</td>' % (link(sources[i]) if sources[i] else
-                                               '<span class="na">&mdash;</span>')
+            raw = sources[i]
+            if not raw:
+                rendered = '<span class="na">&mdash;</span>'
+            elif "<a href" in str(raw):
+                rendered = raw            # already-rendered anchor(s)
+            else:
+                rendered = link(raw)
+            src = '<td class="src">%s</td>' % rendered
             cells = "".join(cell(v) for v in r) + src
         else:
             cells = "".join(cell(v) for v in r[:-1]) + '<td class="src">%s</td>' % r[-1]
@@ -593,15 +599,16 @@ def p_analytics():
                         r["correlated_joint_prob"], "%s×" % r["correlation_multiplier"]]
                        for r in a["parlay_correlation"]["rows"]],
                       [a["parlay_correlation"]["source"]] * len(a["parlay_correlation"]["rows"]),
-                      note="A sensitivity grid, not a measurement: ρ has not been estimated from data."))
+                      note="A sensitivity grid, not a measurement: ρ has not been estimated from data. "
+                           + esc(a["parlay_correlation"].get("source_note", ""))))
     body.append("<h2>Kelly sizing</h2>")
     body.append('<p class="note">%s</p>' % esc(a["kelly"]["note"]))
     body.append(table(["Price", "Decimal", "Model prob", "Break-even", "Full Kelly", "Quarter Kelly", "EV/unit"],
                       [[r["american_price"], r["decimal"], r["model_prob"], r["break_even_prob"],
                         r["full_kelly"], r["quarter_kelly"], r["ev_per_unit"]]
                        for r in a["kelly"]["rows"]],
-                      ["https://www.nfl.com/standings/"] * len(a["kelly"]["rows"]),
-                      note="Pure arithmetic on the Kelly identity; no odds source was available."))
+                      [a["kelly"]["source"]] * len(a["kelly"]["rows"]),
+                      note=esc(a["kelly"]["note"])))
     return "\n".join(body)
 
 
@@ -614,8 +621,9 @@ def p_gates():
                       [[r["observed_win_rate"], r["required_n_for_80pct_power_at_alpha_.05"],
                         r["seasons_at_200_bets_per_season"], r["p_value_if_observed_over_200_bets"],
                         r["p_value_if_observed_over_500_bets"]] for r in a["skill_gates"]["rows"]],
-                      ["https://www.nfl.com/schedules/2026/by-week/week-1"] * len(a["skill_gates"]["rows"]),
-                      note="Two-sided test at α = .05 against the −110 break-even rate of 0.5238095."))
+                      [a["skill_gates"]["source"]] * len(a["skill_gates"]["rows"]),
+                      note="One-sided test at α = .05, power = 0.80, against the −110 break-even rate "
+                           "0.5238095. " + esc(a["skill_gates"].get("source_note", ""))))
     return "\n".join(body)
 
 

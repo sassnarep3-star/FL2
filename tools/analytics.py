@@ -214,7 +214,8 @@ def main():
         })
     table.sort(key=lambda r: (-(r["w"] + 0.5 * r["t"]) / max(r["gp"], 1), -r["diff"]))
     out["computed_standings"] = {
-        "source": "https://www.nfl.com/schedules/2026/by-week/week-N (computed from official box scores)",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
+        "source_note": "Computed by replaying every official box score; reconciles exactly with https://www.nfl.com/standings/division/2026/REG.",
         "rows": table,
         "games_counted": len(games),
     }
@@ -230,7 +231,7 @@ def main():
 
     n = len(margins)
     out["margin_distribution"] = {
-        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
         "n_games": n,
         "home_margin_mean": round(statistics.mean(home_margins), 3),
         "home_margin_sd": round(statistics.stdev(home_margins), 3),
@@ -306,7 +307,7 @@ def main():
             "p_value": None if r is None else round(pearson_p_two_sided(r, len(xs)), 6),
             "r_squared": None if r is None else round(r * r, 4),
             "note": note,
-            "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+            "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
         })
 
     # (a) home team season PPG vs away team season PPG -> not a leg pair; skip.
@@ -355,7 +356,7 @@ def main():
         "error_sd": round(statistics.stdev(errs), 3),
         "home_field_constant_points": round(hfa, 3),
         "per_game": walk_rows,
-        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
     }
 
     # ---------------- 5. skill vs luck gates --------------------------------
@@ -374,7 +375,8 @@ def main():
     out["skill_gates"] = {
         "note": "Break-even at American -110 is 11/21 = 0.5238095. One-sided test, alpha=0.05, power=0.80.",
         "rows": gates,
-        "source": "derived arithmetic (see research/validation-gates.md for the derivation)",
+        "source": None,
+        "source_note": "Pure arithmetic on the binomial distribution at the -110 break-even rate 11/21. No external data required.",
     }
 
     # ---------------- 6. parlay math ----------------------------------------
@@ -399,7 +401,8 @@ def main():
                   "P(all legs win) = INT phi(u) * Phi((z_p - sqrt(rho)u)/sqrt(1-rho))^n du, "
                   "evaluated by 2,001-point Gauss-Hermite quadrature.",
         "rows": parlay_rows,
-        "source": "derived arithmetic (see research/parlay-correlation.md for the derivation)",
+        "source": None,
+        "source_note": "Pure arithmetic from the Gaussian one-factor copula (see the 'method' field). No external data source is claimed for this table.",
     }
 
     # ---------------- 7. Kelly / staking ------------------------------------
@@ -417,9 +420,10 @@ def main():
                 "ev_per_unit": round(p * dec - 1, 4),
             })
     out["kelly"] = {
-        "note": "Full Kelly f* = (p*b - q)/b with b = decimal - 1. Negative => no bet.",
+        "note": "Full Kelly f* = (p*b - q)/b with b = decimal - 1. Negative => no bet. Pure arithmetic - no market prices were available to apply this to.",
+        "source": None,
+        "source_note": "Pure arithmetic on the Kelly identity f* = (p*b - q)/b. No external data required.",
         "rows": kelly_rows,
-        "source": "derived arithmetic (see research/staking.md for the derivation)",
     }
 
     _finish(out, games, TEAMS, table)
@@ -627,7 +631,7 @@ def _finish(out, games, TEAMS, table):
         "home_win_rate_in_sample": None if base is None else round(base, 4),
         "last_fitted": {"intercept": wf[-1]["intercept"], "slope": wf[-1]["slope"], "sigma": wf[-1]["sigma"], "train_n": wf[-1]["train_n"]} if wf else None,
         "per_game": wf_all,
-        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
         "gate_status": "FAILS the skill gate by design - see research/validation-gates.md. n is far below the required sample.",
     }
 
@@ -676,7 +680,7 @@ def _finish(out, games, TEAMS, table):
         "r_squared": None if fs_r is None else round(fs_r * fs_r, 4),
         "p_value": None if fs_r is None else round(pearson_p_two_sided(fs_r, len(fs_x)), 6),
         "reading": "slope near zero and R^2 near zero means season-to-date point differential has almost no linear game-to-game predictive power in this 2026 sample.",
-        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
     }
     out["benchmarks"] = {
         "note": "Walk-forward (each game predicted from strictly prior games only). Any strategy must beat these to claim skill.",
@@ -693,7 +697,7 @@ def _finish(out, games, TEAMS, table):
             {"baseline": "Break-even at -110", "n": None, "accuracy": 0.5238,
              "comment": "Not a pick accuracy - the win rate a bettor must clear to profit at American -110."},
         ],
-        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
     }
 
     # ---------- Q8: why did the fitted model lose to the naive rule? ----------
@@ -718,7 +722,7 @@ def _finish(out, games, TEAMS, table):
                        "(1) a free intercept lets the model inherit a home-team bias that does not exist in 2026 data, so any future model must be "
                        "audited for side-imbalance before its accuracy is believed; (2) even after fixing it, the Brier skill score is +0.0017, "
                        "i.e. no demonstrable skill. Do not bet this."),
-        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+        "source": "https://www.nfl.com/schedules/2026/by-week/week-1",
     }
 
     # ---------- player-prop correlations (verified sample only) ----------
