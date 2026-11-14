@@ -1,0 +1,115 @@
+{
+  "note": "Suggestions only. Nothing on this list has been implemented. Choose a path (or reject) before any change is made. Each suggestion names the data it needs and how it can be verified.",
+  "suggestions": [
+    {
+      "id": "SG-01",
+      "title": "Add an official depth-chart table per team (starter, first backup, second backup)",
+      "what": "Build one row per team per position with the depth-chart order from the NFL.com team depth chart, plus the injury status of each listed player.",
+      "why": "Directly answers 'which backup replaces which starter' for offense and defense. Without this, unit exposure counts overstate or understate impact.",
+      "data_needed": "NFL.com team depth chart page (URL not yet confirmed - see Q6).",
+      "effort": "Medium (32 pages, one parser)",
+      "risk": "Depth chart format may change; needs per-page verification.",
+      "options": ["A: Build now for all 32 teams", "B: Build for 4 teams first as a pilot", "C: Skip for now; use counts only"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-02",
+      "title": "Separate 'Not injury related' absences from injury analysis",
+      "what": "Show the four non-injury absences (Bates, Davis, Al-Shaair, Garrett) in their own column, excluded from injury counts.",
+      "why": "Resting and personal-matter absences are not injury signals and would distort injury exposure.",
+      "data_needed": "Already on the NFL.com report.",
+      "effort": "Low",
+      "risk": "Low",
+      "options": ["A: Exclude from counts, show separately", "B: Keep in counts with a marker"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-03",
+      "title": "Add a daily refresh with a last-verified date on every page",
+      "what": "Re-run the Week 10 data pull and rebuild the site on a fixed schedule; show the fetch date on every table.",
+      "why": "Injury statuses change before kickoff; a stale table can mislead decisions.",
+      "data_needed": "Scheduled job (GitHub Actions) and repo permission to run it.",
+      "effort": "Medium",
+      "risk": "Automated scraping of NFL.com must follow their terms; needs your approval.",
+      "options": ["A: Manual refresh each game day", "B: Scheduled refresh (needs approval)"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-04",
+      "title": "Get a licensed odds archive before any line-making work",
+      "what": "Choose one odds source with historical closing lines and confirm its licence terms.",
+      "why": "Closing line value and ROI cannot be measured without real odds. No official NFL odds source exists.",
+      "data_needed": "Odds archive and licence (see Q4).",
+      "effort": "Depends on vendor; may have cost.",
+      "risk": "Licence restrictions; cost; data quality.",
+      "options": ["A: Use nflverse schedule line fields (community source, check terms)", "B: Licensed odds vendor", "C: Defer odds work; do analysis of injuries and schedules first"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-05",
+      "title": "Start strategy research with spreads only",
+      "what": "Limit the first strategy round to point-spread bets; add totals, moneylines, props, and parlays later.",
+      "why": "Spreads need the fewest data types. Props and parlays add correlation and data problems that are hard to validate early.",
+      "data_needed": "Spread history (see SG-04).",
+      "effort": "Low for scope; High for validation.",
+      "risk": "Narrow scope may find fewer signals.",
+      "options": ["A: Spreads only first", "B: Spreads + totals", "C: All markets at once (not recommended)"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-06",
+      "title": "Adopt the validation gates before any strategy is ranked",
+      "what": "Use the gates listed on the Strategy page (provenance, out-of-sample, minimum sample, closing line value, correlation check, multiple-testing correction, season stability).",
+      "why": "Without gates, a leaderboard rewards luck. The gates are the mechanism to separate skill from variance.",
+      "data_needed": "Historical data (see Q5).",
+      "effort": "Medium",
+      "risk": "Strict gates may produce no winners. That is a valid outcome.",
+      "options": ["A: Adopt all gates as written", "B: Adopt, with your edits to thresholds"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-07",
+      "title": "Define the leaderboard reward before building it",
+      "what": "Decide whether rewards are site points, a published ranking, or nothing else.",
+      "why": "A money reward changes legal and responsible-gambling requirements.",
+      "data_needed": "Your decision (Q2).",
+      "effort": "Low",
+      "risk": "Unclear reward definitions cause scope creep.",
+      "options": ["A: Points on the site only", "B: Ranking with no reward", "C: Money reward (requires legal review first)"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-08",
+      "title": "Add responsible-gambling guardrails if any wagering use is planned",
+      "what": "Set stake caps, loss limits, and a plain-language warning on any page that shows bets or strategies.",
+      "why": "Reduces harm if the analysis is used for real wagering.",
+      "data_needed": "Your bankroll and limits (Q10); official Mexican guidance (Q1).",
+      "effort": "Low",
+      "risk": "None, if done before any strategy is shown.",
+      "options": ["A: Add guardrails now", "B: Add only if wagering use is confirmed"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-09",
+      "title": "Use one source for each data type and record the source per row",
+      "what": "Keep NFL.com as the primary source; mark any community source (e.g., nflverse) as secondary on every row that uses it.",
+      "why": "Mixed sources without labels make verification hard.",
+      "data_needed": "None new.",
+      "effort": "Low",
+      "risk": "Low",
+      "options": ["A: Adopt (already applied to this site)", "B: Change"],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-10",
+      "title": "Add a weekly injury history table to test whether 'Questionable' predicts play",
+      "what": "Store each week's report and track how often Questionable and Doubtful players actually play.",
+      "why": "Turns injury designations into a measurable signal instead of an assumption.",
+      "data_needed": "Weekly NFL.com injury reports for past seasons (Q5).",
+      "effort": "Medium-High",
+      "risk": "Playing status needs a verified source for each game (box scores).",
+      "options": ["A: Collect from the 2026 season first", "B: Collect multiple past seasons"],
+      "decision": "Awaiting your choice"
+    }
+  ]
+}

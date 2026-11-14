@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+  </nav>
+</header>
+<main>
+
+<h1>Executive summary</h1>
+<p class="lead">Data pulled 2026-11-14. Facts below are from the official NFL.com pages listed in the source column. Items marked <span class="unverified">UNVERIFIED</span> are not yet confirmed.</p>
+
+<div class="card">
+<h2 style="margin-top:0">1. What is verified now</h2>
+<ul>
+  <li>The NFL.com Week 10 injury report lists <b>345</b> player entries across <b>28</b> teams. Of those, <b>66</b> are listed Out, <b>10</b> Doubtful and <b>84</b> Questionable as game status. Source: <a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">NFL.com injury report</a>.</li>
+  <li>NFL.com lists <b>14</b> Week 10 games; teams on bye per NFL.com: CHI, DEN, PHI, TB. Source: <a href="https://www.nfl.com/schedules/2026/REG10" target="_blank" rel="noopener">NFL.com schedule</a>.</li>
+  <li>Patrick Mahomes is listed with <i>Full Participation in Practice</i> and no injury on the Week 10 report, after an elbow sprain in Week 9 that NFL.com reported was not a major injury (MRI). Sources: <a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">report</a>; <a href="https://www.nfl.com/news/notable-injuries-news-sunday-week-9-games-2026" target="_blank" rel="noopener">NFL.com Week 9 news</a>.</li>
+  <li>NFL.com news reports Ravens QB Lamar Jackson was placed on injured reserve (Nov 5 roundup). He is not on the Week 10 report. Source: <a href="https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-5" target="_blank" rel="noopener">NFL.com</a>.</li>
+  <li>Sam Darnold (SEA) is listed Out with ribs and quadricep injuries; NFL.com news says he is ruled out for Week 10 and Drew Lock is expected to start. Sources: <a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">report</a>; <a href="https://www.nfl.com/news/sam-darnold-ruled-out-for-seahawks-week-10-game-vs-raiders-drew-lock-expected-to-start-again" target="_blank" rel="noopener">NFL.com</a>.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">2. Irregularities found (see Flagged for review)</h2>
+<ul>
+  <li>The Thursday game (Commanders 24, Giants 21) is FINAL on NFL.com but still appears in the Week 10 report with statuses (F-05).</li>
+  <li>Two NFL.com headlines disagree on Lamar Jackson's timeline: 6-10 weeks vs 6-9 weeks (F-08).</li>
+  <li>Puka Nacua has no injury shown on the report, while NFL.com news names knee and turf-toe injuries (F-06).</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">3. What we cannot yet conclude</h2>
+<ul>
+  <li><b>Starter vs backup</b> replacement effects on offense or defense: not verified. Counts by unit are shown, but they are not a starter analysis (F-10).</li>
+  <li><b>Lines and edges</b>: no verified odds source; no lines have been originated. Closing line value and ROI cannot be measured (F-11).</li>
+  <li><b>Strategies, parlays, prop combos and correlation values</b>: none evaluated. Validation needs multi-season history that is not in the repo yet (F-12).</li>
+  <li><b>Legal status</b> of wagering in Mexico City: unverified (F-14).</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">4. Next decisions for you</h2>
+<p>See the <a href="suggestions.html">Suggestions</a> page (10 options) and the <a href="questions.html">Open questions</a> page (12 items). Nothing on the suggestions list has been implemented. The critical ones are Q1 (legal status and purpose), Q4 (odds source and licence) and Q6 (official depth charts).</p>
+</div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+
+</body>
+</html>
