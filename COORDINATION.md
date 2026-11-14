@@ -677,3 +677,17 @@ Official only. Full list with what each page provided: `docs/sources.html`.
   `scripts/`, `tools/check_links.py` and root `index.html` are untouched by this session.
 * **Deliberate gaps** (also on `/fl2-signals/flagged.html`): no proprietary line and no leaderboard,
   because no market-odds source is reachable and zero strategies clear the significance gate.
+
+### Follow-up pull request
+
+* **PR:** https://github.com/sassnarep3-star/FL2/pull/14 — "Follow-up: flagged-page fixes
+  (source labels, 27 unacquired clubs listed)". Merged 2026-11-14. Fixes two rendering defects found
+  by re-reading the deployed page: a source link that printed its trailing annotation twice, and a
+  registry table that showed one placeholder row instead of all 27 unacquired clubs.
+* Live page re-verified after deploy: the registry now lists ARI…WAS with the official NFL.com team
+  page for each.
+
+### Bookkeeping
+
+* This section's own record is carried by https://github.com/sassnarep3-star/FL2/pull/15 (COORDINATION
+  text only; no data or site change).
