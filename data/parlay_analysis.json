@@ -1,0 +1,245 @@
+{
+  "as_of_utc": "2026-11-14T03:00:45.063790+00:00",
+  "n_games": 4082,
+  "season_range": [
+    2011,
+    2026
+  ],
+  "vig_cost_by_leg_count": [
+    {
+      "legs": 1,
+      "fair_multiple": 2.0,
+      "book_multiple": 1.909,
+      "probability_given_up_pct": 4.55,
+      "fair_american": -100.0,
+      "book_american": -110.0
+    },
+    {
+      "legs": 2,
+      "fair_multiple": 4.0,
+      "book_multiple": 3.645,
+      "probability_given_up_pct": 8.88,
+      "fair_american": 300.0,
+      "book_american": 264.5
+    },
+    {
+      "legs": 3,
+      "fair_multiple": 8.0,
+      "book_multiple": 6.958,
+      "probability_given_up_pct": 13.03,
+      "fair_american": 700.0,
+      "book_american": 595.8
+    },
+    {
+      "legs": 4,
+      "fair_multiple": 16.0,
+      "book_multiple": 13.283,
+      "probability_given_up_pct": 16.98,
+      "fair_american": 1500.0,
+      "book_american": 1228.3
+    },
+    {
+      "legs": 5,
+      "fair_multiple": 32.0,
+      "book_multiple": 25.359,
+      "probability_given_up_pct": 20.75,
+      "fair_american": 3100.0,
+      "book_american": 2435.9
+    },
+    {
+      "legs": 6,
+      "fair_multiple": 64.0,
+      "book_multiple": 48.413,
+      "probability_given_up_pct": 24.36,
+      "fair_american": 6300.0,
+      "book_american": 4741.3
+    },
+    {
+      "legs": 8,
+      "fair_multiple": 256.0,
+      "book_multiple": 176.446,
+      "probability_given_up_pct": 31.08,
+      "fair_american": 25500.0,
+      "book_american": 17544.6
+    },
+    {
+      "legs": 10,
+      "fair_multiple": 1024.0,
+      "book_multiple": 643.082,
+      "probability_given_up_pct": 37.2,
+      "fair_american": 102300.0,
+      "book_american": 64208.2
+    }
+  ],
+  "required_hit_rates": [
+    {
+      "price": -110,
+      "implied_with_vig_pct": 52.38,
+      "decimal": 1.909
+    },
+    {
+      "price": -105,
+      "implied_with_vig_pct": 51.22,
+      "decimal": 1.952
+    },
+    {
+      "price": 100,
+      "implied_with_vig_pct": 50.0,
+      "decimal": 2.0
+    },
+    {
+      "price": 110,
+      "implied_with_vig_pct": 47.62,
+      "decimal": 2.1
+    },
+    {
+      "price": 150,
+      "implied_with_vig_pct": 40.0,
+      "decimal": 2.5
+    },
+    {
+      "price": 200,
+      "implied_with_vig_pct": 33.33,
+      "decimal": 3.0
+    },
+    {
+      "price": 300,
+      "implied_with_vig_pct": 25.0,
+      "decimal": 4.0
+    },
+    {
+      "price": 500,
+      "implied_with_vig_pct": 16.67,
+      "decimal": 6.0
+    }
+  ],
+  "same_game_correlations": {
+    "home_cover + over": {
+      "note": "Favourite covering and the game going over: both driven by the favourite scoring.",
+      "phi": 0.00803331457851975,
+      "ci_lo": -0.02325585149493711,
+      "ci_hi": 0.03973462625228806,
+      "n": 3913,
+      "p_a": 0.48888320981344235,
+      "p_b": 0.4909276769741886,
+      "joint_observed": 0.24201380015333504,
+      "joint_if_independent": 0.2400062985053981,
+      "relative_error_pct": 0.84,
+      "significant": false
+    },
+    "home_win + home_cover": {
+      "note": "Winning outright vs. covering \u2014 the strongest structural dependence in football.",
+      "phi": 0.6758626787542537,
+      "ci_lo": 0.6533584177200612,
+      "ci_hi": 0.6979552924795717,
+      "n": 3900,
+      "p_a": 0.5494871794871795,
+      "p_b": 0.48923076923076925,
+      "joint_observed": 0.4369230769230769,
+      "joint_if_independent": 0.2688260355029586,
+      "relative_error_pct": 62.53,
+      "significant": true
+    },
+    "home_fav + over": {
+      "note": "Big home favourite and over: blowouts tend to be high scoring.",
+      "phi": 0.028090476755212427,
+      "ci_lo": -0.0030365022593498883,
+      "ci_hi": 0.0593216642926793,
+      "n": 3913,
+      "p_a": 0.42780475338614876,
+      "p_b": 0.4909276769741886,
+      "joint_observed": 0.21696907743419372,
+      "joint_if_independent": 0.21002119377837766,
+      "relative_error_pct": 3.31,
+      "significant": false
+    },
+    "big_total + over": {
+      "note": "High posted total and over: tests whether the market over-adjusts totals.",
+      "phi": 0.010291883654832266,
+      "ci_lo": -0.02257939680146373,
+      "ci_hi": 0.04139357702274489,
+      "n": 3913,
+      "p_a": 0.3028366981855354,
+      "p_b": 0.4909276769741886,
+      "joint_observed": 0.15103501150012777,
+      "joint_if_independent": 0.14867091674275837,
+      "relative_error_pct": 1.59,
+      "significant": false
+    },
+    "div_game + home_cover": {
+      "note": "Divisional games and home covering.",
+      "phi": -0.005367205748723441,
+      "ci_lo": -0.03484892554453308,
+      "ci_hi": 0.026915388878110208,
+      "n": 3913,
+      "p_a": 0.36647073856376183,
+      "p_b": 0.48888320981344235,
+      "joint_observed": 0.17786864298492205,
+      "joint_if_independent": 0.17916139097175476,
+      "relative_error_pct": -0.72,
+      "significant": false
+    }
+  },
+  "tickets": {
+    "measured_phi_spread_total": 0.00803331457851975,
+    "two_leg": {
+      "book_price_decimal_equivalents": 3.645,
+      "fair_independent_decimal": 4.0,
+      "correlated_win_prob": 0.252695,
+      "independent_win_prob": 0.25,
+      "pricing_error_pct": 1.078
+    },
+    "three_leg": {
+      "correlated_win_prob": 0.1272,
+      "independent_win_prob": 0.125,
+      "pricing_error_pct": 1.76
+    }
+  },
+  "player_prop_combos": [
+    {
+      "combo": "QB passing yards over + WR1 receiving yards over",
+      "expected_corr": "strong positive (same completions)",
+      "corr_measured_by_fl2": null,
+      "data_needed": "player-level game logs with targets/routes (nflverse player_stats)",
+      "status": "unverified",
+      "why": "nflverse release assets are unreachable from the build environment; no official per-player feed is available in-sandbox."
+    },
+    {
+      "combo": "RB rushing yards over + team total over",
+      "expected_corr": "positive (game script)",
+      "corr_measured_by_fl2": null,
+      "data_needed": "player game logs + team totals",
+      "status": "unverified",
+      "why": "player-level data gap, same as above."
+    },
+    {
+      "combo": "QB passing yards under + opponent CB interception prop over",
+      "expected_corr": "negative (attempts vs. takeaways)",
+      "corr_measured_by_fl2": null,
+      "data_needed": "player logs + defensive player props",
+      "status": "unverified",
+      "why": "player-level data gap."
+    },
+    {
+      "combo": "Kicking points over + game total over",
+      "expected_corr": "weak positive",
+      "corr_measured_by_fl2": null,
+      "data_needed": "kicker game logs",
+      "status": "unverified",
+      "why": "player-level data gap."
+    },
+    {
+      "combo": "Sacks (team) over + opponent passing yards under",
+      "expected_corr": "positive (pressure suppresses passing)",
+      "corr_measured_by_fl2": null,
+      "data_needed": "team sack logs + passing allowed",
+      "status": "unverified",
+      "why": "team-level sacks are obtainable from official box scores, but the season-long series is not fetchable in bulk here; left blank rather than estimated."
+    }
+  ],
+  "method_notes": [
+    "Leg probabilities are de-vigged closing lines; this measures structure, not edge.",
+    "phi is used for binary legs because it is the natural association measure for 'do these two bets win together'. Pearson is reported for continuous pairs.",
+    "Correlated (copula) parlay probabilities assume a Gaussian dependence structure; real tail dependence in football is fatter, so treat the correlated estimate as a lower bound on the mispricing."
+  ]
+}
