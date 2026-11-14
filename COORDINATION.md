@@ -204,4 +204,8 @@ deliverable undefined · F09 "reward" undefined. **None of these block the merge
 | Base seen at open | `c2ed442` (two other sessions' merges already on `main`) |
 | Conflicts | `COORDINATION.md`, `README.md`, `index.html` — all add/add or content, all resolved without discarding either side |
 | Merge method | `--merge`, merged without waiting for approval |
-| Post-merge deploy check | recorded below |
+| Merge result | **merged** 2026-11-14 03:09:22 UTC, merge commit `027a8bc0a2ee0db36a5b90953cda2a56e2c0e00e` |
+| CI on the PR | `validate` job **pass** (run 43550102630); `deploy` skipped on PR as designed |
+| CI on `main` after merge | `Validate and publish site` **success**; `pages build and deployment` **success**, both on `027a8bc` |
+| Pages API | `status: built`, `build_type: legacy`, `source: main /`, `https://sassnarep3-star.github.io/FL2/` |
+| Live verification | Fetched and rendered post-deploy: `/hub/index.html` (KPIs, correlation table, source table), `/hub/pages/flagged.html` (all 9 flags), `/docs/injuries.html` (345 rows, filters intact) |
