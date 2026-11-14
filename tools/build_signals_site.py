@@ -250,6 +250,20 @@ def p_index():
         ("Depth charts", "5 / 32", "clubs verified; 27 not acquired"),
         ("Strategies passing gates", "0", "see Validation gates"),
     ]))
+    body.append("""<h2>Other sections of this repository</h2>
+<div class="note">This repository holds several independently built sites. This one is
+<code>/fl2-signals/</code>, built by session <code>arena/1374049c-fl2</code>. The others were built by
+different sessions and are linked here for navigation; none of their files was modified by this
+session. A request to add a tile for this section to the shared hub is logged in
+<code>COORDINATION.md</code>.</div>
+<ul>
+<li><a href="../index.html">Repository hub</a> (root)</li>
+<li><a href="../docs/index.html">/docs/</a> &mdash; NFL analysis dashboard (session d263eab0)</li>
+<li><a href="../hub/index.html">/hub/</a> &mdash; decision hub (session e70150db)</li>
+<li><a href="../ledger/overview.html">/ledger/</a> &mdash; evidence ledger (session 68b4e431)</li>
+<li><a href="../fl2-dashboard/index.html">/fl2-dashboard/</a> &mdash; FL2 dashboard (session 48561869)</li>
+<li><a href="../signal/index.html">/signal/</a> &mdash; Signal Lab (session d10a1d25)</li>
+</ul>""")
     body.append("""<h2>What this project is</h2>
 <p>A line-by-line transcription of the 2026 NFL season from official sources, plus the analytics
 machinery to test betting strategies against it. Two rules are absolute: every table row links to
