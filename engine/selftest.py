@@ -190,10 +190,29 @@ def report():
     print("=" * 78)
     be = odds.break_even(-110)
     print(f"break-even at -110 (the hurdle before costs): {be:.6f}")
+    print("\n0. pricing constants the site publishes (every value on a page is one of these lines)")
+    dec110 = odds.american_to_decimal(-110)
+    imp110 = odds.american_to_implied(-110)
+    devig = odds.devig_multiplicative([-110, -110])
+    print(f"   decimal for -110: {dec110:.6f} · implied: {imp110:.6f}")
+    print(f"   de-vigged probability of each side: {devig[0]:.6f} · whole-market vig: "
+          f"{odds.vig_share([-110, -110]) * 100:.6f}%")
+    print(f"   EV per unit at p = 0.55 priced -110: {odds.expected_value(0.55, -110):+.4f}")
+    frac = config.GATES["G-11"]["max_kelly_fraction"]
+    print(f"   net decimal profit per unit at -110: {dec110 - 1:.6f} (= decimal − 1, the b in Kelly/EV)")
+    print(f"   Kelly fraction policy in engine/config.py: {frac} · full Kelly at that edge: "
+          f"{odds.kelly_fraction(0.55, -110, 1.0):.4f} · stake cap we use: "
+          f"{odds.kelly_fraction(0.55, -110, frac):.5f}")
+    print(f"   our fair price for p = 0.55: {odds.prob_to_american(0.55)} "
+          f"(decimal {1 / 0.55:.5f}, no vig added)")
+    lo, hi = odds.wilson_interval(58, 100, 0.90)
+    lo200 = odds.wilson_interval(116, 200, 0.90)[0]
+    print(f"   90% Wilson for 58 hits in 100 bets: [{lo:.4f}, {hi:.4f}] · lower bound at a 58% rate on "
+          f"200 bets (116/200): {lo200:.4f} — still below break-even, so it proves nothing either")
     print("\nA. bets required before a hit rate is evidence (lower 90% Wilson bound > break-even)")
     for hr in (0.53, 0.55, 0.56, 0.58, 0.60, 0.65):
         n = odds.min_bets_to_beat_break_even(hr, be, 0.90)
-        print(f"   hit {hr:.0%} → n = {n}")
+        print(f"   hit {hr:.0%} → n = {n} → {n / 30:.1f} weeks at 30 qualifying bets/week")
     print("\nB. parlay joint probability vs dependence (two legs at 0.55 and 0.52)")
     for rho in (0.0, 0.2, 0.4, 0.6, 0.8):
         j = parlay.joint_all_win([0.55, 0.52], rho)
@@ -206,7 +225,7 @@ def report():
         dec = naive * mult
         rho = parlay.implied_rho_from_parlay([0.55, 0.55], dec)
         print(f"   multiplier {mult:.2f} → decimal {dec:.3f} → implied rho {rho:+.3f}")
-    print("\nD. deflation: SR* a luck-driven search produces (dispersion of trial SRs = 0.04)")
+    print("\nD. deflation: SR* a luck-driven search produces (variance of trial SRs = 0.04, sd 0.2)")
     for nv in (1, 10, 50, 100, 500, 2000):
         print(f"   {nv:>5} variants → SR* {stats.expected_max_sharpe(nv, 0.04):.4f} per period")
     print("\nE. sample-size floor in weeks (G-01 = 150 bets; 30 qualifying bets/week)")

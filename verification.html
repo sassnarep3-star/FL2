@@ -90,6 +90,9 @@
           <li>every flag has evidence and a concrete next action; every question has an action, a provisional
             answer and a priority</li>
           <li>no placeholder text; <code>.nojekyll</code> and <code>COORDINATION.md</code> present</li>
+          <li>runs <code>python3 -m engine.selftest</code> and cross-checks <em>every</em> number published from
+            <code>computed.js</code> against that fresh output — a hand-edited or stale figure fails the publish
+            gate, so “computed (ours)” cannot quietly drift away from the code</li>
         </ul>
         <h3><code>node tools/render_test.js</code></h3>
         <ul class="tight">
@@ -100,9 +103,10 @@
           <li>checks the shared nav, masthead and footer appear on every page</li>
         </ul>
         <p class="note"><strong>Pre-publish run, 2026-11-14:</strong> <code>check_site.py</code> → all checks
-        passed (15 pages, 220 internal links, 19 datasets parsed, 18 flags, 22 questions, cross-register ID
-        references resolved). <code>render_test.js</code> → all pages render, 38 mounts populated,
-        680 table rows rendered.</p>
+        passed (15 pages, 220 internal links, 19 datasets parsed, 34 factual rows carrying a URL or a resolvable
+        source ID, 18 flags, 22 questions, cross-register ID references resolved, 46 engine assertions, computed
+        figures matched against the fresh run). <code>render_test.js</code> → all pages render, 39 mounts
+        populated, 686 table rows rendered.</p>
         <p class="note">The render test needs <code>jsdom</code> (dev-only, not used by the site); the site itself
         has no dependencies, so a reviewer can skip that check and still get the full picture by opening a page.</p>
       </div>
@@ -131,7 +135,9 @@
         record agreements <em>and</em> the three wording differences.</li>
       <li>Where a field could not be confirmed (e.g. a player on a report but not in the captured roster excerpt),
         leave the derived value blank and raise a flag rather than guessing the join.</li>
-      <li>Run the site/data checker; only then enable Pages.</li>
+      <li>Re-run the numeric claims: every figure published as “computed (ours)” has to appear in a fresh
+        <code>engine.selftest</code> run, which the publish gate checks automatically.</li>
+      <li>Run the site/data checker and the render test; only then enable Pages.</li>
     </ol>
     <p class="note">Ceiling to state plainly: this is single-pass verification by one reader, with a
     cross-check on a subset. A second independent pass is an open task (Q-19), and until it happens the correct

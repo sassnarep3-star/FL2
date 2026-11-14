@@ -251,6 +251,38 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001
             problems.append(f"questions dataset unreadable: {exc}")
 
+    # ---- 6b. computed.js must equal a fresh engine run (anti-drift between code and site)
+    import re as _re
+    import subprocess
+    try:
+        run = subprocess.run([sys.executable, "-m", "engine.selftest"], cwd=str(ROOT),
+                             capture_output=True, text=True, timeout=180)
+        if run.returncode != 0:
+            problems.append("engine selftest exited non-zero — no computed figure may be published until it passes")
+        report = run.stdout
+        n_ok = report.count("[ok]")
+        if "all assertions passed" not in report:
+            problems.append("engine selftest did not report 'all assertions passed'")
+        drift = []
+        for key, (fname, blob) in ds.items():
+            if not key.startswith("computed") or key == "computedSelftest":
+                continue
+            try:
+                obj = js_to_json(blob)
+            except Exception:  # noqa: BLE001
+                continue
+            for row in obj.get("rows", []):
+                for cell in row:
+                    for tok in _re.findall(r"-?\d+\.\d+|\b\d{2,}\b", str(cell)):
+                        if tok not in report:
+                            drift.append(f"{key}:{tok}")
+        if drift:
+            problems.append("published numbers not printed by the current engine run (stale or hand-edited): "
+                            + ", ".join(sorted(set(drift))[:12]))
+        notes.append(f"engine selftest: {n_ok} assertions ok; computed.js cross-checked against the fresh run")
+    except Exception as exc:  # noqa: BLE001
+        problems.append(f"could not run the engine selftest to cross-check computed figures: {exc}")
+
     # ---- 7. hygiene
     if not (ROOT / ".nojekyll").exists():
         problems.append("missing .nojekyll (Jekyll would ignore leading-underscore files and alter assets)")
