@@ -1,0 +1,165 @@
+{
+ "question": "Q07",
+ "test": "Does a player listed 1st (or 2nd) string on the club depth chart actually appear in that team-week's participation data?",
+ "definition": "'Agreement' = the listed player has a snap-count row for that team-week. This measures presence only. It does NOT measure whether he started, how many snaps he took, or whether he out-snapped the backup.",
+ "overall": {
+  "2nd string": {
+   "n": 59646,
+   "played": 47952,
+   "agreement_pct": 80.39,
+   "ci95": [
+    80.07,
+    80.71
+   ]
+  },
+  "1st string": {
+   "n": 77702,
+   "played": 70413,
+   "agreement_pct": 90.62,
+   "ci95": [
+    90.41,
+    90.82
+   ]
+  }
+ },
+ "by_position_group": {
+  "2nd string|SKILL": {
+   "n": 15957,
+   "played": 13750,
+   "agreement_pct": 86.17,
+   "ci95": [
+    85.62,
+    86.7
+   ]
+  },
+  "1st string|DL": {
+   "n": 9605,
+   "played": 8760,
+   "agreement_pct": 91.2,
+   "ci95": [
+    90.62,
+    91.75
+   ]
+  },
+  "2nd string|DL": {
+   "n": 8537,
+   "played": 7108,
+   "agreement_pct": 83.26,
+   "ci95": [
+    82.45,
+    84.04
+   ]
+  },
+  "2nd string|DB": {
+   "n": 11884,
+   "played": 10159,
+   "agreement_pct": 85.48,
+   "ci95": [
+    84.84,
+    86.11
+   ]
+  },
+  "1st string|ST": {
+   "n": 11227,
+   "played": 10762,
+   "agreement_pct": 95.86,
+   "ci95": [
+    95.47,
+    96.21
+   ]
+  },
+  "1st string|SKILL": {
+   "n": 18900,
+   "played": 16995,
+   "agreement_pct": 89.92,
+   "ci95": [
+    89.48,
+    90.34
+   ]
+  },
+  "2nd string|QB": {
+   "n": 2851,
+   "played": 898,
+   "agreement_pct": 31.5,
+   "ci95": [
+    29.82,
+    33.23
+   ]
+  },
+  "1st string|LB": {
+   "n": 8986,
+   "played": 8186,
+   "agreement_pct": 91.1,
+   "ci95": [
+    90.49,
+    91.67
+   ]
+  },
+  "2nd string|LB": {
+   "n": 8301,
+   "played": 7167,
+   "agreement_pct": 86.34,
+   "ci95": [
+    85.58,
+    87.06
+   ]
+  },
+  "1st string|QB": {
+   "n": 2749,
+   "played": 2425,
+   "agreement_pct": 88.21,
+   "ci95": [
+    86.95,
+    89.37
+   ]
+  },
+  "1st string|DB": {
+   "n": 12605,
+   "played": 11087,
+   "agreement_pct": 87.96,
+   "ci95": [
+    87.38,
+    88.51
+   ]
+  },
+  "1st string|OL": {
+   "n": 13630,
+   "played": 12198,
+   "agreement_pct": 89.49,
+   "ci95": [
+    88.97,
+    90.0
+   ]
+  },
+  "2nd string|OL": {
+   "n": 11731,
+   "played": 8536,
+   "agreement_pct": 72.76,
+   "ci95": [
+    71.95,
+    73.56
+   ]
+  },
+  "2nd string|ST": {
+   "n": 385,
+   "played": 334,
+   "agreement_pct": 86.75,
+   "ci95": [
+    83.0,
+    89.78
+   ]
+  }
+ },
+ "interpretation_guard": "Second-string players should NOT be expected to appear every week; a high appearance rate for 2nd string would suggest the chart is not really a depth ordering. Compare the two rows rather than reading either alone.",
+ "caveats": [
+  "Presence in snap counts means at least one snap, including special teams.",
+  "Players traded or renamed mid-season may fail the name join.",
+  "Depth charts may be published at a different cadence than weekly, so some team-weeks may reuse a stale chart.",
+  "This does not establish that the depth chart is a reliable replacement map; it only quantifies how often the listed player appears at all."
+ ],
+ "sources": [
+  "https://github.com/nflverse/nflverse-data",
+  "https://www.nfl.com/players/",
+  "https://www.pro-football-reference.com/"
+ ]
+}

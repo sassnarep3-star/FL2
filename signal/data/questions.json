@@ -1,0 +1,417 @@
+{
+  "purpose": "The decision-blockers register. Each item states a question that must be answered before a change can be made responsibly, separates what we KNOW (with a source id) from what we DO NOT KNOW, and proposes how to discover the missing information. Nothing here is invented: where a value is unknown it is left null and marked unverified.",
+  "conventions": {
+    "confidence": "high | medium | low | none \u2014 confidence in what we know, not in the answer",
+    "blocks": "suggestion ids (S-series) that cannot be implemented until this is answered",
+    "status": "open | partially_answered | answered | not_applicable"
+  },
+  "items": [
+    {
+      "id": "Q01",
+      "category": "Market data",
+      "question": "Can we obtain true historical CLOSING lines for spreads, totals and moneylines, and do we know which sportsbook each number came from?",
+      "why_it_matters": "Any claim of edge is measured against the price actually available. Without a book-level closing line, a strategy can look profitable against a line no one could bet.",
+      "know": [
+        {
+          "fact": "nflverse/nfldata publishes closing_lines.csv with 20,490 rows of type MONEYLINE, SPREAD and TOTAL.",
+          "source": "S08"
+        },
+        {
+          "fact": "games.csv carries spread_line, total_line, away_moneyline and home_moneyline per game, 1999-2026.",
+          "source": "S08"
+        }
+      ],
+      "dont_know": [
+        "Which sportsbook(s) the closing numbers come from \u2014 not documented in the files we parsed.",
+        "Whether the closing line is a single-book quote or a market consensus.",
+        "Whether the line timestamp is true close or an earlier snapshot."
+      ],
+      "discovery": "Read the nfldata README and commit history for the provenance of closing_lines.csv; cross-check a sample of 20 games against an archived odds source.",
+      "confidence": "medium",
+      "blocks": [
+        "S03",
+        "S04",
+        "S05"
+      ],
+      "status": "open",
+      "verification": "Row count verified by parsing the downloaded CSV on 2026-11-14. Book attribution NOT verified."
+    },
+    {
+      "id": "Q02",
+      "category": "Market data",
+      "question": "Do we have player-prop lines and results at the level needed to test prop strategies?",
+      "why_it_matters": "The request covers player prop single bets and prop combinations. Props need historical lines with over/under prices per player per week \u2014 a different dataset from team lines.",
+      "know": [
+        {
+          "fact": "nflverse publishes player_week box scores (stats_player_week) usable as the OUTCOME side of a prop test.",
+          "source": "S04"
+        },
+        {
+          "fact": "Depth charts and snap counts are available to estimate opportunity.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "Any free, license-clean source of historical NFL player-prop LINES for 2020-2026.",
+        "The vig/price conventions on props (they differ materially from side/total pricing).",
+        "Whether alternate lines (over 0.5 / 1.5 / 2.5 receptions) are obtainable."
+      ],
+      "discovery": "Audit the license and sample coverage of commercial prop-odds vendors (SportsRadar, Sportradar/Opta, OddsAPI, Bookies.com archives); fall back to modelling props on outcomes with SYNTHETIC lines derived by our own model, and label every such line as model-originated, not market-sourced.",
+      "confidence": "none",
+      "blocks": [
+        "S06",
+        "S07"
+      ],
+      "status": "open",
+      "verification": "No prop line dataset has been obtained. Nothing in this repo should present a prop line as market data."
+    },
+    {
+      "id": "Q03",
+      "category": "Validation",
+      "question": "What is the minimum sample size before a strategy is allowed to claim skill rather than luck?",
+      "why_it_matters": "Without a pre-registered threshold, any strategy can be declared a winner after a lucky run. This is the central anti-luck gate.",
+      "know": [
+        {
+          "fact": "NFL teams play 17 regular-season games; a single season is a very small sample per team.",
+          "source": "S08"
+        },
+        {
+          "fact": "The league itself treats ~95% as the empirical base rate for the old 'Probable' tag, evidence that outcome base rates are stable and knowable.",
+          "source": "S02"
+        }
+      ],
+      "dont_know": [
+        "The realised variance of our own strategy returns (needed to size a test properly).",
+        "The appropriate significance threshold after correcting for multiple comparisons across many candidate strategies.",
+        "Whether walk-forward or fully out-of-sample testing is affordable given the number of seasons with complete data."
+      ],
+      "discovery": "Pre-register the gate in code before testing: minimum N bets, a bootstrap confidence interval on ROI that excludes zero, and a false-discovery-rate correction across all strategies tried. Publish the gate and the number of strategies tried so the search itself is auditable.",
+      "confidence": "medium",
+      "blocks": [
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "status": "open",
+      "verification": "Gate design is a policy decision, not a fact. It must be fixed before any strategy is scored."
+    },
+    {
+      "id": "Q04",
+      "category": "Validation",
+      "question": "How do we measure how much of the sample the model has effectively already seen?",
+      "why_it_matters": "Strategies tuned on 2015-2024 and reported on 2015-2024 are contaminated. The leaderboard is meaningless unless the held-out period is genuinely untouched.",
+      "know": [
+        {
+          "fact": "Complete injury data exists from 2009, depth charts from 2001, snap counts from 2012, play-by-play from 1999 in the nflverse releases.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "The exact season boundary after which our chosen features stop changing definition (rules and stat definitions change over time).",
+        "How much of the pre-2015 data is usable given schema drift."
+      ],
+      "discovery": "Freeze a holdout of the most recent complete seasons and forbid all tuning on it. Document the schema differences found per season in the manifest.",
+      "confidence": "medium",
+      "blocks": [
+        "S04",
+        "S05"
+      ],
+      "status": "open",
+      "verification": "Season coverage verified from release asset listings on 2026-11-14."
+    },
+    {
+      "id": "Q05",
+      "category": "Correlation",
+      "question": "What are the empirically measured correlations between legs we intend to combine, and do they hold out of sample?",
+      "why_it_matters": "Parlay pricing assumes independence. If legs are positively correlated the true joint probability is higher than the product; the book prices a multiplied edge and we must know the sign and size.",
+      "know": [
+        {
+          "fact": "Play-by-play and player-week data allow us to compute empirical joint frequencies of outcomes within the same game.",
+          "source": "S04"
+        },
+        {
+          "fact": "Games are identifiable by a stable game_id, so same-game legs can be joined reliably.",
+          "source": "S08"
+        },
+        {
+          "fact": "MEASURED 2026-11-14: same-game correlation between the two team legs (home cover and over) is small. Over 2,927 graded games the joint probability is 24.09% versus 23.75% if independent, a difference of +0.33 percentage points (phi = 0.013).",
+          "source": "S08"
+        },
+        {
+          "fact": "The correlation is concentrated in large spreads: phi = 0.058 for spreads of 7 or more (joint +1.44 points above independent), versus phi = -0.011 for spreads of 3 or less.",
+          "source": "S08"
+        }
+      ],
+      "dont_know": [
+        "Player-prop leg correlations. These need prop prices to value, which we do not hold (Q02).",
+        "Whether the large-spread correlation holds out of sample.",
+        "How each book's parlay pricing adjusts for correlation, if at all."
+      ],
+      "discovery": "Compute pairwise empirical joint probabilities on the training window, condition on game script, then confirm on the holdout. Publish the matrix with confidence intervals and the sample size behind each cell.",
+      "confidence": "medium",
+      "blocks": [
+        "S05",
+        "S07"
+      ],
+      "status": "partially_answered",
+      "verification": "Measured, not assumed: data/correlation.json, produced by analysis/correlation.py. Multiplying leg probabilities is only valid at phi = 0; the measured phi is published so the size of that error is visible."
+    },
+    {
+      "id": "Q06",
+      "category": "Injury / availability",
+      "question": "Does an official game status actually predict whether a player plays, and by how much, by position and by injury type?",
+      "why_it_matters": "The injury signal is the core of the availability model. If 'Questionable' has a stable play rate, it is a usable probability. If it does not, any weighting is invented.",
+      "know": [
+        {
+          "fact": "Official definitions: Out = will not play; Doubtful = unlikely to participate; Questionable = uncertain whether the player will play.",
+          "source": "S02"
+        },
+        {
+          "fact": "Probable was removed because about 95% of Probable players did play.",
+          "source": "S02"
+        },
+        {
+          "fact": "The policy sets no numeric probability for Doubtful or Questionable.",
+          "source": "S02"
+        },
+        {
+          "fact": "MEASURED 2026-11-14: over 2016-2026, listed Questionable players actually participated 65.68% of the time (n=14,948; 95% CI 64.92-66.44%). Listed Doubtful participated 0.89% (n=1,684). Listed Out participated 0.03% (n=10,674).",
+          "source": "S04"
+        },
+        {
+          "fact": "The Questionable rate is stable across 11 measured seasons (62.5% to 72.7%) and varies by position group: QB 42.3%, DB 58.0%, OL 58.2%, SKILL 61.7%, LB 65.1%, DL 66.2%.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "Whether the play rate holds within a single injury type (knee vs ankle vs illness).",
+        "Whether 'Questionable' plus a full practice differs from 'Questionable' plus DNP.",
+        "Whether the rate is stable enough by position to price an individual player."
+      ],
+      "discovery": "Join official game status to actual participation (snap counts or player-week stats with attempts > 0) and compute realised play rates with Wilson intervals. This converts an assumption into a measurement.",
+      "confidence": "high",
+      "blocks": [
+        "S08",
+        "S04"
+      ],
+      "status": "partially_answered",
+      "verification": "Measured, not asserted: data/injury_play_rate.json, produced by analysis/injury_signal.py from official game status joined to realised participation. Naive snap-count joining gives a false 100% and is explicitly rejected in the output."
+    },
+    {
+      "id": "Q07",
+      "category": "Injury / availability",
+      "question": "When a starter is out, how do we know who replaces him and how large is the drop-off?",
+      "why_it_matters": "The request specifically asks to track 2nd/3rd/4th string replacements on defense and offense. Without a defensible replacement map, the downgrade is a guess.",
+      "know": [
+        {
+          "fact": "nflverse depth charts list players by depth_team 1, 2, 3 per position and season/week.",
+          "source": "S04"
+        },
+        {
+          "fact": "Snap counts per player per game give the realised participation, which can confirm or contradict the depth chart.",
+          "source": "S04"
+        },
+        {
+          "fact": "Depth charts and snap counts both cover 2016-2026 for the seasons we fetched, so listed starter vs realised snap leader can be compared directly.",
+          "source": "S04"
+        },
+        {
+          "fact": "MEASURED 2026-11-14: a player listed 1st string on the club depth chart appears in that team-week's participation data 90.62% of the time (n=77,702; 95% CI 90.41-90.82%). A player listed 2nd string appears 80.39% of the time (n=59,646; 95% CI 80.07-80.71%).",
+          "source": "S04"
+        },
+        {
+          "fact": "The gap between 1st and 2nd string is only about 10 percentage points, which means the published chart is a weak discriminator of who actually plays, not a precise statement of the starting lineup.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "Whether the listed 1st-string player OUT-SNAPPED his backup, as opposed to merely appearing.",
+        "How often the chart is stale (reused from a prior week).",
+        "Any objective per-player value measure to size the drop-off when a starter is out."
+      ],
+      "discovery": "Validate depth charts against realised snap share: for each team-week, check whether the listed depth_team 1 player actually led the position group in snaps. Report agreement rate honestly. Do not assume the depth chart is correct.",
+      "confidence": "medium",
+      "blocks": [
+        "S08",
+        "S09"
+      ],
+      "status": "partially_answered",
+      "verification": "Measured, not assumed: data/depth_accuracy.json, produced by analysis/depth_accuracy.py. An earlier join on the `football_name` column returned 0% because that column holds only the given name; the schema was verified from the downloaded files (data/schema_samples.json) and the join moved to `full_name`."
+    },
+    {
+      "id": "Q08",
+      "category": "Modelling",
+      "question": "What is our own line, and what is the honest baseline it must beat?",
+      "why_it_matters": "'Originating our own lines' only means something relative to the market close. If our line is worse than the close, we have produced noise.",
+      "know": [
+        {
+          "fact": "Closing spread and total per game are available for 1999-2026.",
+          "source": "S08"
+        },
+        {
+          "fact": "The closing line is, by definition, the market's final estimate and is a strong benchmark.",
+          "source": "S08"
+        }
+      ],
+      "dont_know": [
+        "Whether our feature set can beat the closing line at all.",
+        "What the realistic target error (MAE / RMSE) for a good NFL spread model is.",
+        "Whether any edge exists after the vig."
+      ],
+      "discovery": "Score our model against the closing line as the baseline, and against a naive baseline (home field advantage + prior season rating). Report MAE and correlation. If we cannot beat the close, we say so on the site instead of shipping a strategy.",
+      "confidence": "medium",
+      "blocks": [
+        "S03",
+        "S04"
+      ],
+      "status": "open",
+      "verification": "Baseline availability verified; no model has been fitted yet."
+    },
+    {
+      "id": "Q09",
+      "category": "Legal / compliance",
+      "question": "What are the legal and licensing constraints on publishing lines, model output and historical odds?",
+      "why_it_matters": "Publishing derived lines and redistributing odds can breach vendor terms. The site is public.",
+      "know": [
+        {
+          "fact": "nflverse data is published under CC-BY-4.0, which permits redistribution with attribution.",
+          "source": "S05"
+        }
+      ],
+      "dont_know": [
+        "The terms of any commercial odds vendor we might use.",
+        "Whether publishing our own origination numbers constitutes gambling advice in any jurisdiction the user is in.",
+        "Whether NFL marks and logos may be used on the site."
+      ],
+      "discovery": "Keep the site to factual tables plus our own derived numbers with attribution; avoid league logos; add a clear not-advice disclaimer; review vendor terms before ingesting any vendor data. Ask the user to confirm jurisdiction if the site will ever show actionable prices.",
+      "confidence": "low",
+      "blocks": [
+        "S10"
+      ],
+      "status": "open",
+      "verification": "CC-BY-4.0 licence link verified. Vendor terms not reviewed."
+    },
+    {
+      "id": "Q10",
+      "category": "Operations",
+      "question": "Can the pipeline run without manual input, and does it fail loudly?",
+      "why_it_matters": "The user requires no manual input. Silent data failures would make every downstream number wrong without anyone noticing.",
+      "know": [
+        {
+          "fact": "The development sandbox cannot reach release-assets.githubusercontent.com; GitHub Actions runners can, so the download is delegated to a workflow.",
+          "source": "S04"
+        },
+        {
+          "fact": "A GitHub Actions run on 2026-11-14 downloaded every configured asset with zero failures.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "Whether the scheduler stays within free-tier minutes long term.",
+        "How the pipeline behaves when an upstream release changes schema."
+      ],
+      "discovery": "Every run writes data/aggregate_report.json with per-section status and tracebacks; the site displays the freshness timestamp and any failed section. A schema change therefore appears on the site rather than being silently absorbed.",
+      "confidence": "high",
+      "blocks": [],
+      "status": "partially_answered",
+      "verification": "Download step success verified from the Actions API on 2026-11-14."
+    },
+    {
+      "id": "Q11",
+      "category": "Market data",
+      "question": "What exactly is the sign convention of spread_line, and does the convention match the totals?",
+      "why_it_matters": "A sign error silently inverts every cover result and would invalidate every strategy on the site.",
+      "know": [
+        {
+          "fact": "In our parsing, home_covered is computed as sign(home_margin + spread_line) > 0, which treats spread_line as the home team's line (negative = home favoured).",
+          "source": "S08"
+        }
+      ],
+      "dont_know": [
+        "Confirmation from the official nflverse data dictionary that this is the intended convention."
+      ],
+      "discovery": "Open the nflverse schedules dictionary page and confirm; additionally check that the realised home cover rate is close to 50%, which it must be if the sign is right.",
+      "confidence": "medium",
+      "blocks": [
+        "S03",
+        "S04"
+      ],
+      "status": "open",
+      "verification": "Empirically inferred only. NOT confirmed from the dictionary. Flagged for review."
+    },
+    {
+      "id": "Q12",
+      "category": "Validation",
+      "question": "How do we separate a genuinely skilful strategy from one that is merely a proxy for information already in the line?",
+      "why_it_matters": "Many 'edges' are just rediscovering the closing line. The requirement is selectively skill-based strategies, not re-labelled market consensus.",
+      "know": [
+        {
+          "fact": "The closing line already contains the market's aggregate information.",
+          "source": "S08"
+        }
+      ],
+      "dont_know": [
+        "Which of our candidate signals carry information independent of the closing line.",
+        "How to measure incremental information cleanly."
+      ],
+      "discovery": "For every signal, test it as a residual against the closing line (does it predict the error of the close?), not against the raw outcome. A signal that only predicts the outcome but not the close's error is market information, not incremental skill.",
+      "confidence": "medium",
+      "blocks": [
+        "S04",
+        "S05",
+        "S08"
+      ],
+      "status": "open",
+      "verification": "Method is a design choice; no test has been run."
+    },
+    {
+      "id": "Q13",
+      "category": "Injury / availability",
+      "question": "Do we have a verified measure of defensive quality by position group, so a backup's impact can be quantified?",
+      "why_it_matters": "The request asks for 'deficiencies in defenses'. Deficiencies are relative to a baseline of how well the position group performs.",
+      "know": [
+        {
+          "fact": "Play-by-play allows defensive EPA per play to be computed and split by play type.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "Whether defensive EPA is sufficiently position-specific to attribute a drop-off to one backup.",
+        "Any player-grading source we are licensed to use."
+      ],
+      "discovery": "Start with team-level defensive EPA allowed by play type, then attempt to isolate the effect of a starter's absence by comparing team defence in games the starter played vs missed, controlling for opponent. Report effect sizes with uncertainty, or report that it is not identifiable.",
+      "confidence": "medium",
+      "blocks": [
+        "S08",
+        "S09"
+      ],
+      "status": "open",
+      "verification": "No defensive-quality metric has been computed yet."
+    },
+    {
+      "id": "Q14",
+      "category": "Data quality",
+      "question": "How much of the injury and depth data is missing or contradictory, and how is that represented on the site?",
+      "why_it_matters": "The instruction is explicit: if a value cannot be confirmed, leave it blank and flag it. We need a count of how often that happens.",
+      "know": [
+        {
+          "fact": "Injury files contain both practice_status and report_status, and some rows have an empty report_status.",
+          "source": "S04"
+        },
+        {
+          "fact": "Practice status strings in older seasons include values like 'Out (Definitely Will Not Play)' that are not in the current three-way scheme.",
+          "source": "S04"
+        }
+      ],
+      "dont_know": [
+        "The exact null rate per field per season.",
+        "The rate of genuinely contradictory records."
+      ],
+      "discovery": "Produce a completeness table per dataset and per season, publish it, and show every unverified cell as blank with a flag. Never impute.",
+      "confidence": "high",
+      "blocks": [],
+      "status": "open",
+      "verification": "Observed directly in the downloaded injuries file on 2026-11-14."
+    }
+  ]
+}

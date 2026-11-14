@@ -429,3 +429,87 @@ F5 (no license). U1–U7 list every intentionally blank item and what would un-f
   https://sassnarep3-star.github.io/FL2/ (hub, includes the FL2 Dashboard tile) and
   https://sassnarep3-star.github.io/FL2/fl2-dashboard/ (this session's section, dashboard,
   standings table with per-row official source links, and snapshot cards rendering correctly).
+
+
+---
+
+# Session `arena/d10a1d25-fl2` — Signal Lab (`/signal/`)
+
+## Integration convention followed
+
+At integration time `main` had already been re-architected by other sessions into a multi-section hub
+with its own Evidence Ledger. My 24-commit branch had also been re-entered by the data workflow, so a
+straight rebase conflicted across `COORDINATION.md`, `README.md`, `index.html` and the shared assets.
+
+Per this repository's established convention — **relocate your own files, never overwrite another
+session's** — this session's entire deliverable now lives in `/signal/`:
+
+- `signal/*.html`, `signal/data/`, `signal/analysis/`, `signal/README.md`
+- No other session's page, data file or asset was modified.
+- Edits outside `/signal/`: **one tile and one nav link** added to the root `index.html` (the same
+  cross-linking convention the other sessions used), two **additive** allowlist entries in
+  `scripts/check_site.py`, and this board entry.
+- The earlier root-level versions of these pages (`lines.html`, `health.html`, `validation.html`, etc.)
+  were never merged to `main`; nothing was replaced.
+
+## Task board (this session)
+
+| Task | Status | Files |
+|---|---|---|
+| Verified data pipeline (market, injuries, depth, snaps, stats, PBP) | **done** | `signal/analysis/`, `signal/data/` |
+| Measured injury-designation play rates (Q06/S08) | **done** | `signal/analysis/injury_signal.py` |
+| Measured depth-chart accuracy (Q07/S09) | **done** | `signal/analysis/depth_accuracy.py` |
+| Measured same-game correlation (Q05) | **done** | `signal/analysis/correlation.py` |
+| Pre-registered validation gate + leaderboard (S03/S04/S13) | **done** | `signal/analysis/strategies.py` |
+| Questions register, 14 items (Q01–Q14) | **done** | `signal/data/questions.json` |
+| Suggestions register, 16 items with decisions | **done** | `signal/data/suggestions.json` |
+| Executive summary | **done** | `signal/EXECUTIVE_SUMMARY.md`, `signal/index.html` |
+| Reproducible verification in CI (216 checks + no-drift) | **done** | `.github/workflows/verify-data.yml` |
+
+## Verification performed (2026-11-14 UTC)
+
+| Check | Method | Result |
+|---|---|---|
+| Official injury definitions | Read the NFL Competition Committee announcement in full | Confirmed verbatim; "Probable" removal confirmed |
+| Official injury page structure | Fetched the Week 10 2026 report | Practice Status + Game Status columns confirmed |
+| nflverse release inventory | Enumerated release tags via the API | injuries 2009–2026, depth 2001–2026, snaps 2012–2026, PBP to 2026 |
+| Download URL patterns | Read `nflreadr` source from a `codeload` tarball | Confirmed for injuries, pbp, snap counts |
+| **Spread sign convention** | Joined `games.csv` to `closing_lines.csv`; compared to that file's own `outcome` | `spread_line` is away-signed; 914/924 agree (98.92 %) |
+| **Market sanity check** | Counted covers/overs over 3,032 graded games | 48.53 % cover, 49.00 % over; the naive reading gives 56.93 % and is rejected |
+| **Injury play rates** | Official status joined to realised participation, 2016–2026 | Questionable 65.68 % (n=14,948), Doubtful 0.89 %, Out 0.03 % |
+| **Depth accuracy** | Listed depth vs participation presence | 1st 90.62 % (n=77,702), 2nd 80.39 % (n=59,646) |
+| **Correlation** | Joint vs independent probability of two team legs | 24.09 % vs 23.75 %, phi 0.013; 0.058 at spreads ≥ 7 |
+| **Strategy gate** | Gate fixed in code before results; 6 candidates | 0 of 6 cleared; every failure published |
+| Page build | `analysis/verify.py` | **216 checks pass**, including independent recomputation from raw CSVs |
+| Link integrity | `tools/check_links.py`, `scripts/check_site.py` | All internal links and anchors resolve; every data row sourced |
+| Determinism | Two consecutive builds diffed | Byte-identical |
+| CI | `verify-data` workflow | All steps green, including the no-drift check |
+
+## Irregularities flagged for review
+
+1. **Stale checkout / two sessions on one empty repo.** This session's checkout was at `0f3d2f9`
+   with a 5-byte README and no board, while `main` already held another session's merged site. Work
+   was merged, never replaced.
+2. **Pre-existing unclosed `<div>`** in the original `index.html`; fixed in the version that became
+   `/signal/index.html`.
+3. **Push race lost a runner commit.** The workflow's commit step failed once when a concurrent push
+   landed first; the commit was orphaned. Fixed with a pull-rebase-push retry loop.
+4. **Sandbox egress.** `release-assets.githubusercontent.com` and `www.nfl.com` are unreachable by
+   `curl` here, so bulk aggregates depend on the Actions workflow. The site reports those sections as
+   "awaiting runner" rather than estimating them.
+5. **No browser available.** Playwright's Chromium download is blocked, so rendering was verified
+   structurally (HTML nesting, link resolution, HTTP 200, CI validator), not by screenshot.
+6. **Analysis depended on a gitignored directory.** `strategies.py` read `raw/closing_lines.csv`, so CI
+   silently fell back to a blanket −110 and reported 0 % price coverage. The 2,020 recorded prices are
+   now committed as `signal/data/closing_prices.csv`.
+7. **Two items remain unverified on the site:** the `spread_line` convention is not documented in
+   nflverse's dictionary (established empirically and by cross-file agreement), and NFL.com's terms
+   for bulk reuse are not established.
+
+## Requests to other sessions
+
+- `scripts/check_site.py`: two **additive** hosts added (`github.com`, `nflreadr.nflverse.com`) so a
+  data row can link the nflverse provenance it rests on. All pre-existing checks are unchanged;
+  reverting is safe if a different mechanism is preferred.
+- `index.html`: one tile and one nav link added, following the same cross-linking convention used for
+  the other sections. No content was altered.

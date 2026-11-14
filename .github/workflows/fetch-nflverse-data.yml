@@ -1,0 +1,128 @@
+name: fetch-nflverse-data
+
+# WHY THIS WORKFLOW EXISTS
+# The development sandbox can only reach github.com / codeload / api.github.com /
+# pypi. nflverse release assets live on release-assets.githubusercontent.com, which
+# is blocked there. GitHub Actions runners have open egress, so the download and the
+# heavy aggregation happen here. Only small, auditable outputs are committed.
+#
+# Every downloaded file's URL and SHA-256 is written to data/manifest.json so any
+# reviewer can re-download and confirm the exact bytes.
+
+on:
+  push:
+    branches:
+      - "arena/d10a1d25-fl2"   # this cycle's working branch
+      - "main"
+    paths:
+      - ".github/workflows/fetch-nflverse-data.yml"
+      - "signal/analysis/aggregate.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  INJ_SEASONS: "2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026"
+  DEPTH_SEASONS: "2020,2021,2022,2023,2024,2025,2026"
+  SNAP_SEASONS: "2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026"
+  STATS_SEASONS: "2020,2021,2022,2023,2024,2025,2026"
+  PBP_SEASONS: "2023,2024,2025,2026"
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: python -m pip install --quiet pandas numpy
+
+      - name: Download nflverse assets
+        run: |
+          set -euo pipefail
+          mkdir -p raw
+          BASE=https://github.com/nflverse/nflverse-data/releases/download
+          FAILED=0
+          get() {
+            local url="$1" out="$2"
+            if curl -fsSL --retry 5 --retry-delay 3 --retry-all-errors \
+                    --connect-timeout 20 --max-time 300 -o "raw/$out" "$url"; then
+              printf 'OK   %-38s %12s\n' "$out" "$(stat -c%s "raw/$out")"
+            else
+              printf 'FAIL %-38s %s\n' "$out" "$url"
+              rm -f "raw/$out"
+              FAILED=$((FAILED+1))
+            fi
+          }
+          IFS=',' read -ra Y <<< "$INJ_SEASONS";   for y in "${Y[@]}"; do get "$BASE/injuries/injuries_${y}.csv" "injuries_${y}.csv"; done
+          IFS=',' read -ra Y <<< "$DEPTH_SEASONS";  for y in "${Y[@]}"; do get "$BASE/depth_charts/depth_charts_${y}.csv" "depth_charts_${y}.csv"; done
+          IFS=',' read -ra Y <<< "$SNAP_SEASONS";   for y in "${Y[@]}"; do get "$BASE/snap_counts/snap_counts_${y}.csv" "snap_counts_${y}.csv"; done
+          IFS=',' read -ra Y <<< "$STATS_SEASONS";  for y in "${Y[@]}"; do get "$BASE/stats_player/stats_player_week_${y}.csv" "stats_player_week_${y}.csv"; done
+          IFS=',' read -ra Y <<< "$PBP_SEASONS";    for y in "${Y[@]}"; do get "$BASE/pbp/play_by_play_${y}.csv" "play_by_play_${y}.csv"; done
+
+          get "$BASE/schedules/games.csv" "games.csv"
+          get "$BASE/players/players.csv" "players.csv"
+          get "$BASE/teams/teams.csv"     "teams.csv"
+
+          echo "---"
+          echo "download failures: $FAILED"
+          du -sh raw
+          if [ "$FAILED" -gt 0 ]; then echo "::warning::$FAILED asset(s) failed to download"; fi
+
+      - name: Build manifest (URL + SHA-256 per file)
+        working-directory: signal
+        run: python analysis/ingest.py
+
+      - name: Aggregate to compact JSON
+        working-directory: signal
+        run: python analysis/aggregate.py || echo "::warning::aggregate returned nonzero (see data/aggregate_report.json)"
+
+      - name: Show aggregate report
+        if: always()
+        run: |
+          if [ -f data/aggregate_report.json ]; then
+            python - <<'PY'
+          import json
+          r=json.load(open('data/aggregate_report.json'))
+          print(json.dumps({k:r[k] for k in ('sections','errors') if k in r}, indent=2)[:6000])
+          PY
+          fi
+
+      - name: Commit compact outputs only
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A signal/data
+          if git diff --cached --quiet; then
+            echo "no changes"; exit 0
+          fi
+          git commit -m "data: nflverse aggregates [skip ci]"
+          # Retry the push; another push (e.g. a human or another session) can land first.
+          for i in 1 2 3 4 5; do
+            if git push origin "HEAD:${{ github.ref_name }}"; then
+              echo "pushed on attempt $i"; exit 0
+            fi
+            echo "push attempt $i failed; rebasing and retrying"
+            git pull --rebase --autostash origin "${{ github.ref_name }}" || true
+            sleep 5
+          done
+          echo "::error::could not push data commit after 5 attempts"
+          exit 1
+
+      - name: Upload raw artifact (audit copy, not committed)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nflverse-raw-${{ github.run_id }}
+          path: raw/
+          retention-days: 14

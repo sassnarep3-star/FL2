@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Evidence-first NFL line-origination research dashboard. Unconfirmed values are left blank and flagged."><title>Depth accuracy — Fourth &amp; Signal</title><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="topbar"><div class="wrap topinner"><a class="brand" href="index.html">FOURTH <span>&amp;</span> SIGNAL</a><nav class="nav" aria-label="Main navigation"><a href="../index.html">← Hub</a><a href="index.html">Overview</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Questions</a><a href="lines.html">Originated lines</a><a href="injury_signal.html">Injury signal</a><a aria-current="page" href="depth.html">Depth accuracy</a><a href="correlation.html">Correlation</a><a href="validation.html">Validation lab</a><a href="health.html">Data health</a></nav></div></header>
+<main><section class="pagehero"><div class="wrap"><div class="crumb"><a href="index.html">Overview</a> / Depth accuracy</div><h1>Depth accuracy</h1><p class="lede">Does the published depth chart predict who plays? Measured, not assumed.</p></div></section>
+<section class="section"><div class="wrap">
+<div class="callout blue"><strong>The question this answers.</strong> The request asks to track
+second-, third- and fourth-string players replacing starters. That whole feature assumes the club's
+published depth chart knows who the next man up is. This page tests the assumption instead of relying
+on it.</div>
+
+<div class="grid">
+<div class="card"><div class="eyebrow">Listed 1st string actually appeared</div>
+<div class="kpi">90.62%</div>
+<div class="label">n = 77702 player-weeks · CI 90.41–90.82%</div></div>
+<div class="card"><div class="eyebrow">Listed 2nd string actually appeared</div>
+<div class="kpi">80.39%</div>
+<div class="label">n = 59646 player-weeks · CI 80.07–80.71%</div></div>
+<div class="card"><div class="eyebrow">Gap between the two</div>
+<div class="kpi">10.23 pts</div>
+<div class="label">A precise chart would show a large gap</div></div>
+</div>
+
+<h2>What the number means</h2>
+<div class="tablewrap"><table><thead><tr><th>Listed as</th><th>Player-weeks</th><th>Appeared</th><th>Agreement</th><th>95% CI</th><th>Source</th></tr></thead><tbody><tr><td><strong>1st string</strong></td><td>77702</td><td>70413</td><td>90.62%</td><td>90.41–90.82%</td><td><a href="https://github.com/nflverse/nflverse-data">depth charts ↗</a></td></tr><tr><td><strong>2nd string</strong></td><td>59646</td><td>47952</td><td>80.39%</td><td>80.07–80.71%</td><td><a href="https://github.com/nflverse/nflverse-data">depth charts ↗</a></td></tr></tbody></table></div>
+<div class="callout"><p>The gap is only about
+10.23 points. A chart that
+precisely described the starting lineup would separate first from second string far more sharply. The
+honest reading is that the published depth chart is a <strong>weak</strong> discriminator of who
+actually plays, so it should not be treated as a reliable replacement map without further evidence.</p>
+<p>This measures <em>appearance</em> only — whether the player took at least one snap, including
+special teams. It does not measure whether he started, or whether he out-snapped the backup. The
+stronger version of the test is listed in the Questions register as still open.</p></div>
+
+<h2>By position group</h2>
+<div class="tablewrap"><table><thead><tr><th>Listed as</th><th>Position group</th><th>Player-weeks</th><th>Appeared</th><th>95% CI</th><th>Source</th></tr></thead><tbody><tr><td>1st string</td><td>SKILL</td><td>18900</td><td>89.92%</td><td>89.48–90.34%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>1st string</td><td>OL</td><td>13630</td><td>89.49%</td><td>88.97–90.0%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>1st string</td><td>DB</td><td>12605</td><td>87.96%</td><td>87.38–88.51%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>1st string</td><td>ST</td><td>11227</td><td>95.86%</td><td>95.47–96.21%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>1st string</td><td>DL</td><td>9605</td><td>91.20%</td><td>90.62–91.75%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>1st string</td><td>LB</td><td>8986</td><td>91.10%</td><td>90.49–91.67%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>1st string</td><td>QB</td><td>2749</td><td>88.21%</td><td>86.95–89.37%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>2nd string</td><td>SKILL</td><td>15957</td><td>86.17%</td><td>85.62–86.7%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>2nd string</td><td>DB</td><td>11884</td><td>85.48%</td><td>84.84–86.11%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>2nd string</td><td>OL</td><td>11731</td><td>72.76%</td><td>71.95–73.56%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>2nd string</td><td>DL</td><td>8537</td><td>83.26%</td><td>82.45–84.04%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>2nd string</td><td>LB</td><td>8301</td><td>86.34%</td><td>85.58–87.06%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr><tr><td>2nd string</td><td>QB</td><td>2851</td><td>31.50%</td><td>29.82–33.23%</td><td><a href="https://www.pro-football-reference.com/">snap counts ↗</a></td></tr></tbody></table></div><h2>Caveats</h2><ul class="small"><li>Presence in snap counts means at least one snap, including special teams.</li><li>Players traded or renamed mid-season may fail the name join.</li><li>Depth charts may be published at a different cadence than weekly, so some team-weeks may reuse a stale chart.</li><li>This does not establish that the depth chart is a reliable replacement map; it only quantifies how often the listed player appears at all.</li></ul></div></section>
+<footer class="footer"><div class="wrap">Independent research record, not an NFL product, betting recommendation, or guarantee. Source links lead to the NFL, nflverse, or NIST as labelled. Unconfirmed values are blank and flagged. <a href="../COORDINATION.md">Project verification log</a>.</div></footer></main></body></html>
