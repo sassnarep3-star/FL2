@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — NFL Lines &amp; Strategy Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>FL2 Dashboard</h1>
+  <p class="lead">Collecting, organizing, and analyzing NFL requirements for line origination, signal
+    generation, strategy validation, and injury / depth-deficiency tracking. Every verified data row
+    links to its official source. Nothing is inferred — unverifiable values are left blank and flagged.</p>
+
+  <div id="snapshot"></div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">What this project covers</h2>
+    <div class="grid2">
+      <div>
+        <h3>Verified data</h3>
+        <ul class="tight">
+          <li><a href="standings.html">2026 standings</a> — all 32 teams, from the official NFL standings page.</li>
+          <li><a href="schedule.html">Week 10 schedule</a> — every game, time, network, and result, from the official NFL schedule page.</li>
+          <li><a href="injuries.html">Week 10 injury report</a> — every listed player for all 28 playing teams, from the official NFL injury report.</li>
+          <li><a href="injuries.html#depth">Depth-chart tracking</a> — starters and 2nd/3rd/4th-string backups on offense and defense, from official team sources.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Decision support</h3>
+        <ul class="tight">
+          <li><a href="executive-summary.html">Executive summary</a> — the important details in one place.</li>
+          <li><a href="questions-answers.html">Questions &amp; answers</a> — the open questions and missing information that must be resolved before decisions.</li>
+          <li><a href="suggestions.html">Suggestions</a> — improvement proposals to review and choose from before anything is implemented.</li>
+          <li><a href="strategies.html">Strategies</a> — signal-generation design: single bets, parlays, player-prop combos, validation gates, correlation, and luck removal.</li>
+          <li><a href="leaderboard.html">Leaderboard</a> — strategy competition with rewards for top performers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>Verification rule in force.</strong> Every table row carries a link to the official source
+    used to verify it. Where a value could not be confirmed from an official source, it is left blank and
+    flagged on the <a href="flagged-review.html">Flagged for Review</a> page. See
+    <a href="verification.html">Verification</a> for the full method and fetch log.
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">How to use this site</h2>
+    <ul class="tight">
+      <li>Start with the <a href="executive-summary.html">Executive Summary</a> for the current state of the project.</li>
+      <li>Review open decisions and missing information in <a href="questions-answers.html">Questions &amp; Answers</a>.</li>
+      <li>Review and rank the proposed changes in <a href="suggestions.html">Suggestions</a> — nothing is implemented until a path is chosen there.</li>
+      <li>Strategy designs and validation gates live in <a href="strategies.html">Strategies</a>; registered strategies are scored on the <a href="leaderboard.html">Leaderboard</a>.</li>
+      <li>Check <a href="flagged-review.html">Flagged for Review</a> for irregularities and unverified items.</li>
+    </ul>
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

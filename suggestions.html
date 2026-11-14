@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Suggestions</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Suggestions</h1>
+  <p class="lead">Improvement proposals, organized so a reviewer can examine each one and choose the best
+    path <strong>before any change is implemented</strong>. Nothing here is an instruction to implement —
+    each suggestion must be reviewed, a path chosen, and the decision recorded in the decision log
+    below. Suggestions are ordered by decision priority.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">How the review process works</h2>
+    <ol class="tight">
+      <li><strong>Review</strong> — read each suggestion, its options, and the question it resolves
+        (linked from <a href="questions-answers.html">Questions &amp; Answers</a>).</li>
+      <li><strong>Verify what you can</strong> — check any factual claims against the linked official
+        sources before deciding.</li>
+      <li><strong>Choose a path</strong> — accept, reject, or modify. For each suggestion record the
+        chosen option and the reason.</li>
+      <li><strong>Record before implementing</strong> — write the decision in the decision log below
+        (or its GitHub location per S13), then implement. Unreviewed suggestions stay
+        <span class="badge pending">Pending review</span>.</li>
+    </ol>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">A. Suggestions to gather missing information (decision-blocking)</h2>
+    <table class="data">
+      <thead><tr><th>ID</th><th>Suggestion</th><th>Addresses</th><th>Options considered</th><th>Recommendation</th><th>Effort</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>S1</td>
+          <td>Select and verify the official odds/line source: pick a licensed sportsbook or odds feed, confirm it is legal in the operating jurisdiction, and document the exact URL/API and snapshot rules.</td>
+          <td>Q1, Q2, Q9, Q11</td>
+          <td>(a) One primary licensed book's public pages; (b) a commercial odds API; (c) multiple books for line comparison.</td>
+          <td>Option (c) if cost permits — comparison data strengthens line origination and reveals market consensus; otherwise (a) as the minimum viable verified source.</td>
+          <td>Low–Medium</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S2</td>
+          <td>Capture opening vs. closing lines per market at fixed timestamps so closing-line value (CLV) and luck-adjusted scoring can be computed.</td>
+          <td>Q2</td>
+          <td>(a) Manual weekly snapshots; (b) scheduled automated snapshots once a feed is chosen; (c) CLV only from the eventual closing line.</td>
+          <td>Option (b) once S1 resolves; (a) as an interim manual fallback with a strict log.</td>
+          <td>Medium</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S3</td>
+          <td>Select a play-level data source (play-by-play, snap counts) and document its terms of use for correlation analysis.</td>
+          <td>Q3</td>
+          <td>(a) Official NFL gamebooks/play-by-play pages; (b) a licensed stats provider.</td>
+          <td>Option (a) first where officially published pages suffice; add (b) if deeper data is required.</td>
+          <td>Low–Medium</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S4</td>
+          <td>Set the validation-gate thresholds: minimum bet count, minimum seasons of history, significance level, and the out-of-sample split.</td>
+          <td>Q4</td>
+          <td>(a) Conservative thresholds (large samples); (b) moderate thresholds; (c) tiered thresholds by strategy type.</td>
+          <td>Option (c) — tiered gates by bet type (singles / parlays / props) since sample sizes differ per type.</td>
+          <td>Low (decision), Medium (implementation)</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S5</td>
+          <td>Approve the correlation methodology: which signal pairs, which coefficient, which threshold triggers combo rejection or de-weighting.</td>
+          <td>Q5</td>
+          <td>(a) Pearson on rolling windows; (b) Spearman for robustness; (c) hybrid with both reported.</td>
+          <td>Option (c) — report both and act on the conservative one for combo sizing.</td>
+          <td>Low (decision), Medium (implementation)</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S6</td>
+          <td>Approve the leaderboard rules: scoring metric, reward structure, season scope, and tie-breaks.</td>
+          <td>Q6</td>
+          <td>(a) ROI-based with unit caps; (b) CLV-based skill score; (c) blended score with both.</td>
+          <td>Option (c) — blended score aligns with the "remove luck" requirement while keeping results interpretable.</td>
+          <td>Low (decision)</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S7</td>
+          <td>Secure historical injury/designation data for calibration and backtesting of injury signals.</td>
+          <td>Q7</td>
+          <td>(a) Archive weekly official injury reports going forward; (b) purchase/license historical designation data.</td>
+          <td>Option (a) immediately (starts the archive today); add (b) when backtesting is needed.</td>
+          <td>Low</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S8</td>
+          <td>Verify official depth-chart URLs for all 32 teams and agree an update cadence (weekly + inactives), cross-checking roster membership against nfl.com roster pages.</td>
+          <td>Q8</td>
+          <td>(a) Manual weekly verification of 32 team pages; (b) automated fetch with a review queue for failures.</td>
+          <td>Option (b) with (a) as fallback; every chart records its source link and fetch timestamp.</td>
+          <td>Medium</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S9</td>
+          <td>Document the chosen book's bet types, limits, and hold/juice structure so strategy design reflects real market constraints.</td>
+          <td>Q9</td>
+          <td>(a) Document from the book's public rules pages; (b) capture from live markets once a feed is chosen.</td>
+          <td>Option (a) now; (b) after S1 resolves.</td>
+          <td>Low</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S10</td>
+          <td>Approve bankroll and staking rules (unit sizing, per-strategy and per-event caps).</td>
+          <td>Q10</td>
+          <td>(a) Fixed fractional units; (b) flat units per strategy; (c) per-strategy risk-adjusted sizing.</td>
+          <td>Option (c) with hard caps — aligns with leaderboard normalization and risk controls.</td>
+          <td>Low (decision)</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S11</td>
+          <td>Complete a terms-of-service review for every data feed before automation, and record the conclusion.</td>
+          <td>Q11</td>
+          <td>(a) Review inline as feeds are chosen; (b) a single consolidated terms document.</td>
+          <td>Option (b) — one consolidated record linked from the Verification page.</td>
+          <td>Low</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S12</td>
+          <td>Assign the suggestion reviewer and cadence, and record decisions in a durable location (this page's log or GitHub issues).</td>
+          <td>Q12</td>
+          <td>(a) Decision log on this page; (b) GitHub issues as the decision board; (c) both, with this page as the summary.</td>
+          <td>Option (c) — GitHub issues for threaded review, this log for the final record.</td>
+          <td>Low</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">B. Suggestions to improve the site and decision-making</h2>
+    <table class="data">
+      <thead><tr><th>ID</th><th>Suggestion</th><th>Why it improves decision-making</th><th>Options</th><th>Recommendation</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>S13</td>
+          <td>Add a CI link-checker workflow so every source link on every page is verified automatically on each push.</td>
+          <td>Broken or expired source links would undermine the "every row verified" rule; automated checks keep the promise verifiable.</td>
+          <td>(a) GitHub Actions link checker on all HTML; (b) manual spot-checks only.</td>
+          <td>Option (a) — low cost, directly enforces the verification rule.</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S14</td>
+          <td>Add a scheduled weekly data refresh (standings, schedule, injuries, depth charts) that re-verifies and re-stamps the JSON records with timestamps.</td>
+          <td>Keeps the verified data current week to week and creates the historical archive the strategies need (see S7).</td>
+          <td>(a) Manual weekly refresh by a session; (b) scheduled job in CI.</td>
+          <td>Option (b) after S1/S8 rules are approved; (a) immediately.</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S15</td>
+          <td>Expand the README to document the site structure, data rules, verification method, and how to review suggestions.</td>
+          <td>A README with only "# FL2" leaves reviewers without orientation; documentation reduces decision errors.</td>
+          <td>(a) Concise README; (b) full project README with links to each section.</td>
+          <td>Option (b) — the site is now the reference; README should point into it.</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S16</td>
+          <td>Decide and add a license for the repository.</td>
+          <td>Without a license, reuse and contribution rights are undefined — a decision that should be made consciously, not by default.</td>
+          <td>(a) No license; (b) MIT; (c) another OSI license.</td>
+          <td>Left to the reviewer; record the decision either way.</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S17</td>
+          <td>Add a "Data Dictionary" page defining every column used across standings, schedule, injuries, and strategy tables.</td>
+          <td>Common definitions prevent misinterpretation (e.g., PCT, Net, CLV, gate) and make review faster and safer.</td>
+          <td>(a) Definitions inline per table; (b) a dedicated Data Dictionary page.</td>
+          <td>Option (b) — single source of definitions.</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+        <tr>
+          <td>S18</td>
+          <td>Add search/pagination controls to the injury table (it renders ~250 verified rows).</td>
+          <td>Improves usability of the largest verified table so reviewers can find a team or player quickly.</td>
+          <td>(a) Team filter only (current); (b) player-name search plus pagination.</td>
+          <td>Option (b) — small addition, meaningful review efficiency.</td>
+          <td><span class="badge pending">Pending review</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">C. Decision log</h2>
+    <p class="muted">Record each reviewed suggestion here before implementing. Until a row exists, the
+      suggestion remains pending and no implementation should begin.</p>
+    <table class="data">
+      <thead><tr><th>Date</th><th>Suggestion ID</th><th>Decision (accepted option / rejected / modified)</th><th>Reason</th><th>Decided by</th></tr></thead>
+      <tbody>
+        <tr><td colspan="5" class="empty">No decisions recorded yet — review the suggestions above and record the first decision here.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

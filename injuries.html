@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Injuries &amp; Depth Tracking</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Injuries &amp; Depth-Deficiency Tracking</h1>
+  <p class="lead">The system tracks injuries and knows deficiencies in offenses and defenses — including
+    when 2nd-, 3rd-, or 4th-string backups must replace starters. The verified Week 10 injury report is
+    below, followed by the depth-chart tracking design and a verified worked example.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">1. Verified injury report — Week 10, 2026 season</h2>
+    <p class="muted">Source: the official NFL injury report, fetched and verified line by line on 2026-11-14.
+      Every row links to the player's official profile and the report. Blank injury cell = no injury listed
+      on the official report for that player.</p>
+    <div id="injuries-list"></div>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">2. Verified injury context (official NFL news)</h2>
+    <p class="muted">Official NFL.com news items surfaced on the injury report page; each links to the
+      official article for manual review.</p>
+    <table class="data">
+      <thead><tr><th>Item</th><th>Verified statement</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Ravens QB Lamar Jackson</td>
+          <td>Placed on injured reserve (thumb); Ravens confirm expected absence of 6–10 weeks.</td>
+          <td class="src"><a href="https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13" target="_blank" rel="noopener">NFL news roundup, Nov 13</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Seahawks QB Drew Lock</td>
+          <td>No injury designation; expected to start vs. Raiders in Week 10 (Sam Darnold ruled out).</td>
+          <td class="src"><a href="https://www.nfl.com/news/drew-lock-no-injury-designation-seahawks-raiders" target="_blank" rel="noopener">NFL.com news</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Dolphins QB situation</td>
+          <td>QB Malik Willis (groin) placed on injured reserve; Kyle McCord in line for first start.</td>
+          <td class="src"><a href="https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start" target="_blank" rel="noopener">NFL.com news</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Rams WR Puka Nacua</td>
+          <td>Likely to be placed on injured reserve with turf toe, sprained MCL and PCL.</td>
+          <td class="src"><a href="https://www.nfl.com/news/rams-wr-puka-nacua-likely-to-be-placed-on-injured-reserve-with-turf-toe-sprained-mcl-and-pcl" target="_blank" rel="noopener">NFL.com news</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Packers RB Josh Jacobs</td>
+          <td>Undergoing finger surgery this week; return timeline to be determined.</td>
+          <td class="src"><a href="https://www.nfl.com/news/packers-rb-josh-jacobs-to-undergo-surgery-on-finger-this-week" target="_blank" rel="noopener">NFL.com news</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel" id="depth">
+    <h2 style="margin-top:0">3. Depth-deficiency tracking (verified worked example)</h2>
+    <p>Depth charts show, per position on offense and defense, the 1st-string starter and the 2nd, 3rd, and
+      4th-string backups. When a starter is out, the chart identifies exactly which replacement tier is
+      forced into the lineup. The example below is the official Detroit Lions 2026 depth chart (verified
+      2026-11-14). Note the source caveat: the team labels its chart "2026 Unofficial Depth Chart Compiled
+      by Lions Football Communications" — flagged on <a href="flagged-review.html">Flagged for Review</a>.</p>
+    <div id="depth-tables"></div>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">4. Tracking design — what the system must know</h2>
+    <table class="data">
+      <thead><tr><th>Tracked item</th><th>Definition</th><th>Official source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Starter availability (offense)</td>
+          <td>Whether each offensive starter is active, and which string replaces them when not.</td>
+          <td>Injury report + depth chart (verified for Week 10 / Lions)</td>
+          <td><span class="badge design">Design — verified data in place</span></td>
+        </tr>
+        <tr>
+          <td>Starter availability (defense)</td>
+          <td>Whether each defensive starter is active, and which string replaces them when not.</td>
+          <td>Injury report + depth chart (verified for Week 10 / Lions)</td>
+          <td><span class="badge design">Design — verified data in place</span></td>
+        </tr>
+        <tr>
+          <td>2nd/3rd/4th-string substitution events</td>
+          <td>Each instance where a backup of any string is forced into the lineup due to designation or in-game loss.</td>
+          <td>Injury report + depth chart + play data (play data pending Q3)</td>
+          <td><span class="badge pending">Partially blocked — Q3, Q8</span></td>
+        </tr>
+        <tr>
+          <td>Deficiency severity</td>
+          <td>Role-weighted impact of a replacement (e.g., QB or LT tier-1 replacement vs. depth-position backup).</td>
+          <td>Model design — needs approved role weights (S4/S5)</td>
+          <td><span class="badge pending">Design pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Historical deficiency archive</td>
+          <td>Week-by-week record of who replaced whom, for backtesting injury/depth signals.</td>
+          <td>Archive starts now with verified weekly reports (S7)</td>
+          <td><span class="badge pending">Archive to build — S7</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notice">
+    <strong>Coverage note.</strong> The verified injury table covers all 28 teams playing in Week 10.
+    Bye teams (CHI, DEN, PHI, TB) have no Week 10 report and are noted as such rather than assumed healthy.
+    Full 32-team depth-chart coverage is pending the URL verification and cadence decision (Q8, S8).
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

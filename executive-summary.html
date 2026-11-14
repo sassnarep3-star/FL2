@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Executive Summary</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Executive Summary</h1>
+  <p class="lead">Status of the FL2 project as of 2026-11-14. All data facts below are verified against
+    official sources with links; design proposals are clearly labeled as proposals.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">1. Project objective</h2>
+    <p>Collect, organize, and analyze a full list of requirements for originating NFL lines. The program
+      researches and develops strategies for generating useful betting signals, treating strategy
+      performance as a leaderboard competition with rewards for top performers. Strategies cover
+      <strong>single bets</strong>, <strong>parlays</strong>, and <strong>player-prop combinations</strong>.
+      Every strategy must pass validation gates; correlation values between signals must be determined;
+      and strategies must be built to be selectively skill-based with luck removed from the evaluation.
+      The system tracks injuries and deficiencies in offenses and defenses — including situations where
+      2nd-, 3rd-, or 4th-string backups must replace starters.</p>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">2. Repository state</h2>
+    <ul class="tight">
+      <li>The repository at base commit <code>0f3d2f9</code> contained a single file,
+        <code>README.md</code> with the content <code># FL2</code> — no code, no data, no site.
+        Full findings: <a href="repo-review.html">Repo Review</a>.</li>
+      <li>GitHub Pages was already enabled for the repository (source: <code>main / /</code>) but no
+        site had been published. This site is now built from the repository root so Pages publishes
+        automatically on merge to <code>main</code>.</li>
+      <li>All work for this session was performed on branch <code>arena/48561869-fl2</code> per the
+        session's fixed branch; coordination and task ownership are recorded in
+        <a href="https://github.com/sassnarep3-star/FL2/blob/main/COORDINATION.md">COORDINATION.md</a>.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">3. Verified data now in place</h2>
+    <p>The following official data sets were fetched and verified line by line on 2026-11-14.
+      Details and per-row source links on the linked pages.</p>
+    <table class="data">
+      <thead><tr><th>Data set</th><th>Coverage</th><th>Official source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>2026 regular-season standings</td>
+          <td>All 32 teams — W-L-T, PCT, PF, PA, net points, streak, last 5</td>
+          <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Week 10 schedule (2026)</td>
+          <td>14 games: dates, times, networks, matchups, final TNF result, bye teams</td>
+          <td class="src"><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">nfl.com/schedules</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Week 10 injury report (2026)</td>
+          <td>Every listed player for all 28 teams playing in Week 10 — position, injury, practice status, game status</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Depth chart (worked example)</td>
+          <td>Detroit Lions offense / defense / special teams, 1st–4th string</td>
+          <td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">detroitlions.com depth chart</a></td>
+          <td><span class="badge verified">Verified</span> <span class="badge warn">Team-labeled "unofficial"</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">4. Strategy program — design status</h2>
+    <ul class="tight">
+      <li><strong>Signal generation</strong> — a candidate signal framework (market-derived baselines,
+        injury-adjusted situational signals, and depth-deficiency signals) is designed on the
+        <a href="strategies.html">Strategies</a> page. It is a proposal, not yet validated.</li>
+      <li><strong>Validation gates</strong> — every strategy must pass sample-size, stationarity,
+        out-of-sample, and correlation gates before it can enter the leaderboard. Gate definitions are
+        proposed on the <a href="strategies.html">Strategies</a> page.</li>
+      <li><strong>Luck removal</strong> — strategies are scored on skill-based metrics (closing-line
+        value style measures, calibration, and selective edge) rather than raw win rate. Definitions are
+        proposals pending the answers to the open questions.</li>
+      <li><strong>Leaderboard</strong> — the competition table and reward rules are specified on the
+        <a href="leaderboard.html">Leaderboard</a> page. <strong>No strategies have been registered yet</strong>,
+        because no strategy has passed the gates and no verified line/odds feed is in place yet.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">5. Decisions that must be made (summary)</h2>
+    <p>No decision should be implemented until the open questions are answered. Full register:
+      <a href="questions-answers.html">Questions &amp; Answers</a>. Improvement proposals awaiting review
+      and ranking: <a href="suggestions.html">Suggestions</a>.</p>
+    <ul class="tight">
+      <li>Which licensed sportsbook (or feed) will be the official source for lines, odds, and line
+        movement? <span class="badge pending">Open — blocks line origination</span></li>
+      <li>Which data sources will supply play-by-play and snap-count data for correlation work?
+        <span class="badge pending">Open — blocks correlation values</span></li>
+      <li>What are the validation-gate thresholds (minimum bets, seasons of history, significance level)?
+        <span class="badge pending">Open — blocks strategy acceptance</span></li>
+      <li>What are the leaderboard reward rules and season scope?
+        <span class="badge pending">Open — blocks competition launch</span></li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">6. Flagged items (summary)</h2>
+    <ul class="tight">
+      <li>Team-published depth charts are labeled "unofficial" by the teams themselves — flagged for
+        review; roster membership is cross-checked against the official NFL roster pages instead.</li>
+      <li>Per-team injury report URL patterns on nfl.com returned 404 — flagged; per-team rows cite the
+        official injury report page instead.</li>
+      <li>No verified line/odds values exist in the repository because no official odds source has been
+        selected or fetched — lines and odds columns are intentionally left blank, not guessed.</li>
+      <li>Full listing: <a href="flagged-review.html">Flagged for Review</a>.</li>
+    </ul>
+  </div>
+
+  <div class="notice ok">
+    <strong>Bottom line.</strong> The repository started empty. This session delivered a verified
+    official-data foundation (standings, schedule, injuries, depth), a complete decision-support
+    documentation set (executive summary, questions, suggestions, strategies, leaderboard), and a
+    GitHub Pages site that builds directly from the repository. No unverified values were published;
+    all gaps are explicitly flagged with the information needed to close them.
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
