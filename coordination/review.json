@@ -1,0 +1,168 @@
+{
+  "generated_from": "assets/data/review.js",
+  "note": "Machine-readable copy of the review register. Nothing here blocks a merge; needs review = published and non-blocking.",
+  "items": [
+    {
+      "id": "FL-001",
+      "sev": "medium",
+      "area": "Repo baseline",
+      "find": "The repository contained no collected data, no code and no site config: one file (`README.md`, 5 bytes, '# FL2') on one commit. Everything described as 'collect, organize, analyse' started from zero in this session.",
+      "ev": "git log / file inventory (2026-11-14 02:55 UTC)",
+      "act": "Confirm no other branch contains prior work before re-running any earlier analysis (origin showed only main + this branch)",
+      "st": "open"
+    },
+    {
+      "id": "FL-002",
+      "sev": "high",
+      "area": "Roster capture",
+      "find": "The official club roster pages are paginated: the captured segment contained only ACT-status players. Therefore 'the Vikings have no players on IR' would be a false conclusion, and any depth model built only on the captured chunk would overstate depth.",
+      "ev": "https://www.nfl.com/teams/minnesota-vikings/roster (chunk 0 of 3)",
+      "act": "Capture remaining chunks per club and store the status field verbatim before building depth features",
+      "st": "open"
+    },
+    {
+      "id": "FL-003",
+      "sev": "high",
+      "area": "Vocabulary",
+      "find": "Position labels differ between two official feeds for the same club: the injury report uses S / T / C / G / DE / DT / LB / TE / WR / RB / K / P / LS / FB, the roster pages use SAF / OT / DB / OLB / DE / DT / CB / TE / WR / RB / QB / K / P / LS / G / C / DL.",
+      "ev": "S-01 vs S-02/S-03, same week",
+      "act": "Publish a position crosswalk table in the repo and make every join go through it; never string-match positions across feeds",
+      "st": "open"
+    },
+    {
+      "id": "FL-004",
+      "sev": "medium",
+      "area": "Source self-contradiction",
+      "find": "Within one club article, the same player's injury is described two ways: the body text says 'quarterback Kyler Murray (calf)' while the article's own table says 'Hamstring'. The league report says Hamstring.",
+      "ev": "https://www.vikings.com/news/packers-injury-report-week-10-2026-nfl-season vs https://www.nfl.com/injuries/",
+      "act": "Store the injury text as a set of strings, not a canonical diagnosis, and never feed the free-text body into a model without the table to back it",
+      "st": "open"
+    },
+    {
+      "id": "FL-005",
+      "sev": "high",
+      "area": "Coverage bound",
+      "find": "The Week 10 snapshot is not the whole slate. Captured: 12 complete game reports + the first six rows of SF @ DAL. Missing: the rest of the 49ers table, the entire Cowboys table, and the later fixtures in page order (incl. the Monday-night game).",
+      "ev": "S-01 chunks 0-4 of 8 (chunks 5-7 not captured)",
+      "act": "Complete the page read in the crawler; until then the site must show the coverage bound (it does, in the snapshot banner and meta_gaps)",
+      "st": "open"
+    },
+    {
+      "id": "FL-006",
+      "sev": "medium",
+      "area": "Missing designation",
+      "find": "Several captured rows have a non-full practice status (DNP/LP) with an empty Game Status cell: e.g. C. Darrisaw (DNP), T. Bernard (DNP), E. Oliver (DNP), L. McCullough (DNP), A. Donald (DNP), P. Nacua (DNP), B. Young (DNP), B. Fiske (DNP), D. Hall (DNP), D. Lock (LP).",
+      "ev": "S-01 tables, 2026-11-14",
+      "act": "Blank here is *not* 'healthy' and not 'data error' — for at least Darrisaw and H. Smith the club page shows a non-injury rest tag. Rule to encode: blank designation + DNP ⇒ absence-risk with unknown cause; a Friday 'rest' explanation must be sourced from the club report",
+      "st": "open"
+    },
+    {
+      "id": "FL-007",
+      "sev": "medium",
+      "area": "Reconciliation",
+      "find": "A player appears on a club game-status report (Chris Brooks, GB, Questionable ankle) but is absent from the ACT segment of that club's roster page captured in the same session.",
+      "ev": "S-01 (GB table) vs S-03",
+      "act": "Add an inventory-reconciliation check to the pipeline: report rows whose player is not in the club's captured roster set are quarantined, not silently joined",
+      "st": "open"
+    },
+    {
+      "id": "FL-008",
+      "sev": "high",
+      "area": "Roster volatility",
+      "find": "A quarterback appears on the Giants' 2026 report (J.J. McCarthy, FP, no designation) while the Vikings' official roster lists Kirk Cousins, Kyler Murray and Max Brosmer as its QBs. Any cached 2025 player→club mapping is therefore wrong in exactly the places the model cares about most.",
+      "ev": "S-01, S-02",
+      "act": "Treat player→club as a weekly-derived field with an as-of date; add a transaction feed to the backlog (Q-09/R-07)",
+      "st": "open"
+    },
+    {
+      "id": "FL-009",
+      "sev": "medium",
+      "area": "Status vs practice contradiction",
+      "find": "Cases where the designation is hard against the practice trend: O. Norman-Lott (LP, Friday) yet Out; M. Garrett (DNP, tagged 'resting player') yet Questionable; B. Green II (Full participation, forearm) yet Out; A. Wingard (DNP) Questionable; K. Zeitler (DNP) Questionable.",
+      "ev": "S-01 tables",
+      "act": "Encode 'designation overrides practice' but also log the disagreement count per club per week: a club that routinely lists DNP-then-plays is signalling information leakage worth modelling separately",
+      "st": "open"
+    },
+    {
+      "id": "FL-010",
+      "sev": "medium",
+      "area": "Unverified legal count",
+      "find": "Secondary trackers disagree on how many US jurisdictions permit sports betting in 2026 (38 vs 39 states, DC and PR mentioned in one and not the other). No regulator register was read.",
+      "ev": "S-14 vs S-15",
+      "act": "Leave the count blank on the markets page until each state regulator's own page is read; do not publish a number we cannot source (Q-14)",
+      "st": "open"
+    },
+    {
+      "id": "FL-011",
+      "sev": "high",
+      "area": "Unverified jurisdiction rules",
+      "find": "Mexico-specific operating claims (SEGOB/DGJS permit model, 50% IEPS from 1 Jan 2026 per a DOF decree of 7 Nov 2025, restriction to each sport's top league, ~23-30 licensed operators) reached us only through an aggregator.",
+      "ev": "S-16",
+      "act": "Read the DOF text and the DGJS permit register; owner sits in Mexico City so this is a live operating question, not a footnote (Q-15)",
+      "st": "open"
+    },
+    {
+      "id": "FL-012",
+      "sev": "high",
+      "area": "Unverified rule numbers",
+      "find": "The roster-rule numbers the model needs (53-man limit, four-game IR minimum, eight in-season IR returns, two pre-cutdown designations, 21-day practice window, playoff +2) come from media and an aggregator, not from the league's own rules text.",
+      "ev": "S-11, S-12, S-08",
+      "act": "Obtain the primary rules document; keep every one of these in a config file with a citation field so a correction is one edit, not a rebuild",
+      "st": "open"
+    },
+    {
+      "id": "FL-013",
+      "sev": "high",
+      "area": "Missing official depth source",
+      "find": "No official machine-readable depth-chart endpoint was found: two plausible official paths returned 404 / broken-link, and the league's own club menu exposes 'Roster' and 'Stats' but no depth chart.",
+      "ev": "S-06, S-07 (negative results)",
+      "act": "Decide the ordering source per Q-07: snap-share ordering (ours, computed) or a licensed depth feed. Do not publish any string ordering as 'official'",
+      "st": "open"
+    },
+    {
+      "id": "FL-014",
+      "sev": "blocker-for-model-trust",
+      "area": "No market data",
+      "find": "There is no odds or closing-line source configured anywhere in this repo. Consequence: no edge, CLV, hold, or ROI figure can be stated yet, so every number on the strategy pages is a method or a synthetic illustration, never a claim about the market.",
+      "ev": "S-19, S-20 both 'planned'; search found no official NFL odds feed",
+      "act": "Close Q-10 before any gate is scored; until then keep the leaderboard's standing column empty rather than zero-filled",
+      "st": "open"
+    },
+    {
+      "id": "FL-015",
+      "sev": "low",
+      "area": "Deployment constraint",
+      "find": "Sandbox network access is restricted to a few package hosts, so live re-fetching at page load is impossible from here; the published site is therefore a static snapshot by construction, and its numbers age.",
+      "ev": "Access probe logged in COORDINATION.md F-session row",
+      "act": "If freshness matters, add a scheduled workflow that regenerates the data files and commits them; the site then only ever shows repo contents",
+      "st": "open"
+    },
+    {
+      "id": "FL-016",
+      "sev": "low",
+      "area": "Secondary consistency",
+      "find": "Club records shown beside the injury tables (BUF 7-1, SF 7-1, MIN 6-2, GB 6-3, KC 6-2, DET 6-2, JAX 6-2 …) were read from the injury page itself, not from a standings page. One source, no independent confirmation yet.",
+      "ev": "S-01",
+      "act": "Cross-check against the official standings page in the same capture run and store both",
+      "st": "open"
+    },
+    {
+      "id": "FL-017",
+      "sev": "low",
+      "area": "Field completeness",
+      "find": "Roster rows exist with an empty jersey number for a player clearly on the active list (Kirk Cousins, Kitan Oladapo-style cases on other clubs, Bo Melton, Matthew Golden, Coleman Owen, Ivan Pace Jr., Mark Redman shows 86 while some peers show none).",
+      "ev": "S-02, S-03",
+      "act": "Do not treat a blank number as missing data or as a roster anomaly; the key is the permalink slug (SG-07)",
+      "st": "open"
+    },
+    {
+      "id": "FL-018",
+      "sev": "low",
+      "area": "Retrieval path",
+      "find": "Links here resolve through the agent's retrieval proxy. Reviewing in a browser may show a different (redirected) URL than the one recorded, even though the content matched.",
+      "ev": "Session fetch logs",
+      "act": "For audit, re-open each URL directly in a normal browser at review time; record the date next to each row you re-read",
+      "st": "open"
+    }
+  ]
+}

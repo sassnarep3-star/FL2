@@ -1,0 +1,166 @@
+{
+  "generated_from": "COORDINATION.md task board",
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Repo review + baseline snapshot",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "COORDINATION.md"
+      ],
+      "sources_recorded": "`git log`, `git show --stat 0f3d2f9`, file inventory (1 file, 5 bytes)"
+    },
+    {
+      "id": "T02",
+      "title": "Full requirements catalogue (R-IDs, acceptance criteria)",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/requirements.js",
+        "requirements.html"
+      ],
+      "sources_recorded": "Derived from the user brief; no external source needed. 42 rows R-01…R-42 with acceptance criteria + dependencies"
+    },
+    {
+      "id": "T03",
+      "title": "Open questions / information gaps register",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/questions.js",
+        "questions.html"
+      ],
+      "sources_recorded": "Derived from T02 + live availability probes (S-06/S-07 dead ends, S-19/S-20 planned)"
+    },
+    {
+      "id": "T04",
+      "title": "Suggestions register (ranked, decision-ready)",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/suggestions.js",
+        "suggestions.html"
+      ],
+      "sources_recorded": "30 rows, I/C/E/R scored; priority computed by `assets/js/app.js`; dispositions left for the owner except the 6 the brief mandated"
+    },
+    {
+      "id": "T05",
+      "title": "Executive summary",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "index.html",
+        "executive-summary.html"
+      ],
+      "sources_recorded": "Summarises T06–T12; every number is a `data-stat` counter or a computed figure from `engine/selftest`"
+    },
+    {
+      "id": "T06",
+      "title": "Data-source catalogue + access probes",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/sources.js",
+        "data-catalog.html"
+      ],
+      "sources_recorded": "20 sources, tiered; 5 read directly, 5 snippet-only, 4 planned, 2 confirmed dead ends"
+    },
+    {
+      "id": "T07",
+      "title": "Official injury report snapshot, NFL Week 10 2026",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/injuries.js",
+        "injuries.html"
+      ],
+      "sources_recorded": "`https://www.nfl.com/injuries/` (official, chunks 0–4 of 8) + `vikings.com` club cross-check; coverage bounded in `meta_gaps`"
+    },
+    {
+      "id": "T08",
+      "title": "Availability-adjusted depth analysis (2nd/3rd/4th string)",
+      "status": "needs review",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "availability.html",
+        "assets/data/injuries.js` (`rostersW10`)"
+      ],
+      "sources_recorded": "Official depth chart **not found** (FL-013); roster pages used instead; ordering labelled a projection"
+    },
+    {
+      "id": "T09",
+      "title": "Line-origination methodology: signals, validation gates, correlation",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/strategy.js",
+        "methodology.html",
+        "engine/"
+      ],
+      "sources_recorded": "22 signals, 16 gates, 12 correlation pairs; math implemented in `engine/`, 46/46 self-test assertions pass"
+    },
+    {
+      "id": "T10",
+      "title": "Leaderboard + rewards design (strategy competition)",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/strategy.js` (`leaderboard`)",
+        "leaderboard.html"
+      ],
+      "sources_recorded": "Spec only; standings intentionally empty pending T09 data inputs (FL-014)"
+    },
+    {
+      "id": "T11",
+      "title": "Markets page: instrument structure, vig, parlay/prop combo math, compliance",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "markets.html",
+        "assets/data/strategy.js"
+      ],
+      "sources_recorded": "Operator house rules + policy sources cited; all vig/hold/CLV cells blank by rule (no market source)"
+    },
+    {
+      "id": "T12",
+      "title": "Verification log + Flagged for Review page",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "assets/data/{review",
+        "sources}.js",
+        "verification.html",
+        "review.html"
+      ],
+      "sources_recorded": "12 checks logged with level; 18 flags each with evidence + next action; `tools/check_site.py` enforces the source rule mechanically"
+    },
+    {
+      "id": "T13",
+      "title": "Site scaffold + GitHub Pages publish",
+      "status": "done",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "*.html",
+        "assets/css/*",
+        "assets/js/*",
+        ".nojekyll",
+        "README.md",
+        "tools/",
+        "coordination/",
+        "docs/"
+      ],
+      "sources_recorded": "Pages API call recorded in the integration record below"
+    },
+    {
+      "id": "T14",
+      "title": "PR → `main`, merge, deploy confirmation",
+      "status": "in progress",
+      "owner": "arena-be3108f3",
+      "file_scope": [
+        "repo-wide"
+      ],
+      "sources_recorded": "see **Final integration record**"
+    }
+  ]
+}
