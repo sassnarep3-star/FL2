@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markets &amp; combos — FL2</title>
+<meta name="description" content="Instrument register, combo/parlay pricing mechanics, single-bet vs parlay vs prop-combo selection, and the compliance boundaries of this project.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="markets">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Markets &amp; combos</div>
+  <div class="page-head">
+    <h1>Markets, singles, parlays and prop combos</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> which instruments we originate on, and where a
+    combination is genuinely better than its parts. Prices, vig and hold columns are blank on purpose: no market
+    source is licensed or captured (<a href="review.html">FL-014</a>), so a number there would be invented.</p>
+  </div>
+
+  <section>
+    <h2>Single bet vs parlay vs prop combo — the actual trade-off</h2>
+    <div class="grid c3">
+      <div class="card">
+        <h3>Single bet</h3>
+        <ul class="tight">
+          <li>One driver, one stake, cleanest measurement of a signal</li>
+          <li>Lowest vig burden per unit of edge</li>
+          <li>Best CLV signal: one leg ⇒ one close to beat</li>
+          <li>Most exposed to limits, since the book sees the same bet coming from everyone</li>
+        </ul>
+        <p class="note"><strong>Use for:</strong> every promotion decision. Nothing reaches the leaderboard through a
+        parlay result.</p>
+      </div>
+      <div class="card">
+        <h3>Parlay / SGP</h3>
+        <ul class="tight">
+          <li>Turns two modest edges into a larger price, at a worse vig rate per leg</li>
+          <li>The only instrument where correlation is tradeable: the book’s multiplier implies a ρ, and we can
+            compare it with ours</li>
+          <li>Push handling differs per book (reduces legs rather than voiding)</li>
+          <li>Correlated multi-game legs are voided by house rules outside SGP-type products — a legal constraint,
+            not a modelling choice</li>
+        </ul>
+        <p class="note"><strong>Use for:</strong> stake efficiency and where the correlation mispricing is bigger
+        than the vig penalty. Never to disguise one bet as five.</p>
+      </div>
+      <div class="card">
+        <h3>Prop combos</h3>
+        <ul class="tight">
+          <li>Highest model dependence: needs per-play rates and projected plays, both of which we lack
+            (R-27, Q-01)</li>
+          <li>Availability flows into them most directly (a vacated target share, a short-handed secondary)</li>
+          <li>Thin limits, fast close, and the same-player stat pairs are often blocked as correlated</li>
+          <li>Grading is by official stats, so the data source is a dependency, not a detail</li>
+        </ul>
+        <p class="note"><strong>Use for:</strong> phase 3. The signals exist on this site (SIG-16/17/18) and are
+        blocked for a reason worth respecting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Instrument register</h2>
+    <div class="table-mount" data-set="markets" data-chips="mkt" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Pricing mechanics (implemented in <code>engine/</code>)</h2>
+    <div class="grid c2">
+      <div>
+        <ul class="tight">
+          <li><strong>De-vig.</strong> Multiplicative normalisation across a market’s outcomes; the excess of summed
+            implied probabilities over 1 is the vig. On a symmetric −110 / −110 market that is 4.545%, leaving a
+            fair 0.500 each way.</li>
+          <li><strong>Break-even.</strong> At −110 a bet must win 52.381% of decisions to break even; our hurdle for
+            a signal is that rate <em>after</em> removing vig, not before.</li>
+          <li><strong>Edge.</strong> Always measured against a de-vigged close, never against our own number or a
+            soft open (Q-11, R-20).</li>
+          <li><strong>Sizing.</strong> Fractional Kelly at ≤0.25 of full Kelly, computed jointly over correlated
+            legs rather than leg by leg. Example: p=0.55 at −110 ⇒ full Kelly 5.5% ⇒ our stake cap 1.375%.</li>
+          <li><strong>Parlays.</strong> Joint probability from a Gaussian copula; a book’s multiplier is inverted
+            into an implied ρ, and the ticket is only taken when that ρ disagrees with ours by more than its own
+            uncertainty.</li>
+          <li><strong>Pushes.</strong> Modeled per book from its rule text. A push that reduces legs is not a refund,
+            and treating it as one biases every alt-line parlay upward.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="table-mount" data-set="computedParlay" data-search="0" data-nosrc="1"></div>
+        <div class="table-mount" data-set="computedImplied" data-search="0" data-nosrc="1"></div>
+        <p class="note">Both tables are computed arithmetic on stated marginal probabilities — they describe how the
+        instruments behave, not what any book currently offers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rule text that constrains combos (primary sources, verification level stated)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Constraint</th><th>Substance as published</th><th>Source</th><th>Verified</th></tr></thead>
+        <tbody>
+          <tr><td>Correlated legs outside SGP products</td>
+            <td>A parlay containing two or more selections whose outcomes are correlated is void, except a
+              Progressive Parlay or a Same Game Parlay as defined in the market rules</td>
+            <td><a href="https://lb.goldennugget.com/contentassets/9800d7ef44d6474dad6cd3e69d29dd99/draftkings-gnlc-retail-house-rules-v15.pdf"
+              target="_blank" rel="noopener">DraftKings retail house rules v15 (Golden Nugget Lake Charles copy)</a></td>
+            <td><span class="pill warn">snippet</span> — the extract was read; the versioned PDF must be re-opened
+              per jurisdiction before this is treated as binding on a quote (S-09)</td></tr>
+          <tr><td>Duplicate markets</td>
+            <td>A parlay including legs on more than one instance of the same market offered simultaneously is voided,
+              even at different odds</td>
+            <td>same document</td><td><span class="pill warn">snippet</span></td></tr>
+          <tr><td>Push inside a parlay</td>
+            <td>A leg settled as push does not return its stake; the parlay continues with the remaining number of
+              legs</td><td>same document</td><td><span class="pill warn">snippet</span></td></tr>
+          <tr><td>Same-game-parlay settlement</td>
+            <td>An SGP wins only if every leg wins, except legs voided or pushed, which reduce the ticket</td>
+            <td>same document</td><td><span class="pill warn">snippet</span></td></tr>
+          <tr><td>Syndicate / coordinated betting</td>
+            <td>Defined to include coordinated legs in parlays, and treated as a voiding/limiting ground — relevant
+              to any “reward top performers” design that moves many accounts</td>
+            <td>same document</td><td><span class="pill warn">snippet</span></td></tr>
+          <tr><td>Player-props jurisdiction restrictions</td>
+            <td>Some states restrict or ban certain prop types (the sources we reached disagree on counts and even on
+              which product set they cover)</td>
+            <td><a href="https://props.com/states/" target="_blank" rel="noopener">props.com states guide</a> ·
+              <a href="https://racefi.io/sports-betting-regulation-news/" target="_blank" rel="noopener">racefi.io 2026 tracker</a>
+              (both aggregators)</td>
+            <td><span class="pill bad">unusable as fact</span> — 38 vs 39 states conflict; regulator registers not
+              read (FL-010, Q-14)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Consequence for the strategy layer: gate <strong>G-12</strong> is a *legality* filter, not a
+    quality filter. A quote that violates the book’s own rules is not a bad price, it is no price — which is exactly
+    the class of error a leaderboard would otherwise reward.</p>
+  </section>
+
+  <section>
+    <h2>Compliance and posture</h2>
+    <div class="card">
+      <ul class="tight">
+        <li>This project <strong>originates numbers</strong>. It does not place bets, does not accept stakes, and
+          does not publish tips or picks. Automated wager <em>execution</em> is out of scope until operator terms
+          and regulator permission are read (Q-15).</li>
+        <li>Where the owner is located (Mexico), the operating regime is a permit regime administered by
+          <a href="https://gamblingmaps.org/map/regulations/mexico/for-operators" target="_blank" rel="noopener">SEGOB’s
+          games and drawings directorate as described by a market tracker</a> — every element of that description
+          (permit model, the 50% IEPS rate said to apply from 1 January 2026, restriction to each sport’s top
+          professional league, operator counts) reached us through an aggregator and is
+          <strong>not verified</strong> here: <a href="review.html">FL-011</a>. The primary gazette text is a
+          required next step, not an optional one.</li>
+        <li>Data licensing is unresolved in both directions: what we may read from league and club pages
+          (<a href="review.html">FL-001</a>…Q-01), and what a licensed sports-data vendor permits for derived
+          models (S-19).</li>
+        <li>Reward design deliberately pays capital allocation rather than cash (SG-23) so the competition cannot
+          become the product.</li>
+        <li><strong>Harm note:</strong> every figure on this site is a hypothesis under test. Variance dominates small
+          samples — the arithmetic on the <a href="methodology.html">methodology page</a> says a 55% hit rate needs
+          roughly 961 bets before it is evidence, and a 53% rate about 17,467. If anything built here is ever
+          staked, set limits before starting, treat lost stakes as unrecoverable, and use the support services
+          published by the relevant regulator.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

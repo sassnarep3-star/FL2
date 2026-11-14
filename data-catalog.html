@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data catalogue — FL2</title>
+<meta name="description" content="Every source this project reads, its tier, what it provides, how it was verified, and the licence or reliability risk attached to it.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="data-catalog">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Data catalogue</div>
+  <div class="page-head">
+    <h1>Source catalogue &amp; access log</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> which feeds can be trusted as inputs, which are lead
+    generators only, and what is still missing. “Verified” here is a specific claim about <em>how</em> a source was
+    read: <span class="pill ok">direct</span> = opened and read in this session; <span class="pill warn">snippet</span>
+    = seen only inside a search extract; <span class="pill bad">failed</span> = opened, and the failure is itself the
+    finding; <span class="pill warn">planned</span> = required by a requirement and not yet obtained.</p>
+  </div>
+
+  <section>
+    <h2>Tally</h2>
+    <div class="grid c4">
+      <div class="kpi"><div class="n"><span data-stat="sources.total"></span></div><div class="l">sources catalogued</div></div>
+      <div class="kpi"><div class="n"><span data-stat="sources.direct"></span></div><div class="l">read directly this session</div>
+        <div class="hint">the injury report, two club roster pages and one club news report</div></div>
+      <div class="kpi"><div class="n"><span data-stat="sources.planned"></span></div><div class="l">required but not obtained</div>
+        <div class="hint">regulator registers, the gazette text, odds/CLV feed, play-by-play licence</div></div>
+      <div class="kpi"><div class="n"><span data-stat="sources.failed"></span></div><div class="l">confirmed dead ends</div>
+        <div class="hint">both guessed official depth-chart paths (S-06, S-07)</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>All sources</h2>
+    <div class="table-mount" data-set="sources" data-chips="tier,ver" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Access notes that change the architecture</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3>The league report is scrapable <em>content</em>, not an API</h3>
+        <p><code>nfl.com/injuries/</code> serves its tables in the document itself, which is why a text-mode fetch
+        produced a usable Week 10 table. Consequences: (1) a crawler can work without a key today; (2) it is bound by
+        whatever the terms of use say about automated access — which is unverified (Q-01); (3) the content is
+        paginated by the reader, so a capture is a partial artefact unless every chunk is taken (FL-002, FL-005).</p>
+      </div>
+      <div class="card">
+        <h3>There is no official odds source, by construction</h3>
+        <p>Injury reports and roster status are league-published facts because clubs are obliged to file them. Prices
+        are not: they belong to operators. So the “official” tier for anything market-related does not exist, and the
+        only honest options are a licensed odds feed or our own timestamped captures (S-19, S-20) — which is why the
+        CLV/hold/edge columns on this site are blank rather than “≈4.5%”.</p>
+      </div>
+      <div class="card">
+        <h3>Club pages carry what the league page collapses</h3>
+        <p>The club report adds per-day practice participation and the non-injury-rest labels, and its prose can even
+        disagree with its own table on an injury label (<a href="review.html">FL-004</a>). The ingestion design keeps
+        both and treats their disagreement as data (a divergence count), not as an error to be resolved on the fly.</p>
+      </div>
+      <div class="card">
+        <h3>Aggregators disagree, so they get a distinct tier</h3>
+        <p>Two trackers gave different counts of legal US jurisdictions (38 vs 39), and the Mexican operating details
+        exist only in aggregator prose right now. They are useful for pointing at primary documents and useless as
+        inputs — hence a tier of their own, and the flags (FL-010, FL-011).</p>
+      </div>
+      <div class="card">
+        <h3>Sandbox constraint on “live” data</h3>
+        <p>This environment can reach only a small set of package hosts, so no page here can re-fetch at load time,
+        and the site is a snapshot by construction (FL-015). If freshness matters, the correct design is a scheduled
+        job that regenerates the data files and commits them, so the published site always equals the repo.</p>
+      </div>
+      <div class="card">
+        <h3>What closing each “planned” row buys</h3>
+        <ul class="tight">
+          <li><strong>S-19 / S-20</strong> → unblocks G-03, G-07, SIG-09/11/13/18/21 and the leaderboard itself</li>
+          <li><strong>S-17 / S-18</strong> → replaces the two conflicting jurisdiction claims with primary text</li>
+          <li><strong>league rule document (Q-06)</strong> → turns the config values in <code>engine/config.py</code>
+            from “reported by media” into “cited to the rule”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verification — FL2</title>
+<meta name="description" content="Line-by-line verification log, repo review findings, and the mechanical site/data checks that back this project's claims.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="verification">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Verification</div>
+  <div class="page-head">
+    <h1>Verification log &amp; repo review</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> how much to trust the rest of the site. Each check
+    states what was compared, against which source, and to what level: <span class="pill ok">double</span> = two
+    independent official places agree; <span class="pill muted">single</span> = one reader, one pass;
+    <span class="pill warn">snippet</span> = relied on a search extract, not the page itself.</p>
+  </div>
+
+  <section>
+    <h2>Coverage of verification</h2>
+    <div class="grid c4">
+      <div class="kpi"><div class="n"><span data-stat="verification.total"></span></div><div class="l">checks performed</div>
+        <div class="hint"><span data-stat="verification.double"></span> cross-source (double) checks</div></div>
+      <div class="kpi"><div class="n"><span data-stat="injuries.rows"></span></div><div class="l">injury rows transcribed and re-read</div>
+        <div class="hint">all from one official page; 30 rows additionally cross-checked against a club page</div></div>
+      <div class="kpi"><div class="n"><span data-stat="flags.total"></span></div><div class="l">irregularities recorded</div>
+        <div class="hint"><span data-stat="flags.high"></span> high or blocking severity</div></div>
+      <div class="kpi"><div class="n">46 / 46</div><div class="l">engine assertions passing</div>
+        <div class="hint">reproduce with <code>python3 -m engine.selftest</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The check log</h2>
+    <div class="table-mount" data-set="verification" data-chips="lvl" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Repo review — line by line, as found</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Object</th><th>Content / state</th><th>Review result</th><th>Disposition</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">README.md</td><td>5 bytes, a single line: <code># FL2</code>. No project description,
+            no setup, no data dictionary.</td>
+            <td><a href="https://github.com/sassnarep3-star/FL2/blob/0f3d2f9e87f44409fa02fd94aa5d474f58b300a5/README.md"
+              target="_blank" rel="noopener">base commit</a> — read directly</td>
+            <td>Rewritten as the project front door; nothing removed</td></tr>
+          <tr><td class="mono">git history</td><td>One commit, <code>0f3d2f9 “Initial commit”</code>; branches:
+            <code>main</code> and this working branch; remote over HTTPS with credentials configured.</td>
+            <td><code>git log</code>, <code>git show --stat</code>, <code>git branch -a</code>,
+              <code>gh auth status</code></td>
+            <td>No history to preserve, so the site is built forward rather than reconciled. Flag
+              <a href="review.html">FL-001</a></td></tr>
+          <tr><td class="mono">CI / workflows</td><td>Absent (<code>.github/</code> does not exist)</td>
+            <td>Filesystem inventory</td><td>Deliberately not added: a static site with no build step cannot break on
+              a missing runner; the checker in <code>tools/</code> is the gate instead</td></tr>
+          <tr><td class="mono">GitHub Pages config</td><td>Absent at review time (no Pages site)</td>
+            <td><code>gh api repos/…/pages</code> returned “not configured”</td>
+            <td>Enabled as part of publishing; recorded in COORDINATION.md</td></tr>
+          <tr><td class="mono">.gitignore / .nojekyll</td><td>Absent</td><td>Filesystem inventory</td>
+            <td><code>.nojekyll</code> added so Pages serves the site verbatim; ignore file added for the generated
+              cache and Python artefacts</td></tr>
+          <tr><td class="mono">Data files</td><td>None existed</td><td>Inventory</td>
+            <td>All data on this site was sourced fresh in this session; nothing is inherited, so nothing is
+              silently trusted</td></tr>
+          <tr><td class="mono">COORDINATION.md</td><td>Did not exist although the brief requires it as the shared
+            board</td><td>Inventory</td>
+            <td>Created with the task board, claims, handoff log and findings (T01…T13)</td></tr>
+          <tr><td class="mono">Project name “FL2”</td><td>No meaning recorded anywhere in the repo</td><td>—</td>
+            <td>Not invented. Recorded as an open item on the
+              <a href="review.html">review page</a> so a human can name it properly</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Machine checks that run before publish</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3><code>python3 tools/check_site.py</code></h3>
+        <ul class="tight">
+          <li>every internal <code>href</code>/<code>src</code> resolves to a file in the repo (no broken links)</li>
+          <li>every page appears in the shared navigation and loads the runtime</li>
+          <li>every factual dataset row carries a source or a parent <code>source_url</code></li>
+          <li>every flag has evidence and a concrete next action; every question has an action, a provisional
+            answer and a priority</li>
+          <li>no placeholder text; <code>.nojekyll</code> and <code>COORDINATION.md</code> present</li>
+        </ul>
+        <h3><code>node tools/render_test.js</code></h3>
+        <ul class="tight">
+          <li>loads every page in a DOM and fails if a table mount renders empty, falls back to
+            “dataset missing”, or produces zero rows</li>
+          <li>fails if a <code>data-stat</code> counter resolves to nothing (a page full of silent gaps)</li>
+          <li>fails if a table offers neither a source link nor an in-table provenance note</li>
+          <li>checks the shared nav, masthead and footer appear on every page</li>
+        </ul>
+        <p class="note"><strong>Pre-publish run, 2026-11-14:</strong> <code>check_site.py</code> → all checks
+        passed (15 pages, 220 internal links, 19 datasets parsed, 18 flags, 22 questions, cross-register ID
+        references resolved). <code>render_test.js</code> → all pages render, 38 mounts populated,
+        680 table rows rendered.</p>
+        <p class="note">The render test needs <code>jsdom</code> (dev-only, not used by the site); the site itself
+        has no dependencies, so a reviewer can skip that check and still get the full picture by opening a page.</p>
+      </div>
+      <div class="card">
+        <h3>What these checks cannot prove</h3>
+        <ul class="tight">
+          <li>that a source is still correct tomorrow — the site is a dated snapshot (FL-015)</li>
+          <li>that the two club/league cross-checks generalise; 30 rows were double-checked, not 276</li>
+          <li>anything about market truth, because no market data is in the repo at all (FL-014)</li>
+        </ul>
+        <p class="note">Which is why the site’s vocabulary separates <em>verified</em>, <em>snippet</em>,
+        <em>computed (ours)</em> and <em>blank + flagged</em> instead of publishing one confident column.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Method used for the data verification</h2>
+    <ol class="tight">
+      <li>Open the official page; record the title, the week selector state and the capture timestamp.</li>
+      <li>Transcribe each row as displayed — position, injury text, practice status, designation — without
+        normalising spelling, re-ordering or completing anything.</li>
+      <li>Re-read the transcribed table against the source for every club in the capture (this is where the
+        vocabulary and blank-designation findings came from).</li>
+      <li>For the two clubs with a second official feed (league page vs club page), compare player by player, and
+        record agreements <em>and</em> the three wording differences.</li>
+      <li>Where a field could not be confirmed (e.g. a player on a report but not in the captured roster excerpt),
+        leave the derived value blank and raise a flag rather than guessing the join.</li>
+      <li>Run the site/data checker; only then enable Pages.</li>
+    </ol>
+    <p class="note">Ceiling to state plainly: this is single-pass verification by one reader, with a
+    cross-check on a subset. A second independent pass is an open task (Q-19), and until it happens the correct
+    description of the tables is “transcribed from the official page and re-read once”, not “verified twice”.</p>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

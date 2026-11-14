@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadmap — FL2</title>
+<meta name="description" content="Sequenced build plan for the FL2 NFL line-origination project: phases, gates to unlock, and what each step makes measurable.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="roadmap">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Roadmap</div>
+  <div class="page-head">
+    <h1>Roadmap — what to build, in what order, and why</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> the sequence. Each phase states what it unblocks, so a
+    phase can be cancelled on evidence rather than on enthusiasm. Nothing here is scheduled; ordering is by
+    dependency, and the dependency is the missing data, not the effort.</p>
+  </div>
+
+  <section>
+    <h2>Phase map</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Phase</th><th>Deliverable</th><th>Unblocks</th><th>Exit test (pass / fail, not opinion)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Ingestion automation</strong></td>
+            <td>Crawler for the league injury page, club news reports and roster pages (all statuses), writing dated,
+              idempotent snapshots; the Week 10 snapshot in this repo as its regression fixture</td>
+            <td>R-06, R-07, R-39, SG-30; removes the last manual step the brief forbids</td>
+            <td>Reproduces <code>assets/data/injuries.js</code> byte-equivalently for the same capture, and covers
+              32/32 clubs with the IR/PUP/PS segments present</td></tr>
+          <tr><td>2</td><td><strong>Schema contracts &amp; crosswalk</strong></td>
+            <td>Position crosswalk, absence-reason taxonomy (injury vs rest vs personal vs illness), player registry
+              keyed on the official permalink, per-source contract checks</td>
+            <td>FL-003, FL-006, FL-007, SG-07, Q-17, Q-18</td>
+            <td>Zero orphan rows between report and roster feeds for four consecutive weeks; a deliberately broken
+              fixture fails the run rather than publishing</td></tr>
+          <tr><td>3</td><td><strong>Availability engine</strong></td>
+            <td>dOAV / dDAV with refusal rules, trajectory-divergence features, inactive-list diffing</td>
+            <td>R-08…R-11, SIG-01…08, and it makes the designation-accuracy metric real</td>
+            <td>Predicts the inactive list with a published hit rate on 4 weeks of data; every miss explained by a
+              named cause (rest, personal, late designation change)</td></tr>
+          <tr><td>4</td><td><strong>Frozen baseline v0</strong></td>
+            <td>Points-distribution model over schedule + availability; config hashed and published</td>
+            <td>R-15, R-16, Q-08, and the reference point every later claim of improvement needs</td>
+            <td>Beats a naive “market copy” on Brier in a walk-forward window, or is replaced; not tuned on the
+              confirmatory folds</td></tr>
+          <tr><td>5</td><td><strong>Market capture</strong></td>
+            <td>Self-recorded price snapshots at T-48h / T-24h / T-2h / close for every modelled market (or a licensed
+              feed if Q-01 resolves that way)</td>
+            <td>Q-10, Q-11, G-03, G-07, SIG-09/11/13/18/21, the leaderboard itself, FL-014</td>
+            <td>&gt; 95% of games have a complete open→close chain for a full month; missing timestamps reported,
+              never interpolated</td></tr>
+          <tr><td>6</td><td><strong>Correlation measurement</strong></td>
+            <td>ρ for every leg-pair in the register, from simulation of the frozen baseline plus realised co-hit
+              rates; shrinkage and stability rules documented</td>
+            <td>R-14, R-19, Q-12; makes combo quoting legal <em>and</em> priced</td>
+            <td>Register has no “—” left for any pair we intend to quote; per-season stability reported; implied-ρ
+              vs measured-ρ gaps tracked as the combo edge metric</td></tr>
+          <tr><td>7</td><td><strong>Gate battery wired to live data</strong></td>
+            <td><code>engine/gates.py</code> fed from the bet ledger and grade files; results rendered on the
+              leaderboard page with <em>unknown</em> shown as unknown</td>
+            <td>R-17…R-21; converts the whole method into an operating rule</td>
+            <td>No strategy can be promoted with an unknown gate; the registry’s variant count is the only input to
+              G-04 (no manual N)</td></tr>
+          <tr><td>8</td><td><strong>Leaderboard &amp; rewards live</strong></td>
+            <td>Weekly recomputation, tier promotion/benching, capital allocation ledger, decision log per promotion</td>
+            <td>R-22…R-25, Q-22, SG-23/24</td>
+            <td>A strategy that later fails G-08 or G-15 is demoted automatically within one window, and the
+              demotion is published on the board</td></tr>
+          <tr><td>9</td><td><strong>Props &amp; SGP productisation</strong></td>
+            <td>Usage model (needs licensed play data), prop pricing, SGP quote generator with the book-rule filter</td>
+            <td>R-13, R-26, R-27, SIG-16…20</td>
+            <td>Quotes pass G-12 legality and G-16 cluster limits on 100% of emitted tickets; any unpriced dependency
+              refuses to quote rather than assuming independence</td></tr>
+          <tr><td>10</td><td><strong>Rights &amp; jurisdiction resolution</strong></td>
+            <td>Written answer on league-data licensing, operator terms, and where the product may run (US states /
+              Mexico), stored as sources S-17/S-18</td>
+            <td>R-38, Q-01, Q-14, Q-15; gates whether anything here becomes a product at all</td>
+            <td>Every legal claim on the site cites a primary document; FL-010/FL-011 closed with a link, not a
+              summary</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Ordering rationale, in one sentence: phases 1–3 make the inputs trustworthy, 4 makes the model
+    falsifiable, 5–6 make the market comparable, 7–8 make the competition honest, and 9–10 decide whether any of it
+    may be used commercially — so starting at 9 is how a project like this fails.</p>
+  </section>
+
+  <section>
+    <h2>Standing weekly loop once phases 1–3 exist</h2>
+    <div class="grid c3">
+      <div class="card tight"><strong>Tue–Wed</strong>
+        <p class="note">Capture practice reports; log clubs whose trajectory contradicts their designations
+        (SIG-07, FL-009). Recompute dOAV/dDAV priors; no quotes yet.</p></div>
+      <div class="card tight"><strong>Thu–Fri</strong>
+        <p class="note">Final designation capture; publish our number per market with a quantile band; record the
+        residual against the market at a fixed checkpoint (Q-11). Re-price on any post-deadline revision (G-15).</p></div>
+      <div class="card tight"><strong>Sat–Sun</strong>
+        <p class="note">Inactive lists → diff against designations. Grade outcomes; append to the bet ledger with
+        cluster ids. No new rules are written mid-week; only the registry grows.</p></div>
+      <div class="card tight"><strong>Mon</strong>
+        <p class="note">Recompute gates and the leaderboard; promote/bench mechanically; write the decision log entry
+        for anything the arithmetic changed.</p></div>
+      <div class="card tight"><strong>Monthly</strong>
+        <p class="note">Re-read 10% of published table rows against their sources (Q-19); publish the disagreement
+        rate on the verification page. Prune dead sources, add newly discovered ones.</p></div>
+      <div class="card tight"><strong>Per window</strong>
+        <p class="note">Re-fit nothing on the confirmatory folds; retire signals that fail G-08/G-14 twice in a row
+        rather than re-parameterising them until they pass.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What we are deliberately not doing</h2>
+    <div class="grid c3">
+      <div class="card tight"><strong>No bet placement or automation</strong>
+        <p class="note">Execution raises licensing and terms-of-use questions (Q-15) that no amount of modelling
+        answers. Origination is the deliverable.</p></div>
+      <div class="card tight"><strong>No “live” data on the site</strong>
+        <p class="note">A static snapshot with visible age is auditable; a page that fetches at load time is not
+        reproducible by a reviewer (FL-015).</p></div>
+      <div class="card tight"><strong>No model complexity before a baseline</strong>
+        <p class="note">Every additional free parameter must justify itself on a holdout (G-05). That is a refusal to
+        start with a gradient-boosted everything-model, on purpose.</p></div>
+      <div class="card tight"><strong>No leaderboard numbers before G-01</strong>
+        <p class="note">An empty board is honest; a populated one built on 30 bets is a machine for rewarding luck
+        (Q-13, Q-22).</p></div>
+      <div class="card tight"><strong>No inferred cells, ever</strong>
+        <p class="note">Blank plus flag is the rule (R-05). It makes tables look incomplete and makes the site
+        trustworthy; the trade is not close.</p></div>
+      <div class="card tight"><strong>No scraping of restricted content at scale</strong>
+        <p class="note">Until Q-01 is answered, this remains a small attributed snapshot rather than a mirror of the
+        league’s data.</p></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

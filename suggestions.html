@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions — FL2</title>
+<meta name="description" content="A reviewable, scored register of suggestions for improving the FL2 site and the decision-making it supports. Choose a path before anything is implemented.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="suggestions">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Suggestions</div>
+  <div class="page-head">
+    <h1>Suggestions register — review and choose</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> which improvements to adopt, defer or reject before
+    any of them becomes code. <span data-stat="suggestions.total"></span> suggestions;
+    <span data-stat="suggestions.adopted"></span> were implemented in this session because the brief already
+    mandated them, and <span data-stat="suggestions.recommended"></span> are <strong>awaiting your choice</strong>.</p>
+  </div>
+
+  <section>
+    <h2>How the ranking works (so it can be argued with)</h2>
+    <div class="grid c4">
+      <div class="kpi"><div class="l"><strong>Impact I</strong><br>how much it changes the quality of a decision</div>
+        <div class="hint">0–5, judgement, stated openly</div></div>
+      <div class="kpi"><div class="l"><strong>Confidence C</strong><br>how much evidence in this repo backs the claim</div>
+        <div class="hint">0–5; 5 = a source or a test, 1 = plausibility</div></div>
+      <div class="kpi"><div class="l"><strong>Effort E</strong><br>cost to build, 1 = one file</div>
+        <div class="hint">1–5</div></div>
+      <div class="kpi"><div class="l"><strong>Risk R</strong><br>harm if the suggestion is wrong</div>
+        <div class="hint">0–5; irreversibility counts double</div></div>
+    </div>
+    <p class="note">Priority is computed by the page, not typed by hand: <code>(I + C) × 2 − E − R</code>.
+    Filter and sort the table below to re-rank it under your own weights — change what you believe, and the order
+    changes with it. Anything you disagree with should become a rejection with a reason in the decision log
+    (SG-03), not silence.</p>
+  </section>
+
+  <section>
+    <h2>All suggestions</h2>
+    <div class="table-mount" data-set="suggestions" data-chips="disp,cat" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Recommended path (a single coherent option, not a menu)</h2>
+    <div class="grid c3">
+      <div class="card">
+        <h3>Phase A — integrity first (this week)</h3>
+        <ol class="tight">
+          <li>SG-05 ingest all three practice days (the club pages already carry them)</li>
+          <li>SG-07 key everything on the official player permalink + alias table</li>
+          <li>SG-09 never cache player→club; re-derive weekly</li>
+          <li>SG-06 as-of stamps and a revision counter on every table</li>
+        </ol>
+        <p class="note">Why first: every later number inherits these. All four are low effort, high confidence, and
+        reversible.</p>
+      </div>
+      <div class="card">
+        <h3>Phase B — make the number mean something</h3>
+        <ol class="tight">
+          <li>SG-13 freeze a public baseline v0 (hash the config) before adding any signal</li>
+          <li>SG-18 show a confidence interval beside every rate, forever</li>
+          <li>SG-16 pre-commitment registry, wired to G-04’s variant count</li>
+          <li>SG-19 discovery / confirmatory / live split enforced in config</li>
+        </ol>
+        <p class="note">Why next: without a frozen baseline and honest intervals, improvement is unfalsifiable and
+        the leaderboard becomes noise.</p>
+      </div>
+      <div class="card">
+        <h3>Phase C — markets and combos</h3>
+        <ol class="tight">
+          <li>Self-recorded odds snapshots at T-48h/24h/2h/close (closes Q-10, unblocks SG-15)</li>
+          <li>SG-21 price parlays from one joint latent state, then measure ρ by simulation</li>
+          <li>SG-22 book-rule filter before any combo can be quoted</li>
+          <li>SG-23/24 rewards as capital allocation, with a visible no-strategy benchmark row</li>
+        </ol>
+        <p class="note">Why last: it is the only phase that needs a decision from you (rights and budget) to be
+        worth building at all.</p>
+      </div>
+    </div>
+    <div class="banner info"><strong>Explicitly not recommended now:</strong> a prop-only engine (blocked on usage
+    data, Q-10/R-27), live betting (no live feed), and any auto-staking (Q-15 unresolved). Each is recorded as a
+    rejection with a reason rather than left as an open option.</div>
+  </section>
+
+  <section>
+    <h2>Site improvements and what they buy you</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Suggestion</th><th>Improves decision making by…</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>SG-01 decision statement on every page header</td>
+            <td>making each page answer a question instead of describing a topic — you can see immediately whether the page is competent to decide</td>
+            <td><span class="pill ok">live</span></td></tr>
+          <tr><td>SG-04 fact tables vs computed tables separated</td>
+            <td>stopping a model output from reading like an official number, the most common way a dashboard like this misleads</td>
+            <td><span class="pill ok">live</span></td></tr>
+          <tr><td>SG-08 coverage bounds printed with the data</td>
+            <td>removing the illusion of completeness; the injury banner names exactly what is absent</td>
+            <td><span class="pill ok">live</span></td></tr>
+          <tr><td>SG-25 filter/sort/source-link on every table</td>
+            <td>letting a reviewer audit the 40 rows that matter (Out, rookies, rest tags) instead of 276</td>
+            <td><span class="pill ok">live</span></td></tr>
+          <tr><td>SG-27 decision-readiness indicator per page</td>
+            <td>showing how many of a page’s own questions remain open before you act on it</td>
+            <td><span class="pill warn">counts live, thresholds proposed</span></td></tr>
+          <tr><td>SG-26 “what changed” diff of the data files</td>
+            <td>turning the site from a brochure into a monitor: week-over-week availability change is the signal</td>
+            <td><span class="pill info">recommended, not built</span></td></tr>
+          <tr><td>SG-30 crawler with this snapshot as its fixture</td>
+            <td>removing the manual step the brief forbids, while keeping a regression test for it</td>
+            <td><span class="pill info">recommended</span></td></tr>
+          <tr><td>SG-29 loss-risk banner under the reward table</td>
+            <td>keeping the incentive design honest about variance, so the competition cannot be won by luck twice</td>
+            <td><span class="pill ok">live</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

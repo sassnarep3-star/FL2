@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Requirements — FL2</title>
+<meta name="description" content="The full requirements list for the FL2 NFL line-origination project, with acceptance criteria and status.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="requirements">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Requirements</div>
+  <div class="page-head">
+    <h1>Requirements register</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> what “done” means before anything is built.
+    Each row is testable against a file in the repo; “Status” is only <em>met</em> where a deliverable here
+    satisfies it today. Rows marked <span class="pill bad">blocked</span> are blocked on a question, and the
+    <em>Depends on</em> column names it.</p>
+  </div>
+
+  <section>
+    <h2>Reading the statuses</h2>
+    <div class="grid c4">
+      <div class="kpi"><div class="n"><span data-stat="requirements.met"></span></div><div class="l">met — a deliverable in this repo satisfies it now</div></div>
+      <div class="kpi"><div class="n"><span data-stat="requirements.partial"></span></div><div class="l">partially-met — mechanism proven, scope incomplete</div></div>
+      <div class="kpi"><div class="n"><span data-stat="requirements.defined"></span></div><div class="l">defined — specified, nothing built yet</div></div>
+      <div class="kpi"><div class="n"><span data-stat="requirements.blocked"></span></div><div class="l">blocked — waiting on data or a rights decision</div></div>
+    </div>
+    <p class="note">Two statuses are deliberately absent from the vocabulary: <em>almost</em> and <em>in good shape</em>.
+    A requirement is either falsifiable against an artefact or it is recorded as blocked with the dependency named.</p>
+  </section>
+
+  <section>
+    <h2>All <span data-stat="requirements.total"></span> requirements</h2>
+    <div class="table-mount" data-set="requirements" data-chips="st,cat" data-source-note="brief"></div>
+    <p class="note">Source of these requirements: the project brief for this repository (owner’s stated goals),
+    restated into testable form. No external source is claimable for a requirement, so the Source column is
+    suppressed here and appears on every <em>data</em> table instead. Where a requirement depends on a number from
+    the outside world, that number lives in a table that does carry a source link.</p>
+  </section>
+
+  <section>
+    <h2>Analysis: what the register says about the shape of this project</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3>The centre of gravity is not the model</h3>
+        <p>Of the <span data-stat="requirements.total"></span> requirements, the largest group is data plumbing and
+        verification discipline (R-03…R-09, R-39…R-42) — and that is where the blocked items cluster
+        (R-07, R-15, R-27, R-38). A betting model is mostly a data-integrity project with a small model inside it;
+        the register makes that visible instead of hiding it behind “build the model first”.</p>
+      </div>
+      <div class="card">
+        <h3>Nothing in the brief requires a bet to be placed</h3>
+        <p>The brief asks to <em>originate</em> lines, track availability, gate strategies and run a competition.
+        Those are satisfied by R-12…R-24 plus the site and coordination requirements. Wager execution is
+        deliberately out of scope (R-38, Q-15) — it is the part that needs a lawyer and a licence, not a model.</p>
+      </div>
+      <div class="card">
+        <h3>Two requirements are in tension, and that is the point</h3>
+        <p>R-05 (never fill a gap by inference) versus R-12/R-13 (originate a number for every market). Resolution
+        chosen here: refuse to quote where inputs are undefined, and publish the refusal as a first-class result
+        (SIG-22 VETO, SG-12 guard). A line that is “unknown” is more useful than a line that is confidently wrong.</p>
+      </div>
+      <div class="card">
+        <h3>Skill-based selection is a requirement with a formula attached</h3>
+        <p>“Remove luck” (R-18) is not a posture but arithmetic: Wilson bounds, minimum sample floors, deflation by
+        the number of variants tried, walk-forward folds and a bootstrap on the P&amp;L. All of it is implemented in
+        <code>engine/gates.py</code>, so a strategy cannot pass the requirement by narrative.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

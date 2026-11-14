@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for review — FL2</title>
+<meta name="description" content="Every irregularity and unverified item found while building FL2, with source links and a next action. These do not block the site or the merge.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="review">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Flagged for review</div>
+  <div class="page-head">
+    <h1>Flagged for review</h1>
+    <p class="lede"><strong>What this page is for:</strong> everything that looked wrong, contradicted itself, or
+    could not be confirmed against an official source — published instead of quietly fixed. Nothing here blocks the
+    site or the merge; each row is a request for your judgement, with the source link and the single action that
+    would close it.</p>
+  </div>
+
+  <section>
+    <h2>Severity key</h2>
+    <div class="grid c3">
+      <div class="card tight"><span class="pill bad">blocker-for-model-trust</span>
+        <p class="note">A model built today would be wrong in a way that is not visible from the output. Fix before
+        any gate is scored. One item: the absence of any market-data source.</p></div>
+      <div class="card tight"><span class="pill bad">high</span>
+        <p class="note">Changes a feature definition, a join, or a legal posture. Safe to keep working around for a
+        week, not for a season.</p></div>
+      <div class="card tight"><span class="pill warn">medium</span>
+        <p class="note">A data-quality or interpretation issue that will quietly bias results if it is never
+        resolved.</p></div>
+      <div class="card tight"><span class="pill muted">low</span>
+        <p class="note">Noted for completeness and for the crawler spec; no current decision depends on it.</p></div>
+      <div class="card tight"><span class="pill info">counting rule</span>
+        <p class="note"><span data-stat="flags.total"></span> items:
+        <span data-stat="flags.high"></span> high-or-blocking. Registers themselves carry <span
+        data-stat="questions.total"></span> questions and <span data-stat="suggestions.total"></span> suggestions —
+        those are decisions to make, not defects, and are kept on their own pages.</p></div>
+      <div class="card tight"><span class="pill ok">disposition</span>
+        <p class="note">Every item stays <span class="pill warn">open</span> until a human or a future session
+        records a resolution in <a href="COORDINATION.md">COORDINATION.md</a>. Closing an item means editing its row
+        with the source that settled it, not deleting it.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>All flagged items</h2>
+    <div class="table-mount" data-set="flags" data-chips="sev,st,area" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Three of these are worth reading first</h2>
+    <div class="grid c3">
+      <div class="card">
+        <h3><a href="review.html">FL-014</a> — no market data anywhere</h3>
+        <p class="note">Every edge, CLV, hold and ROI field on this site is blank because there is nothing to
+        compute them from. It is not a formatting gap: without a captured close, “our line beat theirs” is
+        unprovable, so the gates that matter most (G-03, G-07) cannot be closed at all. The cheapest fix is our own
+        timestamped captures (S-20), which cost nothing but discipline.</p>
+      </div>
+      <div class="card">
+        <h3><a href="review.html">FL-002</a> — the roster capture reached only the active list</h3>
+        <p class="note">Official roster pages are paginated by status, and the IR/PUP/practice-squad segment was not
+        reached in this session. Depth and “next man up” statements are therefore bounded: the absence of a name in
+        the excerpt means nothing about the team. This is the single largest limit on the
+        <a href="availability.html">depth page</a>.</p>
+      </div>
+      <div class="card">
+        <h3><a href="review.html">FL-013</a> — there is no official depth chart to read</h3>
+        <p class="note">Both plausible official paths failed. Until that is settled (Q-07), “2nd/3rd string” is a
+        projection built from snap share and experience, and any page that says otherwise is overclaiming. The
+        depth page deliberately renders its own example as an alphabetical, admittedly non-depth ordering to keep
+        that distinction visible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Open question about the repository itself</h2>
+    <div class="card">
+      <p><strong>Name and purpose.</strong> “FL2” is not defined anywhere in the repo (the original README was one
+      line), and there is no statement of intended use, users, or whether this is personal research or a product.
+      That was not invented here: the site describes what the brief asked for — collect, organise, analyse, originate
+      lines — and every legal/compliance row is left as a question (Q-14, Q-15) rather than an assumption.</p>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

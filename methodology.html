@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Line origination methodology — FL2</title>
+<meta name="description" content="How FL2 originates NFL lines: signal catalogue, validation gates, correlation handling, combo pricing and the reference engine.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="methodology">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Line origination</div>
+  <div class="page-head">
+    <h1>Line origination: signals, gates, correlation</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> which signals get built into the baseline, and what
+    each must survive before its output may be quoted or bet.
+    <span data-stat="signals.total"></span> signals · <span data-stat="gates.total"></span> gates ·
+    <span data-stat="corr.total"></span> leg-pairs in the correlation register
+    (<span data-stat="corr.measured"></span> with a measured ρ).</p>
+  </div>
+
+  <div class="banner bad"><strong>No market data exists in this repo.</strong> Therefore this page contains
+  <em>methods and directions</em>, never a price, a hold, an ROI or an empirical correlation. The cells that would
+  normally carry those numbers are blank and flagged (<a href="review.html">FL-014</a> → Q-10). Any figure shown
+  here as “computed” is arithmetic on assumptions we state, reproducible with
+  <code>python3 -m engine.selftest</code>.</div>
+
+  <section>
+    <h2>The pipeline, in order</h2>
+    <div class="grid c4">
+      <div class="card tight"><strong>1 · Capture</strong><p class="note">official report + roster + schedule, each row
+        with an as-of stamp, a source URL and a schema contract. Fail loudly on shape change (Q-18).</p></div>
+      <div class="card tight"><strong>2 · Normalise</strong><p class="note">position crosswalk (FL-003), absence-reason
+        taxonomy so rest ≠ injury (SIG-06), player registry keyed on the official permalink (SG-07).</p></div>
+      <div class="card tight"><strong>3 · Availability state</strong><p class="note">per club, per position: who is
+        Out/Doubtful, who is ACT, who is left, with the experience of the next man up (R-10).</p></div>
+      <div class="card tight"><strong>4 · Baseline distribution</strong><p class="note">μ and σ for margin and each
+        team total, frozen as v0 with a hash before any signal is layered on (SG-13).</p></div>
+      <div class="card tight"><strong>5 · Signal adjustments</strong><p class="note">each adjustment is a named
+        function with declared inputs; an undefined input propagates to “no quote”, never to a default value
+        (SIG-22).</p></div>
+      <div class="card tight"><strong>6 · Quote &amp; compare</strong><p class="note">our number, a price at three
+        quantiles (SG-14), the market’s open/close, and the residual — the only honest object of study.</p></div>
+      <div class="card tight"><strong>7 · Combo pricing</strong><p class="note">joint distribution over legs via the
+        copula; the book’s multiplier inverted into an implied ρ, and traded only when it disagrees with ours.</p></div>
+      <div class="card tight"><strong>8 · Gate battery</strong><p class="note">G-01…G-16 produce pass / fail /
+        <em>unknown</em>. Unknown never becomes pass by omission (implemented in
+        <code>engine/gates.py</code>).</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Signal catalogue</h2>
+    <p class="note">“Hypothesis” is the reason the market could be slow — a signal without one is a data column.
+    <em>blocked</em> means a required input does not exist in our stack yet (it is not a rejection of the idea).</p>
+    <div class="table-mount" data-set="signals" data-chips="fam,st" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Validation gates — every strategy must clear all applicable gates</h2>
+    <p class="note">Thresholds are policy, held in <code>engine/config.py</code> so a change is a reviewed edit
+    rather than a rebuild. A gate returns <em>unknown</em> when the evidence is missing; unknown blocks promotion.</p>
+    <div class="table-mount" data-set="gates" data-nosrc="1"></div>
+
+    <h3>What the gates say about luck (all values computed here)</h3>
+    <div class="grid c2">
+      <div>
+        <div class="table-mount" data-set="computedSample" data-search="0" data-nosrc="1"></div>
+      </div>
+      <div>
+        <div class="table-mount" data-set="computedDeflation" data-search="0" data-nosrc="1"></div>
+        <p class="note">Read the second table as a rule: if you try 100 variants, the best one needs a Sharpe above
+        ≈0.51 <em>per period</em> to be more than the maximum of noise. If you do not record how many variants you
+        tried, nobody can deflate anything — which is why the registry (SG-16) is a gate input and not a nicety.</p>
+      </div>
+    </div>
+    <div class="table-mount" data-set="computedConstants" data-search="0" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>Correlation handling</h2>
+    <div class="grid c2">
+      <div>
+        <p>The combiner is a Gaussian copula over a shared latent game state. Two legs with marginals
+        <em>p₁, p₂</em> and correlation ρ:</p>
+        <p><code>P(both) = ∫ φ(z) · Πᵢ [ 1 − Φ( (Φ⁻¹(1−pᵢ) − √ρ·z) / √(1−ρ) ) ] dz</code></p>
+        <p class="note">For two legs this is the exact bivariate normal tail (valid for negative ρ too, which the
+        one-factor form cannot express — <code>engine/parlay.py</code> branches on that). For three or more legs it
+        is exact when the pairwise correlation really is equal, and a stated approximation otherwise. Convergence
+        to the Fréchet bounds is tested rather than assumed, because it is O(√(1−ρ)) — at ρ=0.999 a 0.55/0.55 pair
+        reaches 0.5429, not 0.55.</p>
+      </div>
+      <div>
+        <div class="table-mount" data-set="computedParlay" data-search="0" data-nosrc="1"></div>
+      </div>
+    </div>
+    <div class="grid c2">
+      <div class="table-mount" data-set="computedImplied" data-search="0" data-nosrc="1"></div>
+      <div class="card tight">
+        <h3>The register, and why its value column is empty</h3>
+        <p class="note">Mechanism and sign can be argued without data (a reception is a component of receiving
+        yards); a number cannot. Filling ρ with folklore is how a combo engine manufactures its own losses: the
+        register therefore stores the measurement plan — simulation window, shrinkage toward 0, per-season
+        stability — and refuses to quote any pair whose legs share a driver until it is populated
+        (Q-12, R-19, G-16).</p>
+      </div>
+    </div>
+    <div class="table-mount" data-set="correlations" data-nosrc="1"></div>
+  </section>
+
+  <section>
+    <h2>The reference engine</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3>Layout</h3>
+        <ul class="tight">
+          <li><code>engine/odds.py</code> — odds ⇄ probability, de-vig (multiplicative), break-even, EV,
+            fractional Kelly, Wilson interval, “bets needed to prove a rate”.</li>
+          <li><code>engine/parlay.py</code> — copula joint tails, parlay pricing, all-lose cluster probability,
+            and <code>implied_rho_from_parlay()</code>, which inverts a book’s price into the ρ it assumes.</li>
+          <li><code>engine/stats.py</code> — skew/kurtosis, SR*, the deflated Sharpe ratio, MinTRL,
+            moving-block bootstrap and an exact sign-flip test.</li>
+          <li><code>engine/gates.py</code> — the 16 gates, each returning pass / fail / unknown with a reason string.</li>
+          <li><code>engine/registry.py</code> — pre-commitment log: canonical hash of a spec before its window opens,
+            and the variant count G-04 needs.</li>
+          <li><code>engine/selftest.py</code> — 46 assertions plus every “computed” figure on this site.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Verify it yourself</h3>
+        <p><code>cd FL2 &amp;&amp; python3 -m engine.selftest</code></p>
+        <div class="table-mount" data-set="computedSelftest" data-search="0" data-nosrc="1"></div>
+        <p class="note">The assertions are identities a reader can check with a calculator (e.g. −110 ⇒ implied
+        0.523809, de-vigged 0.500000; quarter-Kelly at p=0.55 ⇒ 0.01375 of bankroll), so trusting the engine is not
+        required to audit it. Dry-run behaviour worth knowing: a deliberately weak record finishes
+        <em>1/16 passed, 2 failed, 13 unknown → NOT PROMOTABLE</em>, and the missing-evidence gates say so instead
+        of defaulting to success.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What “selectively skill-based” means operationally</h2>
+    <div class="grid c3">
+      <div class="card tight"><strong>Selection is a rate, not a feeling</strong>
+        <p class="note">The VETO rule (SIG-22) makes “no bet” a produced outcome. Skill shows up as a higher
+        edge per bet at a lower bet count; a strategy that qualifies on everything is measuring the market, not
+        itself.</p></div>
+      <div class="card tight"><strong>Skill is judged on pricing, PnL is judged on CLV</strong>
+        <p class="note">G-14 scores the number (Brier/log-loss/MAE vs the frozen baseline); G-03 scores the ticket
+        (did we beat the close). PnL alone is on neither list, because a hot month satisfies it.</p></div>
+      <div class="card tight"><strong>Availability signals must not be credited twice</strong>
+        <p class="note">SIG-01…05, 16, 17 all read the same absence event. Cluster ids (G-16) plus one-stake-per-cluster
+        sizing is what stops a five-leg SGP from being one bet with five times the risk.</p></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

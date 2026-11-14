@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Depth &amp; backups — FL2</title>
+<meta name="description" content="Availability-adjusted depth: measuring what losing starters actually costs a unit, using official injury reports and club roster data, with the limits of what can be verified.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="availability">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / <a href="injuries.html">Injury tracking</a> / Depth &amp; backups</div>
+  <div class="page-head">
+    <h1>Depth and backup deficiency</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> whether an absence is absorbed by the next man up or
+    actually changes the unit. “2nd, 3rd, 4th string” is only meaningful if it is measured from something; here it is
+    measured from <em>roster status and years of experience on the official roster page</em>, and everything the
+    official data cannot support is left blank and flagged rather than assumed.</p>
+  </div>
+
+  <div class="banner"><strong>The honest limitation, stated first.</strong> No official, machine-readable depth
+  chart was found: two plausible official paths returned a 404 and a broken-link page
+  (<a href="review.html">FL-013</a>, <a href="data-catalog.html">S-06 / S-07</a>). So this page does not claim
+  anyone is a “second-stringer”. It claims something weaker and checkable: given a named absence from the official
+  report, which other players at that position are on the club’s active roster, and what their published experience
+  is.</p>
+  </div>
+
+  <section>
+    <h2>Worked example — MIN @ GB, Week 10 (the only fixture with both feeds captured)</h2>
+    <div class="table-mount" data-set="nextmanup"></div>
+  </section>
+
+  <section>
+    <h2>The two features this feeds</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3><span class="pill info">offence</span> Offensive availability delta (dOAV)</h3>
+        <p>Absences at QB / RB / WR / TE / C / G / T. Weighted by protection and touch concentration rather than by
+        name value, because the observable failure mode of a backup offensive line is *sustained pressure and
+        reduced rush rate*, which shows up in team-total and rush-prop prices before it shows up in the spread.</p>
+        <p class="note">Verified instance in this snapshot: Green Bay lists three offensive absences among
+        linemen and the leading rusher Out
+        (<span class="mono">Jacobs — Finger — Out</span>, <span class="mono">Rhyan — Ankle — Out</span>,
+        <span class="mono">Zeitler — Ankle, Triceps — Questionable</span>). The captured active-roster excerpt shows
+        the backfield replacements at <span class="mono">Kaleb Johnson (2 yr)</span> and
+        <span class="mono">MarShawn Lloyd (3 yr)</span> — that is the deficiency signal, stated as data.</p>
+      </div>
+      <div class="card">
+        <h3><span class="pill info">defence</span> Defensive availability delta (dDAV)</h3>
+        <p>Absences at DE / DT / LB / CB / S, weighted by position leverage (corner and edge rusher before nose
+        tackle) and by whether the *replacement* is a specialist or a convert. A defence missing two starters in the
+        same back-seven unit changes the down distribution, which is a totals fact as much as a side fact.</p>
+        <p class="note">Verified instance: Green Bay lists <span class="mono">Parsons — Knee, Illness — Out</span>,
+        <span class="mono">Franklin — Shin — Doubtful</span>, <span class="mono">Van Ness — Back —
+        Questionable</span> with <span class="mono">McKinney</span> and <span class="mono">Bullard</span>
+        Questionable in the secondary: four of the ten defensive names on the report carry a Friday limitation, and
+        the only measured back-up quality available is 3 years (Hopper) and 6 years (McDuffie, Niemann) at
+        linebacker on the captured roster excerpt.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Formula (as implemented, with refusal rules)</h3>
+      <p><code>dU = Σ<sub>absent i</sub> w(pos<sub>i</sub>) · snapshare(pos<sub>i</sub>, i) &nbsp;·&nbsp;
+      [ value(i) − value(replacement<sub>i</sub>) ]</code> where <code>value()</code> is currently only
+      <em>years of experience + roster status</em>, both officially available.</p>
+      <ul class="tight">
+        <li><strong>Refusal rule 1 (SG-12):</strong> if two or more starters at one position are
+          <span class="pill bad">Out</span>, the unit is marked <em>projection-invalid</em> and no adjustment is
+          published. The model has no support for that state and must say so.</li>
+        <li><strong>Refusal rule 2:</strong> if the replacement cannot be identified from a captured roster
+          segment, <code>value(replacement)</code> is <em>undefined</em> and propagates — no positional average is
+          silently substituted.</li>
+        <li><strong>Refusal rule 3 (SIG-06):</strong> rows whose injury text contains “Not injury related” are
+          dropped from <code>dU</code> entirely, and instead counted in a separate <em>rest</em> feature.</li>
+        <li><strong>Upgrade path:</strong> <code>snapshare</code> is the term we cannot compute yet — it needs
+          play-by-play data (R-27, Q-01). Until then <code>dU</code> is a *count-and-weight* index, not a
+          points-equivalent, and must not be multiplied into a scoring model as if it were one.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Source data behind the example</h2>
+    <p class="note">Official club roster pages as published; the captured segment is the active list in alphabetical
+    order, so absence of a name below is a capture limit, not a claim about the team (
+    <a href="review.html">FL-002</a>).</p>
+    <div class="table-mount" data-set="rosters"></div>
+  </section>
+
+  <section>
+    <h2>What is missing, and how to get it</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Need</th><th>Why it is not here yet</th><th>How to close it</th><th>Question</th></tr></thead>
+        <tbody>
+          <tr><td>Official depth chart / string ordering</td><td>Not found at the expected official paths</td>
+            <td>Walk each club site’s Team menu once and record the working path per club; if none exists, adopt
+              snap-share ordering and label every ordering <em>projected</em></td><td>Q-07</td></tr>
+          <tr><td>Full roster incl. IR / PUP / NFI / practice squad</td><td>Roster pages are paginated by status;
+            only the active segment was captured</td>
+            <td>Capture all chunks per club, store the status field verbatim, and treat “not on the active list” as
+              a distinct state rather than “unavailable”</td><td>Q-05, R-07</td></tr>
+          <tr><td>Snap share per player</td><td>Play-by-play data is licensed</td>
+            <td>Price one season from a vendor (S-19), or accept a box-score-only proxy and measure the accuracy loss
+              explicitly</td><td>Q-01, R-27</td></tr>
+          <tr><td>Confirmed starters</td><td>Clubs do not publish a definitive lineup before kickoff; lineups
+            circulate unofficially</td>
+            <td>Treat the inactive list (official, ~90 min before kickoff) as the only confirmable availability
+              record, and keep any pre-game “starting XI” claim marked unverified</td><td>Q-02</td></tr>
+          <tr><td>Position vocabulary crosswalk</td><td>Two official feeds spell positions differently</td>
+            <td>Publish a small mapping file and force every join through it (already required by FL-003)</td>
+            <td>R-09</td></tr>
+          <tr><td>Player value scale</td><td>No official salary, grade or market-value source has been read</td>
+            <td>Decide: contract-based (public but not official), or performance-based from league stats, or
+              experience-only for now (what is used here)</td><td>Q-08</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Design decisions taken here</h2>
+    <div class="grid c2">
+      <div class="card tight">
+        <h3>Why experience, when it is a crude proxy</h3>
+        <p>It is the only player-quality-adjacent field the league publishes on the same page as roster status, so
+        it inherits that page’s verification. A model built on a sharper but unsourced proxy would look better and
+        be less auditable. It is explicitly a starting value scale, not an end one.</p>
+      </div>
+      <div class="card tight">
+        <h3>Why “alphabetically first at the position” instead of a depth guess</h3>
+        <p>Because it is reproducible from the captured file and obviously <em>not</em> a depth claim — which keeps
+        the demonstration honest while the ordering source is still an open question. When a real ordering exists,
+        this function is the one that changes.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

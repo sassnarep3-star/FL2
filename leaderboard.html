@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaderboard &amp; rewards — FL2</title>
+<meta name="description" content="A strategy competition format that pays validated skill: scoring, windows, gate-weighted deflation, reward tiers and clawbacks.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="leaderboard">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / <a href="methodology.html">Line origination</a> / Leaderboard</div>
+  <div class="page-head">
+    <h1>Strategy leaderboard &amp; rewards</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> how competing strategies are ranked and paid so that
+    the winner is the one with skill rather than the one with variance. The board is empty by design; the rules for
+    filling it are complete and implemented in <code>engine/gates.py</code>.</p>
+  </div>
+
+  <section>
+    <h2>Design principles (each one removes a specific way to fake skill)</h2>
+    <div class="grid c2">
+      <div class="card tight"><strong>Pre-commitment before evaluation</strong>
+        <p class="note">A spec is hashed into the registry before its window opens, so “we tried 40 things and show
+        you the best” becomes measurable rather than deniable — and the deflation term (G-04) has an honest N.</p></div>
+      <div class="card tight"><strong>Rank on gates, then on edge, then on P&amp;L</strong>
+        <p class="note">PnL is last and weighted by log of sample size. A 200-bet strategy that clears 16 gates
+        outranks a 40-bet one with a bigger number, because only the first is real.</p></div>
+      <div class="card tight"><strong>CLV is the primary skill statistic</strong>
+        <p class="note">Beating the close is what the market says about your information (G-03). Won-loss is an
+        outcome of luck and sample size, so it is reported but never ranked on.</p></div>
+      <div class="card tight"><strong>One driver, one bet</strong>
+        <p class="note">Correlation-cluster ids on every ticket (G-16); a five-leg SGP built from one injury
+        is scored as one leveraged bet, not five independent ones.</p></div>
+      <div class="card tight"><strong>Decay is a live requirement, not a post-mortem</strong>
+        <p class="note">G-08 benches strategies whose recent edge falls below the 10th percentile of their own
+        history, and a promotion must survive two consecutive windows (T3).</p></div>
+      <div class="card tight"><strong>Cap the upside that invites gaming</strong>
+        <p class="note">Rewards are bankroll allocation, not cash, and violation of a gate after the fact forfeits
+        the window and re-publishes the spec — because the exploitable object in a competition is the scoring rule.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Competition configuration</h2>
+    <div class="table-mount" data-set="leaderboard"></div>
+  </section>
+
+  <section>
+    <h2>Why the standing table is empty today</h2>
+    <div class="grid c2">
+      <div class="card">
+        <p>Filling the board requires four inputs none of which exist yet, and each is a numbered blocker rather
+        than a to-do:</p>
+        <ul class="tight">
+          <li><strong>graded bets</strong> — needs a market to price against, then outcomes; blocked by
+            <a href="review.html">FL-014</a> / Q-10</li>
+          <li><strong>closing prices</strong> — the CLV column cannot be “0”, it must be absent; same blocker</li>
+          <li><strong>a frozen baseline v0</strong> — without a fixed reference, every “edge” is relative to a moving
+            target (SG-13, Q-08)</li>
+          <li><strong>measured ρ for combo legs</strong> — until the correlation register has values, any parlay
+            rank would be priced on an assumption (Q-12)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What can be ranked right now, and is</h3>
+        <p>The <em>method</em> is already competitive: 22 signals, each with declared inputs, expected direction,
+        decay behaviour, correlation partners and the gates it must clear
+        (<a href="methodology.html">signal catalogue</a>). That ranking — “which hypothesis is worth building
+        first” — is the one this repo can honestly produce today, and it is decided by
+        <span class="pill ok">candidate</span> versus <span class="pill bad">blocked</span> status, not by
+        enthusiasm:</p>
+        <ul class="tight">
+          <li><strong>Buildable now:</strong> SIG-06 (rest exclusion), SIG-22 (veto), SIG-03 (backup-QB flag),
+            SIG-07 (trajectory divergence) — all computable from the official feeds this snapshot already reads</li>
+          <li><strong>Buildable once the roster capture is complete:</strong> SIG-02, SIG-05</li>
+          <li><strong>Buildable once market snapshots exist:</strong> SIG-09, SIG-11, SIG-13, SIG-18, SIG-19, SIG-21</li>
+          <li><strong>Buildable once licensed usage data exists:</strong> SIG-01 share term, SIG-04, SIG-16, SIG-17</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Operating notes for the competition</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Rule</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Entry format</td><td>A JSON spec: id, family, market, feature list, thresholds, sizing rule, and the
+            “what would change my mind” line (SG-02). Registered in <code>data/strategy-registry.jsonl</code> via
+            <code>engine/registry.py</code>.</td></tr>
+          <tr><td>Reproducibility</td><td>Every published figure must be regenerable by
+            <code>python3 -m engine.selftest</code>-style command plus a named data snapshot (R-40). Numbers that
+            cannot be regenerated are not on the board.</td></tr>
+          <tr><td>Missing evidence</td><td>Renders as <em>unknown</em> and blocks promotion. It never renders as a
+            pass and never as a zero (the same rule the tables use for blank cells).</td></tr>
+          <tr><td>Sample floor</td><td>G-01: 150 graded bets, or 4 seasons of games for a pure origination model.
+            At a realistic 30 qualifying bets a week that is ≈5 weeks of evidence minimum — computed, not vibe-based.</td></tr>
+          <tr><td>Re-rating</td><td>Every promotion is provisional: G-08 (decay), G-15 (revision sensitivity) and
+            G-03 (CLV) are recomputed continuously, and a strategy is benched automatically on failure rather than
+            argued about.</td></tr>
+          <tr><td>Anti-copying</td><td>Registration timestamp + spec hash means a copied strategy cannot claim an
+            earlier window; a copy discovered later forfeits its own rewards.</td></tr>
+          <tr><td>What the top reward buys</td><td>First call on paid data (Q-01, Q-10, Q-19). The competition
+            therefore funds the things that make the next competition measurable — which is the only self-improving
+            loop available here.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

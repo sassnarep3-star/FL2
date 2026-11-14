@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive summary — FL2</title>
+<meta name="description" content="Executive summary of the FL2 NFL line-origination project: verified data, method, decisions, blockers and next actions.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="executive-summary">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Executive summary</div>
+  <div class="page-head">
+    <h1>Executive summary</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> whether to fund and build the ingestion + baseline
+    model as specified here, and which of the <a href="suggestions.html">30 suggestions</a> to adopt first.
+    Captured 2026-11-14 UTC.</p>
+  </div>
+
+  <section>
+    <h2>1. Where the project started</h2>
+    <div class="grid c2">
+      <div class="card">
+        <p>The repository contained <strong>one file</strong>: <code>README.md</code>, 5 bytes (<code># FL2</code>),
+        one commit, no data, no code, no site configuration, no Pages setup. So “collect, organise and analyse”
+        began from zero — the first job was to produce real verified data rather than describe a plan for it
+        (<a href="review.html">FL-001</a>).</p>
+        <p class="note">Verified by <code>git log</code>, <code>git show --stat</code> and a full file inventory on
+        2026-11-14; recorded in <a href="COORDINATION.md">COORDINATION.md</a> (task T01).</p>
+      </div>
+      <div class="card">
+        <h3>What now exists</h3>
+        <ul class="tight">
+          <li><strong>Verified data snapshot</strong> — <span data-stat="injuries.rows"></span> rows of the official
+            Week 10 2026 injury report across <span data-stat="injuries.clubs"></span> clubs, each cell transcribed
+            from the league page and cross-checked against a club page for two teams.</li>
+          <li><strong>Registers</strong> — <span data-stat="requirements.total"></span> requirements,
+            <span data-stat="questions.total"></span> decision-gating questions,
+            <span data-stat="suggestions.total"></span> suggestions,
+            <span data-stat="sources.total"></span> sources with an access log.</li>
+          <li><strong>Method</strong> — <span data-stat="signals.total"></span> signals,
+            <span data-stat="gates.total"></span> validation gates, a
+            <span data-stat="corr.total"></span>-pair correlation register, combo-pricing rules, leaderboard and
+            reward design.</li>
+          <li><strong>Working code</strong> — a stdlib Python engine implementing the pricing and gate arithmetic,
+            with <code>46/46</code> self-test assertions passing.</li>
+          <li><strong>This site</strong> — 14 static pages, no build step, no external assets.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. The important details, stated plainly</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3>a. The injury report is richer than it looks — and full of traps</h3>
+        <ul class="tight">
+          <li>An empty <em>Game Status</em> cell is normal, not missing data: a Friday designation is only required
+            for players who did not practise fully. This snapshot has
+            <span data-stat="injuries.nodet"></span> such rows out of <span data-stat="injuries.rows"></span>.</li>
+          <li>“Not injury related – resting player” appears in the official injury column
+            (<span data-stat="injuries.nir"></span> rows this week). Feed those into an injury feature and you
+            will penalise clubs for resting healthy veterans — the single easiest way to build a confidently wrong
+            availability model.</li>
+          <li>Designations and practice status can contradict each other in both directions (limited practice yet
+            <span class="pill bad">Out</span>; did-not-participate and resting yet
+            <span class="pill warn">Questionable</span>) — see <a href="review.html">FL-009</a>.</li>
+          <li>The club page and the league page agree on status but differ on granularity; they also disagree
+            internally on one injury label (<a href="review.html">FL-004</a>).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>b. “Who replaces them” is only half-sourced</h3>
+        <ul class="tight">
+          <li>The official roster page supplies status, position and <em>years of experience</em> — enough to
+            measure an experience cliff when a starter is out.</li>
+          <li>No official depth-chart endpoint was found: two plausible official paths returned a 404 and a
+            broken-link page (<a href="review.html">FL-013</a>). Any 1st/2nd/3rd-string claim is therefore a
+            projection and must be labelled as one.</li>
+          <li>The roster page is paginated by status; the active segment was captured, the IR/PUP/practice-squad
+            segment was not (<a href="review.html">FL-002</a>). “No players on IR” would be a capture artefact,
+            not a fact.</li>
+          <li>Roster movement is fast enough to break cached data: a QB listed on one club’s 2026 report was on a
+            different club’s roster list last season (<a href="review.html">FL-008</a>).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>c. Luck, not effort, is the binding constraint</h3>
+        <p class="note">Computed by the engine, not asserted:</p>
+        <table>
+          <thead><tr><th>Observed hit rate</th><th class="num">Bets to prove it</th><th class="num">Weeks at 30/week</th></tr></thead>
+          <tbody>
+            <tr><td>53%</td><td class="num">17,467</td><td class="num">582</td></tr>
+            <tr><td>55%</td><td class="num">961</td><td class="num">32</td></tr>
+            <tr><td>56%</td><td class="num">492</td><td class="num">16</td></tr>
+            <tr><td>58%</td><td class="num">201</td><td class="num">6.7</td></tr>
+            <tr><td>60%</td><td class="num">106</td><td class="num">3.5</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Bets needed for the lower 90% Wilson bound to clear the −110 break-even of 52.381%. A 58%
+        season on 100 bets is <em>not</em> evidence; that is why
+        <a href="methodology.html">gates G-01…G-16</a> exist and why the leaderboard is empty.</p>
+      </div>
+      <div class="card">
+        <h3>d. Correlation is the parlay — and it is unreadable today</h3>
+        <ul class="tight">
+          <li>Books price parlays by applying a multiplier to the independent product; inverting that multiplier
+            gives an <em>implied</em> ρ (0.55/0.52 legs at ρ=+0.4 → fair decimal 2.849 vs 3.497 naive, a
+            1.227× joint-probability lift). That is the whole same-game-parlay trade.</li>
+          <li>House rules void correlated legs <em>outside</em> SGP-type products, void duplicate-market parlays,
+            and settle pushes by reducing legs — so a mathematically fine ticket can be void by policy
+            (<a href="markets.html">markets page</a>).</li>
+          <li>Measured ρ for all 12 leg-pairs in the register: <strong>none</strong>. Nothing in this repo can
+            estimate them yet, because there is no market data source (
+            <a href="review.html">FL-014</a>).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Decisions taken autonomously in this session (all reversible, all recorded)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Decision</th><th>Reason</th><th>Reversal cost</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Static, dependency-free site published from the repo root rather than a framework</td>
+            <td>No build step can break, and the audit trail must open from a clone offline (SG-28)</td><td>low</td></tr>
+          <tr><td>2</td><td>Snapshot published as “Week 10, partial slate” with its gaps listed inline</td>
+            <td>Better a visibly bounded capture than a table that looks complete (R-05, FL-005)</td><td>low</td></tr>
+          <tr><td>3</td><td>Depth ordering treated as a projection, never a fact</td>
+            <td>No official ordering source exists (Q-07); inventing one would corrupt every downstream feature</td><td>medium</td></tr>
+          <tr><td>4</td><td>Leaderboard ships empty with a benchmark row</td>
+            <td>Ranks computed from no data would reward noise, which is the opposite of the brief</td><td>low</td></tr>
+          <tr><td>5</td><td>Edge/ROI/hold cells left blank everywhere</td>
+            <td>No licensed or self-recorded odds history exists yet (Q-10); blanks are the correct value</td><td>low</td></tr>
+          <tr><td>6</td><td>Gates set as versioned config with the deflated-Sharpe machinery as the default</td>
+            <td>Selection bias needs a published, citable correction rather than a bespoke rule (S-10)</td><td>medium</td></tr>
+          <tr><td>7</td><td>Rules numbers (IR 4 games, 8 returns, 21-day window, 53-man) stored in config flagged “secondary source”</td>
+            <td>Only media and aggregators were reachable this session; a one-line edit fixes it when the primary text is read (FL-012)</td><td>low</td></tr>
+          <tr><td>8</td><td>Engine limited to stdlib</td>
+            <td>Sandbox cannot install packages from arbitrary indices; reproducibility beats convenience</td><td>low</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. The five actions that unlock the most</h2>
+    <ol class="tight">
+      <li><strong>Close the market-data gap (Q-10).</strong> Start self-recording line snapshots at T-48h / T-24h /
+        T-2h / close for every game modelled. Nothing about edge, CLV, gates G-03/G-07, or the leaderboard can be
+        computed before this exists, and the free version is ours to own.</li>
+      <li><strong>Fix the roster-state capture (R-07, FL-002).</strong> Capture the full roster page including
+        IR/PUP/NFI/practice-squad segments for all 32 clubs, then the depth model has a denominator.</li>
+      <li><strong>Settle the ordering question (Q-07).</strong> Either find the working official per-club path or
+        adopt snap-share ordering from a licensed feed and publish it explicitly as a projection.</li>
+      <li><strong>Automate the ingest (SG-30, R-39).</strong> The snapshot in this repo is the regression fixture:
+        the crawler must reproduce it exactly, then extend it to the full slate and all three practice days.</li>
+      <li><strong>Answer the rights question (Q-01, Q-14, Q-15).</strong> League-data licensing plus operating
+        jurisdiction decide whether this is internal research or a product; everything else is downstream of that.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>5. Risk register for this build</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Risk</th><th>Exposure now</th><th>Mitigation in place</th><th>Residual</th></tr></thead>
+        <tbody>
+          <tr><td>Data licensing (league/club content, betting use)</td><td>Unresolved — no terms read (Q-01)</td>
+            <td>Small attributed snapshot, no redistribution claims, vendor option priced as a task</td>
+            <td><span class="pill bad">high</span></td></tr>
+          <tr><td>Model trusts a stale or partial source silently</td><td>Two dead-end URLs found in one session</td>
+            <td>Schema contracts + as-of stamps + coverage bounds rendered on the page (SG-06, SG-08, Q-18)</td>
+            <td><span class="pill warn">medium</span></td></tr>
+          <tr><td>Overfitted “skill” promoted by the leaderboard</td><td>No live results exist yet</td>
+            <td>Pre-commitment registry, deflation, MinTRL, walk-forward, decay and luck gates (G-04…G-09)</td>
+            <td><span class="pill warn">medium</span></td></tr>
+          <tr><td>Correlated legs double-counted as independent bets</td><td>No measured ρ (FL-014)</td>
+            <td>Cluster ids, VETO on ≥2 same-position outages, book-rule legality filter (G-12, G-16)</td>
+            <td><span class="pill bad">high</span> until ρ is measured</td></tr>
+          <tr><td>Publication read as wagering advice; jurisdiction breach</td><td>Site is public on GitHub Pages</td>
+            <td>No tips, no prices, no calls to action; compliance block on the markets page</td>
+            <td><span class="pill warn">medium</span></td></tr>
+          <tr><td>Manual transcription does not scale to 32 clubs × 3 days</td><td>Yes — this snapshot was transcribed</td>
+            <td>Snapshot doubles as the crawler’s expected output; automation is phase 1 of the roadmap</td>
+            <td><span class="pill ok">low</span> once phase 1 lands</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Injury tracking — FL2</title>
+<meta name="description" content="Verified NFL injury report snapshot with row-level sources, practice trajectories, and the ingestion design that produced it.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="injuries">
+<header id="site-header"></header>
+<main>
+  <div class="crumb"><a href="index.html">Dashboard</a> / Injury tracking</div>
+  <div class="page-head">
+    <h1>Injury tracking — verified snapshot</h1>
+    <p class="lede"><strong>Decision this page serves:</strong> which absences are strong enough to move a line, and
+    which are noise. Every row below was read from the official report on 2026-11-14; the
+    <em>Source</em> column links each row back to it, and MIN/GB rows also link to the club page used for
+    cross-checking. Filter by status to audit the consequential rows first.</p>
+  </div>
+
+  <div class="banner info injury-banner"></div>
+
+  <section>
+    <h2>Coverage of this snapshot</h2>
+    <div class="grid c4">
+      <div class="kpi"><div class="n"><span data-stat="injuries.rows"></span></div><div class="l">player rows captured</div></div>
+      <div class="kpi"><div class="n"><span data-stat="injuries.games"></span></div><div class="l">game reports (12 complete, 1 partial)</div></div>
+      <div class="kpi"><div class="n"><span data-stat="injuries.out"></span></div><div class="l">Out</div>
+        <div class="hint"><span data-stat="injuries.doubtful"></span> Doubtful · <span data-stat="injuries.questionable"></span> Questionable</div></div>
+      <div class="kpi"><div class="n"><span data-stat="injuries.dnp"></span></div><div class="l">did not participate in the final practice</div>
+        <div class="hint"><span data-stat="injuries.nir"></span> of the rows carry a “not injury related” reason</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Availability by club, derived from the rows above</h2>
+    <p class="note">Offence = QB/RB/WR/TE/FB/C/G/T. Defence = DE/DT/LB/CB/S/DB. These counts are computed in the page
+    from the captured rows — not new facts, and not a strength rating.</p>
+    <div class="table-mount" data-set="availability-summary"></div>
+  </section>
+
+  <section>
+    <h2>The report, row by row</h2>
+    <div class="table-mount" data-set="injuries"></div>
+  </section>
+
+  <section>
+    <h2>What this week’s data teaches the model</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3>1 · The designation column is sparse on purpose</h3>
+        <p><span data-stat="injuries.nodet"></span> of <span data-stat="injuries.rows"></span> captured rows have no
+        game status at all. A naive pipeline treats those as “available”, or as a data error; both are wrong. The
+        reporting rule requires a designation for players who did not practise fully, so a
+        <em>DNP-with-no-designation</em> row is itself information: most such rows on a club page carry a
+        non-injury rest tag (e.g. <span class="mono">NIR - Rest</span> for Darrisaw and H. Smith on the club report,
+        blank injury field on the league report). Encode it as a distinct state, not as a null.</p>
+      </div>
+      <div class="card">
+        <h3>2 · Practice status and designation disagree in both directions</h3>
+        <p>Examples in this snapshot: a defender listed <span class="pill bad">Out</span> after a
+        <em>limited</em> Friday practice (Norman-Lott); a pass rusher listed
+        <span class="pill warn">Questionable</span> while tagged as resting (Garrett); a lineman
+        <span class="pill bad">Out</span> after a <em>full</em> practice (Green II); several
+        <span class="pill bad">Out</span> after DNP. The model should therefore treat the pair
+        (trajectory, designation) as the feature, not either one alone (SIG-07), and keep a per-club count of
+        divergences as its own diagnostic (<a href="review.html">FL-009</a>).</p>
+      </div>
+      <div class="card">
+        <h3>3 · Two official feeds, two vocabularies</h3>
+        <p>The report writes <span class="mono">S</span>, <span class="mono">T</span>,
+        <span class="mono">LB</span>, <span class="mono">DE</span>; the roster page writes
+        <span class="mono">SAF</span>, <span class="mono">OT</span>, <span class="mono">OLB</span>,
+        <span class="mono">DB</span>, <span class="mono">DL</span>. Joining on the position string loses rows
+        silently and biases the depth model toward whichever spelling survived. A crosswalk table (FL-003) is a
+        prerequisite for R-09, not a refinement.</p>
+      </div>
+      <div class="card">
+        <h3>4 · Concussion and illness rows behave differently from structural injuries</h3>
+        <p>This snapshot contains several <span class="mono">Concussion</span> rows and a handful of
+        <span class="mono">Illness</span> rows, including a player listed Out while his team’s depth chart implies
+        no structural loss. Their availability distribution is not the same object as a sprain’s, and neither is a
+        resting veteran’s. That is a modelling requirement (R-08), and a reason to store the injury <em>text</em>
+        verbatim rather than a normalised code we invent.</p>
+      </div>
+      <div class="card">
+        <h3>5 · The Friday report is not the end of the story</h3>
+        <p>Availability changes between the final designation and the inactive list (~90 minutes before kickoff).
+        Until the inactive lists are captured and diffed (Q-02), every availability feature here is a
+        <em>prior</em>, not a fact about who played — which is exactly why the engine keeps the model output as a
+        distribution.</p>
+      </div>
+      <div class="card">
+        <h3>6 · Rest weeks are visible in the data before they are visible in the line</h3>
+        <p>Two Jaguars veterans are listed Out with “Not injury related – resting player” on a
+        6-2 team’s report; a Texans linebacker carries “Groin, Not injury related - personal matter” in the same
+        field. Composite injury strings — where a real injury and a non-injury reason share one cell — are a parsing
+        case the schema must allow (a list of reasons, not a single value).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ingestion specification (what makes this table automatic)</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Rule</th><th>Why it is specified this way</th></tr></thead>
+        <tbody>
+          <tr><td>Sources</td><td>league page <code>nfl.com/injuries/</code> (per week) + each club’s news report for the same fixture + <code>nfl.com/teams/&lt;club&gt;/roster</code></td>
+            <td>The three together cover designation, per-day practice and roster state; any one alone is incomplete (V-04, FL-006)</td></tr>
+          <tr><td>Schedule</td><td>capture at 13:00, 16:30, 19:00 ET Wed/Thu/Fri (Thu 13:00 for short weeks) and again at the inactive-list time</td>
+            <td>Deadline-relative, not clock-relative, so a schedule change does not silently skip a capture (Q-16)</td></tr>
+          <tr><td>Idempotency</td><td>key = (club, player permalink slug, game, report slot); upsert, never append</td>
+            <td>Same-day revisions must not create duplicate rows; the slug is the only stable id we confirmed (SG-07)</td></tr>
+          <tr><td>Schema contract</td><td>required columns present; 0 ≤ rows per club ≤ 60; position values inside the crosswalk; status values inside {Out, Doubtful, Questionable, ∅}</td>
+            <td>A page redesign should fail the run, not publish a plausible-looking empty table (Q-18)</td></tr>
+          <tr><td>Revision log</td><td>store every capture; publish the number of rows whose designation changed after the deadline</td>
+            <td>feeds gate G-15 (robustness to revisions) and the “designation accuracy” feature</td></tr>
+          <tr><td>Provenance</td><td>each stored value carries {url, captured_at, source_tier, snippet|direct}</td>
+            <td>the site’s blank-plus-flag rule is only enforceable if provenance is per-cell, not per-file (R-03)</td></tr>
+          <tr><td>Fixture test</td><td>the crawler must reproduce this page’s table exactly for Week 10 2026</td>
+            <td>turns the manual transcription into a regression test rather than throwaway work (SG-30)</td></tr>
+          <tr><td>Retention</td><td>keep every raw capture immutably; treat the parsed table as a rebuild</td>
+            <td>backfills and disputes are settled from the raw artefact, not from memory</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where these rows came from</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Row set</th><th>Source</th><th>Tier</th><th>Read on</th></tr></thead>
+        <tbody>
+          <tr><td>All club tables in the snapshot</td>
+            <td><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries/ — “Official Latest NFL Injury Report for Players – Week 10 of the 2026 Season”</a></td>
+            <td><span class="pill info">official-league</span></td><td>2026-11-14 03:05 UTC</td></tr>
+          <tr><td>MIN + GB per-day practice columns, NIR labels</td>
+            <td><a href="https://www.vikings.com/news/packers-injury-report-week-10-2026-nfl-season" target="_blank" rel="noopener">vikings.com — Final Vikings at Packers Injury Report for Week 10 of 2026 (Craig Peters, Nov 13 2026)</a></td>
+            <td><span class="pill info">official-club</span></td><td>2026-11-14 03:10 UTC</td></tr>
+          <tr><td>Club records shown beside each table</td><td>same league page (team headers)</td>
+            <td><span class="pill info">official-league</span></td><td>2026-11-14 — not yet cross-checked against a standings page (FL-016)</td></tr>
+          <tr><td>LAC @ BAL (Monday fixture)</td>
+            <td><a href="https://www.chargers.com/news/chargers-vs-ravens-injury-report-ladd-mcconkey-daiyan-henley-2026" target="_blank" rel="noopener">chargers.com game injury report</a> — <em>reached only via a search extract, not re-opened</em></td>
+            <td><span class="pill warn">snippet</span></td><td>not captured into the table yet; see S-05</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

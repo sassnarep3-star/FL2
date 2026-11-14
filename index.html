@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — NFL line origination workspace</title>
+<meta name="description" content="Requirements, verified injury and availability data, line-origination methodology, validation gates and a decision-ready suggestion register for an NFL modelling project.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="index">
+<header id="site-header"></header>
+<main>
+  <div class="page-head">
+    <h1>NFL line origination — decision workspace</h1>
+    <p class="lede">One place holding the requirements, the verified data, the method for originating our own
+    numbers, the gates every strategy must clear, and the open questions that must be answered before any of it
+    is worth acting on. <strong>Every table row links to the source it was read from; a blank cell means the value
+    was not confirmable from an official source</strong> — it is never filled by inference.</p>
+  </div>
+
+  <div class="banner info injury-banner"></div>
+
+  <section>
+    <h2>Status at a glance</h2>
+    <div class="grid c4">
+      <div class="kpi"><div class="n"><span data-stat="injuries.rows"></span></div>
+        <div class="l">injury rows verified against the official report</div>
+        <div class="hint"><span data-stat="injuries.out"></span> Out · <span data-stat="injuries.doubtful"></span> Doubtful ·
+          <span data-stat="injuries.questionable"></span> Questionable · <span data-stat="injuries.nodet"></span> no designation</div></div>
+      <div class="kpi"><div class="n"><span data-stat="requirements.total"></span></div>
+        <div class="l">requirements catalogued</div>
+        <div class="hint"><span data-stat="requirements.met"></span> met · <span data-stat="requirements.partial"></span> partial ·
+          <span data-stat="requirements.blocked"></span> blocked</div></div>
+      <div class="kpi"><div class="n"><span data-stat="questions.total"></span></div>
+        <div class="l">questions gating a decision</div>
+        <div class="hint"><span data-stat="questions.critical"></span> marked critical — decision not defensible yet</div></div>
+      <div class="kpi"><div class="n"><span data-stat="suggestions.total"></span></div>
+        <div class="l">suggestions to choose from</div>
+        <div class="hint"><span data-stat="suggestions.recommended"></span> recommended, awaiting your selection</div></div>
+      <div class="kpi"><div class="n"><span data-stat="flags.total"></span></div>
+        <div class="l">irregularities &amp; unverified items</div>
+        <div class="hint"><span data-stat="flags.high"></span> high/blocker severity — see review page</div></div>
+      <div class="kpi"><div class="n"><span data-stat="sources.total"></span></div>
+        <div class="l">sources catalogued</div>
+        <div class="hint"><span data-stat="sources.direct"></span> read directly · <span data-stat="sources.planned"></span> still to obtain ·
+          <span data-stat="sources.failed"></span> confirmed dead ends</div></div>
+      <div class="kpi"><div class="n"><span data-stat="signals.total"></span></div>
+        <div class="l">signals specified for the model</div>
+        <div class="hint"><span data-stat="signals.blocked"></span> blocked on missing data (odds, usage, depth)</div></div>
+      <div class="kpi"><div class="n"><span data-stat="gates.total"></span></div>
+        <div class="l">validation gates (implemented in code)</div>
+        <div class="hint"><span data-stat="corr.total"></span> leg-pairs in the correlation register ·
+          <span data-stat="corr.measured"></span> with a measured ρ</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Start here</h2>
+    <div class="grid c3">
+      <div class="card"><h3><a href="executive-summary.html">Executive summary</a></h3>
+        <p class="note">The important details in one page: what exists, what is verified, what is blocking a decision,
+        and the five moves that follow.</p></div>
+      <div class="card"><h3><a href="questions.html">Open questions</a></h3>
+        <p class="note">Each question lists what we already have (with the source), what we do not have, how to find
+        out, and the provisional answer being used in the meantime.</p></div>
+      <div class="card"><h3><a href="suggestions.html">Suggestions</a></h3>
+        <p class="note">Scored, ranked, with a disposition left open for you. Nothing that changes behaviour was
+        implemented without marking it as needing your choice.</p></div>
+      <div class="card"><h3><a href="methodology.html">Line origination &amp; gates</a></h3>
+        <p class="note">Signal catalogue, the 16 validation gates, correlation handling and the engine that
+        computes all of it — with the arithmetic testable in one command.</p></div>
+      <div class="card"><h3><a href="injuries.html">Injury tracking</a></h3>
+        <p class="note">The official Week 10 2026 report, row by row, plus what each row means for a line:
+        practice trajectory, designation, and the non-injury-rest trap.</p></div>
+      <div class="card"><h3><a href="availability.html">Depth &amp; backups</a></h3>
+        <p class="note">Where a starter is Out, who is actually left — measured against the official roster page,
+        including the cases where the answer cannot be verified.</p></div>
+      <div class="card"><h3><a href="leaderboard.html">Leaderboard &amp; rewards</a></h3>
+        <p class="note">A competition format that pays validated skill rather than variance: scoring, windows,
+        tiers, penalties — and an intentionally empty standings table.</p></div>
+      <div class="card"><h3><a href="review.html">Flagged for review</a></h3>
+        <p class="note">Everything that looked wrong, contradicted itself, or could not be confirmed — with the
+        source link and the next action for each.</p></div>
+      <div class="card"><h3><a href="roadmap.html">Roadmap</a></h3>
+        <p class="note">Sequenced build plan: ingestion automation, baseline model, gates wired to real data,
+        leaderboard scoring, and what each phase unlocks.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What can be decided today, and what cannot</h2>
+    <div class="grid c2">
+      <div class="card">
+        <h3>Decidable now (evidence in this repo)</h3>
+        <ul class="checklist">
+          <li>Injury-report ingestion works and the field semantics are understood — including that an empty
+            <em>Game Status</em> cell is normal, and that “not injury related – rest” rows must be excluded from
+            injury features (verified in the official Week 10 report, <span data-stat="injuries.nir"></span> such rows this week).</li>
+          <li>Practice-status and designation vocabularies are known, so the schema can be frozen now.</li>
+          <li>Replacement-depth measurement is possible from the official roster page’s experience field, and its
+            limits are mapped (which positions the excerpt covers).</li>
+          <li>The validation arithmetic (de-vig, break-even, Wilson bounds, Kelly caps, copula parlay pricing,
+            deflation for multiple testing) is written, tested and reproducible — see
+            <a href="methodology.html">methodology</a>.</li>
+          <li>The requirement, question and suggestion registers are complete enough to review and choose from.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Not decidable yet — and why</h3>
+        <ul class="checklist">
+          <li class="no">Any edge, ROI, CLV or hold figure: no odds or closing-line source exists
+            (<a href="review.html">FL-014</a>, Q-10). Publishing one would be fabrication.</li>
+          <li class="no">Any measured correlation between parlay legs: the register lists mechanism and sign,
+            values are blank until we can simulate or observe them (Q-12).</li>
+          <li class="no">Depth ordering as fact: no official depth-chart endpoint was found (two guessed official
+            paths 404’d — Q-07, FL-013), so “2nd/3rd string” stays a labelled projection.</li>
+          <li class="no">Player-value inputs for usage-based props: play-by-play and snap counts are licensed data
+            (Q-01, R-27).</li>
+          <li class="no">Jurisdiction and operating model: state counts and Mexico permit/tax claims disagree
+            between sources and no regulator text has been read (FL-010, FL-011, Q-14, Q-15).</li>
+          <li class="open">Roster-state completeness (IR/PUP/practice squad): the capture reached only the active
+            segment of the official roster page (FL-002).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to read the numbers on this site</h2>
+    <div class="grid c3">
+      <div class="card tight"><span class="pill info">official-league</span>
+        <p class="note">Published by the league office (nfl.com). Used for the injury report, records and roster
+        status. This is the strongest tier present here.</p></div>
+      <div class="card tight"><span class="pill info">official-club</span>
+        <p class="note">The club’s own news desk (vikings.com, chargers.com). Carries per-day practice detail the
+        league page collapses; used for cross-checks.</p></div>
+      <div class="card tight"><span class="pill warn">snippet</span>
+        <p class="note">Reached only through a search extract, not re-opened. Quoted as “reported by”, never used
+        as a model input until the page is opened directly.</p></div>
+      <div class="card tight"><span class="pill bad">secondary-aggregator</span>
+        <p class="note">Trackers and commentary. Kept for lead-finding only; two of them disagree with each other on
+        a legal count, which is exactly why they are not trusted for numbers.</p></div>
+      <div class="card tight"><span class="pill ok">computed (ours)</span>
+        <p class="note">Arithmetic produced by <code>engine/</code> in this repo. Reproducible, checkable, and
+        carries no external authority.</p></div>
+      <div class="card tight"><span class="pill muted">blank</span>
+        <p class="note">The value could not be confirmed from a source in its allowed tier. Blank plus a flag, by
+        rule R-05 — not zero, not “probably”.</p></p></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/data/injuries.js"></script>
+<script src="assets/data/sources.js"></script>
+<script src="assets/data/requirements.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/data/suggestions.js"></script>
+<script src="assets/data/review.js"></script>
+<script src="assets/data/strategy.js"></script>
+<script src="assets/data/computed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
