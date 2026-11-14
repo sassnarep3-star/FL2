@@ -1,0 +1,108 @@
+{
+  "status": "No strategies evaluated. Validation is blocked: no verified historical odds or outcomes are in the repo (see Flags F-11, F-12).",
+  "correlation_values": "Not computed. Requires joint outcome data for the markets being combined (see Flag F-12).",
+  "leaderboard": [],
+  "signal_families": [
+    {
+      "id": "SIG-1",
+      "signal": "Injury exposure by position group",
+      "description": "Counts of Out, Doubtful and Questionable players by unit (QB, OL, DL, LB, DB, WR, TE, RB, ST).",
+      "data_required": "NFL.com weekly injury report (available for Week 10).",
+      "available_now": "Yes, Week 10 only",
+      "status": "Descriptive only. Not a betting signal yet.",
+      "validation_status": "Not run"
+    },
+    {
+      "id": "SIG-2",
+      "signal": "Backup replacing a starter (offense and defense)",
+      "description": "Identify starter and backup per position from the official depth chart, then flag when the starter is Out or Doubtful.",
+      "data_required": "Official team depth charts (not yet verified; Q6).",
+      "available_now": "No",
+      "status": "Blocked",
+      "validation_status": "Not run"
+    },
+    {
+      "id": "SIG-3",
+      "signal": "Market line movement and closing line value",
+      "description": "Compare the lines you originate with the closing line to test skill.",
+      "data_required": "Opening and closing lines history (Q4).",
+      "available_now": "No",
+      "status": "Blocked",
+      "validation_status": "Not run"
+    },
+    {
+      "id": "SIG-4",
+      "signal": "Schedule context (rest, travel, short week)",
+      "description": "Days of rest and travel distance per team.",
+      "data_required": "Historical NFL.com schedules and kickoff times (only Week 10 collected).",
+      "available_now": "Partial (Week 10 only)",
+      "status": "Blocked for history",
+      "validation_status": "Not run"
+    },
+    {
+      "id": "SIG-5",
+      "signal": "Player prop and same-game parlay correlation",
+      "description": "Estimate how two outcomes move together within one game before combining them.",
+      "data_required": "Player-level game stats and prop lines (no source verified).",
+      "available_now": "No",
+      "status": "Blocked; also needs legal check on prop markets",
+      "validation_status": "Not run"
+    }
+  ],
+  "validation_gates": [
+    {
+      "id": "G0",
+      "gate": "Data provenance",
+      "rule": "Every input value has an official or clearly labelled source URL. Unverified values are blank and flagged.",
+      "threshold": "100% of inputs sourced"
+    },
+    {
+      "id": "G1",
+      "gate": "No look-ahead",
+      "rule": "Each prediction uses only information available before kickoff (e.g., injury report as of the posting time).",
+      "threshold": "Pass/fail per game"
+    },
+    {
+      "id": "G2",
+      "gate": "Out-of-sample test",
+      "rule": "Rules are set on one period (training) and scored on a later period (test) that was not used to choose them.",
+      "threshold": "Test period never used for tuning"
+    },
+    {
+      "id": "G3",
+      "gate": "Minimum sample",
+      "rule": "Enough bets for the result to mean something before any ranking.",
+      "threshold": "Proposed: at least 300 scored bets per strategy (user to confirm; SG-06)"
+    },
+    {
+      "id": "G4",
+      "gate": "Closing line value",
+      "rule": "Average line taken must beat the closing line, measured in points for spreads.",
+      "threshold": "Positive mean CLV with a stated confidence interval"
+    },
+    {
+      "id": "G5",
+      "gate": "ROI after vig",
+      "rule": "Return on stake after the standard -110 price is included. Break-even at -110 is 52.38% win rate (arithmetic: 110 / 210).",
+      "threshold": "Lower bound of 95% confidence interval above zero"
+    },
+    {
+      "id": "G6",
+      "gate": "Correlation check (parlays)",
+      "rule": "Legs are only combined if their measured outcome correlation is within a stated limit; the independence assumption is tested, not assumed.",
+      "threshold": "Correlation estimate reported with sample size"
+    },
+    {
+      "id": "G7",
+      "gate": "Multiple-testing correction",
+      "rule": "When many strategies are tested, adjust p-values (e.g., Benjamini-Hochberg) so luck is not rewarded.",
+      "threshold": "Adjusted q-value below 0.10 (proposed; SG-06)"
+    },
+    {
+      "id": "G8",
+      "gate": "Season stability",
+      "rule": "The result holds in more than one season or split, not just one period.",
+      "threshold": "Positive in at least 2 of 3 splits (proposed)"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Correlation · NFL Decision Hub</title>
+<meta name="description" content="Verified NFL requirements, decision questions, strategy origination, validation gates and injury/depth analysis. Every data row carries an official source link.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234ea1ff'/><text x='16' y='23' font-size='18' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%2307101c'>N</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mark">N</span> NFL Decision Hub</a>
+    <nav class="main"><a href="../index.html">Overview</a><a href="../pages/executive-summary.html">Executive Summary</a><a href="../pages/suggestions.html">Suggestions</a><a href="../pages/decision-questions.html">Decision Questions</a><a href="../pages/requirements.html">Requirements</a><a href="../pages/strategies.html">Strategies</a><a href="../pages/validation-gates.html">Validation Gates</a><a href="../pages/luck-and-skill.html">Luck vs Skill</a><a href="../pages/correlation.html" class="active">Correlation</a><a href="../pages/injuries.html">Injuries &amp; Depth</a><a href="../pages/slate.html">Week 10 Slate</a><a href="../pages/data-standings.html">Standings</a><a href="../pages/data-team.html">Team Metrics</a><a href="../pages/repo-audit.html">Repo Audit</a><a href="../pages/sources.html">Sources</a><a href="../pages/flagged.html">Flagged for Review</a></nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <p class="small mb0">Home / Correlation</p>
+    <h1>Correlation</h1>
+    <p class="lede">Ten measured correlations with bootstrap confidence intervals, plus the correlation arithmetic that actually prices a parlay.</p>
+    
+<p class="lede">Correlation values, measured rather than asserted. Ten relationships across all 32 clubs, each with a
+bootstrap confidence interval, plus a second set showing how much correlation moves a parlay's true value.</p>
+
+<div class="note bad" id="limits"><strong>Read the scope before the numbers.</strong> These are
+<em>cross-sectional</em> correlations: 32 clubs, one snapshot. They answer "when a team is better at X, is it also
+better at Y?" They do <strong>not</strong> answer "if this leg wins, how does the other leg's probability move?" — which is the
+only correlation that prices a parlay. The two are different quantities and are not interchangeable. No same-game
+prop correlation is claimed anywhere in this repository, because it cannot be computed from team-level data.</div>
+
+<h2>Measured relationships</h2>
+<div class="tablewrap"><table><thead><tr><th>Relationship</th><th class="num">N</th><th class="num">Pearson r</th><th class="num">R²</th><th class="num">95% CI (bootstrap)</th><th>CI excludes 0</th><th>Reading</th></tr></thead><tbody><tr><td>Offensive EPA per play vs points per game</td><td class="num nowrap">16</td><td class="num nowrap">0.926</td><td class="num nowrap">85.8%</td><td class="num nowrap">[0.791, 0.984]</td><td>yes</td><td>Does the league&#x27;s own efficiency metric track scoring? if not, EPA alone is a weak signal.</td></tr><tr><td>Defensive EPA per play allowed vs points allowed per game</td><td class="num nowrap">16</td><td class="num nowrap">0.852</td><td class="num nowrap">72.6%</td><td class="num nowrap">[0.759, 0.947]</td><td>yes</td><td>Same test on the defensive side.</td></tr><tr><td>Offensive passing yards per attempt vs points per game</td><td class="num nowrap">32</td><td class="num nowrap">0.685</td><td class="num nowrap">46.9%</td><td class="num nowrap">[0.497, 0.834]</td><td>yes</td><td>How much of scoring is explained by pass efficiency alone.</td></tr><tr><td>Opponent passing yards per attempt vs points allowed per game</td><td class="num nowrap">32</td><td class="num nowrap">0.582</td><td class="num nowrap">33.9%</td><td class="num nowrap">[0.316, 0.806]</td><td>yes</td><td>Defensive mirror of the row above.</td></tr><tr><td>Offensive rushing yards per attempt vs points per game</td><td class="num nowrap">32</td><td class="num nowrap">0.023</td><td class="num nowrap">0.1%</td><td class="num nowrap">[-0.233, 0.298]</td><td>no</td><td>Run efficiency vs scoring — the classic &#x27;run game does not travel&#x27; question.</td></tr><tr><td>Total passing yards vs points per game</td><td class="num nowrap">32</td><td class="num nowrap">0.595</td><td class="num nowrap">35.4%</td><td class="num nowrap">[0.371, 0.774]</td><td>yes</td><td>Volume vs efficiency: volume alone is a trap.</td></tr><tr><td>Pass-attempt share vs passing yards per attempt</td><td class="num nowrap">32</td><td class="num nowrap">-0.185</td><td class="num nowrap">3.4%</td><td class="num nowrap">[-0.545, 0.189]</td><td>no</td><td>Are pass-heavy teams more efficient, or just more voluminous?</td></tr><tr><td>Defensive interceptions vs points allowed per game</td><td class="num nowrap">32</td><td class="num nowrap">-0.561</td><td class="num nowrap">31.5%</td><td class="num nowrap">[-0.765, -0.383]</td><td>yes</td><td>Turnover dependence — a known luck engine.</td></tr><tr><td>Sacks taken vs points per game</td><td class="num nowrap">32</td><td class="num nowrap">-0.621</td><td class="num nowrap">38.6%</td><td class="num nowrap">[-0.797, -0.386]</td><td>yes</td><td>Protection quality vs scoring.</td></tr><tr><td>Sacks recorded vs points allowed per game</td><td class="num nowrap">32</td><td class="num nowrap">-0.265</td><td class="num nowrap">7.0%</td><td class="num nowrap">[-0.571, 0.086]</td><td>no</td><td>Pass rush vs scoring defence.</td></tr></tbody></table></div>
+
+<h2>What the numbers actually say</h2>
+<ul class="tight">
+<li><strong>Efficiency metrics are strong team ratings.</strong> Offensive EPA/play explains 85.8%
+of the variance in points scored. That is excellent for rating a team and <em>useless</em> as an edge, because everyone
+can see it.</li>
+<li><strong>Rushing efficiency is a trap.</strong> r = 0.023, CI including zero, R² of
+0.1%. Any strategy built on rushing yards per attempt was killed by this row before it
+cost anything. It is kept on the <a href="strategies.html">strategy board</a> as a rejected item so it does not get rebuilt.</li>
+<li><strong>Pressure matters more than volume.</strong> Sacks taken vs points scored: r = -0.621
+(R² 38.6%). Defensive interceptions vs points allowed: r = -0.561.
+Both are real and both are widely known, which is exactly why neither is likely to be an edge on its own.</li>
+<li><strong>Pass volume beats pass efficiency in one direction only.</strong> Total passing yards vs PPG is r =
+0.595, weaker than yards per attempt at 0.685. Efficiency, not volume — a useful
+caution for prop markets, where volume is what the line is set on.</li>
+</ul>
+
+<h2>The correlation that prices a parlay</h2>
+<p>Two legs, each modelled as a no-vig 50/50, priced together at −110 / −110 (decimal
+3.6446). The latent correlation between the legs is ρ. This is a
+bivariate-normal copula; at ρ = 0 it must reproduce 25.00%, and it does.</p>
+<div class="tablewrap"><table>
+<thead><tr><th class="num">ρ</th><th class="num">Fair joint probability</th><th class="num">Fair decimal price</th>
+<th class="num">Offered decimal price</th><th class="num">EV per unit staked</th></tr></thead>
+<tbody>
+<tr><td class='num'>-0.6</td><td class='num'>14.76%</td><td class='num'>6.7758</td><td class='num'>3.6446</td><td class='num'>-46.21%</td></tr><tr><td class='num'>-0.4</td><td class='num'>18.45%</td><td class='num'>5.4199</td><td class='num'>3.6446</td><td class='num'>-32.75%</td></tr><tr><td class='num'>-0.2</td><td class='num'>21.8%</td><td class='num'>4.5881</td><td class='num'>3.6446</td><td class='num'>-20.56%</td></tr><tr><td class='num'>0.0</td><td class='num'>25.0%</td><td class='num'>4.0</td><td class='num'>3.6446</td><td class='num'>-8.88%</td></tr><tr><td class='num'>0.2</td><td class='num'>28.2%</td><td class='num'>3.5455</td><td class='num'>3.6446</td><td class='num'>2.8%</td></tr><tr><td class='num'>0.4</td><td class='num'>31.55%</td><td class='num'>3.1696</td><td class='num'>3.6446</td><td class='num'>14.99%</td></tr><tr><td class='num'>0.6</td><td class='num'>35.24%</td><td class='num'>2.8376</td><td class='num'>3.6446</td><td class='num'>28.44%</td></tr><tr><td class='num'>0.8</td><td class='num'>39.76%</td><td class='num'>2.5152</td><td class='num'>3.6446</td><td class='num'>44.9%</td></tr>
+</tbody></table></div>
+<div class="note"><strong>The decision this forces.</strong> The same two legs swing from
+-32.75% to
+14.99% EV purely on ρ. Any model that assumes independence is not
+approximating — it is answering a different question. This is why
+<a href="validation-gates.html#g7">Gate G7</a> blocks multi-leg strategies until ρ is estimated from real data.</div>
+
+<h2>Why we cannot yet compute the prop correlations that matter</h2>
+<p>The parlay cases in the brief — QB passing yards with his WR1's receiving yards, or a rusher with the opposing
+quarterback — require <em>event-level</em> data: both players' outcomes in the same game, repeated over hundreds of games.
+This repository contains team totals and player season totals. Neither can produce a joint distribution. What is needed:</p>
+<ol class="tight">
+<li>Player game logs for both legs, at least three seasons (to avoid a one-season fluke).</li>
+<li>Consistent player identifiers across sources, so legs can be joined reliably.</li>
+<li>Prop lines as offered, so the correlation can be turned into a price comparison rather than an academic statistic.</li>
+</ol>
+<p>This is recorded as <a href="decision-questions.html#Q07">Q07</a> and as suggestion SG06.</p>
+
+<h2>Method</h2>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Script</th><td><code>tools/analyze_correlation.py</code></td></tr>
+<tr><th>Inputs</th><td><code>data/team-metrics-2026-w10.csv</code> (32 clubs)</td></tr>
+<tr><th>Estimator</th><td>Pearson product-moment correlation</td></tr>
+<tr><th>Interval</th><td>Percentile bootstrap, 4,000 resamples, seed 7 — reproducible</td></tr>
+<tr><th>Read</th><td>A CI that includes zero means the data cannot distinguish the effect from no effect, and it is reported as such.</td></tr>
+<tr><th>Not done</th><td>No p-hacking, no subgroup mining, no per-team correlations. With n = 32, per-team analysis would be noise.</td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Tier</th><th>Link</th><th>Supports</th></tr></thead><tbody><tr><td>S02</td><td>NFL Standings - 2026</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">link</a></td><td>W-L-T, PCT, PF, PA, net points, division and conference record, streak</td></tr><tr><td>S03</td><td>NFL Team Stats - Offense passing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Team pass attempts, completions, pct, yards per attempt, passing yards, TD, INT, rating, sacks</td></tr><tr><td>S04</td><td>NFL Team Stats - Defense passing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Opponent passing volume and efficiency allowed, by team</td></tr><tr><td>S06</td><td>NFL Next Gen Stats - League Trends</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/ngs/trends" target="_blank" rel="noopener">link</a></td><td>Published definitions and per-team values for Offensive EPA, Defensive EPA, PPG, OPP PPG, playoff probability</td></tr><tr><td>S22</td><td>NFL Team Stats - Offense rushing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/offense/rushing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Team rush attempts, rushing yards, yards per attempt, rushing TD</td></tr></tbody></table></div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>NFL Decision Hub · data captured 2026-11-14 · every value sourced or left blank</span>
+    <span><a href="../pages/sources.html">Source registry</a> · <a href="../pages/flagged.html">Flagged for review</a> · <a href="../pages/repo-audit.html">Audit</a><br>
+    Sibling sites in this repo: <a href="../../index.html">Fourth &amp; Signal (research framework)</a> · <a href="../../docs/index.html">Week 10 data dashboard</a></span>
+  </div>
+</footer>
+</body>
+</html>

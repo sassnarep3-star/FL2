@@ -1,128 +1,19 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Overview · NFL Decision Hub</title>
-<meta name="description" content="Verified NFL requirements, decision questions, strategy origination, validation gates and injury/depth analysis. Every data row carries an official source link.">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234ea1ff'/><text x='16' y='23' font-size='18' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%2307101c'>N</text></svg>">
-</head>
-<body>
-<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">N</span> NFL Decision Hub</a>
-    <nav class="main"><a href="index.html" class="active">Overview</a><a href="pages/executive-summary.html">Executive Summary</a><a href="pages/suggestions.html">Suggestions</a><a href="pages/decision-questions.html">Decision Questions</a><a href="pages/requirements.html">Requirements</a><a href="pages/strategies.html">Strategies</a><a href="pages/validation-gates.html">Validation Gates</a><a href="pages/luck-and-skill.html">Luck vs Skill</a><a href="pages/correlation.html">Correlation</a><a href="pages/injuries.html">Injuries &amp; Depth</a><a href="pages/slate.html">Week 10 Slate</a><a href="pages/data-standings.html">Standings</a><a href="pages/data-team.html">Team Metrics</a><a href="pages/repo-audit.html">Repo Audit</a><a href="pages/sources.html">Sources</a><a href="pages/flagged.html">Flagged for Review</a></nav>
-  </div>
-</header>
-<main id="main">
-  <div class="wrap">
-    
-    <h1>Overview</h1>
-    <p class="lede">Verified NFL data, a requirements register, decision questions, strategy origination and validation gates — built so a decision can be made on evidence rather than assertion.</p>
-    
-<div class="hero">
-  <h2 class="mt0" style="border:none;padding:0;margin:0 0 6px">A decision surface, not a scoreboard</h2>
-  <p class="lede mb0">This site exists to be read <em>before</em> a change is made. It separates three things that
-  usually get mixed together: what we have verified from official NFL sources, what we have measured ourselves,
-  and what we are still guessing at. Every data row links to the page it came from. Where a value could not be
-  confirmed, the cell is blank and the item appears on the
-  <a href="pages/flagged.html">Flagged for Review</a> page.</p>
-</div>
-
-<div class="kpis">
-  <div class="kpi"><div class="n">32</div><div class="l">clubs verified</div><div class="s">standings, passing, rushing, defence</div></div>
-  <div class="kpi"><div class="n">160</div><div class="l">injury rows with a game status</div><div class="s">66 Out · 10 Doubtful · 84 Questionable</div></div>
-  <div class="kpi"><div class="n">151</div><div class="l">depth fields left blank</div><div class="s">depth charts captured for 2/32 clubs only</div></div>
-  <div class="kpi"><div class="n">12</div><div class="l">strategies on the board</div><div class="s">0 pass all gates today</div></div>
-  <div class="kpi"><div class="n">18</div><div class="l">open decision questions</div><div class="s">each names what would answer it</div></div>
-  <div class="kpi"><div class="n">15</div><div class="l">reviewable suggestions</div><div class="s">adopt / test / reject states</div></div>
-</div>
-
-<h2>Read in this order</h2>
-<div class="grid">
-  <a class="card" href="pages/executive-summary.html"><h3>1 · Executive Summary</h3>
-    <p>The short version: what was verified, what was measured, what is blocked, and the three decisions that matter.</p>
-    <div class="tag"><span class="pill info">start here</span></div></a>
-  <a class="card" href="pages/suggestions.html"><h3>2 · Suggestions</h3>
-    <p>15 concrete improvements, each with the problem it solves and the evidence behind it. Review a path before implementing anything.</p>
-    <div class="tag"><span class="pill ok">choose a path</span></div></a>
-  <a class="card" href="pages/decision-questions.html"><h3>3 · Decision Questions</h3>
-    <p>18 questions that must be answered first, split into what we know, what we do not, and what would settle it.</p>
-    <div class="tag"><span class="pill warn">what&#x27;s missing</span></div></a>
-  <a class="card" href="pages/strategies.html"><h3>4 · Strategies</h3>
-    <p>Signal origination for single bets, parlays and player-prop combos — and an honest status for each.</p>
-    <div class="tag"><span class="pill bad">0 passing today</span></div></a>
-  <a class="card" href="pages/validation-gates.html"><h3>5 · Validation Gates</h3>
-    <p>Ten numbered gates a strategy must clear, with explicit thresholds and the failure mode each one prevents.</p>
-    <div class="tag"><span class="pill neutral">the filter</span></div></a>
-  <a class="card" href="pages/luck-and-skill.html"><h3>6 · Luck vs Skill</h3>
-    <p>The arithmetic that makes a leaderboard meaningful: how many bets it takes, and how often luck wins a crown.</p>
-    <div class="tag"><span class="pill neutral">anti-luck</span></div></a>
-</div>
-
-<h2>What we actually measured</h2>
-<p class="lede" style="font-size:15px">These figures are computed from the data in this repository, not quoted from anywhere.
-The script that produces them is <code>tools/analyze_correlation.py</code> and it prints the same numbers on every run.</p>
-
-<div class="tablewrap"><table>
-<thead><tr><th>Relationship (32 clubs, Week 10 snapshot)</th><th class="num">r</th><th class="num">R²</th>
-<th class="num">95% CI</th><th>Reading</th></tr></thead>
-<tbody>
-<tr><td>Offensive EPA/play vs points per game</td><td class="num">0.926</td>
-<td class="num">85.8%</td>
-<td class="num nowrap">[0.791, 0.984]</td>
-<td>The league's own efficiency metric tracks scoring closely. Good for rating teams, not yet a bet signal.</td></tr>
-<tr><td>Rushing yards per attempt vs points per game</td><td class="num">0.023</td>
-<td class="num">0.1%</td>
-<td class="num nowrap">[-0.233, 0.298]</td>
-<td>Effectively zero. A rushing-based signal was <strong>rejected by our own data</strong> before it cost anything.</td></tr>
-</tbody></table></div>
-<p class="small">Full table: <a href="pages/correlation.html">Correlation</a> ·
-method: <code>tools/analyze_correlation.py</code> · inputs: <code>data/team-metrics-2026-w10.csv</code></p>
-
-<h2>The two numbers that decide whether this project can work</h2>
-<div class="grid">
-  <div class="card">
-    <h3>You need 52.38% just to break even</h3>
-    <p>At the standard −110 price, the implied win rate is 52.38%. Both sides sum to
-    104.76%, so the book keeps 4.76%. A strategy that wins
-    51% is losing money. <a href="pages/validation-gates.html#g5">Gate G5</a> exists for this.</p>
-  </div>
-  <div class="card">
-    <h3>2,243 bets to prove a 55% edge</h3>
-    <p>To distinguish a true 55% win rate from a 52.38% break-even at 80% power needs
-    2,243 settled bets. Ranking strategies on a few hundred bets
-    ranks luck. <a href="pages/luck-and-skill.html">The arithmetic is here.</a></p>
-  </div>
-</div>
-
-<h2>What is blocked, plainly</h2>
-<div class="note bad"><strong>No odds or price data is in this repository.</strong> That single gap blocks
-gates G3 (out-of-sample profit), G4 (closing-line value), G5 (net-of-vig EV) and G9 (capacity) for every strategy.
-Nine of twelve strategies are blocked on it. This is a purchasing decision, not an engineering one — see
-<a href="pages/decision-questions.html#Q15">Q15</a>.</div>
-<div class="note warn"><strong>Depth charts exist for 2 of 32 clubs.</strong> The requirement to know whether a defence is on
-its 2nd, 3rd or 4th string is met for Kansas City and Seattle only, because those are the only official club depth
-charts captured in this pass. <code>nfl.com/teams/{club}/depthchart</code> returns 404 — there is no league-wide
-official endpoint on that path. The other 30 clubs are blank, not estimated. See
-<a href="pages/injuries.html#depth">Injuries &amp; Depth</a>.</div>
-<div class="note"><strong>Cross-sectional correlation is not betting correlation.</strong> The r values above describe how 32
-teams relate to each other in one week. They do not tell you how two legs of a same-game parlay move together.
-Conflating the two is the most common way a project like this goes wrong. See
-<a href="pages/correlation.html#limits">the limits section</a>.</div>
-
-<h2>Sources used on this page</h2>
-<div class="tablewrap"><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Tier</th><th>Link</th><th>Supports</th></tr></thead><tbody><tr><td>S01</td><td>NFL Injury Report - Week 10 2026</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">link</a></td><td>Per-player practice status (DNP / Limited / Full) and game status (Out / Doubtful / Questionable) by club</td></tr><tr><td>S02</td><td>NFL Standings - 2026</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">link</a></td><td>W-L-T, PCT, PF, PA, net points, division and conference record, streak</td></tr><tr><td>S03</td><td>NFL Team Stats - Offense passing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Team pass attempts, completions, pct, yards per attempt, passing yards, TD, INT, rating, sacks</td></tr><tr><td>S04</td><td>NFL Team Stats - Defense passing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Opponent passing volume and efficiency allowed, by team</td></tr><tr><td>S06</td><td>NFL Next Gen Stats - League Trends</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/ngs/trends" target="_blank" rel="noopener">link</a></td><td>Published definitions and per-team values for Offensive EPA, Defensive EPA, PPG, OPP PPG, playoff probability</td></tr><tr><td>S10</td><td>NFL 2026 Important Dates (PDF, league communications)</td><td>NFL (media.nfl.com)</td><td>league</td><td><a href="https://media.nfl.com/content/dam/communications/football-communications/2025/news/06%2005%2025%20-%20Important%20Dates.pdf" target="_blank" rel="noopener">link</a></td><td>Personnel (Injury) Report Policy filing deadlines; Game Status Report deadlines; roster reduction to 53; 17-player practice squad; reserve/return designations</td></tr></tbody></table></div>
-
-  </div>
-</main>
-<footer class="site">
-  <div class="wrap">
-    <span>NFL Decision Hub · data captured 2026-11-14 · every value sourced or left blank</span>
-    <span><a href="pages/sources.html">Source registry</a> · <a href="pages/flagged.html">Flagged for review</a> · <a href="pages/repo-audit.html">Audit</a></span>
-  </div>
-</footer>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An evidence-first NFL lines research and decision dashboard. No projections or unverified values are presented as fact."><title>Fourth & Signal — NFL research dashboard</title><link rel="stylesheet" href="assets/site.css"></head><body>
+<header class="topbar"><div class="wrap topinner"><a class="brand" href="index.html">FOURTH <span>&</span> SIGNAL</a><nav class="nav" aria-label="Main navigation"><a aria-current="page" href="index.html">Overview</a><a href="decisions.html">Suggestions</a><a href="strategy.html">Strategies</a><a href="availability.html">Availability</a><a href="data.html">Data & methods</a><a href="review.html">Flagged for Review</a><a href="docs/index.html">Week 10 data ↗</a><a href="hub/index.html">Decision Hub ↗</a></nav></div></header>
+<main><section class="hero"><div class="wrap"><div class="eyebrow">NFL decision lab · evidence before opinion</div><h1>Build a better line.<br>Know what you don't know.</h1><p class="lede">A transparent blueprint for originating NFL probabilities and testing bet strategies. Primary-source data pathways are mapped; no odds, player values, injury impacts, projections, or performance results are invented.</p><div class="statusline"><span class="pill good">Research framework ready</span><span class="pill review">No model or live feed verified</span><span class="pill">Evidence reviewed 14 Nov 2026</span></div></div></section>
+<div class="wrap section"><div class="grid">
+<a class="card cardlink" href="strategy.html"><div class="eyebrow">01 · Competition</div><h2>Strategy lab</h2><p>Gate strategies from paper trading through out-of-sample validation. Compare singles, parlays, and player-prop combos without presenting a backtest as proof.</p><span class="arrow">View gates →</span></a>
+<a class="card cardlink" href="availability.html"><div class="eyebrow">02 · Availability</div><h2>Injury & depth</h2><p>Track official injury-report fields, but distinguish a listed injury from a confirmed inactive or a verified second-/third-/fourth-string replacement.</p><span class="arrow">View tracker design →</span></a>
+<a class="card cardlink" href="review.html"><div class="eyebrow">03 · Integrity</div><h2>Flagged for review</h2><p>See every important missing input, unknown value, source limitation, and decision that needs evidence before implementation.</p><span class="arrow">Review open items →</span></a>
+<div class="card wide"><div class="eyebrow">Executive summary</div><h2>What can be decided now?</h2><p>We can choose a <strong>research and validation process</strong>, not a profitable strategy or current wager. The repository began with only a README; there is no historical odds feed, play-by-play dataset, roster/depth-chart history, bankroll policy, model, or validated result in the project. The decision-ready framework is to use NFL-origin statistics and availability as features; timestamp every input and price; calibrate win/cover/prop probabilities; compare against de-vigged market probabilities where an authorized odds source is chosen; and publish only strategies that clear pre-registered, time-ordered tests.</p><p class="small">A future-looking “expected edge” is not a result. Nothing here claims that any signal beats a market or removes randomness.</p></div>
+<div class="card"><div class="eyebrow">Evidence snapshot</div><div class="kpi">0</div><div class="label">Verified strategy performance records in this repository</div><hr style="border:0;border-top:1px solid var(--line);margin:16px 0"><div class="kpi">0</div><div class="label">NFL game/odds/player records stored locally</div></div>
+<div class="card full"><h2>Decision brief</h2><div class="tablewrap"><table><thead><tr><th>Decision area</th><th>Verified starting point</th><th>Still missing / status</th><th>Primary source</th></tr></thead><tbody>
+<tr><td>Official outcome & player-stat feed</td><td>NFL.com publishes player-stat categories including passing, rushing, receiving, fumbles, tackles and interceptions.</td><td>Historical machine-readable game-level data, provenance/retention terms, update schedule, and schema are not yet established. No records imported.</td><td class="source"><a href="https://www.nfl.com/stats/player-stats/">NFL player stats ↗</a></td></tr>
+<tr><td>Injury signal</td><td>NFL injury-report page exposes player, position, injury, practice status, and game status fields.</td><td>Historical snapshots, actual availability/participation, practice squad elevations, and announced starters are not stored. Injury status is not a numerical impact measure.</td><td class="source"><a href="https://www.nfl.com/injuries/">NFL injury reports ↗</a></td></tr>
+<tr><td>Schedule / results</td><td>The official NFL schedule page lists matchups, start times and game links.</td><td>Machine-readable historical schedule and point-in-time reschedule / kickoff / venue snapshots are not stored.</td><td class="source"><a href="https://www.nfl.com/schedules/">NFL schedule ↗</a></td></tr>
+<tr><td>Prices / market benchmark</td><td>No NFL league-official betting odds feed was verified in this review.</td><td>Bookmaker/exchange data, permissions, timestamped open/close prices, limits and settlement rules must be selected and independently sourced.</td><td class="source"><a href="https://www.nfl.com/">NFL official site (no odds endpoint verified) ↗</a></td></tr>
+<tr><td>Competition rewards</td><td>No reward rule, funding, jurisdiction, or payout mechanism is documented in the repository.</td><td>Choose simulated-only vs. paid rewards; define eligibility, scoring period, tie-breaks, anti-manipulation and legal review before launch.</td><td class="source"><a href="https://www.nfl.com/playerhealthandsafety/">NFL official site — no competition policy verified ↗</a></td></tr>
+</tbody></table></div></div>
+<div class="card full"><h2>How to use this dashboard</h2><div class="grid"><div class="card"><h3>1. Review suggestions</h3><p>Open <a href="decisions.html">Suggestions</a> to answer explicit questions and choose next work only after blockers are resolved.</p></div><div class="card"><h3>2. Inspect strategy gates</h3><p>Read <a href="strategy.html">Strategy lab</a> for a testable, falsification-first process and separate validation for singles, parlays, and props.</p></div><div class="card"><h3>3. Do not fill blanks</h3><p>Unknown values stay blank. The <a href="review.html">review register</a> names the missing evidence and what would establish it.</p></div></div></div>
+</div><footer class="footer"><div class="wrap">Independent research scaffold, not an NFL product, betting recommendation, or guarantee. No wagering or live tracking is implemented. Source links lead to official NFL pages unless noted otherwise. <a href="COORDINATION.md">Project verification log</a>.</div></footer></main></body></html>

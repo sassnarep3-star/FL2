@@ -22,7 +22,10 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HTML = []
 
-for dirpath, _, files in os.walk(ROOT):
+# Scope: this checker owns the hub/ site only. The root site (session 4a77261b) and
+# docs/ dashboard (session d263eab0) have their own checker: scripts/check_site.py.
+HUB = os.path.join(ROOT, "hub")
+for dirpath, _, files in os.walk(HUB):
     if ".git" in dirpath:
         continue
     for f in files:

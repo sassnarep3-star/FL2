@@ -1,53 +1,47 @@
-# FL2 — NFL Decision Hub
+# Fourth & Signal — NFL research dashboard
 
-A verified decision surface for an NFL line-origination project: requirements, open decision questions,
-reviewable suggestions, strategy origination, validation gates, correlation analysis, and injury / depth-chart
-tracking — every data row carrying a link to the official source it came from.
+An evidence-first static research site for planning an NFL line-origination and strategy-validation competition. It is a research scaffold, **not** an NFL product, wagering service, betting recommendation, or claim of predictive edge.
 
-**Live site:** https://sassnarep3-star.github.io/FL2/
+**Live site:** [sassnarep3-star.github.io/FL2](https://sassnarep3-star.github.io/FL2/hub/) · [PR #1](https://github.com/sassnarep3-star/FL2/pull/1) (merged)
 
-## Start here
+## Site map
 
-| If you want to… | Read |
-| --- | --- |
-| Get the whole picture in one page | [`docs/EXECUTIVE-SUMMARY.md`](docs/EXECUTIVE-SUMMARY.md) |
-| Choose a path before anything is implemented | [`pages/suggestions.html`](pages/suggestions.html) |
-| See what we don't know yet | [`pages/decision-questions.html`](pages/decision-questions.html) |
-| See what could not be verified | [`pages/flagged.html`](pages/flagged.html) |
-| Coordinate with another agent session | [`COORDINATION.md`](COORDINATION.md) |
+- `index.html` — executive summary and evidence snapshot
+- `decisions.html` — prioritized decision questions, known/unknown answers, and suggested discovery work
+- `strategy.html` — candidate single-bet, player-prop, parlay and prop-combo hypotheses; validation gates and correlation requirements
+- `availability.html` — source-backed injury-report fields and a design for offense/defense depth and replacement tracking
+- `data.html` — reviewed source inventory, project inspection notes and proposed data model
+- `review.html` — open unverified items and their closure evidence
 
-## What is in here
+## Verification boundary
 
-| Path | Contents |
-| --- | --- |
-| `index.html`, `pages/` | 16-page static site, no build step, no CDN, no JavaScript |
-| `data/` | Datasets, each row carrying its source URL and retrieval date |
-| `tools/` | The scripts that generate every dataset and page |
-| `docs/` | Executive summary |
-| `COORDINATION.md` | Shared task board for parallel sessions |
+Repository inspection began with a 5-byte README and no application, data, odds, player-game records, model or measured results. Official NFL source pages were inspected for schedules, player stats, injuries, players, rules and a hosted gamebook sample. They establish source pathways, not the existence of a usable historical feed, a license, complete coverage, or a profitable signal. The NIST/SEMATECH glossary is used only for general statistical-method terminology. Unknown values are blank; no performance or correlation numbers are fabricated. Details and links are in `data.html` and `COORDINATION.md`.
 
-## Regenerate everything
+## Run locally
+
+This is plain static HTML/CSS. Open `index.html` directly, or run a static server such as `python3 -m http.server 8000` from the repository root.
+
+## GitHub Pages
+
+`.github/workflows/pages.yml` validates the static site's local links and publishes the repository root to GitHub Pages on pushes to `main`, using GitHub's Pages Actions deployment. The repository's Pages source must be set to **GitHub Actions** in Settings → Pages. Publication happens once the workflow is run with the required repository permissions. The current working branch is intentionally not the default `main` deployment target.
+
+## Limitations
+
+No automatic NFL data ingestion, odds provider, historical database, forecasts, user accounts, wagering or rewards are implemented. Before those are added, verify data access and reuse terms, time-stamped source integrity, price/settlement definitions, geography and competition rules, and independent time-ordered validation. See `decisions.html` and `review.html`.
+
+## Week 10 data dashboard (`docs/`)
+
+A second, data-first dashboard lives in `docs/` (published at `https://sassnarep3-star.github.io/FL2/hub/docs/`):
+
+- Injury tracking: all 345 entries from the NFL.com Week 10 injury report, each row linked to the player's NFL.com profile.
+- Games, news, unit exposure (counts only; starter/backup status not verified), suggestions, open questions, sources and flagged items.
+- Data lives in `data/` (CSV pipe-delimited for verified rows, JSON for qualitative content).
+
+Rebuild and validate:
 
 ```bash
-python3 tools/calc.py               # odds, parlay, correlation, sample-size, Kelly arithmetic
-python3 tools/build_injury_csv.py   # injury report -> data/injury-report-2026-w10.csv
-python3 tools/build_team_metrics.py # four official tables -> data/team-metrics-2026-w10.csv
-python3 tools/build_slate_csv.py    # Week 10 slate -> data/slate-2026-w10.csv
-python3 tools/analyze_correlation.py# correlations + bootstrap CIs
-python3 tools/build_planning_csv.py # requirements, questions, strategies, gates, suggestions
-python3 tools/build_site.py         # data -> HTML
-python3 tools/check_links.py        # exits non-zero on any broken link or unsourced dataset
+python3 scripts/make_pages.py
+python3 scripts/build_site.py
 ```
 
-The build scripts assert their own cross-checks (winning percentage, net points, completion percentage, yards
-per attempt, PPG vs Next Gen Stats, bye list) and fail loudly if any source value drifts.
-
-## The verification rule
-
-Every table row links to an official source (`nfl.com`, `operations.nfl.com`, `media.nfl.com`, or a club's own
-site). If a value could not be confirmed there, the cell is **blank** and the item appears on the
-[Flagged for Review](pages/flagged.html) page. Values are never inferred, interpolated or carried over from
-memory. Analysis, proposals and model specifications are labelled as such and are not presented as results.
-
-**No betting performance is claimed anywhere in this repository.** No odds data has been ingested, so no
-strategy has been graded. See `pages/strategies.html` for the honest status of each one.
+`build_site.py` fails on any missing source link, unknown source ID, broken internal link, or invalid JSON. Starter/backup status, betting lines and strategy results are not included because no verified source for them exists yet (see `docs/flagged.html`).

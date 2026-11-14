@@ -1,0 +1,14 @@
+{
+ "built_from": "data/*.csv and data/*.json",
+ "data_fetched_on": "2026-11-14",
+ "injury_rows": 345,
+ "injury_teams": 28,
+ "games": 14,
+ "news_items": 21,
+ "status_counts": {
+  "Out": 66,
+  "Doubtful": 10,
+  "Questionable": 84
+ },
+ "not_injury_related": 4
+}

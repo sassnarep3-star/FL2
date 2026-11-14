@@ -1,7 +1,7 @@
 # Executive Summary — NFL Decision Hub
 
 **Prepared:** 2026-11-14 · **Data snapshot:** Week 10, 2026 season · **Repository:** `sassnarep3-star/FL2`
-**Live site:** https://sassnarep3-star.github.io/FL2/
+**Live site:** https://sassnarep3-star.github.io/FL2/hub/
 
 ---
 

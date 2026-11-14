@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for review | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../hub/index.html">Decision Hub ↗</a><a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Flagged for review</h1>
+<p class="lead">Irregularities, gaps and unverified items. These do not block the site. Each row lists the source links so you can check them directly.</p>
+<div id="tbl"></div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const d = await getJSON("data/flags.json");
+  renderTable({
+    el: document.getElementById("tbl"), rows: d.flags, countLabel: "flags",
+    filters: [{key: "category", label: "Category"}, {key: "severity", label: "Severity"}, {key: "status", label: "Status"}],
+    columns: [
+      {key: "id", label: "ID"}, {key: "category", label: "Category"},
+      {key: "severity", label: "Severity", render: r => '<span class="tag ' + esc(r.severity.toLowerCase()) + '">' + esc(r.severity) + "</span>"},
+      {key: "item", label: "Item"}, {key: "detail", label: "Detail"}, {key: "status", label: "Status"},
+      {key: "source_urls", label: "Source links", render: r => (r.source_urls && r.source_urls.length)
+        ? r.source_urls.map((u, i) => srcLink(u, "Link " + (i + 1))).join("<br>") : '<span class="unverified">none</span>'},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>

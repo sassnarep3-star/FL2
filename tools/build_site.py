@@ -18,6 +18,7 @@ import re
 import html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE_ROOT = os.path.join(ROOT, "hub")   # namespaced: two other sessions already own / and /docs
 RET = "2026-11-14"
 SITE = "NFL Decision Hub"
 
@@ -145,13 +146,14 @@ def page(path, title, body, active, lede="", crumbs=None):
 <footer class="site">
   <div class="wrap">
     <span>{SITE} · data captured {RET} · every value sourced or left blank</span>
-    <span><a href="{up}pages/sources.html">Source registry</a> · <a href="{up}pages/flagged.html">Flagged for review</a> · <a href="{up}pages/repo-audit.html">Audit</a></span>
+    <span><a href="{up}pages/sources.html">Source registry</a> · <a href="{up}pages/flagged.html">Flagged for review</a> · <a href="{up}pages/repo-audit.html">Audit</a><br>
+    Sibling sites in this repo: <a href="{up}../index.html">Fourth &amp; Signal (research framework)</a> · <a href="{up}../docs/index.html">Week 10 data dashboard</a></span>
   </div>
 </footer>
 </body>
 </html>
 """
-    out = os.path.join(ROOT, path)
+    out = os.path.join(SITE_ROOT, path)
     os.makedirs(os.path.dirname(out), exist_ok=True) if os.path.dirname(out) else None
     with open(out, "w") as fh:
         fh.write(html_doc)
