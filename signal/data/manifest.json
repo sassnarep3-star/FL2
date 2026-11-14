@@ -1,0 +1,784 @@
+{
+  "generated_utc": "2026-11-14T03:32:49Z",
+  "generator": "analysis/ingest.py",
+  "license_note": "nflverse data is published under CC-BY-4.0 by the nflverse project. Football statistics themselves are facts; see the nflverse license.",
+  "license_url": "https://github.com/nflverse/nflverse-data/blob/master/LICENSE.md",
+  "nflverse_readme": "https://github.com/nflverse/nflverse-data/blob/master/README.md",
+  "file_count": 43,
+  "files": [
+    {
+      "file": "raw/depth_charts_2020.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2020,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2020.csv",
+      "bytes": 3327076,
+      "sha256": "45a315dd7f3e7837faf06a9c9cf995e1c131017a748482b2caaa111ffa0b9372",
+      "data_rows": 36168,
+      "columns": 15,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:44Z"
+    },
+    {
+      "file": "raw/depth_charts_2021.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2021,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2021.csv",
+      "bytes": 3447809,
+      "sha256": "91e3384ff13146c77f02fed2c3eca163d35868dd62da6b794c5b51df1d15b724",
+      "data_rows": 37487,
+      "columns": 15,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:44Z"
+    },
+    {
+      "file": "raw/depth_charts_2022.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2022,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2022.csv",
+      "bytes": 3467936,
+      "sha256": "4c64ee59666431c49cbc0a818cc3165886012cf72b545771a77c0805aa621b9c",
+      "data_rows": 37780,
+      "columns": 15,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:44Z"
+    },
+    {
+      "file": "raw/depth_charts_2023.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2023,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2023.csv",
+      "bytes": 3426502,
+      "sha256": "583f83842590e7e7d3417e0cd9c5c9e38f8696353bb754561d80e5583d2a98cf",
+      "data_rows": 37327,
+      "columns": 15,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:44Z"
+    },
+    {
+      "file": "raw/depth_charts_2024.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2024,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2024.csv",
+      "bytes": 3391616,
+      "sha256": "f210a33774611f7f78a89af789b61c6289a2631a21227a1a3c63c973c23588b7",
+      "data_rows": 37312,
+      "columns": 15,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:44Z"
+    },
+    {
+      "file": "raw/depth_charts_2025.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2025,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.csv",
+      "bytes": 52917870,
+      "sha256": "f5a4aa3fa70150e810b2255200c8735a6c1cc8ff77361308ce39149345b39b4a",
+      "data_rows": 554215,
+      "columns": 12,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:45Z"
+    },
+    {
+      "file": "raw/depth_charts_2026.csv",
+      "dataset": "depth_charts",
+      "description": "Weekly depth chart (starter / 2nd / 3rd string)",
+      "season": 2026,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.csv",
+      "bytes": 74795019,
+      "sha256": "05d89724a278447eb47c072e22e8cc81aea3c68eafae89e77d7022ebac066a17",
+      "data_rows": 784796,
+      "columns": 12,
+      "upstream": {
+        "publisher": "nflverse (scraped from club/league depth charts)",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:45Z"
+    },
+    {
+      "file": "raw/games.csv",
+      "dataset": "schedules",
+      "description": "Game schedule + results + closing spread/total/moneyline",
+      "season": null,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv",
+      "bytes": 2190034,
+      "sha256": "61f196929eb1523268fa5cb57d97a257cb3e8e54d22977f267b03d63a1b70644",
+      "data_rows": 7548,
+      "columns": 46,
+      "upstream": {
+        "publisher": "nflverse / Lee Sharpe (nfldata)",
+        "primary": "https://www.nfl.com/schedules/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_schedules.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_schedules.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:45Z"
+    },
+    {
+      "file": "raw/injuries_2015.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2015,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2015.csv",
+      "bytes": 715948,
+      "sha256": "fbca54ef42594cc52facc0d8c8dd74802b812771b9e33032e44ae8c7e21b0360",
+      "data_rows": 5232,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:45Z"
+    },
+    {
+      "file": "raw/injuries_2016.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2016,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2016.csv",
+      "bytes": 674980,
+      "sha256": "504e05968cb9c54ddc730fd9b6e7d1dd16a62db8029cc784d3d7bafcea7ff7cb",
+      "data_rows": 5115,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:45Z"
+    },
+    {
+      "file": "raw/injuries_2017.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2017,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2017.csv",
+      "bytes": 665280,
+      "sha256": "0d5139fbf41b0866517bd2bd5fd85bb20dbd4dd9bc36a706fed030a88731de6f",
+      "data_rows": 5104,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2018.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2018,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2018.csv",
+      "bytes": 665119,
+      "sha256": "4724e1f37cc3076f564e997fbf269190e7dbe795a39315b903788e0a9c40065e",
+      "data_rows": 5133,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2019.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2019,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2019.csv",
+      "bytes": 700757,
+      "sha256": "daddfe8e04ddc3a29bce14f362e774fbadfb274c807f1f0fde7b5bf32aaf6cdf",
+      "data_rows": 5392,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2020.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2020,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2020.csv",
+      "bytes": 737474,
+      "sha256": "706cca82824214f6b73ba0c6e537d3ee39766a50c644b8974b9fc28d7518de90",
+      "data_rows": 5661,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2021.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2021,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2021.csv",
+      "bytes": 737083,
+      "sha256": "1049fb9ff0fe7cfcf3ba8bfe1f5a35d3aba985c461c8fb7bf5201735b6d34254",
+      "data_rows": 5587,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2022.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2022,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2022.csv",
+      "bytes": 752433,
+      "sha256": "5f0d60324e597edd1a2ced8540b04e40b51dd440591dd1df11b8d96343387c9e",
+      "data_rows": 5682,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2023.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2023,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2023.csv",
+      "bytes": 738501,
+      "sha256": "16b04e21da5aa3944cfa9c22cafcc84ed7e6d9866eaddf0344e9b8cbf2f63afe",
+      "data_rows": 5599,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2024.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2024,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2024.csv",
+      "bytes": 816989,
+      "sha256": "498bce8e13cb64b2ab9bb0ad6cb81d0a63c2ddb24016c9fc90c2de2126fae449",
+      "data_rows": 6215,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2025.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2025,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2025.csv",
+      "bytes": 696006,
+      "sha256": "873ca1606dd575bd01152508a243ef6b3a0f8f97b90b707217e62ee8c7ceb735",
+      "data_rows": 6068,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/injuries_2026.csv",
+      "dataset": "injuries",
+      "description": "Weekly practice/game status injury report",
+      "season": 2026,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.csv",
+      "bytes": 355094,
+      "sha256": "40d98f1fa0a07159c9271ecb167611876e234f643e33ff55358d3d81adb34edb",
+      "data_rows": 3121,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse (primary source: NFL.com official injury report)",
+        "primary": "https://www.nfl.com/injuries/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/play_by_play_2023.csv",
+      "dataset": "pbp",
+      "description": "Play-by-play",
+      "season": 2023,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2023.csv",
+      "bytes": 99720211,
+      "sha256": "4aeca98ebe6357c5f1a13165533007964605d1f17bd54561937769b952c67613",
+      "data_rows": 49665,
+      "columns": 372,
+      "upstream": {
+        "publisher": "nflverse (nflfastR build of NFL Game Center play-by-play)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:46Z"
+    },
+    {
+      "file": "raw/play_by_play_2024.csv",
+      "dataset": "pbp",
+      "description": "Play-by-play",
+      "season": 2024,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2024.csv",
+      "bytes": 99483794,
+      "sha256": "6ae564c2c49378ec531303292966caee596982278b9fcdad9c9dd0a0dc16bfa7",
+      "data_rows": 49492,
+      "columns": 372,
+      "upstream": {
+        "publisher": "nflverse (nflfastR build of NFL Game Center play-by-play)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:47Z"
+    },
+    {
+      "file": "raw/play_by_play_2025.csv",
+      "dataset": "pbp",
+      "description": "Play-by-play",
+      "season": 2025,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2025.csv",
+      "bytes": 97951481,
+      "sha256": "8ce0001826f0f7b895b7a1068e4db7f43696c699db7064ccb1201855768fd06c",
+      "data_rows": 48771,
+      "columns": 372,
+      "upstream": {
+        "publisher": "nflverse (nflfastR build of NFL Game Center play-by-play)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/play_by_play_2026.csv",
+      "dataset": "pbp",
+      "description": "Play-by-play",
+      "season": 2026,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv",
+      "bytes": 48076113,
+      "sha256": "3706f29714687c81f03de550f157a55b41e3f1c3cd7ad2b57541b0b606cbf10f",
+      "data_rows": 24002,
+      "columns": 372,
+      "upstream": {
+        "publisher": "nflverse (nflfastR build of NFL Game Center play-by-play)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/players.csv",
+      "dataset": "players",
+      "description": "Player master (ids, birth dates, positions)",
+      "season": null,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/players/players.csv",
+      "bytes": 7308491,
+      "sha256": "ee474475efbd568e00fa723d09733b9e5e3ffd64d7aeefa20cdcfdad53cadc27",
+      "data_rows": 24869,
+      "columns": 39,
+      "upstream": {
+        "publisher": "nflverse",
+        "primary": "https://www.nfl.com/players/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_players.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_players.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2016.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2016,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2016.csv",
+      "bytes": 2157110,
+      "sha256": "a778e24e9eb665ffe8f16093b03c5a263dca0250b3aa92bd6002f61f534bea59",
+      "data_rows": 23890,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2017.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2017,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2017.csv",
+      "bytes": 2157818,
+      "sha256": "eab2fad2df99249d4061ed9c5c34d312cdba07cf3159d027d255bdc9b6526917",
+      "data_rows": 23862,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2018.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2018,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2018.csv",
+      "bytes": 2157555,
+      "sha256": "9a408b78a55f799110aed70de3564e157faf089ce9bed780d0368bf49ae13e0b",
+      "data_rows": 23877,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2019.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2019,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2019.csv",
+      "bytes": 2156311,
+      "sha256": "0cd52be8fa57f18503b670cb8263246c4f548375b768cbcad1c7a7462c98970d",
+      "data_rows": 23862,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2020.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2020,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2020.csv",
+      "bytes": 2257664,
+      "sha256": "512e35f17d076eb5d99b933c4a144eb95dcddf40c0320dbb397cae3c35683716",
+      "data_rows": 24999,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2021.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2021,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2021.csv",
+      "bytes": 2388493,
+      "sha256": "8e4dae054a4749cf2d4919508d9161a6068fd67509979aefa385bfb3803d0ee5",
+      "data_rows": 26468,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2022.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2022,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2022.csv",
+      "bytes": 2379719,
+      "sha256": "0018a4833fbf0f825286c1c27450c6254391b548d6c55bcde728e93e4816815a",
+      "data_rows": 26381,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2023.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2023,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2023.csv",
+      "bytes": 2394875,
+      "sha256": "303b61aa5c33ffda863f93a750fc14483f397f9187ad502b1ce71e9b516a64c0",
+      "data_rows": 26540,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2024.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2024,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2024.csv",
+      "bytes": 2402841,
+      "sha256": "a2aa58efe093f8aa0ad5aadf09f81d8ec690a1183bd2dde68d20e7f109a9c335",
+      "data_rows": 26615,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2025.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2025,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2025.csv",
+      "bytes": 2401290,
+      "sha256": "3fc2deb0e9ad86d34d4578cb80bb21c95253e088ee22ca028adf46f7485eff1f",
+      "data_rows": 26613,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/snap_counts_2026.csv",
+      "dataset": "snap_counts",
+      "description": "Per-game offensive/defensive snap counts by player",
+      "season": 2026,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv",
+      "bytes": 1147455,
+      "sha256": "ba54197d9e1e9a5473153f984f4880e736020c9e20565d1df246bf1e62714866",
+      "data_rows": 12785,
+      "columns": 16,
+      "upstream": {
+        "publisher": "nflverse / Pro Football Reference",
+        "primary": "https://www.pro-football-reference.com/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/stats_player_week_2020.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2020,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2020.csv",
+      "bytes": 7883270,
+      "sha256": "05b992676faccc8940efbf6242cb76358069372d31d7c2e02c1a4acdcd3cbe18",
+      "data_rows": 17602,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:48Z"
+    },
+    {
+      "file": "raw/stats_player_week_2021.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2021,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2021.csv",
+      "bytes": 8477784,
+      "sha256": "41915fb49238902ad1f129ebf0405b11a1e710454ae0fe8f7b3e4f9145875f48",
+      "data_rows": 18969,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:49Z"
+    },
+    {
+      "file": "raw/stats_player_week_2022.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2022,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2022.csv",
+      "bytes": 8408729,
+      "sha256": "ad426c3fe5bf1cc30c3f137fdfe96d054e19d400879ee4413129da49fa7b54be",
+      "data_rows": 18831,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:49Z"
+    },
+    {
+      "file": "raw/stats_player_week_2023.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2023,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2023.csv",
+      "bytes": 8332874,
+      "sha256": "f19cb71a5de0dce7fd09376026237c9ee9d5a93fe13815a2ea3ec2d37204cb17",
+      "data_rows": 18643,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:49Z"
+    },
+    {
+      "file": "raw/stats_player_week_2024.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2024,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2024.csv",
+      "bytes": 8470040,
+      "sha256": "3ddc45a84f759aa348ce465ae001752c530575455717657cdfe1f8abfcdb4759",
+      "data_rows": 18983,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:49Z"
+    },
+    {
+      "file": "raw/stats_player_week_2025.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2025,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2025.csv",
+      "bytes": 8656387,
+      "sha256": "e5e0615b3d96a3eaebfaee91e55afb4a4e7fe0caf057454177bcd7d6ad4bcfc2",
+      "data_rows": 19422,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:49Z"
+    },
+    {
+      "file": "raw/stats_player_week_2026.csv",
+      "dataset": "stats_player",
+      "description": "Weekly player statistics",
+      "season": 2026,
+      "source_url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv",
+      "bytes": 4241495,
+      "sha256": "a7f51400624ae41f38db1395122115ff653231789ed0a840a3a7fae9e3bc977a",
+      "data_rows": 9534,
+      "columns": 150,
+      "upstream": {
+        "publisher": "nflverse (built from NFL play-by-play via nflfastR)",
+        "primary": "https://www.nfl.com/scores/",
+        "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
+        "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
+      },
+      "retrieved_utc": "2026-11-14T03:32:49Z"
+    }
+  ]
+}

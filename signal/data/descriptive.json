@@ -1,0 +1,118 @@
+{
+ "source": "raw/games.csv (nflverse/nfldata)",
+ "scope": "2015-2026 regular season, completed games with a closing spread",
+ "caveat": "Descriptive only. These are base rates, NOT evidence of a profitable strategy. The home cover rate near 50% is the sanity check for the spread sign convention.",
+ "stats": {
+  "games": 3167,
+  "completed_with_line": 3032,
+  "pushes": 79,
+  "home_cover_rate_pct": 48.53,
+  "mean_home_cover_margin": -0.0966,
+  "total_pushes": 26,
+  "over_rate_pct": 49.0,
+  "mean_total_delta": 0.4175,
+  "validation_vs_closing_lines_outcome": {
+   "agree": 914,
+   "disagree": 10,
+   "agree_pct": 98.92,
+   "note": "Reconstructed cover compared with the `outcome` column already present in closing_lines.csv. Only games present in that file are compared."
+  },
+  "sanity_check": {
+   "home_cover_rate_pct": 48.53,
+   "over_rate_pct": 49.0,
+   "expected": "both near 50% for a fairly priced market",
+   "note": "A naive reading of games.csv spread_line as a home line gives 56.93% and is therefore rejected."
+  },
+  "season_min": 2015,
+  "season_max": 2026,
+  "seasons": 12,
+  "per_season_home_cover_pct": {
+   "2015": {
+    "n": 256,
+    "home_cover_pct": 46.0
+   },
+   "2016": {
+    "n": 256,
+    "home_cover_pct": 49.0
+   },
+   "2017": {
+    "n": 256,
+    "home_cover_pct": 52.4
+   },
+   "2018": {
+    "n": 256,
+    "home_cover_pct": 48.2
+   },
+   "2019": {
+    "n": 256,
+    "home_cover_pct": 43.1
+   },
+   "2020": {
+    "n": 256,
+    "home_cover_pct": 49.6
+   },
+   "2021": {
+    "n": 272,
+    "home_cover_pct": 48.1
+   },
+   "2022": {
+    "n": 271,
+    "home_cover_pct": 49.4
+   },
+   "2023": {
+    "n": 272,
+    "home_cover_pct": 49.6
+   },
+   "2024": {
+    "n": 272,
+    "home_cover_pct": 51.1
+   },
+   "2025": {
+    "n": 272,
+    "home_cover_pct": 49.8
+   },
+   "2026": {
+    "n": 137,
+    "home_cover_pct": 42.7
+   }
+  },
+  "games_with_rest_data": 3167,
+  "rest_differential_descriptive": {
+   "equal rest": {
+    "games": 1963,
+    "home_cover_pct": 48.4,
+    "over_pct": 49.08,
+    "graded_games": 1905
+   },
+   "away rested more (-3 or more)": {
+    "games": 358,
+    "home_cover_pct": 45.2,
+    "over_pct": 44.51,
+    "graded_games": 354
+   },
+   "home rested more (+3 or more)": {
+    "games": 311,
+    "home_cover_pct": 49.33,
+    "over_pct": 54.93,
+    "graded_games": 300
+   },
+   "away rested more (-1 to -2)": {
+    "games": 223,
+    "home_cover_pct": 52.73,
+    "over_pct": 45.7,
+    "graded_games": 220
+   },
+   "home rested more (+1 to +2)": {
+    "games": 177,
+    "home_cover_pct": 50.0,
+    "over_pct": 51.14,
+    "graded_games": 174
+   }
+  },
+  "rest_note": "Descriptive bucket counts only. No significance test, no holdout, no vig, no stake sizing. Treat as a candidate to be tested, not a finding.",
+  "current_season": 2026,
+  "current_season_games_scheduled": 272,
+  "current_season_completed": 137,
+  "current_season_last_completed_week": 10
+ }
+}

@@ -1,0 +1,120 @@
+{
+  "purpose": "Authoritative source registry. Every factual claim on the site must resolve to a row here. Tier 1 = the league or the primary record producer. Tier 2 = a maintained open dataset that republishes Tier 1 and is auditable. Tier 3 = secondary/interpretive and never sufficient on its own.",
+  "tiers": {
+    "1": "Official league / primary record producer",
+    "2": "Open dataset that republishes Tier 1 with auditable provenance",
+    "3": "Secondary analysis or commentary; used only for context, never for a verified value"
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "tier": 1,
+      "title": "NFL.com — Official injury report by week",
+      "publisher": "National Football League",
+      "url": "https://www.nfl.com/injuries/",
+      "used_for": "Official practice status and game status (Out / Doubtful / Questionable)",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Fetched https://www.nfl.com/injuries/league/2026/reg10 on 2026-11-14 and confirmed the page renders Week 10 of the 2026 season with per-player Practice Status and Game Status columns. Content is JS-driven, so the page is a human review target, not a machine feed."
+    },
+    {
+      "id": "S02",
+      "tier": 1,
+      "title": "NFL Competition Committee — revisions to the Injury Report Policy",
+      "publisher": "National Football League",
+      "url": "https://www.nfl.com/news/competition-committee-approves-revisions-to-injury-report-0ap3000000688693",
+      "used_for": "Exact definitions of Did Not Participate / Limited / Full practice, and Out / Doubtful / Questionable; removal of Probable",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Full text fetched and read on 2026-11-14. Verbatim: 'Questionable means it is uncertain as to whether the player will play in the game; Doubtful means it is unlikely the player will participate; and Out means the player will not play.' Also confirms the Probable category was eliminated because about 95 percent of Probable players did play."
+    },
+    {
+      "id": "S03",
+      "tier": 1,
+      "title": "NFL Football Operations",
+      "publisher": "National Football League",
+      "url": "https://operations.nfl.com/",
+      "used_for": "League rulebook and football-operations policy hub",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Homepage fetched successfully. NOTE: the 2026 rulebook deep link (https://operations.nfl.com/the-rules/2026-nfl-rulebook) returned a 404 on 2026-11-14 and is recorded as an open item in the questions register."
+    },
+    {
+      "id": "S04",
+      "tier": 2,
+      "title": "nflverse-data — automated data releases",
+      "publisher": "nflverse open-source project",
+      "url": "https://github.com/nflverse/nflverse-data",
+      "used_for": "Machine-readable mirrors of schedules, injury reports, depth charts, snap counts, player stats, play-by-play",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Repository and release manifests enumerated via api.github.com. Release assets confirmed present for injuries 2009-2026, depth_charts 2001-2026, snap_counts 2012-2026, stats_player_week through 2026, pbp through 2026. Each downloaded file is SHA-256 recorded in data/manifest.json."
+    },
+    {
+      "id": "S05",
+      "tier": 2,
+      "title": "nflverse-data license (CC-BY-4.0)",
+      "publisher": "nflverse",
+      "url": "https://github.com/nflverse/nflverse-data/blob/master/LICENSE.md",
+      "used_for": "Redistribution terms for the raw data",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "License file linked from the repository README; cited, not reproduced."
+    },
+    {
+      "id": "S06",
+      "tier": 2,
+      "title": "nflreadr — load_injuries source",
+      "publisher": "nflverse",
+      "url": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R",
+      "used_for": "Confirms the canonical download URL pattern for injury data",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Package source downloaded via codeload and read directly. Line 40 contains the URL template https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_{seasons}.{file_type}"
+    },
+    {
+      "id": "S07",
+      "tier": 2,
+      "title": "nflreadr — load_pbp / load_snap_counts source",
+      "publisher": "nflverse",
+      "url": "https://github.com/nflverse/nflreadr/tree/main/R",
+      "used_for": "Confirms URL patterns for play-by-play and snap counts",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Read load_pbp.R (play_by_play_{season}.{ext}) and load_snap_counts.R (snap_counts_{season}.{ext}) from the downloaded package source."
+    },
+    {
+      "id": "S08",
+      "tier": 2,
+      "title": "nflverse/nfldata — closing_lines.csv, games.csv",
+      "publisher": "Lee Sharpe / nflverse",
+      "url": "https://github.com/nflverse/nfldata",
+      "used_for": "Historical closing spread/total/moneyline, results, rest days, roof/surface",
+      "verified": true,
+      "verified_at": "2026-11-14",
+      "verification_note": "Repository tarball downloaded via codeload (2.68 MB) and parsed. games.csv contains 7,548 rows spanning 1999-2026; closing_lines.csv contains 20,490 rows with types MONEYLINE, SPREAD and TOTAL."
+    },
+    {
+      "id": "S09",
+      "tier": 2,
+      "title": "nflverse schedules data dictionary",
+      "publisher": "nflverse",
+      "url": "https://nflreadr.nflverse.com/articles/dictionary_schedules.html",
+      "used_for": "Column definitions, especially the sign convention of spread_line",
+      "verified": false,
+      "verified_at": null,
+      "verification_note": "NOT yet confirmed. The sign convention used here (spread_line is the home team's line) was confirmed empirically against results, not from this page. Flagged for review."
+    },
+    {
+      "id": "S10",
+      "tier": 1,
+      "title": "NFL.com official scores",
+      "publisher": "National Football League",
+      "url": "https://www.nfl.com/scores/",
+      "used_for": "Independent cross-check target for final scores",
+      "verified": false,
+      "verified_at": null,
+      "verification_note": "Not yet used for row-level cross-checking. Open task."
+    }
+  ]
+}

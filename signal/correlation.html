@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Evidence-first NFL line-origination research dashboard. Unconfirmed values are left blank and flagged."><title>Correlation — Fourth &amp; Signal</title><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="topbar"><div class="wrap topinner"><a class="brand" href="index.html">FOURTH <span>&amp;</span> SIGNAL</a><nav class="nav" aria-label="Main navigation"><a href="../index.html">← Hub</a><a href="index.html">Overview</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Questions</a><a href="lines.html">Originated lines</a><a href="injury_signal.html">Injury signal</a><a href="depth.html">Depth accuracy</a><a aria-current="page" href="correlation.html">Correlation</a><a href="validation.html">Validation lab</a><a href="health.html">Data health</a></nav></div></header>
+<main><section class="pagehero"><div class="wrap"><div class="crumb"><a href="index.html">Overview</a> / Correlation</div><h1>Correlation</h1><p class="lede">Measured same-game leg correlation, because parlay pricing assumes there is none.</p></div></section>
+<section class="section"><div class="wrap">
+<div class="callout blue"><strong>Why a number is needed here.</strong> Parlay pricing multiplies leg
+probabilities, which is only correct when the legs are independent. We measured the joint frequency of
+two legs landing in the same game and compared it with that product. The difference is the pricing error.</div>
+
+<div class="grid">
+<div class="card"><div class="eyebrow">Measured joint probability</div>
+<div class="kpi">24.09%</div>
+<div class="label">Home cover AND over, 2927 graded games</div></div>
+<div class="card"><div class="eyebrow">If independent</div>
+<div class="kpi">23.75%</div>
+<div class="label">The product of the two leg rates</div></div>
+<div class="card"><div class="eyebrow">Pricing error</div>
+<div class="kpi">0.33 pts</div>
+<div class="label">phi = 0.013 (0 = independent)</div></div>
+</div>
+
+<h2>Measured correlation by spread size</h2>
+<div class="tablewrap"><table><thead><tr><th>Bucket</th><th>Games</th><th>P(home covers)</th><th>P(over)</th><th>Measured joint</th><th>If independent</th><th>Difference (pts)</th><th>phi</th><th>Source</th></tr></thead><tbody><tr><td>all graded games 2015-2026</td><td>2927</td><td>48.65%</td><td>48.82%</td><td>24.09%</td><td>23.75%</td><td>+0.33</td><td>0.013</td><td><a href="https://github.com/nflverse/nfldata">closing lines ↗</a></td></tr><tr><td>spread &lt;= 3</td><td>1085</td><td>48.20%</td><td>46.82%</td><td>22.30%</td><td>22.57%</td><td>-0.26</td><td>-0.011</td><td><a href="https://github.com/nflverse/nfldata">closing lines ↗</a></td></tr><tr><td>spread 3.5-6.5</td><td>1019</td><td>47.11%</td><td>50.64%</td><td>23.95%</td><td>23.85%</td><td>+0.09</td><td>0.004</td><td><a href="https://github.com/nflverse/nfldata">closing lines ↗</a></td></tr><tr><td>spread &gt;= 7</td><td>823</td><td>51.15%</td><td>49.21%</td><td>26.61%</td><td>25.17%</td><td>+1.44</td><td>0.058</td><td><a href="https://github.com/nflverse/nfldata">closing lines ↗</a></td></tr></tbody></table></div>
+<h2>The honest reading</h2>
+<div class="callout"><p>phi of 0.013 is <strong>close to zero</strong>. For the
+all-games bucket, treating these two legs as independent is defensible to within about a third of a
+percentage point. The correlation is concentrated in large spreads, where phi reaches
+0.058.
+That means a parlay combining a big favourite to cover with the over is the case where the independence
+assumption actually costs money — and it is the case most people bet.</p>
+<p>This is a historical base rate. It is not a forecast, not an edge, and not adjusted for the vig.</p></div>
+
+<h2>What is deliberately not published</h2>
+<div class="callout red"><p><strong>Player-prop correlations.</strong> They can be computed from the
+outcomes we hold, but a combo cannot be <em>priced</em> without prop prices, which we do not have (Q02).
+Publishing a prop correlation as though it were a tradable edge would be exactly the kind of unverified
+claim this project forbids. The work is blocked, and the block is shown here rather than hidden.</p></div>
+<h2>Caveats</h2><ul class="small"><li>This is a historical base rate, not a forecast and not an edge.</li><li>Pushes are excluded from both legs rather than treated as losses.</li><li>A fair market should show a small positive correlation here; a large one would suggest a data error.</li><li>The vig is not applied; a parlay&#x27;s true cost also depends on the book&#x27;s correlation adjustment.</li></ul></div></section>
+<footer class="footer"><div class="wrap">Independent research record, not an NFL product, betting recommendation, or guarantee. Source links lead to the NFL, nflverse, or NIST as labelled. Unconfirmed values are blank and flagged. <a href="../COORDINATION.md">Project verification log</a>.</div></footer></main></body></html>

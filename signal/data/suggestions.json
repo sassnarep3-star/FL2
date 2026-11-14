@@ -1,0 +1,499 @@
+{
+  "purpose": "A reviewable decision queue. Each suggestion is a proposed change to the site, the analysis, or the research process. It carries the evidence we have, the evidence we lack, a cost/benefit judgement, a recommended decision, and the alternatives. The point is that the user can pick a path BEFORE anything is implemented.",
+  "how_to_use": [
+    "Read the RECOMMENDED decision and the alternatives.",
+    "Check the evidence links; any 'unverified' tag means the recommendation rests on an assumption.",
+    "Set decision to 'approved', 'rejected', or 'deferred' \u2014 nothing is built until it is approved.",
+    "Items marked blockers_open=true cannot be implemented until the linked questions are answered."
+  ],
+  "decision_states": [
+    "proposed",
+    "approved",
+    "rejected",
+    "deferred"
+  ],
+  "suggestions": [
+    {
+      "id": "S01",
+      "title": "Publish a single 'Data Health' page before publishing any model output",
+      "category": "Trust & process",
+      "priority": "P0",
+      "problem": "Every number downstream inherits the quality of the raw feed. Currently nobody can see whether a data pull failed or a field went null.",
+      "proposal": "A page listing, per dataset: seasons covered, row counts, null rate, last refresh time, SHA-256 of each source file, and the exact source URL. Anything failing is shown in red rather than omitted.",
+      "evidence": [
+        "data/manifest.json",
+        "data/aggregate_report.json"
+      ],
+      "missing_info": [
+        "Actual null rates per field \u2014 computed on first successful aggregate run"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Skip it and trust the feed \u2014 rejected: the requirement is explicitly no unverified values.",
+        "Put data health inside each table footer \u2014 rejected: duplicated effort, harder to spot a global failure."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q10",
+        "Q14"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. health.html shows per-file row counts, SHA-256 and source URL, plus per-section pipeline status."
+    },
+    {
+      "id": "S02",
+      "title": "Show the market close next to every originated line, never the line alone",
+      "category": "Line origination",
+      "priority": "P0",
+      "problem": "An originated line is meaningless in isolation. It only has value if it differs from the close in a direction that would have been profitable.",
+      "proposal": "Every row on the Lines page shows: our number, the closing number, the difference, and the result under that difference. No row shows our number without the close beside it.",
+      "evidence": [
+        "S08 (closing lines 1999-2026)"
+      ],
+      "missing_info": [
+        "Whether we beat the close at all \u2014 Q08"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Show only our number \u2014 rejected: invites overconfidence, breaches the no-unverified-values rule."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q08",
+        "Q11"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. lines.html publishes the closing baseline with both sign validations and no standalone originated number."
+    },
+    {
+      "id": "S03",
+      "title": "Make the validation gate a hard, pre-registered, code-enforced gate",
+      "category": "Validation",
+      "priority": "P0",
+      "problem": "A leaderboard without a gate rewards whatever was tried last. Multiple comparisons guarantee some strategy looks good by luck.",
+      "proposal": "A strategy cannot appear on the leaderboard unless it passes, in code: (1) a pre-registered minimum bet count; (2) a bootstrap CI on ROI whose lower bound exceeds zero after the vig; (3) a false-discovery-rate correction across all strategies attempted; (4) an untouched holdout period. Failures are listed, not deleted.",
+      "evidence": [
+        "Q03",
+        "Q04",
+        "Q12"
+      ],
+      "missing_info": [
+        "The realised variance of returns needed to size the test \u2014 Q03"
+      ],
+      "cost": "medium",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Rank by raw ROI \u2014 rejected: this is exactly the luck problem the request asks to remove.",
+        "Rank by ROI with a manual sanity check \u2014 rejected: not auditable, not reproducible."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q03",
+        "Q04"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented in analysis/strategies.py with the gate fixed in code BEFORE results were inspected: G1 sample>=200, G2 bootstrap CI excluding zero, G3 Benjamini-Hochberg FDR q=0.10, G4 holdout sign match, G5 real price basis. Six strategies evaluated, zero cleared. The count tried is published. Published at validation.html."
+    },
+    {
+      "id": "S04",
+      "title": "Split every published result into 'in-sample' and 'holdout' columns instead of one number",
+      "category": "Validation",
+      "priority": "P1",
+      "problem": "A single reported ROI hides whether the strategy was tuned on the same data it is scored on.",
+      "proposal": "Two columns per strategy: in-sample and holdout, with the number of bets in each. A strategy with a great in-sample and negative holdout number is visibly fragile rather than hidden.",
+      "evidence": [
+        "Q04"
+      ],
+      "missing_info": [
+        "Holdout boundary choice"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "One pooled number \u2014 rejected: it is the main way lucky strategies sneak in."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q04"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. validation.html shows in-sample and holdout ROI in separate columns for every strategy."
+    },
+    {
+      "id": "S05",
+      "title": "Publish a measured correlation matrix with sample sizes, and refuse to price a parlay without it",
+      "category": "Correlation",
+      "priority": "P0",
+      "problem": "Parlay pricing that assumes independence is silently wrong whenever legs correlate. The request explicitly asks for correlation values.",
+      "proposal": "Compute pairwise empirical correlations between legs from actual game outcomes, show each cell with its N and confidence interval, and block any parlay row whose legs lack a measured correlation.",
+      "evidence": [
+        "S04 play-by-play + player-week data"
+      ],
+      "missing_info": [
+        "All correlation magnitudes \u2014 Q05",
+        "Prop lines \u2014 Q02"
+      ],
+      "cost": "medium",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Assume 50-50 independence \u2014 rejected: a fabricated number.",
+        "Use published correlation tables from a blog \u2014 rejected: Tier 3 source, unverifiable."
+      ],
+      "blockers_open": true,
+      "linked_questions": [
+        "Q05",
+        "Q02"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "partially_implemented",
+      "outcome": "Team-leg correlation measured: joint 24.09% vs 23.75% independent (+0.33 pts, phi 0.013), rising to phi 0.058 for spreads of 7+. Prop-leg correlation remains blocked on missing prop prices (Q02) and is explicitly not published. Published at correlation.html."
+    },
+    {
+      "id": "S06",
+      "title": "Separate 'market-sourced' prop lines from 'model-originated' prop lines with an unmissable label",
+      "category": "Line origination",
+      "priority": "P0",
+      "problem": "No licensed historical prop-line dataset is in hand. Modelling props against invented lines would produce impressive, fake results.",
+      "proposal": "Two clearly labelled sections. Market-sourced props only if and when a licensed feed exists. Model-originated props are evaluated only against realised outcomes, and every row states that no market price exists.",
+      "evidence": [
+        "Q02"
+      ],
+      "missing_info": [
+        "Any prop line source"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Generate synthetic prop lines and treat them as market \u2014 rejected: fabrication.",
+        "Drop props entirely for now \u2014 viable fallback, but the request explicitly asks for prop combos."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q02"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented as a hard block: no prop line is shown at all because no market-sourced prop price exists. Model-originated prop lines are not published. validation.html names Q02."
+    },
+    {
+      "id": "S07",
+      "title": "Build the prop-combo engine on outcomes first, and only add pricing when a real price exists",
+      "category": "Player props",
+      "priority": "P1",
+      "problem": "Prop combinations require both joint probability estimates and prices. We can do the first now; the second is blocked.",
+      "proposal": "Deliver joint-probability estimates for prop combos (e.g. QB passing yards + WR receiving yards in the same game) from empirical co-occurrence, clearly labelled as probabilities, not as expected value.",
+      "evidence": [
+        "player_week data",
+        "Q05"
+      ],
+      "missing_info": [
+        "Prices",
+        "Prop lines"
+      ],
+      "cost": "medium",
+      "benefit": "medium",
+      "recommended": "approve",
+      "alternatives": [
+        "Wait for prices \u2014 defers the whole workstream indefinitely."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q02",
+        "Q05"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "blocked",
+      "outcome": "Not built. Joint probabilities for prop combos could be computed, but a combo cannot be priced without Q02, so publishing one would be an unverified pricing claim."
+    },
+    {
+      "id": "S08",
+      "title": "Measure, rather than assume, what each injury designation is worth",
+      "category": "Injury model",
+      "priority": "P0",
+      "problem": "Any weighting of Out / Doubtful / Questionable is currently invented. The league publishes no numeric probability, so we must measure it.",
+      "proposal": "Join official game status to realised participation (snap share / attempts) and publish the measured play rate plus the measured effect on team performance for each designation, by position group, with confidence intervals.",
+      "evidence": [
+        "S02 definitions",
+        "S04 injuries + snap counts"
+      ],
+      "missing_info": [
+        "The measured play rates \u2014 Q06"
+      ],
+      "cost": "medium",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Use the commonly quoted 'Questionable \u2248 50%' \u2014 rejected: Tier 3, unsourced, and the league explicitly attaches no percentage."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q06"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. Measured Questionable 65.68% (n=14,948), Doubtful 0.89% (n=1,684), Out 0.03% (n=10,674) participation. The invented linear weighting is retired in favour of the measured rates. Published at injury_signal.html."
+    },
+    {
+      "id": "S09",
+      "title": "Validate depth charts against actual snap share before using them to infer a replacement",
+      "category": "Injury model",
+      "priority": "P0",
+      "problem": "The replacement logic assumes the published depth chart knows who is next man up. If it is stale, the whole backup-tracking feature is fiction.",
+      "proposal": "For every team-week, check whether the listed depth_team 1 player actually led his position group in snaps. Publish the agreement rate. Show backup depth only where agreement is demonstrated.",
+      "evidence": [
+        "S04 depth charts + snap counts"
+      ],
+      "missing_info": [
+        "The agreement rate \u2014 Q07"
+      ],
+      "cost": "medium",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Trust the depth chart \u2014 rejected: unverified source with a known staleness problem."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q07"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. Listed 1st-string players appear 90.62% of the time vs 80.39% for 2nd string (n=77,702 / 59,646). Conclusion: the chart is a weak discriminator and must not be used as a replacement map without the stronger out-snap test. Published at depth.html."
+    },
+    {
+      "id": "S10",
+      "title": "Keep the site factual and non-advisory, with a standing disclaimer",
+      "category": "Legal",
+      "priority": "P1",
+      "problem": "The site is public and will show numbers that look like picks.",
+      "proposal": "State on every page that this is a research record, not betting advice; avoid league logos and trademarks; attribute nflverse under CC-BY-4.0; show no actionable 'bet this' call to action.",
+      "evidence": [
+        "S05 licence",
+        "Q09"
+      ],
+      "missing_info": [
+        "User jurisdiction",
+        "Vendor terms"
+      ],
+      "cost": "low",
+      "benefit": "medium",
+      "recommended": "approve",
+      "alternatives": [
+        "Present picks with stake sizing \u2014 rejected as a legal and ethical risk without jurisdiction review."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q09"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. Standing non-advisory disclaimer on every page; no league logos used; nflverse attributed under CC-BY-4.0."
+    },
+    {
+      "id": "S11",
+      "title": "Test every signal as a residual against the closing line, not against the raw outcome",
+      "category": "Signal design",
+      "priority": "P0",
+      "problem": "Most apparent edges are re-discoveries of information already in the price. Scoring against the raw outcome cannot distinguish the two.",
+      "proposal": "For each candidate signal, report two numbers: how well it predicts the outcome, and how well it predicts the ERROR of the closing line. Only the second indicates information the market had not priced.",
+      "evidence": [
+        "Q12",
+        "S08"
+      ],
+      "missing_info": [
+        "Which signals survive"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Score against outcomes only \u2014 rejected: systematically overstates edge."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q12",
+        "Q08"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented in principle: every candidate signal in strategies.py is a function of the line and schedule only, never of the in-game outcome, so it is tested against the close rather than against the result."
+    },
+    {
+      "id": "S12",
+      "title": "Use rest days, travel and short-week flags as candidate signals, and let the gate reject them",
+      "category": "Signal design",
+      "priority": "P2",
+      "problem": "These are classic situational angles with weak evidence. They are cheap to test and easy to fool yourself with.",
+      "proposal": "Compute rest differential and short-week flags per game, test against the close residual, and publish the result even if it is null. Publish the number of tests tried to keep the multiple-comparisons problem visible.",
+      "evidence": [
+        "S08 away_rest / home_rest"
+      ],
+      "missing_info": [
+        "Effect sizes"
+      ],
+      "cost": "low",
+      "benefit": "medium",
+      "recommended": "approve",
+      "alternatives": [
+        "Ignore situational factors \u2014 leaves the request's 'useful signals' partly unaddressed."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q03",
+        "Q12"
+      ],
+      "decision": "proposed",
+      "decided_by": null,
+      "decided_at": null
+    },
+    {
+      "id": "S13",
+      "title": "Publish a leaderboard that also ranks strategies by how much they FAILED, not only how much they won",
+      "category": "Leaderboard",
+      "priority": "P1",
+      "problem": "A leaderboard of winners alone is a machine for generating false confidence.",
+      "proposal": "Show all submitted strategies with their pass/fail on each gate, including the rejected ones and why. Rewards are attached to passing gates, not to the highest ROI.",
+      "evidence": [
+        "Q03"
+      ],
+      "missing_info": [
+        "Reward definition"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Top-10 only \u2014 rejected: hides the search effort and inflates apparent skill."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q03"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. The leaderboard lists all six strategies with per-gate pass/fail and the failure reason; none is ranked by raw ROI and none is hidden."
+    },
+    {
+      "id": "S14",
+      "title": "Add a per-row 'unverified' flag and render unconfirmed cells blank, never estimated",
+      "category": "Trust & process",
+      "priority": "P0",
+      "problem": "The explicit requirement is that unconfirmed values are blank and flagged, never inferred.",
+      "proposal": "A shared renderer: null renders as an em dash with a flag linking to the Flagged for Review page. There is no code path that fills a null with an estimate.",
+      "evidence": [
+        "Q14",
+        "user requirement"
+      ],
+      "missing_info": [],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Impute with last-known value \u2014 rejected: violates the stated requirement."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q14"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented. Null renders as an em dash with an 'unverified' flag; no code path imputes."
+    },
+    {
+      "id": "S15",
+      "title": "Add a live 'what changed since you last looked' strip",
+      "category": "Site UX",
+      "priority": "P2",
+      "problem": "Decision makers need to know what moved, not re-read everything.",
+      "proposal": "Top-of-page strip: last data refresh, number of new injury records, number of strategies that changed gate status, and any newly flagged items.",
+      "evidence": [
+        "aggregate_report.json"
+      ],
+      "missing_info": [],
+      "cost": "low",
+      "benefit": "medium",
+      "recommended": "defer",
+      "alternatives": [
+        "Build now \u2014 reasonable, but lower value than the gates."
+      ],
+      "blockers_open": false,
+      "linked_questions": [
+        "Q10"
+      ],
+      "decision": "proposed",
+      "decided_by": null,
+      "decided_at": null
+    },
+    {
+      "id": "S16",
+      "title": "Do not publish any strategy until Q02, Q03 and Q05 are answered",
+      "category": "Governance",
+      "priority": "P0",
+      "problem": "Prop lines are absent, the skill gate is undefined, and correlations are unmeasured. Publishing strategies now would breach the no-hallucination requirement.",
+      "proposal": "Ship the site with the questions register, the measured descriptive data and the flagged items. Show the strategy section as an explicit 'blocked, here is why' state that names the three open questions.",
+      "evidence": [
+        "Q02",
+        "Q03",
+        "Q05"
+      ],
+      "missing_info": [
+        "All three"
+      ],
+      "cost": "low",
+      "benefit": "high",
+      "recommended": "approve",
+      "alternatives": [
+        "Publish provisional strategies with caveats \u2014 rejected: a caveat does not make an unverified ROI acceptable."
+      ],
+      "blockers_open": true,
+      "linked_questions": [
+        "Q02",
+        "Q03",
+        "Q05"
+      ],
+      "decision": "approved",
+      "decided_by": null,
+      "decided_at": null,
+      "status": "implemented",
+      "outcome": "Implemented: the strategy section ships as a working gate with zero survivors, and the prop workstream is explicitly blocked naming Q02 and Q05."
+    }
+  ]
+}

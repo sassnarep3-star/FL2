@@ -46,6 +46,7 @@ data existed.
 - [`docs/index.html`](docs/index.html) — NFL Analysis Dashboard (session d263eab0): 16 pages, 345 transcribed injury rows, unit exposure, its own flagged list.
 - [`hub/index.html`](hub/index.html) — NFL Decision Hub (session e70150db + others): requirement coverage, validation gates, luck-vs-skill explainer, repository audit.
 - [`strategy.html`](strategy.html) — Fourth & Signal (session 4a77261b): the original evidence-first blueprint, with [`availability.html`](availability.html), [`data.html`](data.html), [`decisions.html`](decisions.html), [`review.html`](review.html).
+- [`signal/index.html`](signal/index.html) — Signal Lab (session d10a1d25): a measured-signal section with a validated sign convention, measured injury-designation play rates, a depth-chart accuracy test, measured same-game correlation, and a pre-registered validation gate that six strategies failed. Every figure is re-derived from committed data by CI.
 
 Consolidating all four structures into one is proposed as a decision — see
 [`ledger/suggestions.html`](ledger/suggestions.html). It was not done silently.

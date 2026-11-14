@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Evidence-first NFL line-origination research dashboard. Unconfirmed values are left blank and flagged."><title>Signal lab — Fourth &amp; Signal</title><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="topbar"><div class="wrap topinner"><a class="brand" href="index.html">FOURTH <span>&amp;</span> SIGNAL</a><nav class="nav" aria-label="Main navigation"><a href="../index.html">← Hub</a><a aria-current="page" href="index.html">Overview</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Questions</a><a href="lines.html">Originated lines</a><a href="injury_signal.html">Injury signal</a><a href="depth.html">Depth accuracy</a><a href="correlation.html">Correlation</a><a href="validation.html">Validation lab</a><a href="health.html">Data health</a></nav></div></header>
+<main><section class="pagehero"><div class="wrap"><div class="crumb"><a href="index.html">Overview</a> / Signal lab</div><h1>Signal lab</h1><p class="lede">Measured NFL signals, a validation gate, and a decision queue you can review.</p></div></section>
+<section class="section"><div class="wrap">
+<div class="callout blue"><strong>Your own section, kept alongside the other sessions' work.</strong>
+This section holds a verified data pipeline, four measurements that were previously assumptions, and a
+reviewable decision queue. It does not overwrite anything else in the repository.</div>
+
+<div class="grid">
+<div class="card"><div class="eyebrow">Graded games with a verified line</div>
+<div class="kpi">3032</div>
+<div class="label">2015–2026 regular season</div></div>
+<div class="card"><div class="eyebrow">Questionable players who played</div>
+<div class="kpi">65.68%</div>
+<div class="label">n = 14948 · measured, not assumed</div></div>
+<div class="card"><div class="eyebrow">Strategies clearing the gate</div>
+<div class="kpi">0 of 6</div>
+<div class="label">All failures published</div></div>
+</div>
+
+<div class="card full"><h2>The five findings</h2>
+<div class="tablewrap"><table><thead><tr><th>Finding</th><th>The number</th><th>Decision it implies</th><th>Source</th></tr></thead><tbody>
+<tr><td><strong>A live sign bug, found and fixed.</strong> The schedules file's <code>spread_line</code> is
+signed from the away team; read as a home line it shows a 56.93% home cover rate over 3,032 games.</td>
+<td>Corrected: 48.53% home cover, 49.00% over,
+and 98.92% agreement with the
+closing file's own scored outcome.</td>
+<td>Retire the naive reading.</td>
+<td class="source"><a href="https://github.com/nflverse/nfldata">nflverse/nfldata ↗</a></td></tr>
+<tr><td><strong>An injury designation now has a measured value.</strong> Policy attaches no number to
+Doubtful or Questionable.</td>
+<td>Questionable played 65.68%,
+Doubtful 0.89%,
+Out 0.03%.</td>
+<td>Price availability from measurement, not opinion.</td>
+<td class="source"><a href="https://www.nfl.com/injuries/">NFL injury report ↗</a></td></tr>
+<tr><td><strong>The published depth chart is a weak replacement map.</strong></td>
+<td>1st string appears 90.62% vs
+80.39% for 2nd string.</td>
+<td>Do not claim a "next man up" effect from the chart alone.</td>
+<td class="source"><a href="https://github.com/nflverse/nflverse-data">depth charts ↗</a></td></tr>
+<tr><td><strong>Same-game correlation is near zero overall, real at big spreads.</strong></td>
+<td>phi 0.013 overall; 0.058 at spreads of 7+.</td>
+<td>A big-favourite-cover plus over parlay is mispriced by the independence assumption.</td>
+<td class="source"><a href="https://github.com/nflverse/nfldata">closing lines ↗</a></td></tr>
+<tr><td><strong>Six strategies tested, none survived.</strong></td>
+<td>0 of 6 cleared the pre-registered gate; best in-sample +3.75% with a CI spanning zero.</td>
+<td>Do not fund a leaderboard or stake plan yet.</td>
+<td class="source"><a href="https://github.com/nflverse/nfldata">closing lines ↗</a></td></tr>
+</tbody></table></div></div>
+
+<div class="grid">
+<div class="card"><h3>Review the suggestions</h3><p>16 proposals with evidence, cost, benefit, a
+recommended decision and the rejected alternatives. 13 implemented so far.</p>
+<a class="arrow" href="suggestions.html">Open suggestions →</a></div>
+<div class="card"><h3>Answer the questions</h3><p>14 decision-blocking questions, 10 still open.
+Each separates what we know from what we do not.</p>
+<a class="arrow" href="questions.html">Open questions →</a></div>
+<div class="card"><h3>Check the provenance</h3><p>43 source files, each with its URL
+and SHA-256, plus the status of every pipeline section.</p>
+<a class="arrow" href="health.html">Open data health →</a></div>
+</div>
+</div></section>
+<footer class="footer"><div class="wrap">Independent research record, not an NFL product, betting recommendation, or guarantee. Source links lead to the NFL, nflverse, or NIST as labelled. Unconfirmed values are blank and flagged. <a href="../COORDINATION.md">Project verification log</a>.</div></footer></main></body></html>

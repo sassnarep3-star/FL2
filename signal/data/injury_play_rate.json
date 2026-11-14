@@ -1,0 +1,558 @@
+{
+ "question": "Q06",
+ "method": "Denominator = every player-week the official report lists with a designation. Numerator = those who appear with >0 snaps or any recorded stat for that team-week. Name-based join on (season, week, team, normalised name).",
+ "trap_documented": "Joining only to snap counts gives a 100% play rate because snap counts list only participants. That naive figure is NOT reported as a result.",
+ "overall": {
+  "Out": {
+   "n": 10674,
+   "played": 3,
+   "play_rate_pct": 0.03,
+   "ci95": [
+    0.01,
+    0.08
+   ]
+  },
+  "Questionable": {
+   "n": 14948,
+   "played": 9818,
+   "play_rate_pct": 65.68,
+   "ci95": [
+    64.92,
+    66.44
+   ]
+  },
+  "Doubtful": {
+   "n": 1684,
+   "played": 15,
+   "play_rate_pct": 0.89,
+   "ci95": [
+    0.54,
+    1.46
+   ]
+  }
+ },
+ "by_position_group": {
+  "Out|LB": {
+   "n": 1512,
+   "played": 1,
+   "play_rate_pct": 0.07,
+   "ci95": [
+    0.01,
+    0.37
+   ]
+  },
+  "Questionable|DB": {
+   "n": 3321,
+   "played": 2079,
+   "play_rate_pct": 62.6,
+   "ci95": [
+    60.94,
+    64.23
+   ]
+  },
+  "Questionable|LB": {
+   "n": 1999,
+   "played": 1407,
+   "play_rate_pct": 70.39,
+   "ci95": [
+    68.35,
+    72.35
+   ]
+  },
+  "Questionable|SKILL": {
+   "n": 4192,
+   "played": 2798,
+   "play_rate_pct": 66.75,
+   "ci95": [
+    65.31,
+    68.16
+   ]
+  },
+  "Out|DB": {
+   "n": 2424,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.16
+   ]
+  },
+  "Out|SKILL": {
+   "n": 3034,
+   "played": 2,
+   "play_rate_pct": 0.07,
+   "ci95": [
+    0.02,
+    0.24
+   ]
+  },
+  "Questionable|OL": {
+   "n": 2615,
+   "played": 1623,
+   "play_rate_pct": 62.07,
+   "ci95": [
+    60.19,
+    63.91
+   ]
+  },
+  "Questionable|QB": {
+   "n": 335,
+   "played": 150,
+   "play_rate_pct": 44.78,
+   "ci95": [
+    39.54,
+    50.13
+   ]
+  },
+  "Doubtful|DB": {
+   "n": 417,
+   "played": 4,
+   "play_rate_pct": 0.96,
+   "ci95": [
+    0.37,
+    2.44
+   ]
+  },
+  "Questionable|DL": {
+   "n": 2286,
+   "played": 1614,
+   "play_rate_pct": 70.6,
+   "ci95": [
+    68.7,
+    72.44
+   ]
+  },
+  "Out|QB": {
+   "n": 356,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    1.07
+   ]
+  },
+  "Out|DL": {
+   "n": 1408,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.27
+   ]
+  },
+  "Doubtful|LB": {
+   "n": 211,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    1.79
+   ]
+  },
+  "Doubtful|SKILL": {
+   "n": 480,
+   "played": 7,
+   "play_rate_pct": 1.46,
+   "ci95": [
+    0.71,
+    2.98
+   ]
+  },
+  "Out|OL": {
+   "n": 1833,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.21
+   ]
+  },
+  "Doubtful|OL": {
+   "n": 305,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    1.24
+   ]
+  },
+  "Doubtful|DL": {
+   "n": 195,
+   "played": 4,
+   "play_rate_pct": 2.05,
+   "ci95": [
+    0.8,
+    5.15
+   ]
+  },
+  "Doubtful|QB": {
+   "n": 57,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    6.31
+   ]
+  },
+  "Questionable|ST": {
+   "n": 200,
+   "played": 147,
+   "play_rate_pct": 73.5,
+   "ci95": [
+    66.98,
+    79.13
+   ]
+  },
+  "Out|ST": {
+   "n": 107,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    3.47
+   ]
+  },
+  "Doubtful|ST": {
+   "n": 19,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    16.82
+   ]
+  }
+ },
+ "by_season": {
+  "Out|2016": {
+   "n": 1025,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.37
+   ]
+  },
+  "Questionable|2016": {
+   "n": 1751,
+   "played": 1273,
+   "play_rate_pct": 72.7,
+   "ci95": [
+    70.57,
+    74.74
+   ]
+  },
+  "Doubtful|2016": {
+   "n": 218,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    1.73
+   ]
+  },
+  "Out|2017": {
+   "n": 892,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.43
+   ]
+  },
+  "Questionable|2017": {
+   "n": 1476,
+   "played": 952,
+   "play_rate_pct": 64.5,
+   "ci95": [
+    62.02,
+    66.9
+   ]
+  },
+  "Doubtful|2017": {
+   "n": 169,
+   "played": 3,
+   "play_rate_pct": 1.78,
+   "ci95": [
+    0.61,
+    5.09
+   ]
+  },
+  "Out|2018": {
+   "n": 906,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.42
+   ]
+  },
+  "Questionable|2018": {
+   "n": 1289,
+   "played": 811,
+   "play_rate_pct": 62.92,
+   "ci95": [
+    60.25,
+    65.51
+   ]
+  },
+  "Doubtful|2018": {
+   "n": 170,
+   "played": 2,
+   "play_rate_pct": 1.18,
+   "ci95": [
+    0.32,
+    4.19
+   ]
+  },
+  "Out|2019": {
+   "n": 1022,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.37
+   ]
+  },
+  "Questionable|2019": {
+   "n": 1270,
+   "played": 794,
+   "play_rate_pct": 62.52,
+   "ci95": [
+    59.82,
+    65.14
+   ]
+  },
+  "Doubtful|2019": {
+   "n": 168,
+   "played": 2,
+   "play_rate_pct": 1.19,
+   "ci95": [
+    0.33,
+    4.24
+   ]
+  },
+  "Out|2020": {
+   "n": 883,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.43
+   ]
+  },
+  "Questionable|2020": {
+   "n": 1415,
+   "played": 929,
+   "play_rate_pct": 65.65,
+   "ci95": [
+    63.14,
+    68.08
+   ]
+  },
+  "Doubtful|2020": {
+   "n": 155,
+   "played": 3,
+   "play_rate_pct": 1.94,
+   "ci95": [
+    0.66,
+    5.54
+   ]
+  },
+  "Out|2021": {
+   "n": 879,
+   "played": 2,
+   "play_rate_pct": 0.23,
+   "ci95": [
+    0.06,
+    0.83
+   ]
+  },
+  "Questionable|2021": {
+   "n": 1456,
+   "played": 985,
+   "play_rate_pct": 67.65,
+   "ci95": [
+    65.2,
+    70.0
+   ]
+  },
+  "Doubtful|2021": {
+   "n": 159,
+   "played": 1,
+   "play_rate_pct": 0.63,
+   "ci95": [
+    0.11,
+    3.48
+   ]
+  },
+  "Out|2022": {
+   "n": 1058,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.36
+   ]
+  },
+  "Questionable|2022": {
+   "n": 1463,
+   "played": 954,
+   "play_rate_pct": 65.21,
+   "ci95": [
+    62.73,
+    67.61
+   ]
+  },
+  "Doubtful|2022": {
+   "n": 152,
+   "played": 1,
+   "play_rate_pct": 0.66,
+   "ci95": [
+    0.12,
+    3.63
+   ]
+  },
+  "Out|2023": {
+   "n": 980,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.39
+   ]
+  },
+  "Questionable|2023": {
+   "n": 1549,
+   "played": 1000,
+   "play_rate_pct": 64.56,
+   "ci95": [
+    62.14,
+    66.9
+   ]
+  },
+  "Doubtful|2023": {
+   "n": 141,
+   "played": 3,
+   "play_rate_pct": 2.13,
+   "ci95": [
+    0.73,
+    6.07
+   ]
+  },
+  "Out|2024": {
+   "n": 1091,
+   "played": 1,
+   "play_rate_pct": 0.09,
+   "ci95": [
+    0.02,
+    0.52
+   ]
+  },
+  "Questionable|2024": {
+   "n": 1462,
+   "played": 946,
+   "play_rate_pct": 64.71,
+   "ci95": [
+    62.22,
+    67.11
+   ]
+  },
+  "Doubtful|2024": {
+   "n": 190,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    1.98
+   ]
+  },
+  "Out|2025": {
+   "n": 1342,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.29
+   ]
+  },
+  "Questionable|2025": {
+   "n": 1217,
+   "played": 784,
+   "play_rate_pct": 64.42,
+   "ci95": [
+    61.69,
+    67.06
+   ]
+  },
+  "Doubtful|2025": {
+   "n": 119,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    3.13
+   ]
+  },
+  "Out|2026": {
+   "n": 596,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    0.64
+   ]
+  },
+  "Questionable|2026": {
+   "n": 600,
+   "played": 390,
+   "play_rate_pct": 65.0,
+   "ci95": [
+    61.1,
+    68.71
+   ]
+  },
+  "Doubtful|2026": {
+   "n": 43,
+   "played": 0,
+   "play_rate_pct": 0.0,
+   "ci95": [
+    0.0,
+    8.2
+   ]
+  }
+ },
+ "deduplication": {
+  "rule": "one row per team-week-player, most severe designation wins (Out > Doubtful > Questionable)",
+  "duplicate_rows_collapsed": 2,
+  "reason": "Keeping the first row made the denominator depend on file order. The severity rule is reproducible and conservative."
+ },
+ "coverage": {
+  "seasons_measured": [
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "seasons_excluded_no_participation_source": [
+   2015
+  ],
+  "note": "A season is excluded when no snap-count or player-stat rows exist for it. Excluded seasons would otherwise show a false 0% play rate."
+ },
+ "caveats": [
+  "Name-based joining can miss players renamed or traded mid-season; the unmatched share is reported below.",
+  "A player placed on injured reserve before the game may not appear in the report at all, so this measures listed players only.",
+  "This measures participation, not effectiveness. It says nothing about performance drop-off."
+ ],
+ "sources": [
+  "https://www.nfl.com/injuries/",
+  "https://www.nfl.com/news/competition-committee-approves-revisions-to-injury-report-0ap3000000688693",
+  "https://github.com/nflverse/nflverse-data"
+ ]
+}
