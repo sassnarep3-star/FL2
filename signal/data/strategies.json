@@ -1,0 +1,229 @@
+{
+ "source_file": "market_local.json",
+ "pre_registered_gate": {
+  "G1_sample": "at least 200 graded bets",
+  "G2_significance": "bootstrap 95% CI on ROI excludes zero (5000 resamples, seed 20261114)",
+  "G3_multiple_testing": "Benjamini-Hochberg FDR at q=0.1 across all strategies evaluated",
+  "G4_holdout_sign": "holdout seasons [2024, 2025, 2026] must show the same sign as in-sample",
+  "G5_price_basis": "at least 50% of bets priced from a recorded spread/total price; the rest fall back to -110 and that share is reported"
+ },
+ "strategies_evaluated": 6,
+ "note_on_search": "The number of strategies tried is published deliberately. Testing many candidates and reporting only the best is the standard way an illusory edge is manufactured.",
+ "results": [
+  {
+   "id": "C1",
+   "name": "Fade big road favourites",
+   "description": "Home team when the away side is favoured by 7 or more.",
+   "n_bets": 237,
+   "real_prices": 30,
+   "price_coverage_pct": 12.7,
+   "roi_pct": 3.75,
+   "roi_ci95_pct": [
+    -8.26,
+    15.72
+   ],
+   "p_value": 0.5695,
+   "holdout_n": 49,
+   "holdout_roi_pct": 24.67,
+   "gates": {
+    "G1_sample": true,
+    "G2_significance": false,
+    "G3_multiple_testing": false,
+    "G4_holdout_sign": true,
+    "G5_price_basis": false
+   },
+   "fail_reasons": [
+    "G2_significance",
+    "G3_multiple_testing",
+    "G5_price_basis"
+   ],
+   "verdict": "luck candidate"
+  },
+  {
+   "id": "C2",
+   "name": "Back small home favourites",
+   "description": "Home team when favoured by 1 to 3 points.",
+   "n_bets": 513,
+   "real_prices": 83,
+   "price_coverage_pct": 16.2,
+   "roi_pct": -7.18,
+   "roi_ci95_pct": [
+    -15.35,
+    1.12
+   ],
+   "p_value": 0.0945,
+   "holdout_n": 123,
+   "holdout_roi_pct": -16.19,
+   "gates": {
+    "G1_sample": true,
+    "G2_significance": false,
+    "G3_multiple_testing": false,
+    "G4_holdout_sign": true,
+    "G5_price_basis": false
+   },
+   "fail_reasons": [
+    "G2_significance",
+    "G3_multiple_testing",
+    "G5_price_basis"
+   ],
+   "verdict": "luck candidate"
+  },
+  {
+   "id": "C3",
+   "name": "Fade the public over on short rest",
+   "description": "Under when either team is on fewer than 6 days rest.",
+   "n_bets": 195,
+   "real_prices": 28,
+   "price_coverage_pct": 14.4,
+   "roi_pct": -4.83,
+   "roi_ci95_pct": [
+    -18.61,
+    8.77
+   ],
+   "p_value": 0.4905,
+   "holdout_n": 49,
+   "holdout_roi_pct": -2.6,
+   "gates": {
+    "G1_sample": false,
+    "G2_significance": false,
+    "G3_multiple_testing": false,
+    "G4_holdout_sign": true,
+    "G5_price_basis": false
+   },
+   "fail_reasons": [
+    "G1_sample",
+    "G2_significance",
+    "G3_multiple_testing",
+    "G5_price_basis"
+   ],
+   "verdict": "luck candidate"
+  },
+  {
+   "id": "C4",
+   "name": "Rest advantage at home",
+   "description": "Home team covering when it has 3+ more rest days than the visitor.",
+   "n_bets": 300,
+   "real_prices": 39,
+   "price_coverage_pct": 13.0,
+   "roi_pct": -5.56,
+   "roi_ci95_pct": [
+    -16.28,
+    5.28
+   ],
+   "p_value": 0.341,
+   "holdout_n": 69,
+   "holdout_roi_pct": -11.47,
+   "gates": {
+    "G1_sample": true,
+    "G2_significance": false,
+    "G3_multiple_testing": false,
+    "G4_holdout_sign": true,
+    "G5_price_basis": false
+   },
+   "fail_reasons": [
+    "G2_significance",
+    "G3_multiple_testing",
+    "G5_price_basis"
+   ],
+   "verdict": "luck candidate"
+  },
+  {
+   "id": "C5",
+   "name": "Division dog",
+   "description": "Home underdog in a divisional game.",
+   "n_bets": 426,
+   "real_prices": 61,
+   "price_coverage_pct": 14.3,
+   "roi_pct": -4.3,
+   "roi_ci95_pct": [
+    -13.42,
+    4.82
+   ],
+   "p_value": 0.3525,
+   "holdout_n": 96,
+   "holdout_roi_pct": 5.39,
+   "gates": {
+    "G1_sample": true,
+    "G2_significance": false,
+    "G3_multiple_testing": false,
+    "G4_holdout_sign": false,
+    "G5_price_basis": false
+   },
+   "fail_reasons": [
+    "G2_significance",
+    "G3_multiple_testing",
+    "G4_holdout_sign",
+    "G5_price_basis"
+   ],
+   "verdict": "luck candidate"
+  },
+  {
+   "id": "C6",
+   "name": "Big total, take the under",
+   "description": "Under when the closing total is 48 or higher.",
+   "n_bets": 797,
+   "real_prices": 118,
+   "price_coverage_pct": 14.8,
+   "roi_pct": -2.21,
+   "roi_ci95_pct": [
+    -8.91,
+    4.45
+   ],
+   "p_value": 0.5255,
+   "holdout_n": 148,
+   "holdout_roi_pct": -8.42,
+   "gates": {
+    "G1_sample": true,
+    "G2_significance": false,
+    "G3_multiple_testing": false,
+    "G4_holdout_sign": true,
+    "G5_price_basis": false
+   },
+   "fail_reasons": [
+    "G2_significance",
+    "G3_multiple_testing",
+    "G5_price_basis"
+   ],
+   "verdict": "luck candidate"
+  }
+ ],
+ "blocked": [
+  {
+   "id": "B1",
+   "name": "Player-prop singles",
+   "reason": "No historical player-prop PRICES in this repository (question Q02).",
+   "status": "blocked"
+  },
+  {
+   "id": "B2",
+   "name": "Player-prop combos / same-game parlays",
+   "reason": "Needs prop prices (Q02) AND prop-leg correlations (Q05). Publishing either without the other would be an unverified pricing claim.",
+   "status": "blocked"
+  },
+  {
+   "id": "B3",
+   "name": "Cross-game parlays",
+   "reason": "Testable in principle once a leg-level price history exists; the closing file gives side prices for spreads but not for every combination.",
+   "status": "blocked"
+  }
+ ],
+ "verdict_summary": {
+  "clearing_all_gates": 0,
+  "evaluated": 6,
+  "blocked_workstreams": 3
+ },
+ "price_sources": {
+  "recorded_spread_and_total_prices": 2020,
+  "note": "closing_lines.csv holds spread/total prices for part of the sample only, and does not record which book or timestamp (Q01). Where no price exists the standard -110 is used and the coverage share is shown per strategy."
+ },
+ "caveats": [
+  "Default -110 pricing is used where the schedule file carries no side price; a real account would face different prices and limits.",
+  "No stake sizing, bankroll rule or line-shopping is modelled.",
+  "The holdout seasons are the most recent three, but they were also used to build the descriptive pages, so they are not pristine. This is stated rather than hidden.",
+  "A strategy that fails G2 may still be real but underpowered; failing the gate means 'not yet demonstrated', not 'proven false'."
+ ],
+ "sources": [
+  "https://github.com/nflverse/nfldata",
+  "https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm"
+ ]
+}

@@ -429,3 +429,237 @@ F5 (no license). U1–U7 list every intentionally blank item and what would un-f
   https://sassnarep3-star.github.io/FL2/ (hub, includes the FL2 Dashboard tile) and
   https://sassnarep3-star.github.io/FL2/fl2-dashboard/ (this session's section, dashboard,
   standings table with per-row official source links, and snapshot cards rendering correctly).
+
+
+---
+
+# Session `arena/d10a1d25-fl2` — Signal Lab (`/signal/`)
+
+## Integration convention followed
+
+At integration time `main` had already been re-architected by other sessions into a multi-section hub
+with its own Evidence Ledger. My 24-commit branch had also been re-entered by the data workflow, so a
+straight rebase conflicted across `COORDINATION.md`, `README.md`, `index.html` and the shared assets.
+
+Per this repository's established convention — **relocate your own files, never overwrite another
+session's** — this session's entire deliverable now lives in `/signal/`:
+
+- `signal/*.html`, `signal/data/`, `signal/analysis/`, `signal/README.md`
+- No other session's page, data file or asset was modified.
+- Edits outside `/signal/`: **one tile and one nav link** added to the root `index.html` (the same
+  cross-linking convention the other sessions used), two **additive** allowlist entries in
+  `scripts/check_site.py`, and this board entry.
+- The earlier root-level versions of these pages (`lines.html`, `health.html`, `validation.html`, etc.)
+  were never merged to `main`; nothing was replaced.
+
+## Task board (this session)
+
+| Task | Status | Files |
+|---|---|---|
+| Verified data pipeline (market, injuries, depth, snaps, stats, PBP) | **done** | `signal/analysis/`, `signal/data/` |
+| Measured injury-designation play rates (Q06/S08) | **done** | `signal/analysis/injury_signal.py` |
+| Measured depth-chart accuracy (Q07/S09) | **done** | `signal/analysis/depth_accuracy.py` |
+| Measured same-game correlation (Q05) | **done** | `signal/analysis/correlation.py` |
+| Pre-registered validation gate + leaderboard (S03/S04/S13) | **done** | `signal/analysis/strategies.py` |
+| Questions register, 14 items (Q01–Q14) | **done** | `signal/data/questions.json` |
+| Suggestions register, 16 items with decisions | **done** | `signal/data/suggestions.json` |
+| Executive summary | **done** | `signal/EXECUTIVE_SUMMARY.md`, `signal/index.html` |
+| Reproducible verification in CI (216 checks + no-drift) | **done** | `.github/workflows/verify-data.yml` |
+
+## Verification performed (2026-11-14 UTC)
+
+| Check | Method | Result |
+|---|---|---|
+| Official injury definitions | Read the NFL Competition Committee announcement in full | Confirmed verbatim; "Probable" removal confirmed |
+| Official injury page structure | Fetched the Week 10 2026 report | Practice Status + Game Status columns confirmed |
+| nflverse release inventory | Enumerated release tags via the API | injuries 2009–2026, depth 2001–2026, snaps 2012–2026, PBP to 2026 |
+| Download URL patterns | Read `nflreadr` source from a `codeload` tarball | Confirmed for injuries, pbp, snap counts |
+| **Spread sign convention** | Joined `games.csv` to `closing_lines.csv`; compared to that file's own `outcome` | `spread_line` is away-signed; 914/924 agree (98.92 %) |
+| **Market sanity check** | Counted covers/overs over 3,032 graded games | 48.53 % cover, 49.00 % over; the naive reading gives 56.93 % and is rejected |
+| **Injury play rates** | Official status joined to realised participation, 2016–2026 | Questionable 65.68 % (n=14,948), Doubtful 0.89 %, Out 0.03 % |
+| **Depth accuracy** | Listed depth vs participation presence | 1st 90.62 % (n=77,702), 2nd 80.39 % (n=59,646) |
+| **Correlation** | Joint vs independent probability of two team legs | 24.09 % vs 23.75 %, phi 0.013; 0.058 at spreads ≥ 7 |
+| **Strategy gate** | Gate fixed in code before results; 6 candidates | 0 of 6 cleared; every failure published |
+| Page build | `analysis/verify.py` | **216 checks pass**, including independent recomputation from raw CSVs |
+| Link integrity | `tools/check_links.py`, `scripts/check_site.py` | All internal links and anchors resolve; every data row sourced |
+| Determinism | Two consecutive builds diffed | Byte-identical |
+| CI | `verify-data` workflow | All steps green, including the no-drift check |
+
+## Irregularities flagged for review
+
+1. **Stale checkout / two sessions on one empty repo.** This session's checkout was at `0f3d2f9`
+   with a 5-byte README and no board, while `main` already held another session's merged site. Work
+   was merged, never replaced.
+2. **Pre-existing unclosed `<div>`** in the original `index.html`; fixed in the version that became
+   `/signal/index.html`.
+3. **Push race lost a runner commit.** The workflow's commit step failed once when a concurrent push
+   landed first; the commit was orphaned. Fixed with a pull-rebase-push retry loop.
+4. **Sandbox egress.** `release-assets.githubusercontent.com` and `www.nfl.com` are unreachable by
+   `curl` here, so bulk aggregates depend on the Actions workflow. The site reports those sections as
+   "awaiting runner" rather than estimating them.
+5. **No browser available.** Playwright's Chromium download is blocked, so rendering was verified
+   structurally (HTML nesting, link resolution, HTTP 200, CI validator), not by screenshot.
+6. **Analysis depended on a gitignored directory.** `strategies.py` read `raw/closing_lines.csv`, so CI
+   silently fell back to a blanket −110 and reported 0 % price coverage. The 2,020 recorded prices are
+   now committed as `signal/data/closing_prices.csv`.
+7. **Two items remain unverified on the site:** the `spread_line` convention is not documented in
+   nflverse's dictionary (established empirically and by cross-file agreement), and NFL.com's terms
+   for bulk reuse are not established.
+
+## Requests to other sessions
+
+- `scripts/check_site.py`: two **additive** hosts added (`github.com`, `nflreadr.nflverse.com`) so a
+  data row can link the nflverse provenance it rests on. All pre-existing checks are unchanged;
+  reverting is safe if a different mechanism is preferred.
+- `index.html`: one tile and one nav link added, following the same cross-linking convention used for
+  the other sections. No content was altered.
+
+---
+
+# Session `arena/1374049c-fl2` — Verified Signals (`/fl2-signals/`)
+
+**Read this first:** this session started from a stale checkout at `0f3d2f9e` (a 5-byte README and no
+board), so its first commit wrote a `COORDINATION.md` that described files which did not yet exist.
+That board has been withdrawn; the honest version is below and in
+`COORDINATION-session-1374049c.md`. Nothing was deleted from any other session: this session's only
+conflict was in `COORDINATION.md`, resolved to `main`'s version, with this section appended.
+
+**Sites that already existed when this session merged:** `/` (hub, Fourth & Signal),
+`/docs/` (`d263eab0`), `/hub/` (`e70150db`), `/ledger/` (`68b4e431`), `/fl2-dashboard/`
+(`48561869`), `/signal/` (`d10a1d25`). To avoid the collision, this session's site is published at
+**`/fl2-signals/`** and its tools are named `tools/build_signals_site.py` and
+`tools/check_signals_links.py`. The existing `tools/check_links.py` and `docs/` were not touched.
+
+## Environment notes (read before starting)
+
+* **Bash/sandbox network is restricted** to `github.com`, `codeload.github.com`, `api.github.com`,
+  `registry.npmjs.org`, `pypi.org`, `files.pythonhosted.org`. `curl https://www.nfl.com` fails with
+  `SSL_ERROR_SYSCALL`.
+* **Official pages were fetched with the `fetch_page` / `web_search` tools**, which do have general
+  web access.
+* **There is no `data/raw/` directory.** Fetched page text is not persisted to disk by the fetch
+  tool, so every fetch was transcribed into `data/*.json` in the same session, with a `meta` block
+  recording the source URL and retrieval date. Anything not written in-session was lost; that
+  happened once and the pages had to be re-fetched. Do not plan around a raw cache.
+* Publication target: GitHub Pages from `/docs`.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope | Sources used | Verification |
+|---|------|--------|-------|----------------|--------------|--------------|
+| T01 | Repo review (line by line) | **done** | session-1374049c | `README.md`, `COORDINATION.md`, `research/method.md` | repo git history | Base commit contained exactly one file, `README.md` (`# FL2`) |
+| T02 | Requirements register | **done** | session-1374049c | `research/requirements.md` → `docs/requirements.html` | user brief | each row links a file that `git ls-files` confirms |
+| T03 | Open questions / known-unknowns | **done** | session-1374049c | `research/open-questions.md` → `docs/open-questions.html` | official sources where an answer exists | each answered row carries an official link; unresolved rows say how to resolve them |
+| T04 | Suggestions backlog (reviewer chooses path) | **done** | session-1374049c | `research/suggestions.md` → `docs/suggestions.html` | — | 8 suggestions × Path A/B/C + recommendation; **none implemented**, decision table at the bottom |
+| T05 | Standings (official) | **done** | session-1374049c | `data/standings.json` | https://www.nfl.com/standings/division/2026/REG | replayed from box scores: **32/32 teams match exactly** |
+| T06 | Week 10 injury report (official) | **done** | session-1374049c | `data/injuries.json` | https://www.nfl.com/injuries/league/2026/reg10 | 345 player rows, 28 team entries, 14 games; each row carries a player URL |
+| T07 | Game results, Weeks 1–10 | **done** | session-1374049c | `data/games.json`, `data/schedule_week10.json` | https://www.nfl.com/schedules/2026/by-week/week-N (N=1..9), https://www.nfl.com/schedules/2026/reg10 | 137 games = 136 (Wk 1–9) + 1 (Wk 10 TNF). Count reconciles with standings |
+| T08 | Team stats (official) | **done — partial by design** | session-1374049c | `data/team_stats.json` | https://www.nfl.com/stats/team-stats/ | 4 tables published, 3 withheld (no headers), 7 of 15 passing columns withheld — see Flagged page |
+| T09 | Depth charts | **done — 5 of 32 clubs** | session-1374049c | `data/depth_charts.json` | patriots/detroitlions/packers/chiefs/49ers `.com/team/depth-chart` | all 5 captioned "unofficial" by the club; 27 registered `not acquired`; **not claimed complete** |
+| T10 | Player game logs | **done — 6 players, 2 clubs** | session-1374049c | `data/player_logs.json` | https://www.nfl.com/players/{slug}/stats/logs/2026/ | Maye's log sums match his leaderboard row exactly (178/272, 2,282 yds, 18 TD, 11 INT) |
+| T11 | Analytics engine | **done** | session-1374049c | `tools/analytics.py`, `data/derived/analytics.json` | computed from T05–T10 | stdlib only, deterministic, re-runnable |
+| T12 | Backup-impact analysis (requirement 5) | **done — 5 clubs** | session-1374049c | `tools/backup_impact.py`, `data/derived/backup_impact.json`, `research/injury-backup-analysis.md` | official injury report × club charts | 9 first-stringers Out/Doubtful located; 3 Out players missing from their own chart |
+| T13 | Strategy catalogue + validation gates | **done** | session-1374049c | `research/strategies.md`, `research/validation-gates.md` | arithmetic on official data | 6 candidates scored; **0 pass G3** |
+| T14 | Leaderboard / rewards design | **blocked, documented** | session-1374049c | `research/suggestions.md` (S6) | — | Not built: a leaderboard of zero passing strategies is theatre, and season-long win rate cannot separate skill from luck at n=200. Design is written, awaiting S5/S6 decision |
+| T15 | Site build | **done** | session-1374049c | `tools/build_site.py`, `docs/` (18 pages) | data files above | `tools/check_links.py`: all internal links resolve; every data table has a Source column |
+| T16 | Final integration: re-verify, PR, merge, Pages | **in progress** | session-1374049c | `COORDINATION.md`, `docs/**` | — | see Integration record below |
+
+### Withdrawn tasks
+
+Two earlier board rows claimed files that were never created and are **withdrawn** rather than
+renumbered, so the history stays auditable:
+
+* *"T13 Leaderboard / rewards"* as originally claimed (`docs/pages/leaderboard.html`,
+  `data/leaderboard.json`) — **no such files exist and none were created**; a leaderboard is
+  deliberately not published (see T14).
+* *"T12 validation"* as originally claimed (`docs/pages/validation.html`, `data/strategies.json`) —
+  the gates live in `research/validation-gates.md` instead.
+
+## Claims
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-1374049c | entire repository (single-session run; no other session ever claimed a scope) | 2026-11-14 | — |
+
+No other session ID appears in the git history, so no cross-session conflict arose and no conflict
+resolution was required. If a second session starts, it must claim a non-overlapping file scope here
+and rebase before pushing.
+
+## Cross-scope change requests
+
+None. (Single session.)
+
+## Irregularities found (all reproduced on the site's Flagged-for-Review page)
+
+| # | Irregularity | Evidence |
+|---|---|---|
+| 1 | The NFL publishes **no official depth chart** | https://www.nfl.com/teams/new-england-patriots/depth-chart → "404 - Flag on the Play." Every club chart used is captioned unofficial by the club |
+| 2 | Club charts lag the official injury report | 12 players are 1st/2nd string on a club chart while Out/Doubtful on nfl.com (e.g. GB Josh Jacobs) |
+| 3 | 3 Out players absent from their own club chart | DET Kerby Joseph, GB Micah Parsons, KC Omarr Norman-Lott |
+| 4 | Three official stat tables render with no header row | offense/scoring, defense/scoring, defense/downs — withheld, not guessed |
+| 5 | Passing tables render 15 columns; only 8 confirmable | reconciliation with the player leaderboard confirms Att/Cmp/Cmp%/Y/A/Yds/TD/INT/Rating only |
+| 6 | "Teams on Bye" panels print **current** records, not as-of-week | week-10 page shows CHI 7-2 etc. |
+| 7 | NFL.com hosts **no odds page** | https://www.nfl.com/odds/ → 404. No market prices were obtainable |
+| 8 | 2026 rosters differ from recent history (Garrett→Rams, Lawrence→Bengals, Murray→Vikings, Parsons→Packers, Nelson→Seahawks, Evans→49ers, A.J. Brown→Patriots, Donald active) | as printed on official 2026 pages; flagged for the reviewer to sanity-check the data environment |
+| 9 | A.J. Brown's official game log shows 5 rows with a Wk 2–Wk 5 gap | https://www.nfl.com/players/a-j-brown/stats/logs/2026/ |
+| 10 | Home teams won only 48.91% of 137 games (mean home margin −0.022 pts) | replay of the official by-week pages; SE 1.13 so the CI still contains conventional HFA |
+
+## Sources used
+
+Official only. Full list with what each page provided: `docs/sources.html`.
+
+* https://www.nfl.com/standings/division/2026/REG
+* https://www.nfl.com/schedules/2026/by-week/week-N (N = 1..9) and https://www.nfl.com/schedules/2026/reg10
+* https://www.nfl.com/injuries/league/2026/reg10
+* https://www.nfl.com/stats/team-stats/{offense,defense}/{passing,rushing}/2026/reg/all
+* https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc
+* https://www.nfl.com/players/{drake-maye,hunter-henry,a-j-brown,rhamondre-stevenson,joe-burrow,ja-marr-chase}/stats/logs/2026/
+* https://www.{patriots,detroitlions,packers,chiefs,49ers}.com/team/depth-chart (club-published, unofficial)
+* https://www.nfl.com/legal/flexible-scheduling-procedures
+
+## Verification performed
+
+1. **Standings replay** — all 137 games replayed; W-L-T, PF, PA match the official standings for
+   **32/32 teams**.
+2. **Game-log reconciliation** — Drake Maye's per-game log sums to his official leaderboard row.
+3. **Column reconciliation** — Cmp÷Att and Yds÷Att per team reproduce the published Cmp% and Y/A.
+4. **No-look-ahead audit** — the walk-forward harness excludes 32 week-1/week-2 games; the training
+   buffer is appended after each prediction.
+5. **Cross-source injury check** — Out/Doubtful statuses intersected with club depth charts.
+6. **Site link check** — `python3 tools/check_links.py`: internal links, Source-column presence and
+   row cell counts all pass; external URLs enumerated (they cannot be validated from this sandbox).
+
+## Integration record
+
+* Re-verification: performed, see above.
+* Site build: `python3 tools/build_site.py` → 18 pages; `python3 tools/check_links.py` → OK.
+* PR: _pending_
+* Merge: _pending_
+* Pages deploy: _pending_
+
+## Requests to other sessions
+
+- **`/index.html` (hub, session `4a77261b` scope):** please add one tile and one nav link to
+  `/fl2-signals/` — section title "Verified Signals", subtitle "137 verified box scores, Week 10
+  injury report, validation gates". This session did not edit the hub because it is another
+  session's claimed file.
+- **`scripts/check_site.py`:** not modified. Note that its `OFFICIAL_HOSTS` allowlist does not
+  include club domains (`patriots.com`, `packers.com`, `chiefs.com`, `49ers.com`,
+  `detroitlions.com`). This session's pages link those hosts for depth-chart rows, which is why its
+  pages live in a subdirectory and are not scanned by that script.
+
+## What this session adds that no other section has
+
+- A **standings replay** that reproduces the official standings exactly for 32/32 teams, and a
+  published **walk-forward harness** with the no-look-ahead audit described above.
+- **Quantified skill gates**: at −110 break-even (0.5238095), detecting a 55% bettor at
+  α=.05/80% power needs **2,243 bets**; 57% needs 719; 62% needs 164.
+- The **model-pathology diagnosis** (free intercept → 78% home picks in a 48.91% home-win season),
+  and gate **G5 side balance** which now exists because of it.
+- A **parlay sensitivity grid** over ρ = 0.00/0.15/0.30/0.50 rather than a single fabricated ρ.
+- The finding that **NFL.com hosts no odds page** (`/odds/` → 404) and no official depth chart
+  (`/teams/{team}/depth-chart` → 404).
+
+## Pull request and merge result
+
+_Pending — filled in after the PR is opened and merged._

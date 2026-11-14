@@ -1,0 +1,43 @@
+{
+  "title": "Detroit Lions 2026 Depth Chart (official team source)",
+  "as_of": "2026-11-14",
+  "source": "https://www.detroitlions.com/team/depth-chart",
+  "source_note": "Page is titled '2026 Lions Depth Chart' and labeled '2026 Unofficial Depth Chart Compiled by Lions Football Communications' — published on the Lions' official website. Flagged: team itself labels the chart 'unofficial'.",
+  "team": "Detroit Lions",
+  "roster_crosscheck": "https://www.nfl.com/teams/detroit-lions/roster",
+  "offense": [
+    { "position": "WR", "strings": ["Jameson Williams", ""] },
+    { "position": "WR", "strings": ["Amon-Ra St. Brown", "DeAndre Carter", ""] },
+    { "position": "WR", "strings": ["Isaac TeSlaa", "Tay Martin", ""] },
+    { "position": "LT", "strings": ["Penei Sewell", ""] },
+    { "position": "LG", "strings": ["Christian Mahogany", "Miles Frazier", ""] },
+    { "position": "C", "strings": ["Cade Mays", "Juice Scruggs", ""] },
+    { "position": "RG", "strings": ["Tate Ratledge", "Seth McLaughlin", ""] },
+    { "position": "RT", "strings": ["Blake Miller", "Larry Borom", ""] },
+    { "position": "TE", "strings": ["Sam LaPorta", "Brock Wright", "Tyler Conklin", "Jackson Meeks"] },
+    { "position": "QB", "strings": ["Jared Goff", "Joshua Dobbs", ""] },
+    { "position": "RB", "strings": ["Jahmyr Gibbs", "Sione Vaki", "Jacob Saylors", ""] }
+  ],
+  "defense": [
+    { "position": "EDGE", "strings": ["Aidan Hutchinson", "Derrick Moore", "Eric O'Neill", ""] },
+    { "position": "DL", "strings": ["Alim McNeill", "Skyler Gill-Howard", "Mekhi Wingo", ""] },
+    { "position": "DL", "strings": ["Tyleik Williams", "Levi Onwuzurike", ""] },
+    { "position": "EDGE", "strings": ["DJ Wonnum", "Tyler Lacy", "Ahmed Hassanein", ""] },
+    { "position": "LB", "strings": ["Derrick Barnes", "Joe Bachie", ""] },
+    { "position": "LB", "strings": ["Malcolm Rodriguez", "K.J. Britt", ""] },
+    { "position": "LB", "strings": ["Trevor Nowaske", "Amen Ogbongbemiga", ""] },
+    { "position": "CB", "strings": ["D.J. Reed", "Rock Ya-Sin", "Khalil Dorsey", "Nick Whiteside"] },
+    { "position": "CB", "strings": ["Roger McCreary", "Ennis Rakestraw Jr.", "Keith Abney II", ""] },
+    { "position": "S", "strings": ["Chuck Clark", ""] },
+    { "position": "S", "strings": ["Brian Branch", "Christian Izien", ""] }
+  ],
+  "special_teams": [
+    { "position": "K", "strings": ["Jake Bates", ""] },
+    { "position": "H", "strings": ["Jack Fox", ""] },
+    { "position": "P", "strings": ["Jack Fox", ""] },
+    { "position": "LS", "strings": ["Hogan Hatten", ""] },
+    { "position": "PR", "strings": ["DeAndre Carter", ""] },
+    { "position": "KR", "strings": ["Jacob Saylors", "DeAndre Carter"] }
+  ],
+  "player_url_template": "https://www.detroitlions.com/team/players-roster/{name-slug}/"
+}

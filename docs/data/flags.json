@@ -1,0 +1,167 @@
+{
+  "note": "Flagged for Review. Flags do not block the site. Each has the source(s) used so you can check it manually.",
+  "flags": [
+    {
+      "id": "F-01",
+      "category": "Repo irregularity",
+      "severity": "Medium",
+      "item": "Repository content is a one-line README",
+      "detail": "The repo at main (commit 0f3d2f9) contains only README.md with the text '# FL2'. There is no license, no code, no documentation, and no .gitignore.",
+      "source_urls": [
+        "https://github.com/sassnarep3-star/FL2"
+      ],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-02",
+      "category": "Repo irregularity",
+      "severity": "Low",
+      "item": "Coordination file was missing",
+      "detail": "COORDINATION.md did not exist. It was created in this session as the shared task board (see the file in the repo root).",
+      "source_urls": [
+        "https://github.com/sassnarep3-star/FL2/blob/arena/d263eab0-fl2/COORDINATION.md"
+      ],
+      "status": "Resolved - created"
+    },
+    {
+      "id": "F-03",
+      "category": "Repo irregularity",
+      "severity": "Medium",
+      "item": "Branch naming instruction is malformed and conflicts with the session branch",
+      "detail": "The task text asks for branches named 'session-&amp;lt;id&amp;gt;/<task>' (HTML-escaped placeholders). This session is fixed to one branch, arena/d263eab0-fl2, and the rules forbid switching or creating branches. All work was done on arena/d263eab0-fl2. Multiple-branch parallel work was therefore not possible in this session.",
+      "source_urls": [],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-04",
+      "category": "Repo irregularity",
+      "severity": "Low",
+      "item": "Broken link format in task text",
+      "detail": "The task text links COORDINATION.md as http://COORDINATION.md, which is not a valid link target. The file was created at the repo root instead.",
+      "source_urls": [],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-05",
+      "category": "Data irregularity",
+      "severity": "High",
+      "item": "Thursday game already final but still in the Week 10 injury report",
+      "detail": "The NFL.com schedule shows Commanders 24, Giants 21, FINAL (Thu Nov 12). The Week 10 injury report still lists WAS and NYG players with statuses (e.g., Lucas Patrick Out, Colson Yankoff Out). These statuses are stale for a completed game and are kept in the table with a 'Final game' marker, not removed.",
+      "source_urls": [
+        "https://www.nfl.com/schedules/2026/REG10",
+        "https://www.nfl.com/injuries/"
+      ],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-06",
+      "category": "Data irregularity",
+      "severity": "Medium",
+      "item": "Injury field blank while NFL.com news names the injury",
+      "detail": "Puka Nacua (LAR) is listed as Did Not Participate with a blank injury column and no game status. NFL.com news says Nacua suffered a knee injury (Week 9) and is 'likely to be placed on injured reserve with turf toe, sprained MCL and PCL'. The report does not show the injury. Left blank as reported.",
+      "source_urls": [
+        "https://www.nfl.com/injuries/",
+        "https://www.nfl.com/news/notable-injuries-news-sunday-week-9-games-2026",
+        "https://www.nfl.com/news/rams-wr-puka-nacua-likely-to-be-placed-on-injured-reserve-with-turf-toe-sprained-mcl-and-pcl"
+      ],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-07",
+      "category": "Data irregularity",
+      "severity": "Medium",
+      "item": "21 players are Did Not Participate with no injury listed and no game status",
+      "detail": "These players have no injury or game status on the report, so the reason for non-participation is not shown. Examples: Aaron Donald, Braden Fiske, Malik Hooker, Von Miller, Dexter Lawrence, Ladd McConkey. Shown as reported; not classified.",
+      "source_urls": [
+        "https://www.nfl.com/injuries/"
+      ],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-08",
+      "category": "Data irregularity",
+      "severity": "Medium",
+      "item": "Lamar Jackson recovery timeline differs between two NFL.com headlines",
+      "detail": "NFL.com headline (Nov 13 roundup): 'Ravens confirm Lamar Jackson expected to miss 6-10 weeks'. Earlier NFL.com headline: 'NFL Network: Ravens' Lamar Jackson (right thumb) out 6-9 weeks, expects to return this season'. The two headlines disagree on the upper bound. Both are shown; no value chosen.",
+      "source_urls": [
+        "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13",
+        "https://www.nfl.com/news/ravens-lamar-jackson-right-thumb-out-6-9-weeks-expects-to-return-this-season"
+      ],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-09",
+      "category": "Data irregularity",
+      "severity": "Low",
+      "item": "Player profile slugs differ from the printed name (2 spot-checked)",
+      "detail": "Jacob Hummel (HOU) links to /players/jake-hummel/ and Kam Curl (LAR) links to /players/kamren-curl/. Spot-check on 2026-11-14: the Curl profile shows \"Kam Curl, SAF #3, Los Angeles Rams, active\", which matches the report. The Hummel profile shows \"Jacob Hummel, LB #33\" (team not shown in the fetched text), which matches the report position. Identity is consistent for both. The \"Dee Alford\" BUF roster entry linked to /players/deaundre-ford/ was not checked (roster not imported).",
+      "source_urls": [
+        "https://www.nfl.com/injuries/",
+        "https://www.nfl.com/players/jake-hummel/",
+        "https://www.nfl.com/players/kamren-curl/",
+        "https://www.nfl.com/teams/buffalo-bills/roster"
+      ],
+      "status": "Partly resolved - 2 links checked; confirm the Hummel team if needed"
+    },
+    {
+      "id": "F-10",
+      "category": "Data gap",
+      "severity": "High",
+      "item": "Starter vs backup status is NOT verified for any player",
+      "detail": "No official depth chart was fetched for any of the 32 teams. The unit exposure page therefore counts injury statuses by position group only. It does NOT say who replaced whom or whether a player is a starter. This is the most important gap for the defense/offense backup question.",
+      "source_urls": [
+        "https://www.nfl.com/teams/buffalo-bills/roster"
+      ],
+      "status": "Open - needs a depth chart source (see Questions Q6)"
+    },
+    {
+      "id": "F-11",
+      "category": "Data gap",
+      "severity": "High",
+      "item": "No verified betting line or odds data",
+      "detail": "The NFL does not publish betting lines on NFL.com. No licensed or official odds archive was found. The nflverse schedule file that carries line fields could not be downloaded from this environment (TLS error). No lines, spreads, totals, moneylines, or props are included on this site.",
+      "source_urls": [
+        "https://github.com/nflverse/nflverse-data/releases"
+      ],
+      "status": "Open - blocks strategy validation"
+    },
+    {
+      "id": "F-12",
+      "category": "Data gap",
+      "severity": "High",
+      "item": "No historical outcomes or injury history collected",
+      "detail": "Only the current Week 10 report and Week 9 news were verified. Strategy validation (out-of-sample results, closing line value, correlation estimates) needs multi-season game results, closing lines, and weekly injury history. None are in the repo yet.",
+      "source_urls": [],
+      "status": "Open - blocks strategy validation"
+    },
+    {
+      "id": "F-13",
+      "category": "Data freshness",
+      "severity": "Medium",
+      "item": "Injury statuses change before kickoff",
+      "detail": "Data was pulled 2026-11-14. The NFL report for Week 10 can change before each game (e.g., Sunday games at 1:00 PM ET). The site should be refreshed before any decision uses it.",
+      "source_urls": [
+        "https://www.nfl.com/injuries/"
+      ],
+      "status": "Open - refresh process needed"
+    },
+    {
+      "id": "F-14",
+      "category": "Legal / compliance",
+      "severity": "High",
+      "item": "Legal status of sports betting in Mexico City is UNVERIFIED",
+      "detail": "The user is located in Mexico City, MX. No official Mexican gambling regulator source was fetched in this session. No statement about legality, licensing, or age rules is made on this site. Must be verified before any wagering use.",
+      "source_urls": [],
+      "status": "Open - needs official source check (see Questions Q1)"
+    },
+    {
+      "id": "F-15",
+      "category": "Site / deployment",
+      "severity": "Medium",
+      "item": "GitHub Pages not enabled yet",
+      "detail": "Pages is configured to serve the docs/ folder on main after the pull request merges. Deployment status is recorded in COORDINATION.md.",
+      "source_urls": [],
+      "status": "Pending - see COORDINATION.md"
+    }
+  ]
+}

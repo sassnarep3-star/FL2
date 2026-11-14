@@ -68,7 +68,7 @@ A blank injury status is **not** a statement that the player is healthy.
 ```bash
 python3 tools/analytics.py     # recomputes data/derived/analytics.json
 python3 tools/backup_impact.py # recomputes data/derived/backup_impact.json
-python3 tools/build_signals_site.py    # rebuilds signals/
+python3 tools/build_signals_site.py    # rebuilds fl2-signals/
 python3 tools/check_signals_links.py  # verifies internal links, lists external URLs
 ```
 

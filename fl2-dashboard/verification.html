@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Verification</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Verification Method</h1>
+  <p class="lead">How every value on this site was verified, and the rules that keep it honest.
+    Verification performed 2026-11-14.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">1. Rules</h2>
+    <ul class="tight">
+      <li><strong>Official sources only.</strong> Data values are taken only from official sources —
+        the NFL's own pages (nfl.com) and official team websites. Third-party aggregators are not used for
+        verified values (see irregularity F3).</li>
+      <li><strong>Every table row carries a source link</strong> to the official page where its value was
+        verified. Machine-readable records live in <code>data/verified/*.json</code>.</li>
+      <li><strong>Never infer.</strong> If a value cannot be confirmed from an official source, it is left
+        blank and flagged on <a href="flagged-review.html">Flagged for Review</a>.</li>
+      <li><strong>Design vs. fact.</strong> Strategy designs, gate proposals, questions, and suggestions are
+        labeled as project proposals, not claims of external fact. Where a proposal references a fact, the
+        fact is sourced.</li>
+      <li><strong>Timestamps.</strong> Every verified data set is stamped with its verification date so
+        staleness is visible.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">2. Official sources used</h2>
+    <table class="data">
+      <thead><tr><th>Source</th><th>Used for</th><th>Link</th><th>Verified</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>NFL.com standings</td>
+          <td>2026 regular-season standings, all 32 teams</td>
+          <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td>
+          <td><span class="badge verified">2026-11-14</span></td>
+        </tr>
+        <tr>
+          <td>NFL.com schedules</td>
+          <td>Week 10 schedule, results, bye teams</td>
+          <td class="src"><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">nfl.com/schedules</a></td>
+          <td><span class="badge verified">2026-11-14</span></td>
+        </tr>
+        <tr>
+          <td>NFL.com injury report</td>
+          <td>Week 10 injury designations for all 28 playing teams</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries</a></td>
+          <td><span class="badge verified">2026-11-14</span></td>
+        </tr>
+        <tr>
+          <td>NFL.com team rosters</td>
+          <td>Roster membership cross-check for depth tracking</td>
+          <td class="src"><a href="https://www.nfl.com/teams/detroit-lions/roster" target="_blank" rel="noopener">nfl.com/teams/detroit-lions/roster</a></td>
+          <td><span class="badge verified">2026-11-14</span></td>
+        </tr>
+        <tr>
+          <td>NFL.com news</td>
+          <td>Injury context items (IR placements, starting decisions)</td>
+          <td class="src"><a href="https://www.nfl.com/news/" target="_blank" rel="noopener">nfl.com/news</a></td>
+          <td><span class="badge verified">2026-11-14</span></td>
+        </tr>
+        <tr>
+          <td>Detroit Lions official site</td>
+          <td>2026 depth chart (offense / defense / special teams)</td>
+          <td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">detroitlions.com/team/depth-chart</a></td>
+          <td><span class="badge verified">2026-11-14</span> <span class="badge warn">Team-labeled "unofficial"</span></td>
+        </tr>
+        <tr>
+          <td>GitHub repository &amp; API</td>
+          <td>Repo facts, Pages configuration, coordination board</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">github.com/sassnarep3-star/FL2</a></td>
+          <td><span class="badge verified">2026-11-14</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">3. Verification process</h2>
+    <ol class="tight">
+      <li><strong>Fetch</strong> the official page directly (each URL above was fetched and parsed in full).</li>
+      <li><strong>Extract</strong> values line by line — no values copied from third-party summaries.</li>
+      <li><strong>Record</strong> each verified value in the canonical JSON under <code>data/verified/</code> with its source link.</li>
+      <li><strong>Render</strong> the site tables from those records, so each row inherits its source link.</li>
+      <li><strong>Flag</strong> anything unconfirmable — left blank and listed on <a href="flagged-review.html">Flagged for Review</a>.</li>
+      <li><strong>Log</strong> every fetch, its result, and any irregularity in the fetch log:
+        <a href="https://github.com/sassnarep3-star/FL2/blob/main/fl2-dashboard/data/verified/fetch-log.md" target="_blank" rel="noopener">fl2-dashboard/data/verified/fetch-log.md</a>.</li>
+    </ol>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">4. Verification scope &amp; limitations</h2>
+    <ul class="tight">
+      <li>Verified data covers the 2026 season snapshot as of 2026-11-14 (Week 10). It will go stale as
+        the season progresses — refresh rules are proposed in <a href="suggestions.html">Suggestions S14</a>.</li>
+      <li>Injury reports reflect designations at verification time; final game statuses are determined on
+        game days and are re-verified when refreshed.</li>
+      <li>Lines, odds, correlation values, and gate thresholds are intentionally absent until their
+        decision questions are answered — absence is a flagged gap, not an omission.</li>
+      <li>No claim on this site has been marked verified without a check against an official source with a
+        link on the page.</li>
+    </ul>
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

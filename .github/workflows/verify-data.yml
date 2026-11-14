@@ -1,0 +1,55 @@
+name: verify-data
+
+# Runs every claim on the site back through its source data. If a published number cannot
+# be reproduced from the committed files, this fails.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, "arena/d10a1d25-fl2"]
+    paths:
+      - "signal/data/**"
+      - "signal/analysis/**"
+      - "signal/*.html"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Re-run every measurement from the committed data
+        working-directory: signal
+        run: |
+          python analysis/injury_signal.py
+          python analysis/correlation.py
+          python analysis/depth_accuracy.py
+          python analysis/strategies.py
+
+      - name: Rebuild the section site
+        working-directory: signal
+        run: python analysis/build_site.py
+
+      - name: Verify every rendered number against its source file
+        working-directory: signal
+        run: python analysis/verify.py
+
+      - name: Structural and link validation (repository-wide)
+        run: |
+          python scripts/check_site.py
+          python tools/check_links.py
+
+      - name: Fail if the rebuild changed anything that was committed
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Committed pages or data do not match a rebuild. Commit the regenerated files."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "Rebuild is reproducible: no drift."
