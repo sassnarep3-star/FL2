@@ -1,37 +1,60 @@
-# FL2 — NFL research & decision ledger
-
-A verified 2026-season NFL snapshot, a line model, and a validation harness that
-rejects strategies instead of promoting them.
+# FL2 — NFL research hub
 
 **Live site:** https://sassnarep3-star.github.io/FL2/
 
+Several agent sessions worked this repository in parallel. All of their work is kept.
+This README explains which section to read and why, without deleting anything.
+
+## Start here: the Evidence Ledger → [`ledger/overview.html`](ledger/overview.html)
+
+The ledger is the **only** section containing verified numeric NFL data:
+
+| What | Where it comes from | Rows |
+|---|---|---|
+| Week 10 injury report (Out / Doubtful / Questionable) | [nfl.com/injuries](https://www.nfl.com/injuries/) | 76 |
+| 2026 standings — W-L-T, points for/against, streaks | [nfl.com/standings](https://www.nfl.com/standings/) | 32 teams |
+| Team defense — points, yards, takeaways | [Pro-Football-Reference 2026 opp](https://www.pro-football-reference.com/years/2026/opp.htm) | 32 teams |
+| Starting-quarterback decisions | NFL.com news roundups, Nov 11 + Nov 13 | 7 teams (5 confirmed, 2 blank) |
+| 1999–2026 results + closing lines | nflverse `games.csv` | 7,548 games |
+
+| Section | Purpose |
+|---|---|
+| [`ledger/suggestions.html`](ledger/suggestions.html) | 10 proposals with options and a recommendation — accept / reject / defer |
+| [`ledger/decisions.html`](ledger/decisions.html) | 20 questions: verified, partial, unknown, or your call |
+| [`ledger/strategies.html`](ledger/strategies.html) | 11 strategies × 8 validation gates, out-of-sample |
+| [`ledger/injuries.html`](ledger/injuries.html) | availability and lineup depletion |
+| [`ledger/lines.html`](ledger/lines.html) | our own total / margin / win probability per game |
+| [`ledger/verification.html`](ledger/verification.html) | every source, with tier and hash |
+| [`ledger/flagged.html`](ledger/flagged.html) | 13 items to review |
+| [`ledger/summary.html`](ledger/summary.html) | executive summary |
+| [`ledger/method.html`](ledger/method.html) | how every number was produced |
+
 ## The headline
 
-Ten single-bet strategies were tested against 16 seasons of closing lines with
-eight validation gates each. **None passed.** A transparent Elo model scores
-Brier 0.2277 versus the market's 0.2106 (−8.1% skill) over 4,041 games — so the
-negative result is exactly what the model quality predicts. What this project
-delivers is the machinery that proves that quickly, plus a fully sourced dataset.
+Ten single-bet strategies were tested against 16 seasons of closing lines with eight
+validation gates each. **None passed.** A transparent Elo model scores Brier 0.2277
+versus the market's 0.2106 (−8.1% skill) over 4,041 games — so the negative result is
+exactly what model quality predicts. The deliverable is the harness that proves it in
+an afternoon, plus a fully sourced dataset.
 
-## What is verified, and what is not
+## Other sections in this repository
 
-| Area | Status | Detail |
-|---|---|---|
-| Team offense/defense, standings, injury report | ✅ verified | linked to nfl.com and Pro-Football-Reference |
-| Week 10 quarterback availability | ⚠️ partial | 5 teams confirmed, 2 left blank (BAL, LAC) |
-| Player-level statistics | ❌ unavailable | release assets unreachable from the build environment |
-| Market prices | ⚠️ not citable | no official publisher; aggregated file only, always labelled |
-| Validated strategy | ❌ none | 11 tested, 0 passed 8/8 gates |
+These were built by other sessions in parallel. They are careful frameworks that
+deliberately left every NFL value **blank** — correct at the time, before the verified
+data existed.
 
-Every table row carries a source link. Values that could not be confirmed are
-**blank and flagged** — never estimated. See the *Flagged for Review* page.
+- [`docs/index.html`](docs/index.html) — NFL Analysis Dashboard (session d263eab0): 16 pages, 345 transcribed injury rows, unit exposure, its own flagged list.
+- [`hub/index.html`](hub/index.html) — NFL Decision Hub (session e70150db + others): requirement coverage, validation gates, luck-vs-skill explainer, repository audit.
+- [`strategy.html`](strategy.html) — Fourth & Signal (session 4a77261b): the original evidence-first blueprint, with [`availability.html`](availability.html), [`data.html`](data.html), [`decisions.html`](decisions.html), [`review.html`](review.html).
 
-## Pages
+Consolidating all four structures into one is proposed as a decision — see
+[`ledger/suggestions.html`](ledger/suggestions.html). It was not done silently.
 
-`index` overview · `suggestions` proposals to accept/reject/defer ·
-`decisions` 20 open questions · `strategies` leaderboard and gates ·
-`injuries` availability · `lines` our own numbers · `verification` sources ·
-`flagged` what to check · `summary` executive summary · `method` methodology
+## Verification rules
+
+1. **Source or blank.** A cell either links to an official source or shows an em dash.
+2. **No inference.** Missing values are never derived from nearby values or league averages.
+3. **Flag everything.** Unconfirmed, blocked and resolved items all appear on the Flagged page.
 
 ## Rebuild
 

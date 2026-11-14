@@ -71,8 +71,10 @@ const FL2Console = (() => {
   };
 
   /* ---------- shared chrome ---------- */
+  /* Pages live side by side inside /ledger, so hrefs are bare filenames. */
+  /* Pages live side by side inside /ledger, so hrefs are bare filenames. */
   const PAGES = [
-    ["index.html", "Overview"],
+    ["overview.html", "Overview"],
     ["suggestions.html", "Suggestions"],
     ["decisions.html", "Questions & Answers"],
     ["strategies.html", "Strategy Lab"],
@@ -85,19 +87,21 @@ const FL2Console = (() => {
   ];
 
   function chrome(active) {
+    const base = String(active || "").split("/").pop();
     const nav = PAGES.map(
       ([href, label]) =>
-        `<a href="${href}"${href === active ? ' aria-current="page"' : ""}>${esc(label)}</a>`
+        `<a href="${href}"${href === base ? ' aria-current="page"' : ""}>${esc(label)}</a>`
     ).join("");
     const h = document.getElementById("site-header");
     if (h) {
       h.className = "site-header";
       h.innerHTML = `<div class="inner">
         <div class="brand-row">
-          <div class="brand">FL2 <span>· NFL research &amp; decision ledger</span></div>
+          <div class="brand">FL2 <span>· Evidence Ledger</span></div>
           <div class="brand-sub">2026 season · Week 10 snapshot · every row sourced, blanks left blank</div>
         </div>
-        <nav class="tabs" aria-label="Sections">${nav}</nav>
+        <nav class="tabs" aria-label="Sections">
+          <a href="../index.html" style="opacity:.85">‹ All sections</a>${nav}</nav>
       </div>`;
     }
     const f = document.getElementById("site-footer");
@@ -113,7 +117,14 @@ const FL2Console = (() => {
         Research tool, not betting advice. No market price is quoted unless it came from a citable
         source; no value is estimated. <a href="verification.html">Verification rules</a> ·
         <a href="method.html">Method</a> ·
-        <a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository</a>`;
+        <a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository</a>
+        <div style="margin-top:10px">
+          <span class="muted">Other sections of this repository (built by parallel sessions, values
+          intentionally blank):</span>
+          <a href="../docs/index.html">Analysis Dashboard</a> ·
+          <a href="../hub/index.html">Decision Hub</a> ·
+          <a href="../strategy.html">Fourth &amp; Signal</a>
+        </div>`;
     }
   }
 
@@ -933,16 +944,16 @@ python3 engine/build_site_data.py</code></pre>
 
   /* ---------- router ---------- */
   const ROUTES = {
-    "index.html": pageIndex,
-    "suggestions.html": () => (window.pageSuggestions ? window.pageSuggestions() : null),
-    "decisions.html": pageDecisions,
-    "strategies.html": pageStrategies,
-    "injuries.html": pageInjuries,
-    "lines.html": pageLines,
-    "verification.html": pageVerification,
-    "flagged.html": pageFlagged,
-    "summary.html": () => (window.pageSummary ? window.pageSummary() : null),
-    "method.html": pageMethod,
+    "ledger/overview.html": pageIndex,
+    "ledger/suggestions.html": () => (window.pageSuggestions ? window.pageSuggestions() : null),
+    "ledger/decisions.html": pageDecisions,
+    "ledger/strategies.html": pageStrategies,
+    "ledger/injuries.html": pageInjuries,
+    "ledger/lines.html": pageLines,
+    "ledger/verification.html": pageVerification,
+    "ledger/flagged.html": pageFlagged,
+    "ledger/summary.html": () => (window.pageSummary ? window.pageSummary() : null),
+    "ledger/method.html": pageMethod,
   };
 
   function render(page) {

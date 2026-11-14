@@ -3,26 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FL2 · NFL research & decision ledger</title>
-<meta name="description" content="FL2 — NFL 2026 research and decision ledger. Every value sourced from an official source or left blank and flagged.">
+<title>FL2 · NFL research hub</title>
+<meta name="description" content="NFL 2026 research hub: a verified evidence ledger with sourced tables, a validation harness that rejects unproven strategies, and an explicit register of open questions.">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+  .hub-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+  @media (max-width: 980px) { .hub-grid { grid-template-columns: 1fr; } }
+  .tile {
+    display: block; background: #fff; border: 1px solid var(--line); border-radius: var(--r);
+    padding: 16px 18px; box-shadow: var(--shadow); text-decoration: none; color: inherit;
+    border-top: 3px solid var(--brand-2); transition: box-shadow .12s ease, transform .12s ease;
+  }
+  .tile:hover { box-shadow: 0 4px 14px rgba(20,24,31,.10); transform: translateY(-1px); text-decoration: none; }
+  .tile h3 { margin: 2px 0 5px; font-size: 15.5px; }
+  .tile p { margin: 0; font-size: 13px; color: var(--ink-2); }
+  .tile .meta { margin-top: 10px; font-size: 11.5px; color: var(--ink-3); }
+  .tile.pri { border-top-color: var(--accent); }
+  .tile.sec { border-top-color: var(--ink-3); }
+  .hero { background: #fff; border: 1px solid var(--line); border-radius: var(--r);
+          padding: 30px 30px 26px; box-shadow: var(--shadow); }
+  .hero h1 { font-size: 31px; line-height: 1.15; letter-spacing: -.7px; margin: 4px 0 10px; }
+  .hero p.lede { font-size: 15.5px; color: var(--ink-2); max-width: 74ch; margin: 0; }
+  .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+</style>
 </head>
 <body>
-<header id="site-header"></header>
-<main id="app">
-  <noscript>
-    <div class="note bad">
-      <p><strong>This site needs JavaScript.</strong> The tables are rendered client-side from a single
-      verified data bundle so that every row can carry its own source link and verification flag. The
-      data itself is plain JSON/JS in <code>data/site_data.js</code> and the documents are in
-      <code>docs/</code> if you would rather read them directly.</p>
+<header class="site-header">
+  <div class="inner">
+    <div class="brand-row">
+      <div class="brand">FL2 <span>· NFL research hub</span></div>
+      <div class="brand-sub">2026 season · Week 10 snapshot · every value sourced or left blank</div>
     </div>
-  </noscript>
+    <nav class="tabs" aria-label="Sections">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="ledger/overview.html">Evidence Ledger</a>
+      <a href="ledger/suggestions.html">Suggestions</a>
+      <a href="ledger/decisions.html">Questions &amp; Answers</a>
+      <a href="ledger/strategies.html">Strategy Lab</a>
+      <a href="ledger/injuries.html">Injuries</a>
+      <a href="ledger/lines.html">My Lines</a>
+      <a href="ledger/summary.html">Executive Summary</a>
+      <a href="ledger/flagged.html">Flagged</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Start here</p>
+    <h1>A verified NFL dataset, a line model, and the case against pretending it works</h1>
+    <p class="lede">Ten single-bet strategies were tested against 16 seasons of closing lines with eight
+    validation gates each. <strong>None passed.</strong> A transparent Elo model scores Brier 0.2277
+    against the market's 0.2106 — 8.1% worse — which is exactly why. This hub publishes the verified
+    data, the harness that produces that verdict in an afternoon, and an explicit register of what is
+    still unknown.</p>
+    <div class="pills">
+      <span class="badge ok">118 officially sourced rows</span>
+      <span class="badge info">45 tables · 319 verified links</span>
+      <span class="badge bad">0 strategies validated</span>
+      <span class="badge warn">13 items flagged for review</span>
+      <span class="badge mute">not betting advice</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>The evidence ledger — verified numbers only</h2>
+    <p class="sub">This is the section with real, sourced figures. Every table row links to an official
+    source; anything unconfirmed is blank and listed under Flagged for Review.</p>
+    <div class="hub-grid">
+      <a class="tile pri" href="ledger/overview.html">
+        <div class="eyebrow">Overview</div>
+        <h3>What this project found</h3>
+        <p>The headline result, the four key numbers, and where to look first.</p>
+        <div class="meta">10 sections · generated from one verified data bundle</div>
+      </a>
+      <a class="tile pri" href="ledger/suggestions.html">
+        <div class="eyebrow">Read before building</div>
+        <h3>Suggestions &amp; decision paths</h3>
+        <p>Ten proposals, each with options, a recommendation argued from results, and an
+        accept / reject / defer control that saves your choice locally.</p>
+        <div class="meta">Nothing implemented on your behalf</div>
+      </a>
+      <a class="tile pri" href="ledger/decisions.html">
+        <div class="eyebrow">20 questions</div>
+        <h3>What we know and what we don't</h3>
+        <p>Each question tagged verified, partially verified, unknown or your-call — with the exact
+        information that would close it.</p>
+        <div class="meta">4 open · 2 partial · 4 policy decisions</div>
+      </a>
+      <a class="tile" href="ledger/lines.html">
+        <div class="eyebrow">Week 10</div>
+        <h3>My own lines</h3>
+        <p>Projected total, home margin and win probability for all 14 games, with every input and
+        the arithmetic exposed. Market comparison blank where no price is citable.</p>
+        <div class="meta">13 of 14 games have a citable market line</div>
+      </a>
+      <a class="tile" href="ledger/injuries.html">
+        <div class="eyebrow">Availability</div>
+        <h3>Injuries &amp; lineups</h3>
+        <p>66 players Out and 10 Doubtful, read verbatim from the league's Week 10 report, plus the
+        seven quarterback situations an official page actually confirms.</p>
+        <div class="meta">28 teams · 4 on bye</div>
+      </a>
+      <a class="tile" href="ledger/strategies.html">
+        <div class="eyebrow">Validation</div>
+        <h3>Strategy Lab</h3>
+        <p>Eleven hypotheses, eight gates, season-by-season profit, luck fraction, and the measured
+        correlation values used to price multi-leg tickets.</p>
+        <div class="meta">2,086 bets in the largest test · FDR-corrected</div>
+      </a>
+      <a class="tile sec" href="ledger/summary.html">
+        <div class="eyebrow">One page</div>
+        <h3>Executive summary</h3>
+        <p>Eight findings, eight key numbers, six prioritised recommendations, and what would
+        overturn the conclusion.</p>
+        <div class="meta">Generated from the same data as the tables</div>
+      </a>
+      <a class="tile sec" href="ledger/verification.html">
+        <div class="eyebrow">Provenance</div>
+        <h3>Verification &amp; sources</h3>
+        <p>The three rules this site obeys, every source with its tier, dataset hashes, and the checks
+        actually performed this session.</p>
+        <div class="meta">T1 league · T2 registry · T3 market, labelled</div>
+      </a>
+      <a class="tile sec" href="ledger/flagged.html">
+        <div class="eyebrow">Review queue</div>
+        <h3>Flagged for Review</h3>
+        <p>13 items — unconfirmed, blocked, or found wrong and fixed. Each names the source that
+        would close it. Ordered most serious first.</p>
+        <div class="meta">Includes the sign error that was caught</div>
+      </a>
+      <a class="tile sec" href="ledger/method.html">
+        <div class="eyebrow">Reproduce</div>
+        <h3>Method</h3>
+        <p>Five plain Python scripts, fixed seeds, leakage controls, the luck decomposition, and the
+        multiple-testing arithmetic.</p>
+        <div class="meta">Runs in about a minute</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Also in this repository</h2>
+    <p class="sub">Several agent sessions worked on this repo in parallel. Their structures are kept
+    rather than deleted. They differ from the ledger in one important way, stated plainly below.</p>
+    <div class="hub-grid">
+      <a class="tile sec" href="docs/index.html">
+        <div class="eyebrow">Session d263eab0</div>
+        <h3>NFL Analysis Dashboard</h3>
+        <p>16 pages, 345 transcribed injury rows, 14 games, a unit-exposure view and its own flagged
+        list. Careful structure — but no numeric projections, by design.</p>
+        <div class="meta"><span class="badge warn">framework only · values intentionally blank</span></div>
+      </a>
+      <a class="tile sec" href="hub/index.html">
+        <div class="eyebrow">Sessions e70150db + others</div>
+        <h3>NFL Decision Hub</h3>
+        <p>Requirement coverage, validation gates, a luck-vs-skill explainer, a repository audit and
+        a correlation page.</p>
+        <div class="meta"><span class="badge warn">framework only · no sourced NFL values</span></div>
+      </a>
+      <a class="tile sec" href="strategy.html">
+        <div class="eyebrow">Session 4a77261b</div>
+        <h3>Fourth &amp; Signal</h3>
+        <p>The original evidence-first framework: <a href="availability.html">availability</a>,
+        <a href="data.html">methods</a>, <a href="decisions.html">decisions</a>,
+        <a href="review.html">review</a>.</p>
+        <div class="meta"><span class="badge warn">blueprint only · values left blank</span></div>
+      </a>
+    </div>
+    <div class="note warn" style="margin-top:16px">
+      <p><strong>Which one should you read?</strong> Read the <a href="ledger/overview.html">Evidence
+      Ledger</a>. It is the only section that contains verified numeric NFL data — standings, points
+      for and against, defensive yardage, the official injury report, seven quarterback decisions, and
+      16 seasons of closing lines with results. The other sections are well-built frameworks that
+      deliberately left every NFL value blank. Their restraint was correct at the time; the ledger is
+      what those frameworks were waiting for.</p>
+      <p class="small" style="margin-bottom:0">Consolidating all four structures into one is proposed
+      as a decision, not done silently. See <a href="ledger/suggestions.html">Suggestions</a>.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>How to read any number on this site</h2>
+    <div class="hub-grid">
+      <div class="tile sec" style="cursor:default">
+        <div class="eyebrow">An em dash —</div>
+        <p>Means <strong>not confirmed from an official source</strong>. It is never a zero and never
+        an estimate. Every such cell is also on the Flagged page with the source that would fill it.</p>
+      </div>
+      <div class="tile sec" style="cursor:default">
+        <div class="eyebrow">Badges are status, not opinion</div>
+        <p><span class="badge ok">validated</span> requires 8/8 gates on out-of-sample data.
+        <span class="badge bad">rejected</span> means it failed them. Nothing is currently green.</p>
+      </div>
+      <div class="tile sec" style="cursor:default">
+        <div class="eyebrow">No prices without a source</div>
+        <p>Sportsbook prices have no official publisher. Market numbers come only from an aggregated
+        closing-line file, are always labelled T3, and are never a model input.</p>
+      </div>
+    </div>
+  </section>
 </main>
-<footer id="site-footer"></footer>
-<script src="data/site_data.js"></script>
-<script src="data/decisions.js"></script>
-<script src="assets/app.js"></script>
-<script>FL2UI.render("index.html")</script>
+
+<footer class="footer">
+  <div class="pills" style="margin-bottom:8px">
+    <span class="badge mute">snapshot 2026-11-14 03:00 UTC</span>
+    <span class="badge info">76 verified injury rows</span>
+    <span class="badge info">11 strategies tested</span>
+    <span class="badge warn">13 flagged items</span>
+  </div>
+  Research tool, not betting advice. No market price is quoted unless it came from a citable source;
+  no value is estimated. <a href="ledger/verification.html">Verification rules</a> ·
+  <a href="ledger/method.html">Method</a> ·
+  <a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository</a> ·
+  <a href="COORDINATION.md">Coordination board</a>
+</footer>
 </body>
 </html>

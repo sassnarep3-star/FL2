@@ -25,7 +25,11 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAGES = sorted(f for f in os.listdir(ROOT) if f.endswith(".html"))
+ROOT_PAGES = sorted(f for f in os.listdir(ROOT)
+                   if f.endswith(".html") and os.path.isfile(os.path.join(ROOT, f)))
+LEDGER = ["ledger/" + f for f in sorted(os.listdir(os.path.join(ROOT, "ledger")))
+          if f.endswith(".html")] if os.path.isdir(os.path.join(ROOT, "ledger")) else []
+PAGES = ROOT_PAGES + LEDGER
 
 DRIVER = r"""
 const fs = require('fs');
@@ -60,7 +64,7 @@ function build(p) {
   for (const item of seq) {
     try {
       if (item.src) {
-        const f = path.join(root, item.src);
+        const f = path.join(root, path.dirname(p), item.src);
         if (!fs.existsSync(f)) { errors.push('missing script ' + item.src); continue; }
         inject(fs.readFileSync(f, 'utf8'));
       } else inject(item.inline);
@@ -69,7 +73,9 @@ function build(p) {
     }
   }
   const doc = dom.window.document;
-  const app = doc.getElementById('app');
+  // Our ledger pages render into #app. The pages contributed by other sessions are
+  // plain static HTML with a <main>, so fall back to the document body for those.
+  const app = doc.getElementById('app') || doc.querySelector('main') || doc.body;
   const content = app ? app.innerHTML : '';
   return {
     errors,
@@ -79,7 +85,8 @@ function build(p) {
     tableCount: doc.querySelectorAll('table').length,
     thCount: doc.querySelectorAll('thead').length,
     anchors: [...doc.querySelectorAll('[id]')].map((e) => e.id),
-    headerRendered: !!doc.querySelector('#site-header nav a'),
+    headerRendered: !!doc.querySelector('#site-header nav a, header nav a, main nav a, body > nav a'),
+    usesAppShell: !!doc.getElementById('app'),
   };
 }
 
@@ -109,7 +116,12 @@ def main():
     data = run()
     fails, warns = [], []
     all_ids = {p: set(v.get("anchors") or []) for p, v in data.items()}
-    basenames = {f for f in os.listdir(ROOT)}
+    all_files = set()
+    for dirpath, _dirs, files in os.walk(ROOT):
+        if any(x in dirpath for x in ("node_modules", "/.git")):
+            continue
+        for f in files:
+            all_files.add(os.path.relpath(os.path.join(dirpath, f), ROOT).replace(os.sep, "/"))
 
     for page, r in sorted(data.items()):
         if r.get("fatal"):
@@ -118,9 +130,12 @@ def main():
         if r["errors"]:
             for e in r["errors"]:
                 fails.append(f"{page}: {e}")
-        if r["appLength"] < 800:
+        if r["appLength"] < 100:
+            fails.append(f"{page}: rendered only {r['appLength']} chars")
+        elif r.get("usesAppShell") and r["appLength"] < 800:
+            fails.append(f"{page}: app shell rendered only {r['appLength']} chars")
             fails.append(f"{page}: app rendered only {r['appLength']} chars")
-        if not r["headerRendered"]:
+        if page != "404.html" and not r["headerRendered"]:
             fails.append(f"{page}: header/nav did not render")
         text = r["text"]
         for bad in ("undefined", "NaN", "[object Object]", "null%"):
@@ -138,12 +153,15 @@ def main():
                     warns.append(f"{page}: anchor #{href[1:]} has no matching id")
                 continue
             target = href.split("#")[0]
-            if target and target not in basenames:
-                fails.append(f"{page}: broken link -> {href}")
-            if "#" in href:
+            if not target:
+                continue
+            resolved = os.path.normpath(os.path.join(os.path.dirname(page), target)).replace(os.sep, "/")
+            if resolved not in all_files:
+                fails.append(f"{page}: broken link -> {href} (resolved {resolved})")
+            elif "#" in href:
                 frag = href.split("#", 1)[1]
-                if frag and frag not in all_ids.get(target, set()):
-                    warns.append(f"{page}: link {href} — fragment '{frag}' not found on target")
+                if frag and resolved in all_ids and frag not in all_ids[resolved]:
+                    warns.append(f"{page}: {href} — fragment '{frag}' not found on target")
 
     print(f"pages checked: {len(data)}")
     print(f"tables rendered: {sum(v.get('tableCount', 0) for v in data.values())}")

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../hub/index.html">Decision Hub ↗</a><a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>NFL Analysis Dashboard - Week 10, 2026 season</h1>
+<p class="lead">Organized by category. Every table row links to its official source. Values that cannot be verified are left blank and flagged.</p>
+
+<div class="notice">Analysis only, not betting advice. Legal status of sports betting in Mexico City is <b>unverified</b> (see <a href="flagged.html">Flagged for review</a>, F-14).</div>
+
+<div class="grid" id="stats"></div>
+
+<h2>Categories</h2>
+<div class="grid">
+  <div class="card"><b>Data</b><p class="lead">Verified tables from NFL.com.</p>
+    <p><a href="injuries.html">Injury report</a><br><a href="unit-exposure.html">Unit exposure (counts)</a><br><a href="games.html">Week 10 games</a><br><a href="news.html">Official news items</a></p></div>
+  <div class="card"><b>Analysis</b><p class="lead">What the data says and does not say.</p>
+    <p><a href="executive-summary.html">Executive summary</a><br><a href="strategies.html">Strategy framework and validation gates</a></p></div>
+  <div class="card"><b>Planning</b><p class="lead">Choose before anything changes.</p>
+    <p><a href="suggestions.html">Suggestions (awaiting your decision)</a><br><a href="questions.html">Open questions and missing information</a></p></div>
+  <div class="card"><b>Governance</b><p class="lead">Where each value came from and what needs review.</p>
+    <p><a href="sources.html">Source register</a><br><a href="flagged.html">Flagged for review</a></p></div>
+</div>
+
+<h2>Status at a glance</h2>
+<div class="card">
+  <ul>
+    <li>Injury report: <b>verified</b> (NFL.com Week 10, fetched 2026-11-14).</li>
+    <li>Starter vs backup: <b class="unverified">not verified</b> - no official depth chart collected yet (F-10).</li>
+    <li>Betting lines and odds: <b class="unverified">no verified source</b> (F-11).</li>
+    <li>Strategies validated: <b>0</b>. Validation is blocked until historical data exists (F-12).</li>
+  </ul>
+</div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const meta = await getJSON("data/meta.json");
+  const s = meta.status_counts;
+  const cards = [
+    [meta.injury_rows, "Player entries on Week 10 report", "injuries.html"],
+    [meta.injury_teams, "Teams with at least one entry", "unit-exposure.html"],
+    [s.Out, "Listed Out", "injuries.html"],
+    [s.Doubtful, "Listed Doubtful", "injuries.html"],
+    [s.Questionable, "Listed Questionable", "injuries.html"],
+    [meta.games, "Week 10 games (NFL.com)", "games.html"],
+  ];
+  document.getElementById("stats").innerHTML = cards.map(([n, l, h]) =>
+    `<div class="stat"><div class="n">${esc(n)}</div><div class="l"><a href='${h}'>${esc(l)}</a></div></div>`).join("");
+});
+
+</script>
+</body>
+</html>
