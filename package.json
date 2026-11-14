@@ -1,0 +1,13 @@
+{
+  "name": "fl2-site-checks",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Dev-only tooling for the FL2 static site. The site itself has no dependencies; this exists so the render test can be reproduced with `npm ci && node tools/render_test.js`.",
+  "scripts": {
+    "check:render": "node tools/render_test.js",
+    "check:site": "python3 tools/check_site.py"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

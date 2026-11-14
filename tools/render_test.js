@@ -9,7 +9,15 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { JSDOM, VirtualConsole } = require("jsdom");
+let JSDOM, VirtualConsole;
+try {
+  ({ JSDOM, VirtualConsole } = require("jsdom"));
+} catch (e) {
+  console.error("tools/render_test.js needs jsdom (dev-only; the site itself has no dependencies).\n" +
+                "Install with:  npm install   then:  node tools/render_test.js\n" +
+                "Or skip this check and rely on python3 tools/check_site.py, which needs nothing.");
+  process.exit(2);
+}
 
 const ROOT = path.resolve(__dirname, "..");
 const pages = fs.readdirSync(ROOT).filter((f) => f.endsWith(".html")).sort();

@@ -292,16 +292,6 @@ window.FL2 = window.FL2 || {};
 
   /* ----------------------------------------------- club availability summary */
   FL2.renderAvailabilitySummary = function (mount) {
-    // engine status is read from the register the site publishes, never typed into a page
-    var eng = { assertions: "—", failures: "—" };
-    if (D.computedSelftest) {
-      D.computedSelftest.rows.forEach(function (r) {
-        if (r[0] === "Assertions passing") eng.assertions = r[1];
-        if (r[0] === "Failures") eng.failures = r[1];
-      });
-    }
-    out["engine.assertions"] = eng.assertions;
-    out["engine.failures"] = eng.failures;
     var s = FL2.injuryStats();
     var clubs = Object.keys(s.clubs).map(function (k) { return s.clubs[k]; })
       .sort(function (a, b) { return (b.off_out + b.def_out) - (a.off_out + a.def_out) || a.club.localeCompare(b.club); });
@@ -579,6 +569,16 @@ window.FL2 = window.FL2 || {};
     out["gates.total"] = n("gates");
     out["corr.total"] = n("correlations");
     out["corr.measured"] = count("correlations", "rho", function (v) { return v !== "—" && v !== ""; });
+    // engine status is read from the register the site publishes, never typed into a page
+    var eng = { assertions: "—", failures: "—" };
+    if (D.computedSelftest) {
+      D.computedSelftest.rows.forEach(function (r) {
+        if (r[0] === "Assertions passing") eng.assertions = r[1];
+        if (r[0] === "Failures") eng.failures = r[1];
+      });
+    }
+    out["engine.assertions"] = eng.assertions;
+    out["engine.failures"] = eng.failures;
     var s = FL2.injuryStats();
     out["injuries.rows"] = s.rows; out["injuries.games"] = s.games; out["injuries.teams"] = s.teams;
     out["injuries.out"] = s.out; out["injuries.doubtful"] = s.doubtful;
