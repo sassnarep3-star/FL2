@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>News | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Official NFL.com news items</h1>
+<p class="lead">Headlines listed on the Week 10 injury page and linked NFL.com articles. The "Date stated" column only shows a date when the headline or URL contains one; otherwise it is blank (not inferred).</p>
+<div id="tbl"></div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const rows = await getJSON("data/news.json");
+  renderTable({
+    el: document.getElementById("tbl"),
+    rows,
+    countLabel: "items",
+    columns: [
+      {key: "date_stated", label: "Date stated", render: r => r.date_stated.startsWith("(none") ? '<span class="unverified">not stated</span>' : esc(r.date_stated)},
+      {key: "headline", label: "Headline", render: r => srcLink(r.source_url, r.headline)},
+      {key: "listed_on", label: "Listed on", render: r => srcLink(r.listed_on, "NFL.com injuries")},
+      {key: "source_id", label: "Source ID"},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>

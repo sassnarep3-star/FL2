@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Injuries | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Injury report - Week 10, 2026</h1>
+<p class="lead">All 345 entries from the NFL.com Week 10 report. Each row links to the player's NFL.com profile. Filters and search are above the table; click a column header to sort.</p>
+<div class="notice">Game-status blanks mean NFL.com showed no game designation. Rows marked <b>Final game</b> belong to a game NFL.com lists as final (F-05). "Not injury related" rows are labelled by NFL.com (F-07 / Q7).</div>
+<div id="tbl"></div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const rows = await getJSON("data/injuries.json");
+  const withCat = rows.map(r => ({
+    ...r,
+    category: r.not_injury_related ? "Not injury related" : "Injury",
+    game_status_shown: r.game_status || "(none listed)",
+    note: r.final_game_flag ? "Final game (F-05)" : "",
+  }));
+  renderTable({
+    el: document.getElementById("tbl"),
+    rows: withCat,
+    countLabel: "entries",
+    filters: [
+      {key: "team", label: "Team"},
+      {key: "game_status", label: "Game status"},
+      {key: "unit", label: "Unit"},
+      {key: "category", label: "Category"},
+      {key: "note", label: "Notes"},
+    ],
+    columns: [
+      {key: "team", label: "Team"},
+      {key: "game", label: "Game"},
+      {key: "player", label: "Player", render: r => srcLink(r.source_url, r.player)},
+      {key: "position", label: "Pos"},
+      {key: "unit", label: "Unit"},
+      {key: "injury", label: "Injury", render: r => esc(r.injury || "(none listed)")},
+      {key: "practice_status", label: "Practice"},
+      {key: "game_status_shown", label: "Game status", render: r => r.game_status ? statusTag(r.game_status) : '<span class="tag">(none listed)</span>'},
+      {key: "category", label: "Category", render: r => r.not_injury_related ? '<span class="tag nir">Not injury related</span>' : "Injury"},
+      {key: "note", label: "Note", render: r => r.final_game_flag ? '<span class="tag final">Final game (F-05)</span>' : ""},
+      {key: "source", label: "Source", render: r => srcLink(r.report_url, "NFL.com report") + " / " + srcLink(r.source_url, "profile"), sort: r => r.source_url},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>

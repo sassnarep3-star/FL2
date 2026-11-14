@@ -1,0 +1,125 @@
+{
+  "note": "Questions and information needed before any decision can reasonably be made. Each row says what is known (verified), what is missing, and how to close the gap.",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "Is sports betting legal for you in Mexico City, and is wagering the goal, or is it research only?",
+      "why_it_matters": "Decides whether any line or strategy work has a real-money use, and what compliance applies.",
+      "known_verified": "User location: Mexico City, MX (from user profile).",
+      "missing": "Official Mexican regulator position; the user's stated goal.",
+      "how_to_close": "Check the official gambling regulator (SEGOB, Dirección General de Juegos y Sorteos) and confirm the goal in writing.",
+      "priority": "Critical",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q2",
+      "question": "What does 'reward' mean in the strategy leaderboard: points on this site, or money?",
+      "why_it_matters": "A money reward changes legal and responsible-gambling requirements; points do not.",
+      "known_verified": "Task text says 'rewards for top performing strategies' without defining it.",
+      "missing": "Definition of reward.",
+      "how_to_close": "User decision.",
+      "priority": "High",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q3",
+      "question": "Which markets are in scope first: point spread, total, moneyline, player props, parlays?",
+      "why_it_matters": "Each market needs different data, different validation, and different correlation handling.",
+      "known_verified": "Task names single bets, parlays, and player prop combos.",
+      "missing": "Priority order.",
+      "how_to_close": "Recommend starting with spreads only (fewest data needs). User decision.",
+      "priority": "High",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q4",
+      "question": "Which source for historical closing lines and odds, and is its licence allowed for this use?",
+      "why_it_matters": "Closing line value and ROI can only be measured against real odds. No official NFL source publishes lines.",
+      "known_verified": "No verified odds source. nflverse schedule file (contains line fields) could not be downloaded here.",
+      "missing": "A licensed or open odds archive with terms of use.",
+      "how_to_close": "Check nflverse data terms and any odds vendor licence. Do not scrape sportsbook sites without permission.",
+      "priority": "Critical",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q5",
+      "question": "How many seasons of history should the validation use?",
+      "why_it_matters": "Sample size drives whether a result can be separated from luck.",
+      "known_verified": "Nothing collected yet.",
+      "missing": "Target seasons (e.g., 2015-2025).",
+      "how_to_close": "Decide with user; collect from NFL.com schedules and results.",
+      "priority": "High",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q6",
+      "question": "Where are official depth charts published, so starters and backups can be identified per team and week?",
+      "why_it_matters": "Required to answer 'which backup replaced which starter' for offense and defense.",
+      "known_verified": "NFL.com team roster pages exist and show position and status (sampled BUF roster page 1 of 3). Depth chart page not yet located or fetched.",
+      "missing": "Confirmed official depth-chart URL and its structure.",
+      "how_to_close": "Fetch the NFL.com team depth chart page for one team, confirm structure, then repeat for 32 teams.",
+      "priority": "Critical",
+      "status": "Next step - pending verification"
+    },
+    {
+      "id": "Q7",
+      "question": "Should 'Not injury related' designations (e.g., resting player, personal matter) be excluded from injury analysis?",
+      "why_it_matters": "Four Week 10 players have these labels: Jessie Bates, Jordan Davis, Azeez Al-Shaair, Myles Garrett.",
+      "known_verified": "The NFL.com report labels them 'Not injury related' in the injury column.",
+      "missing": "User preference for how to treat them.",
+      "how_to_close": "Recommend excluding them from injury counts and showing them separately. User decision.",
+      "priority": "Medium",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q8",
+      "question": "How often should the site refresh (manual, daily, or before each game day)?",
+      "why_it_matters": "Injury statuses change before kickoff; a stale table can mislead.",
+      "known_verified": "Report was fetched on 2026-11-14 for Week 10.",
+      "missing": "Refresh schedule and an owner for it.",
+      "how_to_close": "User decision. Automation would need repo permission for scheduled jobs.",
+      "priority": "Medium",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q9",
+      "question": "Is the site public or private?",
+      "why_it_matters": "Public pages with betting-related content have different risk and legal exposure.",
+      "known_verified": "Task asks for a GitHub Pages live site.",
+      "missing": "Visibility decision.",
+      "how_to_close": "User decision. Current build is public Pages.",
+      "priority": "High",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q10",
+      "question": "Does the user have a bankroll and loss limit in mind, and what is the time horizon?",
+      "why_it_matters": "Needed for responsible-gambling guardrails and for any staking model.",
+      "known_verified": "Nothing provided.",
+      "missing": "Bankroll, limits, horizon.",
+      "how_to_close": "User input. Do not set values for the user.",
+      "priority": "Medium",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q11",
+      "question": "Is the repository meant to be public, and under what license?",
+      "why_it_matters": "The repo has no license and no code (see F-01).",
+      "known_verified": "Repo is at github.com/sassnarep3-star/FL2; README only.",
+      "missing": "License choice.",
+      "how_to_close": "User decision.",
+      "priority": "Low",
+      "status": "Unanswered"
+    },
+    {
+      "id": "Q12",
+      "question": "Which NFL.com page confirms the weekly injury-report timing (when each report is posted)?",
+      "why_it_matters": "Needed to schedule refresh and know which status is current.",
+      "known_verified": "Week 10 report shows 'Week 10 of the 2026 Season' and game times, but posting schedule is not shown on the fetched content.",
+      "missing": "Official posting-time rule.",
+      "how_to_close": "Find the NFL.com injury report policy page and confirm wording.",
+      "priority": "Medium",
+      "status": "Next step - pending verification"
+    }
+  ]
+}

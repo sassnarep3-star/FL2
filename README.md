@@ -28,3 +28,20 @@ This is plain static HTML/CSS. Open `index.html` directly, or run a static serve
 ## Limitations
 
 No automatic NFL data ingestion, odds provider, historical database, forecasts, user accounts, wagering or rewards are implemented. Before those are added, verify data access and reuse terms, time-stamped source integrity, price/settlement definitions, geography and competition rules, and independent time-ordered validation. See `decisions.html` and `review.html`.
+
+## Week 10 data dashboard (`docs/`)
+
+A second, data-first dashboard lives in `docs/` (published at `https://sassnarep3-star.github.io/FL2/docs/`):
+
+- Injury tracking: all 345 entries from the NFL.com Week 10 injury report, each row linked to the player's NFL.com profile.
+- Games, news, unit exposure (counts only; starter/backup status not verified), suggestions, open questions, sources and flagged items.
+- Data lives in `data/` (CSV pipe-delimited for verified rows, JSON for qualitative content).
+
+Rebuild and validate:
+
+```bash
+python3 scripts/make_pages.py
+python3 scripts/build_site.py
+```
+
+`build_site.py` fails on any missing source link, unknown source ID, broken internal link, or invalid JSON. Starter/backup status, betting lines and strategy results are not included because no verified source for them exists yet (see `docs/flagged.html`).

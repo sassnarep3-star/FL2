@@ -17,6 +17,10 @@ jobs:
         uses: actions/checkout@v7
       - name: Validate pages, local links, and evidence rows
         run: python3 scripts/check_site.py
+      - name: Rebuild and validate Week 10 data dashboard (docs/)
+        run: |
+          python3 scripts/make_pages.py
+          python3 scripts/build_site.py
 
   deploy:
     if: github.event_name != 'pull_request'

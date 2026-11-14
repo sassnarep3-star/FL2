@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open questions | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Open questions and missing information</h1>
+<p class="lead">Questions that must be answered before a decision can reasonably be made. For each: what is verified, what is missing, and how to close the gap.</p>
+<div id="tbl"></div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const d = await getJSON("data/questions.json");
+  renderTable({
+    el: document.getElementById("tbl"), rows: d.questions, countLabel: "questions",
+    filters: [{key: "priority", label: "Priority"}, {key: "status", label: "Status"}],
+    columns: [
+      {key: "id", label: "ID"}, {key: "question", label: "Question"}, {key: "why_it_matters", label: "Why it matters"},
+      {key: "known_verified", label: "Known (verified)"}, {key: "missing", label: "Missing"},
+      {key: "how_to_close", label: "How to close the gap"}, {key: "priority", label: "Priority"}, {key: "status", label: "Status"},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Games | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Week 10 games</h1>
+<p class="lead">Matchups in NFL.com order (away at home), with kickoff time in Eastern Time as shown on NFL.com.</p>
+<div class="card">Teams on bye, per NFL.com: CHI, DEN, PHI, TB. <a href="https://www.nfl.com/schedules/2026/REG10" target="_blank" rel="noopener">Source: NFL.com schedule</a></div>
+<div id="tbl"></div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const rows = await getJSON("data/games.json");
+  renderTable({
+    el: document.getElementById("tbl"),
+    rows,
+    countLabel: "games",
+    filters: [{key: "date_et", label: "Date"}, {key: "status", label: "Status"}],
+    columns: [
+      {key: "date_et", label: "Date (ET)"},
+      {key: "time_et", label: "Time (ET)"},
+      {key: "network", label: "Network"},
+      {key: "label", label: "Matchup (away at home)"},
+      {key: "status", label: "Status"},
+      {key: "source", label: "Source", render: r => srcLink(r.source_url, "NFL.com game page")},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>

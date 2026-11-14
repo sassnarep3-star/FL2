@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit exposure | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Unit exposure - counts only</h1>
+<p class="lead">For each team and position group: how many entries are listed and how many are Out, Doubtful or Questionable. These are <b>descriptive counts from the NFL.com report</b>. They do not identify starters or backups, which is not yet verified (F-10).</p>
+<div class="notice">"Flag" is a simple review rule, not a prediction: any QB Out or Doubtful, or 2+ Out or Doubtful in one unit. "Not injury related" entries are excluded from the status counts.</div>
+<div id="tbl"></div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const rows = await getJSON("data/unit_exposure.json");
+  renderTable({
+    el: document.getElementById("tbl"),
+    rows,
+    countLabel: "team-unit rows",
+    filters: [{key: "team", label: "Team"}, {key: "unit", label: "Unit"}, {key: "flag", label: "Flag"}],
+    columns: [
+      {key: "team", label: "Team"},
+      {key: "game", label: "Game"},
+      {key: "unit", label: "Unit"},
+      {key: "listed", label: "Listed", num: true},
+      {key: "out", label: "Out", num: true},
+      {key: "doubtful", label: "Doubtful", num: true},
+      {key: "questionable", label: "Questionable", num: true},
+      {key: "dnp", label: "Did not practice", num: true},
+      {key: "not_injury_related", label: "Not injury related", num: true},
+      {key: "flag", label: "Flag", render: r => r.flag ? '<span class="tag high">' + esc(r.flag) + "</span>" : ""},
+      {key: "source", label: "Source", render: r => srcLink(r.source_url, "NFL.com report")},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>
