@@ -132,7 +132,7 @@ def build_flags(backtest, parlays, week10, market):
                           f"({s['hit_rate_ci_lo']*100:.1f}%) does not clear the 52.38% break-even "
                           "threshold, and the profit CI spans zero. Treated as luck, not edge.",
                 "value": round(s["hit_rate"], 4),
-                "sources": ["data/backtest_summary.json"],
+                "sources": ["https://github.com/sassnarep3-star/FL2/blob/main/data/backtest_summary.json"],
                 "action": "Do not promote. If you want to keep looking, collect a forward sample of 300+ "
                           "bets at recorded prices.",
             })
