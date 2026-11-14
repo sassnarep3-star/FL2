@@ -9,7 +9,11 @@
       "data_needed": "NFL.com team depth chart page (URL not yet confirmed - see Q6).",
       "effort": "Medium (32 pages, one parser)",
       "risk": "Depth chart format may change; needs per-page verification.",
-      "options": ["A: Build now for all 32 teams", "B: Build for 4 teams first as a pilot", "C: Skip for now; use counts only"],
+      "options": [
+        "A: Build now for all 32 teams",
+        "B: Build for 4 teams first as a pilot",
+        "C: Skip for now; use counts only"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -20,7 +24,10 @@
       "data_needed": "Already on the NFL.com report.",
       "effort": "Low",
       "risk": "Low",
-      "options": ["A: Exclude from counts, show separately", "B: Keep in counts with a marker"],
+      "options": [
+        "A: Exclude from counts, show separately",
+        "B: Keep in counts with a marker"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -31,7 +38,10 @@
       "data_needed": "Scheduled job (GitHub Actions) and repo permission to run it.",
       "effort": "Medium",
       "risk": "Automated scraping of NFL.com must follow their terms; needs your approval.",
-      "options": ["A: Manual refresh each game day", "B: Scheduled refresh (needs approval)"],
+      "options": [
+        "A: Manual refresh each game day",
+        "B: Scheduled refresh (needs approval)"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -42,7 +52,11 @@
       "data_needed": "Odds archive and licence (see Q4).",
       "effort": "Depends on vendor; may have cost.",
       "risk": "Licence restrictions; cost; data quality.",
-      "options": ["A: Use nflverse schedule line fields (community source, check terms)", "B: Licensed odds vendor", "C: Defer odds work; do analysis of injuries and schedules first"],
+      "options": [
+        "A: Use nflverse schedule line fields (community source, check terms)",
+        "B: Licensed odds vendor",
+        "C: Defer odds work; do analysis of injuries and schedules first"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -53,7 +67,11 @@
       "data_needed": "Spread history (see SG-04).",
       "effort": "Low for scope; High for validation.",
       "risk": "Narrow scope may find fewer signals.",
-      "options": ["A: Spreads only first", "B: Spreads + totals", "C: All markets at once (not recommended)"],
+      "options": [
+        "A: Spreads only first",
+        "B: Spreads + totals",
+        "C: All markets at once (not recommended)"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -64,7 +82,10 @@
       "data_needed": "Historical data (see Q5).",
       "effort": "Medium",
       "risk": "Strict gates may produce no winners. That is a valid outcome.",
-      "options": ["A: Adopt all gates as written", "B: Adopt, with your edits to thresholds"],
+      "options": [
+        "A: Adopt all gates as written",
+        "B: Adopt, with your edits to thresholds"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -75,7 +96,11 @@
       "data_needed": "Your decision (Q2).",
       "effort": "Low",
       "risk": "Unclear reward definitions cause scope creep.",
-      "options": ["A: Points on the site only", "B: Ranking with no reward", "C: Money reward (requires legal review first)"],
+      "options": [
+        "A: Points on the site only",
+        "B: Ranking with no reward",
+        "C: Money reward (requires legal review first)"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -86,7 +111,10 @@
       "data_needed": "Your bankroll and limits (Q10); official Mexican guidance (Q1).",
       "effort": "Low",
       "risk": "None, if done before any strategy is shown.",
-      "options": ["A: Add guardrails now", "B: Add only if wagering use is confirmed"],
+      "options": [
+        "A: Add guardrails now",
+        "B: Add only if wagering use is confirmed"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -97,7 +125,10 @@
       "data_needed": "None new.",
       "effort": "Low",
       "risk": "Low",
-      "options": ["A: Adopt (already applied to this site)", "B: Change"],
+      "options": [
+        "A: Adopt (already applied to this site)",
+        "B: Change"
+      ],
       "decision": "Awaiting your choice"
     },
     {
@@ -108,7 +139,25 @@
       "data_needed": "Weekly NFL.com injury reports for past seasons (Q5).",
       "effort": "Medium-High",
       "risk": "Playing status needs a verified source for each game (box scores).",
-      "options": ["A: Collect from the 2026 season first", "B: Collect multiple past seasons"],
+      "options": [
+        "A: Collect from the 2026 season first",
+        "B: Collect multiple past seasons"
+      ],
+      "decision": "Awaiting your choice"
+    },
+    {
+      "id": "SG-11",
+      "title": "Consolidate the two dashboards into one site",
+      "what": "Two sessions published overlapping sites: the root 'Fourth & Signal' site (session 4a77261b) and the Week 10 data dashboard in docs/ (session d263eab0). Choose one structure, one navigation, and one source register.",
+      "why": "Duplicate pages (suggestions, strategies, flagged items) can disagree. A single owner for each page avoids conflicts between sessions.",
+      "data_needed": "Your choice of the primary site.",
+      "effort": "Low-Medium (mostly moving pages and links)",
+      "risk": "Moving pages changes URLs that may already be shared.",
+      "options": [
+        "A: Keep both; cross-link (current state)",
+        "B: Make the root site primary and move docs/ pages into it",
+        "C: Make docs/ primary and retire the root pages"
+      ],
       "decision": "Awaiting your choice"
     }
   ]
