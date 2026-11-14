@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review · NFL Decision Hub</title>
+<meta name="description" content="Verified NFL requirements, decision questions, strategy origination, validation gates and injury/depth analysis. Every data row carries an official source link.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234ea1ff'/><text x='16' y='23' font-size='18' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%2307101c'>N</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mark">N</span> NFL Decision Hub</a>
+    <nav class="main"><a href="../index.html">Overview</a><a href="../pages/executive-summary.html">Executive Summary</a><a href="../pages/suggestions.html">Suggestions</a><a href="../pages/decision-questions.html">Decision Questions</a><a href="../pages/requirements.html">Requirements</a><a href="../pages/strategies.html">Strategies</a><a href="../pages/validation-gates.html">Validation Gates</a><a href="../pages/luck-and-skill.html">Luck vs Skill</a><a href="../pages/correlation.html">Correlation</a><a href="../pages/injuries.html">Injuries &amp; Depth</a><a href="../pages/slate.html">Week 10 Slate</a><a href="../pages/data-standings.html">Standings</a><a href="../pages/data-team.html">Team Metrics</a><a href="../pages/repo-audit.html">Repo Audit</a><a href="../pages/sources.html">Sources</a><a href="../pages/flagged.html" class="active">Flagged for Review</a></nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <p class="small mb0">Home / Flagged for Review</p>
+    <h1>Flagged for Review</h1>
+    <p class="lede">Every unverified value, ambiguity and negative finding — with a source link and a way to check each one.</p>
+    
+<p class="lede">Everything that could not be confirmed from an official source, every ambiguity, and every negative
+finding — published instead of buried. None of these blocked the merge; all of them should be looked at.</p>
+
+<div class="note warn"><strong>Why this page exists.</strong> An unverified value that gets quietly filled in is
+indistinguishable from a fabricated one. Every cell on this site that could not be sourced is <em>blank</em>, and every
+blank is accounted for here with a way for you to check it yourself.</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="n">9</div><div class="l">flagged items</div><div class="s">none blocking</div></div>
+  <div class="kpi"><div class="n">151</div><div class="l">blank depth fields</div><div class="s">not estimated</div></div>
+  <div class="kpi"><div class="n">25</div><div class="l">clubs without depth data</div><div class="s">ATL, AZ, BUF, CAR, CIN, CLE, DAL, DET…</div></div>
+  <div class="kpi"><div class="n">16</div><div class="l">clubs without published EPA</div><div class="s">blank, not interpolated</div></div>
+</div>
+
+<h2>Flagged items</h2>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Type</th><th>Item</th><th>What is unverified or irregular</th><th>Why it matters</th><th>What would resolve it</th><th>Source</th><th>How you can check it</th></tr></thead><tbody><tr><td>F01</td><td>Missing</td><td>Depth charts for 30 of 32 clubs</td><td>151 of 160 injury rows carry no verified depth string. Depth analysis therefore covers Kansas City and Seattle only.</td><td>The requirement to know whether a defence is on its 2nd, 3rd or 4th string cannot be met for the other clubs.</td><td>Capture each club&#x27;s official depth chart individually.</td><td><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">link</a></td><td>Open the injury page and confirm the club has no depth fields; then open the club&#x27;s own site.</td></tr><tr><td>F02</td><td>Negative finding</td><td>No league-wide official depth-chart endpoint</td><td>nfl.com/teams/{club}/depthchart returns HTTP 404.</td><td>There is no single authoritative source for depth strings, which is why F01 exists.</td><td>Per-club capture, or a licensed roster feed that carries a depth order.</td><td><a href="https://www.nfl.com/teams/kansas-city-chiefs/depthchart" target="_blank" rel="noopener">link</a></td><td>Load the URL and observe the 404.</td></tr><tr><td>F03</td><td>Missing</td><td>No odds, prices or closing lines</td><td>There is no price data of any kind in this repository.</td><td>Gates G3, G4, G5 and G9 cannot be cleared for any strategy; nine of twelve strategies are blocked on it.</td><td>A licensed historical odds archive with per-book closing prices.</td><td class="blank" title="not confirmed from an official source">&mdash;</td><td>Search the repository for a price column — there is none, by design.</td></tr><tr><td>F04</td><td>Ambiguity</td><td>Injury designations have no published predictive value</td><td>84 of 160 status rows are Questionable. The league defines the label, not its meaning for snap counts.</td><td>Any injury weighting is an assumption. Ours (Out 1.00 / Doubtful 0.75 / Questionable 0.40) is labelled proposed, not measured.</td><td>Join designations to realised snap counts across multiple seasons.</td><td><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">link</a></td><td>The page publishes the label only; there is no predictive column to check.</td></tr><tr><td>F05</td><td>Rounding</td><td>Two clubs&#x27; derived PPG differ from NGS by 0.05</td><td>Detroit derives to 27.75 vs NGS 27.8; Minnesota derives to 18.25 vs NGS 18.3.</td><td>One-decimal rounding, not a transcription error — but recorded rather than smoothed away.</td><td>None needed. Both are consistent with rounding to one decimal.</td><td><a href="https://www.nfl.com/stats/ngs/trends" target="_blank" rel="noopener">link</a></td><td>Compare data/team-metrics-2026-w10.csv PPG columns for DET and MIN against the NGS page.</td></tr><tr><td>F06</td><td>Partial coverage</td><td>NGS EPA published for 16 of 32 clubs on the captured page</td><td>EPA columns are blank for 16 clubs: BAL, BUF, CIN, CLE, DEN, HOU, IND, JAX, KC, LAC, LV, MIA, NE, NYJ, PIT, TEN.</td><td>The Team Metrics page is incomplete on the EPA dimension; correlations therefore use 16 or 32 clubs depending on the pair.</td><td>Capture each club&#x27;s own NGS trends page, which reports the same figures.</td><td><a href="https://www.nfl.com/stats/ngs/trends" target="_blank" rel="noopener">link</a></td><td>Compare the club count in each correlation row&#x27;s N column against the club list.</td></tr><tr><td>F07</td><td>Legal / eligibility</td><td>League gambling policy constrains the product</td><td>The NFL prohibits its personnel from betting on NFL events and treats prediction-market engagement as covered; players may bet non-NFL events but not from club facilities.</td><td>An automated bet-placing product may be unavailable to some contributors regardless of what the model says.</td><td>Confirm who contributes and in which jurisdiction before building any staking feature.</td><td><a href="https://operations.nfl.com/" target="_blank" rel="noopener">link</a></td><td>Read the league&#x27;s published gambling policy and confirm applicability to the specific person.</td></tr><tr><td>F08</td><td>Scope</td><td>Primary deliverable is undefined</td><td>The brief asks for a research artefact, a product and a rewarded competition simultaneously.</td><td>Effort allocation and the legal posture both depend on the answer. Recorded as Q17.</td><td>A decision from the owner.</td><td class="blank" title="not confirmed from an official source">&mdash;</td><td>Nothing to check — this is a decision, not a fact.</td></tr><tr><td>F09</td><td>Undefined</td><td>&#x27;Reward&#x27; on the leaderboard is undefined</td><td>No currency, points system or redemption mechanism is specified.</td><td>A reward tied to wagering volume could change the regulatory status of the project. Recorded as Q18.</td><td>A decision from the owner.</td><td class="blank" title="not confirmed from an official source">&mdash;</td><td>Nothing to check — this is a decision, not a fact.</td></tr></tbody></table></div>
+
+<h2>How to review this page</h2>
+<ol class="tight">
+<li>Read the <em>What is unverified</em> column. If any of it matters to your decision, the <em>What would resolve it</em>
+column is the shopping list.</li>
+<li>For items with a source link, open it and confirm the absence or ambiguity directly. These are not claims that
+require trust — they are checkable in a browser.</li>
+<li>For F08 and F09 there is nothing to check: they are decisions, not facts, and they are yours to make.</li>
+<li>Nothing here invalidates the published data. It delimits it.</li>
+</ol>
+
+<h2>Sources referenced by these flags</h2>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Tier</th><th>Link</th><th>Supports</th></tr></thead><tbody><tr><td>S01</td><td>NFL Injury Report - Week 10 2026</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">link</a></td><td>Per-player practice status (DNP / Limited / Full) and game status (Out / Doubtful / Questionable) by club</td></tr><tr><td>S06</td><td>NFL Next Gen Stats - League Trends</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/ngs/trends" target="_blank" rel="noopener">link</a></td><td>Published definitions and per-team values for Offensive EPA, Defensive EPA, PPG, OPP PPG, playoff probability</td></tr><tr><td>S10</td><td>NFL 2026 Important Dates (PDF, league communications)</td><td>NFL (media.nfl.com)</td><td>league</td><td><a href="https://media.nfl.com/content/dam/communications/football-communications/2025/news/06%2005%2025%20-%20Important%20Dates.pdf" target="_blank" rel="noopener">link</a></td><td>Personnel (Injury) Report Policy filing deadlines; Game Status Report deadlines; roster reduction to 53; 17-player practice squad; reserve/return designations</td></tr><tr><td>S11</td><td>Kansas City Chiefs - Unofficial Depth Chart</td><td>KC Chiefs (chiefs.com)</td><td>club</td><td><a href="https://www.chiefs.com/team/depth-chart" target="_blank" rel="noopener">link</a></td><td>Official club depth ordering, 1st through 4th string, offense / defense / special teams</td></tr><tr><td>S12</td><td>Seattle Seahawks - Depth Chart</td><td>Seattle Seahawks (seahawks.com)</td><td>club</td><td><a href="https://www.seahawks.com/team/depth-chart/" target="_blank" rel="noopener">link</a></td><td>Official club depth ordering, 1st through 4th string, offense / defense / special teams</td></tr><tr><td>S17</td><td>Chiefs depth chart endpoint on nfl.com (returns 404)</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/teams/kansas-city-chiefs/depthchart" target="_blank" rel="noopener">link</a></td><td>NEGATIVE RESULT: no league-wide official depth chart endpoint exists on this path</td></tr></tbody></table></div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>NFL Decision Hub · data captured 2026-11-14 · every value sourced or left blank</span>
+    <span><a href="../pages/sources.html">Source registry</a> · <a href="../pages/flagged.html">Flagged for review</a> · <a href="../pages/repo-audit.html">Audit</a></span>
+  </div>
+</footer>
+</body>
+</html>

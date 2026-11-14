@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision Questions · NFL Decision Hub</title>
+<meta name="description" content="Verified NFL requirements, decision questions, strategy origination, validation gates and injury/depth analysis. Every data row carries an official source link.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234ea1ff'/><text x='16' y='23' font-size='18' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%2307101c'>N</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mark">N</span> NFL Decision Hub</a>
+    <nav class="main"><a href="../index.html">Overview</a><a href="../pages/executive-summary.html">Executive Summary</a><a href="../pages/suggestions.html">Suggestions</a><a href="../pages/decision-questions.html" class="active">Decision Questions</a><a href="../pages/requirements.html">Requirements</a><a href="../pages/strategies.html">Strategies</a><a href="../pages/validation-gates.html">Validation Gates</a><a href="../pages/luck-and-skill.html">Luck vs Skill</a><a href="../pages/correlation.html">Correlation</a><a href="../pages/injuries.html">Injuries &amp; Depth</a><a href="../pages/slate.html">Week 10 Slate</a><a href="../pages/data-standings.html">Standings</a><a href="../pages/data-team.html">Team Metrics</a><a href="../pages/repo-audit.html">Repo Audit</a><a href="../pages/sources.html">Sources</a><a href="../pages/flagged.html">Flagged for Review</a></nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <p class="small mb0">Home / Decision Questions</p>
+    <h1>Decision Questions</h1>
+    <p class="lede">What we know, what we do not know, and exactly what would answer it — before any decision is made.</p>
+    
+<p class="lede">Eighteen questions. Each one states what we already know, what we specifically do not know, and the
+concrete artefact that would settle it. None of them is rhetorical: if a question cannot be answered by an
+artefact we could obtain, it does not belong on this list.</p>
+
+<div class="note"><strong>Read this as a blocker list, not a wish list.</strong> Answer Q15 and Q05 and most of the rest
+becomes mechanical. Q11 is the one that decides whether the project has a thesis at all.</div>
+
+<h2>Jump to a question</h2>
+<div class="grid"><a class="card" href="#Q01"><h3>Q01</h3><p>Which book&#x27;s closing line is our reference truth for grading?</p><div class="tag"><span class="pill neutral">Line origination</span></div></a><a class="card" href="#Q02"><h3>Q02</h3><p>Do we originate lines against the close, or against the open?</p><div class="tag"><span class="pill neutral">Line origination</span></div></a><a class="card" href="#Q03"><h3>Q03</h3><p>May we store and republish licensed odds and player-prop prices?</p><div class="tag"><span class="pill neutral">Data rights</span></div></a><a class="card" href="#Q04"><h3>Q04</h3><p>What is the minimum sample before a strategy may be ranked?</p><div class="tag"><span class="pill neutral">Validation</span></div></a><a class="card" href="#Q05"><h3>Q05</h3><p>How many strategies are we testing at once, and do we correct for it?</p><div class="tag"><span class="pill neutral">Validation</span></div></a><a class="card" href="#Q06"><h3>Q06</h3><p>Which correlation do we actually need: cross-sectional or event-level?</p><div class="tag"><span class="pill neutral">Correlation</span></div></a><a class="card" href="#Q07"><h3>Q07</h3><p>What is the actual same-game correlation between QB passing yards and his WR1 receiving yards?</p><div class="tag"><span class="pill neutral">Correlation</span></div></a><a class="card" href="#Q08"><h3>Q08</h3><p>Is a &#x27;Questionable&#x27; designation predictive of snap count?</p><div class="tag"><span class="pill neutral">Injury</span></div></a><a class="card" href="#Q09"><h3>Q09</h3><p>How deep is each club&#x27;s offensive line, and which positions are catastrophically thin?</p><div class="tag"><span class="pill neutral">Injury</span></div></a><a class="card" href="#Q10"><h3>Q10</h3><p>Do we treat &#x27;Not injury related - resting player&#x27; as an availability risk?</p><div class="tag"><span class="pill neutral">Injury</span></div></a><a class="card" href="#Q11"><h3>Q11</h3><p>Is the NFL spread market efficient enough that a public-data edge exists?</p><div class="tag"><span class="pill neutral">Market</span></div></a><a class="card" href="#Q12"><h3>Q12</h3><p>What hold are we actually paying, and does the strategy survive it?</p><div class="tag"><span class="pill neutral">Market</span></div></a><a class="card" href="#Q13"><h3>Q13</h3><p>Which prop markets are both available to us and resistant to the league&#x27;s manipulation concerns?</p><div class="tag"><span class="pill neutral">Props</span></div></a><a class="card" href="#Q14"><h3>Q14</h3><p>Who is allowed to place a bet, and where?</p><div class="tag"><span class="pill neutral">Operations</span></div></a><a class="card" href="#Q15"><h3>Q15</h3><p>What does &#x27;no manual input&#x27; mean when the answer requires a purchasing decision?</p><div class="tag"><span class="pill neutral">Operations</span></div></a><a class="card" href="#Q16"><h3>Q16</h3><p>Should the site show live prices, or only originated lines and analysis?</p><div class="tag"><span class="pill neutral">Product</span></div></a><a class="card" href="#Q17"><h3>Q17</h3><p>Is the deliverable a research artefact, a product, or a betting syndicate?</p><div class="tag"><span class="pill neutral">Scope</span></div></a><a class="card" href="#Q18"><h3>Q18</h3><p>What counts as &#x27;reward&#x27; on the leaderboard?</p><div class="tag"><span class="pill neutral">Governance</span></div></a></div>
+
+<h2 id="discovery">What information is missing, by area</h2>
+<h3>Line origination</h3><ul class='tight'><li><a href="#Q01">Q01</a> — Pinnacle close / Circa close / DK close give materially different CLV numbers.</li><li><a href="#Q02">Q02</a> — Originating vs the close measures information; originating vs the open measures speed.</li></ul><h3>Data rights</h3><ul class='tight'><li><a href="#Q03">Q03</a> — Books license odds; redistribution terms vary and are not in the repo.</li></ul><h3>Validation</h3><ul class='tight'><li><a href="#Q04">Q04</a> — Whether we can accumulate that volume per strategy per season.</li><li><a href="#Q05">Q05</a> — Our actual strategy count. It is unbounded today.</li></ul><h3>Correlation</h3><ul class='tight'><li><a href="#Q06">Q06</a> — Event-level (same-game) correlation between prop legs, which drives parlay pricing.</li><li><a href="#Q07">Q07</a> — The value. Computed bivariate table shows rho=0.40 moves a two-leg fair price from -8.9% EV to +15.0% EV — so the number dominates the decis</li></ul><h3>Injury</h3><ul class='tight'><li><a href="#Q08">Q08</a> — The realised snap-count distribution by designation. Not measured here.</li><li><a href="#Q09">Q09</a> — Depth for the other 30 clubs; positional criticality weighting.</li><li><a href="#Q10">Q10</a> — Whether coaches are using rest designations strategically. Unverified.</li></ul><h3>Market</h3><ul class='tight'><li><a href="#Q11">Q11</a> — Whether any inefficiency survives modern limits and vig.</li><li><a href="#Q12">Q12</a> — Our real average price after line shopping.</li></ul><h3>Props</h3><ul class='tight'><li><a href="#Q13">Q13</a> — Which specific markets our provider will actually offer at scale.</li></ul><h3>Operations</h3><ul class='tight'><li><a href="#Q14">Q14</a> — The owner&#x27;s and any contributor&#x27;s status. This is a personal legal/eligibility question, not a technical one.</li><li><a href="#Q15">Q15</a> — Whether the agent may commit spend. It may not.</li></ul><h3>Product</h3><ul class='tight'><li><a href="#Q16">Q16</a> — Depends on Q03 (rights) and Q15 (spend).</li></ul><h3>Scope</h3><ul class='tight'><li><a href="#Q17">Q17</a> — Which one is primary. Effort splits very differently.</li></ul><h3>Governance</h3><ul class='tight'><li><a href="#Q18">Q18</a> — Whether rewards create a gambling product with regulatory consequences.</li></ul>
+
+<h2>The register</h2>
+<table>
+  <thead><tr><th>ID</th><th>Question</th><th>What we know</th><th>What we do not know</th>
+  <th>What would answer it</th><th>Owner decision?</th></tr></thead>
+  <tbody>
+  <tr><td class='nowrap'><a href='#Q01'>Q01</a></td><td>Which book&#x27;s closing line is our reference truth for grading?</td><td>No official odds source is ingested. No book is named anywhere in the repo.</td><td>Pinnacle close / Circa close / DK close give materially different CLV numbers.</td><td>A licensed odds feed with historical closing prices, per book, per market.</td><td>Yes — no strategy can be graded without it.</td></tr><tr><td class='nowrap'><a href='#Q02'>Q02</a></td><td>Do we originate lines against the close, or against the open?</td><td>Nothing ingested. Conceptually the two are different products.</td><td>Originating vs the close measures information; originating vs the open measures speed.</td><td>Both odds series, timestamped.</td><td>Yes — changes the entire scoring rule.</td></tr><tr><td class='nowrap'><a href='#Q03'>Q03</a></td><td>May we store and republish licensed odds and player-prop prices?</td><td>Unknown. nfl.com publishes injuries/standings/stats; it does not publish prices.</td><td>Books license odds; redistribution terms vary and are not in the repo.</td><td>Written terms from the feed vendor.</td><td>Yes — legal exposure if we republish without rights.</td></tr><tr><td class='nowrap'><a href='#Q04'>Q04</a></td><td>What is the minimum sample before a strategy may be ranked?</td><td>Computed: 2,243 bets are needed to detect a true 55% win rate at 80% power vs a 52.38% break-even.</td><td>Whether we can accumulate that volume per strategy per season.</td><td>Historical line + outcome archive to bootstrap.</td><td>Recommended: 500-bet floor to show, 2,000-bet floor to rank. Owner must confirm.</td></tr><tr><td class='nowrap'><a href='#Q05'>Q05</a></td><td>How many strategies are we testing at once, and do we correct for it?</td><td>Computed: with 500 zero-edge strategies at 200 bets each, the chance at least one shows &gt;=55% by luck alone is effectively 100%; a single strategy has a 25.1% chance.</td><td>Our actual strategy count. It is unbounded today.</td><td>A fixed, pre-registered strategy registry.</td><td>Yes — without a fixed registry, rewards reward luck.</td></tr><tr><td class='nowrap'><a href='#Q06'>Q06</a></td><td>Which correlation do we actually need: cross-sectional or event-level?</td><td>Measured cross-sectional: offensive EPA/play vs PPG r=0.926 (R2 85.8%). This is a team-quality relationship, not a bet relationship.</td><td>Event-level (same-game) correlation between prop legs, which drives parlay pricing.</td><td>Play-by-play with player attribution for both legs of each pair.</td><td>Yes — the two answer different questions and only one prices a parlay.</td></tr><tr><td class='nowrap'><a href='#Q07'>Q07</a></td><td>What is the actual same-game correlation between QB passing yards and his WR1 receiving yards?</td><td>Unknown. Not derivable from team-level tables.</td><td>The value. Computed bivariate table shows rho=0.40 moves a two-leg fair price from -8.9% EV to +15.0% EV — so the number dominates the decision.</td><td>Player-level game logs, 3+ seasons, both players in the same game.</td><td>Yes.</td></tr><tr><td class='nowrap'><a href='#Q08'>Q08</a></td><td>Is a &#x27;Questionable&#x27; designation predictive of snap count?</td><td>Official policy: Questionable is a game-status designation filed by deadline. 84 of 160 Week 10 status rows are Questionable.</td><td>The realised snap-count distribution by designation. Not measured here.</td><td>Injury designation + actual snap counts, joined per player per week.</td><td>Yes — the proposed weights are uncalibrated guesses and are labelled as such.</td></tr><tr><td class='nowrap'><a href='#Q09'>Q09</a></td><td>How deep is each club&#x27;s offensive line, and which positions are catastrophically thin?</td><td>Only 2 of 32 official depth charts captured (KC, SEA). nfl.com/teams/{club}/depthchart returns 404 — there is no league-wide official depth endpoint on that path.</td><td>Depth for the other 30 clubs; positional criticality weighting.</td><td>Per-club depth-chart capture, or a licensed roster feed.</td><td>No for the framework; yes for the actual scores.</td></tr><tr><td class='nowrap'><a href='#Q10'>Q10</a></td><td>Do we treat &#x27;Not injury related - resting player&#x27; as an availability risk?</td><td>Official report labels exist and were observed (e.g. KC none, JAX two). The league treats them as non-injury.</td><td>Whether coaches are using rest designations strategically. Unverified.</td><td>Multi-season rest-designation history joined to snap counts.</td><td>No — can default to excluding them, but that must be a recorded decision.</td></tr><tr><td class='nowrap'><a href='#Q11'>Q11</a></td><td>Is the NFL spread market efficient enough that a public-data edge exists?</td><td>Secondary literature is split: Levitt (2004) argues books price to maximise profit, not to balance; Boulier et al. (2006) could not reject efficiency; a 10-season home-underdog test found no variation profitable every year.</td><td>Whether any inefficiency survives modern limits and vig.</td><td>Our own backtest on a licensed odds archive.</td><td>Yes — this is the single biggest risk to the whole effort.</td></tr><tr><td class='nowrap'><a href='#Q12'>Q12</a></td><td>What hold are we actually paying, and does the strategy survive it?</td><td>Computed: -110/-110 implies 52.38% break-even and a 4.76% two-way hold. A 2-leg -110 parlay carries 8.88% effective hold; 6 legs, 24.36%.</td><td>Our real average price after line shopping.</td><td>Bet-level price log.</td><td>No — the threshold is known; we just have to clear it.</td></tr><tr><td class='nowrap'><a href='#Q13'>Q13</a></td><td>Which prop markets are both available to us and resistant to the league&#x27;s manipulation concerns?</td><td>The NFL publicly opposes low-engagement, manipulation-prone bets, and states its gambling policy covers prediction markets.</td><td>Which specific markets our provider will actually offer at scale.</td><td>Provider market catalogue.</td><td>Yes — scope cannot be set without it.</td></tr><tr><td class='nowrap'><a href='#Q14'>Q14</a></td><td>Who is allowed to place a bet, and where?</td><td>League policy prohibits all NFL personnel from betting on NFL events; players may bet non-NFL events but not from club facilities.</td><td>The owner&#x27;s and any contributor&#x27;s status. This is a personal legal/eligibility question, not a technical one.</td><td>Owner confirmation, and local jurisdiction rules.</td><td>Yes — build a line-publishing product by default; do not build an auto-bettor until answered.</td></tr><tr><td class='nowrap'><a href='#Q15'>Q15</a></td><td>What does &#x27;no manual input&#x27; mean when the answer requires a purchasing decision?</td><td>Nothing in the repo defines budget, vendor approval, or who signs a data contract.</td><td>Whether the agent may commit spend. It may not.</td><td>Owner statement of a spend ceiling and an approved vendor list.</td><td>Yes — this is the one hard blocker the agent cannot clear alone.</td></tr><tr><td class='nowrap'><a href='#Q16'>Q16</a></td><td>Should the site show live prices, or only originated lines and analysis?</td><td>Undecided; both are buildable.</td><td>Depends on Q03 (rights) and Q15 (spend).</td><td>Answers to Q03 and Q15.</td><td>Yes.</td></tr><tr><td class='nowrap'><a href='#Q17'>Q17</a></td><td>Is the deliverable a research artefact, a product, or a betting syndicate?</td><td>The request mixes all three (leaderboard with rewards, own lines, site).</td><td>Which one is primary. Effort splits very differently.</td><td>Owner prioritisation.</td><td>Yes — recommended default: research artefact that publishes lines, not a betting operation.</td></tr><tr><td class='nowrap'><a href='#Q18'>Q18</a></td><td>What counts as &#x27;reward&#x27; on the leaderboard?</td><td>Undefined. No currency, no points system, no redemption stated.</td><td>Whether rewards create a gambling product with regulatory consequences.</td><td>Owner decision plus jurisdiction check.</td><td>Yes — a reward tied to wagering volume changes the legal posture.</td></tr>
+  </tbody>
+</table>
+
+<h2>Full detail</h2>
+
+<h3 class="anchor" id="Q01">Q01 · Which book&#x27;s closing line is our reference truth for grading?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Line origination</span></td></tr>
+<tr><th>What we know</th><td>No official odds source is ingested. No book is named anywhere in the repo.</td></tr>
+<tr><th>What we do not know</th><td>Pinnacle close / Circa close / DK close give materially different CLV numbers.</td></tr>
+<tr><th>What would answer it</th><td>A licensed odds feed with historical closing prices, per book, per market.</td></tr>
+<tr><th>Decision blocked</th><td>All CLV and &#x27;did we beat the market&#x27; claims</td></tr>
+<tr><th>Owner decision required</th><td>Yes — no strategy can be graded without it.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q02">Q02 · Do we originate lines against the close, or against the open?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Line origination</span></td></tr>
+<tr><th>What we know</th><td>Nothing ingested. Conceptually the two are different products.</td></tr>
+<tr><th>What we do not know</th><td>Originating vs the close measures information; originating vs the open measures speed.</td></tr>
+<tr><th>What would answer it</th><td>Both odds series, timestamped.</td></tr>
+<tr><th>Decision blocked</th><td>Definition of &#x27;our own line&#x27;</td></tr>
+<tr><th>Owner decision required</th><td>Yes — changes the entire scoring rule.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q03">Q03 · May we store and republish licensed odds and player-prop prices?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Data rights</span></td></tr>
+<tr><th>What we know</th><td>Unknown. nfl.com publishes injuries/standings/stats; it does not publish prices.</td></tr>
+<tr><th>What we do not know</th><td>Books license odds; redistribution terms vary and are not in the repo.</td></tr>
+<tr><th>What would answer it</th><td>Written terms from the feed vendor.</td></tr>
+<tr><th>Decision blocked</th><td>Whether the site can show prices at all</td></tr>
+<tr><th>Owner decision required</th><td>Yes — legal exposure if we republish without rights.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q04">Q04 · What is the minimum sample before a strategy may be ranked?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Validation</span></td></tr>
+<tr><th>What we know</th><td>Computed: 2,243 bets are needed to detect a true 55% win rate at 80% power vs a 52.38% break-even.</td></tr>
+<tr><th>What we do not know</th><td>Whether we can accumulate that volume per strategy per season.</td></tr>
+<tr><th>What would answer it</th><td>Historical line + outcome archive to bootstrap.</td></tr>
+<tr><th>Decision blocked</th><td>Leaderboard eligibility</td></tr>
+<tr><th>Owner decision required</th><td>Recommended: 500-bet floor to show, 2,000-bet floor to rank. Owner must confirm.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q05">Q05 · How many strategies are we testing at once, and do we correct for it?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Validation</span></td></tr>
+<tr><th>What we know</th><td>Computed: with 500 zero-edge strategies at 200 bets each, the chance at least one shows &gt;=55% by luck alone is effectively 100%; a single strategy has a 25.1% chance.</td></tr>
+<tr><th>What we do not know</th><td>Our actual strategy count. It is unbounded today.</td></tr>
+<tr><th>What would answer it</th><td>A fixed, pre-registered strategy registry.</td></tr>
+<tr><th>Decision blocked</th><td>Whether any leaderboard crown means anything</td></tr>
+<tr><th>Owner decision required</th><td>Yes — without a fixed registry, rewards reward luck.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q06">Q06 · Which correlation do we actually need: cross-sectional or event-level?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Correlation</span></td></tr>
+<tr><th>What we know</th><td>Measured cross-sectional: offensive EPA/play vs PPG r=0.926 (R2 85.8%). This is a team-quality relationship, not a bet relationship.</td></tr>
+<tr><th>What we do not know</th><td>Event-level (same-game) correlation between prop legs, which drives parlay pricing.</td></tr>
+<tr><th>What would answer it</th><td>Play-by-play with player attribution for both legs of each pair.</td></tr>
+<tr><th>Decision blocked</th><td>Parlay and prop-combo construction</td></tr>
+<tr><th>Owner decision required</th><td>Yes — the two answer different questions and only one prices a parlay.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q07">Q07 · What is the actual same-game correlation between QB passing yards and his WR1 receiving yards?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Correlation</span></td></tr>
+<tr><th>What we know</th><td>Unknown. Not derivable from team-level tables.</td></tr>
+<tr><th>What we do not know</th><td>The value. Computed bivariate table shows rho=0.40 moves a two-leg fair price from -8.9% EV to +15.0% EV — so the number dominates the decision.</td></tr>
+<tr><th>What would answer it</th><td>Player-level game logs, 3+ seasons, both players in the same game.</td></tr>
+<tr><th>Decision blocked</th><td>All correlated parlay pricing</td></tr>
+<tr><th>Owner decision required</th><td>Yes.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q08">Q08 · Is a &#x27;Questionable&#x27; designation predictive of snap count?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Injury</span></td></tr>
+<tr><th>What we know</th><td>Official policy: Questionable is a game-status designation filed by deadline. 84 of 160 Week 10 status rows are Questionable.</td></tr>
+<tr><th>What we do not know</th><td>The realised snap-count distribution by designation. Not measured here.</td></tr>
+<tr><th>What would answer it</th><td>Injury designation + actual snap counts, joined per player per week.</td></tr>
+<tr><th>Decision blocked</th><td>Injury-based signal weighting</td></tr>
+<tr><th>Owner decision required</th><td>Yes — the proposed weights are uncalibrated guesses and are labelled as such.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q09">Q09 · How deep is each club&#x27;s offensive line, and which positions are catastrophically thin?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Injury</span></td></tr>
+<tr><th>What we know</th><td>Only 2 of 32 official depth charts captured (KC, SEA). nfl.com/teams/{club}/depthchart returns 404 — there is no league-wide official depth endpoint on that path.</td></tr>
+<tr><th>What we do not know</th><td>Depth for the other 30 clubs; positional criticality weighting.</td></tr>
+<tr><th>What would answer it</th><td>Per-club depth-chart capture, or a licensed roster feed.</td></tr>
+<tr><th>Decision blocked</th><td>2nd/3rd/4th-string deficiency scoring</td></tr>
+<tr><th>Owner decision required</th><td>No for the framework; yes for the actual scores.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q10">Q10 · Do we treat &#x27;Not injury related - resting player&#x27; as an availability risk?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Injury</span></td></tr>
+<tr><th>What we know</th><td>Official report labels exist and were observed (e.g. KC none, JAX two). The league treats them as non-injury.</td></tr>
+<tr><th>What we do not know</th><td>Whether coaches are using rest designations strategically. Unverified.</td></tr>
+<tr><th>What would answer it</th><td>Multi-season rest-designation history joined to snap counts.</td></tr>
+<tr><th>Decision blocked</th><td>Injury model feature set</td></tr>
+<tr><th>Owner decision required</th><td>No — can default to excluding them, but that must be a recorded decision.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q11">Q11 · Is the NFL spread market efficient enough that a public-data edge exists?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Market</span></td></tr>
+<tr><th>What we know</th><td>Secondary literature is split: Levitt (2004) argues books price to maximise profit, not to balance; Boulier et al. (2006) could not reject efficiency; a 10-season home-underdog test found no variation profitable every year.</td></tr>
+<tr><th>What we do not know</th><td>Whether any inefficiency survives modern limits and vig.</td></tr>
+<tr><th>What would answer it</th><td>Our own backtest on a licensed odds archive.</td></tr>
+<tr><th>Decision blocked</th><td>Whether this project has a viable thesis at all</td></tr>
+<tr><th>Owner decision required</th><td>Yes — this is the single biggest risk to the whole effort.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q12">Q12 · What hold are we actually paying, and does the strategy survive it?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Market</span></td></tr>
+<tr><th>What we know</th><td>Computed: -110/-110 implies 52.38% break-even and a 4.76% two-way hold. A 2-leg -110 parlay carries 8.88% effective hold; 6 legs, 24.36%.</td></tr>
+<tr><th>What we do not know</th><td>Our real average price after line shopping.</td></tr>
+<tr><th>What would answer it</th><td>Bet-level price log.</td></tr>
+<tr><th>Decision blocked</th><td>Every EV number</td></tr>
+<tr><th>Owner decision required</th><td>No — the threshold is known; we just have to clear it.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q13">Q13 · Which prop markets are both available to us and resistant to the league&#x27;s manipulation concerns?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Props</span></td></tr>
+<tr><th>What we know</th><td>The NFL publicly opposes low-engagement, manipulation-prone bets, and states its gambling policy covers prediction markets.</td></tr>
+<tr><th>What we do not know</th><td>Which specific markets our provider will actually offer at scale.</td></tr>
+<tr><th>What would answer it</th><td>Provider market catalogue.</td></tr>
+<tr><th>Decision blocked</th><td>Player-prop combo product scope</td></tr>
+<tr><th>Owner decision required</th><td>Yes — scope cannot be set without it.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q14">Q14 · Who is allowed to place a bet, and where?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Operations</span></td></tr>
+<tr><th>What we know</th><td>League policy prohibits all NFL personnel from betting on NFL events; players may bet non-NFL events but not from club facilities.</td></tr>
+<tr><th>What we do not know</th><td>The owner&#x27;s and any contributor&#x27;s status. This is a personal legal/eligibility question, not a technical one.</td></tr>
+<tr><th>What would answer it</th><td>Owner confirmation, and local jurisdiction rules.</td></tr>
+<tr><th>Decision blocked</th><td>Whether the product places bets or only publishes lines</td></tr>
+<tr><th>Owner decision required</th><td>Yes — build a line-publishing product by default; do not build an auto-bettor until answered.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q15">Q15 · What does &#x27;no manual input&#x27; mean when the answer requires a purchasing decision?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Operations</span></td></tr>
+<tr><th>What we know</th><td>Nothing in the repo defines budget, vendor approval, or who signs a data contract.</td></tr>
+<tr><th>What we do not know</th><td>Whether the agent may commit spend. It may not.</td></tr>
+<tr><th>What would answer it</th><td>Owner statement of a spend ceiling and an approved vendor list.</td></tr>
+<tr><th>Decision blocked</th><td>Any paid odds feed</td></tr>
+<tr><th>Owner decision required</th><td>Yes — this is the one hard blocker the agent cannot clear alone.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q16">Q16 · Should the site show live prices, or only originated lines and analysis?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Product</span></td></tr>
+<tr><th>What we know</th><td>Undecided; both are buildable.</td></tr>
+<tr><th>What we do not know</th><td>Depends on Q03 (rights) and Q15 (spend).</td></tr>
+<tr><th>What would answer it</th><td>Answers to Q03 and Q15.</td></tr>
+<tr><th>Decision blocked</th><td>Front-end scope</td></tr>
+<tr><th>Owner decision required</th><td>Yes.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q17">Q17 · Is the deliverable a research artefact, a product, or a betting syndicate?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Scope</span></td></tr>
+<tr><th>What we know</th><td>The request mixes all three (leaderboard with rewards, own lines, site).</td></tr>
+<tr><th>What we do not know</th><td>Which one is primary. Effort splits very differently.</td></tr>
+<tr><th>What would answer it</th><td>Owner prioritisation.</td></tr>
+<tr><th>Decision blocked</th><td>Roadmap order</td></tr>
+<tr><th>Owner decision required</th><td>Yes — recommended default: research artefact that publishes lines, not a betting operation.</td></tr>
+</tbody></table></div>
+<h3 class="anchor" id="Q18">Q18 · What counts as &#x27;reward&#x27; on the leaderboard?</h3>
+<div class="tablewrap"><table><tbody>
+<tr><th style="width:190px">Category</th><td><span class="pill neutral">Governance</span></td></tr>
+<tr><th>What we know</th><td>Undefined. No currency, no points system, no redemption stated.</td></tr>
+<tr><th>What we do not know</th><td>Whether rewards create a gambling product with regulatory consequences.</td></tr>
+<tr><th>What would answer it</th><td>Owner decision plus jurisdiction check.</td></tr>
+<tr><th>Decision blocked</th><td>Leaderboard design</td></tr>
+<tr><th>Owner decision required</th><td>Yes — a reward tied to wagering volume changes the legal posture.</td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Tier</th><th>Link</th><th>Supports</th></tr></thead><tbody><tr><td>S01</td><td>NFL Injury Report - Week 10 2026</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">link</a></td><td>Per-player practice status (DNP / Limited / Full) and game status (Out / Doubtful / Questionable) by club</td></tr><tr><td>S02</td><td>NFL Standings - 2026</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">link</a></td><td>W-L-T, PCT, PF, PA, net points, division and conference record, streak</td></tr><tr><td>S03</td><td>NFL Team Stats - Offense passing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Team pass attempts, completions, pct, yards per attempt, passing yards, TD, INT, rating, sacks</td></tr><tr><td>S04</td><td>NFL Team Stats - Defense passing</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all" target="_blank" rel="noopener">link</a></td><td>Opponent passing volume and efficiency allowed, by team</td></tr><tr><td>S06</td><td>NFL Next Gen Stats - League Trends</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/stats/ngs/trends" target="_blank" rel="noopener">link</a></td><td>Published definitions and per-team values for Offensive EPA, Defensive EPA, PPG, OPP PPG, playoff probability</td></tr><tr><td>S10</td><td>NFL 2026 Important Dates (PDF, league communications)</td><td>NFL (media.nfl.com)</td><td>league</td><td><a href="https://media.nfl.com/content/dam/communications/football-communications/2025/news/06%2005%2025%20-%20Important%20Dates.pdf" target="_blank" rel="noopener">link</a></td><td>Personnel (Injury) Report Policy filing deadlines; Game Status Report deadlines; roster reduction to 53; 17-player practice squad; reserve/return designations</td></tr><tr><td>S11</td><td>Kansas City Chiefs - Unofficial Depth Chart</td><td>KC Chiefs (chiefs.com)</td><td>club</td><td><a href="https://www.chiefs.com/team/depth-chart" target="_blank" rel="noopener">link</a></td><td>Official club depth ordering, 1st through 4th string, offense / defense / special teams</td></tr><tr><td>S12</td><td>Seattle Seahawks - Depth Chart</td><td>Seattle Seahawks (seahawks.com)</td><td>club</td><td><a href="https://www.seahawks.com/team/depth-chart/" target="_blank" rel="noopener">link</a></td><td>Official club depth ordering, 1st through 4th string, offense / defense / special teams</td></tr><tr><td>S17</td><td>Chiefs depth chart endpoint on nfl.com (returns 404)</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/teams/kansas-city-chiefs/depthchart" target="_blank" rel="noopener">link</a></td><td>NEGATIVE RESULT: no league-wide official depth chart endpoint exists on this path</td></tr><tr><td>S18</td><td>Levitt (2004), Why are gambling markets organised so differently from financial markets?</td><td>Economic Journal (secondary)</td><td>secondary</td><td><a href="https://www.ubplj.org/index.php/jpm/article/download/429/461" target="_blank" rel="noopener">link</a></td><td>Secondary: books price to maximise profit rather than to balance the book. Context only.</td></tr><tr><td>S19</td><td>Beating the NFL Football Point Spread (Gimpel)</td><td>Carnegie Mellon (secondary)</td><td>secondary</td><td><a href="https://www.cs.cmu.edu/~epxing/Class/10701-06f/project-reports/gimpel.pdf" target="_blank" rel="noopener">link</a></td><td>Secondary: literature summary on NFL betting-market efficiency</td></tr><tr><td>S20</td><td>Home-Underdog Theory, Major Themes in Economics vol. 22</td><td>Univ. of Northern Iowa (secondary)</td><td>secondary</td><td><a href="https://scholarworks.uni.edu/cgi/viewcontent.cgi?article=1148&amp;context=mtie" target="_blank" rel="noopener">link</a></td><td>Secondary: ten-season test finding no home-underdog variation profitable every year</td></tr></tbody></table></div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>NFL Decision Hub · data captured 2026-11-14 · every value sourced or left blank</span>
+    <span><a href="../pages/sources.html">Source registry</a> · <a href="../pages/flagged.html">Flagged for review</a> · <a href="../pages/repo-audit.html">Audit</a></span>
+  </div>
+</footer>
+</body>
+</html>

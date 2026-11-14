@@ -1,0 +1,318 @@
+{
+  "breakeven_table": [
+    {
+      "american": -200,
+      "decimal": 1.5,
+      "implied_prob_pct": 66.67,
+      "breakeven_win_pct": 66.67
+    },
+    {
+      "american": -150,
+      "decimal": 1.6667,
+      "implied_prob_pct": 60.0,
+      "breakeven_win_pct": 60.0
+    },
+    {
+      "american": -130,
+      "decimal": 1.7692,
+      "implied_prob_pct": 56.52,
+      "breakeven_win_pct": 56.52
+    },
+    {
+      "american": -120,
+      "decimal": 1.8333,
+      "implied_prob_pct": 54.55,
+      "breakeven_win_pct": 54.55
+    },
+    {
+      "american": -115,
+      "decimal": 1.8696,
+      "implied_prob_pct": 53.49,
+      "breakeven_win_pct": 53.49
+    },
+    {
+      "american": -110,
+      "decimal": 1.9091,
+      "implied_prob_pct": 52.38,
+      "breakeven_win_pct": 52.38
+    },
+    {
+      "american": -105,
+      "decimal": 1.9524,
+      "implied_prob_pct": 51.22,
+      "breakeven_win_pct": 51.22
+    },
+    {
+      "american": 100,
+      "decimal": 2.0,
+      "implied_prob_pct": 50.0,
+      "breakeven_win_pct": 50.0
+    },
+    {
+      "american": 110,
+      "decimal": 2.1,
+      "implied_prob_pct": 47.62,
+      "breakeven_win_pct": 47.62
+    },
+    {
+      "american": 120,
+      "decimal": 2.2,
+      "implied_prob_pct": 45.45,
+      "breakeven_win_pct": 45.45
+    },
+    {
+      "american": 150,
+      "decimal": 2.5,
+      "implied_prob_pct": 40.0,
+      "breakeven_win_pct": 40.0
+    },
+    {
+      "american": 200,
+      "decimal": 3.0,
+      "implied_prob_pct": 33.33,
+      "breakeven_win_pct": 33.33
+    }
+  ],
+  "hold_-110_-110_pct": 4.76,
+  "hold_-105_-105_pct": 2.44,
+  "no_vig_fair_prob_-110_-110": [
+    50.0,
+    50.0
+  ],
+  "parlay_hold_compounding": [
+    {
+      "legs": 1,
+      "offered_decimal": 1.9091,
+      "offered_american": 91,
+      "fair_decimal_no_vig": 2.0,
+      "effective_hold_pct": 4.55,
+      "breakeven_win_pct": 50.0,
+      "ev_per_1_unit_pct": -4.55
+    },
+    {
+      "legs": 2,
+      "offered_decimal": 3.6446,
+      "offered_american": 264,
+      "fair_decimal_no_vig": 4.0,
+      "effective_hold_pct": 8.88,
+      "breakeven_win_pct": 25.0,
+      "ev_per_1_unit_pct": -8.88
+    },
+    {
+      "legs": 3,
+      "offered_decimal": 6.9579,
+      "offered_american": 596,
+      "fair_decimal_no_vig": 8.0,
+      "effective_hold_pct": 13.03,
+      "breakeven_win_pct": 12.5,
+      "ev_per_1_unit_pct": -13.03
+    },
+    {
+      "legs": 4,
+      "offered_decimal": 13.2833,
+      "offered_american": 1228,
+      "fair_decimal_no_vig": 16.0,
+      "effective_hold_pct": 16.98,
+      "breakeven_win_pct": 6.25,
+      "ev_per_1_unit_pct": -16.98
+    },
+    {
+      "legs": 5,
+      "offered_decimal": 25.3591,
+      "offered_american": 2436,
+      "fair_decimal_no_vig": 32.0,
+      "effective_hold_pct": 20.75,
+      "breakeven_win_pct": 3.125,
+      "ev_per_1_unit_pct": -20.75
+    },
+    {
+      "legs": 6,
+      "offered_decimal": 48.4127,
+      "offered_american": 4741,
+      "fair_decimal_no_vig": 64.0,
+      "effective_hold_pct": 24.36,
+      "breakeven_win_pct": 1.5625,
+      "ev_per_1_unit_pct": -24.36
+    }
+  ],
+  "correlated_parlay_table": [
+    {
+      "rho": -0.6,
+      "fair_joint_pct": 14.76,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 6.7758,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": -46.21
+    },
+    {
+      "rho": -0.4,
+      "fair_joint_pct": 18.45,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 5.4199,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": -32.75
+    },
+    {
+      "rho": -0.2,
+      "fair_joint_pct": 21.8,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 4.5881,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": -20.56
+    },
+    {
+      "rho": 0.0,
+      "fair_joint_pct": 25.0,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 4.0,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": -8.88
+    },
+    {
+      "rho": 0.2,
+      "fair_joint_pct": 28.2,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 3.5455,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": 2.8
+    },
+    {
+      "rho": 0.4,
+      "fair_joint_pct": 31.55,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 3.1696,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": 14.99
+    },
+    {
+      "rho": 0.6,
+      "fair_joint_pct": 35.24,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 2.8376,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": 28.44
+    },
+    {
+      "rho": 0.8,
+      "fair_joint_pct": 39.76,
+      "independent_reference_pct": 25.0,
+      "fair_decimal": 2.5152,
+      "offered_decimal_-110x2": 3.6446,
+      "ev_per_1_unit_staked_pct": 44.9
+    }
+  ],
+  "sample_size_required": [
+    {
+      "true_win_pct": 52.5,
+      "edge_vs_-110_breakeven_pp": 0.12,
+      "bets_required_80pct_power": 1088916
+    },
+    {
+      "true_win_pct": 53.0,
+      "edge_vs_-110_breakeven_pp": 0.62,
+      "bets_required_80pct_power": 40230
+    },
+    {
+      "true_win_pct": 53.5,
+      "edge_vs_-110_breakeven_pp": 1.12,
+      "bets_required_80pct_power": 12305
+    },
+    {
+      "true_win_pct": 55.0,
+      "edge_vs_-110_breakeven_pp": 2.62,
+      "bets_required_80pct_power": 2243
+    },
+    {
+      "true_win_pct": 57.5,
+      "edge_vs_-110_breakeven_pp": 5.12,
+      "bets_required_80pct_power": 585
+    },
+    {
+      "true_win_pct": 60.0,
+      "edge_vs_-110_breakeven_pp": 7.62,
+      "bets_required_80pct_power": 263
+    }
+  ],
+  "minimum_detectable_edge": [
+    {
+      "bets": 100,
+      "min_detectable_true_win_pct": 64.62,
+      "min_detectable_edge_pp": 12.24
+    },
+    {
+      "bets": 250,
+      "min_detectable_true_win_pct": 60.18,
+      "min_detectable_edge_pp": 7.8
+    },
+    {
+      "bets": 500,
+      "min_detectable_true_win_pct": 57.91,
+      "min_detectable_edge_pp": 5.53
+    },
+    {
+      "bets": 1000,
+      "min_detectable_true_win_pct": 56.3,
+      "min_detectable_edge_pp": 3.92
+    },
+    {
+      "bets": 2500,
+      "min_detectable_true_win_pct": 54.86,
+      "min_detectable_edge_pp": 2.48
+    },
+    {
+      "bets": 5000,
+      "min_detectable_true_win_pct": 54.14,
+      "min_detectable_edge_pp": 1.75
+    }
+  ],
+  "luck_false_positive": {
+    "scenario": "200 bets per strategy at -110, zero true edge, 500 strategies tested",
+    "prob_single_strategy_at_or_above_55pct_pct": 25.14,
+    "prob_at_least_one_of_500_pct": 100.0,
+    "prob_any_single_strategy_at_or_above_breakeven_pct": 51.52
+  },
+  "kelly_table": [
+    {
+      "true_win_pct": 53.0,
+      "american": -110,
+      "full_kelly_pct_of_bankroll": 1.3,
+      "half_kelly_pct": 0.65,
+      "quarter_kelly_pct": 0.33
+    },
+    {
+      "true_win_pct": 55.0,
+      "american": -110,
+      "full_kelly_pct_of_bankroll": 5.5,
+      "half_kelly_pct": 2.75,
+      "quarter_kelly_pct": 1.38
+    },
+    {
+      "true_win_pct": 57.0,
+      "american": -110,
+      "full_kelly_pct_of_bankroll": 9.7,
+      "half_kelly_pct": 4.85,
+      "quarter_kelly_pct": 2.42
+    },
+    {
+      "true_win_pct": 55.0,
+      "american": 100,
+      "full_kelly_pct_of_bankroll": 10.0,
+      "half_kelly_pct": 5.0,
+      "quarter_kelly_pct": 2.5
+    },
+    {
+      "true_win_pct": 60.0,
+      "american": -150,
+      "full_kelly_pct_of_bankroll": -0.0,
+      "half_kelly_pct": -0.0,
+      "quarter_kelly_pct": -0.0
+    }
+  ],
+  "injury_status_weights_proposed": {
+    "note": "Proposed starting weights. Must be calibrated against realised snap-count drops; not an official NFL construct.",
+    "Out": 1.0,
+    "Doubtful": 0.75,
+    "Questionable": 0.4,
+    "no designation / practice-only": 0.15
+  }
+}

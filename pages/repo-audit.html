@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repository Audit · NFL Decision Hub</title>
+<meta name="description" content="Verified NFL requirements, decision questions, strategy origination, validation gates and injury/depth analysis. Every data row carries an official source link.">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234ea1ff'/><text x='16' y='23' font-size='18' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%2307101c'>N</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mark">N</span> NFL Decision Hub</a>
+    <nav class="main"><a href="../index.html">Overview</a><a href="../pages/executive-summary.html">Executive Summary</a><a href="../pages/suggestions.html">Suggestions</a><a href="../pages/decision-questions.html">Decision Questions</a><a href="../pages/requirements.html">Requirements</a><a href="../pages/strategies.html">Strategies</a><a href="../pages/validation-gates.html">Validation Gates</a><a href="../pages/luck-and-skill.html">Luck vs Skill</a><a href="../pages/correlation.html">Correlation</a><a href="../pages/injuries.html">Injuries &amp; Depth</a><a href="../pages/slate.html">Week 10 Slate</a><a href="../pages/data-standings.html">Standings</a><a href="../pages/data-team.html">Team Metrics</a><a href="../pages/repo-audit.html" class="active">Repo Audit</a><a href="../pages/sources.html">Sources</a><a href="../pages/flagged.html">Flagged for Review</a></nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <p class="small mb0">Home / Repo Audit</p>
+    <h1>Repository Audit</h1>
+    <p class="lede">Line-by-line review of the repository as found, what was added, how each piece is checked, and every irregularity.</p>
+    
+<p class="lede">A line-by-line review of the repository as it was found, what was changed, what was verified, and every
+irregularity flagged for manual review.</p>
+
+<h2>State of the repository when found</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Item</th><th>Observed</th><th>Assessment</th></tr></thead>
+<tbody>
+<tr><td>Commits</td><td>1 — <code>0f3d2f9 Initial commit</code></td><td><span class="pill warn">irregular</span> An "initial commit" containing no code, data or site.</td></tr>
+<tr><td>Files</td><td><code>README.md</code> only</td><td><span class="pill warn">irregular</span> No source, no data, no site, no licence, no CI.</td></tr>
+<tr><td><code>README.md</code> content</td><td>Five bytes: <code>NFL\n\n</code></td><td><span class="pill warn">irregular</span> Not a README. No project description, no instructions.</td></tr>
+<tr><td>Branches</td><td><code>main</code>, <code>arena/e70150db-fl2</code></td><td><span class="pill ok">ok</span> Clean.</td></tr>
+<tr><td>COORDINATION.md</td><td>Absent</td><td><span class="pill info">created</span> Created in this pass as the shared task board, per the brief.</td></tr>
+<tr><td>GitHub Pages</td><td>Already enabled, source <code>main</code> / root, build type <code>legacy</code></td><td><span class="pill neutral">note</span> Pre-existing. It was serving a site that did not exist. Now serves this one.</td></tr>
+<tr><td>Issues</td><td>Enabled</td><td><span class="pill ok">ok</span></td></tr>
+<tr><td>Repository visibility</td><td>Public</td><td><span class="pill neutral">note</span> Relevant because any ingested licensed odds data would become publicly redistributable.</td></tr>
+<tr><td>Licence</td><td>No licence file present</td><td><span class="pill warn">irregular</span> Legal status of any future contribution is undefined.</td></tr>
+<tr><td>Tests / CI</td><td>No test suite and no CI workflow</td><td><span class="pill warn">irregular</span> Addressed here with assertion checks inside the build scripts.</td></tr>
+</tbody></table></div>
+
+<h2>What was added, and why each piece is auditable</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Path</th><th>Purpose</th><th>How it is checked</th></tr></thead>
+<tbody>
+<tr><td><code>COORDINATION.md</code></td><td>Shared task board, claims, scopes, verification standard.</td><td>Task table lists every file scope; no two tasks overlap.</td></tr>
+<tr><td><code>tools/calc.py</code></td><td>All odds, parlay, correlation, sample-size and Kelly arithmetic.</td><td>Includes a unit-test assertion that the copula returns 25.00% at ρ = 0.</td></tr>
+<tr><td><code>tools/build_injury_csv.py</code></td><td>Builds the injury dataset from the league report.</td><td>Depth fields only populated from a named official chart; everything else blank.</td></tr>
+<tr><td><code>tools/build_team_metrics.py</code></td><td>Joins four official tables.</td><td>Asserts PPG, pass %, and Y/A reproduce from their own numerators; fails on drift.</td></tr>
+<tr><td><code>tools/build_slate_csv.py</code></td><td>Builds the Week 10 schedule table.</td><td>Asserts bye list and that no club appears twice.</td></tr>
+<tr><td><code>tools/analyze_correlation.py</code></td><td>Correlations with bootstrap CIs.</td><td>Seeded RNG — identical output on every run.</td></tr>
+<tr><td><code>tools/build_planning_csv.py</code></td><td>Requirements, questions, strategies, gates, suggestions.</td><td>Every factual claim carries a source ID that resolves in <code>data/sources.csv</code>.</td></tr>
+<tr><td><code>tools/build_site.py</code></td><td>Generates the site from the data.</td><td>Empty cells render as a visible blank; no page is hand-edited.</td></tr>
+<tr><td><code>tools/check_links.py</code></td><td>Link and structure checker.</td><td>Every internal link resolves to a file; every source URL is present and well-formed.</td></tr>
+</tbody></table></div>
+
+<h2>Retrieval constraint, disclosed</h2>
+<div class="note warn"><strong>The bash sandbox has no outbound network access</strong> except to GitHub, npm and PyPI. All web
+verification in this pass was therefore performed through a page-fetch tool against the official URLs, and the raw text
+of every fetched page was inspected before anything was transcribed. Data was never taken from memory, and no value was
+filled in because it "seemed right". The consequence for a reviewer: each table cell can be checked by opening the
+linked source URL, but it cannot be re-fetched by a script inside this environment.</div>
+
+<h2>Flagged for manual review</h2>
+<p>These are not errors in our work — they are gaps, ambiguities and negative findings that a human should look at.
+They are all published, with source links, on the <a href="flagged.html">Flagged for Review</a> page and none of them
+blocked the merge.</p>
+<ol class="tight">
+<li>30 of 32 clubs have no verified depth chart, so 2nd/3rd/4th-string analysis is impossible for them.</li>
+<li>No official league-wide depth-chart endpoint exists at the path one would expect (404 confirmed).</li>
+<li>No odds or price data exists anywhere in the project.</li>
+<li>Two clubs' published PPG differ from our derived PPG by 0.05 — rounding artefact, recorded rather than hidden.</li>
+<li>The league publishes injury designations but not their predictive value.</li>
+<li>NGS EPA values were only available for 16 of 32 clubs on the published page, so EPA columns are blank for the other 16.</li>
+<li>Prediction-market engagement is treated by the league as covered by its gambling policy, which affects whether an
+auto-betting product is viable at all.</li>
+</ol>
+
+<h2>Sources</h2>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Source</th><th>Publisher</th><th>Tier</th><th>Link</th><th>Supports</th></tr></thead><tbody><tr><td>S05</td><td>NFL Schedule - 2026 Week 10</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">link</a></td><td>Kickoff order, home and away, neutral-site international games, final scores</td></tr><tr><td>S08</td><td>NFL Football Operations - Important Dates 2026-27</td><td>NFL (operations.nfl.com)</td><td>league</td><td><a href="https://operations.nfl.com/gameday/nfl-schedule/2026-important-nfl-dates" target="_blank" rel="noopener">link</a></td><td>League calendar, international game venues, postseason dates, Super Bowl LXI venue</td></tr><tr><td>S17</td><td>Chiefs depth chart endpoint on nfl.com (returns 404)</td><td>NFL (nfl.com)</td><td>league</td><td><a href="https://www.nfl.com/teams/kansas-city-chiefs/depthchart" target="_blank" rel="noopener">link</a></td><td>NEGATIVE RESULT: no league-wide official depth chart endpoint exists on this path</td></tr></tbody></table></div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>NFL Decision Hub · data captured 2026-11-14 · every value sourced or left blank</span>
+    <span><a href="../pages/sources.html">Source registry</a> · <a href="../pages/flagged.html">Flagged for review</a> · <a href="../pages/repo-audit.html">Audit</a></span>
+  </div>
+</footer>
+</body>
+</html>
