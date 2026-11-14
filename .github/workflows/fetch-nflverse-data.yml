@@ -49,17 +49,17 @@ jobs:
       - name: Download nflverse assets
         run: |
           set -euo pipefail
-          mkdir -p raw
+          mkdir -p signal/raw
           BASE=https://github.com/nflverse/nflverse-data/releases/download
           FAILED=0
           get() {
             local url="$1" out="$2"
             if curl -fsSL --retry 5 --retry-delay 3 --retry-all-errors \
-                    --connect-timeout 20 --max-time 300 -o "raw/$out" "$url"; then
-              printf 'OK   %-38s %12s\n' "$out" "$(stat -c%s "raw/$out")"
+                    --connect-timeout 20 --max-time 300 -o "signal/raw/$out" "$url"; then
+              printf 'OK   %-38s %12s\n' "$out" "$(stat -c%s "signal/raw/$out")"
             else
               printf 'FAIL %-38s %s\n' "$out" "$url"
-              rm -f "raw/$out"
+              rm -f "signal/raw/$out"
               FAILED=$((FAILED+1))
             fi
           }
@@ -75,7 +75,7 @@ jobs:
 
           echo "---"
           echo "download failures: $FAILED"
-          du -sh raw
+          du -sh signal/raw
           if [ "$FAILED" -gt 0 ]; then echo "::warning::$FAILED asset(s) failed to download"; fi
 
       - name: Build manifest (URL + SHA-256 per file)
@@ -89,10 +89,10 @@ jobs:
       - name: Show aggregate report
         if: always()
         run: |
-          if [ -f data/aggregate_report.json ]; then
+          if [ -f signal/data/aggregate_report.json ]; then
             python - <<'PY'
           import json
-          r=json.load(open('data/aggregate_report.json'))
+          r=json.load(open('signal/data/aggregate_report.json'))
           print(json.dumps({k:r[k] for k in ('sections','errors') if k in r}, indent=2)[:6000])
           PY
           fi
@@ -124,5 +124,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nflverse-raw-${{ github.run_id }}
-          path: raw/
+          path: signal/raw/
           retention-days: 14
