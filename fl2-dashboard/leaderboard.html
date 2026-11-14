@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Strategy Leaderboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Strategy Leaderboard</h1>
+  <p class="lead">The competition that rewards top-performing strategies. A strategy appears here only after
+    passing all validation gates (see <a href="strategies.html">Strategies</a>) and being scored with the
+    luck-removed skill metrics. <strong>The table is intentionally empty</strong> — no strategy has passed
+    the gates yet, and no unverified scores are published.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">1. Rules (proposed — pending approval via S6)</h2>
+    <table class="data">
+      <thead><tr><th>Rule</th><th>Proposed specification</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Eligibility</td>
+          <td>A strategy must pass validation gates G1–G9 (<a href="strategies.html#gates">Strategies §4</a>) before its score is published.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Scoring metric</td>
+          <td>Variance-stabilized blended skill score: closing-line value, calibration, selective edge, and shrinkage toward baseline (<a href="strategies.html#luck">Strategies §6</a>). Raw win rate is not the ranking metric.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Season scope</td>
+          <td>Scores accumulate over the NFL regular season, with rolling sub-period standings so regime changes are visible.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Ranking</td>
+          <td>Strategies ranked by blended skill score, minimum bet-count requirement enforced (gate G2).</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Diversification</td>
+          <td>Strategies above the correlation cap (gate G6) are flagged and not double-counted in reward eligibility.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Tie-breaks</td>
+          <td>Higher selective-edge on the high-conviction subset, then higher calibration score.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Rewards</td>
+          <td>Reward tiers for top-ranked strategies, with eligibility restricted to strategies passing all gates. The reward structure (tiers, amounts, payout cadence) is part of the S6 decision.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+        <tr>
+          <td>Risk controls</td>
+          <td>Bankroll and staking rules per S10; strategy de-listing if it violates G8 (selection-bias) or G9 (execution) rules.</td>
+          <td><span class="badge pending">Pending approval</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">2. Leaderboard</h2>
+    <p class="muted">Columns show what each ranking row will contain. Empty cells mean the strategy has not
+      been registered, has not passed the gates, or its data is not yet available — never estimated.</p>
+    <table class="data">
+      <thead><tr>
+        <th>Rank</th><th>Strategy ID</th><th>Strategy</th><th>Bet type</th>
+        <th>Bets</th><th>Blended skill score</th><th>CLV</th><th>Calibration</th>
+        <th>Selective edge</th><th>Correlation profile</th><th>Status</th>
+      </tr></thead>
+      <tbody>
+        <tr><td colspan="11" class="empty">No eligible strategies yet. Strategies register on the <a href="strategies.html">Strategies</a> page and enter here only after passing all validation gates.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notice">
+    <strong>Why the table is empty.</strong> Publishing a leaderboard requires (a) a verified odds feed
+    (Q1/Q2), (b) approved gate thresholds (Q4), and (c) approved scoring and reward rules (Q6/S6). None are
+    approved yet, so there is nothing verifiable to rank. The structure is in place so the first validated
+    strategies can be posted without changing the site.
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

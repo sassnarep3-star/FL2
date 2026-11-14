@@ -17,6 +17,8 @@ Flagged for Review page; does not block anything).
 | `d263eab0` | `arena/d263eab0-fl2` | NFL Analysis Dashboard: 16 pages, 345 transcribed injury rows, unit exposure, flags | `/docs/` | **merged** |
 | `e70150db` and others | `arena/e70150db-fl2` | NFL Decision Hub: requirements, gates, luck/skill, repo audit | `/hub/` | **merged** |
 | `68b4e431` | `arena/68b4e431-fl2` | **Evidence Ledger**: verified 2026 data, line model, 11-strategy validation harness, suggestions register, site hub | `/` (hub) + `/ledger/` | **this PR** |
+| `arena-48561869-fl2` | `arena/48561869-fl2` | **FL2 Dashboard**: verified official-source data foundation (2026 standings, Week 10 schedule, 345-row injury report, depth-chart example), executive summary, questions/answers register, suggestions section, strategy design with validation gates and luck-removal scoring, leaderboard spec, flagged-review page; integrated into the hub as `/fl2-dashboard/` | `/fl2-dashboard/` | **merged (PR #9)** |
+
 
 **Integration completed 2026-11-14** (PR #8, merged as `ab37150`). How the four sites
 were reconciled, and what was *not* done:
@@ -340,3 +342,82 @@ deliverable undefined · F09 "reward" undefined. **None of these block the merge
 | Conflicts | `COORDINATION.md`, `README.md`, `index.html` — all add/add or content, all resolved without discarding either side |
 | Merge method | `--merge`, merged without waiting for approval |
 | Post-merge deploy check | recorded below |
+
+---
+
+# Session arena-48561869-fl2 — FL2 Dashboard (final integration)
+
+## Task board
+
+| # | Task | Status | Owner | File scope | Notes |
+| --- | --- | --- | --- | --- | --- |
+| T1 | Repo review (line-by-line) | done | arena-48561869-fl2 | `fl2-dashboard/`, `README.md`, `.git` metadata | Repo contained only `README.md` (`# FL2`) at base commit `0f3d2f9`. Reviewed 2026-11-14. |
+| T2 | Official-source research & verification | done | arena-48561869-fl2 | `fl2-dashboard/data/verified/*.json`, `fetch-log.md` | Fetched nfl.com standings/schedules/injuries, Lions depth chart, roster cross-check. 32 standings teams, 14 Week 10 games + 4 byes, 345 injury rows across 28 teams, 28 depth rows. |
+| T3 | Executive summary | done | arena-48561869-fl2 | `fl2-dashboard/executive-summary.html` | Objective, repo state, verified data, strategy status, decisions needed, flagged summary. |
+| T4 | Questions / information / answers register | done | arena-48561869-fl2 | `fl2-dashboard/questions-answers.html` | 6 answered items with official sources; 12 open questions (Q1–Q12) each mapped to a discovery suggestion. |
+| T5 | Suggestions section (review before implementation) | done | arena-48561869-fl2 | `fl2-dashboard/suggestions.html` | 12 decision-gating suggestions (S1–S12) + 6 site-improvement suggestions (S13–S18); review process and decision log. |
+| T6 | Line-origination strategy research | done | arena-48561869-fl2 | `fl2-dashboard/strategies.html`, `leaderboard.html` | Signal families, single/parlay/prop construction, validation gates G1–G9, correlation methodology (values intentionally blank), luck-removal metrics. No strategies registered (no verified odds feed). |
+| T7 | Injury & depth-deficiency tracking design | done | arena-48561869-fl2 | `fl2-dashboard/injuries.html`, verified data records | Verified Week 10 injury report for 28 teams; Lions depth chart example; tracking design for starter/backup substitution on offense & defense. |
+| T8 | Site build (landing page + category subpages) | done | arena-48561869-fl2 | `fl2-dashboard/` (all pages, assets, data) | Static HTML/CSS/JS, 12 pages, dashboard style; tables render from verified JSON with per-row official source links. |
+| T9 | Flagged for Review page | done | arena-48561869-fl2 | `fl2-dashboard/flagged-review.html` | 5 irregularities (F1–F5), 7 unverified/blank items (U1–U7) with source links. |
+| T10 | Final integration, PR, merge, Pages verification | done | arena-48561869-fl2 | `COORDINATION.md`, root hub `index.html` (additive), PR #9 | Integrated with the four prior sessions: relocated this session's site into `/fl2-dashboard/`, merged `main`, resolved conflicts, re-verified, merged PR #9, confirmed Pages. |
+
+## Claim history
+
+- 2026-11-14 — Session `arena-48561869-fl2` claimed T1–T9 and reserved T10 (integration) for the same session,
+  on branch `arena/48561869-fl2` (Arena pins the branch; see the branch-constraint notes above).
+
+## Handoffs
+
+None.
+
+## Completion records
+
+**T1 Repo review.** Verified via `git` and GitHub API. Base commit `0f3d2f9e87f44409fa02fd94aa5d474f58b300a5`
+contained exactly `README.md` (`# FL2`). Pages already enabled at `main / /`.
+
+**T2 Verification.** Every verified value fetched directly from official pages on 2026-11-14:
+- Standings: https://www.nfl.com/standings/ (all 32 teams, line by line)
+- Schedule: https://www.nfl.com/schedules/ (Week 10; TNF final: WAS 24 @ NYG 21)
+- Injuries: https://www.nfl.com/injuries/ (Week 10; 28 teams; 345 rows; 66 Out; 94 Questionable/Doubtful)
+- Roster cross-check: https://www.nfl.com/teams/detroit-lions/roster
+- Depth chart: https://www.detroitlions.com/team/depth-chart (28 position rows, offense/defense/ST)
+
+**T3–T6 Documentation.** Content is design/documentation; no external facts claimed without a source.
+No strategies registered and no line/odds values published because no verified odds feed is selected
+(Q1/Q2 open) — left blank and flagged (U1), not guessed.
+
+**T7 Injury & depth tracking.** Verified Week 10 designations for all 28 playing teams; bye teams
+(CHI, DEN, PHI, TB) have no Week 10 report — recorded as "no report," not "healthy" (U3). Lions depth
+chart verified as worked example; teams label their charts "unofficial" (F1). Full 32-team coverage
+pending Q8/S8 (U4); historical archive pending Q7/S7 (U5).
+
+**T8 Site build.** 12 HTML pages, shared stylesheet and renderer. Tables render from
+`fl2-dashboard/data/verified/*.json`; each data row links to its official source. Verified: all JSON
+parses; all internal links resolve across the 12 pages; both asset files load.
+
+**T9 Flagged items.** F1 (team-labeled "unofficial" depth chart), F2 (404 per-team injury URLs),
+F3 (third-party aggregator inconsistency — official page used), F4 (Pages enabled pre-content),
+F5 (no license). U1–U7 list every intentionally blank item and what would un-flag it.
+
+## Integration log (this session)
+
+- **Parallel sessions discovered.** At integration time, `main` already contained the merged work of
+  four prior sessions (4a77261b, d263eab0, e70150db, 68b4e431) per the consolidated table above. This
+  session's earlier work (built on the same base `0f3d2f9`) collided with theirs on `index.html`,
+  `injuries.html`, `strategies.html`, `suggestions.html`, `assets/style.css`, `assets/app.js`,
+  `README.md`, `COORDINATION.md`.
+- **Merge conflict (handled).** Squash-merge of PR #9 initially failed with "merge commit cannot be
+  cleanly created" because `main` had advanced. Per protocol: stopped, merged `origin/main` into this
+  branch, and resolved the two resulting conflicts (`README.md`, `COORDINATION.md`) without discarding
+  the other sessions' content — their versions were kept verbatim and this session's records appended.
+  The three root stubs `injuries.html`, `strategies.html`, `suggestions.html` on `main` were empty
+  files; this session's full pages were relocated to `fl2-dashboard/` rather than overwriting anything.
+- **Convention applied.** Following the repository's established integration convention (relocate your
+  own colliding files, never overwrite another session's): this session's entire site moved to
+  `/fl2-dashboard/` (pages, assets, verified data), leaving all other sessions' files byte-identical.
+- **Shared-output edits made in integration (additive only):** one tile and one nav link added to the
+  root hub `index.html` (following the other sessions' convention of cross-linking sections); nothing
+  else in any other session's file was touched.
+- **Re-verification after integration:** JSON parses, internal links across `fl2-dashboard/`, and the
+  root hub link were re-checked; PR #9 merged; GitHub Pages deployment confirmed `built`.

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Repo Review</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Repository Review</h1>
+  <p class="lead">Line-by-line review of <code>sassnarep3-star/FL2</code> performed 2026-11-14.
+    Every claim below was checked directly in the repository (git metadata and file contents) or against
+    GitHub's API/UI links provided for manual review.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">1. Repository facts (verified)</h2>
+    <table class="data">
+      <thead><tr><th>Item</th><th>Verified value</th><th>Evidence / manual review link</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Repository</td>
+          <td>sassnarep3-star/FL2 (public, not a fork, default branch <code>main</code>)</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">github.com/sassnarep3-star/FL2</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Creation date</td>
+          <td>2026-11-14T02:47:54Z</td>
+          <td class="src"><a href="https://api.github.com/repos/sassnarep3-star/FL2" target="_blank" rel="noopener">GitHub API: /repos/sassnarep3-star/FL2</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Base commit reviewed</td>
+          <td><code>0f3d2f9e87f44409fa02fd94aa5d474f58b300a5</code> — "Initial commit"</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2/commit/0f3d2f9e87f44409fa02fd94aa5d474f58b300a5" target="_blank" rel="noopener">Commit on GitHub</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Contents at base commit</td>
+          <td>Exactly one file: <code>README.md</code> containing <code># FL2</code> (10 bytes). No code, no data, no config, no workflows.</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2/tree/0f3d2f9e87f44409fa02fd94aa5d474f58b300a5" target="_blank" rel="noopener">Tree at base commit</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>GitHub Pages</td>
+          <td>Enabled; source <code>main / /</code>; build type legacy; no published site content at base commit</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2/settings/pages" target="_blank" rel="noopener">Settings → Pages</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>Issues / Discussions</td>
+          <td>Issues enabled, Discussions disabled, no open issues</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2/issues" target="_blank" rel="noopener">Issues</a></td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>License</td>
+          <td>None specified</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository root</a></td>
+          <td><span class="badge warn">Not set</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">2. Review findings</h2>
+    <table class="data">
+      <thead><tr><th>#</th><th>Finding</th><th>Detail</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Repository is an empty shell</td>
+          <td>At base commit the project contained no code, data, documentation, or site. Everything in this site and the data layer was created in this session.</td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>README is non-descriptive</td>
+          <td><code>README.md</code> holds only the line <code># FL2</code>. Acceptable as a placeholder, but the project now warrants a full README describing the site, data rules, and verification method.</td>
+          <td><span class="badge warn">Improvement</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Pages enabled but nothing published</td>
+          <td>Pages source was already configured to <code>main / /</code> while the repo was empty. Placing the site at the repository root means Pages builds automatically once merged to <code>main</code> — no extra configuration needed.</td>
+          <td><span class="badge verified">Verified</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>No CI / build workflow</td>
+          <td>No <code>.github/workflows</code> exist. The site is plain static HTML/CSS/JS with no build step, so no workflow is required; a link-check workflow is suggested in <a href="suggestions.html">Suggestions</a>.</td>
+          <td><span class="badge warn">Noted</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>No license file</td>
+          <td>The repository has no license. If this project is intended to be shared or forked, a license decision is needed.</td>
+          <td><span class="badge warn">Needs decision</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Coordination protocol required</td>
+          <td>The project requires multi-session coordination via <code>COORDINATION.md</code> (task board, claims, statuses). It has been created at the repository root and maintained as work proceeds.</td>
+          <td><span class="badge verified">Handled</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Branch policy</td>
+          <td>Arena fixes this session to branch <code>arena/48561869-fl2</code> (from <code>0f3d2f9</code> of <code>main</code>). The coordination protocol's <code>session-&lt;id&gt;/&lt;task&gt;</code> branch convention is adapted to a single branch with task-scoped file ownership, documented in <code>COORDINATION.md</code>.</td>
+          <td><span class="badge verified">Handled</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">3. Irregulancies flagged for manual review</h2>
+    <ul class="tight">
+      <li>The repository was created and pushed within the same day as this review (2026-11-14) with a
+        single placeholder file — expected for a greenfield project, but worth noting.</li>
+      <li>Pages was enabled before any site content existed; the previously "built" Pages status referred
+        to an empty/default deployment. After this site merges to <code>main</code>, Pages rebuilds
+        automatically.</li>
+      <li>No other branches existed on the remote besides <code>main</code> before this session; the
+        <code>arena/48561869-fl2</code> branch was created by this session.</li>
+    </ul>
+    <p class="muted">These items are also recorded on the <a href="flagged-review.html">Flagged for Review</a> page.</p>
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Flagged for Review</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Flagged for Review</h1>
+  <p class="lead">Every irregularity and unverified item found during the review, with the source links
+    used to detect it. <strong>Nothing here blocks the site</strong> — these items are published for your
+    review, and you can request changes after the site is live. Values that could not be confirmed from
+    official sources were left blank rather than inferred.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">A. Irregularities</h2>
+    <table class="data">
+      <thead><tr><th>ID</th><th>Irregularity</th><th>Detail &amp; detection</th><th>Source / review link</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>F1</td>
+          <td>Team depth charts labeled "unofficial" by the teams</td>
+          <td>The Lions' official-site depth chart is titled "2026 Unofficial Depth Chart Compiled by Lions Football Communications." The chart is published on the team's official site, but the "unofficial" label means it is the team's communications compilation, not an NFL-issued document. Treated as the official team source with the caveat recorded; roster membership is cross-checked against the official NFL roster page.</td>
+          <td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">Lions depth chart</a> · <a href="https://www.nfl.com/teams/detroit-lions/roster" target="_blank" rel="noopener">NFL roster cross-check</a></td>
+          <td><span class="badge flagged">Flagged</span></td>
+        </tr>
+        <tr>
+          <td>F2</td>
+          <td>Per-team injury report URL patterns return 404</td>
+          <td>Both <code>/injuries/team/detroit-lions/</code> and <code>/injuries/teams/detroit-lions/</code> return a 404 "Flag on the Play" page on nfl.com. The main injury report page is the correct, working official source; per-team rows cite it. A working per-team filter pattern was not found.</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">Official injury report</a></td>
+          <td><span class="badge flagged">Flagged</span></td>
+        </tr>
+        <tr>
+          <td>F3</td>
+          <td>Third-party standings aggregator showed inconsistent data</td>
+          <td>During cross-checking, a non-official aggregator's cached standings disagreed with the official NFL page (e.g., different records for several teams). Disregarded in favor of the official page. Recorded as a reminder that only official sources are used for verified values.</td>
+          <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">Official standings (authoritative)</a></td>
+          <td><span class="badge flagged">Flagged</span></td>
+        </tr>
+        <tr>
+          <td>F4</td>
+          <td>Repository had Pages enabled with no site content</td>
+          <td>Pages was enabled (<code>main / /</code>, legacy build) while the repository contained only a one-line README, so the prior "built" status referred to a default empty deployment. Now that the site exists at the root, merges to <code>main</code> publish real content.</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2/settings/pages" target="_blank" rel="noopener">Settings → Pages</a></td>
+          <td><span class="badge flagged">Flagged</span></td>
+        </tr>
+        <tr>
+          <td>F5</td>
+          <td>Repository has no license</td>
+          <td>No license file or license field at the base commit or since. Needs a conscious decision (see Suggestion S16).</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository root</a></td>
+          <td><span class="badge warn">Needs decision</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">B. Unverified / intentionally blank items</h2>
+    <p class="muted">These cells are blank on purpose. No value was inferred or filled in. Each row states
+      what is needed to un-flag it.</p>
+    <table class="data">
+      <thead><tr><th>ID</th><th>Item</th><th>Where it is blank</th><th>What's needed to verify</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>U1</td>
+          <td>Betting lines and odds</td>
+          <td>All strategy, leaderboard, and line-origination tables</td>
+          <td>Selection of a licensed sportsbook/odds feed and capture of official odds (Q1/Q2, S1). The NFL does not publish lines.</td>
+          <td><span class="badge flagged">Unverified — blank</span></td>
+        </tr>
+        <tr>
+          <td>U2</td>
+          <td>Correlation values between signals</td>
+          <td>Strategies §5 correlation matrix</td>
+          <td>Play-level and market data plus the approved methodology (Q3/Q5, S3/S5).</td>
+          <td><span class="badge flagged">Unverified — blank</span></td>
+        </tr>
+        <tr>
+          <td>U3</td>
+          <td>Injury/depth data for the 4 bye teams</td>
+          <td>Injuries page — CHI, DEN, PHI, TB</td>
+          <td>Official Week 10 injury report — none exists for bye teams (no game). Recorded as "no report" rather than "healthy."</td>
+          <td><span class="badge warn">No report (bye)</span></td>
+        </tr>
+        <tr>
+          <td>U4</td>
+          <td>Depth charts for 31 teams (beyond the Lions example)</td>
+          <td>Injuries page §3</td>
+          <td>URL verification and cadence approval for all 32 official team depth charts (Q8, S8).</td>
+          <td><span class="badge flagged">Unverified — blank</span></td>
+        </tr>
+        <tr>
+          <td>U5</td>
+          <td>Historical injury/designation archive</td>
+          <td>Injuries page §4</td>
+          <td>Archive decision and data source (Q7, S7).</td>
+          <td><span class="badge flagged">Unverified — blank</span></td>
+        </tr>
+        <tr>
+          <td>U6</td>
+          <td>Validation-gate threshold values</td>
+          <td>Strategies §4</td>
+          <td>Approval of numeric thresholds (Q4, S4).</td>
+          <td><span class="badge flagged">Unverified — blank</span></td>
+        </tr>
+        <tr>
+          <td>U7</td>
+          <td>Final scores for Week 10 games played after 2026-11-14</td>
+          <td>Schedule page</td>
+          <td>Re-verification against the official schedule/scores after those games are played.</td>
+          <td><span class="badge flagged">Unverified — blank</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notice bad">
+    <strong>Review process.</strong> Review the items above at your convenience. To request a change,
+    record it in the <a href="suggestions.html">Suggestions</a> decision log or as a GitHub issue on the
+    repository. Flagged items do not block the site or the merge; they are published here for your review
+    exactly as required.
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

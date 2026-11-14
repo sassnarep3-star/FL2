@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Strategies</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Line Origination &amp; Signal Strategies</h1>
+  <p class="lead">Research and design for generating useful NFL betting signals — single bets, parlays, and
+    player-prop combinations — with validation gates, correlation controls, and luck removed from
+    evaluation. <strong>Everything on this page is a proposed design</strong> by the FL2 project, pending
+    review in <a href="suggestions.html">Suggestions</a>; where a proposal depends on a data source, the
+    missing information is linked to the open questions in <a href="questions-answers.html">Questions &amp; Answers</a>.
+    No line or odds values appear here because no verified odds feed has been selected yet — those cells
+    stay blank rather than guessed.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">1. Strategy lifecycle</h2>
+    <p>Every strategy follows the same gate-driven path. A strategy that has not passed the gates cannot
+      appear on the <a href="leaderboard.html">Leaderboard</a> and cannot be acted on.</p>
+    <ol class="tight">
+      <li><strong>Propose</strong> — define the signal family, bet type, and expected edge mechanism.</li>
+      <li><strong>Register</strong> — record the strategy specification (signals, filters, sizing rule) in the strategy register.</li>
+      <li><strong>Validate</strong> — run the validation gates in section 4 in order. Failure at any gate stops the strategy.</li>
+      <li><strong>Correlate</strong> — compute correlation values against existing strategies (section 5); combos are sized or rejected based on the result.</li>
+      <li><strong>Score</strong> — evaluate with the luck-removed skill metrics (section 6), out-of-sample only.</li>
+      <li><strong>Rank</strong> — post the validated score to the <a href="leaderboard.html">Leaderboard</a>.</li>
+    </ol>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">2. Proposed signal families</h2>
+    <p class="muted">Each family lists the data it needs and the verification dependency. Signal families
+      are proposals until the underlying data questions (Q1–Q3, Q7, Q8) are answered.</p>
+    <table class="data">
+      <thead><tr><th>Signal family</th><th>What it measures</th><th>Data needed</th><th>Data status</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Market-position signals</td>
+          <td>Disagreement between the derived line and the market line; line movement (open vs. close); steam or reverse movement.</td>
+          <td>Odds/line feed with timestamps (Q1, Q2)</td>
+          <td class="src">Not selected — see <a href="questions-answers.html#q1">Q1</a></td>
+          <td><span class="badge pending">Blocked on data</span></td>
+        </tr>
+        <tr>
+          <td>Injury-adjusted signals</td>
+          <td>Expected point-shift from confirmed designations (Out / Doubtful / Questionable) weighted by player role and replacement quality.</td>
+          <td>Verified injury reports (in place), historical designations (Q7), depth charts (Q8)</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">Week 10 report verified</a></td>
+          <td><span class="badge design">Design — data partially in place</span></td>
+        </tr>
+        <tr>
+          <td>Depth-deficiency signals</td>
+          <td>Value shift when starters are replaced by 2nd/3rd/4th-string backups on offense or defense; role-importance weighting by position.</td>
+          <td>Official team depth charts (Lions verified), all 32 teams (Q8)</td>
+          <td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">Lions chart verified</a></td>
+          <td><span class="badge design">Design — data partially in place</span></td>
+        </tr>
+        <tr>
+          <td>Situational efficiency signals</td>
+          <td>Team efficiency and situational performance (red zone, third downs, etc.) from official stats, adjusted for opponent.</td>
+          <td>Official NFL stats pages / play-level data (Q3)</td>
+          <td class="src">Source not yet selected</td>
+          <td><span class="badge pending">Blocked on data</span></td>
+        </tr>
+        <tr>
+          <td>Schedule / rest signals</td>
+          <td>Rest-day differentials, travel, and bye positioning effects.</td>
+          <td>Verified schedule (in place), historical results</td>
+          <td class="src"><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">Week 10 schedule verified</a></td>
+          <td><span class="badge design">Design — data partially in place</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">3. Bet-type construction</h2>
+
+    <h3>3.1 Single bets</h3>
+    <ul class="tight">
+      <li>One signal → one market (spread, total, moneyline). Selection rule: signal strength must exceed
+        the minimum-edge threshold (gate G7) after the book's vig.</li>
+      <li>Confidence tiers map to staking per the approved bankroll rules (Q10).</li>
+      <li>Every single-bet strategy is scored on the luck-removed metrics in section 6, not on raw win rate.</li>
+    </ul>
+
+    <h3>3.2 Parlays</h3>
+    <ul class="tight">
+      <li>Legs are drawn from independent signal families where possible; legs from the same family (e.g.,
+        two injury-driven legs) are treated as correlated and sized down or rejected per the correlation
+        threshold (section 5, Q5).</li>
+      <li>No parlay is constructed from legs whose correlation value exceeds the approved cap.</li>
+      <li>Parlay-specific gates: minimum leg count, leg-selection rule, and per-parlay bankroll cap.</li>
+    </ul>
+
+    <h3>3.3 Player-prop combinations</h3>
+    <ul class="tight">
+      <li>Player props are combined only across players and games with verified data (injury status,
+        depth position, role weighting).</li>
+      <li>Same-game player props are treated as correlated (shared game environment); cross-game
+        combinations are evaluated with the correlation matrix before acceptance.</li>
+      <li>Each prop leg requires its own edge check (gate G7); the combination is accepted only if the
+        aggregate correlation profile passes the cap.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">4. Validation gates (proposed)</h2>
+    <p class="muted">Every strategy must pass each gate. Threshold values are proposals pending approval
+      (Q4, S4). Gates are checked in order; a failure stops the strategy.</p>
+    <table class="data">
+      <thead><tr><th>Gate</th><th>Name</th><th>Proposed rule</th><th>Why it exists</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>G1</td><td>Data integrity</td><td>Every input row traces to an official source link; blanks are flagged, never filled.</td><td>Enforces the no-hallucination rule at the data layer.</td><td><span class="badge verified">In force</span></td></tr>
+        <tr><td>G2</td><td>Sample size</td><td>Minimum bet count and minimum seasons of history per strategy type (tiered: singles / parlays / props).</td><td>Small samples are dominated by noise and luck.</td><td><span class="badge pending">Thresholds to approve</span></td></tr>
+        <tr><td>G3</td><td>Stationarity</td><td>Edge must be stable across recent sub-periods (no regime-specific spikes).</td><td>Detects strategies that only worked in one regime.</td><td><span class="badge pending">Thresholds to approve</span></td></tr>
+        <tr><td>G4</td><td>Out-of-sample split</td><td>Development on a defined in-sample window; acceptance only from a held-out out-of-sample window.</td><td>Prevent overfitting to past data.</td><td><span class="badge pending">Split to approve</span></td></tr>
+        <tr><td>G5</td><td>Significance</td><td>Edge statistically distinguishable from chance at the approved significance level, accounting for the number of trials.</td><td>Separates skill from luck statistically.</td><td><span class="badge pending">Level to approve</span></td></tr>
+        <tr><td>G6</td><td>Correlation cap</td><td>Correlation of a new strategy with existing strategies must stay below the approved cap (combo rules in section 5).</td><td>Keeps the leaderboard diversified; prevents duplicated exposure.</td><td><span class="badge pending">Cap to approve</span></td></tr>
+        <tr><td>G7</td><td>Edge threshold</td><td>Minimum expected edge over the book's vig/hold before a bet or combo is eligible.</td><td>Filters out negative-expected-value noise bets.</td><td><span class="badge pending">Threshold to approve</span></td></tr>
+        <tr><td>G8</td><td>Selection-bias check</td><td>No strategy may be scored on a window selected after seeing results; register decisions are time-stamped before the window closes.</td><td>Prevents survivorship and hindsight bias.</td><td><span class="badge design">Design</span></td></tr>
+        <tr><td>G9</td><td>Execution constraints</td><td>Bet sizes within book limits and approved bankroll caps; rejected bets logged with reason.</td><td>Keeps results realistic and risk controlled.</td><td><span class="badge design">Design</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">5. Correlation values</h2>
+    <p><strong>Methodology (proposed):</strong> for every pair of strategies and every pair of bet legs within
+      a combo, compute correlation on rolling windows using both Pearson and Spearman coefficients, and act
+      on the conservative one. Actual correlation values <strong>cannot be produced yet</strong> — they require
+      play-level and market data that is not yet selected (Q3, Q5, S3, S5). Until then the correlation matrix
+      is intentionally empty; no values are estimated or filled in.</p>
+    <table class="data">
+      <thead><tr><th>Item</th><th>Decision needed</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Coefficient choice</td><td>Pearson vs. Spearman vs. hybrid (recommend hybrid, act on conservative)</td><td><span class="badge pending">Open — S5</span></td></tr>
+        <tr><td>Correlation cap for combo legs</td><td>Threshold above which a parlay or prop combo is rejected or de-weighted</td><td><span class="badge pending">Open — S5</span></td></tr>
+        <tr><td>Correlation cap between strategies</td><td>Threshold for leaderboard diversification (gate G6)</td><td><span class="badge pending">Open — S5</span></td></tr>
+        <tr><td>Rolling window length</td><td>Window used for coefficient estimation</td><td><span class="badge pending">Open — S5</span></td></tr>
+        <tr><td>Correlation matrix</td><td>Actual values — requires data from Q1/Q3</td><td class="src">Blank — not computed, no data</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">6. Removing luck — skill-based scoring (proposed)</h2>
+    <p>Raw win rate is explicitly <strong>not</strong> the evaluation metric. The proposed score blends:</p>
+    <table class="data">
+      <thead><tr><th>Metric</th><th>What it measures</th><th>How it removes luck</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Closing-line value (CLV)</td><td>Difference between the price taken and the closing market price, per bet.</td><td>Rewards bets that beat the market before outcomes are known — outcome luck cancels over time.</td><td><span class="badge pending">Needs Q1/Q2</span></td></tr>
+        <tr><td>Calibration</td><td>Agreement between stated confidence tiers and realized frequency.</td><td>A strategy that is well-calibrated demonstrates predictability, not luck.</td><td><span class="badge design">Design</span></td></tr>
+        <tr><td>Selective edge</td><td>Edge measured only on the strategy's high-conviction subset.</td><td>Forces selectivity — a key requirement ("selectively skill based").</td><td><span class="badge design">Design</span></td></tr>
+        <tr><td>Shrinkage toward baseline</td><td>Bayesian shrinkage of observed performance toward the league/market baseline.</td><td>Prevents a lucky hot streak from ranking a strategy at the top.</td><td><span class="badge design">Design</span></td></tr>
+        <tr><td>Variance-stabilized blended score</td><td>Combined score used for leaderboard ranking (see <a href="leaderboard.html">Leaderboard</a>).</td><td>Combines the above so ranking rewards demonstrated, repeatable skill.</td><td><span class="badge pending">Rules to approve — S6</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">7. Strategy register (current)</h2>
+    <table class="data">
+      <thead><tr><th>Strategy ID</th><th>Name</th><th>Bet type</th><th>Signals used</th><th>Gates passed</th><th>Score</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td colspan="7" class="empty">No strategies registered. Registration opens once the data questions (Q1–Q3, Q7, Q8) and gate thresholds (Q4) are answered and reviewed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="notice">
+    <strong>Honesty note.</strong> Strategy design is a proposal until reviewed. No strategy has been
+    validated, no correlation values exist, and no line/odds values have been published — because the
+    required official data feeds have not yet been selected. Following the verification rule, these gaps
+    are stated openly rather than filled with estimates.
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -71,3 +71,15 @@ python3 engine/check_site.py       # render + link gate (needs: npm i jsdom)
 Docs: [`docs/SOURCES.md`](docs/SOURCES.md) · [`docs/STRATEGY_VALIDATION.md`](docs/STRATEGY_VALIDATION.md) · [`COORDINATION.md`](COORDINATION.md)
 
 Research tool, not betting advice.
+
+
+## FL2 Dashboard section (session arena/48561869-fl2)
+
+A second verified-data section lives at [`fl2-dashboard/index.html`](fl2-dashboard/index.html).
+It contains its own verified official-source data (2026 standings for all 32 teams, the Week 10
+schedule, the full Week 10 injury report with 345 rows, and a verified depth-chart example) rendered
+as a clean dashboard with a dedicated suggestions section, a questions/answers register, strategy
+design with validation gates and luck-removal scoring, a leaderboard specification, and a Flagged for
+Review page. Every data row links to the official source used to verify it; values that could not be
+confirmed were left blank and flagged. Its data records live in
+[`fl2-dashboard/data/verified/`](fl2-dashboard/data/verified/) with a fetch log.

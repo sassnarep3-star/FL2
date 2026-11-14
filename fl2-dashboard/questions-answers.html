@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FL2 — Questions &amp; Answers</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FL2<small>NFL lines, signals &amp; strategy research</small></div>
+  <nav class="mainnav">
+    <a href="index.html">Dashboard</a>
+    <a href="executive-summary.html">Executive Summary</a>
+    <a href="repo-review.html">Repo Review</a>
+    <a href="questions-answers.html">Questions &amp; Answers</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="standings.html">Standings</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+    <a href="verification.html">Verification</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Questions, Information &amp; Answers</h1>
+  <p class="lead">The clear register of what must be answered — and what is already answered — before any
+    decision can reasonably be made. Nothing below is guessed. Answers we already hold are marked
+    <span class="badge verified">Answered</span> with their official source; everything still unknown is
+    marked <span class="badge pending">Open</span> with the information needed to close it.</p>
+
+  <div class="panel">
+    <h2 style="margin-top:0">A. Answers already established (verified 2026-11-14)</h2>
+    <table class="data">
+      <thead><tr><th>Question</th><th>Answer (from official source)</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Where can verified 2026 standings be obtained?</td>
+          <td>The official NFL standings page provides all 32 teams with W-L-T, PCT, PF, PA, net points, streaks, and last-5.</td>
+          <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings</a></td>
+          <td><span class="badge verified">Answered</span></td>
+        </tr>
+        <tr>
+          <td>Where can verified Week 10 schedule data be obtained?</td>
+          <td>The official NFL schedule page provides all Week 10 games (dates, times, networks), the final Thursday result (WAS 24, NYG 21), and bye teams (CHI, DEN, PHI, TB).</td>
+          <td class="src"><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">nfl.com/schedules</a></td>
+          <td><span class="badge verified">Answered</span></td>
+        </tr>
+        <tr>
+          <td>Where can verified injury designations be obtained?</td>
+          <td>The official NFL injury report provides every listed player for each team with position, injury, practice status, and game status (Out / Questionable / Doubtful).</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries</a></td>
+          <td><span class="badge verified">Answered</span></td>
+        </tr>
+        <tr>
+          <td>Where can official depth charts (1st/2nd/3rd/4th string) be obtained?</td>
+          <td>Each team's official website publishes a depth chart (verified example: Detroit Lions). Teams label these "unofficial" depth charts compiled by team communications.</td>
+          <td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">detroitlions.com depth chart</a></td>
+          <td><span class="badge verified">Answered</span> <span class="badge warn">Label caveat</span></td>
+        </tr>
+        <tr>
+          <td>Is GitHub Pages able to host this site?</td>
+          <td>Yes — Pages is enabled with source <code>main / /</code>; a static site at the repository root publishes automatically when merged to <code>main</code>.</td>
+          <td class="src"><a href="https://github.com/sassnarep3-star/FL2/settings/pages" target="_blank" rel="noopener">Settings → Pages</a></td>
+          <td><span class="badge verified">Answered</span></td>
+        </tr>
+        <tr>
+          <td>Do official NFL sources publish betting lines or odds?</td>
+          <td>No. The NFL does not publish betting lines. Lines and odds are published by licensed sportsbooks — a separate source class that must be selected and verified (see Q1).</td>
+          <td class="src"><a href="https://www.nfl.com/" target="_blank" rel="noopener">nfl.com</a></td>
+          <td><span class="badge verified">Answered</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0">B. Open questions register — must be answered before decisions</h2>
+    <table class="data">
+      <thead><tr><th>ID</th><th>Question / information needed</th><th>What we have</th><th>What's missing</th><th>Decision it blocks</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Q1</td>
+          <td>Which licensed sportsbook (or odds feed) is the official source for lines, odds, and line movement?</td>
+          <td>Confirmation that lines come from sportsbooks, not the NFL (see A above).</td>
+          <td>The selected feed, its URL/API, legality in the operating jurisdiction, and permission to store snapshots.</td>
+          <td>Line origination; every strategy and leaderboard metric</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q2</td>
+          <td>Will opening and closing line data be available (for closing-line-value and luck-adjusted scoring)?</td>
+          <td>Not yet — depends on Q1.</td>
+          <td>Line-movement history per market, captured at defined timestamps.</td>
+          <td>Luck removal; skill-based scoring</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q3</td>
+          <td>Which data source will supply play-by-play, snap counts, and alignment data for correlation work?</td>
+          <td>Official injury and depth data verified (see A).</td>
+          <td>A play-level data source with licensing terms suitable for analysis.</td>
+          <td>Determining correlation values between signals</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q4</td>
+          <td>What are the validation-gate thresholds: minimum bet count, minimum seasons of history, significance level, and out-of-sample split?</td>
+          <td>A proposed gate framework exists (design proposal, see Strategies).</td>
+          <td>Approved numeric thresholds and the approval authority.</td>
+          <td>Strategy acceptance; leaderboard entry</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q5</td>
+          <td>Which signal pairs need correlation values, by what method, and at what threshold do combos get rejected or de-weighted?</td>
+          <td>A proposed correlation methodology exists (design proposal, see Strategies).</td>
+          <td>The approved method, threshold values, and the correlation matrix once data exists.</td>
+          <td>Parlay and player-prop combo construction</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q6</td>
+          <td>What are the leaderboard scoring metric, reward rules, season scope, and tie-break rules?</td>
+          <td>A proposed leaderboard specification exists (see Leaderboard).</td>
+          <td>Approved rules and reward structure.</td>
+          <td>Competition launch; strategy ranking</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q7</td>
+          <td>What historical injury and designation data is needed and from where?</td>
+          <td>Current Week 10 report verified for all 28 playing teams.</td>
+          <td>Historical seasons of injury designations for training and validation.</td>
+          <td>Injury-signal calibration; backtesting</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q8</td>
+          <td>Can official depth charts for all 32 teams be ingested, at what cadence, and are team URL patterns stable?</td>
+          <td>Lions depth chart verified; roster pages on nfl.com verified for cross-check.</td>
+          <td>Verification of the other 31 teams' official depth-chart URLs and an agreed update schedule (e.g., weekly, inactives).</td>
+          <td>Depth-deficiency tracking at full coverage</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q9</td>
+          <td>What bet types and market structures does the chosen sportsbook offer (singles, parlays, props), and what are the limits and hold/juice structure?</td>
+          <td>Not yet — depends on Q1.</td>
+          <td>The book's market catalog, bet limits, and pricing structure.</td>
+          <td>Strategy type coverage; realistic ROI modeling</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q10</td>
+          <td>What are the bankroll and staking rules (unit sizing, per-strategy and per-event caps)?</td>
+          <td>None defined yet.</td>
+          <td>The approved staking policy and risk limits.</td>
+          <td>Leaderboard normalization; risk controls</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q11</td>
+          <td>Do the chosen data feeds permit automated storage and analysis under their terms, and any privacy constraints?</td>
+          <td>None selected yet.</td>
+          <td>Terms review of the odds feed, stats feed, and any API terms.</td>
+          <td>Automation of the whole pipeline</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+        <tr>
+          <td>Q12</td>
+          <td>Who reviews the Suggestions page, on what cadence, and how is the chosen path recorded before implementation?</td>
+          <td>The Suggestions page structure (review checklist, decision record) is in place.</td>
+          <td>The named reviewer, review cadence, and decision-record location.</td>
+          <td>Implementation prioritization and gating</td>
+          <td><span class="badge pending">Open</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="muted">Each open question has a matching discovery proposal on the
+      <a href="suggestions.html">Suggestions</a> page (S1–S12) so the missing information can be gathered
+      before any decision is implemented.</p>
+  </div>
+
+  <div class="notice">
+    <strong>How to use this register.</strong> Decisions should not be made on information we do not
+    have. Before changing anything, confirm that every question blocking that change has been answered
+    and its answer recorded here with a source. Unverified or unanswerable items stay
+    <span class="badge pending">Open</span> and are never filled in by assumption.
+  </div>
+</main>
+
+<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
