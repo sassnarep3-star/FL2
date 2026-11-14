@@ -82,9 +82,10 @@ Rule used: one session owns each file scope below. Logged handoffs and conflicts
 
 ## Pull request and merge
 
-- PR: _(to be filled after creation)_
-- Merge result: _(to be filled)_
-- GitHub Pages deploy: _(to be filled)_
+- PR #3: https://github.com/sassnarep3-star/FL2/pull/3 (branch `arena/d263eab0-fl2` into `main`). Validate job passed on the PR.
+- Merge result: merged with a merge commit at `baf52ad7d1072a1f5501e9278e523d19f84f54a5` on 2026-11-14 03:02:41 UTC (`gh pr merge 3 --merge`).
+- GitHub Pages deploy: workflow `Validate and publish site` run 43549532304 on `main` (validate + deploy jobs) succeeded; `pages-build-deployment` run 43549531557 succeeded; Pages build status `built` for commit `baf52ad`. Live: https://sassnarep3-star.github.io/FL2/docs/ (fetched and rendered 345 injury rows).
+- Follow-up: label fix for the injuries Category column, PR opened from the same branch (see Log).
 
 ### Integration log (d263eab0)
 
@@ -94,3 +95,4 @@ Rule used: one session owns each file scope below. Logged handoffs and conflicts
 - **Parallel activity seen:** a third session `arena/d10a1d25-fl2` (fetch-nflverse-data) was running CI on GitHub during this session. Its scope is not in this branch and was not touched. Its results, if merged, may affect the lines and historical-data gaps (F-11, F-12).
 - **Pages config:** before this merge the repo's Pages build was `legacy` from `main /`. The workflow deploys with GitHub Actions. Check after merge (see below).
 - **PR:** https://github.com/sassnarep3-star/FL2/pull/3 (validate job passed on the PR: `pass`).
+- **Follow-up after merge**: the Injuries page labelled every row without a designation as 'Injury'. Fixed to 'Injury listed' / 'No injury listed' / 'Not injury related' (commit `9803c79`), delivered as a second PR from the same branch (no change to any other branch).
