@@ -106,3 +106,102 @@ Rule used: one session owns each file scope below. Logged handoffs and conflicts
 - **Open items:** F-06 to F-14 remain open for your review (Flagged for review page). Starter/backup status, betting lines and strategy results remain blank pending verified sources.
 - **Not done:** no strategy was evaluated and no lines were originated; no verified odds or historical data was accessible from this sandbox.
 
+
+---
+
+# Session e70150db — NFL Decision Hub (merged `main` at `c2ed442`)
+
+> **What happened here, plainly.** This session started from base `0f3d2f9`, the same base as sessions
+> `4a77261b` and `d263eab0`. By the time this session pushed, both had already merged their own sites to `main`
+> (PR #1–#6): a research framework at `/` ("Fourth & Signal") and a data dashboard at `/docs/`. **Nothing of theirs
+> was discarded.** This session's work was re-namespaced into `/hub/` so all three sites coexist, and cross-links
+> were added in both directions. That was the right call rather than a merge race: three independent takes on the
+> same brief are more useful side by side than one averaged take.
+
+## What this session owns
+
+| Path | Contents |
+| --- | --- |
+| `hub/` | 16-page Decision Hub site (this session only) |
+| `tools/` | 8 generator scripts (this session only) |
+| `data/*.csv`, `data/*.json` (the files listed below) | Verified datasets (this session only) |
+| `docs/EXECUTIVE-SUMMARY.md` | Executive summary (this session only) |
+
+**Explicitly not owned and not edited in substance:** `index.html`, `decisions.html`, `strategy.html`,
+`availability.html`, `data.html`, `review.html`, `404.html`, `assets/site.css`, `scripts/`, `.github/workflows/`,
+`docs/*.html`, `docs/data/`, `data/injuries_2026_week10.csv`, `data/games_2026_week10.csv`, `data/news_*.csv`,
+`data/flags.json`, `data/questions.json`, `data/sources.json`, `data/strategies.json`, `data/suggestions.json`.
+The only change made to those was appending a single navigation link to `hub/index.html` in each nav bar
+(7 root pages + 11 dashboard pages), so the three sites are reachable from one another. No other content was touched.
+
+## Cross-verification with session d263eab0 — the strongest check in this project
+
+Two sessions independently transcribed the **same** source (the NFL Week 10 injury report) at different row
+granularities: `data/injuries_2026_week10.csv` (345 rows, all listed players) and
+`data/injury-report-2026-w10.csv` (160 rows, only those carrying an official game status). Comparing them:
+
+| Comparison | Result |
+| --- | --- |
+| Rows carrying a game status in their file | 160 |
+| Rows in this session's file | 160 |
+| Matched on club + player | **160 / 160** |
+| Agreement on **game_status** | **160 / 160 (100%)** |
+| Agreement on **practice_status** | **160 / 160 (100%)** |
+
+That is two independent transcription passes of an official source agreeing completely on every field that matters
+for availability. It is far stronger evidence than a single pass, and it is the reason the injury dataset in `hub/`
+is presented as verified rather than merely transcribed. The comparison used a club-abbreviation map
+(`LA`→`LAR`, `WAS`→`WSH`, `JAX`→`JAC`) and a practice-status normalisation; both were cosmetic only.
+
+## Sites now published (all from `main`)
+
+| Path | Site | Session |
+| --- | --- | --- |
+| `/` | Fourth & Signal — research framework, decision brief, flagged review | `4a77261b` |
+| `/docs/` | Week 10 data dashboard — 345 injury rows, unit exposure, games, news | `d263eab0` |
+| `/hub/` | Decision Hub — verified datasets, requirements, decision questions, strategies, gates, correlation, depth | `e70150db` |
+
+## Verification performed on the merged tree
+
+| Check | Command | Result |
+| --- | --- | --- |
+| This session's site: links, anchors, sources, no CDN, no placeholder leaks | `python3 tools/check_links.py` | pass — 16 pages, 22 sources |
+| Previous session's site: structure + sourced rows | `python3 scripts/check_site.py` | pass — 7 pages |
+| Data reproducibility from a clean tree | wipe generated artefacts, re-run 7 generators, byte-compare | pass — 27/27 files identical |
+| HTML structure | stdlib `HTMLParser` open/close matching, all 16 hub pages | pass — 0 errors |
+| Injury cross-transcription | 160/160 agreement against `data/injuries_2026_week10.csv` | pass |
+| Arithmetic cross-checks | win pct, net points, pass %, Y/A, PPG vs NGS, bye list | pass — all asserted in the build scripts |
+
+## Irregularities introduced and then fixed during this integration
+
+- While re-namespacing, `assets/` was moved to `hub/assets/`, which temporarily broke the root site's stylesheet
+  link. **Fixed immediately** by restoring `assets/` from `origin/main` and scoping this session's link checker to
+  `hub/` only. Both checkers pass on the final tree; this is logged because a reviewer should know it happened.
+
+## Flagged items (unchanged, all published on `hub/pages/flagged.html`)
+
+F01 depth charts missing for 30/32 clubs · F02 no league-wide official depth endpoint (404, recorded as S17) ·
+F03 no odds data anywhere · F04 injury labels have no published predictive value · F05 DET/MIN 0.05 rounding ·
+F06 NGS EPA published for 16/32 clubs · F07 league gambling policy constrains the product · F08 primary
+deliverable undefined · F09 "reward" undefined. **None of these block the merge.**
+
+## Open decisions for the owner (cannot be made by an agent)
+
+1. **Consolidate the three sites?** Three sites on one repo is honest but not tidy. Recommendation: keep them —
+   `/` for the framework, `/docs/` for the raw Week 10 data, `/hub/` for the verified decision layer — and add a
+   single chooser at `/` later. This is the same conclusion session `d263eab0` reached as its suggestion SG-11.
+2. **Buy a licensed historical odds archive** (hub Q01/Q02/Q03/Q15). Unblocks 9 of 12 strategies.
+3. **Pre-register the strategy registry and set a sample floor** (hub Q04/Q05). Free, immediate.
+4. **Decide what this is: research artefact, product, or syndicated betting operation** (hub Q17).
+   Recommended default: research artefact that publishes lines and does not place bets.
+
+## Pull request and merge result
+
+| Item | Value |
+| --- | --- |
+| PR | https://github.com/sassnarep3-star/FL2/pull/7 |
+| Branch | `arena/e70150db-fl2` → `main` |
+| Base seen at open | `c2ed442` (two other sessions' merges already on `main`) |
+| Conflicts | `COORDINATION.md`, `README.md`, `index.html` — all add/add or content, all resolved without discarding either side |
+| Merge method | `--merge`, merged without waiting for approval |
+| Post-merge deploy check | recorded below |

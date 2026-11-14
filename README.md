@@ -2,7 +2,7 @@
 
 An evidence-first static research site for planning an NFL line-origination and strategy-validation competition. It is a research scaffold, **not** an NFL product, wagering service, betting recommendation, or claim of predictive edge.
 
-**Live site:** [sassnarep3-star.github.io/FL2](https://sassnarep3-star.github.io/FL2/) · [PR #1](https://github.com/sassnarep3-star/FL2/pull/1) (merged)
+**Live site:** [sassnarep3-star.github.io/FL2](https://sassnarep3-star.github.io/FL2/hub/) · [PR #1](https://github.com/sassnarep3-star/FL2/pull/1) (merged)
 
 ## Site map
 
@@ -31,7 +31,7 @@ No automatic NFL data ingestion, odds provider, historical database, forecasts, 
 
 ## Week 10 data dashboard (`docs/`)
 
-A second, data-first dashboard lives in `docs/` (published at `https://sassnarep3-star.github.io/FL2/docs/`):
+A second, data-first dashboard lives in `docs/` (published at `https://sassnarep3-star.github.io/FL2/hub/docs/`):
 
 - Injury tracking: all 345 entries from the NFL.com Week 10 injury report, each row linked to the player's NFL.com profile.
 - Games, news, unit exposure (counts only; starter/backup status not verified), suggestions, open questions, sources and flagged items.
