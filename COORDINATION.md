@@ -96,3 +96,13 @@ Rule used: one session owns each file scope below. Logged handoffs and conflicts
 - **Pages config:** before this merge the repo's Pages build was `legacy` from `main /`. The workflow deploys with GitHub Actions. Check after merge (see below).
 - **PR:** https://github.com/sassnarep3-star/FL2/pull/3 (validate job passed on the PR: `pass`).
 - **Follow-up after merge**: the Injuries page labelled every row without a designation as 'Injury'. Fixed to 'Injury listed' / 'No injury listed' / 'Not injury related' (commit `9803c79`), delivered as a second PR from the same branch (no change to any other branch).
+
+### Final record (d263eab0)
+
+- **PR #3** (`arena/d263eab0-fl2` to `main`, full dashboard): merged, commit `baf52ad`. Pages deploy run 43549532304 succeeded.
+- **PR #5** (label fix, same branch): merged, commit `708601d`. Validate + deploy runs succeeded; Pages status `built` for `708601d`.
+- **Live check (fetched 2026-11-14):** https://sassnarep3-star.github.io/FL2/docs/injuries.html shows 345 entries, with Category labels "Injury listed / No injury listed / Not injury related". Root site https://sassnarep3-star.github.io/FL2/ also renders.
+- **Pages config:** the repo's Pages build type is `legacy` (from `main /`); the deployment that runs is the Actions workflow. Both report `built`. Not changed, to avoid disturbing the other session's site.
+- **Open items:** F-06 to F-14 remain open for your review (Flagged for review page). Starter/backup status, betting lines and strategy results remain blank pending verified sources.
+- **Not done:** no strategy was evaluated and no lines were originated; no verified odds or historical data was accessible from this sandbox.
+
