@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review · FL2</title>
+<meta name="description" content="FL2 — NFL 2026 research and decision ledger. Every value sourced from an official source or left blank and flagged.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main id="app">
+  <noscript>
+    <div class="note bad">
+      <p><strong>This site needs JavaScript.</strong> The tables are rendered client-side from a single
+      verified data bundle so that every row can carry its own source link and verification flag. The
+      data itself is plain JSON/JS in <code>data/site_data.js</code> and the documents are in
+      <code>docs/</code> if you would rather read them directly.</p>
+    </div>
+  </noscript>
+</main>
+<footer id="site-footer"></footer>
+<script src="../data/site_data.js"></script>
+<script src="../data/decisions.js"></script>
+<script src="../assets/app.js"></script>
+<script>FL2UI.render("ledger/flagged.html")</script>
+</body>
+</html>

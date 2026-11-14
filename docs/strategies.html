@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strategies | NFL Analysis Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a href="index.html">NFL Analysis Dashboard</a>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="executive-summary.html">Executive summary</a>
+    <a href="injuries.html">Injuries</a>
+    <a href="unit-exposure.html">Unit exposure</a>
+    <a href="games.html">Games</a>
+    <a href="news.html">News</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="suggestions.html">Suggestions</a>
+    <a href="questions.html">Open questions</a>
+    <a href="sources.html">Sources</a>
+    <a href="flagged.html">Flagged for review</a>
+    <a href="../hub/index.html">Decision Hub ↗</a><a href="../index.html">Main site (Fourth & Signal)</a>
+  </nav>
+</header>
+<main>
+
+<h1>Strategy framework and validation gates</h1>
+<div class="notice bad"><b>No strategies have been evaluated and none are ranked.</b> The leaderboard is empty. Validation is blocked: there is no verified historical odds or outcome data in the repo (F-11, F-12). Correlation values are not computed.</div>
+<h2>Signal families</h2>
+<div id="signals"></div>
+<h2>Validation gates (every strategy must pass before ranking)</h2>
+<div id="gates"></div>
+<h2>Leaderboard</h2>
+<div class="card" id="board">Empty. No strategy has passed the gates.</div>
+
+</main>
+<footer>
+  Analysis only, not betting advice. Data from NFL.com pages fetched 2026-11-14 unless a row says otherwise.
+  Blank values are unverified and flagged. Last build: see data/meta.json.
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const d = await getJSON("data/strategies.json");
+  renderTable({
+    el: document.getElementById("signals"), rows: d.signal_families, search: false,
+    columns: [
+      {key: "id", label: "ID"}, {key: "signal", label: "Signal"}, {key: "description", label: "Description"},
+      {key: "data_required", label: "Data required"}, {key: "available_now", label: "Available now"},
+      {key: "status", label: "Status"}, {key: "validation_status", label: "Validation"},
+    ],
+  });
+  renderTable({
+    el: document.getElementById("gates"), rows: d.validation_gates, search: false,
+    columns: [
+      {key: "id", label: "Gate"}, {key: "gate", label: "Name"}, {key: "rule", label: "Rule"}, {key: "threshold", label: "Threshold"},
+    ],
+  });
+});
+
+</script>
+</body>
+</html>

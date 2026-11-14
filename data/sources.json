@@ -1,0 +1,75 @@
+{
+  "accessed_on": "2026-11-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "NFL.com 2026 Injury Report - Week 10",
+      "publisher": "NFL (official)",
+      "type": "Official league site",
+      "url": "https://www.nfl.com/injuries/",
+      "used_for": "All 345 player rows in injuries table; game grouping; practice and game statuses",
+      "how_verified": "Fetched all 8 pages of the report (chunks 0-7). Row counts per team compared to the page sections (28 teams). Player profile links are taken from the same page.",
+      "verification_level": "Transcribed from official page; second independent pass not yet performed"
+    },
+    {
+      "id": "S2",
+      "title": "NFL.com 2026 Schedule - Week 10 (REG10)",
+      "publisher": "NFL (official)",
+      "type": "Official league site",
+      "url": "https://www.nfl.com/schedules/2026/REG10",
+      "used_for": "Game list, kickoff times (ET), networks, away/home order (from game URLs), Thursday final score, teams on bye",
+      "how_verified": "Fetched all 3 pages. Game URLs of the form /games/<away>-at-<home>-2026-reg-10 used for home/away order.",
+      "verification_level": "Checked against official page"
+    },
+    {
+      "id": "S3",
+      "title": "NFL.com: Notable injuries, news from Sunday's Week 9 games",
+      "publisher": "NFL (official)",
+      "type": "Official league news",
+      "url": "https://www.nfl.com/news/notable-injuries-news-sunday-week-9-games-2026",
+      "used_for": "Context for Week 9 status changes (e.g., Puka Nacua, Patrick Mahomes, Sam Darnold)",
+      "how_verified": "Fetched full page (1 chunk).",
+      "verification_level": "Checked against official page"
+    },
+    {
+      "id": "S4",
+      "title": "NFL.com: Buffalo Bills 2026 Player Roster (sample)",
+      "publisher": "NFL (official)",
+      "type": "Official team roster page",
+      "url": "https://www.nfl.com/teams/buffalo-bills/roster",
+      "used_for": "Confirmed position abbreviations and roster status labels (ACT). Not used for any table values.",
+      "how_verified": "Fetched page 1 of 3 only. Roster data NOT imported.",
+      "verification_level": "Sample only - not used for data"
+    },
+    {
+      "id": "S5",
+      "title": "NFL Football Operations (operations.nfl.com)",
+      "publisher": "NFL (official)",
+      "type": "Official league operations site",
+      "url": "https://operations.nfl.com/",
+      "used_for": "Confirmed the league publishes official rules and policies (2026 NFL Rulebook link) and a calendar of important dates. Rulebook not yet imported.",
+      "how_verified": "Fetched homepage. Linked rulebook and calendar pages not fetched.",
+      "verification_level": "Homepage only"
+    },
+    {
+      "id": "S6",
+      "title": "NFL Flexible Scheduling Procedures",
+      "publisher": "NFL (official)",
+      "type": "Official league policy",
+      "url": "https://www.nfl.com/legal/flexible-scheduling-procedures",
+      "used_for": "Linked from the schedule page as the source for Week 16-18 flexible scheduling. Not used in tables.",
+      "how_verified": "URL appears on the official schedule page (S2). Page itself NOT fetched.",
+      "verification_level": "Link only - not fetched"
+    },
+    {
+      "id": "S7",
+      "title": "nflverse-data (GitHub releases)",
+      "publisher": "nflverse (community project; data sourced from NFL data feeds)",
+      "type": "Community data - NOT official",
+      "url": "https://github.com/nflverse/nflverse-data/releases",
+      "used_for": "Attempted to download schedules (incl. betting-line fields) and injury history. NOT used in any table.",
+      "how_verified": "GitHub API reachable. Release asset downloads failed from the sandbox (TLS error, curl exit 35). No data imported.",
+      "verification_level": "Not usable from this environment"
+    }
+  ]
+}
