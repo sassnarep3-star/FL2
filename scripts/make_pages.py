@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const rows = await getJSON("data/injuries.json");
   const withCat = rows.map(r => ({
     ...r,
-    category: r.not_injury_related ? "Not injury related" : "Injury",
+    category: r.not_injury_related ? "Not injury related" : (r.injury ? "Injury listed" : "No injury listed"),
     game_status_shown: r.game_status || "(none listed)",
     note: r.final_game_flag ? "Final game (F-05)" : "",
   }));
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       {key: "injury", label: "Injury", render: r => esc(r.injury || "(none listed)")},
       {key: "practice_status", label: "Practice"},
       {key: "game_status_shown", label: "Game status", render: r => r.game_status ? statusTag(r.game_status) : '<span class="tag">(none listed)</span>'},
-      {key: "category", label: "Category", render: r => r.not_injury_related ? '<span class="tag nir">Not injury related</span>' : "Injury"},
+      {key: "category", label: "Category", render: r => r.not_injury_related ? '<span class="tag nir">Not injury related</span>' : esc(r.category)},
       {key: "note", label: "Note", render: r => r.final_game_flag ? '<span class="tag final">Final game (F-05)</span>' : ""},
       {key: "source", label: "Source", render: r => srcLink(r.report_url, "NFL.com report") + " / " + srcLink(r.source_url, "profile"), sort: r => r.source_url},
     ],
