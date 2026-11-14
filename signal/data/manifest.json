@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-14T03:32:49Z",
+  "generated_utc": "2026-11-14T03:36:47Z",
   "generator": "analysis/ingest.py",
   "license_note": "nflverse data is published under CC-BY-4.0 by the nflverse project. Football statistics themselves are facts; see the nflverse license.",
   "license_url": "https://github.com/nflverse/nflverse-data/blob/master/LICENSE.md",
@@ -22,7 +22,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:44Z"
+      "retrieved_utc": "2026-11-14T03:36:40Z"
     },
     {
       "file": "raw/depth_charts_2021.csv",
@@ -40,7 +40,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:44Z"
+      "retrieved_utc": "2026-11-14T03:36:40Z"
     },
     {
       "file": "raw/depth_charts_2022.csv",
@@ -58,7 +58,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:44Z"
+      "retrieved_utc": "2026-11-14T03:36:40Z"
     },
     {
       "file": "raw/depth_charts_2023.csv",
@@ -76,7 +76,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:44Z"
+      "retrieved_utc": "2026-11-14T03:36:40Z"
     },
     {
       "file": "raw/depth_charts_2024.csv",
@@ -94,7 +94,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:44Z"
+      "retrieved_utc": "2026-11-14T03:36:40Z"
     },
     {
       "file": "raw/depth_charts_2025.csv",
@@ -112,7 +112,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:45Z"
+      "retrieved_utc": "2026-11-14T03:36:41Z"
     },
     {
       "file": "raw/depth_charts_2026.csv",
@@ -130,7 +130,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_depth_charts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:45Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/games.csv",
@@ -148,7 +148,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_schedules.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_schedules.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:45Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2015.csv",
@@ -166,7 +166,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:45Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2016.csv",
@@ -184,7 +184,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:45Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2017.csv",
@@ -202,7 +202,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2018.csv",
@@ -220,7 +220,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2019.csv",
@@ -238,7 +238,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2020.csv",
@@ -256,7 +256,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2021.csv",
@@ -274,7 +274,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2022.csv",
@@ -292,7 +292,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2023.csv",
@@ -310,7 +310,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2024.csv",
@@ -328,7 +328,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2025.csv",
@@ -346,7 +346,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/injuries_2026.csv",
@@ -364,7 +364,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_injuries.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_injuries.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:42Z"
     },
     {
       "file": "raw/play_by_play_2023.csv",
@@ -382,7 +382,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:46Z"
+      "retrieved_utc": "2026-11-14T03:36:43Z"
     },
     {
       "file": "raw/play_by_play_2024.csv",
@@ -400,7 +400,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:47Z"
+      "retrieved_utc": "2026-11-14T03:36:44Z"
     },
     {
       "file": "raw/play_by_play_2025.csv",
@@ -418,7 +418,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:45Z"
     },
     {
       "file": "raw/play_by_play_2026.csv",
@@ -436,7 +436,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_pbp.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_pbp.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/players.csv",
@@ -454,7 +454,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_players.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_players.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2016.csv",
@@ -472,7 +472,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2017.csv",
@@ -490,7 +490,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2018.csv",
@@ -508,7 +508,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2019.csv",
@@ -526,7 +526,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2020.csv",
@@ -544,7 +544,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2021.csv",
@@ -562,7 +562,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2022.csv",
@@ -580,7 +580,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2023.csv",
@@ -598,7 +598,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2024.csv",
@@ -616,7 +616,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2025.csv",
@@ -634,7 +634,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/snap_counts_2026.csv",
@@ -652,7 +652,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_snap_counts.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/stats_player_week_2020.csv",
@@ -670,7 +670,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:48Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/stats_player_week_2021.csv",
@@ -688,7 +688,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:49Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/stats_player_week_2022.csv",
@@ -706,7 +706,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:49Z"
+      "retrieved_utc": "2026-11-14T03:36:46Z"
     },
     {
       "file": "raw/stats_player_week_2023.csv",
@@ -724,7 +724,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:49Z"
+      "retrieved_utc": "2026-11-14T03:36:47Z"
     },
     {
       "file": "raw/stats_player_week_2024.csv",
@@ -742,7 +742,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:49Z"
+      "retrieved_utc": "2026-11-14T03:36:47Z"
     },
     {
       "file": "raw/stats_player_week_2025.csv",
@@ -760,7 +760,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:49Z"
+      "retrieved_utc": "2026-11-14T03:36:47Z"
     },
     {
       "file": "raw/stats_player_week_2026.csv",
@@ -778,7 +778,7 @@
         "docs": "https://nflreadr.nflverse.com/articles/dictionary_player_stats.html",
         "loader": "https://github.com/nflverse/nflreadr/blob/main/R/load_player_stats.R"
       },
-      "retrieved_utc": "2026-11-14T03:32:49Z"
+      "retrieved_utc": "2026-11-14T03:36:47Z"
     }
   ]
 }
