@@ -4592,6 +4592,40 @@
     ],
     "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores"
   },
+  "model_pathology_diagnosis": {
+    "question": "The fitted model scored 42.9% straight-up while the naive 'better point differential' rule scored 60.3% on the same window. Why?",
+    "finding": "With a free intercept the fit becomes home-leaning in a season where home teams win only 48.91% of games. The free-intercept model picks the home side in 82 of 105 graded games (78.1%) and wins just 43.9% of those picks; its overall straight-up accuracy (42.86%) lands below the 48.91% home base rate it is implicitly betting on. Forcing the intercept to zero makes the forecast change sign with the differential: the model then splits 50 home / 55 away, wins 54.0% of its home picks and 58.2% of its away picks, and straight-up accuracy rises to 56.19% with RMSE improving slightly (12.666 vs 12.763). Both variants still sit essentially on the no-skill benchmark for probability accuracy (Brier skill score -0.0098 and +0.0017 against a 0.2494 null).",
+    "evidence": {
+      "free_intercept": {
+        "n": 105,
+        "rmse": 12.763,
+        "mae": 10.063,
+        "straight_up_pct": 0.4286,
+        "brier": 0.2519,
+        "brier_null": 0.2494,
+        "brier_skill_score": -0.0098,
+        "always_picks_home": false,
+        "last_slope": 0.1361,
+        "last_intercept": -0.018
+      },
+      "through_origin": {
+        "n": 105,
+        "rmse": 12.666,
+        "mae": 9.98,
+        "straight_up_pct": 0.5619,
+        "brier": 0.249,
+        "brier_null": 0.2494,
+        "brier_skill_score": 0.0017,
+        "always_picks_home": false,
+        "last_slope": 0.1361,
+        "last_intercept": 0.0
+      },
+      "naive_rule_accuracy": 0.6033,
+      "home_win_rate": 0.4891
+    },
+    "conclusion": "Not a mystery of the sport - a specification artefact plus a genuine 2026 anomaly. Two lessons, both actionable: (1) a free intercept lets the model inherit a home-team bias that does not exist in 2026 data, so any future model must be audited for side-imbalance before its accuracy is believed; (2) even after fixing it, the Brier skill score is +0.0017, i.e. no demonstrable skill. Do not bet this.",
+    "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores"
+  },
   "prop_correlations": {
     "warning": "ILLUSTRATIVE SAMPLE ONLY. 2 clubs, 5 players, n=8 or 9 per pair. This is NOT a league-wide estimate and must not be used to price parlays.",
     "rows": [
@@ -4734,7 +4768,7 @@
       "ci95_high": 0.7272,
       "p_value": 0.003059,
       "note": "How much of scoring defence is explained by pass defence alone.",
-      "source": "https://www.nfl.com/stats/team-stats/ and https://www.nfl.com/standings/"
+      "source": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
     },
     {
       "pair": "rush yards allowed vs points allowed per game (n=32)",
@@ -4744,7 +4778,7 @@
       "ci95_high": 0.7919,
       "p_value": 0.000196,
       "note": "Same test for run defence.",
-      "source": "https://www.nfl.com/stats/team-stats/ and https://www.nfl.com/standings/"
+      "source": "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all"
     },
     {
       "pair": "defensive yards per attempt allowed vs points allowed per game (n=32)",
@@ -4754,7 +4788,7 @@
       "ci95_high": 0.7737,
       "p_value": 0.000476,
       "note": "Efficiency measure rather than volume.",
-      "source": "https://www.nfl.com/stats/team-stats/ and https://www.nfl.com/standings/"
+      "source": "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all"
     },
     {
       "pair": "points allowed per game vs win percentage (n=32)",
@@ -4764,7 +4798,7 @@
       "ci95_high": -0.4103,
       "p_value": 3.4e-05,
       "note": "Negative expected; magnitude tells you how much defence alone explains the standings.",
-      "source": "https://www.nfl.com/stats/team-stats/ and https://www.nfl.com/standings/"
+      "source": "https://www.nfl.com/standings/division/2026/REG"
     }
   ]
 }

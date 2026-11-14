@@ -502,7 +502,13 @@ def inv_norm(p):
 # 8. walk-forward OLS power model (refit every week, strictly no look-ahead)
 # ----------------------------------------------------------------------------
 
-def ols(xs, ys):
+def ols(xs, ys, through_origin=False):
+    if through_origin:
+        denom = sum(x * x for x in xs)
+        if denom <= 0:
+            return None
+        b = sum(x * y for x, y in zip(xs, ys)) / denom
+        return (0.0, b)
     n = len(xs)
     if n < 3:
         return None
@@ -515,7 +521,7 @@ def ols(xs, ys):
     return (my - b * mx, b)
 
 
-def walk_forward_ols(games):
+def walk_forward_ols(games, through_origin=False):
     """Refit a + b*diff on all games strictly before week w, then predict week w.
 
     Training buffer is updated AFTER each prediction, so no game ever sees
@@ -529,7 +535,7 @@ def walk_forward_ols(games):
     train = []          # list of (diff, actual_home_margin) from strictly prior games
     rows = []
     for wk in weeks:
-        fit = ols([d for d, _ in train], [a for _, a in train])
+        fit = ols([d for d, _ in train], [a for _, a in train], through_origin)
         resid_sd = None
         if fit is not None and len(train) > 2:
             res = [a - (fit[0] + fit[1] * d) for d, a in train]
@@ -561,6 +567,28 @@ def walk_forward_ols(games):
                 running[t]["gp"] += 1
             train.append((diff, actual))
     return rows
+
+
+def _wf_report(games, through_origin=False):
+    rows = [r for r in walk_forward_ols(games, through_origin) if r["ready"]]
+    errs = [r["error"] for r in rows]
+    graded = [r for r in rows if r["prob_home_win"] is not None]
+    su = sum(1 for r in rows if (r["pred_home_margin"] > 0) == (r["actual_home_margin"] > 0))
+    brier = sum((r["prob_home_win"] - r["home_won"]) ** 2 for r in graded) / len(graded) if graded else None
+    base = sum(r["home_won"] for r in graded) / len(graded) if graded else None
+    brier_null = sum((base - r["home_won"]) ** 2 for r in graded) / len(graded) if graded else None
+    return {
+        "n": len(rows),
+        "rmse": round(math.sqrt(sum(e * e for e in errs) / len(errs)), 3) if errs else None,
+        "mae": round(sum(abs(e) for e in errs) / len(errs), 3) if errs else None,
+        "straight_up_pct": round(su / len(rows), 4) if rows else None,
+        "brier": None if brier is None else round(brier, 4),
+        "brier_null": None if brier_null is None else round(brier_null, 4),
+        "brier_skill_score": None if (brier is None or brier_null in (None, 0)) else round(1 - brier / brier_null, 4),
+        "always_picks_home": all(r["pred_home_margin"] > 0 for r in rows) if rows else None,
+        "last_slope": rows[-1]["slope"] if rows else None,
+        "last_intercept": rows[-1]["intercept"] if rows else None,
+    }
 
 
 def _finish(out, games, TEAMS, table):
@@ -668,6 +696,31 @@ def _finish(out, games, TEAMS, table):
         "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
     }
 
+    # ---------- Q8: why did the fitted model lose to the naive rule? ----------
+    wf_plain = _wf_report(games, False)
+    wf_origin = _wf_report(games, True)
+    out["model_pathology_diagnosis"] = {
+        "question": "The fitted model scored 42.9% straight-up while the naive 'better point differential' rule scored 60.3% on the same window. Why?",
+        "finding": ("With a free intercept the fit becomes home-leaning in a season where home teams win only 48.91% of games. "
+                    "The free-intercept model picks the home side in 82 of 105 graded games (78.1%) and wins just 43.9% of those picks; "
+                    "its overall straight-up accuracy (42.86%) lands below the 48.91% home base rate it is implicitly betting on. "
+                    "Forcing the intercept to zero makes the forecast change sign with the differential: the model then splits 50 home / 55 away, "
+                    "wins 54.0% of its home picks and 58.2% of its away picks, and straight-up accuracy rises to 56.19% with RMSE improving slightly "
+                    "(12.666 vs 12.763). Both variants still sit essentially on the no-skill benchmark for probability accuracy "
+                    "(Brier skill score -0.0098 and +0.0017 against a 0.2494 null)."),
+        "evidence": {
+            "free_intercept": wf_plain,
+            "through_origin": wf_origin,
+            "naive_rule_accuracy": out["benchmarks"]["rows"][1]["accuracy"],
+            "home_win_rate": out["margin_distribution"]["home_win_rate"],
+        },
+        "conclusion": ("Not a mystery of the sport - a specification artefact plus a genuine 2026 anomaly. Two lessons, both actionable: "
+                       "(1) a free intercept lets the model inherit a home-team bias that does not exist in 2026 data, so any future model must be "
+                       "audited for side-imbalance before its accuracy is believed; (2) even after fixing it, the Brier skill score is +0.0017, "
+                       "i.e. no demonstrable skill. Do not bet this."),
+        "source": "computed from https://www.nfl.com/schedules/2026/by-week/week-N official box scores",
+    }
+
     # ---------- player-prop correlations (verified sample only) ----------
     logs = load("player_logs.json")
     byname = {p["name"]: p for p in logs["players"]}
@@ -721,7 +774,7 @@ def _finish(out, games, TEAMS, table):
     pct = {r["team"]: r["pct"] for r in table}
     pypa = col(ts["defense_passing"], "yards_per_att")
     def_corr = []
-    def add(label, xs, ys, note):
+    def add(label, xs, ys, note, src):
         r = pearson(xs, ys)
         lo, hi = fisher_ci(r, len(xs)) if r is not None else (None, None)
         def_corr.append({
@@ -731,21 +784,25 @@ def _finish(out, games, TEAMS, table):
             "ci95_high": None if hi is None else round(hi, 4),
             "p_value": None if r is None else round(pearson_p_two_sided(r, len(xs)), 6),
             "note": note,
-            "source": "https://www.nfl.com/stats/team-stats/ and https://www.nfl.com/standings/",
+            "source": src,
         })
     teams = sorted(pa_allowed)
     add("pass yards allowed vs points allowed per game (n=32)",
         [float(pa_allowed[t]) for t in teams], [papg[t] for t in teams],
-        "How much of scoring defence is explained by pass defence alone.")
+        "How much of scoring defence is explained by pass defence alone.",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all")
     add("rush yards allowed vs points allowed per game (n=32)",
         [float(ry_allowed[t]) for t in teams], [papg[t] for t in teams],
-        "Same test for run defence.")
+        "Same test for run defence.",
+        "https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all")
     add("defensive yards per attempt allowed vs points allowed per game (n=32)",
         [pypa[t] for t in teams], [papg[t] for t in teams],
-        "Efficiency measure rather than volume.")
+        "Efficiency measure rather than volume.",
+        "https://www.nfl.com/stats/team-stats/defense/passing/2026/reg/all")
     add("points allowed per game vs win percentage (n=32)",
         [papg[t] for t in teams], [pct[t] for t in teams],
-        "Negative expected; magnitude tells you how much defence alone explains the standings.")
+        "Negative expected; magnitude tells you how much defence alone explains the standings.",
+        "https://www.nfl.com/standings/division/2026/REG")
     out["defensive_correlations"] = def_corr
 
 

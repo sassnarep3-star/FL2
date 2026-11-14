@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method &amp; verification &middot; FL2</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="layout">
+<nav class="sidebar">
+  <div class="brand"><span class="dot"></span> FL2</div>
+  <div class="tag">NFL analysis &amp; betting signals</div>
+  <div class="navgroup"><div class="navhead">Overview</div>
+  <a href="index.html">Dashboard</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Official data</div>
+  <a href="standings.html">Standings</a>
+  <a href="games.html">Game results</a>
+  <a href="week10.html">Week 10 slate</a>
+  <a href="injuries.html">Injuries</a>
+  <a href="depth-charts.html">Depth charts</a>
+  <a href="backup-impact.html">Backup impact</a>
+  <a href="team-stats.html">Team stats</a>
+  <a href="player-props.html">Player props</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Analysis</div>
+  <a href="analytics.html">Analytics</a>
+  <a href="strategies.html">Strategies</a>
+  <a href="validation-gates.html">Validation gates</a>
+  </div>
+  <div class="navgroup"><div class="navhead">Governance</div>
+  <a href="requirements.html">Requirements</a>
+  <a href="open-questions.html">Open questions</a>
+  <a href="suggestions.html">Suggestions</a>
+  <a href="flagged.html">Flagged for review</a>
+  <a href="sources.html">Sources</a>
+  <a class="active" href="method.html">Method &amp; verification</a>
+  </div>
+  <div class="stamp">Data retrieved<br><strong>2026-11-14</strong></div>
+</nav>
+<main>
+<header class="pagehead">
+  <h1>Method &amp; verification</h1>
+  <p class="sub">How the data was gathered and checked</p>
+</header>
+<h2>Method &amp; Verification</h2>
+<h2>How the data was gathered</h2>
+<p>Everything on this site was read off official pages and transcribed. No value was inferred, interpolated, or &quot;filled in from context&quot;.</p>
+<ul><li><strong>Fetch.</strong> Pages were retrieved with a browser-style page fetcher. Plain <code>curl</code> from the build</li></ul>
+<p>sandbox fails (<code>OpenSSL SSL_connect: SSL_ERROR_SYSCALL</code>) because outbound access is limited to <code>github.com</code>, <code>registry.npmjs.org</code> and <code>pypi.org</code>. Every page actually used is listed on the <a href="sources.html" target="_blank" rel="noopener">Sources</a> page.</p>
+<ul><li><strong>Transcribe into JSON, immediately.</strong> A fetched page is not persisted, so anything not written to</li></ul>
+<p><code>data/</code> in the same session is lost. Every data file has a <code>meta</code> block recording the source URL, the retrieval date, and the known caveats.</p>
+<ul><li><strong>Reconcile against a second official page.</strong> Where a table&#x27;s structure was ambiguous, the values</li></ul>
+<p>were checked against an official page that *does* label its columns, and only published if the arithmetic reproduced the published figure.</p>
+<ul><li><strong>Replay.</strong> The 137 games were replayed to regenerate the standings, and the result was compared</li></ul>
+<p>to the official standings page.</p>
+<h2>Verification performed</h2>
+<div class="tablewrap"><table class="mdtable"><thead><tr><th>Check</th><th>Method</th><th>Result</th><th>Source</th></tr></thead><tbody><tr><td>Standings replay</td><td>Replay all 137 games in <code>data/games.json</code>; compare W-L-T, PF, PA to <code>data/standings.json</code></td><td><strong>32/32 teams match exactly</strong></td><td><a href="https://www.nfl.com/standings/division/2026/REG" target="_blank" rel="noopener">standings</a></td></tr><tr><td>Game-log sums</td><td>Sum Drake Maye&#x27;s per-game log; compare to his row on the official passing leaderboard</td><td>178 Cmp, 272 Att, 2,282 Yds, 18 TD, 11 INT — <strong>exact match</strong></td><td><a href="https://www.nfl.com/players/drake-maye/stats/logs/2026/" target="_blank" rel="noopener">Maye log</a> · <a href="https://www.nfl.com/stats/player-stats/category/passing/2026/reg/all/passingyards/desc" target="_blank" rel="noopener">leaderboard</a></td></tr><tr><td>Passing column labels</td><td>Cmp÷Att and Yds÷Att per team vs the published Cmp% / Y/A</td><td>reproduced for every team; SF verified as 163/236 = 69.07 → 69.1 published, 1980/236 = 8.39 → 8.4 published</td><td><a href="https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all" target="_blank" rel="noopener">team stats</a></td></tr><tr><td>Rushing column labels</td><td>Read the header row that the defense/rushing page *does* render</td><td>headers taken verbatim: Att, Rush Yds, YPC, TD, 20+, 40+, Lng, Rush 1st, Rush 1st%, Rush FUM</td><td><a href="https://www.nfl.com/stats/team-stats/defense/rushing/2026/reg/all" target="_blank" rel="noopener">defense rushing</a></td></tr><tr><td>No-look-ahead</td><td>Walk-forward harness refits at each week boundary from strictly earlier weeks; the training buffer is appended <strong>after</strong> each prediction</td><td>32 week-1 and week-2 games correctly excluded as ungradeable</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" target="_blank" rel="noopener">by-week pages</a></td></tr><tr><td>Injury ↔ depth-chart cross-check</td><td>Intersect Out/Doubtful statuses with club charts</td><td>12 conflicts and 3 missing players found (see Backup impact)</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10" target="_blank" rel="noopener">injury report</a></td></tr><tr><td>Site link check</td><td><code>tools/check_links.py</code> parses every built page</td><td>internal links verified; external URLs enumerated for manual review</td><td><a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">this repo</a></td></tr></tbody></table></div>
+<h2>What counts as &quot;verified&quot; here</h2>
+<p>A value is published as verified only if it can be pointed at on an official page. Specifically:</p>
+<p>* It was transcribed from an NFL.com (or, for depth charts, club) page <strong>and</strong> carries that URL. * Or it is pure arithmetic on such values, in which case the page says so explicitly (all of <code>data/derived/analytics.json</code> is in this category).</p>
+<p>If a figure cannot be traced to an official page, it is <strong>not published</strong>. The clearest example: three official stat tables (offense/scoring, defense/scoring, defense/downs) rendered without header rows, so their columns could not be identified and <strong>the tables were withheld entirely</strong> rather than labelled by plausibility.</p>
+<h2>Blank cells</h2>
+<p>A blank cell (<code>—</code>) on this site means one of exactly three things:</p>
+<ul><li>The source published no value for that field (very common on the injury report, where 185 of 345</li></ul>
+<p>player rows carry no game status).</p>
+<ul><li>The game had not been played at retrieval time (13 of 14 Week 10 games).</li><li>The value exists but could not be confirmed, so it was withheld.</li></ul>
+<p>A blank injury status is <strong>not</strong> a statement that the player is healthy.</p>
+<h2>Known limitations</h2>
+<p>* <strong>No odds data.</strong> A betting edge cannot be computed without market prices; none were reachable. Everything published is a probability or a benchmark, never an edge. * <strong>5 of 32 depth charts.</strong> Requirement 5 is only partially satisfied and says so. * <strong>2 clubs, 5 players of game logs.</strong> Prop correlations are illustrative; every confidence interval crosses zero. * <strong>One season, ten weeks.</strong> 137 games is a small sample for everything except describing 2026 itself.</p>
+<h2>Reproducing</h2>
+<p>``<code>bash python3 tools/analytics.py     # recomputes data/derived/analytics.json python3 tools/backup_impact.py # recomputes data/derived/backup_impact.json python3 tools/build_site.py    # rebuilds docs/ python3 tools/check_links.py   # verifies internal links, lists external URLs </code>``</p>
+<p>All four use the Python standard library only. There is no network access and no dependency install.</p>
+<footer class="foot">
+  Every table row on this site carries a link to the official source it was transcribed from.
+  Blank cells mean the source published no value; nothing is inferred.
+  Last built from <code>data/</code> on 2026-11-14.
+</footer>
+</main>
+</div>
+</body></html>
