@@ -805,6 +805,37 @@ Both sides were kept: the hub now carries tiles and nav tabs for `fl2-signals/` 
 owner decision. The open items are the ones that need one of those two, and each is a row in
 `fl2-lines/data/registers/readiness.csv` (37 done · 19 partial · 16 blocked of 74).
 
+### Follow-up (same day, after PR #23 merged as `7ad41761`)
+
+* **Deployed and verified live:** https://sassnarep3-star.github.io/FL2/fl2-lines/ (Pages build
+  `status: built`, no error, at the merge commit; the readiness table and its artefact links were
+  re-read from the live host, not from the sandbox).
+* **A CI bug this session shipped and then fixed:** `fl2-lines-check.yml` had an unquoted step
+  name containing a colon, so the whole workflow file failed to parse and **zero jobs ran** while
+  the run still reported a bare "failure" with no log. The lesson is recorded because it generalises:
+  a workflow that never starts is indistinguishable from a passing one unless someone checks that
+  the job actually ran. `gh api .../jobs` showing `length 0` is how it was found.
+* **Manifest integrity:** `MANIFEST.sha256` had been hashing *itself* and a meta file written after
+  it, so its digests were permanently one build stale. It is now written last, excludes itself, and
+  `check.py` verifies all 23 digests against the files on disk. Two runs of the pipeline are now
+  byte-identical including the manifest.
+* **Claims corrected against the artefacts** (a register row that names a number the data does not
+  support is the exact failure mode this brief is about): R10 said 1,391 availability rows → 1,239;
+  R15 said "592 of 592 outputs" → 272 fixtures carrying a probability vector plus inputs; R16 said
+  "best-of-200" → the seeded field is 400; R07 said 11 of 11 → 6 official rows with n and Fisher-z
+  intervals, 1 market row kept separate, 1 relationship suppressed; R04 stated the blank-difference
+  rule explicitly (480 rows have no recorded market line and are left blank).
+* **New gate, tested by breaking it:** `check.py` now refuses any backtest metric name on
+  `leaderboard.html`. Injecting `brier_skill_vs_market` into the page produced two failures and
+  removing it returned the build to green, so the pre-registration rule is enforced rather than
+  described.
+* **Overlap with `linelab/` (session 74f76e34), recorded not resolved:** both sections now originate
+  the same markets from different models and both publish a decision-readiness table. Neither was
+  edited by the other; the hub states the overlap plainly. Their tile claims to be "the only section
+  that originates its own line for every market", which is not true since this PR — the owner should
+  either merge the two or keep both as independent attempts, which is what the hub currently assumes.
+
+
 ---
 
 # Session arena/b899e38d-fl2 — Local verification and reproducibility audit
