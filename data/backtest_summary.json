@@ -548,7 +548,11 @@
         "G8_leak": true
       },
       "gates_passed": 3,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "Positive Brier skill against the closing line over a pre-registered forward season (currently -8.1%), with a game-cluster lower bound above zero.",
+        "refute": "Another season at the current 51.7% +/- 2.1% hit rate. All 8 gates already failed; only new out-of-sample evidence can revive this."
+      }
     },
     {
       "sid": "S2_blowout_reversion",
@@ -1070,7 +1074,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "A forward sample of 500+ games in which fading 17+ point winners covers 54% or more, with the 95% CI above the 51.5% break-even.",
+        "refute": "The current estimate (50.6% +/- 2.8%) persisting: recency bias is already absorbed by the closing line."
+      }
     },
     {
       "sid": "S3_rest_diff",
@@ -1592,7 +1600,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "Rest-advantage teams covering 53% or more when the bet is placed before the line fully prices the rest gap (early-week entries only).",
+        "refute": "Late-week pricing continuing to absorb rest information before bet time, as the 874-game sample shows."
+      }
     },
     {
       "sid": "S4_pace_total",
@@ -2115,7 +2127,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "A pace projection built on verified inputs (availability, opponent-adjusted pace) beating the market total on Brier skill over a forward holdout.",
+        "refute": "The six-game window continuing to trail the posted total (47.7% vs 51.6% required): the market's total is the better estimator."
+      }
     },
     {
       "sid": "S5_div_dog",
@@ -2637,7 +2653,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "Divisional home underdogs covering 54% or more over a forward sample of 400+ games with the lower bound above break-even.",
+        "refute": "Variance compression being fully priced inside divisional lines, as the 551-game sample (50.1%) indicates."
+      }
     },
     {
       "sid": "S6_ml_dog",
@@ -3159,7 +3179,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "The model's 8+ point probability gaps calibrating: underdogs in that bucket winning at their implied rate plus margin on a forward sample with recorded prices (see decision-readiness DR-01).",
+        "refute": "The measured 36.7% hit rate against 38.2% required persisting: the probability gaps would be noise, not miscalibration."
+      }
     },
     {
       "sid": "S7_high_total",
@@ -3657,7 +3681,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "High-total, tight-spread, calm-weather games going over 54% or more on a forward sample of 300+ games.",
+        "refute": "The current 50.0% over 374 games persisting: the shootout narrative is already priced in."
+      }
     },
     {
       "sid": "S8_bye_edge",
@@ -4179,7 +4207,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "Bye teams covering 53% or more when the line is captured before bye-week practice information is public.",
+        "refute": "No residual edge across 413 games (49.6%): two weeks of preparation is priced."
+      }
     },
     {
       "sid": "S9_short_week_under",
@@ -4547,7 +4579,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "Short-week unders hitting 53.5% or more on a forward sample of 200+ short-week games.",
+        "refute": "The current 50.0% over 246 games persisting: the market also knows the schedule."
+      }
     },
     {
       "sid": "S10_wind_under",
@@ -4821,7 +4857,11 @@
         "G8_leak": true
       },
       "gates_passed": 2,
-      "status": "rejected"
+      "status": "rejected",
+      "would_change_mind": {
+        "support": "The 55.1% over 156 games replicating at 54% or more on the next 150 high-wind games with the lower CI above break-even. This is the closest candidate; n is too small to promote.",
+        "refute": "Regression to 52% or below on the next 150 high-wind games: the current edge sits inside a +/- 7.9 point noise band."
+      }
     },
     {
       "sid": "S11_line_move_fade",
@@ -4845,7 +4885,11 @@
         "G7_fdr": null,
         "G8_leak": null
       },
-      "gates_passed": 0
+      "gates_passed": 0,
+      "would_change_mind": {
+        "support": "A licensed timestamped opening-line feed appearing (see decision-readiness DR-01): the fade-the-move hypothesis then becomes testable under pre-registration.",
+        "refute": "Continued absence of opening prices keeps this untestable, which is not evidence for or against the thesis."
+      }
     }
   ],
   "correlations": {
