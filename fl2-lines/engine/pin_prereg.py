@@ -5,7 +5,13 @@ import csv, io, subprocess, sys
 from pathlib import Path
 SEC = Path(__file__).resolve().parents[1]
 def rev():
-    return subprocess.check_output(["git", "-C", str(SEC.parent), "rev-parse", "HEAD"], text=True).strip()
+    # the pinned hash must be the commit that CARRIES the frozen text, not the newest commit:
+    # pinning HEAD would let later edits slip into the same "registered" version.
+    arg = sys.argv[1] if len(sys.argv) > 1 else "HEAD"
+    if arg.startswith("HEAD") or len(arg) < 40:
+        arg = subprocess.check_output(["git", "-C", str(SEC.parent), "log", "-1", "--format=%H",
+                                       "--", "fl2-lines/data/registers/prereg.csv"], text=True).strip() or arg
+    return subprocess.check_output(["git", "-C", str(SEC.parent), "rev-parse", arg.strip()], text=True).strip()
 p = SEC / "data" / "registers" / "prereg.csv"
 rows = list(csv.DictReader(open(p)))
 cols = list(rows[0].keys())
