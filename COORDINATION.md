@@ -691,3 +691,15 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 
 * This section's own record is carried by https://github.com/sassnarep3-star/FL2/pull/15 (COORDINATION
   text only; no data or site change).
+
+---
+
+# Session arena/b899e38d-fl2 — Local verification and reproducibility audit
+
+| Task | Status | Owner | Files in scope | Verification |
+|---|---|---|---|---|
+| Audit current repo checks and record reproduced failures/limitations without changing other sessions' data or site scopes | **done** | `arena/b899e38d-fl2` | `review/reproducibility-2026-11-16.md`, this coordination entry | `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/check_site.py`, Python compileall, `git diff --check`; `signal/analysis/run_local.py` failure reproduced and generated artifacts reverted |
+
+**Findings:** local site and source-column/link checks pass, but do not re-verify external page contents. The Signal local rebuild fails after producing zero market rows (`IndexError` in `descriptive()`); detailed reproduction and limitations are in the audit note. No NFL values were newly transcribed or asserted as live-verified. External official-source verification remains outstanding for every current-week claim.
+
+**Scope note:** the failed Signal rebuild writes within `signal/analysis` and `signal/data`, owned by the existing Signal Lab section. No code or data in that scope was changed. The finding is logged for its owner to address.
