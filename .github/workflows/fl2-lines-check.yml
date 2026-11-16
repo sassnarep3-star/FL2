@@ -1,0 +1,79 @@
+name: fl2-lines-check
+# Reproduce the section in CI: re-run the compute pipeline from the committed raw inputs and
+# fail if the published pages, tables or registers disagree with what the code derives. This is
+# the check that makes "regenerate and it matches" a claim a stranger can test rather than an
+# assertion in a README.
+on:
+  push:
+    paths:
+      - "fl2-lines/**"
+      - "raw/_nfldata/**"
+      - ".github/workflows/fl2-lines-check.yml"
+  pull_request:
+    paths:
+      - "fl2-lines/**"
+      - "raw/_nfldata/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Snapshot the committed derived outputs
+        run: |
+          mkdir -p /tmp/before
+          cp -r fl2-lines/data /tmp/before/data
+
+      - name: Re-run the pipeline
+        run: |
+          python3 fl2-lines/engine/compute_results.py
+          python3 fl2-lines/engine/compute_lines.py
+          python3 fl2-lines/engine/compute_scores.py
+          python3 fl2-lines/engine/build_site.py
+          python3 fl2-lines/engine/snapshot_capture.py --test
+
+      - name: Validate tables, registers, links and reconciliation
+        run: python3 fl2-lines/engine/check.py | tee check.log
+
+      - name: "Reproducibility: derived data must regenerate byte-identically"
+        run: |
+          set -uo pipefail
+          drift=0
+          for f in results-2026.csv results-reconciliation.csv lines-2026.csv availability-graph.csv; do
+            if ! diff -q <(tr -d '\r' < "/tmp/before/data/derived/$f") <(tr -d '\r' < "fl2-lines/data/derived/$f") >/dev/null; then
+              echo "DRIFT data/derived/$f (the committed page does not match the committed code)"
+              diff <(tr -d '\r' < "/tmp/before/data/derived/$f") <(tr -d '\r' < "fl2-lines/data/derived/$f") | head -12
+              drift=1
+            fi
+          done
+          if [ "$drift" -ne 0 ]; then
+            echo "::error::derived outputs are not reproducible from the committed inputs"
+            exit 1
+          fi
+          echo "derived outputs reproduce byte-identically"
+
+      - name: Render every page headlessly
+        run: |
+          npm install --no-save --silent jsdom
+          node fl2-lines/engine/check_render.js
+
+      - name: Upload the validation log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fl2-lines-check
+          path: |
+            check.log
+            fl2-lines/build-report.json
+          retention-days: 30
+          if-no-files-found: warn

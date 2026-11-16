@@ -694,6 +694,118 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 
 ---
 
+# Session 39dd0836 — Originated Lines, Price Store & Decision Readiness (this PR)
+
+Branch `arena/39dd0836-fl2` · base `229d5fa` (`main` @ PR #15 merge) · started 2026-11-16T01:05Z
+
+## Scope claimed (exclusive)
+
+| Task | Status | Owner | Files in scope |
+|---|---|---|---|
+| FL2-LINES: price-snapshot store, verified results feed, originated lines (side → total → moneyline), availability graph, correlations with n, pre-registration ledger, prospective leaderboard, decision-readiness register, suggestions + Q&A registers, `/fl2-lines/` site | in progress | `arena/39dd0836-fl2` | `fl2-lines/**`, `.github/workflows/fl2-lines-snapshot.yml`, `COORDINATION.md` (append only) |
+
+**Not touched:** `index.html`, `hub/`, `docs/`, `ledger/`, `signal/`, `raw/`, `fl2-dashboard/`, `fl2-signals/`,
+`scripts/`, `tools/`, `engine/`, `data/`, `research/`, `assets/`, root `*.html` other than `404.html`.
+Requests for edits in those files are logged under *Requests* below; the hub link and the landing-page
+decision-readiness table are **additive** edits requested from, then performed by, the integration step
+of this same session (announced here so no other session double-edits).
+
+## Findings that affect other sessions
+
+1. `fl2-signals/` and `fl2-dashboard/` publish a **254-row** Week 10 injury table; the live official
+   report at 2026-11-16T01:15Z is served in 8 chunks and the site's own count is stale — the row count
+   must be re-derived, not asserted. This session publishes a re-capture pipeline instead of a number.
+2. The three Lions designations the board listed as **blank** (Kerby Joseph, Cade Mays, D.J. Reed) are
+   published **Out** on nfl.com now — verified, see `fl2-lines/data/official/`.
+3. `raw/_nfldata/games.csv` carries 137 scored 2026 games; Weeks 1–9 = **136 games**, which is exactly
+   the "136-game log" named in the brief. This session freezes that set as the pre-registered backtest corpus.
+4. nfl.com serves `NE @ DET` (Week 10) as an **International Game played in Munich** and `MIN @ SF`
+   (Week 11) in **Mexico City**, while nflverse `stadium`/`location` fields carry the *designated home
+   club's* venue. Venue must be transcribed from the game centre, not inferred from the mirror.
+
+## Completion record — PR #23 (2026-11-16T02:05Z)
+
+**Shipped:** `/fl2-lines/` — 16 pages, 5 engine scripts, 6 registers, price store, hash-chained
+ledger, plus two workflows (`.github/workflows/fl2-lines-snapshot.yml` for dated captures and
+`.github/workflows/fl2-lines-check.yml` for reproducibility in CI). Merged via
+https://github.com/sassnarep3-star/FL2/pull/23.
+
+**Sources used** (full register: `fl2-lines/data/registers/sources.csv`, 12 rows with tier and access route)
+
+| source | role | tier |
+|---|---|---|
+| `nfl.com/injuries/` (read 2026-11-16T01:12Z) | Week 10 designations and practice statuses; the Lions blanks now published Out | T1 |
+| `nfl.com/standings/division/2026/REG` (01:15Z) | W-L-T/PF/PA for all 32 clubs — the reconciliation target | T1 |
+| `nfl.com/schedules/2026/by-week/week-10` and `week-11` (01:16Z, 01:19Z) | fixture list, kickoff windows, byes, international labels | T1 |
+| `nfl.com/games/steelers-at-bengals-2026-reg-10` (01:22Z) | venue transcription; no final at capture, so the row is blank + status | T1 |
+| `nfl.com/news/2026-nfl-schedule-release-…` (01:26Z) | the league's dated schedule announcement (article dated 2026-05-15) | T1 |
+| `raw/_nfldata/games.csv`, `closing_lines.csv`, `initial_lines.csv`, `sc_lines.csv` | 2026 scores and lines, 1999–2026 priors, price history | T2 mirror carrying T3 prices |
+| `signal/data/*` (injury_player, depth_player, snap_participation) | designation calibration, availability graph, the depth-parser defect | T2 |
+| NFL Game Books | the brief's preferred starter source — **not used**: media-only copyright, reuse rights unestablished | T1 blocked |
+| club `/depth-chart` pages | **not used as truth**: the league page 404s and club charts are captioned unofficial | T3 |
+
+**Verification performed**
+
+1. **Reconciliation as a build gate** — the feed is summed back into the official standings and
+   compared per club; 32/32 exact on W-L-T, PF and PA. A mismatch fails `check.py`.
+2. **Sign conventions proven on long windows** — `spread_line` is the home line (96.9% of 1,924
+   home moneyline favourites, 2015–2026) and home covers 47.25% of 3,031 graded games. Both are
+   asserted in code, not asserted in prose.
+3. **Model-sanity gate** — `corr(model, market) 0.744`, `corr(model, actual) 0.325` vs
+   `corr(market, actual) 0.482`, MAE 3.1 pts to the market and 10.35 to actual. The gate aborts the
+   build if the model tracks the market poorly *or* looks sharper than it (leakage).
+4. **Registers validated** — every readiness row must carry a gate, a clearing number and an
+   existing artefact path; every CSV column count is checked; every price row's provenance is
+   checked against the store meta.
+5. **Render verification** — `check.py` for links/structure plus `engine/check_render.js` (jsdom)
+   executing `assets/app.js` on all 16 pages: 0 failures, no `undefined`/`NaN`/`None` cell text.
+6. **Reproducibility** — the pipeline was run twice; derived CSVs and pages are byte-identical.
+   Build-time git SHAs were removed from `results-meta.json` and `price-store-meta.json` because
+   they made byte-reproducibility impossible. `fl2-lines-check.yml` re-runs the pipeline in CI and
+   diffs the outputs.
+7. **No number is typed into a template** — page text is generated from the artefacts; the
+   hand-typed figures found in `executive-summary.html` and the drift table were replaced with
+   derived values (this caught a stale "3,165 games", now measured as 3,031).
+
+**Irregularities recorded** (all on `/fl2-lines/flagged.html`, 15 rows; `needs review` items are
+published, not blocked)
+
+| # | item | state |
+|---|---|---|
+| FL-01 | no official price source exists (`nfl.com/odds/` 404s) | open — every price gate carries `price_basis` |
+| FL-03 | 15 unplayed fixtures carry forward-dated mirror prices, 8 of 13 differ from our line by >8 pts | needs review — excluded from gates, published with the deviation |
+| FL-05 | mirror holds 18 Week 10 rows across 4 clubs; the site's own "254 rows" count is stale | needs review — re-capture pipeline shipped instead of a number |
+| FL-07 | PIT@CIN had no published final and LAC@BAL was unplayed at capture | open — blank + status, never guessed |
+| FL-08 | Munich-labelled fixture's own venue widget points at Ford Field | needs review — venue transcribed from game centre only (2 of 148) |
+| FL-09 | depth parser wrote 0 rows for 2025–2026 while the report claims 784,796 downloaded | open — now measured at build time on the freshness table |
+| FL-11 | 0 reserve rows in 42,179 mirror rows | open — "not listed" must never be read as "available" |
+| FL-13 | 0 of 4 tested markets show skill on the frozen corpus | open — leaderboard stays an empty escrow |
+| FL-15 | our own sign error passed every convention check; only `corr(model, market)` exposed | closed — gate now watches that correlation |
+
+**Merge conflict, resolved without discarding anyone's work:** `git merge origin/main` (PR #19/#20,
+Verified Signals + reproducibility audit) collided on `COORDINATION.md` and root `index.html`.
+Both sides were kept: the hub now carries tiles and nav tabs for `fl2-signals/` **and**
+`fl2-lines/`, and this board holds both sessions' records. The sentence claiming the ledger is the
+*only* section with verified numbers was corrected to name all four.
+
+**Handoffs to other scopes (not edited here)**
+
+* `raw/_nfldata/` + `signal/data/`: the depth-parser fix (SG-03) belongs to the ingestion owner;
+  `fl2-lines/data/official/depth-defects.md` names the two parser defects and the header-branch
+  root cause.
+* Root `index.html`, `hub/`: this session added one tile and one nav tab (pre-announced above as
+  the integration step); nothing else was touched.
+* `fl2-dashboard/`, `fl2-signals/`: their 254-row Week 10 injury table is stale (FL-05) — their
+  owners should re-capture rather than defend the count.
+* `ledger/`, `engine/`: the Elo model's negative Brier skill (-0.0813) and this section's
+  independent measurement now agree; both say no validated strategy exists yet.
+
+**Status of the claim:** FL2-LINES **done** for everything achievable without a live capture or an
+owner decision. The open items are the ones that need one of those two, and each is a row in
+`fl2-lines/data/registers/readiness.csv` (37 done · 19 partial · 16 blocked of 74).
+
+---
+
 # Session arena/b899e38d-fl2 — Local verification and reproducibility audit
 
 | Task | Status | Owner | Files in scope | Verification |

@@ -1,0 +1,113 @@
+{
+  "window": "2015-2025 regular-season games in the committed mirror (never the season being priced)",
+  "n_games": 2895,
+  "league_mean_team_ppg": 22.793,
+  "league_mean_game_total": 45.586,
+  "home_field_advantage_pts": 1.74,
+  "home_field_ci95_pts": [
+    1.2028,
+    2.2394
+  ],
+  "sigma_margin_default": 14.201,
+  "roof_effect_on_total": {
+    "closed": {
+      "n": 385,
+      "mean": 47.395,
+      "vs_league": 1.809
+    },
+    "dome": {
+      "n": 436,
+      "mean": 48.099,
+      "vs_league": 2.512
+    },
+    "open": {
+      "n": 52,
+      "mean": 49.019,
+      "vs_league": 3.433
+    },
+    "outdoors": {
+      "n": 2022,
+      "mean": 44.612,
+      "vs_league": -0.974
+    }
+  },
+  "surface_effect_on_total": {
+    "a_turf": {
+      "n": 72,
+      "mean": 47.556,
+      "vs_league": 1.969
+    },
+    "astroturf": {
+      "n": 105,
+      "mean": 46.857,
+      "vs_league": 1.271
+    },
+    "fieldturf": {
+      "n": 716,
+      "mean": 46.647,
+      "vs_league": 1.06
+    },
+    "grass": {
+      "n": 1527,
+      "mean": 44.681,
+      "vs_league": -0.905
+    },
+    "grass ": {
+      "n": 93,
+      "mean": 43.344,
+      "vs_league": -2.242
+    },
+    "matrixturf": {
+      "n": 171,
+      "mean": 47.795,
+      "vs_league": 2.209
+    },
+    "sportturf": {
+      "n": 159,
+      "mean": 47.013,
+      "vs_league": 1.426
+    },
+    "unknown": {
+      "n": 44,
+      "mean": 45.614,
+      "vs_league": 0.027
+    }
+  },
+  "rest_effect_on_total": {
+    "away +3 or more": {
+      "n": 343,
+      "mean": 45.274,
+      "vs_league": -0.312
+    },
+    "even": {
+      "n": 2258,
+      "mean": 45.471,
+      "vs_league": -0.115
+    },
+    "home +3 or more": {
+      "n": 294,
+      "mean": 46.833,
+      "vs_league": 1.247
+    }
+  },
+  "rest_effect_on_margin": {
+    "away +3 or more": {
+      "n": 343,
+      "mean": 0.598,
+      "vs_league": -44.989
+    },
+    "even": {
+      "n": 2258,
+      "mean": 1.781,
+      "vs_league": -43.805
+    },
+    "home +3 or more": {
+      "n": 294,
+      "mean": 2.759,
+      "vs_league": -42.828
+    }
+  },
+  "shrinkage_prior_games": 4.0,
+  "seed": 20261116,
+  "declared_not_tuned": "K_PRIOR, the sigma floor and the four context buckets were written down before any 2026 residual was looked at."
+}

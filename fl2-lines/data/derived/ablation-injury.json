@@ -1,0 +1,26 @@
+{
+  "question": "Does the verified availability information improve the line, or is a fixed penalty pretending to knowledge we do not have?",
+  "method": "Identical model, run with and without the personnel feature; coefficient fitted on 2016-2024 only, applied to 2025 (validation) and 2026 (holdout). No fixed point penalty is used anywhere.",
+  "coefficient": {
+    "n_games": 2367,
+    "window": "2016-2024",
+    "mean_avail_gap": -0.0825,
+    "sd_avail_gap": 2.4571,
+    "resid_sd": 13.366,
+    "beta_pts_per_expected_miss": -0.5174,
+    "se": 0.1113,
+    "ci95": [
+      -0.7357,
+      -0.2992
+    ],
+    "pearson_r": -0.0951,
+    "pearson_ci95": [
+      -0.1349,
+      -0.055
+    ],
+    "note": "Ablation coefficient. A fixed -3.0 points per missing starter would assert an effect this sample does not support."
+  },
+  "availability_source": "signal/data/injury_player.csv (mirror of the official NFL.com report) joined to signal/data/snap_participation.csv",
+  "rows_2026": 1239,
+  "leakage_note": "The report mirror carries no per-row fetch timestamp, so 'known before kickoff' is an assumption about weekly publication timing, not a certified fact. Flagged as FL-F04."
+}

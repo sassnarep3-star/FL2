@@ -1,0 +1,1240 @@
+season,week,team,player,position,pos_group,designation,practice_status,listed_injury,expected_available_pct,participated_that_week,surprise,surprise_pts
+2026,1,ARI,Garrett Williams,CB,DB,Out,Limited Participation in Practice,Achilles,0.0,no,as-expected,0.0
+2026,1,ARI,Isaiah Adams,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,1,ARI,Dadrion Taylor-Demerson,S,DB,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,1,ARI,Jeremiyah Love,RB,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,1,ATL,Za'Darius Smith,DE,DL,Questionable,Full Participation in Practice,Shoulder,69.2,yes,as-expected,-30.8
+2026,1,ATL,Tua Tagovailoa,QB,QB,Out,Did Not Participate In Practice,Oblique,0.0,no,as-expected,0.0
+2026,1,ATL,Michael Penix Jr.,QB,QB,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,1,ATL,Billy Bowman Jr.,CB,DB,Out,Limited Participation in Practice,Achilles,0.0,no,as-expected,0.0
+2026,1,ATL,Cameron Williams,T,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,1,BAL,Nnamdi Madubuike,DT,DL,Out,Limited Participation in Practice,Neck,0.0,no,as-expected,0.0
+2026,1,BAL,Devontez Walker,WR,SKILL,Questionable,Limited Participation in Practice,Groin,64.9,no,expected-in-but-missed,64.9
+2026,1,BAL,Teddye Buchanan,LB,LB,Out,Limited Participation in Practice,Knee,0.1,no,as-expected,0.1
+2026,1,BUF,Ty Johnson,RB,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,1,BUF,Jordan Hancock,CB,DB,Questionable,Full Participation in Practice,Quadricep,60.9,yes,as-expected,-39.1
+2026,1,BUF,T.J. Sanders,DE,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,1,CAR,Patrick Jones II,LB,LB,Out,Did Not Participate In Practice,Back,0.1,no,as-expected,0.1
+2026,1,CHI,Xavier Woods,S,DB,Questionable,Limited Participation in Practice,Groin,60.9,no,expected-in-but-missed,60.9
+2026,1,CHI,Tyson Bagent,QB,QB,Questionable,Did Not Participate In Practice,Back,47.7,no,as-expected,47.7
+2026,1,CHI,Rome Odunze,WR,SKILL,Questionable,Limited Participation in Practice,Calf,64.9,yes,as-expected,-35.1
+2026,1,CHI,Ozzy Trapilo,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,1,CIN,Shemar Stewart,DE,DL,Doubtful,Did Not Participate In Practice,Knee,2.3,no,as-expected,2.3
+2026,1,CLE,Teven Jenkins,G,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,1,CLE,Parker Brailsford,C,OL,Questionable,Limited Participation in Practice,Thumb,61.7,no,expected-in-but-missed,61.7
+2026,1,DAL,Malik Davis,RB,SKILL,Out,Limited Participation in Practice,Hip,0.0,no,as-expected,0.0
+2026,1,DET,Christian Izien,S,DB,Questionable,Limited Participation in Practice,Groin,60.9,no,expected-in-but-missed,60.9
+2026,1,GB,Aaron Banks,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,1,GB,Zach Bako-Bewele,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,1,GB,Ty'Ron Hopper,LB,LB,Questionable,Limited Participation in Practice,Achilles,69.7,no,expected-in-but-missed,69.7
+2026,1,GB,Warren Brinson,DT,DL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,1,IND,Austin Ajiake,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,1,JAX,LeQuint Allen Jr.,RB,SKILL,Questionable,Limited Participation in Practice,Hip,64.9,no,expected-in-but-missed,64.9
+2026,1,KC,Chamarri Conner,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,1,KC,Josh Simmons,T,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,1,LA,Aaron Donald,DE,DL,Out,Did Not Participate In Practice,Not injury related - resting player,0.0,no,as-expected,0.0
+2026,1,LAC,Deane Leonard,CB,DB,Out,Did Not Participate In Practice,Abdomen,0.0,no,as-expected,0.0
+2026,1,LAC,Tuli Tuipulotu,DE,DL,Questionable,Limited Participation in Practice,Hip,69.2,yes,as-expected,-30.8
+2026,1,LV,Brock Bowers,TE,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,1,NE,Ben Brown,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,1,NE,TreVeyon Henderson,RB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,1,NO,Cameron Jordan,LB,LB,Out,Limited Participation in Practice,Hamstring,0.1,no,as-expected,0.1
+2026,1,NO,Alvin Kamara,RB,SKILL,Questionable,Full Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,1,NO,Audric Estime,RB,SKILL,Out,Did Not Participate In Practice,Thigh,0.0,no,as-expected,0.0
+2026,1,NO,Oscar Delp,TE,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,1,NYG,Malik Nabers,WR,SKILL,Questionable,Full Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,1,NYJ,Tim Patrick,WR,SKILL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,1,NYJ,Kene Nwangwu,RB,SKILL,Doubtful,Did Not Participate In Practice,Back,1.4,no,as-expected,1.4
+2026,1,NYJ,Joseph Ossai,DE,DL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,1,NYJ,D'Angelo Ponds,CB,DB,Doubtful,Limited Participation in Practice,Calf,1.1,no,as-expected,1.1
+2026,1,PHI,Jonathan Greenard,LB,LB,Out,Limited Participation in Practice,Pectoral,0.1,no,as-expected,0.1
+2026,1,PHI,Eli Stowers,TE,SKILL,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,1,PIT,Joey Porter Jr.,CB,DB,Questionable,Limited Participation in Practice,Back,60.9,no,expected-in-but-missed,60.9
+2026,1,SEA,Ty Okada,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,1,SEA,Tory Horton,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,1,SEA,Nick Emmanwori,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,1,SF,Alfred Collins,DT,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,1,SF,James Thompson Jr.,DT,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,no,expected-in-but-missed,69.2
+2026,1,TB,Justin Skule,T,OL,Doubtful,Limited Participation in Practice,Oblique,0.0,no,as-expected,0.0
+2026,1,TB,Christian Rozeboom,LB,LB,Questionable,Limited Participation in Practice,Foot,69.7,no,expected-in-but-missed,69.7
+2026,1,TB,Sean Tucker,RB,SKILL,Doubtful,Limited Participation in Practice,Hamstring,1.4,no,as-expected,1.4
+2026,1,TB,Jalen McMillan,WR,SKILL,Doubtful,Limited Participation in Practice,Knee,1.4,no,as-expected,1.4
+2026,1,TEN,Cedric Gray,LB,LB,Out,Did Not Participate In Practice,Concussion,0.1,no,as-expected,0.1
+2026,2,ARI,Isaac Seumalo,G,OL,Questionable,Limited Participation in Practice,Shoulder,61.7,yes,as-expected,-38.3
+2026,2,ARI,Andrew Billings,DT,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,2,ARI,Roy Lopez,DT,DL,Questionable,Limited Participation in Practice,Groin,69.2,yes,as-expected,-30.8
+2026,2,ARI,Garrett Williams,CB,DB,Out,Limited Participation in Practice,Achilles,0.0,no,as-expected,0.0
+2026,2,ARI,Max Melton,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,2,ARI,Isaiah Adams,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,2,ARI,Dadrion Taylor-Demerson,S,DB,Questionable,Limited Participation in Practice,Ribs,60.9,yes,as-expected,-39.1
+2026,2,ATL,Chris Lindstrom,G,OL,Questionable,Full Participation in Practice,Concussion,61.7,yes,as-expected,-38.3
+2026,2,ATL,Tua Tagovailoa,QB,QB,Doubtful,Did Not Participate In Practice,Oblique,0.0,no,as-expected,0.0
+2026,2,ATL,A.J. Terrell,CB,DB,Questionable,Did Not Participate In Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,2,ATL,Michael Penix Jr.,QB,QB,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,2,ATL,Billy Bowman Jr.,CB,DB,Out,Full Participation in Practice,Achilles,0.0,no,as-expected,0.0
+2026,2,BAL,Ronnie Stanley,T,OL,Questionable,Limited Participation in Practice,Toe,61.7,yes,as-expected,-38.3
+2026,2,BAL,Trey Hendrickson,LB,LB,Questionable,Limited Participation in Practice,Finger,69.7,yes,as-expected,-30.3
+2026,2,BAL,Nnamdi Madubuike,DT,DL,Out,Limited Participation in Practice,Neck,0.0,no,as-expected,0.0
+2026,2,BAL,John Simpson,G,OL,Questionable,Limited Participation in Practice,Groin,61.7,yes,as-expected,-38.3
+2026,2,BAL,Zay Flowers,WR,SKILL,Doubtful,Limited Participation in Practice,Hamstring,1.4,no,as-expected,1.4
+2026,2,BAL,T.J. Tampa,CB,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,BAL,Teddye Buchanan,LB,LB,Out,Limited Participation in Practice,Knee,0.1,no,as-expected,0.1
+2026,2,BUF,Ty Johnson,RB,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,2,BUF,Cole Bishop,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,2,BUF,T.J. Sanders,DE,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,2,CAR,Bobby Brown III,DT,DL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,2,CAR,Patrick Jones II,LB,LB,Questionable,Limited Participation in Practice,Back,69.7,no,expected-in-but-missed,69.7
+2026,2,CIN,B.J. Hill,DT,DL,Questionable,Did Not Participate In Practice,Achilles,69.2,no,expected-in-but-missed,69.2
+2026,2,CIN,Joe Burrow,QB,QB,Questionable,Full Participation in Practice,Back,47.7,yes,as-expected,-52.3
+2026,2,CLE,Noah Igbinoghene,CB,DB,Questionable,,Hand,60.9,yes,as-expected,-39.1
+2026,2,CLE,Teven Jenkins,G,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,2,CLE,Tyson Campbell,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,2,DAL,Malik Hooker,S,DB,Out,Did Not Participate In Practice,Forearm,0.0,no,as-expected,0.0
+2026,2,DAL,DeMarvion Overshown,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,2,DEN,Marvin Mims Jr.,WR,SKILL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,2,DEN,RJ Harvey,RB,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,2,DET,D.J. Reed,CB,DB,Questionable,Limited Participation in Practice,Foot,60.9,yes,as-expected,-39.1
+2026,2,DET,Christian Mahogany,G,OL,Out,Did Not Participate In Practice,Hip,0.0,no,as-expected,0.0
+2026,2,DET,Blake Miller,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,GB,Javon Hargrave,DT,DL,Doubtful,Did Not Participate In Practice,Knee,2.3,no,as-expected,2.3
+2026,2,GB,Aaron Banks,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,2,GB,Benjamin St-Juste,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,2,GB,Zach Bako-Bewele,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,2,GB,Lukas Van Ness,LB,LB,Questionable,Limited Participation in Practice,Concussion,69.7,yes,as-expected,-30.3
+2026,2,GB,Warren Brinson,DT,DL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,2,HOU,Jadeveon Clowney,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,HOU,Nico Collins,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,2,HOU,Jacob Hummel,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,2,HOU,Ed Ingram,G,OL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,2,IND,Ashton Dulin,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,2,IND,DJ Giddens,RB,SKILL,Questionable,Full Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,2,KC,Chris Jones,DT,DL,Questionable,Limited Participation in Practice,Calf,69.2,yes,as-expected,-30.8
+2026,2,KC,Chamarri Conner,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,KC,Josh Simmons,T,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,2,KC,Mansoor Delane,CB,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,2,LA,Puka Nacua,WR,SKILL,Questionable,Did Not Participate In Practice,Hip,64.9,no,expected-in-but-missed,64.9
+2026,2,LA,Jordan Whittington,WR,SKILL,Doubtful,Did Not Participate In Practice,Quadricep,1.4,no,as-expected,1.4
+2026,2,LA,Kamren Kinchens,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,2,LAC,Trey Pipkins,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,LAC,Elijah Molden,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,2,LAC,Deane Leonard,CB,DB,Questionable,Limited Participation in Practice,Abdomen,60.9,no,expected-in-but-missed,60.9
+2026,2,LAC,Ladd McConkey,WR,SKILL,Questionable,Limited Participation in Practice,Rib,64.9,yes,as-expected,-35.1
+2026,2,LV,Aidan O'Connell,QB,QB,Questionable,Did Not Participate In Practice,Not injury related - personal matter,47.7,no,as-expected,47.7
+2026,2,LV,Brock Bowers,TE,SKILL,Doubtful,Limited Participation in Practice,Knee,1.4,no,as-expected,1.4
+2026,2,LV,Darien Porter,CB,DB,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,2,MIA,Ronnie Harrison,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,2,MIA,Tucker Addington,LS,ST,Questionable,Limited Participation in Practice,Shoulder,69.6,yes,as-expected,-30.4
+2026,2,MIA,Chop Robinson,LB,LB,Out,Did Not Participate In Practice,Concussion,0.1,no,as-expected,0.1
+2026,2,MIN,Brian O'Neill,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,2,MIN,Kyler Murray,QB,QB,Out,Limited Participation in Practice,Concussion,0.0,no,as-expected,0.0
+2026,2,MIN,Jauan Jennings,WR,SKILL,Out,Did Not Participate In Practice,Not injury related - personal matter,0.0,no,as-expected,0.0
+2026,2,NE,Carlton Davis III,CB,DB,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,2,NE,Dre'Mont Jones,LB,LB,Questionable,Limited Participation in Practice,Foot,69.7,yes,as-expected,-30.3
+2026,2,NE,Ben Brown,C,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,2,NE,Dametrious Crownover,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,NO,Zach Wood,LS,ST,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,2,NO,Chase Young,LB,LB,Questionable,Limited Participation in Practice,Calf,69.7,yes,as-expected,-30.3
+2026,2,NO,Chris Olave,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,2,NO,Isaiah Stalbird,LB,LB,Doubtful,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,2,NO,Christen Miller,DT,DL,Questionable,Limited Participation in Practice,Toe,69.2,no,expected-in-but-missed,69.2
+2026,2,NYG,Micah McFadden,LB,LB,Questionable,Limited Participation in Practice,Neck,69.7,no,expected-in-but-missed,69.7
+2026,2,NYG,Deonte Banks,CB,DB,Questionable,Did Not Participate In Practice,Calf,60.9,no,expected-in-but-missed,60.9
+2026,2,NYJ,Minkah Fitzpatrick,S,DB,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,2,NYJ,Kene Nwangwu,RB,SKILL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,2,NYJ,Joseph Ossai,DE,DL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,2,NYJ,Will McDonald IV,DE,DL,Questionable,Limited Participation in Practice,Ankle,69.2,no,expected-in-but-missed,69.2
+2026,2,NYJ,Omar Cooper Jr.,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,2,PHI,Jonathan Greenard,LB,LB,Out,Limited Participation in Practice,Pectoral,0.1,no,as-expected,0.1
+2026,2,PHI,Andrew Mukuba,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,2,PIT,Michael Pittman,WR,SKILL,Questionable,Did Not Participate In Practice,Foot,64.9,no,expected-in-but-missed,64.9
+2026,2,PIT,Joey Porter Jr.,CB,DB,Out,Limited Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,2,PIT,Troy Fautanu,T,OL,Questionable,Full Participation in Practice,Ankle,61.7,yes,as-expected,-38.3
+2026,2,SEA,Sam Darnold,QB,QB,Out,Did Not Participate In Practice,Glute,0.0,no,as-expected,0.0
+2026,2,SEA,Ty Okada,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,2,SEA,Anthony Bradford,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,2,SEA,Nick Emmanwori,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,2,SF,Eddy Pineiro,K,ST,Questionable,Did Not Participate In Practice,Illness,69.6,no,expected-in-but-missed,69.6
+2026,2,SF,De'Zhaun Stribling,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,2,SF,Kaelon Black,RB,SKILL,Questionable,Limited Participation in Practice,Groin,64.9,yes,as-expected,-35.1
+2026,2,TB,Miles Killebrew,S,DB,Questionable,Full Participation in Practice,Concussion,60.9,yes,as-expected,-39.1
+2026,2,TB,Jalen McMillan,WR,SKILL,Questionable,Full Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,2,TB,Jacob Parrish,CB,DB,Questionable,Full Participation in Practice,Back,60.9,no,expected-in-but-missed,60.9
+2026,2,TEN,Cordale Flott,CB,DB,Questionable,Did Not Participate In Practice,Quadricep,60.9,no,expected-in-but-missed,60.9
+2026,2,TEN,James Williams,LB,LB,Questionable,Limited Participation in Practice,Elbow,69.7,no,expected-in-but-missed,69.7
+2026,2,TEN,Cedric Gray,LB,LB,Questionable,Full Participation in Practice,Concussion,69.7,yes,as-expected,-30.3
+2026,2,WAS,Frankie Luvu,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,2,WAS,Javon Kinlaw,DT,DL,Questionable,Limited Participation in Practice,Back,69.2,yes,as-expected,-30.8
+2026,2,WAS,Chig Okonkwo,TE,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,ARI,Roy Lopez,DT,DL,Questionable,Limited Participation in Practice,Groin,69.2,yes,as-expected,-30.8
+2026,3,ARI,Max Melton,CB,DB,Questionable,Limited Participation in Practice,Toe,60.9,yes,as-expected,-39.1
+2026,3,ARI,Dadrion Taylor-Demerson,S,DB,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,3,ATL,Samson Ebukam,DE,DL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,ATL,Billy Bowman Jr.,CB,DB,Questionable,Full Participation in Practice,Achilles,60.9,no,expected-in-but-missed,60.9
+2026,3,BAL,Ronnie Stanley,T,OL,Out,Did Not Participate In Practice,Toe,0.0,no,as-expected,0.0
+2026,3,BAL,Zay Flowers,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,3,BUF,DJ Moore,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,no,expected-in-but-missed,64.9
+2026,3,BUF,Ed Oliver,DT,DL,Questionable,Full Participation in Practice,Hip,69.2,yes,as-expected,-30.8
+2026,3,BUF,Keon Coleman,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,3,BUF,Jordan Hancock,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,BUF,T.J. Sanders,DE,DL,Out,Did Not Participate In Practice,Illness,0.0,no,as-expected,0.0
+2026,3,BUF,Ar'maj Reed-Adams,G,OL,Questionable,Limited Participation in Practice,Elbow,61.7,no,expected-in-but-missed,61.7
+2026,3,CAR,Nick Scott,S,DB,Out,Did Not Participate In Practice,Rib,0.0,no,as-expected,0.0
+2026,3,CAR,Devin Lloyd,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,3,CAR,Claudin Cherelus,LB,LB,Out,Did Not Participate In Practice,Shoulder,0.1,no,as-expected,0.1
+2026,3,CAR,Xavier Legette,WR,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,3,CAR,Jalen Coker,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,3,CHI,Noah Sewell,LB,LB,Out,Limited Participation in Practice,Achilles,0.1,no,as-expected,0.1
+2026,3,CHI,Tyson Bagent,QB,QB,Questionable,Full Participation in Practice,Concussion,47.7,no,as-expected,47.7
+2026,3,CHI,Caleb Williams,QB,QB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,CHI,Shemar Turner,DE,DL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,3,CIN,B.J. Hill,DT,DL,Doubtful,Did Not Participate In Practice,Achilles,2.3,no,as-expected,2.3
+2026,3,CIN,Andrei Iosivas,WR,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,3,CLE,Grant Delpit,S,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,3,CLE,Teven Jenkins,G,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,3,CLE,Tyson Campbell,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,3,DAL,Malik Hooker,S,DB,Out,Did Not Participate In Practice,Forearm,0.0,no,as-expected,0.0
+2026,3,DAL,P.J. Locke,S,DB,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,3,DAL,Cobie Durant,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,DAL,DeMarvion Overshown,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,3,DEN,Marvin Mims Jr.,WR,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,no,expected-in-but-missed,64.9
+2026,3,DEN,Jonah Coleman,RB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,DET,Ben Bartch,G,OL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,3,DET,Thomas Harper,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,GB,Javon Hargrave,DT,DL,Questionable,Limited Participation in Practice,Knee,69.2,yes,as-expected,-30.8
+2026,3,GB,Aaron Banks,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,GB,Zach Bako-Bewele,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,GB,Jayden Reed,WR,SKILL,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,3,GB,Warren Brinson,DT,DL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,3,GB,Anthony Campbell,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,no,expected-in-but-missed,69.2
+2026,3,HOU,Jadeveon Clowney,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,HOU,Trent Brown,T,OL,Questionable,Full Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,3,HOU,M.J. Stewart,S,DB,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,3,HOU,Nico Collins,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,HOU,Jacob Hummel,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,3,HOU,Ed Ingram,G,OL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,3,IND,Charvarius Ward,CB,DB,Questionable,Full Participation in Practice,Groin,60.9,yes,as-expected,-39.1
+2026,3,IND,Ashton Dulin,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,IND,Alec Pierce,WR,SKILL,Out,Did Not Participate In Practice,Heel,0.0,no,as-expected,0.0
+2026,3,JAX,Albert Regis,DT,DL,Doubtful,Limited Participation in Practice,Elbow,2.3,no,as-expected,2.3
+2026,3,KC,Chamarri Conner,S,DB,Doubtful,Limited Participation in Practice,Knee,1.1,no,as-expected,1.1
+2026,3,KC,Josh Simmons,T,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,3,LA,Colby Parkinson,TE,SKILL,Questionable,Did Not Participate In Practice,Knee,64.9,yes,as-expected,-35.1
+2026,3,LA,Puka Nacua,WR,SKILL,Doubtful,Did Not Participate In Practice,Hip,1.4,no,as-expected,1.4
+2026,3,LA,Kamren Kinchens,S,DB,Doubtful,Did Not Participate In Practice,Hamstring,1.1,no,as-expected,1.1
+2026,3,LAC,Dalvin Tomlinson,DT,DL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,LAC,Trey Pipkins,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,LAC,Kayode Awosika,G,OL,Out,Did Not Participate In Practice,Fibula,0.0,no,as-expected,0.0
+2026,3,LAC,Elijah Molden,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,LAC,Trey Lance,QB,QB,Questionable,Limited Participation in Practice,Groin,47.7,no,as-expected,47.7
+2026,3,LAC,Charlie Kolar,TE,SKILL,Out,Did Not Participate In Practice,Forearm,0.0,no,as-expected,0.0
+2026,3,LAC,Rodney Shelley,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,3,LAC,Brenen Thompson,WR,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,3,LV,Kwity Paye,DE,DL,Questionable,Limited Participation in Practice,Illness,69.2,yes,as-expected,-30.8
+2026,3,LV,Aidan O'Connell,QB,QB,Questionable,Did Not Participate In Practice,Not injury related - personal matter,47.7,no,as-expected,47.7
+2026,3,LV,Brock Bowers,TE,SKILL,Questionable,Did Not Participate In Practice,Knee,64.9,yes,as-expected,-35.1
+2026,3,LV,Treydan Stukes,S,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,3,MIA,Rob Beal Jr.,DE,DL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,MIA,Ryan Miller,WR,SKILL,Questionable,Full Participation in Practice,Hip,64.9,yes,as-expected,-35.1
+2026,3,MIA,Julius Brents,CB,DB,Questionable,Full Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,3,MIA,Jaylen Wright,RB,SKILL,Doubtful,Did Not Participate In Practice,Stinger,1.4,no,as-expected,1.4
+2026,3,MIA,Caleb Douglas,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,MIN,Nick Samac,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,MIN,Brett Thorson,P,ST,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,NE,Dre'Mont Jones,LB,LB,Out,Did Not Participate In Practice,Shoulder,0.1,no,as-expected,0.1
+2026,3,NE,Brenden Schooler,S,DB,Out,Limited Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,3,NE,Craig Woodson,S,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,3,NE,Eli Raridon,TE,SKILL,Questionable,Did Not Participate In Practice,Thigh,64.9,no,expected-in-but-missed,64.9
+2026,3,NE,Quintayvious Hutchins,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,3,NO,Martin Emerson,CB,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,3,NO,Barion Brown,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,NO,Christen Miller,DT,DL,Out,Did Not Participate In Practice,Toe,0.0,no,as-expected,0.0
+2026,3,NYG,Brian Burns,LB,LB,Questionable,Did Not Participate In Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,3,NYG,Deonte Banks,CB,DB,Questionable,Limited Participation in Practice,Calf,60.9,no,expected-in-but-missed,60.9
+2026,3,NYG,Tyler Nubin,S,DB,Questionable,Limited Participation in Practice,Calf,60.9,no,expected-in-but-missed,60.9
+2026,3,NYJ,Minkah Fitzpatrick,S,DB,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,3,NYJ,Kene Nwangwu,RB,SKILL,Doubtful,Did Not Participate In Practice,Back,1.4,no,as-expected,1.4
+2026,3,NYJ,Joseph Ossai,DE,DL,Questionable,Full Participation in Practice,Foot,69.2,yes,as-expected,-30.8
+2026,3,NYJ,Adonai Mitchell,WR,SKILL,Questionable,Limited Participation in Practice,Finger,64.9,no,expected-in-but-missed,64.9
+2026,3,NYJ,Francisco Mauigoa,LB,LB,Out,Did Not Participate In Practice,Quadricep,0.1,no,as-expected,0.1
+2026,3,NYJ,Mason Taylor,TE,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,3,PHI,Dallas Goedert,TE,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,PHI,Fred Johnson,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,PHI,Marquise Brown,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,PHI,Jonathan Greenard,LB,LB,Questionable,Full Participation in Practice,Pectoral,69.7,yes,as-expected,-30.3
+2026,3,PIT,Jamel Dean,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,3,PIT,Rico Dowdle,RB,SKILL,Out,Did Not Participate In Practice,Toe,0.0,no,as-expected,0.0
+2026,3,PIT,Michael Pittman,WR,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,no,expected-in-but-missed,64.9
+2026,3,PIT,Jaylen Warren,RB,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,yes,as-expected,-35.1
+2026,3,PIT,Joey Porter Jr.,CB,DB,Questionable,Limited Participation in Practice,Not injury related - other,60.9,no,expected-in-but-missed,60.9
+2026,3,PIT,Gennings Dunker,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,SEA,Julian Love,S,DB,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,3,SEA,Brandon Pili,DT,DL,Questionable,Limited Participation in Practice,Concussion,69.2,no,expected-in-but-missed,69.2
+2026,3,SEA,Ty Okada,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,SF,Mike Evans,WR,SKILL,Questionable,Limited Participation in Practice,Hip,64.9,yes,as-expected,-35.1
+2026,3,SF,Demarcus Robinson,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,SF,Nick Bosa,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,3,SF,James Thompson Jr.,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,3,SF,Romello Height,DE,DL,Out,Did Not Participate In Practice,Hand,0.0,no,as-expected,0.0
+2026,3,TB,Rueben Bain Jr.,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,3,TB,Josiah Trotter,LB,LB,Out,Limited Participation in Practice,Shoulder,0.1,no,as-expected,0.1
+2026,3,TEN,Cordale Flott,CB,DB,Questionable,Limited Participation in Practice,Quadricep,60.9,yes,as-expected,-39.1
+2026,3,TEN,Tyjae Spears,RB,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,3,WAS,Frankie Luvu,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,3,WAS,Sam Cosmi,G,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,3,WAS,Nick Cross,S,DB,Out,Did Not Participate In Practice,Illness,0.0,no,as-expected,0.0
+2026,3,WAS,Chig Okonkwo,TE,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,3,WAS,Jayden Daniels,QB,QB,Out,Did Not Participate In Practice,Elbow,0.0,no,as-expected,0.0
+2026,4,ARI,Josh Sweat,LB,LB,Questionable,Limited Participation in Practice,Not injury related - resting player,69.7,yes,as-expected,-30.3
+2026,4,ARI,Dadrion Taylor-Demerson,S,DB,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,4,ATL,Samson Ebukam,DE,DL,Questionable,Full Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,4,ATL,Divine Deablo,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,4,ATL,Yasir Abdullah,LB,LB,Questionable,Full Participation in Practice,Illness,69.7,yes,as-expected,-30.3
+2026,4,BAL,Chris Moore,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,no,expected-in-but-missed,64.9
+2026,4,BAL,Ronnie Stanley,T,OL,Questionable,Did Not Participate In Practice,Toe,61.7,yes,as-expected,-38.3
+2026,4,BAL,Ethan Pocic,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,BAL,Trey Hendrickson,LB,LB,Out,Did Not Participate In Practice,Finger,0.1,no,as-expected,0.1
+2026,4,BAL,Jovaughn Gwyn,C,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,BAL,Zay Flowers,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,4,BUF,Christian Benford,CB,DB,Questionable,Did Not Participate In Practice,Toe,60.9,no,expected-in-but-missed,60.9
+2026,4,BUF,Ray Davis,RB,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,4,BUF,T.J. Sanders,DE,DL,Doubtful,Limited Participation in Practice,Illness,2.3,no,as-expected,2.3
+2026,4,CAR,Damien Lewis,G,OL,Out,Did Not Participate In Practice,Elbow,0.0,no,as-expected,0.0
+2026,4,CAR,Xavier Legette,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,CAR,Jalen Coker,WR,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,4,CAR,Cam Jackson,DT,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,4,CAR,Monroe Freeling,T,OL,Questionable,Full Participation in Practice,Concussion,61.7,yes,as-expected,-38.3
+2026,4,CAR,Lee Hunter,DT,DL,Questionable,Limited Participation in Practice,Foot,69.2,yes,as-expected,-30.8
+2026,4,CHI,Cam Lewis,S,DB,Doubtful,Did Not Participate In Practice,Hip,1.1,no,as-expected,1.1
+2026,4,CHI,Braxton Jones,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,CHI,Kyler Gordon,CB,DB,Out,Full Participation in Practice,Calf,0.0,no,as-expected,0.0
+2026,4,CHI,Noah Sewell,LB,LB,Out,Full Participation in Practice,Achilles,0.1,no,as-expected,0.1
+2026,4,CHI,Caleb Williams,QB,QB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,4,CHI,Shemar Turner,DE,DL,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,4,CIN,B.J. Hill,DT,DL,Questionable,Limited Participation in Practice,Achilles,69.2,no,expected-in-but-missed,69.2
+2026,4,CIN,Dalton Risner,G,OL,Questionable,Full Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,4,CIN,Kyle Dugger,S,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,4,CIN,Bryan Cook,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,4,CIN,Swayze Bozeman,LB,LB,Questionable,Did Not Participate In Practice,Groin,69.7,no,expected-in-but-missed,69.7
+2026,4,CIN,Colbie Young,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,CLE,Elgton Jenkins,C,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,4,CLE,Tylan Wallace,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,CLE,Teven Jenkins,G,OL,Out,Limited Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,4,DAL,Cobie Durant,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,4,DAL,DeMarvion Overshown,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,4,DEN,Dondrea Tillman,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,4,DET,D.J. Reed,CB,DB,Questionable,Limited Participation in Practice,Rib,60.9,yes,as-expected,-39.1
+2026,4,DET,Ben Bartch,G,OL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,4,GB,Aaron Banks,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,GB,Jacob Monk,C,OL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,4,GB,Edgerrin Cooper,LB,LB,Questionable,Full Participation in Practice,Shoulder,69.7,yes,as-expected,-30.3
+2026,4,GB,Warren Brinson,DT,DL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,4,GB,Anthony Campbell,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,GB,Jager Burton,C,OL,Questionable,Limited Participation in Practice,Groin,61.7,no,expected-in-but-missed,61.7
+2026,4,HOU,Jadeveon Clowney,DE,DL,Questionable,Did Not Participate In Practice,Knee,69.2,yes,as-expected,-30.8
+2026,4,HOU,M.J. Stewart,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,HOU,Azeez Al-Shaair,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,4,HOU,Jake Hansen,LB,LB,Questionable,Full Participation in Practice,Calf,69.7,yes,as-expected,-30.3
+2026,4,HOU,Logan Hall,DE,DL,Questionable,Limited Participation in Practice,Knee,69.2,yes,as-expected,-30.8
+2026,4,HOU,Ed Ingram,G,OL,Questionable,Full Participation in Practice,Groin,61.7,yes,as-expected,-38.3
+2026,4,IND,Keenan Allen,WR,SKILL,Questionable,Did Not Participate In Practice,Not injury related - resting player,64.9,no,expected-in-but-missed,64.9
+2026,4,IND,Ashton Dulin,WR,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,4,JAX,Montaric Brown,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,4,JAX,Christian Braswell,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,4,JAX,Albert Regis,DT,DL,Questionable,Limited Participation in Practice,Elbow,69.2,yes,as-expected,-30.8
+2026,4,KC,Josh Simmons,T,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,4,LA,Aaron Donald,DT,DL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,4,LA,Colby Parkinson,TE,SKILL,Questionable,Did Not Participate In Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,4,LA,Jaylen Watson,CB,DB,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,4,LA,Josaiah Stewart,LB,LB,Questionable,Did Not Participate In Practice,Groin,69.7,yes,as-expected,-30.3
+2026,4,LA,Terrance Ferguson,TE,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,LAC,Dalvin Tomlinson,DT,DL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,4,LAC,Donte Jackson,CB,DB,Questionable,Full Participation in Practice,Concussion,60.9,yes,as-expected,-39.1
+2026,4,LAC,Derwin James,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,4,LAC,Kayode Awosika,G,OL,Out,Did Not Participate In Practice,Fibula,0.0,no,as-expected,0.0
+2026,4,LAC,Elijah Molden,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,4,LAC,Trey Lance,QB,QB,Questionable,Limited Participation in Practice,Groin,47.7,no,as-expected,47.7
+2026,4,LAC,Charlie Kolar,TE,SKILL,Out,Limited Participation in Practice,Forearm,0.0,no,as-expected,0.0
+2026,4,LAC,Ladd McConkey,WR,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,4,LAC,Brenen Thompson,WR,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,4,LV,Aidan O'Connell,QB,QB,Questionable,Did Not Participate In Practice,Not injury related - personal matter,47.7,no,as-expected,47.7
+2026,4,LV,Jackson Powers-Johnson,G,OL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,4,MIA,Rob Beal Jr.,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,4,MIA,Storm Duck,CB,DB,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,4,MIA,Caleb Douglas,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,MIN,Justin Jefferson,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,MIN,Charles Demmings,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,4,MIN,Brett Thorson,P,ST,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,4,NE,Morgan Moses,T,OL,Questionable,Limited Participation in Practice,Foot,61.7,yes,as-expected,-38.3
+2026,4,NE,Dre'Mont Jones,LB,LB,Questionable,Limited Participation in Practice,Shoulder,69.7,yes,as-expected,-30.3
+2026,4,NE,Reggie Gilliam,FB,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,4,NE,Christian Elliss,LB,LB,Questionable,Limited Participation in Practice,Chest,69.7,yes,as-expected,-30.3
+2026,4,NE,Christian Barmore,DT,DL,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,4,NE,Brenden Schooler,S,DB,Out,Limited Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,4,NE,Christian Gonzalez,CB,DB,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,4,NE,Craig Woodson,S,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,4,NE,Channing Canada,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,4,NE,Eli Raridon,TE,SKILL,Questionable,Limited Participation in Practice,Thigh,64.9,yes,as-expected,-35.1
+2026,4,NO,Kaden Elliss,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,4,NO,Carl Granderson,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,4,NO,Noah Fant,TE,SKILL,Questionable,Limited Participation in Practice,Abdomen,64.9,no,expected-in-but-missed,64.9
+2026,4,NO,Anfernee Jennings,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,4,NO,Pete Werner,LB,LB,Questionable,Did Not Participate In Practice,Shoulder,69.7,yes,as-expected,-30.3
+2026,4,NYJ,Kingsley Enagbare,DE,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,4,NYJ,Dylan Parham,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,NYJ,Breece Hall,RB,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,4,NYJ,Adonai Mitchell,WR,SKILL,Out,Did Not Participate In Practice,Finger,0.0,no,as-expected,0.0
+2026,4,NYJ,Francisco Mauigoa,LB,LB,Out,Did Not Participate In Practice,Quadricep,0.1,no,as-expected,0.1
+2026,4,NYJ,Mason Taylor,TE,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,4,NYJ,Kenyon Sadiq,TE,SKILL,Questionable,Limited Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,4,PHI,Dallas Goedert,TE,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,PHI,Fred Johnson,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,PHI,Marcus Epps,S,DB,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,4,PHI,Marquise Brown,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,PHI,Zack Baun,LB,LB,Out,Did Not Participate In Practice,Concussion,0.1,no,as-expected,0.1
+2026,4,PHI,DeVonta Smith,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,4,PIT,Jalen Ramsey,CB,DB,Questionable,Limited Participation in Practice,Wrist,60.9,yes,as-expected,-39.1
+2026,4,PIT,Rico Dowdle,RB,SKILL,Out,Did Not Participate In Practice,Toe,0.0,no,as-expected,0.0
+2026,4,PIT,Joey Porter Jr.,CB,DB,Out,Limited Participation in Practice,Not injury related - other,0.0,no,as-expected,0.0
+2026,4,PIT,Yahya Black,DT,DL,Questionable,,Not injury related - personal matter,69.2,yes,as-expected,-30.8
+2026,4,SEA,Chazz Surratt,LB,LB,Questionable,Limited Participation in Practice,Calf,69.7,no,expected-in-but-missed,69.7
+2026,4,SEA,Ty Okada,S,DB,Questionable,Full Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,4,SEA,Zach Charbonnet,RB,SKILL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,4,SEA,Jadarian Price,RB,SKILL,Out,Did Not Participate In Practice,Chest,0.0,no,as-expected,0.0
+2026,4,SF,Mike Evans,WR,SKILL,Questionable,Limited Participation in Practice,Ribs,64.9,yes,as-expected,-35.1
+2026,4,SF,Dre Greenlaw,LB,LB,Questionable,Limited Participation in Practice,Quadricep,69.7,yes,as-expected,-30.3
+2026,4,SF,Nick Bosa,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,4,SF,Keion White,DE,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,4,SF,Mykel Williams,DE,DL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,4,SF,Jaden Dugger,LB,LB,Questionable,Limited Participation in Practice,Shoulder,69.7,yes,as-expected,-30.3
+2026,4,SF,James Thompson Jr.,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,4,TB,Rakeem Nunez-Roches,DT,DL,Questionable,Full Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,4,TB,Baker Mayfield,QB,QB,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,4,TB,Ko Kieft,TE,SKILL,Out,Did Not Participate In Practice,Elbow,0.0,no,as-expected,0.0
+2026,4,TB,SirVocea Dennis,LB,LB,Questionable,Limited Participation in Practice,Calf,69.7,yes,as-expected,-30.3
+2026,4,TB,Jacob Parrish,CB,DB,Questionable,Limited Participation in Practice,Not injury related - personal matter,60.9,yes,as-expected,-39.1
+2026,4,TB,Benjamin Morrison,CB,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,4,TB,Rueben Bain Jr.,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,4,TEN,Tyjae Spears,RB,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,4,TEN,Kevin Winston Jr.,S,DB,Questionable,Did Not Participate In Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,4,WAS,Terry McLaurin,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,4,WAS,Sam Cosmi,G,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,4,WAS,Rachaad White,RB,SKILL,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,4,WAS,Nick Cross,S,DB,Out,Did Not Participate In Practice,Illness,0.0,no,as-expected,0.0
+2026,4,WAS,Percy Butler,S,DB,Questionable,Full Participation in Practice,Concussion,60.9,yes,as-expected,-39.1
+2026,4,WAS,Jayden Daniels,QB,QB,Out,Limited Participation in Practice,Elbow,0.0,no,as-expected,0.0
+2026,5,ARI,Andrew Wingard,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,ARI,Isaiah Adams,G,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,ARI,Walter Nolen,DT,DL,Questionable,Limited Participation in Practice,Calf,69.2,yes,as-expected,-30.8
+2026,5,ARI,Karson Sharar,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,5,ATL,Jake Matthews,T,OL,Questionable,Full Participation in Practice,Groin,61.7,yes,as-expected,-38.3
+2026,5,ATL,Za'Darius Smith,DE,DL,Questionable,Limited Participation in Practice,Concussion,69.2,no,expected-in-but-missed,69.2
+2026,5,ATL,Samson Ebukam,DE,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,5,ATL,Divine Deablo,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,5,ATL,Yasir Abdullah,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,5,BAL,Marlon Humphrey,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,5,BAL,Trey Hendrickson,LB,LB,Out,Did Not Participate In Practice,Finger,0.1,no,as-expected,0.1
+2026,5,BAL,Lamar Jackson,QB,QB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,BAL,Cam Jurgens,C,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,BAL,Andrew Vorhees,G,OL,Questionable,Limited Participation in Practice,Foot,61.7,no,expected-in-but-missed,61.7
+2026,5,BAL,Zay Flowers,WR,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,5,BUF,DJ Moore,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,no,expected-in-but-missed,64.9
+2026,5,BUF,Ed Oliver,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,BUF,Josh Palmer,WR,SKILL,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,5,BUF,Dee Alford,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,5,BUF,Landon Jackson,DE,DL,Questionable,Full Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,5,CHI,Kyler Gordon,CB,DB,Questionable,Full Participation in Practice,Calf,60.9,no,expected-in-but-missed,60.9
+2026,5,CHI,Noah Sewell,LB,LB,Questionable,Full Participation in Practice,Achilles,69.7,yes,as-expected,-30.3
+2026,5,CHI,Caleb Williams,QB,QB,Questionable,Limited Participation in Practice,Hamstring,47.7,no,as-expected,47.7
+2026,5,CHI,Kyle Monangai,RB,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,5,CHI,Shemar Turner,DE,DL,Questionable,Full Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,5,CHI,Keyshaun Elliott,LB,LB,Out,Did Not Participate In Practice,Quadricep,0.1,no,as-expected,0.1
+2026,5,CIN,Kyle Dugger,S,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,CIN,Tee Higgins,WR,SKILL,Questionable,Full Participation in Practice,Groin,64.9,yes,as-expected,-35.1
+2026,5,CIN,Ja'Marr Chase,WR,SKILL,Questionable,Full Participation in Practice,Concussion,64.9,yes,as-expected,-35.1
+2026,5,CIN,Bryan Cook,S,DB,Questionable,Full Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,5,CIN,Swayze Bozeman,LB,LB,Questionable,Full Participation in Practice,Groin,69.7,yes,as-expected,-30.3
+2026,5,CIN,Colbie Young,WR,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,5,CLE,Tylan Wallace,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,CLE,Teven Jenkins,G,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,5,CLE,Kalia Davis,DT,DL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,CLE,Mike Hall Jr.,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,CLE,Mason Graham,DT,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,CLE,Dillon Gabriel,QB,QB,Out,Full Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,5,CLE,Carsen Ryan,TE,SKILL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,5,DAL,Tyler Smith,G,OL,Questionable,Full Participation in Practice,Thumb,61.7,yes,as-expected,-38.3
+2026,5,DAL,Cobie Durant,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,DAL,DeMarvion Overshown,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,5,DAL,Jonathan Mingo,WR,SKILL,Questionable,Did Not Participate In Practice,Illness,64.9,yes,as-expected,-35.1
+2026,5,DAL,Drew Shelton,T,OL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,DEN,Pat Surtain II,CB,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,DEN,Riley Moss,CB,DB,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,5,DET,Rock Ya-Sin,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,DET,Ben Bartch,G,OL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,5,DET,Cade Mays,C,OL,Out,Limited Participation in Practice,Wrist,0.0,no,as-expected,0.0
+2026,5,DET,Brian Branch,S,DB,Out,Limited Participation in Practice,Achilles,0.0,no,as-expected,0.0
+2026,5,DET,Tyleik Williams,DT,DL,Questionable,Limited Participation in Practice,Foot,69.2,yes,as-expected,-30.8
+2026,5,GB,Javon Hargrave,DT,DL,Questionable,Limited Participation in Practice,Toe,69.2,yes,as-expected,-30.8
+2026,5,GB,Aaron Banks,G,OL,Doubtful,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,5,GB,Chris Brooks,RB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,GB,Jacob Monk,C,OL,Doubtful,Limited Participation in Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,GB,Savion Williams,WR,SKILL,Out,Limited Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,GB,Anthony Campbell,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,no,expected-in-but-missed,69.2
+2026,5,GB,Jager Burton,C,OL,Questionable,Limited Participation in Practice,Back,61.7,no,expected-in-but-missed,61.7
+2026,5,HOU,M.J. Stewart,S,DB,Questionable,Full Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,5,HOU,Braden Smith,T,OL,Questionable,Full Participation in Practice,Foot,61.7,no,expected-in-but-missed,61.7
+2026,5,HOU,Ed Ingram,G,OL,Questionable,Limited Participation in Practice,Illness,61.7,yes,as-expected,-38.3
+2026,5,HOU,Tank Dell,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,HOU,Blake Fisher,T,OL,Questionable,Limited Participation in Practice,Illness,61.7,yes,as-expected,-38.3
+2026,5,HOU,Aireontae Ersery,T,OL,Questionable,Did Not Participate In Practice,Illness,61.7,yes,as-expected,-38.3
+2026,5,HOU,Kayden McDonald,DT,DL,Questionable,Full Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,5,IND,Keenan Allen,WR,SKILL,Questionable,Full Participation in Practice,Not injury related - resting player,64.9,yes,as-expected,-35.1
+2026,5,IND,Charvarius Ward,CB,DB,Questionable,Full Participation in Practice,Not injury related - resting player,60.9,yes,as-expected,-39.1
+2026,5,IND,Arden Key,DE,DL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,IND,Ashton Dulin,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,IND,Darius Slayton,WR,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,5,IND,Will Mallory,TE,SKILL,Out,Full Participation in Practice,Thumb,0.0,no,as-expected,0.0
+2026,5,IND,Jaylon Carlies,LB,LB,Out,Did Not Participate In Practice,Ribs,0.1,no,as-expected,0.1
+2026,5,JAX,Eric Murray,S,DB,Doubtful,Limited Participation in Practice,Concussion,1.1,no,as-expected,1.1
+2026,5,JAX,Jaylon Jones,CB,DB,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,LA,Quentin Lake,S,DB,Questionable,Limited Participation in Practice,Hip,60.9,yes,as-expected,-39.1
+2026,5,LAC,Donte Jackson,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,LAC,Derwin James,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,LAC,Kayode Awosika,G,OL,Out,Did Not Participate In Practice,Fibula,0.0,no,as-expected,0.0
+2026,5,LAC,Trey Lance,QB,QB,Doubtful,Limited Participation in Practice,Groin,0.0,no,as-expected,0.0
+2026,5,LAC,Trevor Penning,G,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,LAC,Charlie Kolar,TE,SKILL,Questionable,Limited Participation in Practice,Forearm,64.9,yes,as-expected,-35.1
+2026,5,LAC,Quentin Johnston,WR,SKILL,Out,Limited Participation in Practice,Chest,0.0,no,as-expected,0.0
+2026,5,LAC,Scott Matlock,FB,SKILL,Questionable,Full Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,5,LAC,Joe Alt,T,OL,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,5,LAC,Ladd McConkey,WR,SKILL,Questionable,Did Not Participate In Practice,Foot,64.9,no,expected-in-but-missed,64.9
+2026,5,LAC,Branson Taylor,G,OL,Questionable,Full Participation in Practice,Neck,61.7,yes,as-expected,-38.3
+2026,5,LAC,Rodney Shelley,CB,DB,Questionable,Did Not Participate In Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,5,LAC,Brenen Thompson,WR,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,LV,Jalen Nailor,WR,SKILL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,LV,Ashton Jeanty,RB,SKILL,Questionable,Did Not Participate In Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,5,LV,Dont'e Thornton Jr.,WR,SKILL,Out,Full Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,LV,Trey Zuhn III,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,MIA,Reese Taylor,CB,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,MIA,Rob Beal Jr.,DE,DL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,MIA,Storm Duck,CB,DB,Questionable,Full Participation in Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,5,MIA,Jaylen Wright,RB,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,5,MIA,Jackson Woodard,LB,LB,Questionable,Limited Participation in Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,5,MIA,Kenneth Grant,DT,DL,Questionable,Full Participation in Practice,Toe,69.2,yes,as-expected,-30.8
+2026,5,MIA,Justin Joly,TE,SKILL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,MIA,Caleb Douglas,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,MIN,Brian O'Neill,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,5,MIN,Justin Jefferson,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,5,MIN,Christian Darrisaw,T,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,MIN,Jordan Addison,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,5,MIN,Michael Jurgens,C,OL,Questionable,Full Participation in Practice,Elbow,61.7,no,expected-in-but-missed,61.7
+2026,5,MIN,Ben Yurosek,TE,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,5,MIN,Charles Demmings,CB,DB,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,NE,Morgan Moses,T,OL,Questionable,Limited Participation in Practice,Foot,61.7,yes,as-expected,-38.3
+2026,5,NE,Mack Hollins,WR,SKILL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,5,NE,Carlton Davis III,CB,DB,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,5,NE,Dre'Mont Jones,LB,LB,Questionable,Limited Participation in Practice,Shoulder,69.7,yes,as-expected,-30.3
+2026,5,NE,Reggie Gilliam,FB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,NE,Christian Elliss,LB,LB,Questionable,Limited Participation in Practice,Chest,69.7,yes,as-expected,-30.3
+2026,5,NE,Rhamondre Stevenson,RB,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,5,NE,Christian Barmore,DT,DL,Questionable,Full Participation in Practice,Shoulder,69.2,yes,as-expected,-30.8
+2026,5,NE,Christian Gonzalez,CB,DB,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,5,NE,Charles Woods,CB,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,5,NE,Craig Woodson,S,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,5,NE,Karon Prunty,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,NE,Channing Canada,CB,DB,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,NO,Alvin Kamara,RB,SKILL,Questionable,Limited Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,5,NO,Kaden Elliss,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,5,NO,Anfernee Jennings,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,5,NO,Julian Blackmon,S,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,5,NO,Jaylan Ford,LB,LB,Questionable,Full Participation in Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,5,NO,Jeremiah Wright,G,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,NO,Lorenzo Styles Jr.,CB,DB,Questionable,Full Participation in Practice,Calf,60.9,yes,as-expected,-39.1
+2026,5,NO,Barion Brown,WR,SKILL,Questionable,Full Participation in Practice,Thigh,64.9,yes,as-expected,-35.1
+2026,5,NO,Christen Miller,DT,DL,Questionable,Did Not Participate In Practice,Illness,69.2,yes,as-expected,-30.8
+2026,5,NYG,Jason Pinnock,S,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,NYG,Chauncey Golston,DE,DL,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,5,NYJ,Tim Patrick,WR,SKILL,Questionable,Full Participation in Practice,Groin,64.9,yes,as-expected,-35.1
+2026,5,NYJ,Kingsley Enagbare,DE,DL,Questionable,Full Participation in Practice,Knee,69.2,yes,as-expected,-30.8
+2026,5,NYJ,Dylan Parham,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,NYJ,Breece Hall,RB,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,NYJ,Will McDonald IV,DE,DL,Questionable,Limited Participation in Practice,Calf,69.2,no,expected-in-but-missed,69.2
+2026,5,NYJ,Adonai Mitchell,WR,SKILL,Out,Did Not Participate In Practice,Finger,0.0,no,as-expected,0.0
+2026,5,NYJ,Francisco Mauigoa,LB,LB,Out,Did Not Participate In Practice,Quadricep,0.1,no,as-expected,0.1
+2026,5,PHI,Saquon Barkley,RB,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,PHI,Marcus Epps,S,DB,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,5,PHI,Marquise Brown,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,PHI,Jonathan Greenard,LB,LB,Questionable,Did Not Participate In Practice,Ankle,69.7,no,expected-in-but-missed,69.7
+2026,5,PHI,DeVonta Smith,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,PHI,Drew Kendall,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,PIT,Jalen Ramsey,CB,DB,Questionable,Limited Participation in Practice,Wrist,60.9,yes,as-expected,-39.1
+2026,5,PIT,DeShon Elliott,S,DB,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,5,PIT,Jamel Dean,CB,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,PIT,Rico Dowdle,RB,SKILL,Questionable,Limited Participation in Practice,Toe,64.9,no,expected-in-but-missed,64.9
+2026,5,PIT,Michael Pittman,WR,SKILL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,5,SEA,Chazz Surratt,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,5,SEA,Irvin Charles,WR,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,5,SEA,Zach Charbonnet,RB,SKILL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,5,SEA,George Holani,RB,SKILL,Questionable,Limited Participation in Practice,Ribs,64.9,yes,as-expected,-35.1
+2026,5,SEA,Julian Neal,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,SF,Kyle Juszczyk,FB,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,SF,Nick Bosa,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,SF,Upton Stout,CB,DB,Questionable,Did Not Participate In Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,5,SF,Marques Sigle,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,SF,Mykel Williams,DE,DL,Questionable,Full Participation in Practice,Knee,69.2,yes,as-expected,-30.8
+2026,5,SF,James Thompson Jr.,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,5,TB,Baker Mayfield,QB,QB,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,5,TB,Antoine Winfield Jr.,S,DB,Out,Did Not Participate In Practice,Rib,0.0,no,as-expected,0.0
+2026,5,TB,SirVocea Dennis,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,5,TB,Benjamin Morrison,CB,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,5,TEN,Amani Hooker,S,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,5,TEN,Joshua Williams,CB,DB,Questionable,Full Participation in Practice,Pectoral,60.9,no,expected-in-but-missed,60.9
+2026,5,TEN,David Martin-Robinson,TE,SKILL,Questionable,Did Not Participate In Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,5,TEN,Carnell Tate,WR,SKILL,Questionable,Limited Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,5,WAS,Stefon Diggs,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,WAS,Marcus Mariota,QB,QB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,5,WAS,Deatrich Wise,DE,DL,Questionable,Limited Participation in Practice,Quadricep,69.2,no,expected-in-but-missed,69.2
+2026,5,WAS,Jeremy McNichols,RB,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,5,WAS,Charles Omenihu,DE,DL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,5,WAS,Terry McLaurin,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,5,WAS,Nick Cross,S,DB,Out,Limited Participation in Practice,Illness,0.0,no,as-expected,0.0
+2026,5,WAS,Percy Butler,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,WAS,Tyler Owens,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,5,WAS,Trey Amos,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,6,ARI,Budda Baker,S,DB,Questionable,Did Not Participate In Practice,Not injury related - resting player,60.9,yes,as-expected,-39.1
+2026,6,ARI,Andrew Wingard,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,6,ARI,Blake Gillikin,P,ST,Questionable,Limited Participation in Practice,Back,69.6,yes,as-expected,-30.4
+2026,6,ARI,Zaven Collins,LB,LB,Questionable,Did Not Participate In Practice,Hip,69.7,yes,as-expected,-30.3
+2026,6,ARI,Kitan Crawford,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,6,ARI,Jeremiyah Love,RB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,ARI,Wydett Williams Jr.,S,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,6,ATL,Za'Darius Smith,DE,DL,Questionable,Limited Participation in Practice,Neck,69.2,yes,as-expected,-30.8
+2026,6,ATL,C.J. Henderson,CB,DB,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,6,BAL,Lamar Jackson,QB,QB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,BAL,Broderick Washington,DE,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,BAL,Cam Jurgens,C,OL,Out,Limited Participation in Practice,Concussion,0.0,no,as-expected,0.0
+2026,6,BAL,Andrew Vorhees,G,OL,Questionable,Limited Participation in Practice,Foot,61.7,no,expected-in-but-missed,61.7
+2026,6,BAL,Emery Jones Jr.,G,OL,Questionable,Limited Participation in Practice,Ankle,61.7,no,expected-in-but-missed,61.7
+2026,6,BAL,Ja'Kobi Lane,WR,SKILL,Questionable,Full Participation in Practice,Wrist,64.9,yes,as-expected,-35.1
+2026,6,BAL,Matthew Hibner,TE,SKILL,Out,Did Not Participate In Practice,Hand,0.0,no,as-expected,0.0
+2026,6,BUF,DJ Moore,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,no,expected-in-but-missed,64.9
+2026,6,BUF,Ed Oliver,DE,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,6,BUF,Josh Palmer,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,yes,as-expected,-35.1
+2026,6,BUF,Dee Alford,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,6,BUF,T.J. Sanders,DE,DL,Questionable,Full Participation in Practice,Shoulder,69.2,yes,as-expected,-30.8
+2026,6,CAR,Taylor Moton,T,OL,Questionable,Full Participation in Practice,Lung,61.7,yes,as-expected,-38.3
+2026,6,CAR,Tershawn Wharton,DT,DL,Questionable,Full Participation in Practice,Neck,69.2,yes,as-expected,-30.8
+2026,6,CAR,AJ Dillon,RB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,CAR,Damien Lewis,G,OL,Questionable,Full Participation in Practice,Elbow,61.7,yes,as-expected,-38.3
+2026,6,CAR,Jaelan Phillips,LB,LB,Questionable,Full Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,6,CAR,Trevor Etienne,RB,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,6,CAR,Monroe Freeling,T,OL,Doubtful,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,6,CHI,T.J. Edwards,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,6,CHI,Dayo Odeyingbo,DE,DL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,6,CHI,Kyler Gordon,CB,DB,Questionable,Full Participation in Practice,Calf,60.9,yes,as-expected,-39.1
+2026,6,CHI,Tyrique Stevenson,CB,DB,Questionable,Limited Participation in Practice,Hip,60.9,no,expected-in-but-missed,60.9
+2026,6,CHI,Caleb Williams,QB,QB,Questionable,Full Participation in Practice,Hamstring,47.7,yes,as-expected,-52.3
+2026,6,CHI,Kyle Monangai,RB,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,6,CHI,Keyshaun Elliott,LB,LB,Out,Did Not Participate In Practice,Quadricep,0.1,no,as-expected,0.1
+2026,6,CLE,Derek Barnett,DE,DL,Questionable,Limited Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,6,CLE,Teven Jenkins,G,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,6,CLE,Kalia Davis,DT,DL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,6,CLE,Mike Hall Jr.,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,CLE,Dylan Sampson,RB,SKILL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,6,CLE,Carson Schwesinger,LB,LB,Questionable,Limited Participation in Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,6,CLE,Mason Graham,DT,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,6,CLE,Dillon Gabriel,QB,QB,Out,Full Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,6,CLE,Quinshon Judkins,RB,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,no,expected-in-but-missed,64.9
+2026,6,DAL,Cobie Durant,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,DAL,DeMarvion Overshown,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,no,expected-in-but-missed,69.7
+2026,6,DAL,Ameer Speed,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,6,DAL,Joey Porter Jr.,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,6,DAL,Drew Shelton,T,OL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,DAL,LT Overton,DT,DL,Questionable,Did Not Participate In Practice,Foot,69.2,yes,as-expected,-30.8
+2026,6,DEN,Talanoa Hufanga,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,DEN,Pat Surtain II,CB,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,DEN,Riley Moss,CB,DB,Questionable,Limited Participation in Practice,Ribs,60.9,yes,as-expected,-39.1
+2026,6,GB,Javon Hargrave,DT,DL,Out,Did Not Participate In Practice,Achilles,0.0,no,as-expected,0.0
+2026,6,GB,Aaron Banks,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,6,GB,Benjamin St-Juste,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,GB,Jonathan Ford,DT,DL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,6,GB,Skyy Moore,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,GB,Jordon Riley,DE,DL,Doubtful,Limited Participation in Practice,Achilles,2.3,no,as-expected,2.3
+2026,6,GB,Jacob Monk,C,OL,Questionable,Limited Participation in Practice,Quadricep,61.7,no,expected-in-but-missed,61.7
+2026,6,GB,Savion Williams,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,6,GB,Anthony Campbell,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,6,GB,Brandon Cisse,CB,DB,Questionable,Limited Participation in Practice,Hip,60.9,yes,as-expected,-39.1
+2026,6,HOU,David Montgomery,RB,SKILL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,6,HOU,Jalen Pitre,S,DB,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,6,HOU,Ja'Marcus Ingram,CB,DB,Questionable,Full Participation in Practice,Elbow,60.9,yes,as-expected,-39.1
+2026,6,HOU,Henry To'oTo'o,LB,LB,Questionable,Full Participation in Practice,Shoulder,69.7,yes,as-expected,-30.3
+2026,6,HOU,Tank Dell,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,6,IND,Ashton Dulin,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,IND,Jaylon Carlies,LB,LB,Out,Did Not Participate In Practice,Ribs,0.1,no,as-expected,0.1
+2026,6,IND,Tyler Warren,TE,SKILL,Questionable,Limited Participation in Practice,Groin,64.9,no,expected-in-but-missed,64.9
+2026,6,JAX,Ross Matiscik,LS,ST,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,6,JAX,Jaylon Jones,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,6,JAX,Montaric Brown,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,KC,L'Jarius Sneed,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,6,KC,Rashee Rice,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,KC,Josh Simmons,T,OL,Out,Limited Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,6,LA,Kam Curl,S,DB,Questionable,Did Not Participate In Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,6,LA,Trent McDuffie,CB,DB,Questionable,Did Not Participate In Practice,Groin,60.9,no,expected-in-but-missed,60.9
+2026,6,LAC,Bud Dupree,DE,DL,Questionable,Limited Participation in Practice,Neck,69.2,no,expected-in-but-missed,69.2
+2026,6,LAC,Dalvin Tomlinson,DT,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,6,LAC,Donte Jackson,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,LAC,Derwin James,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,LAC,Kayode Awosika,G,OL,Out,Did Not Participate In Practice,Fibula,0.0,no,as-expected,0.0
+2026,6,LAC,Daiyan Henley,LB,LB,Questionable,Limited Participation in Practice,Knee,69.7,yes,as-expected,-30.3
+2026,6,LAC,Joe Alt,T,OL,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,6,LAC,Jamaree Caldwell,DT,DL,Questionable,Limited Participation in Practice,Knee,69.2,no,expected-in-but-missed,69.2
+2026,6,LAC,KeAndre Lambert-Smith,WR,SKILL,Questionable,Full Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,6,LAC,Tre Harris,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,LAC,Rodney Shelley,CB,DB,Doubtful,Did Not Participate In Practice,Hamstring,1.1,no,as-expected,1.1
+2026,6,LAC,Brenen Thompson,WR,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,6,LV,Tonka Hemingway,DT,DL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,6,LV,Carter Runyon,TE,SKILL,Out,Limited Participation in Practice,Foot,0.0,no,as-expected,0.0
+2026,6,LV,Dont'e Thornton Jr.,WR,SKILL,Out,Full Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,LV,Trey Zuhn III,C,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,6,NE,Carlton Davis III,CB,DB,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,6,NE,A.J. Brown,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,6,NE,Christian Elliss,LB,LB,Questionable,Full Participation in Practice,Chest,69.7,yes,as-expected,-30.3
+2026,6,NE,Marcus Bryant,T,OL,Questionable,Limited Participation in Practice,Ankle,61.7,no,expected-in-but-missed,61.7
+2026,6,NE,Will Campbell,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,6,NE,Craig Woodson,S,DB,Questionable,Full Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,6,NE,TreVeyon Henderson,RB,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,6,NE,Karon Prunty,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,NE,Channing Canada,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,6,NO,Zach Wood,LS,ST,Questionable,Full Participation in Practice,Calf,69.6,yes,as-expected,-30.4
+2026,6,NO,Alvin Kamara,RB,SKILL,Questionable,Limited Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,6,NO,Nathan Shepherd,DT,DL,Questionable,Limited Participation in Practice,Illness,69.2,no,expected-in-but-missed,69.2
+2026,6,NO,Kaden Elliss,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,6,NO,Anfernee Jennings,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,6,NO,Chris Olave,WR,SKILL,Questionable,Limited Participation in Practice,Illness,64.9,yes,as-expected,-35.1
+2026,6,NO,Lorenzo Styles Jr.,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,6,NYG,Jermaine Eluemunor,T,OL,Questionable,Limited Participation in Practice,Calf,61.7,no,expected-in-but-missed,61.7
+2026,6,NYG,Andrew Thomas,T,OL,Questionable,Limited Participation in Practice,Groin,61.7,yes,as-expected,-38.3
+2026,6,NYG,Theo Johnson,TE,SKILL,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,6,NYG,Tyler Nubin,S,DB,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,6,NYG,Abdul Carter,LB,LB,Questionable,Limited Participation in Practice,Calf,69.7,yes,as-expected,-30.3
+2026,6,NYG,Colton Hood,CB,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,6,NYJ,Joseph Ossai,DE,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,NYJ,Dylan Parham,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,6,NYJ,Breece Hall,RB,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,6,NYJ,Dane Belton,S,DB,Questionable,Full Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,6,NYJ,Adonai Mitchell,WR,SKILL,Out,Did Not Participate In Practice,Finger,0.0,no,as-expected,0.0
+2026,6,NYJ,Kenyon Sadiq,TE,SKILL,Questionable,Full Participation in Practice,Concussion,64.9,yes,as-expected,-35.1
+2026,6,NYJ,Omar Cooper Jr.,WR,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,no,expected-in-but-missed,64.9
+2026,6,PHI,Saquon Barkley,RB,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,PHI,A.J. Epenesa,LB,LB,Doubtful,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,6,PHI,Jalen Hurts,QB,QB,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,6,PHI,Michael Carter II,S,DB,Out,Did Not Participate In Practice,Abdomen,0.0,no,as-expected,0.0
+2026,6,PHI,Landon Dickerson,G,OL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,6,PHI,Grant Calcaterra,TE,SKILL,Out,Full Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,6,PHI,Jakorian Bennett,CB,DB,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,6,PHI,Jalyx Hunt,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,6,PHI,Will Shipley,RB,SKILL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,6,PHI,Drew Kendall,C,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,6,PHI,Eli Stowers,TE,SKILL,Out,Full Participation in Practice,Quadricep,0.0,no,as-expected,0.0
+2026,6,PIT,Jalen Ramsey,CB,DB,Questionable,Limited Participation in Practice,Wrist,60.9,yes,as-expected,-39.1
+2026,6,PIT,DeShon Elliott,S,DB,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,6,PIT,Jamel Dean,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,6,PIT,Rico Dowdle,RB,SKILL,Questionable,Full Participation in Practice,Toe,64.9,yes,as-expected,-35.1
+2026,6,PIT,Ben Skowronek,WR,SKILL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,6,PIT,Pat Freiermuth,TE,SKILL,Questionable,,Calf,64.9,yes,as-expected,-35.1
+2026,6,PIT,Keeanu Benton,DT,DL,Questionable,Full Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,6,PIT,Roman Wilson,WR,SKILL,Out,Did Not Participate In Practice,Finger,0.0,no,as-expected,0.0
+2026,6,SEA,Chazz Surratt,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,6,SEA,Drake Thomas,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,6,SEA,Zach Charbonnet,RB,SKILL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,6,SF,Mike Evans,WR,SKILL,Questionable,Did Not Participate In Practice,Ribs,64.9,yes,as-expected,-35.1
+2026,6,SF,Siran Neal,S,DB,Questionable,Limited Participation in Practice,Neck,60.9,yes,as-expected,-39.1
+2026,6,SF,Christian Kirk,WR,SKILL,Questionable,Limited Participation in Practice,Calf,64.9,no,expected-in-but-missed,64.9
+2026,6,SF,Nick Bosa,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,6,SF,Deebo Samuel Sr.,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,SF,Garret Wallow,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,6,SF,Upton Stout,CB,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,6,SF,Marques Sigle,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,6,SF,Mykel Williams,DE,DL,Questionable,Limited Participation in Practice,Knee,69.2,yes,as-expected,-30.8
+2026,6,SF,Gracen Halton,DT,DL,Questionable,Limited Participation in Practice,Quadricep,69.2,yes,as-expected,-30.8
+2026,6,TB,Baker Mayfield,QB,QB,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,6,TB,David Sills,WR,SKILL,Out,Full Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,6,TB,Antoine Winfield Jr.,S,DB,Out,Did Not Participate In Practice,Rib,0.0,no,as-expected,0.0
+2026,6,TB,Sean Tucker,RB,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,6,TB,SirVocea Dennis,LB,LB,Questionable,Full Participation in Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,6,TB,Benjamin Morrison,CB,DB,Doubtful,Limited Participation in Practice,Quadricep,1.1,no,as-expected,1.1
+2026,6,TB,Ayden Garnes,CB,DB,Questionable,Full Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,6,TB,Josiah Trotter,LB,LB,Questionable,Limited Participation in Practice,Knee,69.7,yes,as-expected,-30.3
+2026,6,TEN,Jordan Elliott,DT,DL,Out,Did Not Participate In Practice,Not injury related - personal matter,0.0,no,as-expected,0.0
+2026,6,TEN,Joshua Williams,CB,DB,Questionable,Full Participation in Practice,Pectoral,60.9,yes,as-expected,-39.1
+2026,6,TEN,Tyjae Spears,RB,SKILL,Questionable,Full Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,6,TEN,Kevin Winston Jr.,S,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,6,WAS,Stefon Diggs,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,6,WAS,Marcus Mariota,QB,QB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,6,WAS,Lucas Patrick,G,OL,Questionable,Full Participation in Practice,Illness,61.7,yes,as-expected,-38.3
+2026,6,WAS,Jeremy McNichols,RB,SKILL,Questionable,Full Participation in Practice,Quadricep,64.9,yes,as-expected,-35.1
+2026,6,WAS,Charles Omenihu,DE,DL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,6,WAS,Javon Kinlaw,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,6,WAS,Nick Cross,S,DB,Questionable,Full Participation in Practice,Illness,60.9,yes,as-expected,-39.1
+2026,6,WAS,Percy Butler,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,6,WAS,Jordan Magee,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,6,WAS,Javontae Jean-Baptiste,LB,LB,Out,Did Not Participate In Practice,Pectoral,0.1,no,as-expected,0.1
+2026,6,WAS,Tyler Owens,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,6,WAS,Jacory Croskey-Merritt,RB,SKILL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,6,WAS,Trey Amos,CB,DB,Questionable,Full Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,7,ARI,Budda Baker,S,DB,Questionable,Limited Participation in Practice,Groin,60.9,yes,as-expected,-39.1
+2026,7,ARI,Andrew Wingard,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,7,ARI,Jon Gaines II,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,7,ARI,Max Melton,CB,DB,Questionable,Did Not Participate In Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,7,ARI,Darius Robinson,DT,DL,Questionable,Limited Participation in Practice,Back,69.2,yes,as-expected,-30.8
+2026,7,ARI,Walter Nolen,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,ARI,Jeremiyah Love,RB,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,ARI,Carson Beck,QB,QB,Questionable,Did Not Participate In Practice,Back,47.7,no,as-expected,47.7
+2026,7,ATL,Za'Darius Smith,DE,DL,Questionable,Full Participation in Practice,Neck,69.2,yes,as-expected,-30.8
+2026,7,ATL,Samson Ebukam,DE,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,7,ATL,Olamide Zaccheaus,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,no,expected-in-but-missed,64.9
+2026,7,ATL,C.J. Henderson,CB,DB,Questionable,Full Participation in Practice,Groin,60.9,yes,as-expected,-39.1
+2026,7,ATL,A.J. Terrell,CB,DB,Questionable,Full Participation in Practice,Groin,60.9,no,expected-in-but-missed,60.9
+2026,7,ATL,Divine Deablo,LB,LB,Out,Did Not Participate In Practice,Forearm,0.1,no,as-expected,0.1
+2026,7,ATL,Brian Robinson,RB,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,ATL,Gervon Dexter Sr.,DT,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,no,expected-in-but-missed,69.2
+2026,7,ATL,Michael Jerrell,T,OL,Out,Did Not Participate In Practice,Biceps,0.0,no,as-expected,0.0
+2026,7,ATL,Billy Bowman Jr.,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,ATL,Beaux Collins,WR,SKILL,Out,Full Participation in Practice,Hip,0.0,no,as-expected,0.0
+2026,7,ATL,Cameron Williams,T,OL,Out,Limited Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,ATL,Kendal Daniels,LB,LB,Questionable,Full Participation in Practice,Neck,69.7,yes,as-expected,-30.3
+2026,7,ATL,Avieon Terrell,CB,DB,Questionable,Limited Participation in Practice,Back,60.9,no,expected-in-but-missed,60.9
+2026,7,BAL,Lamar Jackson,QB,QB,Out,Limited Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,BAL,Broderick Washington,DE,DL,Questionable,Limited Participation in Practice,Ankle,69.2,no,expected-in-but-missed,69.2
+2026,7,BAL,Jaylinn Hawkins,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,7,BAL,Tavius Robinson,LB,LB,Out,Did Not Participate In Practice,Pectoral,0.1,no,as-expected,0.1
+2026,7,BAL,T.J. Tampa,CB,DB,Doubtful,Limited Participation in Practice,Knee,1.1,no,as-expected,1.1
+2026,7,CAR,Jaelan Phillips,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,7,CAR,Thomas Incoom,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,7,CAR,Bam Martin-Scott,LB,LB,Questionable,Full Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,7,CAR,Monroe Freeling,T,OL,Questionable,Full Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,7,CHI,T.J. Edwards,LB,LB,Doubtful,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,CHI,Jack Sanborn,LB,LB,Out,Did Not Participate In Practice,Concussion,0.1,no,as-expected,0.1
+2026,7,CHI,Tyrique Stevenson,CB,DB,Questionable,Full Participation in Practice,Hip,60.9,yes,as-expected,-39.1
+2026,7,CHI,Kyle Monangai,RB,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,7,CLE,Denzel Ward,CB,DB,Questionable,Limited Participation in Practice,Hand,60.9,yes,as-expected,-39.1
+2026,7,CLE,Quincy Williams,LB,LB,Questionable,Limited Participation in Practice,Neck,69.7,yes,as-expected,-30.3
+2026,7,CLE,Teven Jenkins,G,OL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,7,CLE,Kalia Davis,DT,DL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,7,CLE,Mike Hall Jr.,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,CLE,Dillon Gabriel,QB,QB,Out,Full Participation in Practice,Back,0.0,no,as-expected,0.0
+2026,7,DAL,P.J. Locke,S,DB,Questionable,Limited Participation in Practice,Foot,60.9,no,expected-in-but-missed,60.9
+2026,7,DAL,KaVontae Turpin,WR,SKILL,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,7,DAL,Dee Winters,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,7,DAL,Marist Liufau,LB,LB,Questionable,Full Participation in Practice,Forearm,69.7,no,expected-in-but-missed,69.7
+2026,7,DAL,Drew Shelton,T,OL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,DEN,Talanoa Hufanga,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,DEN,Pat Surtain II,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,7,DEN,Tyler Badie,RB,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,7,DEN,Jonah Elliss,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,7,DEN,Jonah Coleman,RB,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,7,DET,Cade Mays,C,OL,Questionable,Full Participation in Practice,Wrist,61.7,yes,as-expected,-38.3
+2026,7,DET,Brian Branch,S,DB,Questionable,Full Participation in Practice,Achilles,60.9,yes,as-expected,-39.1
+2026,7,GB,Zaire Franklin,LB,LB,Out,Did Not Participate In Practice,Shin,0.1,no,as-expected,0.1
+2026,7,GB,Aaron Banks,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,7,GB,Benjamin St-Juste,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,7,GB,Bo Melton,WR,SKILL,Questionable,Limited Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,7,GB,Jordon Riley,DT,DL,Questionable,Limited Participation in Practice,Achilles,69.2,yes,as-expected,-30.8
+2026,7,HOU,David Montgomery,RB,SKILL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,7,HOU,Reed Blankenship,S,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,HOU,Jalen Pitre,S,DB,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,7,HOU,Tank Dell,WR,SKILL,Questionable,Full Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,7,HOU,Blake Fisher,T,OL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,7,IND,Sauce Gardner,CB,DB,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,7,IND,Anthony Gould,WR,SKILL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,IND,Tyler Warren,TE,SKILL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,7,IND,Justin Walley,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,7,IND,CJ Allen,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,7,IND,Bryce Boettcher,LB,LB,Questionable,Did Not Participate In Practice,Groin,69.7,no,expected-in-but-missed,69.7
+2026,7,KC,L'Jarius Sneed,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,7,KC,Jaylon Moore,T,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,KC,Rashee Rice,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,KC,Brashard Smith,RB,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,KC,Cooper McDonald,LB,LB,Questionable,Limited Participation in Practice,Knee,69.7,yes,as-expected,-30.3
+2026,7,LA,Trent McDuffie,CB,DB,Questionable,Did Not Participate In Practice,Groin,60.9,no,expected-in-but-missed,60.9
+2026,7,LA,Nate Landman,LB,LB,Out,Did Not Participate In Practice,Concussion,0.1,no,as-expected,0.1
+2026,7,LA,Puka Nacua,WR,SKILL,Questionable,Did Not Participate In Practice,Calf,64.9,yes,as-expected,-35.1
+2026,7,LV,Quay Walker,LB,LB,Questionable,Full Participation in Practice,Chest,69.7,yes,as-expected,-30.3
+2026,7,LV,Carter Runyon,TE,SKILL,Out,Full Participation in Practice,Foot,0.0,no,as-expected,0.0
+2026,7,LV,Dont'e Thornton Jr.,WR,SKILL,Out,Full Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,LV,Mike Washington Jr.,RB,SKILL,Questionable,Did Not Participate In Practice,Foot,64.9,yes,as-expected,-35.1
+2026,7,MIA,Willie Gay Jr.,LB,LB,Questionable,Limited Participation in Practice,Illness,69.7,no,expected-in-but-missed,69.7
+2026,7,MIA,Reese Taylor,CB,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,7,MIA,Rob Beal Jr.,DE,DL,Doubtful,Limited Participation in Practice,Hamstring,2.3,no,as-expected,2.3
+2026,7,MIA,Kyle Louis,S,DB,Questionable,Full Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,7,MIN,Jordan Mason,RB,SKILL,Questionable,Full Participation in Practice,Thumb,64.9,yes,as-expected,-35.1
+2026,7,NE,Morgan Moses,T,OL,Questionable,Limited Participation in Practice,Foot,61.7,yes,as-expected,-38.3
+2026,7,NE,Kevin Byard,S,DB,Questionable,Full Participation in Practice,Chest,60.9,yes,as-expected,-39.1
+2026,7,NE,Carlton Davis III,CB,DB,Out,Limited Participation in Practice,Neck,0.0,no,as-expected,0.0
+2026,7,NE,Christian Elliss,LB,LB,Questionable,Full Participation in Practice,Chest,69.7,yes,as-expected,-30.3
+2026,7,NE,Alijah Vera-Tucker,G,OL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,NE,Ben Brown,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,7,NE,Christian Gonzalez,CB,DB,Questionable,,Illness,60.9,yes,as-expected,-39.1
+2026,7,NE,Craig Woodson,S,DB,Questionable,Full Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,7,NE,Karon Prunty,CB,DB,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,NE,Channing Canada,CB,DB,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,NO,Nathan Shepherd,DT,DL,Questionable,Did Not Participate In Practice,Illness,69.2,no,expected-in-but-missed,69.2
+2026,7,NO,Cesar Ruiz,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,7,NYG,Jermaine Eluemunor,T,OL,Questionable,Limited Participation in Practice,Calf,61.7,yes,as-expected,-38.3
+2026,7,NYG,Tremaine Edmunds,LB,LB,Out,Did Not Participate In Practice,Shoulder,0.1,no,as-expected,0.1
+2026,7,NYG,Paulson Adebo,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,7,NYG,Greg Newsome II,CB,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,NYG,Jevon Holland,S,DB,Out,Limited Participation in Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,NYG,Theo Johnson,TE,SKILL,Doubtful,Did Not Participate In Practice,Neck,1.4,no,as-expected,1.4
+2026,7,NYG,Tyler Nubin,S,DB,Questionable,Limited Participation in Practice,Neck,60.9,yes,as-expected,-39.1
+2026,7,NYG,Marcus Mbow,T,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,7,NYJ,Kene Nwangwu,RB,SKILL,Questionable,Full Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,7,NYJ,Joseph Ossai,DE,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,NYJ,Dylan Parham,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,no,expected-in-but-missed,61.7
+2026,7,NYJ,Max Mitchell,T,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,NYJ,Breece Hall,RB,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,7,NYJ,Francisco Mauigoa,LB,LB,Out,Did Not Participate In Practice,Quadricep,0.1,no,as-expected,0.1
+2026,7,PHI,Saquon Barkley,RB,SKILL,Questionable,Full Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,7,PHI,Jonathan Greenard,LB,LB,Questionable,Did Not Participate In Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,7,PHI,Michael Carter II,CB,DB,Out,Did Not Participate In Practice,Abdomen,0.0,no,as-expected,0.0
+2026,7,PHI,DeVonta Smith,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,PHI,Landon Dickerson,G,OL,Questionable,Full Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,7,PHI,Grant Calcaterra,TE,SKILL,Questionable,Full Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,7,PHI,Dontayvion Wicks,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,PHI,Nolan Smith,LB,LB,Out,Did Not Participate In Practice,Concussion,0.1,no,as-expected,0.1
+2026,7,PHI,Jakorian Bennett,CB,DB,Questionable,Full Participation in Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,7,PHI,Jalyx Hunt,LB,LB,Questionable,Limited Participation in Practice,Knee,69.7,yes,as-expected,-30.3
+2026,7,PHI,Eli Stowers,TE,SKILL,Questionable,Full Participation in Practice,Quadricep,64.9,yes,as-expected,-35.1
+2026,7,PIT,DeShon Elliott,S,DB,Questionable,Full Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,7,PIT,Rico Dowdle,RB,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,yes,as-expected,-35.1
+2026,7,PIT,Brandin Echols,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,PIT,Ben Skowronek,WR,SKILL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,7,SEA,DeMarcus Lawrence,LB,LB,Questionable,Limited Participation in Practice,Knee,69.7,yes,as-expected,-30.3
+2026,7,SEA,Uchenna Nwosu,LB,LB,Questionable,Limited Participation in Practice,Hip,69.7,yes,as-expected,-30.3
+2026,7,SEA,Drew Lock,QB,QB,Questionable,Limited Participation in Practice,Elbow,47.7,no,as-expected,47.7
+2026,7,SEA,Chazz Surratt,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,7,SEA,Drake Thomas,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,7,SEA,Zach Charbonnet,RB,SKILL,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,7,SEA,Connor O'Toole,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,no,expected-in-but-missed,69.7
+2026,7,SEA,Nick Emmanwori,S,DB,Questionable,Limited Participation in Practice,Hip,60.9,yes,as-expected,-39.1
+2026,7,SF,Mike Evans,WR,SKILL,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,7,SF,Siran Neal,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,7,SF,Christian Kirk,WR,SKILL,Questionable,Full Participation in Practice,Calf,64.9,yes,as-expected,-35.1
+2026,7,SF,Luke Gifford,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,7,SF,Nick Bosa,DE,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,7,SF,Deebo Samuel Sr.,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,7,SF,Garret Wallow,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,7,SF,Upton Stout,CB,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,7,SF,Marques Sigle,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,7,TB,Baker Mayfield,QB,QB,Questionable,Full Participation in Practice,Thumb,47.7,yes,as-expected,-52.3
+2026,7,TB,Antoine Winfield Jr.,S,DB,Out,Limited Participation in Practice,Rib,0.0,no,as-expected,0.0
+2026,7,TB,Luke Goedeke,T,OL,Out,Limited Participation in Practice,Calf,0.0,no,as-expected,0.0
+2026,7,TB,Emeka Egbuka,WR,SKILL,Out,Limited Participation in Practice,Concussion,0.0,no,as-expected,0.0
+2026,7,TEN,Calvin Ridley,WR,SKILL,Questionable,Did Not Participate In Practice,Hip,64.9,no,expected-in-but-missed,64.9
+2026,7,TEN,Tony Adams,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,7,TEN,Tyjae Spears,RB,SKILL,Questionable,Limited Participation in Practice,Not injury related - resting player,64.9,no,expected-in-but-missed,64.9
+2026,7,TEN,Kevin Winston Jr.,S,DB,Questionable,Limited Participation in Practice,Quadricep,60.9,no,expected-in-but-missed,60.9
+2026,7,TEN,Dorian Mausi,LB,LB,Questionable,Full Participation in Practice,Foot,69.7,no,expected-in-but-missed,69.7
+2026,8,ARI,Hjalte Froholdt,C,OL,Questionable,Did Not Participate In Practice,Knee,61.7,yes,as-expected,-38.3
+2026,8,ARI,Andrew Wingard,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,8,ARI,Jon Gaines II,G,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,ARI,Max Melton,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,8,ARI,Walter Nolen,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,ATL,Samson Ebukam,DE,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,8,ATL,Olamide Zaccheaus,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,yes,as-expected,-35.1
+2026,8,ATL,Charles Snowden,DE,DL,Questionable,Limited Participation in Practice,Back,69.2,yes,as-expected,-30.8
+2026,8,ATL,Divine Deablo,LB,LB,Questionable,Limited Participation in Practice,Forearm,69.7,no,expected-in-but-missed,69.7
+2026,8,ATL,Brian Robinson,RB,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,ATL,Billy Bowman Jr.,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,8,ATL,Beaux Collins,WR,SKILL,Questionable,Full Participation in Practice,Hip,64.9,no,expected-in-but-missed,64.9
+2026,8,ATL,Cameron Williams,T,OL,Questionable,Full Participation in Practice,Ankle,61.7,no,expected-in-but-missed,61.7
+2026,8,ATL,Avieon Terrell,CB,DB,Questionable,Limited Participation in Practice,Illness,60.9,yes,as-expected,-39.1
+2026,8,BAL,Jaylinn Hawkins,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,BAL,T.J. Tampa,CB,DB,Questionable,Full Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,8,BAL,Olaivavega Ioane,G,OL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,8,BAL,Adam Randall,RB,SKILL,Questionable,Full Participation in Practice,Neck,64.9,no,expected-in-but-missed,64.9
+2026,8,BUF,DJ Moore,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,no,expected-in-but-missed,64.9
+2026,8,BUF,Greg Gaines,DT,DL,Questionable,Limited Participation in Practice,Calf,69.2,no,expected-in-but-missed,69.2
+2026,8,BUF,Spencer Brown,T,OL,Questionable,Limited Participation in Practice,Back,61.7,no,expected-in-but-missed,61.7
+2026,8,BUF,Dee Alford,CB,DB,Questionable,Did Not Participate In Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,8,BUF,Tyrell Shavers,WR,SKILL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,8,BUF,Dalton Kincaid,TE,SKILL,Questionable,Limited Participation in Practice,Chest,64.9,yes,as-expected,-35.1
+2026,8,BUF,TJ Parker,LB,LB,Questionable,Full Participation in Practice,Knee,69.7,no,expected-in-but-missed,69.7
+2026,8,CAR,Damien Lewis,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,CAR,Bobby Brown III,DT,DL,Questionable,Full Participation in Practice,Hand,69.2,no,expected-in-but-missed,69.2
+2026,8,CAR,Jaelan Phillips,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,8,CAR,Akayleb Evans,CB,DB,Out,Did Not Participate In Practice,Triceps,0.0,no,as-expected,0.0
+2026,8,CAR,Torricelli Simpkins III,G,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,CHI,D'Marco Jackson,LB,LB,Questionable,Full Participation in Practice,Ankle,69.7,yes,as-expected,-30.3
+2026,8,CHI,Kyle Monangai,RB,SKILL,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,8,CHI,Malik Muhammad,CB,DB,Questionable,Limited Participation in Practice,Toe,60.9,no,expected-in-but-missed,60.9
+2026,8,CIN,Joe Giles-Harris,LB,LB,Questionable,Limited Participation in Practice,Calf,69.7,yes,as-expected,-30.3
+2026,8,CIN,Kyle Dugger,S,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,8,CLE,Tytus Howard,T,OL,Questionable,Did Not Participate In Practice,Concussion,61.7,yes,as-expected,-38.3
+2026,8,CLE,Daniel Thomas,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,yes,as-expected,-39.1
+2026,8,CLE,Myles Harden,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,8,DAL,Jonathan Bullard,DT,DL,Questionable,Full Participation in Practice,Calf,69.2,no,expected-in-but-missed,69.2
+2026,8,DAL,Kenny Clark,DT,DL,Questionable,Limited Participation in Practice,Back,69.2,yes,as-expected,-30.8
+2026,8,DAL,P.J. Locke,S,DB,Questionable,Full Participation in Practice,Foot,60.9,yes,as-expected,-39.1
+2026,8,DAL,George Pickens,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,yes,as-expected,-35.1
+2026,8,DAL,KaVontae Turpin,WR,SKILL,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,8,DAL,Luke Schoonmaker,TE,SKILL,Questionable,Did Not Participate In Practice,Groin,64.9,no,expected-in-but-missed,64.9
+2026,8,DAL,Dee Winters,LB,LB,Out,Did Not Participate In Practice,Calf,0.1,no,as-expected,0.1
+2026,8,DAL,Marist Liufau,LB,LB,Questionable,Full Participation in Practice,Forearm,69.7,no,expected-in-but-missed,69.7
+2026,8,DEN,Garett Bolles,T,OL,Questionable,Limited Participation in Practice,Hip,61.7,yes,as-expected,-38.3
+2026,8,DEN,Zach Allen,DE,DL,Questionable,Limited Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,8,DEN,Brandon Jones,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,8,DEN,Talanoa Hufanga,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,DEN,Jaylen Waddle,WR,SKILL,Questionable,Limited Participation in Practice,Chest,64.9,yes,as-expected,-35.1
+2026,8,DEN,RJ Harvey,RB,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,DET,Kerby Joseph,S,DB,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,8,DET,Roger McCreary,CB,DB,Questionable,Limited Participation in Practice,Foot,60.9,yes,as-expected,-39.1
+2026,8,GB,Zaire Franklin,LB,LB,Out,Did Not Participate In Practice,Shin,0.1,no,as-expected,0.1
+2026,8,GB,Devonte Wyatt,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,8,GB,Sean Rhyan,C,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,GB,Brenton Cox Jr.,LB,LB,Questionable,Limited Participation in Practice,Quadricep,69.7,no,expected-in-but-missed,69.7
+2026,8,GB,Travis Glover,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,GB,Matthew Golden,WR,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,yes,as-expected,-35.1
+2026,8,GB,Anthony Campbell,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,8,IND,Andrew Ogletree,TE,SKILL,Questionable,Did Not Participate In Practice,Knee,64.9,yes,as-expected,-35.1
+2026,8,IND,Anthony Gould,WR,SKILL,Out,Full Participation in Practice,Concussion,0.0,no,as-expected,0.0
+2026,8,IND,Justin Walley,CB,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,IND,Bryce Boettcher,LB,LB,Questionable,Did Not Participate In Practice,Groin,69.7,no,expected-in-but-missed,69.7
+2026,8,JAX,Jakobi Meyers,WR,SKILL,Questionable,Did Not Participate In Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,8,JAX,Antonio Johnson,S,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,KC,L'Jarius Sneed,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,8,KC,Omarr Norman-Lott,DT,DL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,8,KC,R Mason Thomas,DE,DL,Questionable,Did Not Participate In Practice,Not injury related - personal matter,69.2,yes,as-expected,-30.8
+2026,8,KC,Mansoor Delane,CB,DB,Questionable,Did Not Participate In Practice,Shoulder,60.9,no,expected-in-but-missed,60.9
+2026,8,LA,Joe Cardona,LS,ST,Doubtful,Did Not Participate In Practice,Ankle,0.9,no,as-expected,0.9
+2026,8,LA,Coleman Shelton,C,OL,Questionable,Limited Participation in Practice,Hip,61.7,yes,as-expected,-38.3
+2026,8,LA,Colby Parkinson,TE,SKILL,Questionable,Did Not Participate In Practice,Rib,64.9,no,expected-in-but-missed,64.9
+2026,8,LA,Trent McDuffie,CB,DB,Questionable,Limited Participation in Practice,Groin,60.9,yes,as-expected,-39.1
+2026,8,LA,Jordan Whittington,WR,SKILL,Questionable,Did Not Participate In Practice,Back,64.9,yes,as-expected,-35.1
+2026,8,LAC,Donte Jackson,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,8,LAC,Derwin James,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,LAC,Kayode Awosika,G,OL,Out,Did Not Participate In Practice,Fibula,0.0,no,as-expected,0.0
+2026,8,LAC,Deane Leonard,CB,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,8,LAC,Rodney Shelley,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,8,LAC,Brenen Thompson,WR,SKILL,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,8,LV,Patrick Johnson,DE,DL,Out,Did Not Participate In Practice,Stinger,0.0,no,as-expected,0.0
+2026,8,LV,Jackson Powers-Johnson,G,OL,Questionable,Limited Participation in Practice,Back,61.7,yes,as-expected,-38.3
+2026,8,LV,Carter Runyon,TE,SKILL,Out,Full Participation in Practice,Foot,0.0,no,as-expected,0.0
+2026,8,LV,Jack Bech,WR,SKILL,Questionable,Full Participation in Practice,Forearm,64.9,yes,as-expected,-35.1
+2026,8,MIA,Reese Taylor,CB,DB,Questionable,Full Participation in Practice,Quadricep,60.9,yes,as-expected,-39.1
+2026,8,MIA,Julius Brents,CB,DB,Questionable,Full Participation in Practice,Neck,60.9,yes,as-expected,-39.1
+2026,8,MIA,Kadyn Proctor,T,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,8,MIN,Jay Ward,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,8,NE,Carlton Davis III,CB,DB,Questionable,Full Participation in Practice,Neck,60.9,no,expected-in-but-missed,60.9
+2026,8,NE,A.J. Brown,WR,SKILL,Questionable,Did Not Participate In Practice,Ankle,64.9,no,expected-in-but-missed,64.9
+2026,8,NE,Christian Elliss,LB,LB,Questionable,Full Participation in Practice,Chest,69.7,yes,as-expected,-30.3
+2026,8,NE,TreVeyon Henderson,RB,SKILL,Questionable,Did Not Participate In Practice,Illness,64.9,no,expected-in-but-missed,64.9
+2026,8,NYJ,Joseph Ossai,DE,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,NYJ,Dylan Parham,G,OL,Questionable,Full Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,8,NYJ,Max Mitchell,T,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,8,NYJ,Breece Hall,RB,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,8,NYJ,T'Vondre Sweat,DT,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,NYJ,David Bailey,DE,DL,Doubtful,Did Not Participate In Practice,Groin,2.3,no,as-expected,2.3
+2026,8,PHI,Jonathan Jones,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,PHI,DeVonta Smith,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,PHI,Britain Covey,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,PHI,Dontayvion Wicks,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,PHI,Jakorian Bennett,CB,DB,Questionable,Full Participation in Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,8,PHI,Jihaad Campbell,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,8,PIT,Brandin Echols,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,PIT,Ben Skowronek,WR,SKILL,Questionable,Limited Participation in Practice,Calf,64.9,no,expected-in-but-missed,64.9
+2026,8,PIT,Doneiko Slaughter,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,SEA,Uchenna Nwosu,LB,LB,Doubtful,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,SEA,Drew Lock,QB,QB,Questionable,Limited Participation in Practice,Elbow,47.7,no,as-expected,47.7
+2026,8,SEA,Rashid Shaheed,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,SEA,Velus Jones Jr.,RB,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,8,SEA,Charles Cross,T,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,8,SEA,Brandon Pili,DT,DL,Questionable,Did Not Participate In Practice,Back,69.2,no,expected-in-but-missed,69.2
+2026,8,SEA,Patrick O'Connell,LB,LB,Questionable,Did Not Participate In Practice,Toe,69.7,yes,as-expected,-30.3
+2026,8,SEA,Anthony Bradford,G,OL,Questionable,Limited Participation in Practice,Knee,61.7,yes,as-expected,-38.3
+2026,8,TB,Kenny Gainwell,RB,SKILL,Questionable,Full Participation in Practice,Hip,64.9,no,expected-in-but-missed,64.9
+2026,8,TB,Luke Goedeke,T,OL,Questionable,Limited Participation in Practice,Calf,61.7,yes,as-expected,-38.3
+2026,8,TB,Emeka Egbuka,WR,SKILL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,8,TEN,John Franklin-Myers,DE,DL,Questionable,Limited Participation in Practice,Groin,69.2,yes,as-expected,-30.8
+2026,8,TEN,Calvin Ridley,WR,SKILL,Questionable,Full Participation in Practice,Hip,64.9,yes,as-expected,-35.1
+2026,8,TEN,Tommy Townsend,P,ST,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,TEN,Jaylon Jones,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,no,expected-in-but-missed,60.9
+2026,8,TEN,Tyjae Spears,RB,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,TEN,Dorian Mausi,LB,LB,Questionable,Full Participation in Practice,Foot,69.7,no,expected-in-but-missed,69.7
+2026,8,TEN,Carnell Tate,WR,SKILL,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,8,WAS,Daron Payne,DT,DL,Out,Limited Participation in Practice,Foot,0.0,no,as-expected,0.0
+2026,8,WAS,Javon Kinlaw,DT,DL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,8,WAS,John Bates,TE,SKILL,Questionable,Limited Participation in Practice,Shoulder,64.9,yes,as-expected,-35.1
+2026,8,WAS,Treylon Burks,WR,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,8,WAS,Jer'Zhan Newton,DT,DL,Questionable,Limited Participation in Practice,Pectoral,69.2,no,expected-in-but-missed,69.2
+2026,9,ARI,Bam Knight,RB,SKILL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,9,ARI,Jon Gaines II,G,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,ARI,Max Melton,CB,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,9,ARI,Isaiah Adams,G,OL,Questionable,Limited Participation in Practice,Ankle,61.7,yes,as-expected,-38.3
+2026,9,ARI,Walter Nolen,DT,DL,Questionable,Limited Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,9,ARI,Jayden Williams,T,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,ATL,Divine Deablo,LB,LB,Questionable,Full Participation in Practice,Forearm,69.7,yes,as-expected,-30.3
+2026,9,ATL,Brian Robinson,RB,SKILL,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,ATL,Yasir Abdullah,DE,DL,Questionable,Full Participation in Practice,Hamstring,69.2,yes,as-expected,-30.8
+2026,9,ATL,Beaux Collins,WR,SKILL,Questionable,Full Participation in Practice,Hip,64.9,yes,as-expected,-35.1
+2026,9,ATL,James Pearce Jr.,DE,DL,Questionable,Limited Participation in Practice,Back,69.2,no,expected-in-but-missed,69.2
+2026,9,ATL,Cameron Williams,T,OL,Out,Full Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,ATL,Zachariah Branch,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,BAL,Lamar Jackson,QB,QB,Out,Did Not Participate In Practice,Thumb,0.0,no,as-expected,0.0
+2026,9,BAL,Tyler Huntley,QB,QB,Out,Did Not Participate In Practice,Toe,0.0,no,as-expected,0.0
+2026,9,BAL,Jaylinn Hawkins,S,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,BAL,Nate Wiggins,CB,DB,Questionable,Did Not Participate In Practice,Stinger,60.9,no,expected-in-but-missed,60.9
+2026,9,BAL,Adam Randall,RB,SKILL,Questionable,Full Participation in Practice,Neck,64.9,no,expected-in-but-missed,64.9
+2026,9,BUF,Dion Dawkins,T,OL,Questionable,Did Not Participate In Practice,Rib,61.7,no,expected-in-but-missed,61.7
+2026,9,BUF,Greg Gaines,DT,DL,Questionable,Limited Participation in Practice,Calf,69.2,no,expected-in-but-missed,69.2
+2026,9,BUF,Josh Palmer,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,BUF,Alec Anderson,G,OL,Questionable,Limited Participation in Practice,Ankle,61.7,no,expected-in-but-missed,61.7
+2026,9,BUF,Tyrell Shavers,WR,SKILL,Questionable,Full Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,9,BUF,Jordan Hancock,CB,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,9,CAR,Bobby Okereke,LB,LB,Out,Did Not Participate In Practice,Foot,0.1,no,as-expected,0.1
+2026,9,CAR,Damien Lewis,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,CAR,Jaelan Phillips,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,9,CAR,Brady Christensen,G,OL,Questionable,Full Participation in Practice,Hamstring,61.7,no,expected-in-but-missed,61.7
+2026,9,CAR,Corey Bullock,G,OL,Questionable,Full Participation in Practice,Quadricep,61.7,yes,as-expected,-38.3
+2026,9,CAR,Torricelli Simpkins III,G,OL,Questionable,Full Participation in Practice,Ankle,61.7,no,expected-in-but-missed,61.7
+2026,9,CAR,Will Lee III,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,CHI,Tyrique Stevenson,CB,DB,Questionable,Limited Participation in Practice,Thumb,60.9,yes,as-expected,-39.1
+2026,9,CHI,Kyle Monangai,RB,SKILL,Questionable,Limited Participation in Practice,Thumb,64.9,no,expected-in-but-missed,64.9
+2026,9,CHI,Malik Muhammad,CB,DB,Questionable,Limited Participation in Practice,Toe,60.9,no,expected-in-but-missed,60.9
+2026,9,CIN,Kyle Dugger,S,DB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,9,CIN,Cedric Johnson,DE,DL,Questionable,Full Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,9,CLE,Maliek Collins,DT,DL,Out,Did Not Participate In Practice,Elbow,0.0,no,as-expected,0.0
+2026,9,CLE,Deshaun Watson,QB,QB,Questionable,Limited Participation in Practice,Concussion,47.7,no,as-expected,47.7
+2026,9,DAL,Jonathan Bullard,DE,DL,Questionable,Full Participation in Practice,Calf,69.2,no,expected-in-but-missed,69.2
+2026,9,DAL,George Pickens,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,no,expected-in-but-missed,64.9
+2026,9,DAL,KaVontae Turpin,WR,SKILL,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,9,DAL,Jake Ferguson,TE,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,9,DAL,Luke Schoonmaker,TE,SKILL,Questionable,Limited Participation in Practice,Groin,64.9,no,expected-in-but-missed,64.9
+2026,9,DAL,DeMarvion Overshown,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,no,expected-in-but-missed,69.7
+2026,9,DAL,Joey Porter Jr.,CB,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,9,DAL,Marist Liufau,LB,LB,Questionable,Full Participation in Practice,Forearm,69.7,yes,as-expected,-30.3
+2026,9,DAL,Malachi Lawrence,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,9,DEN,Brandon Jones,S,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,DEN,Talanoa Hufanga,S,DB,Questionable,Limited Participation in Practice,Ankle,60.9,no,expected-in-but-missed,60.9
+2026,9,DEN,Dondrea Tillman,LB,LB,Questionable,Full Participation in Practice,Hip,69.7,yes,as-expected,-30.3
+2026,9,DEN,Eyioma Uwazurike,DE,DL,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,9,DEN,Kris Abrams-Draine,CB,DB,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,DEN,Pat Bryant,WR,SKILL,Questionable,Full Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,9,DET,D.J. Reed,CB,DB,Out,Did Not Participate In Practice,Hip,0.0,no,as-expected,0.0
+2026,9,DET,DJ Wonnum,DE,DL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,9,DET,Amon-Ra St. Brown,WR,SKILL,Questionable,Limited Participation in Practice,Rib,64.9,yes,as-expected,-35.1
+2026,9,DET,Cade Mays,C,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,DET,Kerby Joseph,S,DB,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,9,DET,Jacob Saylors,RB,SKILL,Questionable,Limited Participation in Practice,Neck,64.9,no,expected-in-but-missed,64.9
+2026,9,DET,Jack Campbell,LB,LB,Out,Did Not Participate In Practice,Neck,0.1,no,as-expected,0.1
+2026,9,DET,Sione Vaki,RB,SKILL,Questionable,Did Not Participate In Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,9,GB,Zaire Franklin,LB,LB,Out,Did Not Participate In Practice,Shin,0.1,no,as-expected,0.1
+2026,9,GB,Keisean Nixon,CB,DB,Questionable,Limited Participation in Practice,Groin,60.9,yes,as-expected,-39.1
+2026,9,GB,Micah Parsons,LB,LB,Out,Limited Participation in Practice,Knee,0.1,no,as-expected,0.1
+2026,9,GB,Sean Rhyan,C,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,GB,Josh Whyle,TE,SKILL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,9,GB,Chris Brooks,RB,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,no,expected-in-but-missed,64.9
+2026,9,GB,MarShawn Lloyd,RB,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,9,GB,Travis Glover,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,HOU,David Montgomery,RB,SKILL,Out,Did Not Participate In Practice,Groin,0.0,no,as-expected,0.0
+2026,9,HOU,Reed Blankenship,S,DB,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,9,IND,Akeem Davis-Gaither,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,9,IND,Justin Walley,CB,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,IND,Jalen Travis,T,OL,Questionable,Full Participation in Practice,Thumb,61.7,yes,as-expected,-38.3
+2026,9,IND,A.J. Haulcy,S,DB,Out,Limited Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,JAX,Travon Walker,DE,DL,Questionable,Limited Participation in Practice,Rib,69.2,yes,as-expected,-30.8
+2026,9,JAX,Bhayshul Tuten,RB,SKILL,Questionable,Did Not Participate In Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,9,KC,Nikko Remigio,WR,SKILL,Questionable,Full Participation in Practice,Hip,64.9,yes,as-expected,-35.1
+2026,9,KC,Omarr Norman-Lott,DT,DL,Out,Limited Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,9,KC,Mansoor Delane,CB,DB,Out,Limited Participation in Practice,Shoulder,0.0,no,as-expected,0.0
+2026,9,KC,Peter Woods,DT,DL,Out,Did Not Participate In Practice,Neck,0.0,no,as-expected,0.0
+2026,9,LA,Joe Cardona,LS,ST,Doubtful,Did Not Participate In Practice,Ankle,0.9,no,as-expected,0.9
+2026,9,LA,Colby Parkinson,TE,SKILL,Questionable,Limited Participation in Practice,Ribs,64.9,yes,as-expected,-35.1
+2026,9,LA,Kam Curl,S,DB,Questionable,Limited Participation in Practice,Foot,60.9,no,expected-in-but-missed,60.9
+2026,9,LA,Grant Stuard,LB,LB,Questionable,Limited Participation in Practice,Hamstring,69.7,yes,as-expected,-30.3
+2026,9,LA,Trent McDuffie,CB,DB,Questionable,Did Not Participate In Practice,Back,60.9,no,expected-in-but-missed,60.9
+2026,9,LA,Jaylen Watson,CB,DB,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,9,LA,Jordan Whittington,WR,SKILL,Questionable,Limited Participation in Practice,Back,64.9,yes,as-expected,-35.1
+2026,9,LA,Terrance Ferguson,TE,SKILL,Out,Limited Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,LAC,Denzel Perryman,LB,LB,Doubtful,Limited Participation in Practice,Pectoral,0.0,no,as-expected,0.0
+2026,9,LAC,David Njoku,TE,SKILL,Doubtful,Limited Participation in Practice,Fibula,1.4,no,as-expected,1.4
+2026,9,LAC,Kayode Awosika,G,OL,Doubtful,Limited Participation in Practice,Fibula,0.0,no,as-expected,0.0
+2026,9,LAC,Deane Leonard,CB,DB,Out,Limited Participation in Practice,Concussion,0.0,no,as-expected,0.0
+2026,9,LAC,Kendall Williamson,S,DB,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,9,LAC,Brenen Thompson,WR,SKILL,Doubtful,Did Not Participate In Practice,Quadricep,1.4,no,as-expected,1.4
+2026,9,LV,Thomas Booker,DT,DL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,LV,Darien Porter,CB,DB,Questionable,Full Participation in Practice,Groin,60.9,yes,as-expected,-39.1
+2026,9,MIA,Malik Herring,DE,DL,Questionable,Limited Participation in Practice,Neck,69.2,yes,as-expected,-30.8
+2026,9,MIA,Jaylen Wright,RB,SKILL,Questionable,Limited Participation in Practice,Quadricep,64.9,no,expected-in-but-missed,64.9
+2026,9,MIA,Kaytron Allen,RB,SKILL,Questionable,Full Participation in Practice,Quadricep,64.9,yes,as-expected,-35.1
+2026,9,MIN,Kyler Murray,QB,QB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,MIN,Jauan Jennings,WR,SKILL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,9,MIN,Theo Jackson,S,DB,Questionable,Limited Participation in Practice,Quadricep,60.9,no,expected-in-but-missed,60.9
+2026,9,MIN,Jay Ward,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,9,MIN,Demond Claiborne,RB,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,NE,Greg Van Roten,G,OL,Out,Limited Participation in Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,NE,Morgan Moses,T,OL,Questionable,Limited Participation in Practice,Foot,61.7,yes,as-expected,-38.3
+2026,9,NE,Hunter Henry,TE,SKILL,Questionable,Limited Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,9,NE,Kevin Byard,S,DB,Questionable,Full Participation in Practice,Chest,60.9,yes,as-expected,-39.1
+2026,9,NE,Mack Hollins,WR,SKILL,Questionable,Limited Participation in Practice,Calf,64.9,yes,as-expected,-35.1
+2026,9,NE,Carlton Davis III,CB,DB,Questionable,Full Participation in Practice,Neck,60.9,no,expected-in-but-missed,60.9
+2026,9,NE,A.J. Brown,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,NE,Brenden Schooler,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,yes,as-expected,-39.1
+2026,9,NE,TreVeyon Henderson,RB,SKILL,Out,Did Not Participate In Practice,Illness,0.0,no,as-expected,0.0
+2026,9,NO,Martin Emerson,CB,DB,Questionable,Did Not Participate In Practice,Shin,60.9,yes,as-expected,-39.1
+2026,9,NO,Asim Richards,T,OL,Questionable,Limited Participation in Practice,Thumb,61.7,yes,as-expected,-38.3
+2026,9,NO,Kelvin Banks Jr.,T,OL,Questionable,Limited Participation in Practice,Ankle,61.7,no,expected-in-but-missed,61.7
+2026,9,NO,Jordyn Tyson,WR,SKILL,Questionable,Limited Participation in Practice,Hamstring,64.9,yes,as-expected,-35.1
+2026,9,NO,CJ Donaldson,RB,SKILL,Out,Did Not Participate In Practice,Shoulder,0.0,no,as-expected,0.0
+2026,9,NYG,Charlie Jones,WR,SKILL,Questionable,Limited Participation in Practice,Hand,64.9,yes,as-expected,-35.1
+2026,9,NYG,Cam Skattebo,RB,SKILL,Doubtful,Limited Participation in Practice,Hamstring,1.4,no,as-expected,1.4
+2026,9,NYJ,Harrison Phillips,DT,DL,Questionable,Full Participation in Practice,Ankle,69.2,yes,as-expected,-30.8
+2026,9,NYJ,Joseph Ossai,DE,DL,Out,Limited Participation in Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,NYJ,Nahshon Wright,CB,DB,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,9,NYJ,Garrett Wilson,WR,SKILL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,9,NYJ,Trevin Wallace,LB,LB,Out,Did Not Participate In Practice,Groin,0.1,no,as-expected,0.1
+2026,9,NYJ,VJ Payne,S,DB,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,9,PHI,Jonathan Jones,CB,DB,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,PHI,Michael Carter II,CB,DB,Out,Did Not Participate In Practice,Abdomen,0.0,no,as-expected,0.0
+2026,9,PHI,DeVonta Smith,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,PHI,Britain Covey,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,PHI,Dontayvion Wicks,WR,SKILL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,PHI,Tanner McKee,QB,QB,Questionable,Limited Participation in Practice,Rib,47.7,no,as-expected,47.7
+2026,9,PHI,Jihaad Campbell,LB,LB,Out,Did Not Participate In Practice,Hamstring,0.1,no,as-expected,0.1
+2026,9,SEA,Leonard Williams,DT,DL,Out,Did Not Participate In Practice,Stinger,0.0,no,as-expected,0.0
+2026,9,SEA,Quenton Nelson,G,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,SEA,Uchenna Nwosu,LB,LB,Out,Did Not Participate In Practice,Ankle,0.1,no,as-expected,0.1
+2026,9,SEA,Sam Darnold,QB,QB,Out,Did Not Participate In Practice,Quadricep,0.0,no,as-expected,0.0
+2026,9,SEA,Rashid Shaheed,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,SEA,Charles Cross,T,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,9,SEA,Brandon Pili,DT,DL,Out,Did Not Participate In Practice,Back,0.0,no,as-expected,0.0
+2026,9,SEA,Connor O'Toole,LB,LB,Questionable,Did Not Participate In Practice,Foot,69.7,yes,as-expected,-30.3
+2026,9,SF,Mike Evans,WR,SKILL,Out,Did Not Participate In Practice,Ribs,0.0,no,as-expected,0.0
+2026,9,SF,Demarcus Robinson,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,yes,as-expected,-35.1
+2026,9,SF,Siran Neal,S,DB,Questionable,Limited Participation in Practice,Knee,60.9,yes,as-expected,-39.1
+2026,9,SF,Christian Kirk,WR,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,9,SF,Deebo Samuel Sr.,WR,SKILL,Out,Did Not Participate In Practice,Hamstring,0.0,no,as-expected,0.0
+2026,9,SF,Nate Hobbs,CB,DB,Questionable,Limited Participation in Practice,Groin,60.9,no,expected-in-but-missed,60.9
+2026,9,SF,Upton Stout,CB,DB,Questionable,Limited Participation in Practice,Shoulder,60.9,yes,as-expected,-39.1
+2026,9,TB,Yaya Diaby,LB,LB,Out,Did Not Participate In Practice,Knee,0.1,no,as-expected,0.1
+2026,9,TB,Emeka Egbuka,WR,SKILL,Questionable,Full Participation in Practice,Foot,64.9,yes,as-expected,-35.1
+2026,9,WAS,Dyami Brown,WR,SKILL,Out,Did Not Participate In Practice,Calf,0.0,no,as-expected,0.0
+2026,9,WAS,Treylon Burks,WR,SKILL,Out,Did Not Participate In Practice,Foot,0.0,no,as-expected,0.0
+2026,9,WAS,Jer'Zhan Newton,DT,DL,Questionable,Full Participation in Practice,Pectoral,69.2,yes,as-expected,-30.8
+2026,10,DET,D.J. Reed,CB,DB,Out,Did Not Participate In Practice,Hip,0.0,no,as-expected,0.0
+2026,10,DET,Cade Mays,C,OL,Out,Did Not Participate In Practice,Ankle,0.0,no,as-expected,0.0
+2026,10,DET,Kerby Joseph,S,DB,Out,Full Participation in Practice,Knee,0.0,no,as-expected,0.0
+2026,10,NE,Greg Van Roten,G,OL,Questionable,Full Participation in Practice,Hamstring,61.7,no,expected-in-but-missed,61.7
+2026,10,NE,Kevin Byard,S,DB,Questionable,Full Participation in Practice,Chest,60.9,no,expected-in-but-missed,60.9
+2026,10,NE,Carlton Davis III,CB,DB,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,10,NE,A.J. Brown,WR,SKILL,Questionable,Limited Participation in Practice,Ankle,64.9,no,expected-in-but-missed,64.9
+2026,10,NE,Reggie Gilliam,FB,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,10,NE,Rhamondre Stevenson,RB,SKILL,Questionable,Limited Participation in Practice,Knee,64.9,no,expected-in-but-missed,64.9
+2026,10,NE,Brenden Schooler,S,DB,Questionable,Limited Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,10,NE,Ben Brown,C,OL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0
+2026,10,NE,Cameron Latu,TE,SKILL,Questionable,Limited Participation in Practice,Back,64.9,no,expected-in-but-missed,64.9
+2026,10,NE,Charles Woods,CB,DB,Questionable,Full Participation in Practice,Hamstring,60.9,no,expected-in-but-missed,60.9
+2026,10,NE,Walter Rouse,T,OL,Questionable,Limited Participation in Practice,Concussion,61.7,no,expected-in-but-missed,61.7
+2026,10,NE,TreVeyon Henderson,RB,SKILL,Out,Did Not Participate In Practice,Illness,0.0,no,as-expected,0.0
+2026,10,NYG,Malik Harrison,LB,LB,Questionable,Limited Participation in Practice,Groin,69.7,no,expected-in-but-missed,69.7
+2026,10,WAS,Lucas Patrick,C,OL,Out,Did Not Participate In Practice,Concussion,0.0,no,as-expected,0.0
+2026,10,WAS,Colson Yankoff,TE,SKILL,Out,Did Not Participate In Practice,Knee,0.0,no,as-expected,0.0

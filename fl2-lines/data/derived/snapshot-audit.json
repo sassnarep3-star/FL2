@@ -1,0 +1,8 @@
+{
+ "generated_utc": "2026-11-16T01:39:28Z",
+ "capture_days": [],
+ "same_day_conflicts": 0,
+ "last_row_counts": {},
+ "storage": "branch fl2-snapshots (not published); 90-day artefact copies",
+ "note": "an empty capture_days list means the scheduled capture has not run yet; it is published as a gap rather than back-filled"
+}

@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "corr_model_vs_market_gt_0.55": true,
+    "model_not_suspiciously_sharper_than_market_(leakage_check)": true,
+    "model_has_at_least_some_signal": true,
+    "MAE_model_vs_market_lt_6_pts": true
+  },
+  "diagnostics": {
+    "n": 409,
+    "corr_model_vs_market": 0.744,
+    "corr_model_vs_actual": 0.325,
+    "corr_market_vs_actual": 0.482,
+    "MAE_model_vs_market_pts": 3.1,
+    "MAE_model_vs_actual_pts": 10.35,
+    "MAE_market_vs_actual_pts": 9.63
+  },
+  "why": "A ratings model that correlates worse than 0.55 with the closing line is broken; one that correlates BETTER with the outcome than the closing line does is leaking the future. Both are checked here because a defensive-term sign error in this pipeline passed every price-convention check and only showed up in these three numbers."
+}

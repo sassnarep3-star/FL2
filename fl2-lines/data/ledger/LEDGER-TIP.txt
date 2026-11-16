@@ -1,0 +1,5 @@
+FL2 shadow forecast ledger
+records: 13
+tip hash: 39cac66df83c5505917e292d5009e28d5ba0bce12187fc37e14a2c58c4b294c0
+chain: each record hashes the previous record's hash, so an edit anywhere below the tip changes the tip
+recorded: 2026-11-16T01:30Z (before the first Week 11 kickoff, 2026-11-20T01:15Z)

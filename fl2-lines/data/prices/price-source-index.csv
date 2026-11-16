@@ -1,0 +1,17 @@
+season,source,rows,closing_price_rows,opening_price_rows
+2006,closing_lines.csv,1536,1536,0
+2007,closing_lines.csv,1596,1596,0
+2008,closing_lines.csv,1590,1590,0
+2009,closing_lines.csv,1494,1494,0
+2010,closing_lines.csv,1572,1572,0
+2011,closing_lines.csv,1590,1590,0
+2012,closing_lines.csv,1692,1692,0
+2013,closing_lines.csv,1590,1590,0
+2014,closing_lines.csv,1578,1578,0
+2015,closing_lines.csv,1482,1482,0
+2016,closing_lines.csv,1578,1578,0
+2017,closing_lines.csv,1692,1692,0
+2017,closing_prices.csv,1064,1064,0
+2018,closing_lines.csv,1500,1500,0
+2018,closing_prices.csv,956,956,0
+2021,initial_lines.csv,1088,0,1088

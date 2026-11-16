@@ -1,0 +1,817 @@
+game_id,week,gameday,market,reference_side,other_side,opening_line,opening_odds,opening_observed_at,opening_source,closing_line,closing_odds,closing_other_odds,closing_observed_at,closing_source,closing_books_in_closing_lines_file,fixture_status
+2026_01_NE_SEA,1,2026-09-09,SPREAD,SEA,NE,,,,NOT CAPTURED,3.0,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NE_SEA,1,2026-09-09,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NE_SEA,1,2026-09-09,MONEYLINE,SEA,NE,,,,NOT CAPTURED,-166.0,-166.0,140.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_SF_LA,1,2026-09-10,SPREAD,LA,SF,,,,NOT CAPTURED,3.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_SF_LA,1,2026-09-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_SF_LA,1,2026-09-10,MONEYLINE,LA,SF,,,,NOT CAPTURED,-218.0,-218.0,180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_ARI_LAC,1,2026-09-13,SPREAD,LAC,ARI,,,,NOT CAPTURED,8.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_ARI_LAC,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_ARI_LAC,1,2026-09-13,MONEYLINE,LAC,ARI,,,,NOT CAPTURED,-455.0,-455.0,350.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_ATL_PIT,1,2026-09-13,SPREAD,PIT,ATL,,,,NOT CAPTURED,6.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_ATL_PIT,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_ATL_PIT,1,2026-09-13,MONEYLINE,PIT,ATL,,,,NOT CAPTURED,-298.0,-298.0,240.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_BAL_IND,1,2026-09-13,SPREAD,IND,BAL,,,,NOT CAPTURED,-3.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_BAL_IND,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,48.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_BAL_IND,1,2026-09-13,MONEYLINE,IND,BAL,,,,NOT CAPTURED,136.0,136.0,-162.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_BUF_HOU,1,2026-09-13,SPREAD,HOU,BUF,,,,NOT CAPTURED,-1.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_BUF_HOU,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_BUF_HOU,1,2026-09-13,MONEYLINE,HOU,BUF,,,,NOT CAPTURED,-108.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_CHI_CAR,1,2026-09-13,SPREAD,CAR,CHI,,,,NOT CAPTURED,-3.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_CHI_CAR,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_CHI_CAR,1,2026-09-13,MONEYLINE,CAR,CHI,,,,NOT CAPTURED,140.0,140.0,-166.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_CLE_JAX,1,2026-09-13,SPREAD,JAX,CLE,,,,NOT CAPTURED,8.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_CLE_JAX,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_CLE_JAX,1,2026-09-13,MONEYLINE,JAX,CLE,,,,NOT CAPTURED,-470.0,-470.0,360.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_DAL_NYG,1,2026-09-13,SPREAD,NYG,DAL,,,,NOT CAPTURED,-3.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_DAL_NYG,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_DAL_NYG,1,2026-09-13,MONEYLINE,NYG,DAL,,,,NOT CAPTURED,140.0,140.0,-166.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_GB_MIN,1,2026-09-13,SPREAD,MIN,GB,,,,NOT CAPTURED,1.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_GB_MIN,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_GB_MIN,1,2026-09-13,MONEYLINE,MIN,GB,,,,NOT CAPTURED,-125.0,-125.0,105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_MIA_LV,1,2026-09-13,SPREAD,LV,MIA,,,,NOT CAPTURED,3.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_MIA_LV,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_MIA_LV,1,2026-09-13,MONEYLINE,LV,MIA,,,,NOT CAPTURED,-170.0,-170.0,142.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NO_DET,1,2026-09-13,SPREAD,DET,NO,,,,NOT CAPTURED,7.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NO_DET,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NO_DET,1,2026-09-13,MONEYLINE,DET,NO,,,,NOT CAPTURED,-325.0,-325.0,260.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NYJ_TEN,1,2026-09-13,SPREAD,TEN,NYJ,,,,NOT CAPTURED,1.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NYJ_TEN,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,39.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_NYJ_TEN,1,2026-09-13,MONEYLINE,TEN,NYJ,,,,NOT CAPTURED,-118.0,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_TB_CIN,1,2026-09-13,SPREAD,CIN,TB,,,,NOT CAPTURED,3.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_TB_CIN,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,50.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_TB_CIN,1,2026-09-13,MONEYLINE,CIN,TB,,,,NOT CAPTURED,-205.0,-205.0,170.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_WAS_PHI,1,2026-09-13,SPREAD,PHI,WAS,,,,NOT CAPTURED,6.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_WAS_PHI,1,2026-09-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_WAS_PHI,1,2026-09-13,MONEYLINE,PHI,WAS,,,,NOT CAPTURED,-245.0,-245.0,200.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_DEN_KC,1,2026-09-14,SPREAD,KC,DEN,,,,NOT CAPTURED,2.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_DEN_KC,1,2026-09-14,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_01_DEN_KC,1,2026-09-14,MONEYLINE,KC,DEN,,,,NOT CAPTURED,-130.0,-130.0,110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_DET_BUF,2,2026-09-17,SPREAD,BUF,DET,,,,NOT CAPTURED,5.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_DET_BUF,2,2026-09-17,TOTAL,OVER,UNDER,,,,NOT CAPTURED,54.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_DET_BUF,2,2026-09-17,MONEYLINE,BUF,DET,,,,NOT CAPTURED,-238.0,-238.0,195.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CAR_ATL,2,2026-09-20,SPREAD,ATL,CAR,,,,NOT CAPTURED,-2.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CAR_ATL,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CAR_ATL,2,2026-09-20,MONEYLINE,ATL,CAR,,,,NOT CAPTURED,130.0,130.0,-155.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CIN_HOU,2,2026-09-20,SPREAD,HOU,CIN,,,,NOT CAPTURED,3.0,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CIN_HOU,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CIN_HOU,2,2026-09-20,MONEYLINE,HOU,CIN,,,,NOT CAPTURED,-148.0,-148.0,124.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CLE_TB,2,2026-09-20,SPREAD,TB,CLE,,,,NOT CAPTURED,8.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CLE_TB,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_CLE_TB,2,2026-09-20,MONEYLINE,TB,CLE,,,,NOT CAPTURED,-425.0,-425.0,330.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_GB_NYJ,2,2026-09-20,SPREAD,NYJ,GB,,,,NOT CAPTURED,-3.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_GB_NYJ,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_GB_NYJ,2,2026-09-20,MONEYLINE,NYJ,GB,,,,NOT CAPTURED,154.0,154.0,-185.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_IND_KC,2,2026-09-20,SPREAD,KC,IND,,,,NOT CAPTURED,6.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_IND_KC,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_IND_KC,2,2026-09-20,MONEYLINE,KC,IND,,,,NOT CAPTURED,-265.0,-265.0,215.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_JAX_DEN,2,2026-09-20,SPREAD,DEN,JAX,,,,NOT CAPTURED,2.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_JAX_DEN,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_JAX_DEN,2,2026-09-20,MONEYLINE,DEN,JAX,,,,NOT CAPTURED,-148.0,-148.0,124.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_LV_LAC,2,2026-09-20,SPREAD,LAC,LV,,,,NOT CAPTURED,6.5,-122.0,102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_LV_LAC,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_LV_LAC,2,2026-09-20,MONEYLINE,LAC,LV,,,,NOT CAPTURED,-325.0,-325.0,260.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_MIA_SF,2,2026-09-20,SPREAD,SF,MIA,,,,NOT CAPTURED,12.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_MIA_SF,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_MIA_SF,2,2026-09-20,MONEYLINE,SF,MIA,,,,NOT CAPTURED,-900.0,-900.0,600.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_MIN_CHI,2,2026-09-20,SPREAD,CHI,MIN,,,,NOT CAPTURED,4.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_MIN_CHI,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_MIN_CHI,2,2026-09-20,MONEYLINE,CHI,MIN,,,,NOT CAPTURED,-218.0,-218.0,180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_NO_BAL,2,2026-09-20,SPREAD,BAL,NO,,,,NOT CAPTURED,8.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_NO_BAL,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_NO_BAL,2,2026-09-20,MONEYLINE,BAL,NO,,,,NOT CAPTURED,-375.0,-375.0,295.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_PHI_TEN,2,2026-09-20,SPREAD,TEN,PHI,,,,NOT CAPTURED,-7.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_PHI_TEN,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,39.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_PHI_TEN,2,2026-09-20,MONEYLINE,TEN,PHI,,,,NOT CAPTURED,260.0,260.0,-325.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_PIT_NE,2,2026-09-20,SPREAD,NE,PIT,,,,NOT CAPTURED,4.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_PIT_NE,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_PIT_NE,2,2026-09-20,MONEYLINE,NE,PIT,,,,NOT CAPTURED,-225.0,-225.0,185.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_SEA_ARI,2,2026-09-20,SPREAD,ARI,SEA,,,,NOT CAPTURED,-3.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_SEA_ARI,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_SEA_ARI,2,2026-09-20,MONEYLINE,ARI,SEA,,,,NOT CAPTURED,180.0,180.0,-218.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_WAS_DAL,2,2026-09-20,SPREAD,DAL,WAS,,,,NOT CAPTURED,3.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_WAS_DAL,2,2026-09-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_WAS_DAL,2,2026-09-20,MONEYLINE,DAL,WAS,,,,NOT CAPTURED,-218.0,-218.0,180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_NYG_LA,2,2026-09-21,SPREAD,LA,NYG,,,,NOT CAPTURED,6.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_NYG_LA,2,2026-09-21,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_02_NYG_LA,2,2026-09-21,MONEYLINE,LA,NYG,,,,NOT CAPTURED,-298.0,-298.0,240.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_ATL_GB,3,2026-09-24,SPREAD,GB,ATL,,,,NOT CAPTURED,4.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_ATL_GB,3,2026-09-24,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_ATL_GB,3,2026-09-24,MONEYLINE,GB,ATL,,,,NOT CAPTURED,-230.0,-230.0,190.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_ARI_SF,3,2026-09-27,SPREAD,SF,ARI,,,,NOT CAPTURED,7.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_ARI_SF,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,48.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_ARI_SF,3,2026-09-27,MONEYLINE,SF,ARI,,,,NOT CAPTURED,-395.0,-395.0,310.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_BAL_DAL,3,2026-09-27,SPREAD,DAL,BAL,,,,NOT CAPTURED,-3.0,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_BAL_DAL,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,53.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_BAL_DAL,3,2026-09-27,MONEYLINE,DAL,BAL,,,,NOT CAPTURED,142.0,142.0,-170.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_CAR_CLE,3,2026-09-27,SPREAD,CLE,CAR,,,,NOT CAPTURED,-2.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_CAR_CLE,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_CAR_CLE,3,2026-09-27,MONEYLINE,CLE,CAR,,,,NOT CAPTURED,114.0,114.0,-135.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_CIN_PIT,3,2026-09-27,SPREAD,PIT,CIN,,,,NOT CAPTURED,-3.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_CIN_PIT,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_CIN_PIT,3,2026-09-27,MONEYLINE,PIT,CIN,,,,NOT CAPTURED,150.0,150.0,-180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_HOU_IND,3,2026-09-27,SPREAD,IND,HOU,,,,NOT CAPTURED,-1.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_HOU_IND,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_HOU_IND,3,2026-09-27,MONEYLINE,IND,HOU,,,,NOT CAPTURED,105.0,105.0,-125.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_KC_MIA,3,2026-09-27,SPREAD,MIA,KC,,,,NOT CAPTURED,-10.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_KC_MIA,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_KC_MIA,3,2026-09-27,MONEYLINE,MIA,KC,,,,NOT CAPTURED,440.0,440.0,-600.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LAC_BUF,3,2026-09-27,SPREAD,BUF,LAC,,,,NOT CAPTURED,7.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LAC_BUF,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,50.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LAC_BUF,3,2026-09-27,MONEYLINE,BUF,LAC,,,,NOT CAPTURED,-325.0,-325.0,260.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LA_DEN,3,2026-09-27,SPREAD,DEN,LA,,,,NOT CAPTURED,1.5,102.0,-122.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LA_DEN,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LA_DEN,3,2026-09-27,MONEYLINE,DEN,LA,,,,NOT CAPTURED,-112.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LV_NO,3,2026-09-27,SPREAD,NO,LV,,,,NOT CAPTURED,3.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LV_NO,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_LV_NO,3,2026-09-27,MONEYLINE,NO,LV,,,,NOT CAPTURED,-192.0,-192.0,160.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_MIN_TB,3,2026-09-27,SPREAD,TB,MIN,,,,NOT CAPTURED,-1.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_MIN_TB,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_MIN_TB,3,2026-09-27,MONEYLINE,TB,MIN,,,,NOT CAPTURED,-108.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_NE_JAX,3,2026-09-27,SPREAD,JAX,NE,,,,NOT CAPTURED,3.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_NE_JAX,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_NE_JAX,3,2026-09-27,MONEYLINE,JAX,NE,,,,NOT CAPTURED,-162.0,-162.0,136.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_NYJ_DET,3,2026-09-27,SPREAD,DET,NYJ,,,,NOT CAPTURED,7.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_NYJ_DET,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_NYJ_DET,3,2026-09-27,MONEYLINE,DET,NYJ,,,,NOT CAPTURED,-325.0,-325.0,260.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_SEA_WAS,3,2026-09-27,SPREAD,WAS,SEA,,,,NOT CAPTURED,-8.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_SEA_WAS,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_SEA_WAS,3,2026-09-27,MONEYLINE,WAS,SEA,,,,NOT CAPTURED,320.0,320.0,-410.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_TEN_NYG,3,2026-09-27,SPREAD,NYG,TEN,,,,NOT CAPTURED,2.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_TEN_NYG,3,2026-09-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,37.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_TEN_NYG,3,2026-09-27,MONEYLINE,NYG,TEN,,,,NOT CAPTURED,-130.0,-130.0,110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_PHI_CHI,3,2026-09-28,SPREAD,CHI,PHI,,,,NOT CAPTURED,-3.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_PHI_CHI,3,2026-09-28,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_03_PHI_CHI,3,2026-09-28,MONEYLINE,CHI,PHI,,,,NOT CAPTURED,164.0,164.0,-198.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_PIT_CLE,4,2026-10-01,SPREAD,CLE,PIT,,,,NOT CAPTURED,-2.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_PIT_CLE,4,2026-10-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_PIT_CLE,4,2026-10-01,MONEYLINE,CLE,PIT,,,,NOT CAPTURED,124.0,124.0,-148.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_ARI_NYG,4,2026-10-04,SPREAD,NYG,ARI,,,,NOT CAPTURED,-2.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_ARI_NYG,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_ARI_NYG,4,2026-10-04,MONEYLINE,NYG,ARI,,,,NOT CAPTURED,114.0,114.0,-135.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DAL_HOU,4,2026-10-04,SPREAD,HOU,DAL,,,,NOT CAPTURED,3.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DAL_HOU,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,48.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DAL_HOU,4,2026-10-04,MONEYLINE,HOU,DAL,,,,NOT CAPTURED,-155.0,-155.0,130.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DEN_SF,4,2026-10-04,SPREAD,SF,DEN,,,,NOT CAPTURED,3.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DEN_SF,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,48.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DEN_SF,4,2026-10-04,MONEYLINE,SF,DEN,,,,NOT CAPTURED,-166.0,-166.0,140.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DET_CAR,4,2026-10-04,SPREAD,CAR,DET,,,,NOT CAPTURED,-4.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DET_CAR,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,52.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_DET_CAR,4,2026-10-04,MONEYLINE,CAR,DET,,,,NOT CAPTURED,185.0,185.0,-225.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_GB_TB,4,2026-10-04,SPREAD,TB,GB,,,,NOT CAPTURED,-3.0,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_GB_TB,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_GB_TB,4,2026-10-04,MONEYLINE,TB,GB,,,,NOT CAPTURED,130.0,130.0,-155.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_IND_WAS,4,2026-10-04,SPREAD,WAS,IND,,,,NOT CAPTURED,-4.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_IND_WAS,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_IND_WAS,4,2026-10-04,MONEYLINE,WAS,IND,,,,NOT CAPTURED,190.0,190.0,-230.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_JAX_CIN,4,2026-10-04,SPREAD,CIN,JAX,,,,NOT CAPTURED,2.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_JAX_CIN,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_JAX_CIN,4,2026-10-04,MONEYLINE,CIN,JAX,,,,NOT CAPTURED,-148.0,-148.0,124.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_KC_LV,4,2026-10-04,SPREAD,LV,KC,,,,NOT CAPTURED,-4.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_KC_LV,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_KC_LV,4,2026-10-04,MONEYLINE,LV,KC,,,,NOT CAPTURED,185.0,185.0,-225.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_LAC_SEA,4,2026-10-04,SPREAD,SEA,LAC,,,,NOT CAPTURED,7.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_LAC_SEA,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_LAC_SEA,4,2026-10-04,MONEYLINE,SEA,LAC,,,,NOT CAPTURED,-345.0,-345.0,275.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_LA_PHI,4,2026-10-04,SPREAD,PHI,LA,,,,NOT CAPTURED,-3.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_LA_PHI,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_LA_PHI,4,2026-10-04,MONEYLINE,PHI,LA,,,,NOT CAPTURED,164.0,164.0,-198.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_MIA_MIN,4,2026-10-04,SPREAD,MIN,MIA,,,,NOT CAPTURED,10.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_MIA_MIN,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_MIA_MIN,4,2026-10-04,MONEYLINE,MIN,MIA,,,,NOT CAPTURED,-535.0,-535.0,400.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_NE_BUF,4,2026-10-04,SPREAD,BUF,NE,,,,NOT CAPTURED,7.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_NE_BUF,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_NE_BUF,4,2026-10-04,MONEYLINE,BUF,NE,,,,NOT CAPTURED,-345.0,-345.0,275.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_NYJ_CHI,4,2026-10-04,SPREAD,CHI,NYJ,,,,NOT CAPTURED,3.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_NYJ_CHI,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_NYJ_CHI,4,2026-10-04,MONEYLINE,CHI,NYJ,,,,NOT CAPTURED,-192.0,-192.0,160.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_TEN_BAL,4,2026-10-04,SPREAD,BAL,TEN,,,,NOT CAPTURED,11.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_TEN_BAL,4,2026-10-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_TEN_BAL,4,2026-10-04,MONEYLINE,BAL,TEN,,,,NOT CAPTURED,-800.0,-800.0,550.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_ATL_NO,4,2026-10-05,SPREAD,NO,ATL,,,,NOT CAPTURED,1.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_ATL_NO,4,2026-10-05,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_04_ATL_NO,4,2026-10-05,MONEYLINE,NO,ATL,,,,NOT CAPTURED,-118.0,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_TB_DAL,5,2026-10-08,SPREAD,DAL,TB,,,,NOT CAPTURED,9.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_TB_DAL,5,2026-10-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_TB_DAL,5,2026-10-08,MONEYLINE,DAL,TB,,,,NOT CAPTURED,-535.0,-535.0,400.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_BAL_ATL,5,2026-10-11,SPREAD,ATL,BAL,,,,NOT CAPTURED,3.5,105.0,-125.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_BAL_ATL,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_BAL_ATL,5,2026-10-11,MONEYLINE,ATL,BAL,,,,NOT CAPTURED,-175.0,-175.0,145.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CHI_GB,5,2026-10-11,SPREAD,GB,CHI,,,,NOT CAPTURED,-1.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CHI_GB,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CHI_GB,5,2026-10-11,MONEYLINE,GB,CHI,,,,NOT CAPTURED,105.0,105.0,-125.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CIN_MIA,5,2026-10-11,SPREAD,MIA,CIN,,,,NOT CAPTURED,-7.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CIN_MIA,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CIN_MIA,5,2026-10-11,MONEYLINE,MIA,CIN,,,,NOT CAPTURED,280.0,280.0,-355.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CLE_NYJ,5,2026-10-11,SPREAD,NYJ,CLE,,,,NOT CAPTURED,2.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CLE_NYJ,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_CLE_NYJ,5,2026-10-11,MONEYLINE,NYJ,CLE,,,,NOT CAPTURED,-142.0,-142.0,120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_DEN_LAC,5,2026-10-11,SPREAD,LAC,DEN,,,,NOT CAPTURED,-3.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_DEN_LAC,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_DEN_LAC,5,2026-10-11,MONEYLINE,LAC,DEN,,,,NOT CAPTURED,160.0,160.0,-192.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_DET_ARI,5,2026-10-11,SPREAD,ARI,DET,,,,NOT CAPTURED,-5.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_DET_ARI,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,55.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_DET_ARI,5,2026-10-11,MONEYLINE,ARI,DET,,,,NOT CAPTURED,215.0,215.0,-265.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_HOU_TEN,5,2026-10-11,SPREAD,TEN,HOU,,,,NOT CAPTURED,-6.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_HOU_TEN,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,37.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_HOU_TEN,5,2026-10-11,MONEYLINE,TEN,HOU,,,,NOT CAPTURED,250.0,250.0,-310.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_IND_PIT,5,2026-10-11,SPREAD,PIT,IND,,,,NOT CAPTURED,3.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_IND_PIT,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_IND_PIT,5,2026-10-11,MONEYLINE,PIT,IND,,,,NOT CAPTURED,-162.0,-162.0,136.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_LV_NE,5,2026-10-11,SPREAD,NE,LV,,,,NOT CAPTURED,3.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_LV_NE,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_LV_NE,5,2026-10-11,MONEYLINE,NE,LV,,,,NOT CAPTURED,-180.0,-180.0,150.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_MIN_NO,5,2026-10-11,SPREAD,NO,MIN,,,,NOT CAPTURED,-2.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_MIN_NO,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_MIN_NO,5,2026-10-11,MONEYLINE,NO,MIN,,,,NOT CAPTURED,120.0,120.0,-142.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_NYG_WAS,5,2026-10-11,SPREAD,WAS,NYG,,,,NOT CAPTURED,3.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_NYG_WAS,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_NYG_WAS,5,2026-10-11,MONEYLINE,WAS,NYG,,,,NOT CAPTURED,-180.0,-180.0,150.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_PHI_JAX,5,2026-10-11,SPREAD,JAX,PHI,,,,NOT CAPTURED,7.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_PHI_JAX,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_PHI_JAX,5,2026-10-11,MONEYLINE,JAX,PHI,,,,NOT CAPTURED,-380.0,-380.0,300.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_SF_SEA,5,2026-10-11,SPREAD,SEA,SF,,,,NOT CAPTURED,3.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_SF_SEA,5,2026-10-11,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_SF_SEA,5,2026-10-11,MONEYLINE,SEA,SF,,,,NOT CAPTURED,-166.0,-166.0,140.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_BUF_LA,5,2026-10-12,SPREAD,LA,BUF,,,,NOT CAPTURED,3.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_BUF_LA,5,2026-10-12,TOTAL,OVER,UNDER,,,,NOT CAPTURED,55.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_05_BUF_LA,5,2026-10-12,MONEYLINE,LA,BUF,,,,NOT CAPTURED,-185.0,-185.0,154.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_SEA_DEN,6,2026-10-15,SPREAD,DEN,SEA,,,,NOT CAPTURED,-2.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_SEA_DEN,6,2026-10-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_SEA_DEN,6,2026-10-15,MONEYLINE,DEN,SEA,,,,NOT CAPTURED,130.0,130.0,-155.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_ARI_LA,6,2026-10-18,SPREAD,LA,ARI,,,,NOT CAPTURED,12.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_ARI_LA,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_ARI_LA,6,2026-10-18,MONEYLINE,LA,ARI,,,,NOT CAPTURED,-700.0,-700.0,500.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_BAL_CLE,6,2026-10-18,SPREAD,CLE,BAL,,,,NOT CAPTURED,-3.0,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_BAL_CLE,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,39.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_BAL_CLE,6,2026-10-18,MONEYLINE,CLE,BAL,,,,NOT CAPTURED,142.0,142.0,-170.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_BUF_LV,6,2026-10-18,SPREAD,LV,BUF,,,,NOT CAPTURED,-5.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_BUF_LV,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,53.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_BUF_LV,6,2026-10-18,MONEYLINE,LV,BUF,,,,NOT CAPTURED,195.0,195.0,-238.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_CAR_PHI,6,2026-10-18,SPREAD,PHI,CAR,,,,NOT CAPTURED,-3.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_CAR_PHI,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,39.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_CAR_PHI,6,2026-10-18,MONEYLINE,PHI,CAR,,,,NOT CAPTURED,136.0,136.0,-162.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_CHI_ATL,6,2026-10-18,SPREAD,ATL,CHI,,,,NOT CAPTURED,-1.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_CHI_ATL,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_CHI_ATL,6,2026-10-18,MONEYLINE,ATL,CHI,,,,NOT CAPTURED,-102.0,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_DAL_GB,6,2026-10-18,SPREAD,GB,DAL,,,,NOT CAPTURED,-1.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_DAL_GB,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,53.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_DAL_GB,6,2026-10-18,MONEYLINE,GB,DAL,,,,NOT CAPTURED,-105.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_HOU_JAX,6,2026-10-18,SPREAD,JAX,HOU,,,,NOT CAPTURED,2.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_HOU_JAX,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_HOU_JAX,6,2026-10-18,MONEYLINE,JAX,HOU,,,,NOT CAPTURED,-142.0,-142.0,120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_LAC_KC,6,2026-10-18,SPREAD,KC,LAC,,,,NOT CAPTURED,7.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_LAC_KC,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_LAC_KC,6,2026-10-18,MONEYLINE,KC,LAC,,,,NOT CAPTURED,-455.0,-455.0,350.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_NO_NYG,6,2026-10-18,SPREAD,NYG,NO,,,,NOT CAPTURED,-1.5,-125.0,105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_NO_NYG,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_NO_NYG,6,2026-10-18,MONEYLINE,NYG,NO,,,,NOT CAPTURED,-112.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_NYJ_NE,6,2026-10-18,SPREAD,NE,NYJ,,,,NOT CAPTURED,7.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_NYJ_NE,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_NYJ_NE,6,2026-10-18,MONEYLINE,NE,NYJ,,,,NOT CAPTURED,-345.0,-345.0,275.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_PIT_TB,6,2026-10-18,SPREAD,TB,PIT,,,,NOT CAPTURED,-2.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_PIT_TB,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_PIT_TB,6,2026-10-18,MONEYLINE,TB,PIT,,,,NOT CAPTURED,120.0,120.0,-142.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_TEN_IND,6,2026-10-18,SPREAD,IND,TEN,,,,NOT CAPTURED,6.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_TEN_IND,6,2026-10-18,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_TEN_IND,6,2026-10-18,MONEYLINE,IND,TEN,,,,NOT CAPTURED,-298.0,-298.0,240.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_WAS_SF,6,2026-10-19,SPREAD,SF,WAS,,,,NOT CAPTURED,7.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_WAS_SF,6,2026-10-19,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_06_WAS_SF,6,2026-10-19,MONEYLINE,SF,WAS,,,,NOT CAPTURED,-395.0,-395.0,310.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_NE_CHI,7,2026-10-22,SPREAD,CHI,NE,,,,NOT CAPTURED,3.0,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_NE_CHI,7,2026-10-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,50.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_NE_CHI,7,2026-10-22,MONEYLINE,CHI,NE,,,,NOT CAPTURED,-155.0,-155.0,130.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_CIN_BAL,7,2026-10-25,SPREAD,BAL,CIN,,,,NOT CAPTURED,-3.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_CIN_BAL,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_CIN_BAL,7,2026-10-25,MONEYLINE,BAL,CIN,,,,NOT CAPTURED,136.0,136.0,-162.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_CLE_TEN,7,2026-10-25,SPREAD,TEN,CLE,,,,NOT CAPTURED,-1.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_CLE_TEN,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,36.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_CLE_TEN,7,2026-10-25,MONEYLINE,TEN,CLE,,,,NOT CAPTURED,110.0,110.0,-130.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_DEN_ARI,7,2026-10-25,SPREAD,ARI,DEN,,,,NOT CAPTURED,-4.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_DEN_ARI,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_DEN_ARI,7,2026-10-25,MONEYLINE,ARI,DEN,,,,NOT CAPTURED,190.0,190.0,-230.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_GB_DET,7,2026-10-25,SPREAD,DET,GB,,,,NOT CAPTURED,3.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_GB_DET,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,55.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_GB_DET,7,2026-10-25,MONEYLINE,DET,GB,,,,NOT CAPTURED,-192.0,-192.0,160.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_IND_MIN,7,2026-10-25,SPREAD,MIN,IND,,,,NOT CAPTURED,6.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_IND_MIN,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_IND_MIN,7,2026-10-25,MONEYLINE,MIN,IND,,,,NOT CAPTURED,-325.0,-325.0,260.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_KC_SEA,7,2026-10-25,SPREAD,SEA,KC,,,,NOT CAPTURED,3.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_KC_SEA,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_KC_SEA,7,2026-10-25,MONEYLINE,SEA,KC,,,,NOT CAPTURED,-162.0,-162.0,136.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_LA_LV,7,2026-10-25,SPREAD,LV,LA,,,,NOT CAPTURED,-3.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_LA_LV,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_LA_LV,7,2026-10-25,MONEYLINE,LV,LA,,,,NOT CAPTURED,150.0,150.0,-180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_MIA_NYJ,7,2026-10-25,SPREAD,NYJ,MIA,,,,NOT CAPTURED,3.5,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_MIA_NYJ,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,39.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_MIA_NYJ,7,2026-10-25,MONEYLINE,NYJ,MIA,,,,NOT CAPTURED,-218.0,-218.0,180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_NYG_HOU,7,2026-10-25,SPREAD,HOU,NYG,,,,NOT CAPTURED,10.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_NYG_HOU,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_NYG_HOU,7,2026-10-25,MONEYLINE,HOU,NYG,,,,NOT CAPTURED,-520.0,-520.0,390.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_PIT_NO,7,2026-10-25,SPREAD,NO,PIT,,,,NOT CAPTURED,-3.0,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_PIT_NO,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_PIT_NO,7,2026-10-25,MONEYLINE,NO,PIT,,,,NOT CAPTURED,136.0,136.0,-162.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_SF_ATL,7,2026-10-25,SPREAD,ATL,SF,,,,NOT CAPTURED,-2.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_SF_ATL,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_SF_ATL,7,2026-10-25,MONEYLINE,ATL,SF,,,,NOT CAPTURED,130.0,130.0,-155.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_TB_CAR,7,2026-10-25,SPREAD,CAR,TB,,,,NOT CAPTURED,3.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_TB_CAR,7,2026-10-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_TB_CAR,7,2026-10-25,MONEYLINE,CAR,TB,,,,NOT CAPTURED,-166.0,-166.0,140.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_DAL_PHI,7,2026-10-26,SPREAD,PHI,DAL,,,,NOT CAPTURED,-4.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_DAL_PHI,7,2026-10-26,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_07_DAL_PHI,7,2026-10-26,MONEYLINE,PHI,DAL,,,,NOT CAPTURED,185.0,185.0,-225.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CAR_GB,8,2026-10-29,SPREAD,GB,CAR,,,,NOT CAPTURED,3.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CAR_GB,8,2026-10-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CAR_GB,8,2026-10-29,MONEYLINE,GB,CAR,,,,NOT CAPTURED,-192.0,-192.0,160.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_ARI_DAL,8,2026-11-01,SPREAD,DAL,ARI,,,,NOT CAPTURED,7.0,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_ARI_DAL,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,54.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_ARI_DAL,8,2026-11-01,MONEYLINE,DAL,ARI,,,,NOT CAPTURED,-340.0,-340.0,270.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_ATL_TB,8,2026-11-01,SPREAD,TB,ATL,,,,NOT CAPTURED,2.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_ATL_TB,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_ATL_TB,8,2026-11-01,MONEYLINE,TB,ATL,,,,NOT CAPTURED,-130.0,-130.0,110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_BAL_BUF,8,2026-11-01,SPREAD,BUF,BAL,,,,NOT CAPTURED,3.0,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_BAL_BUF,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,54.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_BAL_BUF,8,2026-11-01,MONEYLINE,BUF,BAL,,,,NOT CAPTURED,-162.0,-162.0,136.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CLE_PIT,8,2026-11-01,SPREAD,PIT,CLE,,,,NOT CAPTURED,3.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CLE_PIT,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CLE_PIT,8,2026-11-01,MONEYLINE,PIT,CLE,,,,NOT CAPTURED,-198.0,-198.0,164.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_IND_JAX,8,2026-11-01,SPREAD,JAX,IND,,,,NOT CAPTURED,10.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_IND_JAX,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_IND_JAX,8,2026-11-01,MONEYLINE,JAX,IND,,,,NOT CAPTURED,-485.0,-485.0,370.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_KC_DEN,8,2026-11-01,SPREAD,DEN,KC,,,,NOT CAPTURED,1.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_KC_DEN,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_KC_DEN,8,2026-11-01,MONEYLINE,DEN,KC,,,,NOT CAPTURED,-112.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_LAC_LA,8,2026-11-01,SPREAD,LA,LAC,,,,NOT CAPTURED,6.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_LAC_LA,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_LAC_LA,8,2026-11-01,MONEYLINE,LA,LAC,,,,NOT CAPTURED,-285.0,-285.0,230.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_LV_NYJ,8,2026-11-01,SPREAD,NYJ,LV,,,,NOT CAPTURED,1.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_LV_NYJ,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_LV_NYJ,8,2026-11-01,MONEYLINE,NYJ,LV,,,,NOT CAPTURED,-125.0,-125.0,105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_MIN_DET,8,2026-11-01,SPREAD,DET,MIN,,,,NOT CAPTURED,3.0,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_MIN_DET,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_MIN_DET,8,2026-11-01,MONEYLINE,DET,MIN,,,,NOT CAPTURED,-170.0,-170.0,142.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_NE_MIA,8,2026-11-01,SPREAD,MIA,NE,,,,NOT CAPTURED,-7.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_NE_MIA,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_NE_MIA,8,2026-11-01,MONEYLINE,MIA,NE,,,,NOT CAPTURED,275.0,275.0,-345.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_PHI_WAS,8,2026-11-01,SPREAD,WAS,PHI,,,,NOT CAPTURED,6.0,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_PHI_WAS,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_PHI_WAS,8,2026-11-01,MONEYLINE,WAS,PHI,,,,NOT CAPTURED,-278.0,-278.0,225.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_TEN_CIN,8,2026-11-01,SPREAD,CIN,TEN,,,,NOT CAPTURED,13.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_TEN_CIN,8,2026-11-01,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_TEN_CIN,8,2026-11-01,MONEYLINE,CIN,TEN,,,,NOT CAPTURED,-900.0,-900.0,600.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CHI_SEA,8,2026-11-02,SPREAD,SEA,CHI,,,,NOT CAPTURED,3.0,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CHI_SEA,8,2026-11-02,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_08_CHI_SEA,8,2026-11-02,MONEYLINE,SEA,CHI,,,,NOT CAPTURED,-166.0,-166.0,140.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_JAX_BAL,9,2026-11-05,SPREAD,BAL,JAX,,,,NOT CAPTURED,-8.5,102.0,-122.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_JAX_BAL,9,2026-11-05,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_JAX_BAL,9,2026-11-05,MONEYLINE,BAL,JAX,,,,NOT CAPTURED,350.0,350.0,-455.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_ARI_SEA,9,2026-11-08,SPREAD,SEA,ARI,,,,NOT CAPTURED,8.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_ARI_SEA,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,39.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_ARI_SEA,9,2026-11-08,MONEYLINE,SEA,ARI,,,,NOT CAPTURED,-455.0,-455.0,350.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_CIN_ATL,9,2026-11-08,SPREAD,ATL,CIN,,,,NOT CAPTURED,-3.0,100.0,-120.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_CIN_ATL,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,52.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_CIN_ATL,9,2026-11-08,MONEYLINE,ATL,CIN,,,,NOT CAPTURED,150.0,150.0,-180.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_CLE_NO,9,2026-11-08,SPREAD,NO,CLE,,,,NOT CAPTURED,4.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_CLE_NO,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,43.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_CLE_NO,9,2026-11-08,MONEYLINE,NO,CLE,,,,NOT CAPTURED,-225.0,-225.0,185.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DAL_IND,9,2026-11-08,SPREAD,IND,DAL,,,,NOT CAPTURED,-4.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DAL_IND,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DAL_IND,9,2026-11-08,MONEYLINE,IND,DAL,,,,NOT CAPTURED,180.0,180.0,-218.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DEN_CAR,9,2026-11-08,SPREAD,CAR,DEN,,,,NOT CAPTURED,-3.0,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DEN_CAR,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DEN_CAR,9,2026-11-08,MONEYLINE,CAR,DEN,,,,NOT CAPTURED,130.0,130.0,-155.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DET_MIA,9,2026-11-08,SPREAD,MIA,DET,,,,NOT CAPTURED,-6.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DET_MIA,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-122.0,102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_DET_MIA,9,2026-11-08,MONEYLINE,MIA,DET,,,,NOT CAPTURED,245.0,245.0,-305.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_GB_NE,9,2026-11-08,SPREAD,NE,GB,,,,NOT CAPTURED,3.0,-120.0,100.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_GB_NE,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_GB_NE,9,2026-11-08,MONEYLINE,NE,GB,,,,NOT CAPTURED,-185.0,-185.0,154.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_HOU_LAC,9,2026-11-08,SPREAD,LAC,HOU,,,,NOT CAPTURED,-5.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_HOU_LAC,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_HOU_LAC,9,2026-11-08,MONEYLINE,LAC,HOU,,,,NOT CAPTURED,190.0,190.0,-230.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_LA_WAS,9,2026-11-08,SPREAD,WAS,LA,,,,NOT CAPTURED,-4.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_LA_WAS,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,48.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_LA_WAS,9,2026-11-08,MONEYLINE,WAS,LA,,,,NOT CAPTURED,185.0,185.0,-225.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_LV_SF,9,2026-11-08,SPREAD,SF,LV,,,,NOT CAPTURED,8.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_LV_SF,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-118.0,-102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_LV_SF,9,2026-11-08,MONEYLINE,SF,LV,,,,NOT CAPTURED,-410.0,-410.0,320.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_NYG_PHI,9,2026-11-08,SPREAD,PHI,NYG,,,,NOT CAPTURED,-3.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_NYG_PHI,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_NYG_PHI,9,2026-11-08,MONEYLINE,PHI,NYG,,,,NOT CAPTURED,136.0,136.0,-162.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_NYJ_KC,9,2026-11-08,SPREAD,KC,NYJ,,,,NOT CAPTURED,9.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_NYJ_KC,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_NYJ_KC,9,2026-11-08,MONEYLINE,KC,NYJ,,,,NOT CAPTURED,-520.0,-520.0,390.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_TB_CHI,9,2026-11-08,SPREAD,CHI,TB,,,,NOT CAPTURED,6.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_TB_CHI,9,2026-11-08,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-102.0,-118.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_TB_CHI,9,2026-11-08,MONEYLINE,CHI,TB,,,,NOT CAPTURED,-290.0,-290.0,235.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_BUF_MIN,9,2026-11-09,SPREAD,MIN,BUF,,,,NOT CAPTURED,-3.0,102.0,-122.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_BUF_MIN,9,2026-11-09,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-112.0,-108.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_09_BUF_MIN,9,2026-11-09,MONEYLINE,MIN,BUF,,,,NOT CAPTURED,154.0,154.0,-185.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_WAS_NYG,10,2026-11-12,SPREAD,NYG,WAS,,,,NOT CAPTURED,1.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_WAS_NYG,10,2026-11-12,TOTAL,OVER,UNDER,,,,NOT CAPTURED,40.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_WAS_NYG,10,2026-11-12,MONEYLINE,NYG,WAS,,,,NOT CAPTURED,-122.0,-122.0,102.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_BUF_NYJ,10,2026-11-15,SPREAD,NYJ,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_BUF_NYJ,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_BUF_NYJ,10,2026-11-15,MONEYLINE,NYJ,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_CAR_NO,10,2026-11-15,SPREAD,NO,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_CAR_NO,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_CAR_NO,10,2026-11-15,MONEYLINE,NO,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_HOU_CLE,10,2026-11-15,SPREAD,CLE,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_HOU_CLE,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_HOU_CLE,10,2026-11-15,MONEYLINE,CLE,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_JAX_TEN,10,2026-11-15,SPREAD,TEN,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_JAX_TEN,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_JAX_TEN,10,2026-11-15,MONEYLINE,TEN,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_KC_ATL,10,2026-11-15,SPREAD,ATL,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_KC_ATL,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_KC_ATL,10,2026-11-15,MONEYLINE,ATL,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_LA_ARI,10,2026-11-15,SPREAD,ARI,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_LA_ARI,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_LA_ARI,10,2026-11-15,MONEYLINE,ARI,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_MIA_IND,10,2026-11-15,SPREAD,IND,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_MIA_IND,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_MIA_IND,10,2026-11-15,MONEYLINE,IND,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_MIN_GB,10,2026-11-15,SPREAD,GB,MIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_MIN_GB,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_MIN_GB,10,2026-11-15,MONEYLINE,GB,MIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_NE_DET,10,2026-11-15,SPREAD,DET,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_NE_DET,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_NE_DET,10,2026-11-15,MONEYLINE,DET,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_SEA_LV,10,2026-11-15,SPREAD,LV,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_SEA_LV,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_SEA_LV,10,2026-11-15,MONEYLINE,LV,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_SF_DAL,10,2026-11-15,SPREAD,DAL,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_SF_DAL,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_SF_DAL,10,2026-11-15,MONEYLINE,DAL,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,FINAL
+2026_10_PIT_CIN,10,2026-11-15,SPREAD,CIN,PIT,,,,NOT CAPTURED,3.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_10_PIT_CIN,10,2026-11-15,TOTAL,OVER,UNDER,,,,NOT CAPTURED,49.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_10_PIT_CIN,10,2026-11-15,MONEYLINE,CIN,PIT,,,,NOT CAPTURED,-185.0,-185.0,154.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_10_LAC_BAL,10,2026-11-16,SPREAD,BAL,LAC,,,,NOT CAPTURED,4.5,-108.0,-112.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_10_LAC_BAL,10,2026-11-16,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_10_LAC_BAL,10,2026-11-16,MONEYLINE,BAL,LAC,,,,NOT CAPTURED,-225.0,-225.0,185.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_IND_HOU,11,2026-11-19,SPREAD,HOU,IND,,,,NOT CAPTURED,10.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_IND_HOU,11,2026-11-19,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_IND_HOU,11,2026-11-19,MONEYLINE,HOU,IND,,,,NOT CAPTURED,-455.0,-455.0,350.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_ARI_KC,11,2026-11-22,SPREAD,KC,ARI,,,,NOT CAPTURED,14.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_ARI_KC,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_ARI_KC,11,2026-11-22,MONEYLINE,KC,ARI,,,,NOT CAPTURED,-1000.0,-1000.0,650.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_BAL_CAR,11,2026-11-22,SPREAD,CAR,BAL,,,,NOT CAPTURED,1.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_BAL_CAR,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_BAL_CAR,11,2026-11-22,MONEYLINE,CAR,BAL,,,,NOT CAPTURED,-125.0,-125.0,105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_JAX_NYG,11,2026-11-22,SPREAD,NYG,JAX,,,,NOT CAPTURED,-6.0,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_JAX_NYG,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,44.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_JAX_NYG,11,2026-11-22,MONEYLINE,NYG,JAX,,,,NOT CAPTURED,215.0,215.0,-265.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_LV_DEN,11,2026-11-22,SPREAD,DEN,LV,,,,NOT CAPTURED,8.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_LV_DEN,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,41.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_LV_DEN,11,2026-11-22,MONEYLINE,DEN,LV,,,,NOT CAPTURED,-440.0,-440.0,340.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_MIA_BUF,11,2026-11-22,SPREAD,BUF,MIA,,,,NOT CAPTURED,16.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_MIA_BUF,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,46.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_MIA_BUF,11,2026-11-22,MONEYLINE,BUF,MIA,,,,NOT CAPTURED,-1650.0,-1650.0,950.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_MIN_SF,11,2026-11-22,SPREAD,SF,MIN,,,,NOT CAPTURED,3.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_MIN_SF,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,45.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_MIN_SF,11,2026-11-22,MONEYLINE,SF,MIN,,,,NOT CAPTURED,-205.0,-205.0,170.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_NO_CHI,11,2026-11-22,SPREAD,CHI,NO,,,,NOT CAPTURED,9.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_NO_CHI,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,48.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_NO_CHI,11,2026-11-22,MONEYLINE,CHI,NO,,,,NOT CAPTURED,-485.0,-485.0,370.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_NYJ_LAC,11,2026-11-22,SPREAD,LAC,NYJ,,,,NOT CAPTURED,1.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_NYJ_LAC,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,42.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_NYJ_LAC,11,2026-11-22,MONEYLINE,LAC,NYJ,,,,NOT CAPTURED,-125.0,-125.0,105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_PIT_PHI,11,2026-11-22,SPREAD,PHI,PIT,,,,NOT CAPTURED,-4.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_PIT_PHI,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,38.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_PIT_PHI,11,2026-11-22,MONEYLINE,PHI,PIT,,,,NOT CAPTURED,164.0,164.0,-198.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_TB_DET,11,2026-11-22,SPREAD,DET,TB,,,,NOT CAPTURED,3.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_TB_DET,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,47.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_TB_DET,11,2026-11-22,MONEYLINE,DET,TB,,,,NOT CAPTURED,-180.0,-180.0,150.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_TEN_DAL,11,2026-11-22,SPREAD,DAL,TEN,,,,NOT CAPTURED,7.5,-115.0,-105.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_TEN_DAL,11,2026-11-22,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_TEN_DAL,11,2026-11-22,MONEYLINE,DAL,TEN,,,,NOT CAPTURED,-425.0,-425.0,330.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_CIN_WAS,11,2026-11-23,SPREAD,WAS,CIN,,,,NOT CAPTURED,-3.5,-105.0,-115.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_CIN_WAS,11,2026-11-23,TOTAL,OVER,UNDER,,,,NOT CAPTURED,51.5,-110.0,-110.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_11_CIN_WAS,11,2026-11-23,MONEYLINE,WAS,CIN,,,,NOT CAPTURED,170.0,170.0,-205.0,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_GB_LA,12,2026-11-25,SPREAD,LA,GB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_GB_LA,12,2026-11-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_GB_LA,12,2026-11-25,MONEYLINE,LA,GB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_CHI_DET,12,2026-11-26,SPREAD,DET,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_CHI_DET,12,2026-11-26,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_CHI_DET,12,2026-11-26,MONEYLINE,DET,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_KC_BUF,12,2026-11-26,SPREAD,BUF,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_KC_BUF,12,2026-11-26,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_KC_BUF,12,2026-11-26,MONEYLINE,BUF,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_PHI_DAL,12,2026-11-26,SPREAD,DAL,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_PHI_DAL,12,2026-11-26,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_PHI_DAL,12,2026-11-26,MONEYLINE,DAL,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_DEN_PIT,12,2026-11-27,SPREAD,PIT,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_DEN_PIT,12,2026-11-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_DEN_PIT,12,2026-11-27,MONEYLINE,PIT,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_ATL_MIN,12,2026-11-29,SPREAD,MIN,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_ATL_MIN,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_ATL_MIN,12,2026-11-29,MONEYLINE,MIN,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_BAL_HOU,12,2026-11-29,SPREAD,HOU,BAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_BAL_HOU,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_BAL_HOU,12,2026-11-29,MONEYLINE,HOU,BAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_LV_CLE,12,2026-11-29,SPREAD,CLE,LV,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_LV_CLE,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_LV_CLE,12,2026-11-29,MONEYLINE,CLE,LV,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NE_LAC,12,2026-11-29,SPREAD,LAC,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NE_LAC,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NE_LAC,12,2026-11-29,MONEYLINE,LAC,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NO_CIN,12,2026-11-29,SPREAD,CIN,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NO_CIN,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NO_CIN,12,2026-11-29,MONEYLINE,CIN,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NYG_IND,12,2026-11-29,SPREAD,IND,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NYG_IND,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NYG_IND,12,2026-11-29,MONEYLINE,IND,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NYJ_MIA,12,2026-11-29,SPREAD,MIA,NYJ,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NYJ_MIA,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_NYJ_MIA,12,2026-11-29,MONEYLINE,MIA,NYJ,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_SEA_SF,12,2026-11-29,SPREAD,SF,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_SEA_SF,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_SEA_SF,12,2026-11-29,MONEYLINE,SF,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_TEN_JAX,12,2026-11-29,SPREAD,JAX,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_TEN_JAX,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_TEN_JAX,12,2026-11-29,MONEYLINE,JAX,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_WAS_ARI,12,2026-11-29,SPREAD,ARI,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_WAS_ARI,12,2026-11-29,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_WAS_ARI,12,2026-11-29,MONEYLINE,ARI,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_CAR_TB,12,2026-11-30,SPREAD,TB,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_CAR_TB,12,2026-11-30,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_12_CAR_TB,12,2026-11-30,MONEYLINE,TB,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_KC_LA,13,2026-12-03,SPREAD,LA,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_KC_LA,13,2026-12-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_KC_LA,13,2026-12-03,MONEYLINE,LA,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_BUF_NE,13,2026-12-06,SPREAD,NE,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_BUF_NE,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_BUF_NE,13,2026-12-06,MONEYLINE,NE,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_CAR_MIN,13,2026-12-06,SPREAD,MIN,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_CAR_MIN,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_CAR_MIN,13,2026-12-06,MONEYLINE,MIN,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_CIN_CLE,13,2026-12-06,SPREAD,CLE,CIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_CIN_CLE,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_CIN_CLE,13,2026-12-06,MONEYLINE,CLE,CIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_DET_ATL,13,2026-12-06,SPREAD,ATL,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_DET_ATL,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_DET_ATL,13,2026-12-06,MONEYLINE,ATL,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_GB_NO,13,2026-12-06,SPREAD,NO,GB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_GB_NO,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_GB_NO,13,2026-12-06,MONEYLINE,NO,GB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_HOU_PIT,13,2026-12-06,SPREAD,PIT,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_HOU_PIT,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_HOU_PIT,13,2026-12-06,MONEYLINE,PIT,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_JAX_CHI,13,2026-12-06,SPREAD,CHI,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_JAX_CHI,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_JAX_CHI,13,2026-12-06,MONEYLINE,CHI,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_LAC_TB,13,2026-12-06,SPREAD,TB,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_LAC_TB,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_LAC_TB,13,2026-12-06,MONEYLINE,TB,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_MIA_DEN,13,2026-12-06,SPREAD,DEN,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_MIA_DEN,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_MIA_DEN,13,2026-12-06,MONEYLINE,DEN,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_PHI_ARI,13,2026-12-06,SPREAD,ARI,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_PHI_ARI,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_PHI_ARI,13,2026-12-06,MONEYLINE,ARI,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_SF_NYG,13,2026-12-06,SPREAD,NYG,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_SF_NYG,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_SF_NYG,13,2026-12-06,MONEYLINE,NYG,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_WAS_TEN,13,2026-12-06,SPREAD,TEN,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_WAS_TEN,13,2026-12-06,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_WAS_TEN,13,2026-12-06,MONEYLINE,TEN,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_DAL_SEA,13,2026-12-07,SPREAD,SEA,DAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_DAL_SEA,13,2026-12-07,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_13_DAL_SEA,13,2026-12-07,MONEYLINE,SEA,DAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_MIN_NE,14,2026-12-10,SPREAD,NE,MIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_MIN_NE,14,2026-12-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_MIN_NE,14,2026-12-10,MONEYLINE,NE,MIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_ATL_CLE,14,2026-12-13,SPREAD,CLE,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_ATL_CLE,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_ATL_CLE,14,2026-12-13,MONEYLINE,CLE,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_BUF_GB,14,2026-12-13,SPREAD,GB,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_BUF_GB,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_BUF_GB,14,2026-12-13,MONEYLINE,GB,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_CHI_MIA,14,2026-12-13,SPREAD,MIA,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_CHI_MIA,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_CHI_MIA,14,2026-12-13,MONEYLINE,MIA,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_DEN_NYJ,14,2026-12-13,SPREAD,NYJ,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_DEN_NYJ,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_DEN_NYJ,14,2026-12-13,MONEYLINE,NYJ,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_HOU_WAS,14,2026-12-13,SPREAD,WAS,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_HOU_WAS,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_HOU_WAS,14,2026-12-13,MONEYLINE,WAS,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_IND_PHI,14,2026-12-13,SPREAD,PHI,IND,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_IND_PHI,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_IND_PHI,14,2026-12-13,MONEYLINE,PHI,IND,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_KC_CIN,14,2026-12-13,SPREAD,CIN,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_KC_CIN,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_KC_CIN,14,2026-12-13,MONEYLINE,CIN,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_LAC_LV,14,2026-12-13,SPREAD,LV,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_LAC_LV,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_LAC_LV,14,2026-12-13,MONEYLINE,LV,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_LA_SF,14,2026-12-13,SPREAD,SF,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_LA_SF,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_LA_SF,14,2026-12-13,MONEYLINE,SF,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_NO_CAR,14,2026-12-13,SPREAD,CAR,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_NO_CAR,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_NO_CAR,14,2026-12-13,MONEYLINE,CAR,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_NYG_SEA,14,2026-12-13,SPREAD,SEA,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_NYG_SEA,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_NYG_SEA,14,2026-12-13,MONEYLINE,SEA,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_TB_BAL,14,2026-12-13,SPREAD,BAL,TB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_TB_BAL,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_TB_BAL,14,2026-12-13,MONEYLINE,BAL,TB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_TEN_DET,14,2026-12-13,SPREAD,DET,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_TEN_DET,14,2026-12-13,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_TEN_DET,14,2026-12-13,MONEYLINE,DET,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_PIT_JAX,14,2026-12-14,SPREAD,JAX,PIT,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_PIT_JAX,14,2026-12-14,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_14_PIT_JAX,14,2026-12-14,MONEYLINE,JAX,PIT,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_SF_LAC,15,2026-12-17,SPREAD,LAC,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_SF_LAC,15,2026-12-17,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_SF_LAC,15,2026-12-17,MONEYLINE,LAC,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CHI_BUF,15,2026-12-19,SPREAD,BUF,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CHI_BUF,15,2026-12-19,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CHI_BUF,15,2026-12-19,MONEYLINE,BUF,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_SEA_PHI,15,2026-12-19,SPREAD,PHI,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_SEA_PHI,15,2026-12-19,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_SEA_PHI,15,2026-12-19,MONEYLINE,PHI,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_ATL_WAS,15,2026-12-20,SPREAD,WAS,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_ATL_WAS,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_ATL_WAS,15,2026-12-20,MONEYLINE,WAS,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_BAL_PIT,15,2026-12-20,SPREAD,PIT,BAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_BAL_PIT,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_BAL_PIT,15,2026-12-20,MONEYLINE,PIT,BAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CIN_CAR,15,2026-12-20,SPREAD,CAR,CIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CIN_CAR,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CIN_CAR,15,2026-12-20,MONEYLINE,CAR,CIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CLE_NYG,15,2026-12-20,SPREAD,NYG,CLE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CLE_NYG,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_CLE_NYG,15,2026-12-20,MONEYLINE,NYG,CLE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DAL_LA,15,2026-12-20,SPREAD,LA,DAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DAL_LA,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DAL_LA,15,2026-12-20,MONEYLINE,LA,DAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DEN_LV,15,2026-12-20,SPREAD,LV,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DEN_LV,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DEN_LV,15,2026-12-20,MONEYLINE,LV,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DET_MIN,15,2026-12-20,SPREAD,MIN,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DET_MIN,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_DET_MIN,15,2026-12-20,MONEYLINE,MIN,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_IND_TEN,15,2026-12-20,SPREAD,TEN,IND,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_IND_TEN,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_IND_TEN,15,2026-12-20,MONEYLINE,TEN,IND,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_JAX_HOU,15,2026-12-20,SPREAD,HOU,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_JAX_HOU,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_JAX_HOU,15,2026-12-20,MONEYLINE,HOU,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_MIA_GB,15,2026-12-20,SPREAD,GB,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_MIA_GB,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_MIA_GB,15,2026-12-20,MONEYLINE,GB,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NO_TB,15,2026-12-20,SPREAD,TB,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NO_TB,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NO_TB,15,2026-12-20,MONEYLINE,TB,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NYJ_ARI,15,2026-12-20,SPREAD,ARI,NYJ,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NYJ_ARI,15,2026-12-20,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NYJ_ARI,15,2026-12-20,MONEYLINE,ARI,NYJ,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NE_KC,15,2026-12-21,SPREAD,KC,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NE_KC,15,2026-12-21,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_15_NE_KC,15,2026-12-21,MONEYLINE,KC,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_HOU_PHI,16,2026-12-24,SPREAD,PHI,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_HOU_PHI,16,2026-12-24,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_HOU_PHI,16,2026-12-24,MONEYLINE,PHI,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_BUF_DEN,16,2026-12-25,SPREAD,DEN,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_BUF_DEN,16,2026-12-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_BUF_DEN,16,2026-12-25,MONEYLINE,DEN,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_GB_CHI,16,2026-12-25,SPREAD,CHI,GB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_GB_CHI,16,2026-12-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_GB_CHI,16,2026-12-25,MONEYLINE,CHI,GB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_LA_SEA,16,2026-12-25,SPREAD,SEA,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_LA_SEA,16,2026-12-25,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_LA_SEA,16,2026-12-25,MONEYLINE,SEA,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_ARI_NO,16,2026-12-27,SPREAD,NO,ARI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_ARI_NO,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_ARI_NO,16,2026-12-27,MONEYLINE,NO,ARI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CAR_PIT,16,2026-12-27,SPREAD,PIT,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CAR_PIT,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CAR_PIT,16,2026-12-27,MONEYLINE,PIT,CAR,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CIN_IND,16,2026-12-27,SPREAD,IND,CIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CIN_IND,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CIN_IND,16,2026-12-27,MONEYLINE,IND,CIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CLE_BAL,16,2026-12-27,SPREAD,BAL,CLE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CLE_BAL,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_CLE_BAL,16,2026-12-27,MONEYLINE,BAL,CLE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_JAX_DAL,16,2026-12-27,SPREAD,DAL,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_JAX_DAL,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_JAX_DAL,16,2026-12-27,MONEYLINE,DAL,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_LAC_MIA,16,2026-12-27,SPREAD,MIA,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_LAC_MIA,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_LAC_MIA,16,2026-12-27,MONEYLINE,MIA,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_NE_NYJ,16,2026-12-27,SPREAD,NYJ,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_NE_NYJ,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_NE_NYJ,16,2026-12-27,MONEYLINE,NYJ,NE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_SF_KC,16,2026-12-27,SPREAD,KC,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_SF_KC,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_SF_KC,16,2026-12-27,MONEYLINE,KC,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_TB_ATL,16,2026-12-27,SPREAD,ATL,TB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_TB_ATL,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_TB_ATL,16,2026-12-27,MONEYLINE,ATL,TB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_TEN_LV,16,2026-12-27,SPREAD,LV,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_TEN_LV,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_TEN_LV,16,2026-12-27,MONEYLINE,LV,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_WAS_MIN,16,2026-12-27,SPREAD,MIN,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_WAS_MIN,16,2026-12-27,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_WAS_MIN,16,2026-12-27,MONEYLINE,MIN,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_NYG_DET,16,2026-12-28,SPREAD,DET,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_NYG_DET,16,2026-12-28,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_16_NYG_DET,16,2026-12-28,MONEYLINE,DET,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_BAL_CIN,17,2026-12-31,SPREAD,CIN,BAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_BAL_CIN,17,2026-12-31,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_BAL_CIN,17,2026-12-31,MONEYLINE,CIN,BAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_BUF_MIA,17,2027-01-03,SPREAD,MIA,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_BUF_MIA,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_BUF_MIA,17,2027-01-03,MONEYLINE,MIA,BUF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_DEN_NE,17,2027-01-03,SPREAD,NE,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_DEN_NE,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_DEN_NE,17,2027-01-03,MONEYLINE,NE,DEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_DET_CHI,17,2027-01-03,SPREAD,CHI,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_DET_CHI,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_DET_CHI,17,2027-01-03,MONEYLINE,CHI,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_IND_CLE,17,2027-01-03,SPREAD,CLE,IND,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_IND_CLE,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_IND_CLE,17,2027-01-03,MONEYLINE,CLE,IND,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_KC_LAC,17,2027-01-03,SPREAD,LAC,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_KC_LAC,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_KC_LAC,17,2027-01-03,MONEYLINE,LAC,KC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_LA_TB,17,2027-01-03,SPREAD,TB,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_LA_TB,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_LA_TB,17,2027-01-03,MONEYLINE,TB,LA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_LV_ARI,17,2027-01-03,SPREAD,ARI,LV,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_LV_ARI,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_LV_ARI,17,2027-01-03,MONEYLINE,ARI,LV,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_MIN_NYJ,17,2027-01-03,SPREAD,NYJ,MIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_MIN_NYJ,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_MIN_NYJ,17,2027-01-03,MONEYLINE,NYJ,MIN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_NO_ATL,17,2027-01-03,SPREAD,ATL,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_NO_ATL,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_NO_ATL,17,2027-01-03,MONEYLINE,ATL,NO,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_NYG_DAL,17,2027-01-03,SPREAD,DAL,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_NYG_DAL,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_NYG_DAL,17,2027-01-03,MONEYLINE,DAL,NYG,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_PHI_SF,17,2027-01-03,SPREAD,SF,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_PHI_SF,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_PHI_SF,17,2027-01-03,MONEYLINE,SF,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_PIT_TEN,17,2027-01-03,SPREAD,TEN,PIT,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_PIT_TEN,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_PIT_TEN,17,2027-01-03,MONEYLINE,TEN,PIT,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_SEA_CAR,17,2027-01-03,SPREAD,CAR,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_SEA_CAR,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_SEA_CAR,17,2027-01-03,MONEYLINE,CAR,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_WAS_JAX,17,2027-01-03,SPREAD,JAX,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_WAS_JAX,17,2027-01-03,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_WAS_JAX,17,2027-01-03,MONEYLINE,JAX,WAS,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_HOU_GB,17,2027-01-04,SPREAD,GB,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_HOU_GB,17,2027-01-04,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_17_HOU_GB,17,2027-01-04,MONEYLINE,GB,HOU,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_ATL_CAR,18,2027-01-10,SPREAD,CAR,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_ATL_CAR,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_ATL_CAR,18,2027-01-10,MONEYLINE,CAR,ATL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_CHI_MIN,18,2027-01-10,SPREAD,MIN,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_CHI_MIN,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_CHI_MIN,18,2027-01-10,MONEYLINE,MIN,CHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_CLE_CIN,18,2027-01-10,SPREAD,CIN,CLE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_CLE_CIN,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_CLE_CIN,18,2027-01-10,MONEYLINE,CIN,CLE,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_DAL_WAS,18,2027-01-10,SPREAD,WAS,DAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_DAL_WAS,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_DAL_WAS,18,2027-01-10,MONEYLINE,WAS,DAL,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_DET_GB,18,2027-01-10,SPREAD,GB,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_DET_GB,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_DET_GB,18,2027-01-10,MONEYLINE,GB,DET,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_JAX_IND,18,2027-01-10,SPREAD,IND,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_JAX_IND,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_JAX_IND,18,2027-01-10,MONEYLINE,IND,JAX,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_LAC_DEN,18,2027-01-10,SPREAD,DEN,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_LAC_DEN,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_LAC_DEN,18,2027-01-10,MONEYLINE,DEN,LAC,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_LV_KC,18,2027-01-10,SPREAD,KC,LV,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_LV_KC,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_LV_KC,18,2027-01-10,MONEYLINE,KC,LV,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_MIA_NE,18,2027-01-10,SPREAD,NE,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_MIA_NE,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_MIA_NE,18,2027-01-10,MONEYLINE,NE,MIA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_NYJ_BUF,18,2027-01-10,SPREAD,BUF,NYJ,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_NYJ_BUF,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_NYJ_BUF,18,2027-01-10,MONEYLINE,BUF,NYJ,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_PHI_NYG,18,2027-01-10,SPREAD,NYG,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_PHI_NYG,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_PHI_NYG,18,2027-01-10,MONEYLINE,NYG,PHI,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_PIT_BAL,18,2027-01-10,SPREAD,BAL,PIT,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_PIT_BAL,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_PIT_BAL,18,2027-01-10,MONEYLINE,BAL,PIT,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_SEA_LA,18,2027-01-10,SPREAD,LA,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_SEA_LA,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_SEA_LA,18,2027-01-10,MONEYLINE,LA,SEA,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_SF_ARI,18,2027-01-10,SPREAD,ARI,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_SF_ARI,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_SF_ARI,18,2027-01-10,MONEYLINE,ARI,SF,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_TB_NO,18,2027-01-10,SPREAD,NO,TB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_TB_NO,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_TB_NO,18,2027-01-10,MONEYLINE,NO,TB,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_TEN_HOU,18,2027-01-10,SPREAD,HOU,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_TEN_HOU,18,2027-01-10,TOTAL,OVER,UNDER,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
+2026_18_TEN_HOU,18,2027-01-10,MONEYLINE,HOU,TEN,,,,NOT CAPTURED,,,,,nflverse games.csv closing line columns (mirror; no timestamp carried),0,SCHEDULED - no official final exists at capture; scores left blank
