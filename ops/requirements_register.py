@@ -65,9 +65,9 @@ add("R34", "Pre-register every strategy; forbid backtest numbers from ever appea
     "governance", "done", "", "STRAT-1 registered 2026-11-16 pre-kickoff with frozen method text; no leaderboard exists (policy), so no backtest number can appear on one",
     ["ops/forecast_week11.py", "ops/data/forecast_week11_2026.csv"])
 add("R35", "Build the availability graph as a first-class dataset (who was expected to start, who actually did)", "",
-    "data", "partial", "captures exist for one point in time (345-row report); the expected-vs-actual graph needs the multi-day capture series and verified starters",
-    ">= 2 dated captures per week for >= 3 consecutive weeks + starters from Game Books (R50)",
-    ["ops/data/snapshots/ledger.csv", "ops/availability_capture.py"])
+    "data", "partial", "two dated captures now exist (2026-11-14 and 2026-11-16, session 74f76e34's Line Lab captures) plus this session's ledger; the expected-vs-actual graph still needs verified starters (Game Books, R50) and a longer series",
+    ">= 3 consecutive weeks of dated captures + starters from Game Books (R50)",
+    ["ops/data/snapshots/ledger.csv", "ops/availability_capture.py", "data/linelab/captures/2026-11-14/week10-injury-report.csv", "data/linelab/captures/2026-11-16/week10-injury-report.csv"])
 add("R36", "Do not model depth from jersey order; model it from playing time", "",
     "model", "partial", "a snap-count table exists (265,892 player-week rows, 2016+) but is not yet joined to the availability data",
     "a published snap-share table joined to Out/Doubtful rows for the current week",
@@ -103,8 +103,8 @@ add("R45", "Decide the price-data policy before any backtest is published", "",
     "governance", "done", "", "seven-point policy frozen; no price-dependent backtest has been published",
     ["ops/price_policy.md"])
 add("R46", "Store every injury-hub read with its clock time and publish the delta, never the level", "",
-    "data", "partial", "the automated capture series (clock-stamped) starts with the new workflow; existing captures carry as-of dates, not clock times",
-    "two clock-stamped captures of the same report, and a published delta file",
+    "data", "partial", "two dated captures of the same report now exist (Line Lab, 2026-11-14 + 2026-11-16) and this session's capture automation is built but de-scheduled pending F-T1; clock-time stamps and the published delta file are still missing",
+    "a capture with a clock-time stamp plus a published designation delta between two reads",
     ["ops/data/snapshots/ledger.csv", "ops/availability_capture.py"])
 add("R47", "Put a decision-readiness table on the landing page: one row per requirement, with the gate that blocks it and the number that would clear it", "",
     "site", "done", "", "two reconciled views now exist: the landing page carries the DR-xx decision table (session 56a33eb6, PR #19) and /readiness/ carries the verbatim R26\u2013R96 register with gates and clearing numbers (session 310620fe); the earlier deviation note is superseded by the DR-table's landing-page presence",
@@ -257,7 +257,7 @@ add("R80", "Treat the injury report as a timestamped series, not a weekly snapsh
     "Capture the report daily from Wednesday to kickoff with the fetch timestamp, then measure how designations evolve.",
     "data", "partial", "the series design exists (ledger + capture); the series itself begins at the first automated capture",
     ">= 3 timestamped reads of one week's report with an evolution measure",
-    ["ops/data/snapshots/ledger.csv"])
+    ["ops/data/snapshots/ledger.csv", "data/linelab/captures/2026-11-16/week10-injury-report.csv"])
 add("R81", "Use snap counts as the starter proxy when the depth chart is unavailable",
     "Gives a measurable starter/backup split",
     "data", "partial", "snap table exists (265,892 rows) but the starter-proxy join (top snap share per unit per week) is not built",

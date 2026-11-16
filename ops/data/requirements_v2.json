@@ -136,11 +136,13 @@
    "detail": "",
    "category": "data",
    "status": "partial",
-   "gate": "captures exist for one point in time (345-row report); the expected-vs-actual graph needs the multi-day capture series and verified starters",
-   "clearing_metric": ">= 2 dated captures per week for >= 3 consecutive weeks + starters from Game Books (R50)",
+   "gate": "two dated captures now exist (2026-11-14 and 2026-11-16, session 74f76e34's Line Lab captures) plus this session's ledger; the expected-vs-actual graph still needs verified starters (Game Books, R50) and a longer series",
+   "clearing_metric": ">= 3 consecutive weeks of dated captures + starters from Game Books (R50)",
    "evidence": [
     "ops/data/snapshots/ledger.csv",
-    "ops/availability_capture.py"
+    "ops/availability_capture.py",
+    "data/linelab/captures/2026-11-14/week10-injury-report.csv",
+    "data/linelab/captures/2026-11-16/week10-injury-report.csv"
    ]
   },
   {
@@ -276,8 +278,8 @@
    "detail": "",
    "category": "data",
    "status": "partial",
-   "gate": "the automated capture series (clock-stamped) starts with the new workflow; existing captures carry as-of dates, not clock times",
-   "clearing_metric": "two clock-stamped captures of the same report, and a published delta file",
+   "gate": "two dated captures of the same report now exist (Line Lab, 2026-11-14 + 2026-11-16) and this session's capture automation is built but de-scheduled pending F-T1; clock-time stamps and the published delta file are still missing",
+   "clearing_metric": "a capture with a clock-time stamp plus a published designation delta between two reads",
    "evidence": [
     "ops/data/snapshots/ledger.csv",
     "ops/availability_capture.py"
@@ -714,7 +716,8 @@
    "gate": "the series design exists (ledger + capture); the series itself begins at the first automated capture",
    "clearing_metric": ">= 3 timestamped reads of one week's report with an evolution measure",
    "evidence": [
-    "ops/data/snapshots/ledger.csv"
+    "ops/data/snapshots/ledger.csv",
+    "data/linelab/captures/2026-11-16/week10-injury-report.csv"
    ]
   },
   {

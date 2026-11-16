@@ -1263,3 +1263,14 @@ only as final integration after every earlier session's work was merged (PRs #1�
    page (decision view, session 56a33eb6) and the verbatim R26–R96 register at `/readiness/`
    (gate + clearing number per line, session 310620fe). Register row R47 documents the relationship.
    No DR-xx row was edited.
+
+### Reconciliation with session 74f76e34 (Line Lab, PR #22), 2026-11-16
+
+Second rebase onto main at `441ca22`/`441ca25`. Line Lab shipped in non-overlapping scope
+(`data/linelab/**`, `engine/linelab/**`, `.github/workflows/verify-linelab.yml`, `linelab/` site)
+including its own price store, proper-score gates, strategy registry and **two dated availability
+captures** (2026-11-14 + 2026-11-16). Conflicts: `COORDINATION.md` (additive, both kept) and the hub
+nav (all three links kept: Line Lab + Verified Signals + Readiness). This session then
+cross-referenced Line Lab's dated captures as evidence in register rows R35/R46/R80 and recorded the
+updated gate wording. Pre-existing on main (not this session's edit): the hub nav carries two
+"Suggestions" links pointing to `ledger/suggestions.html` — flagged for the hub owner to dedupe.
