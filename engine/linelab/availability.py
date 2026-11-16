@@ -35,8 +35,12 @@ import hashlib
 import json
 import math
 import os
+import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from stamp import stamp_fields  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUTDIR = os.path.join(ROOT, "data", "linelab")
@@ -296,7 +300,7 @@ def main():
 
     latest = max(caps, key=lambda c: c["captured_utc"]) if caps else None
     out = {
-        "built_utc": NOW,
+        **stamp_fields(),
         "builder": "engine/linelab/availability.py",
         "policy": {
             "snapshot_rule": ("Every capture keeps its raw SHA-256 and the clock time it was read. "

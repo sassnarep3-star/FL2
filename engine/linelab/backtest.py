@@ -45,7 +45,13 @@ import hashlib
 import json
 import math
 import os
+import sys
 from datetime import datetime, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from stamp import stamp_fields, build_stamp  # noqa: E402
+
+STAMP = build_stamp()
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RAW = os.path.join(ROOT, "raw", "_nfldata")
@@ -197,7 +203,7 @@ def build_corpus() -> dict:
             "availability_vintage_available": bool(pre),
         })
     return {
-        "built_utc": NOW,
+        **stamp_fields(),
         "builder": "engine/linelab/backtest.py",
         "definition": ("Every completed 2026 REG game with its result and market number, plus "
                        "the pre-kickoff availability captures that existed for it."),
@@ -272,11 +278,12 @@ def main() -> dict:
     scores = json.load(open(os.path.join(OUTDIR, "scores.json"), encoding="utf-8"))
     reg = {
         "registry_version": 1,
-        "frozen_at_utc": NOW,
+        "frozen_at_inputs": STAMP["built_from_inputs_short"],
         "registration_mechanism": (
-            "This file is committed. The commit hash of the commit that introduced or last "
-            "changed a strategy is that strategy's registration. Rules are never edited to fit a "
-            "result; a change means a new strategy id."
+            "This file is committed. The commit hash of the commit that introduced or last changed "
+            "a strategy is that strategy's registration, and frozen_at_inputs is the SHA-256 prefix "
+            "of the data the registry was built against. Rules are never edited to fit a result; a "
+            "change means a new strategy id."
         ),
         "leaderboard_rule": (
             "No number produced by the backtest corpus may appear on the leaderboard. The "

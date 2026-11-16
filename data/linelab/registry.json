@@ -1,7 +1,7 @@
 {
  "registry_version": 1,
- "frozen_at_utc": "2026-11-16T01:31:28Z",
- "registration_mechanism": "This file is committed. The commit hash of the commit that introduced or last changed a strategy is that strategy's registration. Rules are never edited to fit a result; a change means a new strategy id.",
+ "frozen_at_inputs": "53f2b0df12f4",
+ "registration_mechanism": "This file is committed. The commit hash of the commit that introduced or last changed a strategy is that strategy's registration, and frozen_at_inputs is the SHA-256 prefix of the data the registry was built against. Rules are never edited to fit a result; a change means a new strategy id.",
  "leaderboard_rule": "No number produced by the backtest corpus may appear on the leaderboard. The leaderboard reads scores.json only, and its payload is asserted at build time.",
  "strategies": [
   {

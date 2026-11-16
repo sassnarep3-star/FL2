@@ -1,5 +1,9 @@
 {
- "built_utc": "2026-11-16T01:31:28Z",
+ "built_utc": "derived-from-inputs",
+ "built_from_inputs_sha256": "53f2b0df12f4b41f647b725a34077ac61aa3856f42e85ad9728aed5c1cec4266",
+ "built_from_inputs_short": "53f2b0df12f4",
+ "built_from_n_input_files": 11,
+ "built_from_inputs_note": "This build is identified by a SHA-256 over every input file it read, not by a wall-clock time. Rebuilding from the same inputs produces this same stamp, which is what the CI reproducibility gate checks. The date of any given publication is the git commit date.",
  "builder": "engine/linelab/requirements.py",
  "counts": {
   "total": 68,

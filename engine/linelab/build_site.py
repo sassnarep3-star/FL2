@@ -23,12 +23,17 @@ from __future__ import annotations
 import html
 import json
 import os
+import sys
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA = os.path.join(ROOT, "data", "linelab")
 SITE = os.path.join(ROOT, "linelab")
-NOW = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from stamp import build_stamp  # noqa: E402
+
+STAMP = build_stamp()
+NOW = STAMP["built_from_inputs_short"]  # a content hash, not a clock
 
 E = html.escape
 
@@ -185,7 +190,7 @@ def page(slug, title, body, lede=""):
 <body>
 <header class="hdr"><div class="in">
   <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
-  <div class="sub">2026 · built {NOW} · every row sourced or flagged</div>
+  <div class="sub">2026 · build {NOW} (hash of inputs) · every row sourced or flagged</div>
   <nav>{nav}</nav>
 </div></header>
 <main>

@@ -43,9 +43,13 @@ import csv
 import json
 import math
 import os
+import sys
 import random
 from collections import defaultdict
 from datetime import datetime, timezone
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from stamp import stamp_fields  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUTDIR = os.path.join(ROOT, "data", "linelab")
@@ -439,7 +443,7 @@ def main() -> dict:
     }
 
     out = {
-        "built_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        **stamp_fields(),
         "builder": "engine/linelab/scoring.py",
         "bootstrap": {"resamples": BOOT, "seed": SEED, "cluster": "game_id"},
         "reference_base_rates": {k: round(v, 5) for k, v in base.items()},

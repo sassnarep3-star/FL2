@@ -72,6 +72,9 @@ import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from stamp import stamp_fields  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RAW = os.path.join(ROOT, "raw", "_nfldata")
 OUTDIR = os.path.join(ROOT, "data", "linelab")
@@ -306,7 +309,7 @@ def build() -> dict:
         by_season[r["season"]][r["market"] + ":" + r["price_pair_status"]] += 1
 
     meta = {
-        "built_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        **stamp_fields(),
         "builder": "engine/linelab/price_store.py",
         "rows": len(out),
         "markets": sorted({r["market"] for r in out}),
