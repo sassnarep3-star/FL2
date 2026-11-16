@@ -47,6 +47,7 @@ data existed.
 - [`hub/index.html`](hub/index.html) — NFL Decision Hub (session e70150db + others): requirement coverage, validation gates, luck-vs-skill explainer, repository audit.
 - [`strategy.html`](strategy.html) — Fourth & Signal (session 4a77261b): the original evidence-first blueprint, with [`availability.html`](availability.html), [`data.html`](data.html), [`decisions.html`](decisions.html), [`review.html`](review.html).
 - [`signal/index.html`](signal/index.html) — Signal Lab (session d10a1d25): a measured-signal section with a validated sign convention, measured injury-designation play rates, a depth-chart accuracy test, measured same-game correlation, and a pre-registered validation gate that six strategies failed. Every figure is re-derived from committed data by CI.
+- [`fl2-signals/index.html`](fl2-signals/index.html) — Verified Signals (session 1374049c): 137 verified box scores replayed to an exact 32/32 standings match, the Week 10 injury report, eight validation gates with sample-size arithmetic, a parlay correlation sensitivity grid, and the model-pathology diagnosis behind gate G5.
 
 Consolidating all four structures into one is proposed as a decision — see
 [`ledger/suggestions.html`](ledger/suggestions.html). It was not done silently.
@@ -73,6 +74,15 @@ Docs: [`docs/SOURCES.md`](docs/SOURCES.md) · [`docs/STRATEGY_VALIDATION.md`](do
 
 Research tool, not betting advice.
 
+## Decision readiness (2026-11-16)
+
+The landing page carries a **decision-readiness table** — one row per requirement in the brief,
+with the gate that blocks it and the number that would clear it (75 rows). Session
+`arena/56a33eb6-fl2` re-verified the combined data against the live official pages on 2026-11-16:
+32/32 standings rows reconcile exactly against the official standings once the Week-10 results are
+applied, 96 Week-10 injury rows match the live league report exactly (Out 66 / Doubtful 10 /
+Questionable 84 / blank 185 over 345 rows), and the two-sided "what would change our mind" field
+was added to all 11 strategy entries. See `COORDINATION.md` for the full verification log.
 
 ## FL2 Dashboard section (session arena/48561869-fl2)
 
