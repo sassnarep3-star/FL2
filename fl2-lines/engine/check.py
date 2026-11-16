@@ -7,6 +7,7 @@ no longer matches the artefact it came from, and an unverified value presented a
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import math
 import re
@@ -188,6 +189,22 @@ def main() -> int:
         fail(f"price store: {len(pri)} rows vs meta {meta['markets_recorded']}")
     if any(r.get("opening_line") and r.get("opening_source") in ("", "NOT CAPTURED") for r in pri):
         fail("an opening price is recorded with no provenance - that is an unsourced number")
+
+    man = PRI / "MANIFEST.sha256"
+    if not man.exists():
+        fail("no MANIFEST.sha256: the store has no integrity record")
+    else:
+        stale = 0
+        for line in man.read_text().splitlines():
+            digest, _, rel = line.partition("  ")
+            target = SEC / rel
+            if not target.exists():
+                fail(f"manifest lists a file that is gone: {rel}")
+            elif hashlib.sha256(target.read_bytes()).hexdigest() != digest:
+                stale += 1
+        if stale:
+            fail(f"MANIFEST.sha256: {stale} digest(s) do not match the file on disk - the store was "
+                 "edited without being rebuilt")
 
     pages = sorted(SEC.glob("*.html"))
     if not pages:

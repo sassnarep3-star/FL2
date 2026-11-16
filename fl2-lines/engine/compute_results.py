@@ -467,11 +467,9 @@ def build_price_store(originate_ids: set[str]) -> dict:
     write_csv(PRICES / "price-source-index.csv", index,
               ["season", "source", "rows", "closing_price_rows", "opening_price_rows"])
 
-    merkle = []
-    for p in sorted(PRICES.glob("*")) + sorted((DERIVED / "results-2026.csv",)):
-        if p.is_file():
-            merkle.append(f"{sha256(p)}  {p.relative_to(SECTION)}")
-    (PRICES / "MANIFEST.sha256").write_text("\n".join(merkle) + "\n", encoding="utf-8")
+    # the manifest is written at the end of main(), after every artefact it lists exists in
+    # its final form - hashing a file that is about to be rewritten records a stale digest,
+    # and hashing the manifest itself makes the file impossible to reproduce.
 
     return {
         "markets_recorded": len(rows),
@@ -487,6 +485,19 @@ def build_price_store(originate_ids: set[str]) -> dict:
     }
 
 
+def write_manifest() -> list[str]:
+    """sha-256 of every published artefact in the store and the derived tables, with the
+    manifest's own name excluded: hashing a file that is about to be rewritten records a stale
+    digest, and hashing the manifest itself makes the store impossible to reproduce."""
+    entries = []
+    for path in sorted(PRICES.glob("*")) + sorted(DERIVED.glob("*")):
+        if not path.is_file() or path.name == "MANIFEST.sha256":
+            continue
+        entries.append(f"{sha256(path)}  {path.relative_to(SECTION)}")
+    (PRICES / "MANIFEST.sha256").write_text("\n".join(entries) + "\n", encoding="utf-8")
+    return entries
+
+
 if __name__ == "__main__":
     meta = build_results()
     (DERIVED / "results-meta.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
@@ -496,3 +507,4 @@ if __name__ == "__main__":
     print(json.dumps({k: meta[k] for k in ("games_in_feed", "games_with_confirmed_final", "games_blank_unverified", "pre_kickoff_corpus_games")}, indent=1))
     print("reconciliation:", meta["reconciliation"]["result"])
     print("price store:", {k: prices[k] for k in ("markets_recorded", "with_closing_number", "with_opening_number", "with_any_observed_at")})
+    print("manifest entries:", len(write_manifest()))
