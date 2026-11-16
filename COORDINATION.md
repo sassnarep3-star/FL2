@@ -805,6 +805,19 @@ Both sides were kept: the hub now carries tiles and nav tabs for `fl2-signals/` 
 owner decision. The open items are the ones that need one of those two, and each is a row in
 `fl2-lines/data/registers/readiness.csv` (37 done · 19 partial · 16 blocked of 74).
 
+### Pull requests recorded
+
+| PR | scope | merged as | CI |
+|---|---|---|---|
+| [#23](https://github.com/sassnarep3-star/FL2/pull/23) | the section itself: 16 pages, 5 engine scripts, registers, price store, ledger, two workflows | `7ad41761` | `Validate and publish site` pass; `fl2-lines-check` pass after the YAML fix |
+| [#25](https://github.com/sassnarep3-star/FL2/pull/25) | register claims corrected, manifest integrity, leaderboard exclusion enforced | `e58f028a` | both workflows pass; Pages `built` at the same commit |
+| [#26](https://github.com/sassnarep3-star/FL2/pull/26) | prose claims made arithmetic (22 SE, not six), readable correlation labels | see the merge on `main` | `check.py` 0 failures, `check_render.js` 16 pages clean |
+
+Live verification after each merge: Pages `builds/latest` reported `status: built` with no error and the
+`commit` equal to the merge SHA, and the deployed pages were re-fetched from
+`https://sassnarep3-star.github.io/FL2/fl2-lines/` — the readiness table, the analytics page and the
+flagged page were read from the live host rather than from the sandbox build.
+
 ### Follow-up (same day, after PR #23 merged as `7ad41761`)
 
 * **Deployed and verified live:** https://sassnarep3-star.github.io/FL2/fl2-lines/ (Pages build
