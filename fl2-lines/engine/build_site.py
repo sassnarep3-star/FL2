@@ -547,7 +547,8 @@ def p_analytics(d) -> str:
     body.append(table(["quantity", "value", "uncertainty", "n", "consequence"], [
         ["points per expected miss", cell(co["beta_pts_per_expected_miss"], 3),
          f'{co["ci95"][0]} to {co["ci95"][1]}', cell(co["n_games"]),
-         "a fixed 3-point penalty is roughly six standard errors away from this"],
+         f'a fixed 3.0-point penalty sits {(3.0 - abs(co["beta_pts_per_expected_miss"])) / co["se"]:.0f} standard '
+         'errors away from the measured effect, so it is rejected as a penalty and used as an ablation instead'],
         ["correlation of availability gap with margin residual", cell(co["pearson_r"], 3),
          f'{co["pearson_ci95"][0]} to {co["pearson_ci95"][1]}', cell(co["n_games"]),
          "small but real; it earns a feature, not a headline"],
@@ -558,13 +559,18 @@ def p_analytics(d) -> str:
     ]))
     body.append("<h2>Correlations, official numbers only</h2>")
     rows = []
+    def corr_label(k: str) -> str:
+        lab = k.replace("_vs_", " vs ").replace("_", " ")
+        lab = re.sub(r"(\d{4}) (\d{4})", r"\1–\2", lab)
+        return lab
+
     for k, v in corr["official_only_panel"]["values"].items():
         ci = v.get("fisher_ci95") or [None, None]
-        rows.append([esc(k.replace("_", " ")), cell(v.get("r"), 4), cell(v.get("n")),
+        rows.append([esc(corr_label(k)), cell(v.get("r"), 4), cell(v.get("n")),
                      f"{ci[0]} to {ci[1]}" if ci[0] is not None else BLANK,
                      link("https://www.nfl.com/schedules/2026/by-week/week-10", "schedule") + " + mirror results"])
     for k, v in corr["market_panel"]["values"].items():
-        rows.append([esc(k.replace("_", " ")) + " (market)", cell(v.get("r"), 4), cell(v.get("n")), BLANK, BLANK])
+        rows.append([esc(corr_label(k)) + " (market)", cell(v.get("r"), 4), cell(v.get("n")), BLANK, BLANK])
     body.append(table(["relationship", "r", "n", "95% CI (Fisher z)", "source"], rows))
     body.append("<h2>Joint evidence for parlays</h2>")
     pj = d["parlay"]
@@ -578,7 +584,9 @@ def p_analytics(d) -> str:
         ["phi", cell(pj["phi"], 4), cell(pj["historical_baseline_2015_2025"]["phi"], 4)],
         ["joint 95% CI", f'{pj["joint_ci95_pct"][0]} to {pj["joint_ci95_pct"][1]}', BLANK],
     ]))
-    body.append('<div class="warn"><strong>Gate stays shut.</strong> ' + esc(pj["why_still_blocked"]) + " " + esc(pj["small_sample_warning"]) + "</div>")
+    _warn = esc(pj["small_sample_warning"]).strip().rstrip(".") + "."
+    body.append('<div class="warn"><strong>Gate stays shut.</strong> ' + esc(pj["why_still_blocked"]).strip().rstrip(".")
+                + ". " + _warn + "</div>")
     body.append('<p class="fine">Suppressed and why: ' + esc(corr["suppressed"]["player_prop_leg_correlation"]) + "</p>")
     return page("analytics.html", "Skill, luck and correlation",
                 "Benchmark-relative proper scores with uncertainty, controls that can embarrass the model, and correlations that publish their n.",
