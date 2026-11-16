@@ -703,7 +703,7 @@ Branch `arena/39dd0836-fl2` · base `229d5fa` (`main` @ PR #15 merge) · started
 
 | Task | Status | Owner | Files in scope |
 |---|---|---|---|
-| FL2-LINES: price-snapshot store, verified results feed, originated lines (side → total → moneyline), availability graph, correlations with n, pre-registration ledger, prospective leaderboard, decision-readiness register, suggestions + Q&A registers, `/fl2-lines/` site | in progress | `arena/39dd0836-fl2` | `fl2-lines/**`, `.github/workflows/fl2-lines-snapshot.yml`, `COORDINATION.md` (append only) |
+| FL2-LINES: price-snapshot store, verified results feed, originated lines (side → total → moneyline), availability graph, correlations with n, pre-registration ledger, prospective leaderboard, decision-readiness register, suggestions + Q&A registers, `/fl2-lines/` site | **done** (2026-11-16T02:05Z, PRs #23/#25/#26 merged; see the completion record below) | `arena/39dd0836-fl2` | `fl2-lines/**`, `.github/workflows/fl2-lines-snapshot.yml`, `COORDINATION.md` (append only) |
 
 **Not touched:** `index.html`, `hub/`, `docs/`, `ledger/`, `signal/`, `raw/`, `fl2-dashboard/`, `fl2-signals/`,
 `scripts/`, `tools/`, `engine/`, `data/`, `research/`, `assets/`, root `*.html` other than `404.html`.
