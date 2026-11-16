@@ -703,3 +703,22 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 **Findings:** local site and source-column/link checks pass, but do not re-verify external page contents. The Signal local rebuild fails after producing zero market rows (`IndexError` in `descriptive()`); detailed reproduction and limitations are in the audit note. No NFL values were newly transcribed or asserted as live-verified. External official-source verification remains outstanding for every current-week claim.
 
 **Scope note:** the failed Signal rebuild writes within `signal/analysis` and `signal/data`, owned by the existing Signal Lab section. No code or data in that scope was changed. The finding is logged for its owner to address.
+
+---
+
+# Session `arena/d0543ac8-fl2` — Final Readiness Integration (2026-11-16)
+
+## Claim
+
+| ID | Task | Status | Owner | Exclusive files in scope |
+|---|---|---|---|---|
+| FL2-READINESS | Final integration audit of the existing public site; produce one requirement-by-requirement readiness register with current status, blocker/gate, explicit clearance measure, evidence/source state, and a Flagged-for-Review route; put the searchable table on the public landing page; gate CI on register integrity. | **in progress** | `arena/d0543ac8-fl2` | `index.html`, `data/decision-readiness.json`, `assets/readiness.js`, `assets/readiness.css`, `scripts/check_readiness.py`, `.github/workflows/pages.yml`, `README.md`, `COORDINATION.md` |
+
+## Handoff / coordination note
+
+The older `FL2-SITE` row above still says `in progress`, although its site work is recorded as merged and the shared hub has since been integrated. Its latest recorded activity is 2026-11-14, so this session is taking the final-integration portion of that stale claim under the user's 60-minute handoff rule. Arena pins this session to `arena/d0543ac8-fl2`; no other branch or worktree will be used. No other active claim is recorded for the files listed above. This scope intentionally does not edit other sessions' data pages or source snapshots.
+
+## Work log
+
+- 2026-11-16 — Read the repository's existing coordination board before starting. Confirmed the working tree was clean and the current branch is `arena/d0543ac8-fl2`.
+- 2026-11-16 — PR #16 merged after the claim was pushed. Rebasing onto its merge exposed an end-of-file append conflict in this shared log; preserved the full PR #16 audit entry and this readiness claim, with no other work discarded.
