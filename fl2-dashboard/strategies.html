@@ -81,7 +81,7 @@
           <td>Situational efficiency signals</td>
           <td>Team efficiency and situational performance (red zone, third downs, etc.) from official stats, adjusted for opponent.</td>
           <td>Official NFL stats pages / play-level data (Q3)</td>
-          <td class="src">Source not yet selected</td>
+          <td class="src"><a href="flagged-review.html#F-S1">Source not yet selected — see Flagged F-S1</a></td>
           <td><span class="badge pending">Blocked on data</span></td>
         </tr>
         <tr>
@@ -127,7 +127,7 @@
   </div>
 
   <div class="panel">
-    <h2 style="margin-top:0">4. Validation gates (proposed)</h2>
+    <h2 id="gates" style="margin-top:0">4. Validation gates (proposed)</h2>
     <p class="muted">Every strategy must pass each gate. Threshold values are proposals pending approval
       (Q4, S4). Gates are checked in order; a failure stops the strategy.</p>
     <table class="data">
@@ -160,13 +160,13 @@
         <tr><td>Correlation cap for combo legs</td><td>Threshold above which a parlay or prop combo is rejected or de-weighted</td><td><span class="badge pending">Open — S5</span></td></tr>
         <tr><td>Correlation cap between strategies</td><td>Threshold for leaderboard diversification (gate G6)</td><td><span class="badge pending">Open — S5</span></td></tr>
         <tr><td>Rolling window length</td><td>Window used for coefficient estimation</td><td><span class="badge pending">Open — S5</span></td></tr>
-        <tr><td>Correlation matrix</td><td>Actual values — requires data from Q1/Q3</td><td class="src">Blank — not computed, no data</td></tr>
+        <tr><td>Correlation matrix</td><td>Actual values — requires data from Q1/Q3</td><td class="src"><a href="flagged-review.html#F-S1">Blank — not computed, no data (F-S1)</a></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="panel">
-    <h2 style="margin-top:0">6. Removing luck — skill-based scoring (proposed)</h2>
+    <h2 id="luck" style="margin-top:0">6. Removing luck — skill-based scoring (proposed)</h2>
     <p>Raw win rate is explicitly <strong>not</strong> the evaluation metric. The proposed score blends:</p>
     <table class="data">
       <thead><tr><th>Metric</th><th>What it measures</th><th>How it removes luck</th><th>Status</th></tr></thead>

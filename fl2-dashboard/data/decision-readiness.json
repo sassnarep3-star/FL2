@@ -1,0 +1,684 @@
+{
+  "title": "Decision readiness - one row per requirement in the owner brief",
+  "as_of": "2026-11-16",
+  "status_legend": {
+    "Built": "Exists and is verified for the scope stated",
+    "Partial": "Exists for part of the scope; the gate named in the row still applies",
+    "Framework": "Design or specification only; no computed numbers",
+    "Blocked": "Cannot proceed until the named gate is cleared",
+    "Not started": "Nothing in the repo yet",
+    "Decided": "A decision was recorded (including rejections); nothing to build yet"
+  },
+  "rows": [
+    {
+      "area": "Lines and pricing",
+      "id": "R01",
+      "requirement": "Price-snapshot store: opening and closing numbers for every market originated",
+      "status": "Not started",
+      "gate": "No permitted price source selected; sportsbook prices are unverified (Q1)",
+      "clears": "Dated opening and closing price for every scheduled game from a source whose terms have been read",
+      "evidence": "Questions & Answers Q1",
+      "href": "questions-answers.html#q1"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R02",
+      "requirement": "Originate the side first, then the total, then the moneyline",
+      "status": "Partial",
+      "gate": "Prototype only; no out-of-sample validation of an originated line",
+      "clears": "Out-of-sample Brier score and calibration against the closing market on at least one full season",
+      "evidence": "Evidence Ledger: lines",
+      "href": "../ledger/lines.html"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R03",
+      "requirement": "Publish the model's fair line, the market line and the difference as separate columns",
+      "status": "Partial",
+      "gate": "No verified market line for any game (see R01)",
+      "clears": "One verified closing line per game with timestamp and source",
+      "evidence": "Evidence Ledger: lines",
+      "href": "../ledger/lines.html"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R04",
+      "requirement": "Price a line ourselves and publish the residual against the market on a schedule, from day one",
+      "status": "Not started",
+      "gate": "No scheduled job; no verified market line (R01)",
+      "clears": "A timestamped weekly run covering every game on the slate",
+      "evidence": "Evidence Ledger: method",
+      "href": "../ledger/method.html"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R05",
+      "requirement": "Vig-free market consensus versus originated fair-line decomposition",
+      "status": "Not started",
+      "gate": "Needs prices from two or more books at the same timestamp (R01)",
+      "clears": "At least two books priced for every game at one timestamp",
+      "evidence": "Questions & Answers Q1",
+      "href": "questions-answers.html#q1"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R06",
+      "requirement": "Publish every model total twice until one estimator wins a walk-forward comparison",
+      "status": "Not started",
+      "gate": "Second estimator not built",
+      "clears": "Walk-forward comparison on at least one season with both estimators shown",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R07",
+      "requirement": "Kickoff and declared onside-kick regime priors filter",
+      "status": "Not started",
+      "gate": "No verified source for declared onside-kick regimes",
+      "clears": "Official announcement for each season with a dated link",
+      "evidence": "Questions & Answers",
+      "href": "questions-answers.html"
+    },
+    {
+      "area": "Lines and pricing",
+      "id": "R08",
+      "requirement": "Stadium roof and surface with NWS hourly wind and precipitation overlay",
+      "status": "Not started",
+      "gate": "Official roof designations not captured; NWS grid not ingested",
+      "clears": "A roof designation and an hourly NWS grid for every outdoor and retractable-roof game",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R09",
+      "requirement": "Verified results feed so backtests and ROI can be computed",
+      "status": "Partial",
+      "gate": "Results verified for Weeks 1 to 9 plus one Week 10 game (137 rows); the rest of Week 10 is not yet in the feed",
+      "clears": "Every completed game through the current week, each linked to its official schedule page",
+      "evidence": "games.json (137 rows)",
+      "href": "https://github.com/sassnarep3-star/FL2/blob/main/data/games.json"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R10",
+      "requirement": "Turn the 136-game log into the pre-registered backtest corpus",
+      "status": "Partial",
+      "gate": "No commit freezes the rule before the evaluation window opens",
+      "clears": "A commit hash that freezes the rule text, sample window and gates before evaluation",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R11",
+      "requirement": "Transcribe the venue of every fixture from the official game centre and publish it",
+      "status": "Not started",
+      "gate": "Game-centre pages not captured",
+      "clears": "A venue for every scheduled game, each linked to its game-centre page",
+      "evidence": "Schedule",
+      "href": "schedule.html"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R12",
+      "requirement": "Publish the league's dated schedule announcement beside the live schedule page",
+      "status": "Not started",
+      "gate": "Announcement not captured",
+      "clears": "One dated announcement link per season beside the schedule",
+      "evidence": "Schedule",
+      "href": "schedule.html"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R13",
+      "requirement": "Fixture-context feature set built only from published schedule facts",
+      "status": "Partial",
+      "gate": "Schedule verified for Week 10 only on this site",
+      "clears": "Every week of the 2026 schedule verified against nfl.com",
+      "evidence": "Schedule",
+      "href": "schedule.html"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R14",
+      "requirement": "Run the 32-team roster and IR sweep before any team-level model is trusted",
+      "status": "Partial",
+      "gate": "Standings verified for 32 of 32 teams; rosters and IR lists not swept",
+      "clears": "32 of 32 official roster pages and IR lists captured with dates",
+      "evidence": "Standings",
+      "href": "standings.html"
+    },
+    {
+      "area": "Results and schedule",
+      "id": "R15",
+      "requirement": "Store every model output as a probability plus its inputs, not just a pick",
+      "status": "Not started",
+      "gate": "No model output store exists",
+      "clears": "Every output row carries a probability and a hash of its inputs",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R16",
+      "requirement": "Store every injury-report read with its clock time and publish the delta, never the level",
+      "status": "Blocked",
+      "gate": "nfl.com terms section 1.3 prohibit systematic retrieval to compile a database without written consent (Flagged F-T1)",
+      "clears": "Written consent or a licensed feed, plus at least two timestamped reads per game week",
+      "evidence": "Injuries",
+      "href": "injuries.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R17",
+      "requirement": "Make the injury signal a surprise, never a level",
+      "status": "Not started",
+      "gate": "Needs timestamped reads (R16)",
+      "clears": "At least two timestamps per player-week",
+      "evidence": "Signal Lab",
+      "href": "../signal/injury_signal.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R18",
+      "requirement": "Score injury-designation reliability before using it as a feature",
+      "status": "Blocked",
+      "gate": "Official inactive lists (Game Books) are not captured in this repo, so play rates cannot be checked against them",
+      "clears": "Designations for at least three seasons and 32 clubs joined to official inactive lists",
+      "evidence": "Signal Lab",
+      "href": "../signal/injury_signal.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R19",
+      "requirement": "Calibrate what Questionable means empirically instead of using old percentages",
+      "status": "Blocked",
+      "gate": "Same as R18",
+      "clears": "Play rate per designation with a confidence interval, from official outcomes",
+      "evidence": "Signal Lab",
+      "href": "../signal/injury_signal.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R20",
+      "requirement": "Archive weekly injury reports for past seasons (Q06)",
+      "status": "Blocked",
+      "gate": "Terms section 1.3 (Flagged F-T1)",
+      "clears": "Written consent, then one archived report per week per season",
+      "evidence": "Questions & Answers",
+      "href": "questions-answers.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R21",
+      "requirement": "Injury and personnel ablations: same model with and without verified availability features, chronological holdouts, with uncertainty",
+      "status": "Not started",
+      "gate": "Availability features need R16 or R25 first",
+      "clears": "At least one season of holdout games with both arms and a confidence interval",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R22",
+      "requirement": "Re-capture and republish the Week 10 injury tables (stale counts)",
+      "status": "Partial",
+      "gate": "Re-captured 2026-11-16: 347 rows, 28 clubs, 14 games. Team-level counts are published; row-level is held private (F-T1)",
+      "clears": "Written consent to publish row-level data, or a licensed source",
+      "evidence": "Injuries",
+      "href": "injuries.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R23",
+      "requirement": "Populate the three missing Lions game-status designations (three Lions players)",
+      "status": "Built",
+      "gate": "Resolved in the 2026-11-16 capture: three Lions players read Out on the official page. The blank cells were not found on the fl2 pages (Flagged F-L1)",
+      "clears": "Done for this capture; re-check on each new capture",
+      "evidence": "Flagged F-L1",
+      "href": "flagged-review.html#F-L1"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R24",
+      "requirement": "Capture the reserve list so not listed never means available",
+      "status": "Partial",
+      "gate": "No IR list captured; IR status known only from official news items",
+      "clears": "A complete, dated IR list for each of the 32 clubs",
+      "evidence": "Injuries",
+      "href": "injuries.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R25",
+      "requirement": "Official transactions log: flag stale depth rows against it",
+      "status": "Not started",
+      "gate": "Transactions log not captured",
+      "clears": "Transactions log for all 32 clubs through the current week",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R26",
+      "requirement": "Treat roster turnover as a first-class data event, versioned against the last official roster event",
+      "status": "Not started",
+      "gate": "Depends on R25",
+      "clears": "Every depth row tagged with the roster event it was read after",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R27",
+      "requirement": "Announced-starter evidence field (dated, official, not inferred)",
+      "status": "Partial",
+      "gate": "Starter changes exist only in official news items; no structured field",
+      "clears": "One dated official source per announced starter, in a structured field",
+      "evidence": "Injuries",
+      "href": "injuries.html"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R28",
+      "requirement": "Official NFL Game Books for actual starters and game-day status",
+      "status": "Blocked",
+      "gate": "Game Books not captured; terms review needed before storing them (F-T1)",
+      "clears": "A Game Book for every completed game",
+      "evidence": "Flagged F-T1",
+      "href": "flagged-review.html#F-T1"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R29",
+      "requirement": "Availability graph as a dataset: who was expected to start and who actually did",
+      "status": "Blocked",
+      "gate": "Needs R28 (Game Books) and depth (R31)",
+      "clears": "Expected and actual starters for every completed game",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Injuries and availability",
+      "id": "R30",
+      "requirement": "Per-team view: starters out, replacements named, net injury count",
+      "status": "Partial",
+      "gate": "Out, Questionable, Doubtful and not-practicing counts are published; starters and replacements need a depth source (R31)",
+      "clears": "Depth for all 32 clubs",
+      "evidence": "Injuries",
+      "href": "injuries.html"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R31",
+      "requirement": "Resolve the depth-order source before building the backup-deficiency feature (route a: 32 club pages; route b: snap counts)",
+      "status": "Blocked",
+      "gate": "Five of 32 club depth pages are in the repo (NE, DET, GB, KC, SF), none verified for all 32; no snap-count source",
+      "clears": "One route verified for all 32 clubs",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R32",
+      "requirement": "Depth from playing time (snap counts), not jersey order",
+      "status": "Decided",
+      "gate": "Snap counts not captured",
+      "clears": "Official snap counts for 32 clubs",
+      "evidence": "Suggestions",
+      "href": "suggestions.html"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R33",
+      "requirement": "Snap counts as the starter proxy when the depth chart is unavailable",
+      "status": "Blocked",
+      "gate": "No verified snap-count source",
+      "clears": "Official snap counts for all 32 clubs, each week",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R34",
+      "requirement": "Fix depth parsing: Texans depth published as an image, Packers prepend jersey numbers",
+      "status": "Not started",
+      "gate": "Texans need an authorized structured source, not transcription by eye",
+      "clears": "A structured source for HOU; Packers rows parsed with the number stripped and the raw string kept",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R35",
+      "requirement": "Model depth slots as groups, not a single starter (ties, e.g. 149 slots with more than one rank 1)",
+      "status": "Decided",
+      "gate": "Design recorded; no code yet",
+      "clears": "Group model implemented and tested on the 5 clubs with depth pages",
+      "evidence": "Suggestions",
+      "href": "suggestions.html"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R36",
+      "requirement": "Represent shared and empty depth slots faithfully (SEA two players in one slot; WAS an empty slot)",
+      "status": "Not started",
+      "gate": "Needs a verified depth source (R31)",
+      "clears": "Both cases reproduced from the official source with no fill-in",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R37",
+      "requirement": "Official depth-chart register with date and source on every row",
+      "status": "Not started",
+      "gate": "Only five club pages captured; the Lions page is labelled unofficial by the club",
+      "clears": "Every depth row with a date and source link, for 32 clubs",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R38",
+      "requirement": "Interactive offense vs defense matchup matrix (1st to 4th string)",
+      "status": "Not started",
+      "gate": "Needs R31",
+      "clears": "Depth for 32 clubs and a matrix built from it",
+      "evidence": "Flagged F-D1",
+      "href": "flagged-review.html#F-D1"
+    },
+    {
+      "area": "Depth charts",
+      "id": "R39",
+      "requirement": "Reject deriving depth from jersey number, experience or salary",
+      "status": "Decided",
+      "gate": "None (rejected)",
+      "clears": "Not applicable",
+      "evidence": "Suggestions",
+      "href": "suggestions.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R40",
+      "requirement": "Pre-register every strategy: definition frozen before results are seen",
+      "status": "Partial",
+      "gate": "Pre-registration convention written; no frozen commit for any strategy",
+      "clears": "One committed rule per strategy before the evaluation window opens",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R41",
+      "requirement": "Forbid backtest numbers from appearing on the leaderboard",
+      "status": "Framework",
+      "gate": "Rule written; nothing enforces it in the build yet",
+      "clears": "A build check that fails if a backtest number reaches the leaderboard",
+      "evidence": "Leaderboard",
+      "href": "leaderboard.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R42",
+      "requirement": "Demotion gate that sends a live strategy back to paper",
+      "status": "Not started",
+      "gate": "No demotion gate is defined on any page",
+      "clears": "A written gate with thresholds and a minimum sample",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R43",
+      "requirement": "Separate signal from staking on the leaderboard",
+      "status": "Framework",
+      "gate": "No staking data; leaderboard spec only",
+      "clears": "Two separate columns, each from verified inputs",
+      "evidence": "Leaderboard",
+      "href": "leaderboard.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R44",
+      "requirement": "Proper-score leaderboard divisions: singles, game parlays, same-game parlays, prop combos",
+      "status": "Framework",
+      "gate": "No eligible strategy in any division",
+      "clears": "At least one eligible strategy per division",
+      "evidence": "Leaderboard",
+      "href": "leaderboard.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R45",
+      "requirement": "Rank by benchmark-relative Brier skill with a game-cluster lower bound and multiplicity adjustment",
+      "status": "Partial",
+      "gate": "Brier vs market computed once (0.2277 vs 0.2106, Elo model); no cluster bound or multiplicity adjustment",
+      "clears": "Cluster-bootstrap lower bound and a multiplicity-adjusted threshold per strategy",
+      "evidence": "Evidence Ledger: README",
+      "href": "https://github.com/sassnarep3-star/FL2/blob/main/README.md"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R46",
+      "requirement": "Control baseline (random picks; favourites only) on every leaderboard run",
+      "status": "Not started",
+      "gate": "No baseline run",
+      "clears": "A baseline row in every published run",
+      "evidence": "Leaderboard",
+      "href": "leaderboard.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R47",
+      "requirement": "Two-stage leaderboard: proper-score qualification, then prospective CLV and ROI escrow",
+      "status": "Framework",
+      "gate": "No prospective records exist",
+      "clears": "Prospective sample meeting the size fixed in the pre-registration",
+      "evidence": "Leaderboard",
+      "href": "leaderboard.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R48",
+      "requirement": "Remove luck from the equation: the removal-of-luck panel on the dashboard",
+      "status": "Framework",
+      "gate": "Method written; no computed values",
+      "clears": "Panel computed from registered strategies, with n shown",
+      "evidence": "Strategies",
+      "href": "strategies.html#luck"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R49",
+      "requirement": "Correlations computed only from officially sourced numbers, with n published beside each value",
+      "status": "Partial",
+      "gate": "Same-game correlation measured in the Signal Lab; not every input is officially sourced",
+      "clears": "Every correlation input traced to an official source, n on each value",
+      "evidence": "Signal Lab",
+      "href": "../signal/correlation.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R50",
+      "requirement": "Parlays and prop combos behind a joint-evidence gate (validated joint probability and void/push rules)",
+      "status": "Framework",
+      "gate": "No verified joint probability and no operator void/push rules",
+      "clears": "A validated joint probability and the operator's void/push rules, both available",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R51",
+      "requirement": "Two-sided what would change our mind field on every strategy entry",
+      "status": "Not started",
+      "gate": "Field absent from the strategy register",
+      "clears": "A filled two-sided field on every registered strategy",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R52",
+      "requirement": "Singles-only shadow baseline, frozen and recorded before kickoff",
+      "status": "Not started",
+      "gate": "No frozen model version",
+      "clears": "A git hash and a logged forecast before kickoff of the next game",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R53",
+      "requirement": "Train, validation and final holdout seasons, protecting out-of-sample testing",
+      "status": "Partial",
+      "gate": "Protocol recorded: train from 2006, calibration to 2010, evaluation from 2011 (data/backtest_summary.json). No separate final holdout season in the protocol.",
+      "clears": "A final holdout season frozen before evaluation",
+      "evidence": "data/backtest_summary.json; docs/STRATEGY_VALIDATION.md",
+      "href": "https://github.com/sassnarep3-star/FL2/blob/main/data/backtest_summary.json"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R54",
+      "requirement": "Each strategy must pass validation gates before it is ranked",
+      "status": "Framework",
+      "gate": "Earlier harness: none passed (README)",
+      "clears": "At least one strategy passing every gate out of sample",
+      "evidence": "Evidence Ledger: README",
+      "href": "https://github.com/sassnarep3-star/FL2/blob/main/README.md"
+    },
+    {
+      "area": "Strategy and validation",
+      "id": "R55",
+      "requirement": "Strategy designs for single bets, parlays and player-prop combinations, as a leaderboard competition",
+      "status": "Framework",
+      "gate": "Specification only",
+      "clears": "Registered strategies in each bet type with computed results",
+      "evidence": "Strategies",
+      "href": "strategies.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R56",
+      "requirement": "Questions, information and answers register",
+      "status": "Built",
+      "gate": "None",
+      "clears": "Not applicable",
+      "evidence": "Questions & Answers",
+      "href": "questions-answers.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R57",
+      "requirement": "Suggestions section for the owner to choose a path before any change",
+      "status": "Built",
+      "gate": "None",
+      "clears": "Not applicable",
+      "evidence": "Suggestions",
+      "href": "suggestions.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R58",
+      "requirement": "Executive summary",
+      "status": "Built",
+      "gate": "None",
+      "clears": "Not applicable",
+      "evidence": "Executive summary",
+      "href": "executive-summary.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R59",
+      "requirement": "Line-by-line repository review with links and flagged irregularities",
+      "status": "Built",
+      "gate": "Checks are scripted; re-run after each change",
+      "clears": "Not applicable",
+      "evidence": "Repo review",
+      "href": "repo-review.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R60",
+      "requirement": "GitHub Pages site: clean landing page with category subpages",
+      "status": "Built",
+      "gate": "None",
+      "clears": "Not applicable",
+      "evidence": "Dashboard home",
+      "href": "index.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R61",
+      "requirement": "Every table row carries a source link to an official site; blank if unverified",
+      "status": "Partial",
+      "gate": "Three rows in Strategies show a status text, not a link (F-S1)",
+      "clears": "Those rows linked to a source, or left blank and flagged",
+      "evidence": "Flagged F-S1",
+      "href": "flagged-review.html#F-S1"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R62",
+      "requirement": "Durable immutable snapshot storage outside the static site, with freshness monitoring and alerts",
+      "status": "Blocked",
+      "gate": "Terms section 1.3 (F-T1); the Pages build publishes the whole repository (F-P2)",
+      "clears": "Written consent, a private storage decision, and an alert on a missed capture",
+      "evidence": "Flagged F-P2",
+      "href": "flagged-review.html#F-P2"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R63",
+      "requirement": "Drift alarm on every scraper: pin row counts and required fields, fail loudly",
+      "status": "Partial",
+      "gate": "The Week 10 capture tool fails on a missing club or an unknown status; no scheduled run",
+      "clears": "The same check wired into CI on every run",
+      "evidence": "Repo review",
+      "href": "repo-review.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R64",
+      "requirement": "Split site into public analysis layer and private data layer",
+      "status": "Partial",
+      "gate": "Week 10 row-level data moved to git-ignored private/; older row-level JSON still published (F-P1)",
+      "clears": "Owner decision on F-P1 and F-T1",
+      "evidence": "Flagged F-P1",
+      "href": "flagged-review.html#F-P1"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R65",
+      "requirement": "Weekly what-changed diff instead of a static snapshot",
+      "status": "Not started",
+      "gate": "Needs two stored weekly snapshots",
+      "clears": "Two consecutive weekly snapshots with a diff column",
+      "evidence": "Injuries",
+      "href": "injuries.html"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R66",
+      "requirement": "Coordination board for parallel agent sessions",
+      "status": "Partial",
+      "gate": "Parallel sessions not used this run (single branch); board updated",
+      "clears": "Not applicable",
+      "evidence": "COORDINATION.md",
+      "href": "https://github.com/sassnarep3-star/FL2/blob/main/COORDINATION.md"
+    },
+    {
+      "area": "Governance and site",
+      "id": "R67",
+      "requirement": "Pull request from the integration branch to main, merged once the site builds with no broken links",
+      "status": "Partial",
+      "gate": "Owner gate: all brief items done. Blocked and not-started rows remain (see the counts above)",
+      "clears": "Every row Built or Decided, or the owner waives the gate",
+      "evidence": "Coordination log",
+      "href": "https://github.com/sassnarep3-star/FL2/blob/main/COORDINATION.md"
+    }
+  ]
+}

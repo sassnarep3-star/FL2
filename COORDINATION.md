@@ -703,3 +703,84 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 **Findings:** local site and source-column/link checks pass, but do not re-verify external page contents. The Signal local rebuild fails after producing zero market rows (`IndexError` in `descriptive()`); detailed reproduction and limitations are in the audit note. No NFL values were newly transcribed or asserted as live-verified. External official-source verification remains outstanding for every current-week claim.
 
 **Scope note:** the failed Signal rebuild writes within `signal/analysis` and `signal/data`, owned by the existing Signal Lab section. No code or data in that scope was changed. The finding is logged for its owner to address.
+
+---
+
+# Session 8326a20d — FL2 Dashboard update (branch `arena/8326a20d-fl2`, base `229d5fa`)
+
+## Branch and claim
+
+- The session is pinned to `arena/8326a20d-fl2`. The brief's `session-<id>/<task>` scheme cannot be used here. This is a logged deviation. All work and the PR use this branch.
+- **Handoff logged.** Session `session-1374049c` holds a claim on "entire repository" (2026-11-14, Released "—"). Its T16 row still reads "in progress", but its integration (PR #15) is merged. The claim is more than 60 minutes old with no commits since. This session takes over the files listed below, and no other session's files are changed.
+- Claimed scope for this session: `fl2-dashboard/**` (dashboard pages, `assets/app.js`, `data/repo-audit.json`, `data/decision-readiness.json`, `data/official/injuries-w10-team-summary.json`), `tools/repo_audit.py`, `tools/build_fl2_pages.py`, `tools/official_injury_capture.py`, `.gitignore` (one line: `private/`), and this section of `COORDINATION.md`.
+- Not edited: `signal/`, `docs/`, `hub/`, `fl2-signals/`, `ledger/`, `data/`, `engine/`, `scripts/`, `.github/`, and the root `README.md`. Changes needed there are logged as requests below.
+
+## Task board
+
+| ID | Task | Status | Evidence |
+|---|---|---|---|
+| S8-01 | Repository audit, scripted | done | `tools/repo_audit.py` → `data/repo-audit.json`: 0 JSON parse failures, 0 broken internal links, 0 missing anchors, 0 table rows without a source link |
+| S8-02 | Week 10 official injury capture | done for team counts; row data kept private | `tools/official_injury_capture.py`: 14 games, 28 clubs, 347 rows, structure errors 0. Public output is team-level counts only (`fl2-dashboard/data/official/injuries-w10-team-summary.json`) |
+| S8-03 | Read nfl.com terms before automated capture | done; decision open | https://www.nfl.com/legal/terms/ §1.3 (see F-T1). Automated capture not built |
+| S8-04 | Decision-readiness table on the landing page | done | `fl2-dashboard/data/decision-readiness.json` (67 rows) rendered by `tools/build_fl2_pages.py` into `index.html` |
+| S8-05 | Flagged for Review, section C | done | `fl2-dashboard/flagged-review.html` (14 entries) |
+| S8-06 | Executive summary update and fetch log | done | `executive-summary.html`, `verification.html` §5 |
+| S8-07 | Daily Wed–kickoff snapshots, alerts, point-in-time ledger | blocked | Gate F-T1 (terms §1.3), and a storage decision (F-P2) |
+| S8-08 | 32-club depth source, snap counts | blocked | Gate F-D1: no verified source for 32 clubs |
+| S8-09 | Demotion gate and "what would change our mind" | not started | Owner must set thresholds (F-G1) |
+| S8-10 | Strategy pre-registration, shadow baseline, leaderboard statistics | not started | Needs a frozen commit before the evaluation window; no permitted price source (Q1/Q03) |
+
+## Sources
+
+| Source | Used for | Retrieved |
+|---|---|---|
+| https://www.nfl.com/injuries/ (8 chunks) | Week 10 2026 report: player, position, injury, practice status, game status | 2026-11-16 by page-fetch tool |
+| https://www.nfl.com/legal/terms/ (chunk 0 of 9: §1.1, §1.3; chunks 1–8 not yet read) | Terms for automated capture | 2026-11-16 |
+| https://www.nfl.com/terms-of-use/ | Checked: returns 404 (F-T2) | 2026-11-16 |
+| `data/backtest_summary.json`, `docs/STRATEGY_VALIDATION.md` | Train/calibration/eval protocol (R53) and Elo vs market Brier (R45) | repo, as of 2026-11-14 |
+| `README.md` | "None passed" (R54) | repo |
+| `fl2-dashboard/data/verified/injuries-week10.json` | Compared with the official capture, not re-used | repo, dated 2026-11-14 |
+
+Bash cannot reach nfl.com (TLS error from the sandbox). The page-fetch tool returns text, so no byte-level hash is stored. The capture is a transcription, checked by structure rules, counts, and a diff.
+
+## Verification
+
+1. **Structure of the official capture** (`tools/official_injury_capture.py`): 14 games; 28 clubs, each in exactly one game; each row has 6 fields; every practice and game status is in the allowed set; no empty names; no club with zero rows. Errors: 0.
+2. **Counts in the capture:** 347 rows; 171 with a designation (70 Out, 11 Doubtful, 90 Questionable). Every club has at least one designation. Seattle lists 15 players (4 designated). Cincinnati lists 9 players (4 designated).
+3. **Diff against the stored 2026-11-14 file:** 18 players differ across three clubs (LAC 13, BAL 4, IND 1). Ravens: 8 stored, 10 official (two players absent from the stored file; two with blank statuses stored (names in the private capture)). Colts: one player is stored as Hamstring/Questionable and has no matching official designation. Unresolved; see F-I1.
+4. **Lions:** three players (Knee, Ankle, Hip) each read "Did Not Participate In Practice" and game status "Out" on the official page. The earlier claim of blank Lions game-status cells was wrong and is withdrawn (F-L1).
+5. **Register values checked against the repo:** R45 (Elo Brier 0.2277 vs market 0.2106, n = 4,041) matches `data/backtest_summary.json`. R53 (train 2006, calibration to 2010, evaluation from 2011, no holdout key) matches the same file. R54 ("none passed") matches `README.md`. R23 matches the Lions rows of the capture.
+6. **Site checks, run in this session:** `tools/repo_audit.py` (exit 0); `tools/build_fl2_pages.py` (ok); `scripts/check_site.py` ("validation passed for 7 pages", exit 0); `tools/check_links.py` (all internal links and anchors resolve, exit 0); jsdom render of all 12 `fl2-dashboard` pages with their own scripts (no script errors, no leaked `undefined`/`NaN` cells).
+
+## Flagged irregularities (all on `fl2-dashboard/flagged-review.html` §C)
+
+| ID | Summary | Status |
+|---|---|---|
+| F-T1 | nfl.com terms §1.3 prohibit systematic retrieval to compile a database without written consent. Automated capture conflicts with it | Open — owner decision |
+| F-T2 | `/terms-of-use/` returns 404; the operative page is `/legal/terms/` | Recorded |
+| F-I1 | Stored 2026-11-14 injury file differs from the official page for 18 players (LAC 13, BAL 4, IND 1) | Open |
+| F-I2 | Ravens: 8 stored rows vs 10 official | Open |
+| F-I3 | Week 10 row figures in the repo: 76 (README label), 160 (CSV), 345 (JSON), 347 (official capture). The owner brief's figures 254 and 279 do not appear in the repo | Open |
+| F-L1 | Lions game-status cells: all three read Out on the official page | Resolved for this capture |
+| F-D1 | Depth: 5 of 32 club pages in the repo; no verified route for 32 clubs | Open — blocks depth features |
+| F-P1 | Row-level injury data still published in tracked files (`data/verified/injuries-week10.json`, `hub/`, `docs/`, `fl2-signals/`) | Open — owner decision |
+| F-P2 | Pages publishes the whole repository; `private/` is git-ignored, but tracked row-level data is public | Open — owner decision |
+| F-S1 | Two Strategies rows have no source link (Situational efficiency; Correlation matrix placeholder). Now linked to this flag | Open |
+| F-G1 | No demotion gate and no "what would change our mind" field | Open |
+| F-A1 | Three broken anchors | Resolved |
+| F-X1 | Earlier-session claims not re-verified this session | Open |
+
+## Not done this session
+
+- Automated or scheduled nfl.com capture (blocked by F-T1). Terms chunks 1–8 of 9 not read.
+- Strategy leaderboard, backtest, and pre-registration: no permitted price source, and no frozen registration commit.
+- Depth source for 32 clubs; snap counts; roster and transaction logs; Game Books.
+- Consolidating the four older site sections is the owner's decision.
+
+## Requests to other sessions
+
+- Owner or the `signal/` session: decide F-P1 and F-P2 (whether row-level injury data and `signal/` stay public). The Pages config is also unresolved: `.github/workflows/pages.yml` deploys `.`, the 1374049c board says `/docs`, and the live legacy build serves `main:/`.
+
+## Pull request and merge
+
+Recorded below after the PR is opened and merged.
