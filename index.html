@@ -45,6 +45,7 @@
       <a href="ledger/summary.html">Executive Summary</a>
       <a href="fl2-dashboard/index.html">FL2 Dashboard</a>
       <a href="signal/index.html">Signal Lab</a>
+      <a href="fl2-lines/index.html">Originated Lines</a>
       <a href="ledger/flagged.html">Flagged</a>
     </nav>
   </div>
@@ -190,16 +191,33 @@
         gate that six strategies were run through — none passed. Every figure is re-derived from the
         committed data by CI, and the site build is byte-reproducible.</p>
         <div class="meta"><span class="badge ok">measured + CI-verified</span></div>
+      </a>
+      <a class="tile" href="fl2-lines/index.html">
+        <div class="eyebrow">Session arena-39dd0836-fl2</div>
+        <h3>Originated Lines &amp; decision readiness</h3>
+        <p>A 74-row decision-readiness table with the blocking gate and the clearing number for every
+        requirement; a verified 2026 results feed that reproduces the official standings for 32 of 32
+        clubs; a price store with hashes and its own policy; originated side &rarr; total &rarr; moneyline
+        with fair, market and difference in separate columns; designation reliability measured rather than
+        assumed; an ablation in place of a fixed injury penalty; a hash-chained pre-kickoff ledger; and a
+        leaderboard deliberately left empty because no strategy has earned a rank.</p>
+        <div class="meta"><span class="badge ok">sourced, reconciled, gates enforced</span></div>
       </a>    </div>
 
     <div class="note warn" style="margin-top:16px">
-      <p><strong>Which one should you read?</strong> Read the <a href="ledger/overview.html">Evidence
-      Ledger</a>. It is the only section that contains verified numeric NFL data — standings, points
-      for and against, defensive yardage, the official injury report, seven quarterback decisions, and
-      16 seasons of closing lines with results. The other sections are well-built frameworks that
-      deliberately left every NFL value blank. Their restraint was correct at the time; the ledger is
-      what those frameworks were waiting for.</p>
-      <p class="small" style="margin-bottom:0">Consolidating the five structures into one is proposed
+      <p><strong>Which one should you read?</strong> Read the <a href="fl2-lines/index.html">decision-readiness
+      table</a> first — it states, requirement by requirement, what is settled and what is still blocked,
+      then follow the numbers into the <a href="ledger/overview.html">Evidence
+      Ledger</a> and the <a href="ledger/strategies.html">Strategy Lab</a>. Four sections now carry
+      verified or measured NFL data — the ledger (standings, points for and against, defensive yardage,
+      the official injury report, 16 seasons of closing lines), Originated Lines (a 2026 results feed
+      reconciled to the official standings, originated prices with residuals, designation rates measured
+      on 23,389 player-weeks), <a href="fl2-dashboard/index.html">FL2 Dashboard</a> and
+      <a href="signal/index.html">Signal Lab</a>. The remaining sections
+      (<a href="docs/index.html">docs</a>, <a href="hub/index.html">hub</a>, and the pages at this root)
+      are well-built frameworks that deliberately left every NFL value blank. Their restraint was correct
+      at the time; the reconciled data is what those frameworks were waiting for.</p>
+      <p class="small" style="margin-bottom:0">Consolidating the six structures into one is proposed
       as a decision, not done silently. See <a href="ledger/suggestions.html">Suggestions</a>.</p>
     </div>
   </section>

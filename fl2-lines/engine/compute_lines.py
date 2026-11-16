@@ -489,10 +489,11 @@ def publish_2026(allrec: list[dict], beta: dict, pri: dict, cal: dict) -> tuple[
                      "market_p_devig": None, "overround_pct": None,
                      "actual": "" if actual_over is None else actual_over,
                      "benchmark_line": fnum(r["total_line"])})
+        p_over_t2 = norm_cdf((r["t2"] - r["total_line"]) / (sigma * math.sqrt(2.0))) if r["total_line"] is not None else None
         rows.append({**common, "market": "TOTAL_T2", "sequence": "2b: total, estimator T2 (venue/rest context) - published until one wins",
                      "fair_line": round(r["t2"], 2), "market_line": fnum(r["total_line"]),
                      "residual_fair_minus_market": None if r["total_line"] is None else round(r["t2"] - r["total_line"], 2),
-                     "fair_line_with_personnel": None, "p_home_or_over": None, "market_p_devig": None,
+                     "fair_line_with_personnel": None, "p_home_or_over": fnum(p_over_t2, 4), "market_p_devig": None,
                      "overround_pct": None, "actual": "" if actual_over is None else actual_over,
                      "benchmark_line": fnum(r["total_line"])})
         rows.append({**common, "market": "MONEYLINE", "sequence": "3rd: moneyline, derived from the side's margin distribution",

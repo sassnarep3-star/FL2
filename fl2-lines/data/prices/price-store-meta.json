@@ -85,8 +85,8 @@
       "rows": 20490,
       "bytes": 942229,
       "sha256": "3571e1c9fc8d7396f405fb7c17d43c15676d335ffc932fbb03ff18da691d1729",
-      "seasons_min": null,
-      "seasons_max": null,
+      "seasons_min": "2006",
+      "seasons_max": "2018",
       "carries_timestamp": false,
       "columns": [
         "game_id",
@@ -122,8 +122,8 @@
       "rows": 2020,
       "bytes": 73429,
       "sha256": "ca5ceea46307b58030ef3a217580de46f042bf74b4ce1ed52a4c16f7e5babe2d",
-      "seasons_min": null,
-      "seasons_max": null,
+      "seasons_min": "2017",
+      "seasons_max": "2018",
       "carries_timestamp": false,
       "columns": [
         "game_id",
@@ -134,7 +134,7 @@
       ]
     }
   },
-  "historical_price_index_rows": 2,
+  "historical_price_index_rows": 16,
   "manifest": "fl2-lines/data/prices/MANIFEST.sha256",
-  "git_head": "ffcfedbd8e3c43740a95c263c93a993b76217434"
+  "git_head": "58c41f4d6e645e0ba07844301dce4691764e07db"
 }

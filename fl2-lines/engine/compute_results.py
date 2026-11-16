@@ -355,7 +355,18 @@ def build_price_store(originate_ids: set[str]) -> dict:
             files[key] = {"present": False, "path": str(path.relative_to(REPO))}
             continue
         rows = read_csv(path)
-        seasons = sorted({r.get("season", "") for r in rows if r.get("season")})
+        # not every price file carries a season column; a numeric game_id prefix is the same
+        # fact, so read it from there rather than publishing "None" as if it were unknown.
+        def _season(r):
+            v = (r.get("season") or "").strip()
+            if v:
+                return v
+            for key in ("game_id", "away_team_id"):
+                g = (r.get(key) or "").strip()
+                if g[:4].isdigit() and 1999 <= int(g[:4]) <= 2100:
+                    return g[:4]
+            return ""
+        seasons = sorted({_season(r) for r in rows} - {""})
         files[key] = {
             "present": True,
             "path": str(path.relative_to(REPO)),
@@ -427,16 +438,32 @@ def build_price_store(originate_ids: set[str]) -> dict:
         m["rows"] += 1
         m["with_closing"] += r["closing_line"] is not None
         m["with_opening"] += r["opening_line"] is not None
-    hist_index = defaultdict(lambda: {"close_rows": 0, "open_rows": 0})
-    for r in read_csv(NFLVERSE_CLOSING):
-        hist_index[r.get("season", "?")]["close_rows"] += 1
-    for r in read_csv(NFLVERSE_INITIAL):
-        hist_index[r.get("season", "?")]["open_rows"] += 1
+    # Per-season depth of every price file we hold. Two of the three have no season column,
+    # so the season is taken from the game_id's year prefix - the same fact, stated honestly
+    # rather than lumped into a "?" bucket that hides how thin the history actually is.
+    def _season_of(r):
+        v = (r.get("season") or "").strip()
+        if v:
+            return v
+        g = (r.get("game_id") or "").strip()
+        return g[:4] if len(g) >= 4 and g[:4].isdigit() else "not dated"
+
+    hist_index = defaultdict(lambda: defaultdict(lambda: {"close_rows": 0, "open_rows": 0}))
+    for path, kind in ((NFLVERSE_CLOSING, "close_rows"), (NFLVERSE_INITIAL, "open_rows"),
+                       (SIGNAL_CLOSING, "close_rows")):
+        if not path.exists():
+            continue
+        for r in read_csv(path):
+            hist_index[_season_of(r)][path.name][kind] += 1
     index = [
-        {"season": s, "closing_price_rows": v["close_rows"], "opening_price_rows": v["open_rows"]}
-        for s, v in sorted(hist_index.items(), key=lambda kv: str(kv[0]))
+        {"season": s, "source": f,
+         "rows": hist_index[s][f]["close_rows"] + hist_index[s][f]["open_rows"],
+         "closing_price_rows": hist_index[s][f]["close_rows"],
+         "opening_price_rows": hist_index[s][f]["open_rows"]}
+        for s in sorted(hist_index, key=lambda x: str(x)) for f in sorted(hist_index[s])
     ]
-    write_csv(PRICES / "price-source-index.csv", index, ["season", "closing_price_rows", "opening_price_rows"])
+    write_csv(PRICES / "price-source-index.csv", index,
+              ["season", "source", "rows", "closing_price_rows", "opening_price_rows"])
 
     merkle = []
     for p in sorted(PRICES.glob("*")) + sorted((DERIVED / "results-2026.csv",)):

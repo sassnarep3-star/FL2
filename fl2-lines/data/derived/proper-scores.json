@@ -37,6 +37,22 @@
       "hit_rate_ours": 51.4706,
       "calibration_note": "hit rate alone is not a skill measure: a 52.4% rate at -110 is break-even, not profitable"
     },
+    "TOTAL_T2": {
+      "n_graded": 136,
+      "brier_ours": 0.27098,
+      "brier_market_devig": 0.25001,
+      "brier_coin_flip": 0.25,
+      "brier_skill_vs_market": -0.0839,
+      "brier_skill_cluster_ci95": [
+        -0.1055,
+        -0.2303
+      ],
+      "log_loss_ours": 0.73645,
+      "log_loss_market": 0.69317,
+      "mean_signed_prob_gap_vs_market": 0.0129,
+      "hit_rate_ours": 51.4706,
+      "calibration_note": "hit rate alone is not a skill measure: a 52.4% rate at -110 is break-even, not profitable"
+    },
     "MONEYLINE": {
       "n_graded": 136,
       "brier_ours": 0.22908,
@@ -57,11 +73,12 @@
   "multiplicity": {
     "method": "Benjamini-Hochberg",
     "q": 0.1,
-    "n_hypotheses": 3,
+    "n_hypotheses": 4,
     "reject": {
       "skill:MONEYLINE": false,
       "skill:SPREAD": false,
-      "skill:TOTAL": false
+      "skill:TOTAL": false,
+      "skill:TOTAL_T2": false
     }
   },
   "controls_and_luck": {

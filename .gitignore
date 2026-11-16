@@ -4,3 +4,7 @@ __pycache__/
 node_modules/
 package-lock.json
 engine/.check_driver.js
+
+# Raw dated captures of official pages: stored on branch fl2-snapshots and as Actions
+# artefacts, never published inside the site tree (public analysis layer vs private data layer).
+fl2-lines/data/snapshots/

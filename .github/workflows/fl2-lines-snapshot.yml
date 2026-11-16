@@ -1,0 +1,105 @@
+name: fl2-lines-snapshot
+# Dated captures of the official pages this section depends on, kept OUTSIDE the published
+# site (branch `fl2-snapshots`), plus the drift/schema audit that fails loudly when a source
+# changes under us. Requirement lines R21, R29, R30, R39, R46, R54, R55, R61, R63.
+on:
+  schedule:
+    # 16:00 UTC Wed/Thu/Fri - the league's report cadence runs Wednesday disclosure through
+    # Friday's final cut, so a single weekly read cannot tell a change from a re-render.
+    - cron: "0 16 * * 3"
+    - cron: "0 16 * * 4"
+    - cron: "30 16 * * 5"
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "NFL week to capture the schedule for (blank = next fixture on the verified feed)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fl2-snapshot
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Self-test the parser before trusting its output
+        run: python3 fl2-lines/engine/snapshot_capture.py --test
+
+      - name: Resolve the week in play
+        id: wk
+        run: |
+          w="${{ github.event.inputs.week }}"
+          if [ -z "$w" ]; then w=$(python3 fl2-lines/engine/snapshot_capture.py --resolve-week); fi
+          echo "week=$w" >> "$GITHUB_OUTPUT"
+          echo "capturing week $w"
+
+      - name: Capture the official pages
+        run: |
+          python3 fl2-lines/engine/snapshot_capture.py --fetch --season 2026 --week "${{ steps.wk.outputs.week }}" \
+            | tee snapshot-capture.log
+          test -n "$(find fl2-lines/data/snapshots -name '*.html.gz' -newermt '-1 hour' 2>/dev/null)" \
+            || { echo "::warning::no raw page bytes stored this run - see snapshot-capture.log"; }
+
+      - name: Audit for drift, schema loss and same-day conflicts
+        run: |
+          python3 fl2-lines/engine/snapshot_capture.py --audit | tee snapshot-audit.txt
+          python3 fl2-lines/engine/snapshot_capture.py --write-audit-json
+
+      - name: Upload the raw captures (retained 90 days, hashed, immutable)
+        uses: actions/upload-artifact@v4
+        with:
+          name: fl2-snapshots-${{ github.run_number }}
+          path: |
+            fl2-lines/data/snapshots
+            snapshot-audit.txt
+            snapshot-audit.json
+            snapshot-capture.log
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Persist snapshots on the data branch, not the site
+        run: |
+          set -euo pipefail
+          if [ ! -d fl2-lines/data/snapshots ] || [ -z "$(ls -A fl2-lines/data/snapshots)" ]; then
+            echo "no snapshots written - failing so the gap is visible" >&2
+            exit 1
+          fi
+          git config user.name "fl2-snapshot-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin fl2-snapshots >/dev/null 2>&1; then
+            git fetch origin fl2-snapshots
+            git checkout -B data-branch-tmp origin/fl2-snapshots
+            git rm -rqf --cached captures >/dev/null 2>&1 || true
+          else
+            git checkout -B data-branch-tmp
+            git rm -rqf --cached . >/dev/null 2>&1 || true
+          fi
+          mkdir -p captures
+          cp -r fl2-lines/data/snapshots/. captures/
+          cp snapshot-audit.txt captures/audit-$(date -u +%Y-%m-%d).txt || true
+          git add -f captures
+          git commit -m "fl2 captures: run ${{ github.run_number }} ($(date -u +%FT%TZ))" || echo "nothing to commit"
+          git push -f origin HEAD:fl2-snapshots
+
+      - name: Fail the run when a source drifted
+        run: |
+          if grep -Eq "^(DRIFT|SCHEMA|CONFLICT)" snapshot-audit.txt; then
+            echo "::error::a source changed shape, came in under its row floor, or disagrees with an earlier read the same day - see snapshot-audit.txt"
+            grep -E "^(DRIFT|SCHEMA|CONFLICT)" snapshot-audit.txt | head -20
+            exit 1
+          fi
+          echo "audit clean"
