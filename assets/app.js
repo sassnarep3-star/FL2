@@ -395,6 +395,11 @@ const FL2Console = (() => {
           <div>${statusBadge(s.status)} <span class="badge mute">${s.gates_passed}/8 gates</span></div>
         </div>
         <p class="small" style="margin:10px 0"><strong>Thesis:</strong> ${esc(s.thesis)}</p>
+        ${s.would_change_mind ? `<div class="note" style="margin:10px 0">
+          <p class="small" style="margin:0"><strong>What would change our mind &mdash; two-sided:</strong>
+          <span class="badge ok">support</span> ${esc(s.would_change_mind.support)}
+          <span class="badge bad">refute</span> ${esc(s.would_change_mind.refute)}</p>
+        </div>` : ""}
         <div class="grid c4" style="margin:12px 0">
           <div><div class="eyebrow">Bets</div><strong>${s.n ?? "—"}</strong></div>
           <div><div class="eyebrow">Hit rate</div><strong>${pct(s.hit_rate) || "—"}</strong>
