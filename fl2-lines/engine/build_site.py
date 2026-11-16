@@ -42,7 +42,7 @@ PAGES = [
     ("data.html", "Data layer and artefacts"),
 ]
 NAV = [(p, t) for p, t in PAGES]
-BLANK = "&mdash;"
+BLANK = "—"
 
 
 def read(path: Path) -> list[dict]:
@@ -112,13 +112,13 @@ def page(fname: str, title: str, intro: str, body: str, updated: str = "2026-11-
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{esc(title)} &middot; FL2 originated lines</title>
+<title>{esc(title)} · FL2 originated lines</title>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/app.js" defer></script>
 </head><body>
 <header class="top">
-  <div class="brand"><a href="index.html"><strong>FL2</strong> Originated Lines &middot; decision readiness</a></div>
-  <div class="asof">data as of <strong>{esc(updated)}</strong> &middot; <a href="../index.html">all sections</a></div>
+  <div class="brand"><a href="index.html"><strong>FL2</strong> Originated Lines · decision readiness</a></div>
+  <div class="asof">data as of <strong>{esc(updated)}</strong> · <a href="../index.html">all sections</a></div>
 </header>
 <nav class="tabs">{nav}</nav>
 <main>
@@ -129,7 +129,7 @@ def page(fname: str, title: str, intro: str, body: str, updated: str = "2026-11-
 <footer>
 <p>Research record, not betting advice. Every row links to what it was checked against; a
 value with no official source is left blank and flagged rather than estimated.
-Section index: <a href="index.html">/fl2-lines/</a> &middot; other sections:
+Section index: <a href="index.html">/fl2-lines/</a> · other sections:
 <a href="../index.html">hub</a>, <a href="../ledger/overview.html">ledger</a>,
 <a href="../fl2-signals/index.html">verified signals</a>, <a href="../docs/index.html">dashboard docs</a>,
 <a href="../hub/index.html">decision hub</a>, <a href="../fl2-dashboard/index.html">FL2 dashboard</a>.</p>
@@ -179,7 +179,7 @@ def p_index(d) -> str:
         rows.append([
             esc(r["id"]), esc(r["requirement"]), esc(r["area"]), badge,
             esc(r["gate_blocking"]), esc(r["clearing_number"]),
-            link(r["evidence"], "artefact") + " &middot; "
+            link(r["evidence"], "artefact") + " · "
             + (link(r["official_source"], "official") if r["official_source"].startswith("http")
                else f'<span class="fine">{esc(r["official_source"])}</span>'),
         ])
@@ -296,15 +296,15 @@ def p_results(d) -> str:
         rows.append([
             esc(r["gameday"]), esc(f'W{r["week"]}'), score,
             esc(r["roof"] or BLANK), esc(r["stadium"] or BLANK),
-            esc(r["venue_source"][:52] + ("&hellip;" if len(r["venue_source"]) > 52 else "")),
+            esc(r["venue_source"][:52] + ("…" if len(r["venue_source"]) > 52 else "")),
             link(r["game_centre_url"] or "https://www.nfl.com/schedules/2026/by-week/week-10", "game centre"),
         ])
     body.append("<h2>Week 10 and the Week 11 slate, as captured</h2>")
     body.append(table(["date", "week", "result", "roof", "venue", "venue provenance", "source"], rows, cls="compact"))
     body.append(
         '<div class="warn"><strong>Venue flag (FL-08, R23).</strong> The venue column above is transcribed from the official '
-        "schedule and game-centre pages for the fixtures that have them, and from a mirror elsewhere &mdash; the two disagree for "
-        "international games: the Week 10 Patriots&ndash;Lions block is labelled <em>International Game &mdash; Munich</em> while the "
+        "schedule and game-centre pages for the fixtures that have them, and from a mirror elsewhere — the two disagree for "
+        "international games: the Week 10 Patriots&ndash;Lions block is labelled <em>International Game — Munich</em> while the "
         "page's own venue widget targets Ford Field, and the mirror has no row for that fixture at all. 2 of 148 fixtures are "
         "transcribed from a game centre; the other 146 are a capture task, not a judgement call.</div>"
     )
@@ -319,7 +319,7 @@ def p_results(d) -> str:
         [esc("Flex procedures"), esc("later date/time moves are permitted by rule, so a fixture's context is only as good as its capture time"),
          link("https://www.nfl.com/legal/flexible-scheduling-procedures", "rule text")],
     ]))
-    body.append('<p class="fine">Feed file: <a href="data/derived/results-2026.csv">results-2026.csv</a> &middot; '
+    body.append('<p class="fine">Feed file: <a href="data/derived/results-2026.csv">results-2026.csv</a> · '
                 "capture log: <a href=\"data/official/fetch-log.md\">fetch-log.md</a></p>")
     return page("results.html", "Verified results feed",
                 "Game-level results with a source per row, used to make the ratings opponent-aware and to make grading possible at all.",
@@ -367,7 +367,7 @@ def p_prices(d) -> str:
     body.append('<div class="warn"><strong>Forward-dated prices (FL-03).</strong> The mirror carries a spread and total for 15 '
                 "unplayed 2026 fixtures with no capture timestamp, and 8 of 13 Week 11 games disagree with our line by more than "
                 "8 points (largest 18.4). They are published, labelled, and excluded from every gate.</div>")
-    body.append('<p class="fine">Store: <a href="data/prices/price-snapshots-2026.csv">price-snapshots-2026.csv</a> &middot; '
+    body.append('<p class="fine">Store: <a href="data/prices/price-snapshots-2026.csv">price-snapshots-2026.csv</a> · '
                 'integrity manifest: <a href="data/prices/MANIFEST.sha256">MANIFEST.sha256</a></p>')
     return page("prices.html", "Price-snapshot store",
                 "Opening and closing numbers for every market we originate, with provenance and a hash per source file.",
@@ -387,8 +387,9 @@ def p_lines(d) -> str:
             continue
         res = [float(r["residual_fair_minus_market"]) for r in rows]
         absr = sorted(abs(x) for x in res)
+        unit = "American odds" if m == "MONEYLINE" else "points"
         stats.append([
-            esc(m), cell(len(rows)), cell(sum(absr) / len(absr), 2), cell(absr[len(absr) // 2], 2),
+            esc(m), esc(unit), cell(len(rows)), cell(sum(absr) / len(absr), 2), cell(absr[len(absr) // 2], 2),
             cell(max(absr), 2), f'{100 * sum(1 for x in absr if x >= 1.5) / len(absr):.1f}%',
             f'{100 * sum(1 for x in absr if x >= 3.0) / len(absr):.1f}%',
             cell((sum(float(r["overround_pct"]) for r in rows if r["overround_pct"]) /
@@ -396,7 +397,7 @@ def p_lines(d) -> str:
         ])
     body.append(kpi([
         ("Originated rows", str(len(lines)), "every fixture, every market, fair and market and difference"),
-        ("Origination order", "side &rarr; total &rarr; moneyline", "enforced by the code path, labelled per row"),
+        ("Origination order", "side → total → moneyline", "enforced by the code path, labelled per row"),
         ("Outputs storing probability + inputs", f'{len(d["inputs"])} of {len(lines) // 4} fixtures', "lines-inputs.jsonl"),
         ("Markets with a residual", str(sum(1 for r in lines if r["residual_fair_minus_market"])), "against the recorded market line"),
     ]))
@@ -404,7 +405,8 @@ def p_lines(d) -> str:
                 "ratings can be trusted to rank; the total is priced second from the same scoring decomposition; the moneyline is "
                 "derived third from the margin distribution the side already produced. Nothing is back-fitted from a price.</div>")
     body.append("<h2>Residual against the market, by market (2026 finals)</h2>")
-    body.append(table(["market", "games", "mean |residual| pts", "median", "max", "share &ge; 1.5 pts", "share &ge; 3.0 pts", "mean overround %"], stats))
+    body.append(table(["market", "unit", "games", "mean |difference|", "median", "max",
+                       "share ≥ 1.5 unit", "share ≥ 3.0 unit", "mean overround %"], stats))
     body.append("<h2>Decomposition: vig-free consensus vs our line</h2>")
     ml = [r for r in by_market["MONEYLINE"] if r["fixture_status"] == "FINAL" and r["market_p_devig"]]
     rows = [[esc(r["gameday"]), esc(r["away"] + " at " + r["home"]), cell(r["fair_line"], 0),
@@ -438,7 +440,7 @@ def p_lines(d) -> str:
                       [[esc(r["away"] + " at " + r["home"]), cell(r["fair_line"], 2), cell(r["market_line"], 1),
                         cell(r["residual_fair_minus_market"], 2), cell(r["p_home_or_over"], 3),
                         cell(r["fair_line_with_personnel"], 2), '<span class="bad">timing uncertified</span>'] for r in fwd]))
-    body.append('<p class="fine">Full file: <a href="data/derived/lines-2026.csv">lines-2026.csv</a> &middot; probability plus '
+    body.append('<p class="fine">Full file: <a href="data/derived/lines-2026.csv">lines-2026.csv</a> · probability plus '
                 'inputs per output: <a href="data/derived/lines-inputs.jsonl">lines-inputs.jsonl</a></p>')
     return page("lines.html", "Originated lines",
                 "Our fair line, the market line, and the difference between them, published as three separate columns.",
@@ -481,7 +483,7 @@ def p_availability(d) -> str:
                 "absence, not evidence of who replaced him: per-game snap counts are not in this repository for 2026, so "
                 "'the backup started' is a suspicion, and the brief says a suspicion must not be modelled as a fact. "
                 "Replacement depth stays unblocked-only by SG-02 (capture) and R31 (inactive lists).</div>")
-    body.append('<p class="fine">Machine copy: <a href="data/derived/availability-graph.csv">availability-graph.csv</a> &middot; '
+    body.append('<p class="fine">Machine copy: <a href="data/derived/availability-graph.csv">availability-graph.csv</a> · '
                 'calibration: <a href="data/derived/designation-calibration.json">designation-calibration.json</a></p>')
     return page("availability.html", "Availability graph",
                 "Who was expected to start, who actually played, and how big the surprise was - as a first-class dataset.",
@@ -572,7 +574,7 @@ def p_analytics(d) -> str:
 
 
 def p_leaderboard(d) -> str:
-    lb = d["leaderboard"]
+    lb, pro = d["leaderboard"], d["proper"]
     body = [kpi([
         ("Ranked strategies", "0", "by design, not by omission"),
         ("Entries in escrow", str(len(lb["entries"])), "pre-registered, prospective only"),
@@ -595,7 +597,8 @@ def p_leaderboard(d) -> str:
     body.append(table(["gate", "definition", "state on today's data"], [
         ["G1 sample", "at least 200 graded singles", f'<span class="bad">0 of 200</span>'],
         ["G2 significance", "game-cluster bootstrap: Brier skill lower bound above 0", "not evaluated (n=0)"],
-        ["G3 multiplicity", "Benjamini-Hochberg across every strategy tried, and the count of trials is published", "3 hypotheses tested on the corpus, 0 rejected"],
+        ["G3 multiplicity", "Benjamini-Hochberg across every strategy tried, and the count of trials is published",
+         f'{pro["multiplicity"]["n_hypotheses"]} hypotheses tested on the corpus, {sum(1 for v in pro["multiplicity"]["reject"].values() if v)} rejected'],
         ["G4 holdout", "no refit on the priced season; sign of the effect must hold on 2025 validation", "holdout frozen: 2016-2024 fit / 2025 validation / 2026 holdout"],
         ["G5 price basis", "at least 50% of bets priced from a recorded price; the fallback share is reported", f'<span class="bad">0% of forward bets carry a certified-timed price</span>'],
         ["G6 side balance", "35-65% of bets on either side, checked every week", "not evaluated (n=0); exists because a free intercept produced 78% home picks in an earlier run"],
@@ -629,7 +632,7 @@ def p_prereg(d) -> str:
                       [[esc(x["forecast_id"]), esc(x["recorded_utc"]), esc(x["kickoff_utc"]), cell(x["p_home_win"], 3),
                         cell(x["fair_margin_pts"], 2), cell(x["fair_total_T1"], 1), cell(x["fair_total_T2"], 1),
                         f'<code>{esc(x["record_hash"][:12])}</code>'] for x in led]))
-    body.append('<p class="fine">Tip: <a href="data/ledger/LEDGER-TIP.txt">LEDGER-TIP.txt</a> &middot; raw records: '
+    body.append('<p class="fine">Tip: <a href="data/ledger/LEDGER-TIP.txt">LEDGER-TIP.txt</a> · raw records: '
                 '<a href="data/ledger/forecasts-week11.jsonl">forecasts-week11.jsonl</a>. 13 records, all written before the '
                 "first Week 11 kickoff, so the shadow baseline is live rather than promised.</p>")
     return page("prereg.html", "Pre-registration ledger",
