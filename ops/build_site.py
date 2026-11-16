@@ -136,6 +136,17 @@ def build_index() -> None:
         ])
     body = f"""
 <h1>Decision readiness</h1>
+<div class="callout blue"><b>Executive summary (session 310620fe, 2026-11-16).</b>
+The verified results corpus now covers <b>148 finals</b> (137 of them independently cross-verified against two
+sources, 0 mismatches). Home-field advantage measures <b>−0.65 pts</b> — approximately zero again. The luck panel
+puts every team's win total within ±2.2 wins of its Pythagorean expectation (1σ ≈ 1.5 at n≈9). Control baselines are
+frozen (favourites cover 52.0%; random 54.1%). STRAT-1 is the first pre-registered strategy: method text frozen
+2026-11-16, three days before Week 11 opens, with 13 forecasts and their market residuals recorded pre-kickoff.
+Infrastructure now exists for the price-snapshot store (openings blank — no reachable source publishes them), the
+point-in-time snapshot ledger, drift alarms on seven datasets, Wed/Fri availability capture automation, the venue
+feed (Munich cross-verified against the official game centre) and the per-team availability view. Remaining blockers
+are all source-access problems (IR/reserve status, NWS weather, archived injury seasons, play-level 2026 data) and
+are listed with their missing sources on <a href="flagged.html">Flagged for Review</a>.</div>
 <p class="lede">One row per requirement in the current brief (R26–R96; the original R01–R25 register lives in
 {repo_link('data/requirements.csv')}). Each row states the gate that blocks it and the number that would clear it.
 Statuses were set from files that exist in the repository and from live official-page fetches on 2026-11-16.</p>
