@@ -811,7 +811,8 @@ owner decision. The open items are the ones that need one of those two, and each
 |---|---|---|---|
 | [#23](https://github.com/sassnarep3-star/FL2/pull/23) | the section itself: 16 pages, 5 engine scripts, registers, price store, ledger, two workflows | `7ad41761` | `Validate and publish site` pass; `fl2-lines-check` pass after the YAML fix |
 | [#25](https://github.com/sassnarep3-star/FL2/pull/25) | register claims corrected, manifest integrity, leaderboard exclusion enforced | `e58f028a` | both workflows pass; Pages `built` at the same commit |
-| [#26](https://github.com/sassnarep3-star/FL2/pull/26) | prose claims made arithmetic (22 SE, not six), readable correlation labels | see the merge on `main` | `check.py` 0 failures, `check_render.js` 16 pages clean |
+| [#26](https://github.com/sassnarep3-star/FL2/pull/26) | prose claims made arithmetic (22 SE, not six), readable correlation labels | `06d025dd` | both workflows pass; Pages built the following commit |
+| [#28](https://github.com/sassnarep3-star/FL2/pull/28) | names the three overlapping readiness tables on the hub and on this section's landing page; marks the claim done | see the merge on `main` | `check.py` 0 failures; `check_render.js` 16 pages clean; `scripts/check_site.py` pass |
 
 Live verification after each merge: Pages `builds/latest` reported `status: built` with no error and the
 `commit` equal to the merge SHA, and the deployed pages were re-fetched from
