@@ -882,3 +882,22 @@ official-source claims and are labelled as such on the site.
 | F-I2 | Expected drift: live standings moved after the 2026-11-14 snapshot by the Week-10 Sunday results; reconciled exactly in V1. SNF/MNF pending at check time. | **explained, not a defect** |
 | F-I3 | `signal/analysis/run_local.py` empty-data crash (found by session b899e38d, `review/reproducibility-2026-11-16.md`) — outside this session's scope; left with its owner. | **open — logged** |
 | F-I4 | Append-vs-append conflict in `COORDINATION.md` when pushing the claim (session b899e38d merged PR #16 concurrently) — resolved keeping **both** sections verbatim. | **resolved** |
+
+## F06 — Pull request, merge and Pages record (2026-11-16)
+
+| Item | Record |
+|---|---|
+| PR | https://github.com/sassnarep3-star/FL2/pull/19 — "Final integration: decision-readiness table (75 rows), fresh official-source re-verification, two-sided strategy falsifiers, /fl2-signals/ hub link" |
+| CI at merge | PR run `43787646516`: `validate` **pass** (8s), `deploy` skipped on PR as designed |
+| Merge | `gh pr merge 19 --merge`; merge commit on `main`; merged 2026-11-16, without waiting for approval, as instructed |
+| Main CI | Run `43787689265` ("Validate and publish site"): **completed / success** (validate + deploy) |
+| Pages | Legacy build from `main:/` — status **built**; `https://sassnarep3-star.github.io/FL2/` live |
+| Live check | 2026-11-16 page-fetch: landing page shows the 75-row decision-readiness table with per-row source links; `/fl2-signals/` nav + tile present; `/fl2-signals/index.html` renders (KPI cards + sourced tables) |
+| Conflicts during this PR | Two `COORDINATION.md` append-vs-append rebase conflicts (PRs #16 and #17/#18 merged concurrently); both resolved keeping **both** sides verbatim (F-I4). One force-with-lease push of this session's own branch to replace the pre-rebase duplicate claim commit; no other session's commit was on the branch |
+
+**Observation (not this session's scope):** workflow run `43787004721` ("Line Lab: CI gate with seven
+asserted invariants", branch `arena/74f76e34-fl2`, workflow `verify-linelab`) was **failing** while
+this PR merged. That is a concurrent session's branch and workflow; untouched here per the
+non-overlapping-scope rule. Its owner should fix or the integration session should gate on it.
+
+**This bookkeeping record** is carried by the follow-up PR to this branch.
