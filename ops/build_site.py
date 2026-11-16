@@ -30,7 +30,10 @@ def e(s) -> str:
 
 
 def repo_link(path: str) -> str:
-    return f'<a href="{REPO}{e(path)}">{e(path)}</a>'
+    # "data/file.json (annotation)" → link the file part, keep the annotation as text
+    real, _, suffix = path.partition(" (")
+    link = f'<a href="{REPO}{e(real)}">{e(real)}</a>'
+    return link + (f" ({e(suffix.rstrip(')'))})" if suffix else "")
 
 
 def official(url: str, label: str | None = None) -> str:

@@ -1274,3 +1274,18 @@ nav (all three links kept: Line Lab + Verified Signals + Readiness). This sessio
 cross-referenced Line Lab's dated captures as evidence in register rows R35/R46/R80 and recorded the
 updated gate wording. Pre-existing on main (not this session's edit): the hub nav carries two
 "Suggestions" links pointing to `ledger/suggestions.html` — flagged for the hub owner to dedupe.
+
+## Pull request and merge result — session 310620fe
+
+* **PR:** https://github.com/sassnarep3-star/FL2/pull/21 — "Requirements Register v2 (R26–R96),
+  decision-readiness + ops layer, /readiness/ site".
+* **Merge:** merged (merge-commit) 2026-11-16 after two rebases onto main at `8f741fe`, `441ca25`
+  and `7ad4176` to absorb concurrent sessions 56a33eb6 (PR #19/#20), 74f76e34 (PR #22) and
+  39dd0836 (PR #23). Reconciliation notes above; no other session's content was discarded.
+* **CI:** `Validate and publish site` run 43789136715 on the merge commit — `validate` success,
+  `deploy` success.
+* **Pages verified live:** https://sassnarep3-star.github.io/FL2/readiness/index.html renders the
+  executive summary, the 71-row register with gates and clearing numbers, and evidence links;
+  /readiness/ops.html and /readiness/flagged.html published alongside.
+* Final bookkeeping (this section, plus a repair of two parenthetical evidence links in
+  /readiness/) is carried by the follow-up PR from this branch.
