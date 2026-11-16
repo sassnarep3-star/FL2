@@ -1,0 +1,404 @@
+{
+ "development": {
+  "LABEL": "BACKTEST \u2014 development corpus only. These numbers may never appear on the leaderboard.",
+  "corpus": "2026 REG Weeks 1-10 finals (n=148) fit window + 2011-2026 out-of-sample runs (session 68b4e431)",
+  "elo_vs_market": {
+   "elo_brier": 0.2277,
+   "market_brier": 0.2106,
+   "n": 4041,
+   "source": "data/backtest_summary.json; docs/STRATEGY_VALIDATION.md"
+  },
+  "strategies_development": [
+   {
+    "id": "S1_elo_spread",
+    "name": "Calibrated Elo vs. closing spread",
+    "market": "SPREAD",
+    "status_dev_backtest": "rejected",
+    "n_dev": 2086,
+    "hit_rate_dev": 0.5167785234899329,
+    "hit_rate_ci_dev": [
+     0.4951941514860978,
+     0.5383509108341323
+    ],
+    "required_hit_rate": 0.5148438384340103,
+    "mean_units_per_bet_dev": 0.004679592742875206,
+    "units_ci_dev": [
+     -0.03460759623467324,
+     0.046184344261265255
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S2_blowout_reversion",
+    "name": "Fade a team off a 17+ point win",
+    "market": "SPREAD",
+    "status_dev_backtest": "rejected",
+    "n_dev": 825,
+    "hit_rate_dev": 0.5054545454545455,
+    "hit_rate_ci_dev": [
+     0.4703030303030303,
+     0.5393939393939394
+    ],
+    "required_hit_rate": 0.5153122894306841,
+    "mean_units_per_bet_dev": -0.018178771425310762,
+    "units_ci_dev": [
+     -0.08332656599200261,
+     0.02983117613768593
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S3_rest_diff",
+    "name": "Rest differential (3+ days)",
+    "market": "SPREAD",
+    "status_dev_backtest": "rejected",
+    "n_dev": 874,
+    "hit_rate_dev": 0.5068649885583524,
+    "hit_rate_ci_dev": [
+     0.47368421052631576,
+     0.540045766590389
+    ],
+    "required_hit_rate": 0.5141708483475698,
+    "mean_units_per_bet_dev": -0.014227141174596768,
+    "units_ci_dev": [
+     -0.08269268223917654,
+     0.05051427701091811
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S4_pace_total",
+    "name": "Six-game scoring pace vs. posted total",
+    "market": "TOTAL",
+    "status_dev_backtest": "rejected",
+    "n_dev": 722,
+    "hit_rate_dev": 0.47645429362880887,
+    "hit_rate_ci_dev": [
+     0.4404432132963989,
+     0.5124653739612188
+    ],
+    "required_hit_rate": 0.5155806742746555,
+    "mean_units_per_bet_dev": -0.07398346177747023,
+    "units_ci_dev": [
+     -0.1383573410217647,
+     0.003581692382946956
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S5_div_dog",
+    "name": "Divisional home underdog",
+    "market": "SPREAD",
+    "status_dev_backtest": "rejected",
+    "n_dev": 551,
+    "hit_rate_dev": 0.5009074410163339,
+    "hit_rate_ci_dev": [
+     0.46098003629764067,
+     0.542649727767695
+    ],
+    "required_hit_rate": 0.5155639041192646,
+    "mean_units_per_bet_dev": -0.02786225261794837,
+    "units_ci_dev": [
+     -0.10641569454255749,
+     0.046718840598397905
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S6_ml_dog",
+    "name": "Moneyline underdog value",
+    "market": "ML",
+    "status_dev_backtest": "rejected",
+    "n_dev": 841,
+    "hit_rate_dev": 0.36741973840665876,
+    "hit_rate_ci_dev": [
+     0.33531510107015455,
+     0.40071343638525564
+    ],
+    "required_hit_rate": 0.38200800597259266,
+    "mean_units_per_bet_dev": -0.04196195005945303,
+    "units_ci_dev": [
+     -0.1285689655172414,
+     0.061630796670630206
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S7_high_total",
+    "name": "High total + tight spread + calm weather",
+    "market": "TOTAL",
+    "status_dev_backtest": "rejected",
+    "n_dev": 374,
+    "hit_rate_dev": 0.5,
+    "hit_rate_ci_dev": [
+     0.44919786096256686,
+     0.553475935828877
+    ],
+    "required_hit_rate": 0.5156562604688514,
+    "mean_units_per_bet_dev": -0.027850249710414464,
+    "units_ci_dev": [
+     -0.10832978998699556,
+     0.0668241772012467
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S8_bye_edge",
+    "name": "Team coming off its bye",
+    "market": "SPREAD",
+    "status_dev_backtest": "rejected",
+    "n_dev": 413,
+    "hit_rate_dev": 0.4963680387409201,
+    "hit_rate_ci_dev": [
+     0.44794188861985473,
+     0.5423728813559322
+    ],
+    "required_hit_rate": 0.5143106820151726,
+    "mean_units_per_bet_dev": -0.035824739107126954,
+    "units_ci_dev": [
+     -0.12336417978449259,
+     0.03624906377331465
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S9_short_week_under",
+    "name": "Short-week unders (4 or fewer days rest)",
+    "market": "TOTAL",
+    "status_dev_backtest": "rejected",
+    "n_dev": 246,
+    "hit_rate_dev": 0.5,
+    "hit_rate_ci_dev": [
+     0.43902439024390244,
+     0.5609756097560976
+    ],
+    "required_hit_rate": 0.5143595496016763,
+    "mean_units_per_bet_dev": -0.02680721451662863,
+    "units_ci_dev": [
+     -0.16478496208526597,
+     0.07900775616757695
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S10_wind_under",
+    "name": "High-wind unders",
+    "market": "TOTAL",
+    "status_dev_backtest": "rejected",
+    "n_dev": 156,
+    "hit_rate_dev": 0.5512820512820513,
+    "hit_rate_ci_dev": [
+     0.47435897435897434,
+     0.6282051282051282
+    ],
+    "required_hit_rate": 0.5123607352402957,
+    "mean_units_per_bet_dev": 0.07387913659714059,
+    "units_ci_dev": [
+     -0.07900924664274055,
+     0.21519312834675428
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   },
+   {
+    "id": "S11_line_move_fade",
+    "name": "Fade large weekly line moves",
+    "market": "SPREAD",
+    "status_dev_backtest": "untestable",
+    "n_dev": 0,
+    "hit_rate_dev": null,
+    "hit_rate_ci_dev": [
+     null,
+     null
+    ],
+    "required_hit_rate": null,
+    "mean_units_per_bet_dev": null,
+    "units_ci_dev": [
+     null,
+     null
+    ],
+    "note": "development backtest 2011-2026 (session 68b4e431); NEVER leaderboard-eligible as a score"
+   }
+  ],
+  "fdr_note": "all hypotheses in the development run were controlled with Benjamini-Hochberg",
+  "quantified_gates": {
+   "detect_55pct_at_alpha_05_power_80": 2243,
+   "detect_57pct": 719,
+   "detect_62pct": 164,
+   "source": "session-1374049c quantified skill gates (-110 break-even 0.5238095)"
+  }
+ },
+ "removal_of_luck": {
+  "label": "Removal-of-luck panel \u2014 pure chance at -110, flat 1 unit, exact binomial",
+  "break_even": 0.5238095,
+  "bands": {
+   "50": {
+    "p5": {
+     "wins": 20,
+     "profit_units": -11.8,
+     "roi": -0.2364
+    },
+    "p25": {
+     "wins": 24,
+     "profit_units": -4.2,
+     "roi": -0.0836
+    },
+    "p50": {
+     "wins": 26,
+     "profit_units": -0.4,
+     "roi": -0.0073
+    },
+    "p75": {
+     "wins": 29,
+     "profit_units": 5.4,
+     "roi": 0.1073
+    },
+    "p95": {
+     "wins": 32,
+     "profit_units": 11.1,
+     "roi": 0.2218
+    }
+   },
+   "100": {
+    "p5": {
+     "wins": 44,
+     "profit_units": -16.0,
+     "roi": -0.16
+    },
+    "p25": {
+     "wins": 49,
+     "profit_units": -6.5,
+     "roi": -0.0645
+    },
+    "p50": {
+     "wins": 52,
+     "profit_units": -0.7,
+     "roi": -0.0073
+    },
+    "p75": {
+     "wins": 56,
+     "profit_units": 6.9,
+     "roi": 0.0691
+    },
+    "p95": {
+     "wins": 61,
+     "profit_units": 16.5,
+     "roi": 0.1645
+    }
+   },
+   "250": {
+    "p5": {
+     "wins": 118,
+     "profit_units": -24.7,
+     "roi": -0.0989
+    },
+    "p25": {
+     "wins": 126,
+     "profit_units": -9.5,
+     "roi": -0.0378
+    },
+    "p50": {
+     "wins": 131,
+     "profit_units": 0.1,
+     "roi": 0.0004
+    },
+    "p75": {
+     "wins": 136,
+     "profit_units": 9.6,
+     "roi": 0.0385
+    },
+    "p95": {
+     "wins": 144,
+     "profit_units": 24.9,
+     "roi": 0.0996
+    }
+   },
+   "500": {
+    "p5": {
+     "wins": 244,
+     "profit_units": -34.2,
+     "roi": -0.0684
+    },
+    "p25": {
+     "wins": 254,
+     "profit_units": -15.1,
+     "roi": -0.0302
+    },
+    "p50": {
+     "wins": 262,
+     "profit_units": 0.2,
+     "roi": 0.0004
+    },
+    "p75": {
+     "wins": 269,
+     "profit_units": 13.5,
+     "roi": 0.0271
+    },
+    "p95": {
+     "wins": 280,
+     "profit_units": 34.5,
+     "roi": 0.0691
+    }
+   },
+   "1000": {
+    "p5": {
+     "wins": 498,
+     "profit_units": -49.3,
+     "roi": -0.0493
+    },
+    "p25": {
+     "wins": 513,
+     "profit_units": -20.6,
+     "roi": -0.0206
+    },
+    "p50": {
+     "wins": 524,
+     "profit_units": 0.4,
+     "roi": 0.0004
+    },
+    "p75": {
+     "wins": 534,
+     "profit_units": 19.5,
+     "roi": 0.0195
+    },
+    "p95": {
+     "wins": 550,
+     "profit_units": 50.0,
+     "roi": 0.05
+    }
+   },
+   "2243": {
+    "p5": {
+     "wins": 1136,
+     "profit_units": -74.3,
+     "roi": -0.0331
+    },
+    "p25": {
+     "wins": 1159,
+     "profit_units": -30.4,
+     "roi": -0.0135
+    },
+    "p50": {
+     "wins": 1175,
+     "profit_units": 0.2,
+     "roi": 0.0001
+    },
+    "p75": {
+     "wins": 1191,
+     "profit_units": 30.7,
+     "roi": 0.0137
+    },
+    "p95": {
+     "wins": 1214,
+     "profit_units": 74.6,
+     "roi": 0.0333
+    }
+   }
+  },
+  "reading": "A strategy's ROI is only interpretable against this band at its n. At n=100 the 5th-95th percentile of pure luck spans roughly -15% to +23% ROI; short-run ROI cannot separate skill from variance.",
+  "control_baselines": [
+   "CTL-RANDOM (seed 20261116)",
+   "CTL-FAV",
+   "CTL-HOME"
+  ]
+ }
+}
