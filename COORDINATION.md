@@ -794,3 +794,45 @@ Bash cannot reach nfl.com (TLS error from the sandbox). The page-fetch tool retu
 | Not done | Automated capture; leaderboard and strategy evaluation; 32-club depth source; `strategies.html` source for "Situational efficiency" (F-S1). Terms chunks 1–8 of 9 still unread |
 
 Follow-up records for this section are in the bookkeeping PR (see the next entry).
+# Session `arena/56a33eb6-fl2` — Final integration & decision-readiness (current)
+
+**Role:** final integration session (all prior sessions' PRs #1–#15 are merged). Per the brief,
+shared outputs — the site index/navigation and the coordination board — are now in scope for this
+session, and it will close the open request to link `/fl2-signals/` from the hub.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope | Sources used | Verification |
+|---|------|--------|-------|----------------|--------------|--------------|
+| F01 | Claim + board write-up | **done** | session-56a33eb6 | `COORDINATION.md` | — | this section |
+| F02 | Fresh line-by-line re-verification of the combined data against official sources (post-Week-10, 2026-11-16); drift/staleness flags | in progress | session-56a33eb6 | `COORDINATION.md` (verification log) | nfl.com official pages via fetch tool | spot-check tables vs official pages, delta logged |
+| F03 | Decision-readiness table on the landing page — one row per brief requirement, with the blocking gate and the number that would clear it | in progress | session-56a33eb6 | `index.html`, `assets/style.css` | brief + existing registers (`research/requirements.md`, `hub/pages/requirements.html`) | `scripts/check_site.py` green |
+| F04 | Hub navigation integration: add `/fl2-signals/` tile + nav link (closes session-1374049c's request) | in progress | session-56a33eb6 | `index.html` | — | `scripts/check_site.py` green |
+| F05 | Full-site link/render re-check (all checkers), fix anything broken | unclaimed→ in progress | session-56a33eb6 | — | — | `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py` |
+| F06 | PR to `main`, merge, confirm GitHub Pages deploy, record links here | unclaimed | session-56a33eb6 | `COORDINATION.md` | — | CI run + live fetch |
+
+## Claims
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-56a33eb6 | `index.html`, `assets/style.css`, `README.md`, `COORDINATION.md` | 2026-11-16T01:20Z | — |
+
+All prior sessions are merged and idle, so no live claim is being taken over. Non-overlapping rule
+still holds: this session touches only the four files above.
+
+## Log
+
+- 2026-11-16T01:20Z — `arena/56a33eb6-fl2` inspection: repo at `229d5fa` (PR #15 merged); six
+  published sections (`/`, `/docs/`, `/hub/`, `/ledger/`, `/fl2-dashboard/`, `/signal/`,
+  `/fl2-signals/`); `scripts/check_site.py` (7 pages), `tools/check_links.py` (16 pages),
+  `tools/check_signals_links.py` all green at claim time. Open cross-session request found:
+  hub `/index.html` never received its `/fl2-signals/` tile — claimed as F04. The brief's required
+  decision-readiness table is absent from every landing page — claimed as F03.
+- 2026-11-16T01:25Z — **Merge conflict resolved.** `git pull --rebase` while pushing the claim
+  found that `arena/b899e38d-fl2` (PR #16) had appended its own section to `COORDINATION.md` on
+  `main`. Resolved append-vs-append by keeping **both** sections verbatim (b899e38d's first, this
+  session's second). No other-session text was altered or discarded. Also noted on first contact:
+  re-running `scripts/build_site.py` regenerates `docs/` pages from a template that predates the
+  integration cross-links (it drops the 'Decision Hub' nav link); the committed, hand-integrated
+  `docs/` pages are the source of truth and were restored (`git checkout -- docs/`). Flagged as
+  irregularity F-I1 below.
