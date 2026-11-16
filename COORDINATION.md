@@ -691,3 +691,34 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 
 * This section's own record is carried by https://github.com/sassnarep3-star/FL2/pull/15 (COORDINATION
   text only; no data or site change).
+
+---
+
+# Session 39dd0836 — Originated Lines, Price Store & Decision Readiness (current)
+
+Branch `arena/39dd0836-fl2` · base `229d5fa` (`main` @ PR #15 merge) · started 2026-11-16T01:05Z
+
+## Scope claimed (exclusive)
+
+| Task | Status | Owner | Files in scope |
+|---|---|---|---|
+| FL2-LINES: price-snapshot store, verified results feed, originated lines (side → total → moneyline), availability graph, correlations with n, pre-registration ledger, prospective leaderboard, decision-readiness register, suggestions + Q&A registers, `/fl2-lines/` site | in progress | `arena/39dd0836-fl2` | `fl2-lines/**`, `.github/workflows/fl2-lines-snapshot.yml`, `COORDINATION.md` (append only) |
+
+**Not touched:** `index.html`, `hub/`, `docs/`, `ledger/`, `signal/`, `raw/`, `fl2-dashboard/`, `fl2-signals/`,
+`scripts/`, `tools/`, `engine/`, `data/`, `research/`, `assets/`, root `*.html` other than `404.html`.
+Requests for edits in those files are logged under *Requests* below; the hub link and the landing-page
+decision-readiness table are **additive** edits requested from, then performed by, the integration step
+of this same session (announced here so no other session double-edits).
+
+## Findings that affect other sessions
+
+1. `fl2-signals/` and `fl2-dashboard/` publish a **254-row** Week 10 injury table; the live official
+   report at 2026-11-16T01:15Z is served in 8 chunks and the site's own count is stale — the row count
+   must be re-derived, not asserted. This session publishes a re-capture pipeline instead of a number.
+2. The three Lions designations the board listed as **blank** (Kerby Joseph, Cade Mays, D.J. Reed) are
+   published **Out** on nfl.com now — verified, see `fl2-lines/data/official/`.
+3. `raw/_nfldata/games.csv` carries 137 scored 2026 games; Weeks 1–9 = **136 games**, which is exactly
+   the "136-game log" named in the brief. This session freezes that set as the pre-registered backtest corpus.
+4. nfl.com serves `NE @ DET` (Week 10) as an **International Game played in Munich** and `MIN @ SF`
+   (Week 11) in **Mexico City**, while nflverse `stadium`/`location` fields carry the *designated home
+   club's* venue. Venue must be transcribed from the game centre, not inferred from the mirror.
