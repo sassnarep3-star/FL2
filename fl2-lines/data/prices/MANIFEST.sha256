@@ -1,0 +1,5 @@
+8c313fed07659271cedc4fe53ac4f7bb6539a9d936661c85154adf1d03bd24e7  data/prices/MANIFEST.sha256
+7efaf15ad48464bb8ed0bdbf83caf63450461557b3afbaf4bcc42d9ed5e29819  data/prices/price-snapshots-2026.csv
+0d8fbe0fa4399a8c4ca59cff35967b06f16e89c39d281f5605ce3519dbe98cdb  data/prices/price-source-index.csv
+d268b905dcb29532b1fbd2e98781042528ffa81f98740fe1413959963775994c  data/prices/price-store-meta.json
+13d58f01dd5d5a83c51135a9720239d41ac8a709c0c1d61a78c855eb499f1ca8  data/derived/results-2026.csv

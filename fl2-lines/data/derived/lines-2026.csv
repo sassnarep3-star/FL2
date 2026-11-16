@@ -1,0 +1,1089 @@
+game_id,week,gameday,away,home,market,sequence,fair_line,market_line,residual_fair_minus_market,fair_line_with_personnel,p_home_or_over,market_p_devig,overround_pct,sigma_used,actual,fixture_status,avail_gap_deficit,benchmark_line
+2026_01_NE_SEA,1,2026-09-09,NE,SEA,SPREAD,1st: side,2.51,3.0,-0.49,2.65,0.4855,,20.74,13.371,push,FINAL,-0.258,3.0
+2026_01_NE_SEA,1,2026-09-09,NE,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.02,44.5,1.52,,0.5321,,,13.371,0,FINAL,-0.258,44.5
+2026_01_NE_SEA,1,2026-09-09,NE,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,44.5,-0.0,,,,,13.371,0,FINAL,-0.258,44.5
+2026_01_NE_SEA,1,2026-09-09,NE,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-135,-166.0,31.0,104,0.5746,0.5169,20.74,13.371,1,FINAL,-0.258,-166.0
+2026_01_SF_LA,1,2026-09-10,SF,LA,SPREAD,1st: side,5.58,3.5,2.08,5.74,0.562,,32.84,13.371,0,FINAL,-0.308,3.5
+2026_01_SF_LA,1,2026-09-10,SF,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.22,47.5,0.72,,0.5152,,,13.371,0,FINAL,-0.308,47.5
+2026_01_SF_LA,1,2026-09-10,SF,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,47.5,0.48,,,,,13.371,0,FINAL,-0.308,47.5
+2026_01_SF_LA,1,2026-09-10,SF,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-196,-218.0,22.0,-131,0.6619,0.5161,32.84,13.371,0,FINAL,-0.308,-218.0
+2026_01_ARI_LAC,1,2026-09-13,ARI,LAC,SPREAD,1st: side,7.57,8.5,-0.93,8.63,0.4723,,59.76,13.371,0,FINAL,-2.043,8.5
+2026_01_ARI_LAC,1,2026-09-13,ARI,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.16,47.5,-2.34,,0.4508,,,13.371,0,FINAL,-2.043,47.5
+2026_01_ARI_LAC,1,2026-09-13,ARI,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,47.5,0.48,,,,,13.371,0,FINAL,-2.043,47.5
+2026_01_ARI_LAC,1,2026-09-13,ARI,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-250,-455.0,205.0,-102,0.7144,0.5132,59.76,13.371,0,FINAL,-2.043,-455.0
+2026_01_ATL_PIT,1,2026-09-13,ATL,PIT,SPREAD,1st: side,3.85,6.5,-2.65,5.88,0.4215,,45.46,13.371,1,FINAL,-3.918,6.5
+2026_01_ATL_PIT,1,2026-09-13,ATL,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.83,40.5,4.33,,0.5906,,,13.371,0,FINAL,-3.918,40.5
+2026_01_ATL_PIT,1,2026-09-13,ATL,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,40.5,4.0,,,,,13.371,0,FINAL,-3.918,40.5
+2026_01_ATL_PIT,1,2026-09-13,ATL,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-159,-298.0,139.0,108,0.6133,0.5147,45.46,13.371,1,FINAL,-3.918,-298.0
+2026_01_BAL_IND,1,2026-09-13,BAL,IND,SPREAD,1st: side,2.77,-3.0,5.77,3.47,0.6669,,19.46,13.371,0,FINAL,-1.351,-3.0
+2026_01_BAL_IND,1,2026-09-13,BAL,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.93,48.5,0.43,,0.509,,,13.371,1,FINAL,-1.351,48.5
+2026_01_BAL_IND,1,2026-09-13,BAL,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,48.5,-1.22,,,,,13.371,1,FINAL,-1.351,48.5
+2026_01_BAL_IND,1,2026-09-13,BAL,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-139,136.0,-275.0,-218,0.582,0.4824,19.46,13.371,0,FINAL,-1.351,136.0
+2026_01_BUF_HOU,1,2026-09-13,BUF,HOU,SPREAD,1st: side,1.5,-1.5,3.0,2.05,0.5888,,4.75,13.371,0,FINAL,-1.05,-1.5
+2026_01_BUF_HOU,1,2026-09-13,BUF,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.01,44.5,0.51,,0.5108,,,13.371,1,FINAL,-1.05,44.5
+2026_01_BUF_HOU,1,2026-09-13,BUF,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,44.5,2.78,,,,,13.371,1,FINAL,-1.05,44.5
+2026_01_BUF_HOU,1,2026-09-13,BUF,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-120,-108.0,-12.0,-153,0.5447,0.4957,4.75,13.371,0,FINAL,-1.05,-108.0
+2026_01_CHI_CAR,1,2026-09-13,CHI,CAR,SPREAD,1st: side,-1.68,-3.0,1.32,-1.34,0.5394,,20.74,13.371,0,FINAL,-0.648,-3.0
+2026_01_CHI_CAR,1,2026-09-13,CHI,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.06,47.5,-2.44,,0.4487,,,13.371,1,FINAL,-0.648,47.5
+2026_01_CHI_CAR,1,2026-09-13,CHI,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,47.5,-3.0,,,,,13.371,1,FINAL,-0.648,47.5
+2026_01_CHI_CAR,1,2026-09-13,CHI,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",122,140.0,-18.0,-122,0.4501,0.4831,20.74,13.371,0,FINAL,-0.648,140.0
+2026_01_CLE_JAX,1,2026-09-13,CLE,JAX,SPREAD,1st: side,10.35,8.5,1.85,10.89,0.5551,,60.72,13.371,1,FINAL,-1.031,8.5
+2026_01_CLE_JAX,1,2026-09-13,CLE,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.06,40.5,2.56,,0.5539,,,13.371,1,FINAL,-1.031,40.5
+2026_01_CLE_JAX,1,2026-09-13,CLE,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,40.5,4.0,,,,,13.371,1,FINAL,-1.031,40.5
+2026_01_CLE_JAX,1,2026-09-13,CLE,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-356,-470.0,114.0,-133,0.7806,0.5131,60.72,13.371,1,FINAL,-1.031,-470.0
+2026_01_DAL_NYG,1,2026-09-13,DAL,NYG,SPREAD,1st: side,1.11,-3.0,4.11,1.44,0.6206,,20.74,13.371,1,FINAL,-0.648,-3.0
+2026_01_DAL_NYG,1,2026-09-13,DAL,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.5,47.5,4.0,,0.5839,,,13.371,1,FINAL,-0.648,47.5
+2026_01_DAL_NYG,1,2026-09-13,DAL,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,47.5,-3.0,,,,,13.371,1,FINAL,-0.648,47.5
+2026_01_DAL_NYG,1,2026-09-13,DAL,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-114,140.0,-254.0,-170,0.5329,0.4831,20.74,13.371,1,FINAL,-0.648,140.0
+2026_01_GB_MIN,1,2026-09-13,GB,MIN,SPREAD,1st: side,1.03,1.5,-0.47,2.1,0.4861,,6.78,13.371,1,FINAL,-2.068,1.5
+2026_01_GB_MIN,1,2026-09-13,GB,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.05,46.5,-4.45,,0.407,,,13.371,1,FINAL,-2.068,46.5
+2026_01_GB_MIN,1,2026-09-13,GB,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,46.5,1.48,,,,,13.371,1,FINAL,-2.068,46.5
+2026_01_GB_MIN,1,2026-09-13,GB,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-113,-125.0,12.0,-107,0.5308,0.5203,6.78,13.371,1,FINAL,-2.068,-125.0
+2026_01_MIA_LV,1,2026-09-13,MIA,LV,SPREAD,1st: side,-2.36,3.0,-5.36,-2.88,0.3442,,21.64,13.371,1,FINAL,1.0,3.0
+2026_01_MIA_LV,1,2026-09-13,MIA,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.46,40.5,1.96,,0.5412,,,13.371,0,FINAL,1.0,40.5
+2026_01_MIA_LV,1,2026-09-13,MIA,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,40.5,7.48,,,,,13.371,0,FINAL,1.0,40.5
+2026_01_MIA_LV,1,2026-09-13,MIA,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",133,-170.0,303.0,203,0.4299,0.5176,21.64,13.371,1,FINAL,1.0,-170.0
+2026_01_NO_DET,1,2026-09-13,NO,DET,SPREAD,1st: side,6.99,7.0,-0.01,8.52,0.4998,,48.69,13.371,0,FINAL,-2.959,7.0
+2026_01_NO_DET,1,2026-09-13,NO,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.97,49.5,-3.53,,0.426,,,13.371,1,FINAL,-2.959,49.5
+2026_01_NO_DET,1,2026-09-13,NO,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,49.5,-1.52,,,,,13.371,1,FINAL,-2.959,49.5
+2026_01_NO_DET,1,2026-09-13,NO,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-233,-325.0,92.0,-120,0.6995,0.5143,48.69,13.371,1,FINAL,-2.959,-325.0
+2026_01_NYJ_TEN,1,2026-09-13,NYJ,TEN,SPREAD,1st: side,2.08,1.5,0.58,3.62,0.5173,,4.62,13.371,0,FINAL,-2.976,1.5
+2026_01_NYJ_TEN,1,2026-09-13,NYJ,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.52,39.5,6.02,,0.6248,,,13.371,0,FINAL,-2.976,39.5
+2026_01_NYJ_TEN,1,2026-09-13,NYJ,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,39.5,5.0,,,,,13.371,0,FINAL,-2.976,39.5
+2026_01_NYJ_TEN,1,2026-09-13,NYJ,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-128,-118.0,-10.0,-129,0.5618,0.5174,4.62,13.371,0,FINAL,-2.976,-118.0
+2026_01_TB_CIN,1,2026-09-13,TB,CIN,SPREAD,1st: side,0.06,3.5,-3.44,1.25,0.3984,,30.18,13.371,1,FINAL,-2.298,3.5
+2026_01_TB_CIN,1,2026-09-13,TB,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.85,50.5,-1.65,,0.4653,,,13.371,1,FINAL,-2.298,50.5
+2026_01_TB_CIN,1,2026-09-13,TB,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,50.5,-6.0,,,,,13.371,1,FINAL,-2.298,50.5
+2026_01_TB_CIN,1,2026-09-13,TB,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-101,-205.0,104.0,131,0.5017,0.5163,30.18,13.371,1,FINAL,-2.298,-205.0
+2026_01_WAS_PHI,1,2026-09-13,WAS,PHI,SPREAD,1st: side,7.14,6.0,1.14,6.1,0.5339,,37.68,13.371,0,FINAL,1.999,6.0
+2026_01_WAS_PHI,1,2026-09-13,WAS,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.15,43.5,0.65,,0.5137,,,13.371,1,FINAL,1.999,43.5
+2026_01_WAS_PHI,1,2026-09-13,WAS,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,43.5,1.0,,,,,13.371,1,FINAL,1.999,43.5
+2026_01_WAS_PHI,1,2026-09-13,WAS,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-237,-245.0,8.0,-101,0.7033,0.5158,37.68,13.371,1,FINAL,1.999,-245.0
+2026_01_DEN_KC,1,2026-09-14,DEN,KC,SPREAD,1st: side,-0.27,2.5,-2.77,-1.3,0.418,,8.9,13.371,1,FINAL,2.0,2.5
+2026_01_DEN_KC,1,2026-09-14,DEN,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.4,42.5,-1.1,,0.4767,,,13.371,0,FINAL,2.0,42.5
+2026_01_DEN_KC,1,2026-09-14,DEN,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,0,FINAL,2.0,42.5
+2026_01_DEN_KC,1,2026-09-14,DEN,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",103,-130.0,233.0,158,0.492,0.519,8.9,13.371,1,FINAL,2.0,-130.0
+2026_02_DET_BUF,2,2026-09-17,DET,BUF,SPREAD,1st: side,3.55,5.5,-1.95,4.24,0.442,,36.52,13.371,1,FINAL,-1.34,5.5
+2026_02_DET_BUF,2,2026-09-17,DET,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",50.63,54.5,-3.87,,0.4188,,,13.371,1,FINAL,-1.34,54.5
+2026_02_DET_BUF,2,2026-09-17,DET,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,54.5,-10.0,,,,,13.371,1,FINAL,-1.34,54.5
+2026_02_DET_BUF,2,2026-09-17,DET,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-153,-238.0,85.0,116,0.6047,0.5158,36.52,13.371,1,FINAL,-1.34,-238.0
+2026_02_CAR_ATL,2,2026-09-20,CAR,ATL,SPREAD,1st: side,3.0,-2.5,5.5,1.72,0.6595,,17.31,13.371,0,FINAL,2.47,-2.5
+2026_02_CAR_ATL,2,2026-09-20,CAR,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.53,43.5,0.03,,0.5007,,,13.371,0,FINAL,2.47,43.5
+2026_02_CAR_ATL,2,2026-09-20,CAR,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,43.5,3.78,,,,,13.371,0,FINAL,2.47,43.5
+2026_02_CAR_ATL,2,2026-09-20,CAR,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-143,130.0,-273.0,-166,0.5887,0.4818,17.31,13.371,0,FINAL,2.47,130.0
+2026_02_CIN_HOU,2,2026-09-20,CIN,HOU,SPREAD,1st: side,7.82,3.0,4.82,6.19,0.6409,,15.03,13.371,0,FINAL,3.168,3.0
+2026_02_CIN_HOU,2,2026-09-20,CIN,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.34,45.5,1.84,,0.5389,,,13.371,0,FINAL,3.168,45.5
+2026_02_CIN_HOU,2,2026-09-20,CIN,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,45.5,1.78,,,,,13.371,0,FINAL,3.168,45.5
+2026_02_CIN_HOU,2,2026-09-20,CIN,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-258,-148.0,-110.0,-146,0.7208,0.5188,15.03,13.371,0,FINAL,3.168,-148.0
+2026_02_CLE_TB,2,2026-09-20,CLE,TB,SPREAD,1st: side,4.76,8.5,-3.74,5.09,0.3897,,57.7,13.371,0,FINAL,-0.649,8.5
+2026_02_CLE_TB,2,2026-09-20,CLE,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.03,41.5,1.53,,0.5322,,,13.371,1,FINAL,-0.649,41.5
+2026_02_CLE_TB,2,2026-09-20,CLE,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,41.5,3.0,,,,,13.371,1,FINAL,-0.649,41.5
+2026_02_CLE_TB,2,2026-09-20,CLE,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-177,-425.0,248.0,150,0.639,0.5133,57.7,13.371,0,FINAL,-0.649,-425.0
+2026_02_GB_NYJ,2,2026-09-20,GB,NYJ,SPREAD,1st: side,-5.28,-3.5,-1.78,-5.73,0.4471,,25.54,13.371,1,FINAL,0.872,-3.5
+2026_02_GB_NYJ,2,2026-09-20,GB,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.32,44.5,0.82,,0.5173,,,13.371,0,FINAL,0.872,44.5
+2026_02_GB_NYJ,2,2026-09-20,GB,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,44.5,-0.0,,,,,13.371,0,FINAL,0.872,44.5
+2026_02_GB_NYJ,2,2026-09-20,GB,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",189,154.0,35.0,131,0.3465,0.4829,25.54,13.371,0,FINAL,0.872,154.0
+2026_02_IND_KC,2,2026-09-20,IND,KC,SPREAD,1st: side,2.41,6.0,-3.59,1.71,0.3942,,40.86,13.371,0,FINAL,1.348,6.0
+2026_02_IND_KC,2,2026-09-20,IND,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.92,46.5,-0.58,,0.4878,,,13.371,1,FINAL,1.348,46.5
+2026_02_IND_KC,2,2026-09-20,IND,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,1,FINAL,1.348,46.5
+2026_02_IND_KC,2,2026-09-20,IND,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-133,-265.0,132.0,167,0.5715,0.5154,40.86,13.371,1,FINAL,1.348,-265.0
+2026_02_JAX_DEN,2,2026-09-20,JAX,DEN,SPREAD,1st: side,-1.45,2.5,-3.95,-2.15,0.3838,,15.03,13.371,1,FINAL,1.351,2.5
+2026_02_JAX_DEN,2,2026-09-20,JAX,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.33,45.5,-1.17,,0.4753,,,13.371,0,FINAL,1.351,45.5
+2026_02_JAX_DEN,2,2026-09-20,JAX,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,45.5,-1.0,,,,,13.371,0,FINAL,1.351,45.5
+2026_02_JAX_DEN,2,2026-09-20,JAX,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",119,-148.0,267.0,175,0.4568,0.5188,15.03,13.371,1,FINAL,1.351,-148.0
+2026_02_LV_LAC,2,2026-09-20,LV,LAC,SPREAD,1st: side,8.41,6.5,1.91,8.29,0.5568,,48.69,13.371,0,FINAL,0.233,6.5
+2026_02_LV_LAC,2,2026-09-20,LV,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",40.81,43.5,-2.69,,0.4434,,,13.371,0,FINAL,0.233,43.5
+2026_02_LV_LAC,2,2026-09-20,LV,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,43.5,4.48,,,,,13.371,0,FINAL,0.233,43.5
+2026_02_LV_LAC,2,2026-09-20,LV,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-278,-325.0,47.0,-124,0.7353,0.5143,48.69,13.371,0,FINAL,0.233,-325.0
+2026_02_MIA_SF,2,2026-09-20,MIA,SF,SPREAD,1st: side,7.86,12.5,-4.64,8.19,0.3643,,75.71,13.371,1,FINAL,-0.647,12.5
+2026_02_MIA_SF,2,2026-09-20,MIA,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.44,44.5,0.94,,0.5198,,,13.371,1,FINAL,-0.647,44.5
+2026_02_MIA_SF,2,2026-09-20,MIA,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,44.5,1.36,,,,,13.371,1,FINAL,-0.647,44.5
+2026_02_MIA_SF,2,2026-09-20,MIA,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-259,-900.0,641.0,168,0.7217,0.5122,75.71,13.371,1,FINAL,-0.647,-900.0
+2026_02_MIN_CHI,2,2026-09-20,MIN,CHI,SPREAD,1st: side,2.45,4.5,-2.05,3.68,0.4389,,32.84,13.371,0,FINAL,-2.382,4.5
+2026_02_MIN_CHI,2,2026-09-20,MIN,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.33,46.5,-0.17,,0.4964,,,13.371,0,FINAL,-2.382,46.5
+2026_02_MIN_CHI,2,2026-09-20,MIN,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,0,FINAL,-2.382,46.5
+2026_02_MIN_CHI,2,2026-09-20,MIN,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-134,-218.0,84.0,110,0.5726,0.5161,32.84,13.371,0,FINAL,-2.382,-218.0
+2026_02_NO_BAL,2,2026-09-20,NO,BAL,SPREAD,1st: side,5.96,8.5,-2.54,4.88,0.4247,,53.63,13.371,0,FINAL,2.091,8.5
+2026_02_NO_BAL,2,2026-09-20,NO,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.03,45.5,-0.47,,0.4901,,,13.371,0,FINAL,2.091,45.5
+2026_02_NO_BAL,2,2026-09-20,NO,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,45.5,-1.0,,,,,13.371,0,FINAL,2.091,45.5
+2026_02_NO_BAL,2,2026-09-20,NO,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-205,-375.0,170.0,154,0.6722,0.5139,53.63,13.371,0,FINAL,2.091,-375.0
+2026_02_PHI_TEN,2,2026-09-20,PHI,TEN,SPREAD,1st: side,-7.31,-7.0,-0.31,-7.11,0.4907,,48.69,13.371,1,FINAL,-0.393,-7.0
+2026_02_PHI_TEN,2,2026-09-20,PHI,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.83,39.5,3.33,,0.57,,,13.371,1,FINAL,-0.393,39.5
+2026_02_PHI_TEN,2,2026-09-20,PHI,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,39.5,5.0,,,,,13.371,1,FINAL,-0.393,39.5
+2026_02_PHI_TEN,2,2026-09-20,PHI,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",242,260.0,-18.0,101,0.2922,0.4857,48.69,13.371,0,FINAL,-0.393,260.0
+2026_02_PIT_NE,2,2026-09-20,PIT,NE,SPREAD,1st: side,6.93,4.5,2.43,6.44,0.572,,34.14,13.371,1,FINAL,0.952,4.5
+2026_02_PIT_NE,2,2026-09-20,PIT,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.37,41.5,3.87,,0.581,,,13.371,0,FINAL,0.952,41.5
+2026_02_PIT_NE,2,2026-09-20,PIT,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,41.5,4.36,,,,,13.371,0,FINAL,0.952,41.5
+2026_02_PIT_NE,2,2026-09-20,PIT,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-231,-225.0,-6.0,-126,0.6978,0.5161,34.14,13.371,1,FINAL,0.952,-225.0
+2026_02_SEA_ARI,2,2026-09-20,SEA,ARI,SPREAD,1st: side,-9.11,-3.5,-5.61,-8.99,0.3375,,32.84,13.371,0,FINAL,-0.227,-3.5
+2026_02_SEA_ARI,2,2026-09-20,SEA,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.11,40.5,5.61,,0.6167,,,13.371,0,FINAL,-0.227,40.5
+2026_02_SEA_ARI,2,2026-09-20,SEA,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.08,40.5,6.58,,,,,13.371,0,FINAL,-0.227,40.5
+2026_02_SEA_ARI,2,2026-09-20,SEA,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",303,180.0,123.0,193,0.2479,0.4839,32.84,13.371,0,FINAL,-0.227,180.0
+2026_02_WAS_DAL,2,2026-09-20,WAS,DAL,SPREAD,1st: side,3.45,3.5,-0.05,3.6,0.4984,,32.84,13.371,1,FINAL,-0.308,3.5
+2026_02_WAS_DAL,2,2026-09-20,WAS,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",50.99,51.5,-0.51,,0.4892,,,13.371,1,FINAL,-0.308,51.5
+2026_02_WAS_DAL,2,2026-09-20,WAS,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,51.5,-4.22,,,,,13.371,1,FINAL,-0.308,51.5
+2026_02_WAS_DAL,2,2026-09-20,WAS,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-151,-218.0,67.0,-101,0.6017,0.5161,32.84,13.371,1,FINAL,-0.308,-218.0
+2026_02_NYG_LA,2,2026-09-21,NYG,LA,SPREAD,1st: side,8.72,6.5,2.22,7.87,0.566,,45.46,13.371,1,FINAL,1.644,6.5
+2026_02_NYG_LA,2,2026-09-21,NYG,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.16,47.5,0.66,,0.514,,,13.371,0,FINAL,1.644,47.5
+2026_02_NYG_LA,2,2026-09-21,NYG,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,47.5,1.84,,,,,13.371,0,FINAL,1.644,47.5
+2026_02_NYG_LA,2,2026-09-21,NYG,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-289,-298.0,9.0,-118,0.7429,0.5147,45.46,13.371,1,FINAL,1.644,-298.0
+2026_03_ATL_GB,3,2026-09-24,ATL,GB,SPREAD,1st: side,5.15,4.5,0.65,3.48,0.5195,,35.21,13.371,0,FINAL,3.226,4.5
+2026_03_ATL_GB,3,2026-09-24,ATL,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.8,43.5,0.3,,0.5063,,,13.371,1,FINAL,3.226,43.5
+2026_03_ATL_GB,3,2026-09-24,ATL,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,43.5,1.0,,,,,13.371,1,FINAL,3.226,43.5
+2026_03_ATL_GB,3,2026-09-24,ATL,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-186,-230.0,44.0,113,0.65,0.5155,35.21,13.371,0,FINAL,3.226,-230.0
+2026_03_ARI_SF,3,2026-09-27,ARI,SF,SPREAD,1st: side,10.1,7.5,2.6,8.73,0.5771,,55.41,13.371,0,FINAL,2.652,7.5
+2026_03_ARI_SF,3,2026-09-27,ARI,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.98,48.5,-1.52,,0.468,,,13.371,1,FINAL,2.652,48.5
+2026_03_ARI_SF,3,2026-09-27,ARI,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,48.5,-4.0,,,,,13.371,1,FINAL,2.652,48.5
+2026_03_ARI_SF,3,2026-09-27,ARI,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-344,-395.0,51.0,-116,0.775,0.5135,55.41,13.371,1,FINAL,2.652,-395.0
+2026_03_BAL_DAL,3,2026-09-27,BAL,DAL,SPREAD,1st: side,-0.49,-3.0,2.51,-1.86,0.5745,,21.64,13.371,push,FINAL,2.648,-3.0
+2026_03_BAL_DAL,3,2026-09-27,BAL,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.67,53.5,-1.83,,0.4614,,,13.371,1,FINAL,2.648,53.5
+2026_03_BAL_DAL,3,2026-09-27,BAL,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",48.9,53.5,-4.6,,,,,13.371,1,FINAL,2.648,53.5
+2026_03_BAL_DAL,3,2026-09-27,BAL,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",106,142.0,-36.0,-115,0.4855,0.4824,21.64,13.371,0,FINAL,2.648,142.0
+2026_03_CAR_CLE,3,2026-09-27,CAR,CLE,SPREAD,1st: side,-0.22,-2.5,2.28,0.77,0.5676,,10.72,13.371,1,FINAL,-1.92,-2.5
+2026_03_CAR_CLE,3,2026-09-27,CAR,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.38,41.5,-0.12,,0.4974,,,13.371,0,FINAL,-1.92,41.5
+2026_03_CAR_CLE,3,2026-09-27,CAR,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,41.5,3.0,,,,,13.371,0,FINAL,-1.92,41.5
+2026_03_CAR_CLE,3,2026-09-27,CAR,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",103,114.0,-11.0,-148,0.4933,0.4811,10.72,13.371,1,FINAL,-1.92,114.0
+2026_03_CIN_PIT,3,2026-09-27,CIN,PIT,SPREAD,1st: side,3.67,-3.5,7.17,2.89,0.7041,,24.29,13.371,1,FINAL,1.507,-3.5
+2026_03_CIN_PIT,3,2026-09-27,CIN,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.47,42.5,4.97,,0.6036,,,13.371,1,FINAL,1.507,42.5
+2026_03_CIN_PIT,3,2026-09-27,CIN,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,1,FINAL,1.507,42.5
+2026_03_CIN_PIT,3,2026-09-27,CIN,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-155,150.0,-305.0,-216,0.6081,0.4828,24.29,13.371,1,FINAL,1.507,150.0
+2026_03_HOU_IND,3,2026-09-27,HOU,IND,SPREAD,1st: side,-0.12,-1.5,1.38,1.42,0.541,,6.78,13.371,1,FINAL,-2.992,-1.5
+2026_03_HOU_IND,3,2026-09-27,HOU,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.66,41.5,5.16,,0.6075,,,13.371,0,FINAL,-2.992,41.5
+2026_03_HOU_IND,3,2026-09-27,HOU,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",48.9,41.5,7.4,,,,,13.371,0,FINAL,-2.992,41.5
+2026_03_HOU_IND,3,2026-09-27,HOU,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",101,105.0,-4.0,-142,0.4963,0.4797,6.78,13.371,1,FINAL,-2.992,105.0
+2026_03_KC_MIA,3,2026-09-27,KC,MIA,SPREAD,1st: side,-3.88,-10.0,6.12,-4.78,0.6763,,67.2,13.371,0,FINAL,1.739,-10.0
+2026_03_KC_MIA,3,2026-09-27,KC,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.34,45.5,-2.16,,0.4545,,,13.371,0,FINAL,1.739,45.5
+2026_03_KC_MIA,3,2026-09-27,KC,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,45.5,-1.0,,,,,13.371,0,FINAL,1.739,45.5
+2026_03_KC_MIA,3,2026-09-27,KC,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",159,440.0,-281.0,-187,0.3857,0.4873,67.2,13.371,0,FINAL,1.739,440.0
+2026_03_LAC_BUF,3,2026-09-27,LAC,BUF,SPREAD,1st: side,5.94,7.0,-1.06,7.77,0.4685,,48.69,13.371,1,FINAL,-3.519,7.0
+2026_03_LAC_BUF,3,2026-09-27,LAC,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.11,50.5,-4.39,,0.4081,,,13.371,0,FINAL,-3.519,50.5
+2026_03_LAC_BUF,3,2026-09-27,LAC,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,50.5,-4.64,,,,,13.371,0,FINAL,-3.519,50.5
+2026_03_LAC_BUF,3,2026-09-27,LAC,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-205,-325.0,120.0,-110,0.6717,0.5143,48.69,13.371,1,FINAL,-3.519,-325.0
+2026_03_LA_DEN,3,2026-09-27,LA,DEN,SPREAD,1st: side,-1.48,1.5,-2.98,-0.97,0.4119,,4.75,13.371,1,FINAL,-0.976,1.5
+2026_03_LA_DEN,3,2026-09-27,LA,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.84,43.5,1.34,,0.5282,,,13.371,1,FINAL,-0.976,43.5
+2026_03_LA_DEN,3,2026-09-27,LA,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,43.5,1.0,,,,,13.371,1,FINAL,-0.976,43.5
+2026_03_LA_DEN,3,2026-09-27,LA,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",119,-112.0,231.0,134,0.456,0.5043,4.75,13.371,1,FINAL,-0.976,-112.0
+2026_03_LV_NO,3,2026-09-27,LV,NO,SPREAD,1st: side,4.86,3.5,1.36,4.75,0.5404,,27.29,13.371,0,FINAL,0.208,3.5
+2026_03_LV_NO,3,2026-09-27,LV,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",40.82,43.5,-2.68,,0.4437,,,13.371,1,FINAL,0.208,43.5
+2026_03_LV_NO,3,2026-09-27,LV,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,43.5,4.48,,,,,13.371,1,FINAL,0.208,43.5
+2026_03_LV_NO,3,2026-09-27,LV,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-179,-192.0,13.0,-116,0.6418,0.5166,27.29,13.371,0,FINAL,0.208,-192.0
+2026_03_MIN_TB,3,2026-09-27,MIN,TB,SPREAD,1st: side,-0.72,-1.5,0.78,-0.72,0.5233,,4.75,13.371,0,FINAL,-0.002,-1.5
+2026_03_MIN_TB,3,2026-09-27,MIN,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.11,42.5,0.61,,0.5128,,,13.371,0,FINAL,-0.002,42.5
+2026_03_MIN_TB,3,2026-09-27,MIN,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,0,FINAL,-0.002,42.5
+2026_03_MIN_TB,3,2026-09-27,MIN,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",109,-108.0,217.0,-110,0.4786,0.4957,4.75,13.371,0,FINAL,-0.002,-108.0
+2026_03_NE_JAX,3,2026-09-27,NE,JAX,SPREAD,1st: side,0.8,3.0,-2.2,2.23,0.4346,,19.46,13.371,1,FINAL,-2.763,3.0
+2026_03_NE_JAX,3,2026-09-27,NE,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.41,46.5,-1.09,,0.4771,,,13.371,0,FINAL,-2.763,46.5
+2026_03_NE_JAX,3,2026-09-27,NE,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,0,FINAL,-2.763,46.5
+2026_03_NE_JAX,3,2026-09-27,NE,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-110,-162.0,52.0,110,0.5238,0.5176,19.46,13.371,1,FINAL,-2.763,-162.0
+2026_03_NYJ_DET,3,2026-09-27,NYJ,DET,SPREAD,1st: side,10.07,7.0,3.07,11.44,0.5907,,48.69,13.371,push,FINAL,-2.645,7.0
+2026_03_NYJ_DET,3,2026-09-27,NYJ,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.04,49.5,-0.46,,0.4902,,,13.371,1,FINAL,-2.645,49.5
+2026_03_NYJ_DET,3,2026-09-27,NYJ,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,49.5,-0.16,,,,,13.371,1,FINAL,-2.645,49.5
+2026_03_NYJ_DET,3,2026-09-27,NYJ,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-343,-325.0,-18.0,-170,0.7743,0.5143,48.69,13.371,1,FINAL,-2.645,-325.0
+2026_03_SEA_WAS,3,2026-09-27,SEA,WAS,SPREAD,1st: side,-9.19,-8.5,-0.69,-10.59,0.4793,,56.58,13.371,1,FINAL,2.69,-8.5
+2026_03_SEA_WAS,3,2026-09-27,SEA,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.48,40.5,4.98,,0.6039,,,13.371,1,FINAL,2.69,40.5
+2026_03_SEA_WAS,3,2026-09-27,SEA,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,40.5,4.0,,,,,13.371,1,FINAL,2.69,40.5
+2026_03_SEA_WAS,3,2026-09-27,SEA,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",307,320.0,-13.0,128,0.2458,0.4866,56.58,13.371,1,FINAL,2.69,320.0
+2026_03_TEN_NYG,3,2026-09-27,TEN,NYG,SPREAD,1st: side,6.34,2.5,3.84,6.16,0.613,,8.9,13.371,1,FINAL,0.342,2.5
+2026_03_TEN_NYG,3,2026-09-27,TEN,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.37,37.5,7.87,,0.6613,,,13.371,0,FINAL,0.342,37.5
+2026_03_TEN_NYG,3,2026-09-27,TEN,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,37.5,7.0,,,,,13.371,0,FINAL,0.342,37.5
+2026_03_TEN_NYG,3,2026-09-27,TEN,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-215,-130.0,-85.0,-155,0.6823,0.519,8.9,13.371,1,FINAL,0.342,-130.0
+2026_03_PHI_CHI,3,2026-09-28,PHI,CHI,SPREAD,1st: side,1.16,-3.5,4.66,1.05,0.6363,,28.56,13.371,1,FINAL,0.22,-3.5
+2026_03_PHI_CHI,3,2026-09-28,PHI,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.76,42.5,3.26,,0.5685,,,13.371,0,FINAL,0.22,42.5
+2026_03_PHI_CHI,3,2026-09-28,PHI,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,0,FINAL,0.22,42.5
+2026_03_PHI_CHI,3,2026-09-28,PHI,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-115,164.0,-279.0,-173,0.5346,0.4832,28.56,13.371,1,FINAL,0.22,164.0
+2026_04_PIT_CLE,4,2026-10-01,PIT,CLE,SPREAD,1st: side,-2.04,-2.5,0.46,-2.19,0.5138,,15.03,13.371,1,FINAL,0.301,-2.5
+2026_04_PIT_CLE,4,2026-10-01,PIT,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.01,38.5,3.51,,0.5736,,,13.371,1,FINAL,0.301,38.5
+2026_04_PIT_CLE,4,2026-10-01,PIT,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,38.5,6.0,,,,,13.371,1,FINAL,0.301,38.5
+2026_04_PIT_CLE,4,2026-10-01,PIT,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",128,124.0,4.0,-104,0.4395,0.4812,15.03,13.371,1,FINAL,0.301,124.0
+2026_04_ARI_NYG,4,2026-10-04,ARI,NYG,SPREAD,1st: side,4.41,-2.5,6.91,5.09,0.6974,,10.72,13.371,1,FINAL,-1.303,-2.5
+2026_04_ARI_NYG,4,2026-10-04,ARI,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.05,44.5,2.55,,0.5537,,,13.371,1,FINAL,-1.303,44.5
+2026_04_ARI_NYG,4,2026-10-04,ARI,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,44.5,-0.0,,,,,13.371,1,FINAL,-1.303,44.5
+2026_04_ARI_NYG,4,2026-10-04,ARI,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-170,114.0,-284.0,-251,0.6293,0.4811,10.72,13.371,1,FINAL,-1.303,114.0
+2026_04_DAL_HOU,4,2026-10-04,DAL,HOU,SPREAD,1st: side,5.61,3.0,2.61,4.94,0.5774,,17.31,13.371,0,FINAL,1.303,3.0
+2026_04_DAL_HOU,4,2026-10-04,DAL,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.64,48.5,0.14,,0.503,,,13.371,1,FINAL,1.303,48.5
+2026_04_DAL_HOU,4,2026-10-04,DAL,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,48.5,-1.22,,,,,13.371,1,FINAL,1.303,48.5
+2026_04_DAL_HOU,4,2026-10-04,DAL,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-196,-155.0,-41.0,-126,0.6627,0.5182,17.31,13.371,0,FINAL,1.303,-155.0
+2026_04_DEN_SF,4,2026-10-04,DEN,SF,SPREAD,1st: side,2.83,3.0,-0.17,1.14,0.4949,,20.74,13.371,1,FINAL,3.267,3.0
+2026_04_DEN_SF,4,2026-10-04,DEN,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.62,48.5,-3.88,,0.4187,,,13.371,0,FINAL,3.267,48.5
+2026_04_DEN_SF,4,2026-10-04,DEN,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,48.5,-4.0,,,,,13.371,0,FINAL,3.267,48.5
+2026_04_DEN_SF,4,2026-10-04,DEN,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-140,-166.0,26.0,125,0.5838,0.5169,20.74,13.371,1,FINAL,3.267,-166.0
+2026_04_DET_CAR,4,2026-10-04,DET,CAR,SPREAD,1st: side,-2.32,-4.5,2.18,-3.34,0.5647,,34.14,13.371,1,FINAL,1.96,-4.5
+2026_04_DET_CAR,4,2026-10-04,DET,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.87,52.5,-4.63,,0.4033,,,13.371,1,FINAL,1.96,52.5
+2026_04_DET_CAR,4,2026-10-04,DET,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,52.5,-8.0,,,,,13.371,1,FINAL,1.96,52.5
+2026_04_DET_CAR,4,2026-10-04,DET,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",132,185.0,-53.0,-115,0.4311,0.4839,34.14,13.371,1,FINAL,1.96,185.0
+2026_04_GB_TB,4,2026-10-04,GB,TB,SPREAD,1st: side,0.36,-3.0,3.36,0.2,0.5993,,17.31,13.371,push,FINAL,0.315,-3.0
+2026_04_GB_TB,4,2026-10-04,GB,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.33,38.5,6.83,,0.641,,,13.371,0,FINAL,0.315,38.5
+2026_04_GB_TB,4,2026-10-04,GB,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,38.5,5.8,,,,,13.371,0,FINAL,0.315,38.5
+2026_04_GB_TB,4,2026-10-04,GB,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-104,130.0,-234.0,-147,0.5109,0.4818,17.31,13.371,0,FINAL,0.315,130.0
+2026_04_IND_WAS,4,2026-10-04,IND,WAS,SPREAD,1st: side,-2.89,-4.5,1.61,-4.98,0.5479,,35.21,13.371,0,FINAL,4.039,-4.5
+2026_04_IND_WAS,4,2026-10-04,IND,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.42,46.5,2.92,,0.5613,,,13.371,0,FINAL,4.039,46.5
+2026_04_IND_WAS,4,2026-10-04,IND,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,0,FINAL,4.039,46.5
+2026_04_IND_WAS,4,2026-10-04,IND,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",141,190.0,-49.0,106,0.4144,0.4845,35.21,13.371,0,FINAL,4.039,190.0
+2026_04_JAX_CIN,4,2026-10-04,JAX,CIN,SPREAD,1st: side,-5.99,2.5,-8.49,-7.18,0.2628,,15.03,13.371,0,FINAL,2.295,2.5
+2026_04_JAX_CIN,4,2026-10-04,JAX,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.58,51.5,-2.92,,0.4386,,,13.371,0,FINAL,2.295,51.5
+2026_04_JAX_CIN,4,2026-10-04,JAX,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,51.5,-7.0,,,,,13.371,0,FINAL,2.295,51.5
+2026_04_JAX_CIN,4,2026-10-04,JAX,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",206,-148.0,354.0,326,0.3271,0.5188,15.03,13.371,0,FINAL,2.295,-148.0
+2026_04_KC_LV,4,2026-10-04,KC,LV,SPREAD,1st: side,-5.48,-4.5,-0.98,-5.75,0.4707,,34.14,13.371,1,FINAL,0.523,-4.5
+2026_04_KC_LV,4,2026-10-04,KC,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.19,47.5,-6.31,,0.3693,,,13.371,1,FINAL,0.523,47.5
+2026_04_KC_LV,4,2026-10-04,KC,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,47.5,0.48,,,,,13.371,1,FINAL,0.523,47.5
+2026_04_KC_LV,4,2026-10-04,KC,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",193,185.0,8.0,116,0.3409,0.4839,34.14,13.371,0,FINAL,0.523,185.0
+2026_04_LAC_SEA,4,2026-10-04,LAC,SEA,SPREAD,1st: side,8.71,7.0,1.71,10.44,0.5509,,50.86,13.371,push,FINAL,-3.352,7.0
+2026_04_LAC_SEA,4,2026-10-04,LAC,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.07,42.5,0.57,,0.512,,,13.371,1,FINAL,-3.352,42.5
+2026_04_LAC_SEA,4,2026-10-04,LAC,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,1,FINAL,-3.352,42.5
+2026_04_LAC_SEA,4,2026-10-04,LAC,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-288,-345.0,57.0,-151,0.7426,0.5139,50.86,13.371,1,FINAL,-3.352,-345.0
+2026_04_LA_PHI,4,2026-10-04,LA,PHI,SPREAD,1st: side,-2.35,-3.5,1.15,-3.57,0.5342,,28.56,13.371,0,FINAL,2.344,-3.5
+2026_04_LA_PHI,4,2026-10-04,LA,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.02,42.5,2.52,,0.5529,,,13.371,1,FINAL,2.344,42.5
+2026_04_LA_PHI,4,2026-10-04,LA,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,1,FINAL,2.344,42.5
+2026_04_LA_PHI,4,2026-10-04,LA,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",132,164.0,-32.0,101,0.4301,0.4832,28.56,13.371,0,FINAL,2.344,164.0
+2026_04_MIA_MIN,4,2026-10-04,MIA,MIN,SPREAD,1st: side,7.07,10.0,-2.93,7.07,0.4132,,64.25,13.371,0,FINAL,0.001,10.0
+2026_04_MIA_MIN,4,2026-10-04,MIA,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.05,38.5,3.55,,0.5745,,,13.371,0,FINAL,0.001,38.5
+2026_04_MIA_MIN,4,2026-10-04,MIA,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,38.5,9.48,,,,,13.371,0,FINAL,0.001,38.5
+2026_04_MIA_MIN,4,2026-10-04,MIA,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-235,-535.0,300.0,142,0.7014,0.5129,64.25,13.371,1,FINAL,0.001,-535.0
+2026_04_NE_BUF,4,2026-10-04,NE,BUF,SPREAD,1st: side,1.25,7.0,-5.75,3.19,0.3336,,50.86,13.371,0,FINAL,-3.753,7.0
+2026_04_NE_BUF,4,2026-10-04,NE,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.36,49.5,-2.14,,0.455,,,13.371,1,FINAL,-3.753,49.5
+2026_04_NE_BUF,4,2026-10-04,NE,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,49.5,-5.0,,,,,13.371,1,FINAL,-3.753,49.5
+2026_04_NE_BUF,4,2026-10-04,NE,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-116,-345.0,229.0,158,0.5372,0.5139,50.86,13.371,0,FINAL,-3.753,-345.0
+2026_04_NYJ_CHI,4,2026-10-04,NYJ,CHI,SPREAD,1st: side,10.04,3.5,6.54,9.87,0.6875,,27.29,13.371,1,FINAL,0.331,3.5
+2026_04_NYJ_CHI,4,2026-10-04,NYJ,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.45,43.5,3.95,,0.5827,,,13.371,0,FINAL,0.331,43.5
+2026_04_NYJ_CHI,4,2026-10-04,NYJ,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,43.5,1.0,,,,,13.371,0,FINAL,0.331,43.5
+2026_04_NYJ_CHI,4,2026-10-04,NYJ,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-342,-192.0,-150.0,-215,0.7736,0.5166,27.29,13.371,1,FINAL,0.331,-192.0
+2026_04_TEN_BAL,4,2026-10-04,TEN,BAL,SPREAD,1st: side,9.85,11.5,-1.65,8.12,0.4508,,73.5,13.371,0,FINAL,3.343,11.5
+2026_04_TEN_BAL,4,2026-10-04,TEN,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.77,42.5,3.27,,0.5686,,,13.371,0,FINAL,3.343,42.5
+2026_04_TEN_BAL,4,2026-10-04,TEN,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,0,FINAL,3.343,42.5
+2026_04_TEN_BAL,4,2026-10-04,TEN,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-333,-800.0,467.0,150,0.7693,0.5123,73.5,13.371,1,FINAL,3.343,-800.0
+2026_04_ATL_NO,4,2026-10-05,ATL,NO,SPREAD,1st: side,1.31,1.5,-0.19,-0.1,0.4944,,4.62,13.371,0,FINAL,2.737,1.5
+2026_04_ATL_NO,4,2026-10-05,ATL,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.03,47.5,-4.47,,0.4065,,,13.371,1,FINAL,2.737,47.5
+2026_04_ATL_NO,4,2026-10-05,ATL,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,47.5,0.29,,,,,13.371,1,FINAL,2.737,47.5
+2026_04_ATL_NO,4,2026-10-05,ATL,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-117,-118.0,1.0,121,0.5391,0.5174,4.62,13.371,0,FINAL,2.737,-118.0
+2026_05_TB_DAL,5,2026-10-08,TB,DAL,SPREAD,1st: side,2.39,9.5,-7.11,2.53,0.2975,,64.25,13.371,0,FINAL,-0.266,9.5
+2026_05_TB_DAL,5,2026-10-08,TB,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",50.81,49.5,1.31,,0.5276,,,13.371,0,FINAL,-0.266,49.5
+2026_05_TB_DAL,5,2026-10-08,TB,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,49.5,-2.22,,,,,13.371,0,FINAL,-0.266,49.5
+2026_05_TB_DAL,5,2026-10-08,TB,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-133,-535.0,402.0,232,0.571,0.5129,64.25,13.371,0,FINAL,-0.266,-535.0
+2026_05_BAL_ATL,5,2026-10-11,BAL,ATL,SPREAD,1st: side,-0.98,3.5,-4.48,-0.03,0.3689,,22.82,13.371,0,FINAL,-1.822,3.5
+2026_05_BAL_ATL,5,2026-10-11,BAL,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.5,44.5,2.0,,0.5421,,,13.371,1,FINAL,-1.822,44.5
+2026_05_BAL_ATL,5,2026-10-11,BAL,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",48.9,44.5,4.4,,,,,13.371,1,FINAL,-1.822,44.5
+2026_05_BAL_ATL,5,2026-10-11,BAL,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",112,-175.0,287.0,153,0.4709,0.5181,22.82,13.371,0,FINAL,-1.822,-175.0
+2026_05_CHI_GB,5,2026-10-11,CHI,GB,SPREAD,1st: side,-0.49,-1.5,1.01,-1.25,0.5301,,6.78,13.371,1,FINAL,1.475,-1.5
+2026_05_CHI_GB,5,2026-10-11,CHI,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.2,46.5,-0.3,,0.4937,,,13.371,0,FINAL,1.475,46.5
+2026_05_CHI_GB,5,2026-10-11,CHI,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,0,FINAL,1.475,46.5
+2026_05_CHI_GB,5,2026-10-11,CHI,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",106,105.0,1.0,-103,0.4854,0.4797,6.78,13.371,1,FINAL,1.475,105.0
+2026_05_CIN_MIA,5,2026-10-11,CIN,MIA,SPREAD,1st: side,-0.25,-7.0,6.75,-1.59,0.6932,,51.71,13.371,push,FINAL,2.605,-7.0
+2026_05_CIN_MIA,5,2026-10-11,CIN,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.13,44.5,2.63,,0.5554,,,13.371,1,FINAL,2.605,44.5
+2026_05_CIN_MIA,5,2026-10-11,CIN,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,44.5,-0.0,,,,,13.371,1,FINAL,2.605,44.5
+2026_05_CIN_MIA,5,2026-10-11,CIN,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",103,280.0,-177.0,-192,0.4926,0.4857,51.71,13.371,0,FINAL,2.605,280.0
+2026_05_CLE_NYJ,5,2026-10-11,CLE,NYJ,SPREAD,1st: side,-1.19,2.5,-3.69,-0.14,0.3914,,13.22,13.371,1,FINAL,-2.033,2.5
+2026_05_CLE_NYJ,5,2026-10-11,CLE,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.7,38.5,4.2,,0.5878,,,13.371,0,FINAL,-2.033,38.5
+2026_05_CLE_NYJ,5,2026-10-11,CLE,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,38.5,5.8,,,,,13.371,0,FINAL,-2.033,38.5
+2026_05_CLE_NYJ,5,2026-10-11,CLE,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",115,-142.0,257.0,137,0.4646,0.5182,13.22,13.371,1,FINAL,-2.033,-142.0
+2026_05_DEN_LAC,5,2026-10-11,DEN,LAC,SPREAD,1st: side,-0.7,-3.5,2.8,-4.75,0.5829,,27.29,13.371,0,FINAL,7.826,-3.5
+2026_05_DEN_LAC,5,2026-10-11,DEN,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.93,42.5,-0.57,,0.4881,,,13.371,0,FINAL,7.826,42.5
+2026_05_DEN_LAC,5,2026-10-11,DEN,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,42.5,5.48,,,,,13.371,0,FINAL,7.826,42.5
+2026_05_DEN_LAC,5,2026-10-11,DEN,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",109,160.0,-51.0,116,0.4791,0.4834,27.29,13.371,0,FINAL,7.826,160.0
+2026_05_DET_ARI,5,2026-10-11,DET,ARI,SPREAD,1st: side,-5.01,-5.5,0.49,-4.13,0.5146,,40.86,13.371,0,FINAL,-1.697,-5.5
+2026_05_DET_ARI,5,2026-10-11,DET,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",50.98,55.5,-4.52,,0.4055,,,13.371,1,FINAL,-1.697,55.5
+2026_05_DET_ARI,5,2026-10-11,DET,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,55.5,-8.22,,,,,13.371,1,FINAL,-1.697,55.5
+2026_05_DET_ARI,5,2026-10-11,DET,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",183,215.0,-32.0,-118,0.3539,0.4846,40.86,13.371,0,FINAL,-1.697,215.0
+2026_05_HOU_TEN,5,2026-10-11,HOU,TEN,SPREAD,1st: side,-7.53,-6.5,-1.03,-6.94,0.4693,,47.04,13.371,0,FINAL,-1.136,-6.5
+2026_05_HOU_TEN,5,2026-10-11,HOU,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.59,37.5,5.09,,0.6061,,,13.371,0,FINAL,-1.136,37.5
+2026_05_HOU_TEN,5,2026-10-11,HOU,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,37.5,7.0,,,,,13.371,0,FINAL,-1.136,37.5
+2026_05_HOU_TEN,5,2026-10-11,HOU,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",249,250.0,-1.0,105,0.2867,0.4858,47.04,13.371,0,FINAL,-1.136,250.0
+2026_05_IND_PIT,5,2026-10-11,IND,PIT,SPREAD,1st: side,0.18,3.0,-2.82,0.88,0.4164,,19.46,13.371,1,FINAL,-1.35,3.0
+2026_05_IND_PIT,5,2026-10-11,IND,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.69,41.5,6.19,,0.6282,,,13.371,1,FINAL,-1.35,41.5
+2026_05_IND_PIT,5,2026-10-11,IND,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,41.5,4.36,,,,,13.371,1,FINAL,-1.35,41.5
+2026_05_IND_PIT,5,2026-10-11,IND,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-102,-162.0,60.0,129,0.5053,0.5176,19.46,13.371,1,FINAL,-1.35,-162.0
+2026_05_LV_NE,5,2026-10-11,LV,NE,SPREAD,1st: side,11.41,3.5,7.91,8.78,0.7228,,24.29,13.371,1,FINAL,5.078,3.5
+2026_05_LV_NE,5,2026-10-11,LV,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.27,45.5,-2.23,,0.4531,,,13.371,1,FINAL,5.078,45.5
+2026_05_LV_NE,5,2026-10-11,LV,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,45.5,-1.0,,,,,13.371,1,FINAL,5.078,45.5
+2026_05_LV_NE,5,2026-10-11,LV,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-408,-180.0,-228.0,-189,0.8032,0.5172,24.29,13.371,1,FINAL,5.078,-180.0
+2026_05_MIN_NO,5,2026-10-11,MIN,NO,SPREAD,1st: side,-2.67,-2.5,-0.17,-3.33,0.4948,,13.22,13.371,0,FINAL,1.275,-2.5
+2026_05_MIN_NO,5,2026-10-11,MIN,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.4,41.5,-0.1,,0.498,,,13.371,0,FINAL,1.275,41.5
+2026_05_MIN_NO,5,2026-10-11,MIN,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,41.5,6.48,,,,,13.371,0,FINAL,1.275,41.5
+2026_05_MIN_NO,5,2026-10-11,MIN,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",138,120.0,18.0,110,0.4207,0.4818,13.22,13.371,0,FINAL,1.275,120.0
+2026_05_NYG_WAS,5,2026-10-11,NYG,WAS,SPREAD,1st: side,-0.49,3.5,-3.99,-3.28,0.3827,,24.29,13.371,0,FINAL,5.401,3.5
+2026_05_NYG_WAS,5,2026-10-11,NYG,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.96,41.5,5.46,,0.6137,,,13.371,1,FINAL,5.401,41.5
+2026_05_NYG_WAS,5,2026-10-11,NYG,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,41.5,3.0,,,,,13.371,1,FINAL,5.401,41.5
+2026_05_NYG_WAS,5,2026-10-11,NYG,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",106,-180.0,286.0,227,0.4854,0.5172,24.29,13.371,0,FINAL,5.401,-180.0
+2026_05_PHI_JAX,5,2026-10-11,PHI,JAX,SPREAD,1st: side,6.4,7.5,-1.1,8.11,0.4672,,54.17,13.371,0,FINAL,-3.313,7.5
+2026_05_PHI_JAX,5,2026-10-11,PHI,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.59,41.5,2.09,,0.544,,,13.371,0,FINAL,-3.313,41.5
+2026_05_PHI_JAX,5,2026-10-11,PHI,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,41.5,3.0,,,,,13.371,0,FINAL,-3.313,41.5
+2026_05_PHI_JAX,5,2026-10-11,PHI,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-216,-380.0,164.0,-108,0.6839,0.5135,54.17,13.371,1,FINAL,-3.313,-380.0
+2026_05_SF_SEA,5,2026-10-11,SF,SEA,SPREAD,1st: side,4.76,3.0,1.76,5.28,0.5524,,20.74,13.371,0,FINAL,-0.997,3.0
+2026_05_SF_SEA,5,2026-10-11,SF,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.88,46.5,-0.62,,0.487,,,13.371,1,FINAL,-0.997,46.5
+2026_05_SF_SEA,5,2026-10-11,SF,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,1,FINAL,-0.997,46.5
+2026_05_SF_SEA,5,2026-10-11,SF,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-177,-166.0,-11.0,-131,0.6391,0.5169,20.74,13.371,0,FINAL,-0.997,-166.0
+2026_05_BUF_LA,5,2026-10-12,BUF,LA,SPREAD,1st: side,2.91,3.5,-0.59,4.28,0.4824,,25.54,13.371,0,FINAL,-2.659,3.5
+2026_05_BUF_LA,5,2026-10-12,BUF,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.38,55.5,-6.12,,0.3732,,,13.371,1,FINAL,-2.659,55.5
+2026_05_BUF_LA,5,2026-10-12,BUF,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,55.5,-7.52,,,,,13.371,1,FINAL,-2.659,55.5
+2026_05_BUF_LA,5,2026-10-12,BUF,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-142,-185.0,43.0,-110,0.5861,0.5171,25.54,13.371,0,FINAL,-2.659,-185.0
+2026_06_SEA_DEN,6,2026-10-15,SEA,DEN,SPREAD,1st: side,-2.45,-2.5,0.05,-2.13,0.5016,,17.31,13.371,1,FINAL,-0.607,-2.5
+2026_06_SEA_DEN,6,2026-10-15,SEA,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.74,40.5,3.24,,0.5681,,,13.371,0,FINAL,-0.607,40.5
+2026_06_SEA_DEN,6,2026-10-15,SEA,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,40.5,4.0,,,,,13.371,0,FINAL,-0.607,40.5
+2026_06_SEA_DEN,6,2026-10-15,SEA,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",134,130.0,4.0,-104,0.4274,0.4818,17.31,13.371,1,FINAL,-0.607,130.0
+2026_06_ARI_LA,6,2026-10-18,ARI,LA,SPREAD,1st: side,12.2,12.5,-0.3,14.07,0.4911,,70.83,13.371,0,FINAL,-3.606,12.5
+2026_06_ARI_LA,6,2026-10-18,ARI,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.5,51.5,-2.0,,0.4578,,,13.371,0,FINAL,-3.606,51.5
+2026_06_ARI_LA,6,2026-10-18,ARI,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,51.5,-3.52,,,,,13.371,0,FINAL,-3.606,51.5
+2026_06_ARI_LA,6,2026-10-18,ARI,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-453,-700.0,247.0,-121,0.8192,0.5122,70.83,13.371,0,FINAL,-3.606,-700.0
+2026_06_BAL_CLE,6,2026-10-18,BAL,CLE,SPREAD,1st: side,-3.26,-3.0,-0.26,-3.86,0.4922,,21.64,13.371,1,FINAL,1.155,-3.0
+2026_06_BAL_CLE,6,2026-10-18,BAL,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.07,39.5,4.57,,0.5955,,,13.371,0,FINAL,1.155,39.5
+2026_06_BAL_CLE,6,2026-10-18,BAL,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,39.5,5.0,,,,,13.371,0,FINAL,1.155,39.5
+2026_06_BAL_CLE,6,2026-10-18,BAL,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",148,142.0,6.0,111,0.4036,0.4824,21.64,13.371,1,FINAL,1.155,142.0
+2026_06_BUF_LV,6,2026-10-18,BUF,LV,SPREAD,1st: side,-7.79,-5.5,-2.29,-8.65,0.4322,,36.52,13.371,1,FINAL,1.672,-5.5
+2026_06_BUF_LV,6,2026-10-18,BUF,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.82,53.5,-6.68,,0.362,,,13.371,1,FINAL,1.672,53.5
+2026_06_BUF_LV,6,2026-10-18,BUF,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,53.5,-5.52,,,,,13.371,1,FINAL,1.672,53.5
+2026_06_BUF_LV,6,2026-10-18,BUF,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",257,195.0,62.0,146,0.2802,0.4842,36.52,13.371,0,FINAL,1.672,195.0
+2026_06_CAR_PHI,6,2026-10-18,CAR,PHI,SPREAD,1st: side,4.48,-3.0,7.48,1.04,0.712,,19.46,13.371,0,FINAL,6.653,-3.0
+2026_06_CAR_PHI,6,2026-10-18,CAR,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.49,39.5,2.99,,0.5629,,,13.371,0,FINAL,6.653,39.5
+2026_06_CAR_PHI,6,2026-10-18,CAR,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,39.5,4.8,,,,,13.371,0,FINAL,6.653,39.5
+2026_06_CAR_PHI,6,2026-10-18,CAR,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-171,136.0,-307.0,-162,0.6311,0.4824,19.46,13.371,0,FINAL,6.653,136.0
+2026_06_CHI_ATL,6,2026-10-18,CHI,ATL,SPREAD,1st: side,-1.16,-1.5,0.34,0.9,0.5101,,4.62,13.371,0,FINAL,-3.993,-1.5
+2026_06_CHI_ATL,6,2026-10-18,CHI,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.44,51.5,-5.06,,0.3944,,,13.371,1,FINAL,-3.993,51.5
+2026_06_CHI_ATL,6,2026-10-18,CHI,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,51.5,-4.22,,,,,13.371,1,FINAL,-3.993,51.5
+2026_06_CHI_ATL,6,2026-10-18,CHI,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",115,-102.0,217.0,-133,0.4654,0.4826,4.62,13.371,0,FINAL,-3.993,-102.0
+2026_06_DAL_GB,6,2026-10-18,DAL,GB,SPREAD,1st: side,3.54,-1.5,5.04,1.78,0.6468,,4.71,13.371,1,FINAL,3.4,-1.5
+2026_06_DAL_GB,6,2026-10-18,DAL,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.64,53.5,-3.86,,0.4191,,,13.371,0,FINAL,3.4,53.5
+2026_06_DAL_GB,6,2026-10-18,DAL,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,53.5,-9.2,,,,,13.371,0,FINAL,3.4,53.5
+2026_06_DAL_GB,6,2026-10-18,DAL,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-153,-105.0,-48.0,-148,0.6043,0.4892,4.71,13.371,1,FINAL,3.4,-105.0
+2026_06_HOU_JAX,6,2026-10-18,HOU,JAX,SPREAD,1st: side,4.21,2.5,1.71,4.88,0.5508,,13.22,13.371,0,FINAL,-1.302,2.5
+2026_06_HOU_JAX,6,2026-10-18,HOU,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.54,42.5,1.04,,0.5219,,,13.371,1,FINAL,-1.302,42.5
+2026_06_HOU_JAX,6,2026-10-18,HOU,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,1,FINAL,-1.302,42.5
+2026_06_HOU_JAX,6,2026-10-18,HOU,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-166,-142.0,-24.0,-133,0.6235,0.5182,13.22,13.371,0,FINAL,-1.302,-142.0
+2026_06_LAC_KC,6,2026-10-18,LAC,KC,SPREAD,1st: side,4.53,7.5,-2.97,7.39,0.412,,59.76,13.371,1,FINAL,-5.53,7.5
+2026_06_LAC_KC,6,2026-10-18,LAC,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.99,41.5,0.49,,0.5104,,,13.371,0,FINAL,-5.53,41.5
+2026_06_LAC_KC,6,2026-10-18,LAC,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,41.5,4.36,,,,,13.371,0,FINAL,-5.53,41.5
+2026_06_LAC_KC,6,2026-10-18,LAC,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-172,-455.0,283.0,101,0.6325,0.5132,59.76,13.371,1,FINAL,-5.53,-455.0
+2026_06_NO_NYG,6,2026-10-18,NO,NYG,SPREAD,1st: side,3.36,-1.5,4.86,3.17,0.6419,,4.75,13.371,0,FINAL,0.364,-1.5
+2026_06_NO_NYG,6,2026-10-18,NO,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.95,46.5,-1.55,,0.4673,,,13.371,1,FINAL,0.364,46.5
+2026_06_NO_NYG,6,2026-10-18,NO,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,1,FINAL,0.364,46.5
+2026_06_NO_NYG,6,2026-10-18,NO,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-150,-112.0,-38.0,-175,0.5992,0.5043,4.75,13.371,0,FINAL,0.364,-112.0
+2026_06_NYJ_NE,6,2026-10-18,NYJ,NE,SPREAD,1st: side,13.19,7.5,5.69,13.47,0.6649,,50.86,13.371,0,FINAL,-0.54,7.5
+2026_06_NYJ_NE,6,2026-10-18,NYJ,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.21,43.5,1.71,,0.5361,,,13.371,1,FINAL,-0.54,43.5
+2026_06_NYJ_NE,6,2026-10-18,NYJ,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,43.5,1.0,,,,,13.371,1,FINAL,-0.54,43.5
+2026_06_NYJ_NE,6,2026-10-18,NYJ,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-518,-345.0,-173.0,-205,0.8381,0.5139,50.86,13.371,1,FINAL,-0.54,-345.0
+2026_06_PIT_TB,6,2026-10-18,PIT,TB,SPREAD,1st: side,0.15,-2.5,2.65,-0.13,0.5786,,13.22,13.371,0,FINAL,0.545,-2.5
+2026_06_PIT_TB,6,2026-10-18,PIT,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.23,38.5,6.73,,0.6391,,,13.371,1,FINAL,0.545,38.5
+2026_06_PIT_TB,6,2026-10-18,PIT,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,38.5,7.36,,,,,13.371,1,FINAL,0.545,38.5
+2026_06_PIT_TB,6,2026-10-18,PIT,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-102,120.0,-222.0,-133,0.5045,0.4818,13.22,13.371,0,FINAL,0.545,120.0
+2026_06_TEN_IND,6,2026-10-18,TEN,IND,SPREAD,1st: side,10.07,6.5,3.57,10.27,0.6053,,45.46,13.371,0,FINAL,-0.392,6.5
+2026_06_TEN_IND,6,2026-10-18,TEN,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.5,43.5,3.0,,0.563,,,13.371,1,FINAL,-0.392,43.5
+2026_06_TEN_IND,6,2026-10-18,TEN,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",48.9,43.5,5.4,,,,,13.371,1,FINAL,-0.392,43.5
+2026_06_TEN_IND,6,2026-10-18,TEN,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-343,-298.0,-45.0,-157,0.7743,0.5147,45.46,13.371,0,FINAL,-0.392,-298.0
+2026_06_WAS_SF,6,2026-10-19,WAS,SF,SPREAD,1st: side,9.23,7.5,1.73,9.82,0.5513,,55.41,13.371,0,FINAL,-1.158,7.5
+2026_06_WAS_SF,6,2026-10-19,WAS,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.66,51.5,-3.84,,0.4196,,,13.371,0,FINAL,-1.158,51.5
+2026_06_WAS_SF,6,2026-10-19,WAS,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,51.5,-7.0,,,,,13.371,0,FINAL,-1.158,51.5
+2026_06_WAS_SF,6,2026-10-19,WAS,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-308,-395.0,87.0,-132,0.7549,0.5135,55.41,13.371,1,FINAL,-1.158,-395.0
+2026_07_NE_CHI,7,2026-10-22,NE,CHI,SPREAD,1st: side,-2.07,3.0,-5.07,-0.27,0.3524,,17.31,13.371,1,FINAL,-3.468,3.0
+2026_07_NE_CHI,7,2026-10-22,NE,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.93,50.5,-3.57,,0.4251,,,13.371,1,FINAL,-3.468,50.5
+2026_07_NE_CHI,7,2026-10-22,NE,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,50.5,-6.0,,,,,13.371,1,FINAL,-3.468,50.5
+2026_07_NE_CHI,7,2026-10-22,NE,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",128,-155.0,283.0,148,0.4386,0.5182,17.31,13.371,1,FINAL,-3.468,-155.0
+2026_07_CIN_BAL,7,2026-10-25,CIN,BAL,SPREAD,1st: side,4.88,-3.0,7.88,2.66,0.7222,,19.46,13.371,0,FINAL,4.297,-3.0
+2026_07_CIN_BAL,7,2026-10-25,CIN,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.28,46.5,2.78,,0.5585,,,13.371,1,FINAL,4.297,46.5
+2026_07_CIN_BAL,7,2026-10-25,CIN,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,46.5,-2.2,,,,,13.371,1,FINAL,4.297,46.5
+2026_07_CIN_BAL,7,2026-10-25,CIN,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-180,136.0,-316.0,-198,0.6425,0.4824,19.46,13.371,0,FINAL,4.297,136.0
+2026_07_CLE_TEN,7,2026-10-25,CLE,TEN,SPREAD,1st: side,-1.7,-1.5,-0.2,-0.2,0.494,,8.9,13.371,0,FINAL,-2.907,-1.5
+2026_07_CLE_TEN,7,2026-10-25,CLE,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",40.58,36.5,4.08,,0.5854,,,13.371,1,FINAL,-2.907,36.5
+2026_07_CLE_TEN,7,2026-10-25,CLE,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,36.5,8.0,,,,,13.371,1,FINAL,-2.907,36.5
+2026_07_CLE_TEN,7,2026-10-25,CLE,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",123,110.0,13.0,-117,0.4494,0.481,8.9,13.371,0,FINAL,-2.907,110.0
+2026_07_DEN_ARI,7,2026-10-25,DEN,ARI,SPREAD,1st: side,-5.66,-4.5,-1.16,-6.63,0.4654,,35.21,13.371,0,FINAL,1.871,-4.5
+2026_07_DEN_ARI,7,2026-10-25,DEN,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.24,44.5,0.74,,0.5156,,,13.371,1,FINAL,1.871,44.5
+2026_07_DEN_ARI,7,2026-10-25,DEN,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.08,44.5,2.58,,,,,13.371,1,FINAL,1.871,44.5
+2026_07_DEN_ARI,7,2026-10-25,DEN,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",198,190.0,8.0,129,0.336,0.4845,35.21,13.371,0,FINAL,1.871,190.0
+2026_07_GB_DET,7,2026-10-25,GB,DET,SPREAD,1st: side,3.28,3.5,-0.22,4.14,0.4934,,27.29,13.371,0,FINAL,-1.659,3.5
+2026_07_GB_DET,7,2026-10-25,GB,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.46,55.5,-7.04,,0.3549,,,13.371,0,FINAL,-1.659,55.5
+2026_07_GB_DET,7,2026-10-25,GB,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,55.5,-6.16,,,,,13.371,0,FINAL,-1.659,55.5
+2026_07_GB_DET,7,2026-10-25,GB,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-148,-192.0,44.0,-108,0.5969,0.5166,27.29,13.371,1,FINAL,-1.659,-192.0
+2026_07_IND_MIN,7,2026-10-25,IND,MIN,SPREAD,1st: side,2.43,6.5,-4.07,4.68,0.3805,,48.69,13.371,0,FINAL,-4.341,6.5
+2026_07_IND_MIN,7,2026-10-25,IND,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.79,41.5,3.29,,0.5692,,,13.371,0,FINAL,-4.341,41.5
+2026_07_IND_MIN,7,2026-10-25,IND,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,41.5,7.84,,,,,13.371,0,FINAL,-4.341,41.5
+2026_07_IND_MIN,7,2026-10-25,IND,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-134,-325.0,191.0,124,0.5722,0.5143,48.69,13.371,1,FINAL,-4.341,-325.0
+2026_07_KC_SEA,7,2026-10-25,KC,SEA,SPREAD,1st: side,5.2,3.0,2.2,4.61,0.5653,,19.46,13.371,1,FINAL,1.128,3.0
+2026_07_KC_SEA,7,2026-10-25,KC,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.31,43.5,-0.19,,0.496,,,13.371,0,FINAL,1.128,43.5
+2026_07_KC_SEA,7,2026-10-25,KC,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,43.5,2.36,,,,,13.371,0,FINAL,1.128,43.5
+2026_07_KC_SEA,7,2026-10-25,KC,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-187,-162.0,-25.0,-121,0.6513,0.5176,19.46,13.371,1,FINAL,1.128,-162.0
+2026_07_LA_LV,7,2026-10-25,LA,LV,SPREAD,1st: side,-8.36,-3.5,-4.86,-8.83,0.3582,,24.29,13.371,0,FINAL,0.912,-3.5
+2026_07_LA_LV,7,2026-10-25,LA,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.95,49.5,-3.55,,0.4255,,,13.371,1,FINAL,0.912,49.5
+2026_07_LA_LV,7,2026-10-25,LA,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,49.5,-1.52,,,,,13.371,1,FINAL,0.912,49.5
+2026_07_LA_LV,7,2026-10-25,LA,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",276,150.0,126.0,190,0.2659,0.4828,24.29,13.371,0,FINAL,0.912,150.0
+2026_07_MIA_NYJ,7,2026-10-25,MIA,NYJ,SPREAD,1st: side,-0.17,3.5,-3.67,-0.9,0.3918,,32.84,13.371,0,FINAL,1.414,3.5
+2026_07_MIA_NYJ,7,2026-10-25,MIA,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.38,39.5,4.88,,0.6018,,,13.371,1,FINAL,1.414,39.5
+2026_07_MIA_NYJ,7,2026-10-25,MIA,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,39.5,4.8,,,,,13.371,1,FINAL,1.414,39.5
+2026_07_MIA_NYJ,7,2026-10-25,MIA,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",102,-218.0,320.0,170,0.4948,0.5161,32.84,13.371,0,FINAL,1.414,-218.0
+2026_07_NYG_HOU,7,2026-10-25,NYG,HOU,SPREAD,1st: side,6.59,10.0,-3.41,7.2,0.3993,,63.46,13.371,0,FINAL,-1.181,10.0
+2026_07_NYG_HOU,7,2026-10-25,NYG,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.92,42.5,2.42,,0.551,,,13.371,1,FINAL,-1.181,42.5
+2026_07_NYG_HOU,7,2026-10-25,NYG,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,42.5,4.78,,,,,13.371,1,FINAL,-1.181,42.5
+2026_07_NYG_HOU,7,2026-10-25,NYG,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-221,-520.0,299.0,140,0.6889,0.5131,63.46,13.371,0,FINAL,-1.181,-520.0
+2026_07_PIT_NO,7,2026-10-25,PIT,NO,SPREAD,1st: side,-1.67,-3.0,1.33,-0.61,0.5396,,19.46,13.371,0,FINAL,-2.05,-3.0
+2026_07_PIT_NO,7,2026-10-25,PIT,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.65,43.5,1.15,,0.5242,,,13.371,0,FINAL,-2.05,43.5
+2026_07_PIT_NO,7,2026-10-25,PIT,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,43.5,4.48,,,,,13.371,0,FINAL,-2.05,43.5
+2026_07_PIT_NO,7,2026-10-25,PIT,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",122,136.0,-14.0,-133,0.4502,0.4824,19.46,13.371,0,FINAL,-2.05,136.0
+2026_07_SF_ATL,7,2026-10-25,SF,ATL,SPREAD,1st: side,-3.64,-2.5,-1.14,-4.48,0.4661,,17.31,13.371,1,FINAL,1.62,-2.5
+2026_07_SF_ATL,7,2026-10-25,SF,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.14,49.5,-3.36,,0.4295,,,13.371,0,FINAL,1.62,49.5
+2026_07_SF_ATL,7,2026-10-25,SF,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",48.9,49.5,-0.6,,,,,13.371,0,FINAL,1.62,49.5
+2026_07_SF_ATL,7,2026-10-25,SF,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",155,130.0,25.0,127,0.3928,0.4818,17.31,13.371,1,FINAL,1.62,130.0
+2026_07_TB_CAR,7,2026-10-25,TB,CAR,SPREAD,1st: side,1.82,3.0,-1.18,2.25,0.4648,,20.74,13.371,0,FINAL,-0.838,3.0
+2026_07_TB_CAR,7,2026-10-25,TB,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.33,44.5,-0.17,,0.4964,,,13.371,1,FINAL,-0.838,44.5
+2026_07_TB_CAR,7,2026-10-25,TB,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,44.5,-0.0,,,,,13.371,1,FINAL,-0.838,44.5
+2026_07_TB_CAR,7,2026-10-25,TB,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-124,-166.0,42.0,109,0.5541,0.5169,20.74,13.371,0,FINAL,-0.838,-166.0
+2026_07_DAL_PHI,7,2026-10-26,DAL,PHI,SPREAD,1st: side,3.75,-4.5,8.25,2.33,0.7314,,34.14,13.371,0,FINAL,2.739,-4.5
+2026_07_DAL_PHI,7,2026-10-26,DAL,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.01,43.5,4.51,,0.5943,,,13.371,1,FINAL,2.739,43.5
+2026_07_DAL_PHI,7,2026-10-26,DAL,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,43.5,1.0,,,,,13.371,1,FINAL,2.739,43.5
+2026_07_DAL_PHI,7,2026-10-26,DAL,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-157,185.0,-342.0,-228,0.6105,0.4839,34.14,13.371,0,FINAL,2.739,185.0
+2026_08_CAR_GB,8,2026-10-29,CAR,GB,SPREAD,1st: side,4.7,3.5,1.2,4.72,0.5359,,27.29,13.371,1,FINAL,-0.037,3.5
+2026_08_CAR_GB,8,2026-10-29,CAR,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.56,47.5,-3.94,,0.4175,,,13.371,0,FINAL,-0.037,47.5
+2026_08_CAR_GB,8,2026-10-29,CAR,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,47.5,-3.0,,,,,13.371,0,FINAL,-0.037,47.5
+2026_08_CAR_GB,8,2026-10-29,CAR,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-176,-192.0,16.0,-116,0.6375,0.5166,27.29,13.371,1,FINAL,-0.037,-192.0
+2026_08_ARI_DAL,8,2026-11-01,ARI,DAL,SPREAD,1st: side,6.31,7.0,-0.69,5.87,0.4793,,50.25,13.371,0,FINAL,0.848,7.0
+2026_08_ARI_DAL,8,2026-11-01,ARI,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.97,54.5,-2.53,,0.4469,,,13.371,1,FINAL,0.848,54.5
+2026_08_ARI_DAL,8,2026-11-01,ARI,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,54.5,-7.22,,,,,13.371,1,FINAL,0.848,54.5
+2026_08_ARI_DAL,8,2026-11-01,ARI,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-214,-340.0,126.0,114,0.6814,0.5143,50.25,13.371,0,FINAL,0.848,-340.0
+2026_08_ATL_TB,8,2026-11-01,ATL,TB,SPREAD,1st: side,2.57,2.5,0.07,3.63,0.502,,8.9,13.371,1,FINAL,-2.052,2.5
+2026_08_ATL_TB,8,2026-11-01,ATL,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.49,42.5,2.99,,0.5629,,,13.371,0,FINAL,-2.052,42.5
+2026_08_ATL_TB,8,2026-11-01,ATL,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,0,FINAL,-2.052,42.5
+2026_08_ATL_TB,8,2026-11-01,ATL,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-136,-130.0,-6.0,-114,0.5762,0.519,8.9,13.371,1,FINAL,-2.052,-130.0
+2026_08_BAL_BUF,8,2026-11-01,BAL,BUF,SPREAD,1st: side,4.99,3.0,1.99,4.81,0.5591,,19.46,13.371,1,FINAL,0.345,3.0
+2026_08_BAL_BUF,8,2026-11-01,BAL,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.69,54.5,-4.81,,0.3996,,,13.371,0,FINAL,0.345,54.5
+2026_08_BAL_BUF,8,2026-11-01,BAL,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,54.5,-8.64,,,,,13.371,0,FINAL,0.345,54.5
+2026_08_BAL_BUF,8,2026-11-01,BAL,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-182,-162.0,-20.0,-124,0.6454,0.5176,19.46,13.371,1,FINAL,0.345,-162.0
+2026_08_CLE_PIT,8,2026-11-01,CLE,PIT,SPREAD,1st: side,5.49,3.5,1.99,4.88,0.5593,,28.56,13.371,1,FINAL,1.188,3.5
+2026_08_CLE_PIT,8,2026-11-01,CLE,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.89,38.5,3.39,,0.5712,,,13.371,0,FINAL,1.188,38.5
+2026_08_CLE_PIT,8,2026-11-01,CLE,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,38.5,6.0,,,,,13.371,0,FINAL,1.188,38.5
+2026_08_CLE_PIT,8,2026-11-01,CLE,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-194,-198.0,4.0,-118,0.6594,0.5168,28.56,13.371,1,FINAL,1.188,-198.0
+2026_08_IND_JAX,8,2026-11-01,IND,JAX,SPREAD,1st: side,6.28,10.0,-3.72,6.95,0.3904,,61.63,13.371,1,FINAL,-1.303,10.0
+2026_08_IND_JAX,8,2026-11-01,IND,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.84,45.5,2.34,,0.5493,,,13.371,1,FINAL,-1.303,45.5
+2026_08_IND_JAX,8,2026-11-01,IND,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,45.5,0.36,,,,,13.371,1,FINAL,-1.303,45.5
+2026_08_IND_JAX,8,2026-11-01,IND,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-213,-485.0,272.0,144,0.6807,0.5129,61.63,13.371,1,FINAL,-1.303,-485.0
+2026_08_KC_DEN,8,2026-11-01,KC,DEN,SPREAD,1st: side,2.2,1.5,0.7,1.5,0.5208,,4.75,13.371,1,FINAL,1.343,1.5
+2026_08_KC_DEN,8,2026-11-01,KC,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.17,41.5,-0.33,,0.4931,,,13.371,1,FINAL,1.343,41.5
+2026_08_KC_DEN,8,2026-11-01,KC,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,41.5,3.0,,,,,13.371,1,FINAL,1.343,41.5
+2026_08_KC_DEN,8,2026-11-01,KC,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-130,-112.0,-18.0,-100,0.5652,0.5043,4.75,13.371,1,FINAL,1.343,-112.0
+2026_08_LAC_LA,8,2026-11-01,LAC,LA,SPREAD,1st: side,7.64,6.5,1.14,8.84,0.534,,43.72,13.371,1,FINAL,-2.314,6.5
+2026_08_LAC_LA,8,2026-11-01,LAC,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.14,46.5,-1.36,,0.4714,,,13.371,0,FINAL,-2.314,46.5
+2026_08_LAC_LA,8,2026-11-01,LAC,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,46.5,1.29,,,,,13.371,0,FINAL,-2.314,46.5
+2026_08_LAC_LA,8,2026-11-01,LAC,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-252,-285.0,33.0,-132,0.7162,0.5151,43.72,13.371,1,FINAL,-2.314,-285.0
+2026_08_LV_NYJ,8,2026-11-01,LV,NYJ,SPREAD,1st: side,1.46,1.5,-0.04,0.43,0.4987,,6.78,13.371,0,FINAL,1.978,1.5
+2026_08_LV_NYJ,8,2026-11-01,LV,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.37,46.5,-2.13,,0.4552,,,13.371,1,FINAL,1.978,46.5
+2026_08_LV_NYJ,8,2026-11-01,LV,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,1,FINAL,1.978,46.5
+2026_08_LV_NYJ,8,2026-11-01,LV,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-119,-125.0,6.0,114,0.5434,0.5203,6.78,13.371,0,FINAL,1.978,-125.0
+2026_08_MIN_DET,8,2026-11-01,MIN,DET,SPREAD,1st: side,2.46,3.0,-0.54,1.94,0.4838,,21.64,13.371,1,FINAL,1.0,3.0
+2026_08_MIN_DET,8,2026-11-01,MIN,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.65,46.5,-0.85,,0.4821,,,13.371,0,FINAL,1.0,46.5
+2026_08_MIN_DET,8,2026-11-01,MIN,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,46.5,1.48,,,,,13.371,0,FINAL,1.0,46.5
+2026_08_MIN_DET,8,2026-11-01,MIN,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-134,-170.0,36.0,113,0.5729,0.5176,21.64,13.371,1,FINAL,1.0,-170.0
+2026_08_NE_MIA,8,2026-11-01,NE,MIA,SPREAD,1st: side,-7.13,-7.0,-0.13,-7.33,0.4961,,50.86,13.371,1,FINAL,0.385,-7.0
+2026_08_NE_MIA,8,2026-11-01,NE,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.14,41.5,3.64,,0.5763,,,13.371,1,FINAL,0.385,41.5
+2026_08_NE_MIA,8,2026-11-01,NE,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,41.5,2.8,,,,,13.371,1,FINAL,0.385,41.5
+2026_08_NE_MIA,8,2026-11-01,NE,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",237,275.0,-38.0,104,0.2969,0.4861,50.86,13.371,0,FINAL,0.385,275.0
+2026_08_PHI_WAS,8,2026-11-01,PHI,WAS,SPREAD,1st: side,-2.2,6.0,-8.2,-0.97,0.2699,,42.78,13.371,1,FINAL,-2.377,6.0
+2026_08_PHI_WAS,8,2026-11-01,PHI,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.78,40.5,4.28,,0.5896,,,13.371,0,FINAL,-2.377,40.5
+2026_08_PHI_WAS,8,2026-11-01,PHI,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,40.5,5.36,,,,,13.371,0,FINAL,-2.377,40.5
+2026_08_PHI_WAS,8,2026-11-01,PHI,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",130,-278.0,408.0,232,0.4347,0.5151,42.78,13.371,1,FINAL,-2.377,-278.0
+2026_08_TEN_CIN,8,2026-11-01,TEN,CIN,SPREAD,1st: side,7.27,13.5,-6.23,8.85,0.3207,,75.71,13.371,0,FINAL,-3.05,13.5
+2026_08_TEN_CIN,8,2026-11-01,TEN,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.73,45.5,1.23,,0.526,,,13.371,1,FINAL,-3.05,45.5
+2026_08_TEN_CIN,8,2026-11-01,TEN,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,45.5,-1.0,,,,,13.371,1,FINAL,-3.05,45.5
+2026_08_TEN_CIN,8,2026-11-01,TEN,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-241,-900.0,659.0,175,0.7067,0.5122,75.71,13.371,1,FINAL,-3.05,-900.0
+2026_08_CHI_SEA,8,2026-11-02,CHI,SEA,SPREAD,1st: side,6.39,3.0,3.39,4.41,0.6,,20.74,13.371,0,FINAL,3.823,3.0
+2026_08_CHI_SEA,8,2026-11-02,CHI,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.34,46.5,-0.16,,0.4967,,,13.371,1,FINAL,3.823,46.5
+2026_08_CHI_SEA,8,2026-11-02,CHI,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,46.5,-2.2,,,,,13.371,1,FINAL,3.823,46.5
+2026_08_CHI_SEA,8,2026-11-02,CHI,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-216,-166.0,-50.0,-118,0.6836,0.5169,20.74,13.371,0,FINAL,3.823,-166.0
+2026_09_JAX_BAL,9,2026-11-05,JAX,BAL,SPREAD,1st: side,-4.23,-8.5,4.27,-5.83,0.6252,,59.76,13.371,0,FINAL,3.082,-8.5
+2026_09_JAX_BAL,9,2026-11-05,JAX,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.85,40.5,6.35,,0.6314,,,13.371,1,FINAL,3.082,40.5
+2026_09_JAX_BAL,9,2026-11-05,JAX,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,40.5,4.0,,,,,13.371,1,FINAL,3.082,40.5
+2026_09_JAX_BAL,9,2026-11-05,JAX,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",166,350.0,-184.0,-138,0.3758,0.4868,59.76,13.371,0,FINAL,3.082,350.0
+2026_09_ARI_SEA,9,2026-11-08,ARI,SEA,SPREAD,1st: side,12.56,8.5,4.06,10.89,0.6193,,59.76,13.371,1,FINAL,3.221,8.5
+2026_09_ARI_SEA,9,2026-11-08,ARI,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.99,39.5,7.49,,0.654,,,13.371,0,FINAL,3.221,39.5
+2026_09_ARI_SEA,9,2026-11-08,ARI,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,39.5,5.0,,,,,13.371,0,FINAL,3.221,39.5
+2026_09_ARI_SEA,9,2026-11-08,ARI,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-475,-455.0,-20.0,-133,0.8262,0.5132,59.76,13.371,1,FINAL,3.221,-455.0
+2026_09_CIN_ATL,9,2026-11-08,CIN,ATL,SPREAD,1st: side,0.84,-3.0,3.84,-0.69,0.6131,,24.29,13.371,0,FINAL,2.962,-3.0
+2026_09_CIN_ATL,9,2026-11-08,CIN,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.1,52.5,-4.4,,0.408,,,13.371,0,FINAL,2.962,52.5
+2026_09_CIN_ATL,9,2026-11-08,CIN,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.28,52.5,-5.22,,,,,13.371,0,FINAL,2.962,52.5
+2026_09_CIN_ATL,9,2026-11-08,CIN,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-111,150.0,-261.0,-132,0.5251,0.4828,24.29,13.371,0,FINAL,2.962,150.0
+2026_09_CLE_NO,9,2026-11-08,CLE,NO,SPREAD,1st: side,2.31,4.5,-2.19,1.8,0.4349,,34.14,13.371,0,FINAL,0.984,4.5
+2026_09_CLE_NO,9,2026-11-08,CLE,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.2,43.5,-2.3,,0.4516,,,13.371,1,FINAL,0.984,43.5
+2026_09_CLE_NO,9,2026-11-08,CLE,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,43.5,5.84,,,,,13.371,1,FINAL,0.984,43.5
+2026_09_CLE_NO,9,2026-11-08,CLE,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-132,-225.0,93.0,138,0.5685,0.5161,34.14,13.371,1,FINAL,0.984,-225.0
+2026_09_DAL_IND,9,2026-11-08,DAL,IND,SPREAD,1st: side,2.46,-4.5,6.96,2.97,0.6987,,32.84,13.371,1,FINAL,-0.976,-4.5
+2026_09_DAL_IND,9,2026-11-08,DAL,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",52.48,51.5,0.98,,0.5207,,,13.371,0,FINAL,-0.976,51.5
+2026_09_DAL_IND,9,2026-11-08,DAL,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",48.9,51.5,-2.6,,,,,13.371,0,FINAL,-0.976,51.5
+2026_09_DAL_IND,9,2026-11-08,DAL,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-134,180.0,-314.0,-247,0.573,0.4839,32.84,13.371,0,FINAL,-0.976,180.0
+2026_09_DEN_CAR,9,2026-11-08,DEN,CAR,SPREAD,1st: side,-3.06,-3.0,-0.06,-3.63,0.4983,,17.31,13.371,0,FINAL,1.101,-3.0
+2026_09_DEN_CAR,9,2026-11-08,DEN,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.97,44.5,-1.53,,0.4677,,,13.371,1,FINAL,1.101,44.5
+2026_09_DEN_CAR,9,2026-11-08,DEN,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,44.5,1.36,,,,,13.371,1,FINAL,1.101,44.5
+2026_09_DEN_CAR,9,2026-11-08,DEN,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",144,130.0,14.0,108,0.4096,0.4818,17.31,13.371,0,FINAL,1.101,130.0
+2026_09_DET_MIA,9,2026-11-08,DET,MIA,SPREAD,1st: side,-4.53,-6.5,1.97,-1.92,0.5586,,46.32,13.371,0,FINAL,-5.042,-6.5
+2026_09_DET_MIA,9,2026-11-08,DET,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.22,49.5,-1.28,,0.473,,,13.371,0,FINAL,-5.042,49.5
+2026_09_DET_MIA,9,2026-11-08,DET,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,49.5,-5.0,,,,,13.371,0,FINAL,-5.042,49.5
+2026_09_DET_MIA,9,2026-11-08,DET,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",172,245.0,-73.0,-173,0.3674,0.4853,46.32,13.371,0,FINAL,-5.042,245.0
+2026_09_GB_NE,9,2026-11-08,GB,NE,SPREAD,1st: side,5.78,3.0,2.78,6.22,0.5825,,25.54,13.371,0,FINAL,-0.835,3.0
+2026_09_GB_NE,9,2026-11-08,GB,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.56,44.5,0.06,,0.5012,,,13.371,1,FINAL,-0.835,44.5
+2026_09_GB_NE,9,2026-11-08,GB,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,44.5,-0.2,,,,,13.371,1,FINAL,-0.835,44.5
+2026_09_GB_NE,9,2026-11-08,GB,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-201,-185.0,-16.0,-147,0.6673,0.5171,25.54,13.371,0,FINAL,-0.835,-185.0
+2026_09_HOU_LAC,9,2026-11-08,HOU,LAC,SPREAD,1st: side,-2.36,-5.5,3.14,-4.42,0.5928,,35.21,13.371,0,FINAL,3.973,-5.5
+2026_09_HOU_LAC,9,2026-11-08,HOU,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.97,40.5,1.47,,0.5309,,,13.371,1,FINAL,3.973,40.5
+2026_09_HOU_LAC,9,2026-11-08,HOU,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,40.5,7.29,,,,,13.371,1,FINAL,3.973,40.5
+2026_09_HOU_LAC,9,2026-11-08,HOU,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",133,190.0,-57.0,-114,0.4299,0.4845,35.21,13.371,0,FINAL,3.973,190.0
+2026_09_LA_WAS,9,2026-11-08,LA,WAS,SPREAD,1st: side,-6.62,-4.5,-2.12,-5.34,0.437,,34.14,13.371,0,FINAL,-2.47,-4.5
+2026_09_LA_WAS,9,2026-11-08,LA,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.84,48.5,-0.66,,0.486,,,13.371,0,FINAL,-2.47,48.5
+2026_09_LA_WAS,9,2026-11-08,LA,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,48.5,-4.0,,,,,13.371,0,FINAL,-2.47,48.5
+2026_09_LA_WAS,9,2026-11-08,LA,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",222,185.0,37.0,111,0.3102,0.4839,34.14,13.371,0,FINAL,-2.47,185.0
+2026_09_LV_SF,9,2026-11-08,LV,SF,SPREAD,1st: side,10.35,8.5,1.85,8.73,0.5549,,56.58,13.371,1,FINAL,3.131,8.5
+2026_09_LV_SF,9,2026-11-08,LV,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.89,51.5,-5.61,,0.3834,,,13.371,1,FINAL,3.131,51.5
+2026_09_LV_SF,9,2026-11-08,LV,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,51.5,-5.64,,,,,13.371,1,FINAL,3.131,51.5
+2026_09_LV_SF,9,2026-11-08,LV,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-356,-410.0,54.0,-103,0.7805,0.5134,56.58,13.371,1,FINAL,3.131,-410.0
+2026_09_NYG_PHI,9,2026-11-08,NYG,PHI,SPREAD,1st: side,2.99,-3.0,5.99,0.3,0.6728,,19.46,13.371,0,FINAL,5.183,-3.0
+2026_09_NYG_PHI,9,2026-11-08,NYG,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.41,38.5,5.91,,0.6227,,,13.371,0,FINAL,5.183,38.5
+2026_09_NYG_PHI,9,2026-11-08,NYG,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,38.5,5.8,,,,,13.371,0,FINAL,5.183,38.5
+2026_09_NYG_PHI,9,2026-11-08,NYG,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-143,136.0,-279.0,-148,0.5883,0.4824,19.46,13.371,0,FINAL,5.183,136.0
+2026_09_NYJ_KC,9,2026-11-08,NYJ,KC,SPREAD,1st: side,9.43,9.5,-0.07,10.45,0.498,,63.46,13.371,1,FINAL,-1.956,9.5
+2026_09_NYJ_KC,9,2026-11-08,NYJ,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.61,47.5,-3.89,,0.4186,,,13.371,0,FINAL,-1.956,47.5
+2026_09_NYJ_KC,9,2026-11-08,NYJ,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,47.5,-3.0,,,,,13.371,0,FINAL,-1.956,47.5
+2026_09_NYJ_KC,9,2026-11-08,NYJ,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-316,-520.0,204.0,-112,0.7598,0.5131,63.46,13.371,1,FINAL,-1.956,-520.0
+2026_09_TB_CHI,9,2026-11-08,TB,CHI,SPREAD,1st: side,3.95,6.5,-2.55,4.07,0.4245,,44.51,13.371,0,FINAL,-0.218,6.5
+2026_09_TB_CHI,9,2026-11-08,TB,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.53,47.5,-0.97,,0.4796,,,13.371,1,FINAL,-0.218,47.5
+2026_09_TB_CHI,9,2026-11-08,TB,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,47.5,-3.0,,,,,13.371,1,FINAL,-0.218,47.5
+2026_09_TB_CHI,9,2026-11-08,TB,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-161,-290.0,129.0,134,0.6162,0.5146,44.51,13.371,1,FINAL,-0.218,-290.0
+2026_09_BUF_MIN,9,2026-11-09,BUF,MIN,SPREAD,1st: side,-1.22,-3.0,1.78,-1.72,0.5528,,25.54,13.371,0,FINAL,0.965,-3.0
+2026_09_BUF_MIN,9,2026-11-09,BUF,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.89,45.5,-0.61,,0.487,,,13.371,0,FINAL,0.965,45.5
+2026_09_BUF_MIN,9,2026-11-09,BUF,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,45.5,2.48,,,,,13.371,0,FINAL,0.965,45.5
+2026_09_BUF_MIN,9,2026-11-09,BUF,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",116,154.0,-38.0,-116,0.4635,0.4829,25.54,13.371,0,FINAL,0.965,154.0
+2026_10_WAS_NYG,10,2026-11-12,WAS,NYG,SPREAD,1st: side,3.77,1.5,2.27,4.65,0.5674,,5.45,13.371,0,FINAL,-1.697,1.5
+2026_10_WAS_NYG,10,2026-11-12,WAS,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.62,40.5,6.12,,0.627,,,13.371,1,FINAL,-1.697,40.5
+2026_10_WAS_NYG,10,2026-11-12,WAS,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,40.5,4.0,,,,,13.371,1,FINAL,-1.697,40.5
+2026_10_WAS_NYG,10,2026-11-12,WAS,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-157,-122.0,-35.0,-146,0.611,0.5211,5.45,13.371,0,FINAL,-1.697,-122.0
+2026_10_BUF_NYJ,10,2026-11-15,BUF,NYJ,SPREAD,1st: side,-9.25,,,-9.25,,,,13.371,,FINAL,0.0,
+2026_10_BUF_NYJ,10,2026-11-15,BUF,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.38,,,,,,,13.371,,FINAL,0.0,
+2026_10_BUF_NYJ,10,2026-11-15,BUF,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_BUF_NYJ,10,2026-11-15,BUF,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",309,,,309,0.2444,,,13.371,0,FINAL,0.0,
+2026_10_CAR_NO,10,2026-11-15,CAR,NO,SPREAD,1st: side,1.26,,,1.26,,,,13.371,,FINAL,0.0,
+2026_10_CAR_NO,10,2026-11-15,CAR,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.77,,,,,,,13.371,,FINAL,0.0,
+2026_10_CAR_NO,10,2026-11-15,CAR,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_CAR_NO,10,2026-11-15,CAR,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-116,,,-116,0.5375,,,13.371,0,FINAL,0.0,
+2026_10_HOU_CLE,10,2026-11-15,HOU,CLE,SPREAD,1st: side,-4.95,,,-4.95,,,,13.371,,FINAL,0.0,
+2026_10_HOU_CLE,10,2026-11-15,HOU,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.51,,,,,,,13.371,,FINAL,0.0,
+2026_10_HOU_CLE,10,2026-11-15,HOU,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_HOU_CLE,10,2026-11-15,HOU,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",181,,,181,0.3555,,,13.371,1,FINAL,0.0,
+2026_10_JAX_TEN,10,2026-11-15,JAX,TEN,SPREAD,1st: side,-11.19,,,-11.19,,,,13.371,,FINAL,0.0,
+2026_10_JAX_TEN,10,2026-11-15,JAX,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.98,,,,,,,13.371,,FINAL,0.0,
+2026_10_JAX_TEN,10,2026-11-15,JAX,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_JAX_TEN,10,2026-11-15,JAX,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",397,,,397,0.2013,,,13.371,0,FINAL,0.0,
+2026_10_KC_ATL,10,2026-11-15,KC,ATL,SPREAD,1st: side,-2.78,,,-2.78,,,,13.371,,FINAL,0.0,
+2026_10_KC_ATL,10,2026-11-15,KC,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.97,,,,,,,13.371,,FINAL,0.0,
+2026_10_KC_ATL,10,2026-11-15,KC,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_KC_ATL,10,2026-11-15,KC,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",139,,,139,0.4178,,,13.371,0,FINAL,0.0,
+2026_10_LA_ARI,10,2026-11-15,LA,ARI,SPREAD,1st: side,-8.74,,,-8.74,,,,13.371,,FINAL,0.0,
+2026_10_LA_ARI,10,2026-11-15,LA,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.16,,,,,,,13.371,,FINAL,0.0,
+2026_10_LA_ARI,10,2026-11-15,LA,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_LA_ARI,10,2026-11-15,LA,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",290,,,290,0.2567,,,13.371,0,FINAL,0.0,
+2026_10_MIA_IND,10,2026-11-15,MIA,IND,SPREAD,1st: side,5.43,,,5.43,,,,13.371,,FINAL,0.0,
+2026_10_MIA_IND,10,2026-11-15,MIA,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.69,,,,,,,13.371,,FINAL,0.0,
+2026_10_MIA_IND,10,2026-11-15,MIA,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_MIA_IND,10,2026-11-15,MIA,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-192,,,-192,0.6576,,,13.371,1,FINAL,0.0,
+2026_10_MIN_GB,10,2026-11-15,MIN,GB,SPREAD,1st: side,2.1,,,2.1,,,,13.371,,FINAL,0.0,
+2026_10_MIN_GB,10,2026-11-15,MIN,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.09,,,,,,,13.371,,FINAL,0.0,
+2026_10_MIN_GB,10,2026-11-15,MIN,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_MIN_GB,10,2026-11-15,MIN,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-129,,,-129,0.5624,,,13.371,0,FINAL,0.0,
+2026_10_NE_DET,10,2026-11-15,NE,DET,SPREAD,1st: side,-0.0,,,1.73,,,,13.371,,FINAL,-3.342,
+2026_10_NE_DET,10,2026-11-15,NE,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.03,,,,,,,13.371,,FINAL,-3.342,
+2026_10_NE_DET,10,2026-11-15,NE,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,-3.342,
+2026_10_NE_DET,10,2026-11-15,NE,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",100,,,100,0.4999,,,13.371,1,FINAL,-3.342,
+2026_10_PIT_CIN,10,2026-11-15,PIT,CIN,SPREAD,1st: side,0.21,3.5,-3.29,0.21,0.4029,,25.54,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,3.5
+2026_10_PIT_CIN,10,2026-11-15,PIT,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.98,49.5,-1.52,,0.4679,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,49.5
+2026_10_PIT_CIN,10,2026-11-15,PIT,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,49.5,-5.2,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,49.5
+2026_10_PIT_CIN,10,2026-11-15,PIT,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-103,-185.0,82.0,148,0.5063,0.5171,25.54,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-185.0
+2026_10_SEA_LV,10,2026-11-15,SEA,LV,SPREAD,1st: side,-9.67,,,-9.67,,,,13.371,,FINAL,0.0,
+2026_10_SEA_LV,10,2026-11-15,SEA,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.32,,,,,,,13.371,,FINAL,0.0,
+2026_10_SEA_LV,10,2026-11-15,SEA,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_SEA_LV,10,2026-11-15,SEA,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",326,,,326,0.2347,,,13.371,0,FINAL,0.0,
+2026_10_SF_DAL,10,2026-11-15,SF,DAL,SPREAD,1st: side,-2.8,,,-2.8,,,,13.371,,FINAL,0.0,
+2026_10_SF_DAL,10,2026-11-15,SF,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.26,,,,,,,13.371,,FINAL,0.0,
+2026_10_SF_DAL,10,2026-11-15,SF,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.59,,,,,,,13.371,,FINAL,0.0,
+2026_10_SF_DAL,10,2026-11-15,SF,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",140,,,140,0.4172,,,13.371,0,FINAL,0.0,
+2026_10_LAC_BAL,10,2026-11-16,LAC,BAL,SPREAD,1st: side,3.06,4.5,-1.44,3.06,0.457,,34.14,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,4.5
+2026_10_LAC_BAL,10,2026-11-16,LAC,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.66,38.5,6.16,,0.6277,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,38.5
+2026_10_LAC_BAL,10,2026-11-16,LAC,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,38.5,7.36,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,38.5
+2026_10_LAC_BAL,10,2026-11-16,LAC,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-144,-225.0,81.0,119,0.5904,0.5161,34.14,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-225.0
+2026_11_IND_HOU,11,2026-11-19,IND,HOU,SPREAD,1st: side,5.09,10.0,-4.91,5.09,0.3566,,59.76,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,10.0
+2026_11_IND_HOU,11,2026-11-19,IND,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.81,44.5,2.31,,0.5485,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,44.5
+2026_11_IND_HOU,11,2026-11-19,IND,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,44.5,0.97,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,44.5
+2026_11_IND_HOU,11,2026-11-19,IND,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-184,-455.0,271.0,180,0.6482,0.5132,59.76,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-455.0
+2026_11_ARI_KC,11,2026-11-22,ARI,KC,SPREAD,1st: side,10.49,14.0,-3.51,10.49,0.3964,,77.58,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,14.0
+2026_11_ARI_KC,11,2026-11-22,ARI,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.9,42.5,2.4,,0.5505,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,42.5
+2026_11_ARI_KC,11,2026-11-22,ARI,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,42.5,2.0,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,42.5
+2026_11_ARI_KC,11,2026-11-22,ARI,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-362,-1000.0,638.0,152,0.7836,0.5119,77.58,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-1000.0
+2026_11_BAL_CAR,11,2026-11-22,BAL,CAR,SPREAD,1st: side,0.11,1.5,-1.39,0.11,0.4587,,6.78,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,1.5
+2026_11_BAL_CAR,11,2026-11-22,BAL,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.65,44.5,1.15,,0.5242,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,44.5
+2026_11_BAL_CAR,11,2026-11-22,BAL,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,44.5,-0.0,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,44.5
+2026_11_BAL_CAR,11,2026-11-22,BAL,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-101,-125.0,24.0,118,0.5033,0.5203,6.78,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-125.0
+2026_11_JAX_NYG,11,2026-11-22,JAX,NYG,SPREAD,1st: side,-6.18,-6.0,-0.18,-6.18,0.4945,,40.86,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-6.0
+2026_11_JAX_NYG,11,2026-11-22,JAX,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.51,44.5,2.01,,0.5424,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,44.5
+2026_11_JAX_NYG,11,2026-11-22,JAX,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,44.5,1.36,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,44.5
+2026_11_JAX_NYG,11,2026-11-22,JAX,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",211,215.0,-4.0,102,0.3219,0.4846,40.86,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,215.0
+2026_11_LV_DEN,11,2026-11-22,LV,DEN,SPREAD,1st: side,9.94,8.5,1.44,9.94,0.5428,,58.75,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,8.5
+2026_11_LV_DEN,11,2026-11-22,LV,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.37,41.5,1.87,,0.5394,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,41.5
+2026_11_LV_DEN,11,2026-11-22,LV,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,41.5,4.36,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,41.5
+2026_11_LV_DEN,11,2026-11-22,LV,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-337,-440.0,103.0,-119,0.7714,0.5133,58.75,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-440.0
+2026_11_MIA_BUF,11,2026-11-22,MIA,BUF,SPREAD,1st: side,10.78,16.5,-5.72,10.78,0.3345,,84.76,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,16.5
+2026_11_MIA_BUF,11,2026-11-22,MIA,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.1,46.5,0.6,,0.5126,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,46.5
+2026_11_MIA_BUF,11,2026-11-22,MIA,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,46.5,-2.0,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,46.5
+2026_11_MIA_BUF,11,2026-11-22,MIA,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-376,-1650.0,1274.0,199,0.79,0.5103,84.76,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-1650.0
+2026_11_MIN_SF,11,2026-11-22,MIN,SF,SPREAD,1st: side,4.03,3.5,0.53,4.03,0.5159,,30.18,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,3.5
+2026_11_MIN_SF,11,2026-11-22,MIN,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.36,45.5,-2.14,,0.455,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,45.5
+2026_11_MIN_SF,11,2026-11-22,MIN,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,45.5,-1.0,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,45.5
+2026_11_MIN_SF,11,2026-11-22,MIN,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-162,-205.0,43.0,-107,0.6185,0.5163,30.18,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-205.0
+2026_11_NO_CHI,11,2026-11-22,NO,CHI,SPREAD,1st: side,6.66,9.5,-2.84,6.66,0.4159,,61.63,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,9.5
+2026_11_NO_CHI,11,2026-11-22,NO,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.91,48.5,-2.59,,0.4456,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,48.5
+2026_11_NO_CHI,11,2026-11-22,NO,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,48.5,-2.64,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,48.5
+2026_11_NO_CHI,11,2026-11-22,NO,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-223,-485.0,262.0,140,0.6908,0.5129,61.63,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-485.0
+2026_11_NYJ_LAC,11,2026-11-22,NYJ,LAC,SPREAD,1st: side,6.36,1.5,4.86,6.36,0.6419,,6.78,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,1.5
+2026_11_NYJ_LAC,11,2026-11-22,NYJ,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.92,42.5,1.42,,0.5298,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,42.5
+2026_11_NYJ_LAC,11,2026-11-22,NYJ,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,42.5,5.48,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,42.5
+2026_11_NYJ_LAC,11,2026-11-22,NYJ,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-215,-125.0,-90.0,-179,0.6829,0.5203,6.78,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-125.0
+2026_11_PIT_PHI,11,2026-11-22,PIT,PHI,SPREAD,1st: side,0.07,-4.5,4.57,0.07,0.6338,,28.56,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-4.5
+2026_11_PIT_PHI,11,2026-11-22,PIT,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.68,38.5,4.18,,0.5874,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,38.5
+2026_11_PIT_PHI,11,2026-11-22,PIT,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,38.5,7.36,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,38.5
+2026_11_PIT_PHI,11,2026-11-22,PIT,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-101,164.0,-265.0,-173,0.5021,0.4832,28.56,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,164.0
+2026_11_TB_DET,11,2026-11-22,TB,DET,SPREAD,1st: side,5.12,3.5,1.62,5.12,0.5482,,24.29,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,3.5
+2026_11_TB_DET,11,2026-11-22,TB,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.91,47.5,0.41,,0.5087,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,47.5
+2026_11_TB_DET,11,2026-11-22,TB,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,47.5,0.29,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,47.5
+2026_11_TB_DET,11,2026-11-22,TB,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-185,-180.0,-5.0,-121,0.6491,0.5172,24.29,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-180.0
+2026_11_TEN_DAL,11,2026-11-22,TEN,DAL,SPREAD,1st: side,7.6,7.5,0.1,7.6,0.503,,57.7,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,7.5
+2026_11_TEN_DAL,11,2026-11-22,TEN,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",50.41,51.5,-1.09,,0.477,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,51.5
+2026_11_TEN_DAL,11,2026-11-22,TEN,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,51.5,-6.03,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,51.5
+2026_11_TEN_DAL,11,2026-11-22,TEN,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-251,-425.0,174.0,-101,0.7151,0.5133,57.7,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-425.0
+2026_11_CIN_WAS,11,2026-11-23,CIN,WAS,SPREAD,1st: side,-0.99,-3.5,2.51,-0.99,0.5745,,30.18,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,-3.5
+2026_11_CIN_WAS,11,2026-11-23,CIN,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.28,51.5,-2.22,,0.4533,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,51.5
+2026_11_CIN_WAS,11,2026-11-23,CIN,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,51.5,-5.64,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,51.5
+2026_11_CIN_WAS,11,2026-11-23,CIN,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",113,170.0,-57.0,-135,0.4705,0.4837,30.18,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,170.0
+2026_12_GB_LA,12,2026-11-25,GB,LA,SPREAD,1st: side,6.58,,,6.58,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_GB_LA,12,2026-11-25,GB,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_GB_LA,12,2026-11-25,GB,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_GB_LA,12,2026-11-25,GB,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-221,,,-221,0.6886,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CHI_DET,12,2026-11-26,CHI,DET,SPREAD,1st: side,2.84,,,2.84,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CHI_DET,12,2026-11-26,CHI,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CHI_DET,12,2026-11-26,CHI,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CHI_DET,12,2026-11-26,CHI,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-140,,,-140,0.5842,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_KC_BUF,12,2026-11-26,KC,BUF,SPREAD,1st: side,4.01,,,4.01,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_KC_BUF,12,2026-11-26,KC,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.04,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_KC_BUF,12,2026-11-26,KC,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_KC_BUF,12,2026-11-26,KC,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-162,,,-162,0.6178,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_PHI_DAL,12,2026-11-26,PHI,DAL,SPREAD,1st: side,1.36,,,1.36,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_PHI_DAL,12,2026-11-26,PHI,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.73,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_PHI_DAL,12,2026-11-26,PHI,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_PHI_DAL,12,2026-11-26,PHI,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-118,,,-118,0.5404,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_DEN_PIT,12,2026-11-27,DEN,PIT,SPREAD,1st: side,0.38,,,0.38,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_DEN_PIT,12,2026-11-27,DEN,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.09,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_DEN_PIT,12,2026-11-27,DEN,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_DEN_PIT,12,2026-11-27,DEN,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-105,,,-105,0.5113,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_ATL_MIN,12,2026-11-29,ATL,MIN,SPREAD,1st: side,5.87,,,5.87,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_ATL_MIN,12,2026-11-29,ATL,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_ATL_MIN,12,2026-11-29,ATL,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_ATL_MIN,12,2026-11-29,ATL,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-203,,,-203,0.6696,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_BAL_HOU,12,2026-11-29,BAL,HOU,SPREAD,1st: side,5.4,,,5.4,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_BAL_HOU,12,2026-11-29,BAL,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.73,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_BAL_HOU,12,2026-11-29,BAL,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",46.83,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_BAL_HOU,12,2026-11-29,BAL,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-191,,,-191,0.6568,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_LV_CLE,12,2026-11-29,LV,CLE,SPREAD,1st: side,4.13,,,4.13,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_LV_CLE,12,2026-11-29,LV,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.13,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_LV_CLE,12,2026-11-29,LV,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_LV_CLE,12,2026-11-29,LV,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-164,,,-164,0.6213,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NE_LAC,12,2026-11-29,NE,LAC,SPREAD,1st: side,-3.72,,,-3.72,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NE_LAC,12,2026-11-29,NE,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.29,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NE_LAC,12,2026-11-29,NE,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NE_LAC,12,2026-11-29,NE,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",156,,,156,0.3904,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NO_CIN,12,2026-11-29,NO,CIN,SPREAD,1st: side,4.22,,,4.22,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NO_CIN,12,2026-11-29,NO,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.53,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NO_CIN,12,2026-11-29,NO,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NO_CIN,12,2026-11-29,NO,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-166,,,-166,0.6239,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYG_IND,12,2026-11-29,NYG,IND,SPREAD,1st: side,2.83,,,2.83,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYG_IND,12,2026-11-29,NYG,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.01,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYG_IND,12,2026-11-29,NYG,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",46.83,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYG_IND,12,2026-11-29,NYG,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-140,,,-140,0.5837,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYJ_MIA,12,2026-11-29,NYJ,MIA,SPREAD,1st: side,4.32,,,4.32,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYJ_MIA,12,2026-11-29,NYJ,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.85,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYJ_MIA,12,2026-11-29,NYJ,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_NYJ_MIA,12,2026-11-29,NYJ,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-168,,,-168,0.6268,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_SEA_SF,12,2026-11-29,SEA,SF,SPREAD,1st: side,-0.27,,,-0.27,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_SEA_SF,12,2026-11-29,SEA,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.03,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_SEA_SF,12,2026-11-29,SEA,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_SEA_SF,12,2026-11-29,SEA,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",103,,,103,0.4918,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_TEN_JAX,12,2026-11-29,TEN,JAX,SPREAD,1st: side,15.13,,,15.13,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_TEN_JAX,12,2026-11-29,TEN,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.61,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_TEN_JAX,12,2026-11-29,TEN,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_TEN_JAX,12,2026-11-29,TEN,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-676,,,-676,0.8711,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_WAS_ARI,12,2026-11-29,WAS,ARI,SPREAD,1st: side,-0.98,,,-0.98,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_WAS_ARI,12,2026-11-29,WAS,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.43,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_WAS_ARI,12,2026-11-29,WAS,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_WAS_ARI,12,2026-11-29,WAS,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",112,,,112,0.4707,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CAR_TB,12,2026-11-30,CAR,TB,SPREAD,1st: side,3.75,,,3.75,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CAR_TB,12,2026-11-30,CAR,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CAR_TB,12,2026-11-30,CAR,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_12_CAR_TB,12,2026-11-30,CAR,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-157,,,-157,0.6105,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_KC_LA,13,2026-12-03,KC,LA,SPREAD,1st: side,4.55,,,4.55,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_KC_LA,13,2026-12-03,KC,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.61,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_KC_LA,13,2026-12-03,KC,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_KC_LA,13,2026-12-03,KC,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-173,,,-173,0.6332,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_BUF_NE,13,2026-12-06,BUF,NE,SPREAD,1st: side,0.24,,,0.24,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_BUF_NE,13,2026-12-06,BUF,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.57,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_BUF_NE,13,2026-12-06,BUF,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_BUF_NE,13,2026-12-06,BUF,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-103,,,-103,0.5073,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CAR_MIN,13,2026-12-06,CAR,MIN,SPREAD,1st: side,5.47,,,5.47,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CAR_MIN,13,2026-12-06,CAR,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",40.91,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CAR_MIN,13,2026-12-06,CAR,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CAR_MIN,13,2026-12-06,CAR,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-193,,,-193,0.6588,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CIN_CLE,13,2026-12-06,CIN,CLE,SPREAD,1st: side,-1.13,,,-1.13,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CIN_CLE,13,2026-12-06,CIN,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.74,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CIN_CLE,13,2026-12-06,CIN,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_CIN_CLE,13,2026-12-06,CIN,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",115,,,115,0.4662,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DET_ATL,13,2026-12-06,DET,ATL,SPREAD,1st: side,-4.0,,,-4.0,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DET_ATL,13,2026-12-06,DET,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DET_ATL,13,2026-12-06,DET,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.27,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DET_ATL,13,2026-12-06,DET,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",161,,,161,0.3824,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_GB_NO,13,2026-12-06,GB,NO,SPREAD,1st: side,-1.93,,,-1.93,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_GB_NO,13,2026-12-06,GB,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.66,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_GB_NO,13,2026-12-06,GB,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_GB_NO,13,2026-12-06,GB,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",126,,,126,0.4426,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_HOU_PIT,13,2026-12-06,HOU,PIT,SPREAD,1st: side,-0.15,,,-0.15,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_HOU_PIT,13,2026-12-06,HOU,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.06,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_HOU_PIT,13,2026-12-06,HOU,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_HOU_PIT,13,2026-12-06,HOU,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",102,,,102,0.4955,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_JAX_CHI,13,2026-12-06,JAX,CHI,SPREAD,1st: side,-2.8,,,-2.8,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_JAX_CHI,13,2026-12-06,JAX,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.61,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_JAX_CHI,13,2026-12-06,JAX,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_JAX_CHI,13,2026-12-06,JAX,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",140,,,140,0.4172,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_LAC_TB,13,2026-12-06,LAC,TB,SPREAD,1st: side,3.41,,,3.41,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_LAC_TB,13,2026-12-06,LAC,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.31,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_LAC_TB,13,2026-12-06,LAC,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_LAC_TB,13,2026-12-06,LAC,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-150,,,-150,0.6006,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_MIA_DEN,13,2026-12-06,MIA,DEN,SPREAD,1st: side,8.2,,,8.2,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_MIA_DEN,13,2026-12-06,MIA,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.92,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_MIA_DEN,13,2026-12-06,MIA,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_MIA_DEN,13,2026-12-06,MIA,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-271,,,-271,0.7302,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_PHI_ARI,13,2026-12-06,PHI,ARI,SPREAD,1st: side,-3.59,,,-3.59,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_PHI_ARI,13,2026-12-06,PHI,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.72,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_PHI_ARI,13,2026-12-06,PHI,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.27,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_PHI_ARI,13,2026-12-06,PHI,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",154,,,154,0.3942,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_SF_NYG,13,2026-12-06,SF,NYG,SPREAD,1st: side,-3.35,,,-3.35,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_SF_NYG,13,2026-12-06,SF,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.61,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_SF_NYG,13,2026-12-06,SF,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_SF_NYG,13,2026-12-06,SF,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",149,,,149,0.401,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_WAS_TEN,13,2026-12-06,WAS,TEN,SPREAD,1st: side,-1.89,,,-1.89,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_WAS_TEN,13,2026-12-06,WAS,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.66,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_WAS_TEN,13,2026-12-06,WAS,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_WAS_TEN,13,2026-12-06,WAS,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",125,,,125,0.4439,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DAL_SEA,13,2026-12-07,DAL,SEA,SPREAD,1st: side,8.49,,,8.49,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DAL_SEA,13,2026-12-07,DAL,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.73,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DAL_SEA,13,2026-12-07,DAL,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_13_DAL_SEA,13,2026-12-07,DAL,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-280,,,-280,0.7372,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_MIN_NE,14,2026-12-10,MIN,NE,SPREAD,1st: side,3.86,,,3.86,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_MIN_NE,14,2026-12-10,MIN,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.33,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_MIN_NE,14,2026-12-10,MIN,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_MIN_NE,14,2026-12-10,MIN,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-159,,,-159,0.6136,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_ATL_CLE,14,2026-12-13,ATL,CLE,SPREAD,1st: side,1.1,,,1.1,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_ATL_CLE,14,2026-12-13,ATL,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.13,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_ATL_CLE,14,2026-12-13,ATL,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_ATL_CLE,14,2026-12-13,ATL,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-114,,,-114,0.5326,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_BUF_GB,14,2026-12-13,BUF,GB,SPREAD,1st: side,-2.52,,,-2.52,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_BUF_GB,14,2026-12-13,BUF,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.29,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_BUF_GB,14,2026-12-13,BUF,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_BUF_GB,14,2026-12-13,BUF,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",135,,,135,0.4252,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_CHI_MIA,14,2026-12-13,CHI,MIA,SPREAD,1st: side,-4.21,,,-4.21,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_CHI_MIA,14,2026-12-13,CHI,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.19,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_CHI_MIA,14,2026-12-13,CHI,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_CHI_MIA,14,2026-12-13,CHI,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",166,,,166,0.3764,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_DEN_NYJ,14,2026-12-13,DEN,NYJ,SPREAD,1st: side,-7.26,,,-7.26,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_DEN_NYJ,14,2026-12-13,DEN,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.02,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_DEN_NYJ,14,2026-12-13,DEN,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_DEN_NYJ,14,2026-12-13,DEN,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",241,,,241,0.2936,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_HOU_WAS,14,2026-12-13,HOU,WAS,SPREAD,1st: side,-4.44,,,-4.44,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_HOU_WAS,14,2026-12-13,HOU,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.36,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_HOU_WAS,14,2026-12-13,HOU,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_HOU_WAS,14,2026-12-13,HOU,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",170,,,170,0.3699,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_IND_PHI,14,2026-12-13,IND,PHI,SPREAD,1st: side,1.5,,,1.5,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_IND_PHI,14,2026-12-13,IND,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.43,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_IND_PHI,14,2026-12-13,IND,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_IND_PHI,14,2026-12-13,IND,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-120,,,-120,0.5445,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_KC_CIN,14,2026-12-13,KC,CIN,SPREAD,1st: side,-1.49,,,-1.49,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_KC_CIN,14,2026-12-13,KC,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.75,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_KC_CIN,14,2026-12-13,KC,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_KC_CIN,14,2026-12-13,KC,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",120,,,120,0.4556,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LAC_LV,14,2026-12-13,LAC,LV,SPREAD,1st: side,-2.02,,,-2.02,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LAC_LV,14,2026-12-13,LAC,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.27,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LAC_LV,14,2026-12-13,LAC,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LAC_LV,14,2026-12-13,LAC,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",127,,,127,0.44,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LA_SF,14,2026-12-13,LA,SF,SPREAD,1st: side,-0.13,,,-0.13,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LA_SF,14,2026-12-13,LA,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.18,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LA_SF,14,2026-12-13,LA,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_LA_SF,14,2026-12-13,LA,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",102,,,102,0.4962,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NO_CAR,14,2026-12-13,NO,CAR,SPREAD,1st: side,2.39,,,2.39,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NO_CAR,14,2026-12-13,NO,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.52,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NO_CAR,14,2026-12-13,NO,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NO_CAR,14,2026-12-13,NO,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-133,,,-133,0.5709,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NYG_SEA,14,2026-12-13,NYG,SEA,SPREAD,1st: side,8.89,,,8.89,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NYG_SEA,14,2026-12-13,NYG,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NYG_SEA,14,2026-12-13,NYG,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_NYG_SEA,14,2026-12-13,NYG,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-295,,,-295,0.747,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TB_BAL,14,2026-12-13,TB,BAL,SPREAD,1st: side,1.4,,,1.4,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TB_BAL,14,2026-12-13,TB,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.09,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TB_BAL,14,2026-12-13,TB,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TB_BAL,14,2026-12-13,TB,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-118,,,-118,0.5417,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TEN_DET,14,2026-12-13,TEN,DET,SPREAD,1st: side,11.67,,,11.67,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TEN_DET,14,2026-12-13,TEN,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TEN_DET,14,2026-12-13,TEN,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_TEN_DET,14,2026-12-13,TEN,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-422,,,-422,0.8086,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_PIT_JAX,14,2026-12-14,PIT,JAX,SPREAD,1st: side,7.2,,,7.2,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_PIT_JAX,14,2026-12-14,PIT,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.33,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_PIT_JAX,14,2026-12-14,PIT,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_14_PIT_JAX,14,2026-12-14,PIT,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-239,,,-239,0.705,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SF_LAC,15,2026-12-17,SF,LAC,SPREAD,1st: side,-3.89,,,-3.89,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SF_LAC,15,2026-12-17,SF,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.33,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SF_LAC,15,2026-12-17,SF,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SF_LAC,15,2026-12-17,SF,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",159,,,159,0.3854,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CHI_BUF,15,2026-12-19,CHI,BUF,SPREAD,1st: side,4.82,,,4.82,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CHI_BUF,15,2026-12-19,CHI,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.54,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CHI_BUF,15,2026-12-19,CHI,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CHI_BUF,15,2026-12-19,CHI,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-178,,,-178,0.6406,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SEA_PHI,15,2026-12-19,SEA,PHI,SPREAD,1st: side,-4.57,,,-4.57,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SEA_PHI,15,2026-12-19,SEA,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.28,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SEA_PHI,15,2026-12-19,SEA,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_SEA_PHI,15,2026-12-19,SEA,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",173,,,173,0.3662,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_ATL_WAS,15,2026-12-20,ATL,WAS,SPREAD,1st: side,1.24,,,1.24,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_ATL_WAS,15,2026-12-20,ATL,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.67,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_ATL_WAS,15,2026-12-20,ATL,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_ATL_WAS,15,2026-12-20,ATL,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-116,,,-116,0.537,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_BAL_PIT,15,2026-12-20,BAL,PIT,SPREAD,1st: side,3.49,,,3.49,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_BAL_PIT,15,2026-12-20,BAL,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.76,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_BAL_PIT,15,2026-12-20,BAL,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_BAL_PIT,15,2026-12-20,BAL,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-152,,,-152,0.603,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CIN_CAR,15,2026-12-20,CIN,CAR,SPREAD,1st: side,-0.08,,,-0.08,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CIN_CAR,15,2026-12-20,CIN,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.87,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CIN_CAR,15,2026-12-20,CIN,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CIN_CAR,15,2026-12-20,CIN,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",101,,,101,0.4976,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CLE_NYG,15,2026-12-20,CLE,NYG,SPREAD,1st: side,3.7,,,3.7,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CLE_NYG,15,2026-12-20,CLE,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.03,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CLE_NYG,15,2026-12-20,CLE,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_CLE_NYG,15,2026-12-20,CLE,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-156,,,-156,0.6089,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DAL_LA,15,2026-12-20,DAL,LA,SPREAD,1st: side,8.34,,,8.34,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DAL_LA,15,2026-12-20,DAL,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.89,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DAL_LA,15,2026-12-20,DAL,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.79,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DAL_LA,15,2026-12-20,DAL,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-275,,,-275,0.7336,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DEN_LV,15,2026-12-20,DEN,LV,SPREAD,1st: side,-6.43,,,-6.43,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DEN_LV,15,2026-12-20,DEN,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.37,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DEN_LV,15,2026-12-20,DEN,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DEN_LV,15,2026-12-20,DEN,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",217,,,217,0.3154,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DET_MIN,15,2026-12-20,DET,MIN,SPREAD,1st: side,0.11,,,0.11,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DET_MIN,15,2026-12-20,DET,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.51,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DET_MIN,15,2026-12-20,DET,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",49.34,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_DET_MIN,15,2026-12-20,DET,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-101,,,-101,0.5033,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_IND_TEN,15,2026-12-20,IND,TEN,SPREAD,1st: side,-4.75,,,-4.75,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_IND_TEN,15,2026-12-20,IND,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.11,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_IND_TEN,15,2026-12-20,IND,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_IND_TEN,15,2026-12-20,IND,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",177,,,177,0.3612,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_JAX_HOU,15,2026-12-20,JAX,HOU,SPREAD,1st: side,-1.78,,,-1.78,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_JAX_HOU,15,2026-12-20,JAX,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.31,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_JAX_HOU,15,2026-12-20,JAX,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_JAX_HOU,15,2026-12-20,JAX,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",124,,,124,0.4469,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_MIA_GB,15,2026-12-20,MIA,GB,SPREAD,1st: side,6.51,,,6.51,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_MIA_GB,15,2026-12-20,MIA,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.94,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_MIA_GB,15,2026-12-20,MIA,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_MIA_GB,15,2026-12-20,MIA,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-219,,,-219,0.6867,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NO_TB,15,2026-12-20,NO,TB,SPREAD,1st: side,4.39,,,4.39,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NO_TB,15,2026-12-20,NO,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.97,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NO_TB,15,2026-12-20,NO,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NO_TB,15,2026-12-20,NO,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-169,,,-169,0.6285,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NYJ_ARI,15,2026-12-20,NYJ,ARI,SPREAD,1st: side,2.37,,,2.37,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NYJ_ARI,15,2026-12-20,NYJ,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.06,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NYJ_ARI,15,2026-12-20,NYJ,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",46.83,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NYJ_ARI,15,2026-12-20,NYJ,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-133,,,-133,0.5703,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NE_KC,15,2026-12-21,NE,KC,SPREAD,1st: side,1.02,,,1.02,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NE_KC,15,2026-12-21,NE,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.17,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NE_KC,15,2026-12-21,NE,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_15_NE_KC,15,2026-12-21,NE,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-113,,,-113,0.5303,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_HOU_PHI,16,2026-12-24,HOU,PHI,SPREAD,1st: side,-1.83,,,-1.83,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_HOU_PHI,16,2026-12-24,HOU,PHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.66,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_HOU_PHI,16,2026-12-24,HOU,PHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_HOU_PHI,16,2026-12-24,HOU,PHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",125,,,125,0.4454,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_BUF_DEN,16,2026-12-25,BUF,DEN,SPREAD,1st: side,-0.82,,,-0.82,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_BUF_DEN,16,2026-12-25,BUF,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.27,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_BUF_DEN,16,2026-12-25,BUF,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_BUF_DEN,16,2026-12-25,BUF,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",110,,,110,0.4754,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_GB_CHI,16,2026-12-25,GB,CHI,SPREAD,1st: side,2.97,,,2.97,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_GB_CHI,16,2026-12-25,GB,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.38,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_GB_CHI,16,2026-12-25,GB,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_GB_CHI,16,2026-12-25,GB,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-143,,,-143,0.588,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LA_SEA,16,2026-12-25,LA,SEA,SPREAD,1st: side,1.9,,,1.9,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LA_SEA,16,2026-12-25,LA,SEA,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.43,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LA_SEA,16,2026-12-25,LA,SEA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LA_SEA,16,2026-12-25,LA,SEA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-126,,,-126,0.5566,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_ARI_NO,16,2026-12-27,ARI,NO,SPREAD,1st: side,4.77,,,4.77,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_ARI_NO,16,2026-12-27,ARI,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.68,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_ARI_NO,16,2026-12-27,ARI,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_ARI_NO,16,2026-12-27,ARI,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-177,,,-177,0.6394,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CAR_PIT,16,2026-12-27,CAR,PIT,SPREAD,1st: side,5.13,,,5.13,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CAR_PIT,16,2026-12-27,CAR,PIT,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.97,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CAR_PIT,16,2026-12-27,CAR,PIT,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CAR_PIT,16,2026-12-27,CAR,PIT,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-185,,,-185,0.6495,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CIN_IND,16,2026-12-27,CIN,IND,SPREAD,1st: side,1.88,,,1.88,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CIN_IND,16,2026-12-27,CIN,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",50.73,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CIN_IND,16,2026-12-27,CIN,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CIN_IND,16,2026-12-27,CIN,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-125,,,-125,0.5558,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CLE_BAL,16,2026-12-27,CLE,BAL,SPREAD,1st: side,4.45,,,4.45,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CLE_BAL,16,2026-12-27,CLE,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.52,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CLE_BAL,16,2026-12-27,CLE,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_CLE_BAL,16,2026-12-27,CLE,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-171,,,-171,0.6305,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_JAX_DAL,16,2026-12-27,JAX,DAL,SPREAD,1st: side,-5.78,,,-5.78,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_JAX_DAL,16,2026-12-27,JAX,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.38,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_JAX_DAL,16,2026-12-27,JAX,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_JAX_DAL,16,2026-12-27,JAX,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",200,,,200,0.3329,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LAC_MIA,16,2026-12-27,LAC,MIA,SPREAD,1st: side,-0.28,,,-0.28,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LAC_MIA,16,2026-12-27,LAC,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.82,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LAC_MIA,16,2026-12-27,LAC,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_LAC_MIA,16,2026-12-27,LAC,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",103,,,103,0.4916,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NE_NYJ,16,2026-12-27,NE,NYJ,SPREAD,1st: side,-8.33,,,-8.33,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NE_NYJ,16,2026-12-27,NE,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.32,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NE_NYJ,16,2026-12-27,NE,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NE_NYJ,16,2026-12-27,NE,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",275,,,275,0.2667,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_SF_KC,16,2026-12-27,SF,KC,SPREAD,1st: side,0.85,,,0.85,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_SF_KC,16,2026-12-27,SF,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.2,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_SF_KC,16,2026-12-27,SF,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_SF_KC,16,2026-12-27,SF,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-111,,,-111,0.5252,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TB_ATL,16,2026-12-27,TB,ATL,SPREAD,1st: side,-0.64,,,-0.64,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TB_ATL,16,2026-12-27,TB,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.7,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TB_ATL,16,2026-12-27,TB,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TB_ATL,16,2026-12-27,TB,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",108,,,108,0.481,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TEN_LV,16,2026-12-27,TEN,LV,SPREAD,1st: side,2.88,,,2.88,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TEN_LV,16,2026-12-27,TEN,LV,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.64,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TEN_LV,16,2026-12-27,TEN,LV,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_TEN_LV,16,2026-12-27,TEN,LV,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-141,,,-141,0.5852,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_WAS_MIN,16,2026-12-27,WAS,MIN,SPREAD,1st: side,6.38,,,6.38,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_WAS_MIN,16,2026-12-27,WAS,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",42.32,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_WAS_MIN,16,2026-12-27,WAS,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_WAS_MIN,16,2026-12-27,WAS,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-216,,,-216,0.6835,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NYG_DET,16,2026-12-28,NYG,DET,SPREAD,1st: side,6.23,,,6.23,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NYG_DET,16,2026-12-28,NYG,DET,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.76,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NYG_DET,16,2026-12-28,NYG,DET,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_16_NYG_DET,16,2026-12-28,NYG,DET,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-212,,,-212,0.6794,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BAL_CIN,17,2026-12-31,BAL,CIN,SPREAD,1st: side,1.95,,,1.95,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BAL_CIN,17,2026-12-31,BAL,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.65,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BAL_CIN,17,2026-12-31,BAL,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BAL_CIN,17,2026-12-31,BAL,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-126,,,-126,0.5579,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BUF_MIA,17,2027-01-03,BUF,MIA,SPREAD,1st: side,-7.27,,,-7.27,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BUF_MIA,17,2027-01-03,BUF,MIA,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.1,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BUF_MIA,17,2027-01-03,BUF,MIA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_BUF_MIA,17,2027-01-03,BUF,MIA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",241,,,241,0.2933,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DEN_NE,17,2027-01-03,DEN,NE,SPREAD,1st: side,2.82,,,2.82,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DEN_NE,17,2027-01-03,DEN,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.4,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DEN_NE,17,2027-01-03,DEN,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DEN_NE,17,2027-01-03,DEN,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-140,,,-140,0.5836,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DET_CHI,17,2027-01-03,DET,CHI,SPREAD,1st: side,0.67,,,0.67,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DET_CHI,17,2027-01-03,DET,CHI,TOTAL,"2nd: total, estimator T1 (scoring rates)",49.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DET_CHI,17,2027-01-03,DET,CHI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_DET_CHI,17,2027-01-03,DET,CHI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-108,,,-108,0.5199,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_IND_CLE,17,2027-01-03,IND,CLE,SPREAD,1st: side,-1.25,,,-1.25,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_IND_CLE,17,2027-01-03,IND,CLE,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.59,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_IND_CLE,17,2027-01-03,IND,CLE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_IND_CLE,17,2027-01-03,IND,CLE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",116,,,116,0.4626,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_KC_LAC,17,2027-01-03,KC,LAC,SPREAD,1st: side,-2.98,,,-2.98,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_KC_LAC,17,2027-01-03,KC,LAC,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.76,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_KC_LAC,17,2027-01-03,KC,LAC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_KC_LAC,17,2027-01-03,KC,LAC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",143,,,143,0.4117,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LA_TB,17,2027-01-03,LA,TB,SPREAD,1st: side,-4.12,,,-4.12,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LA_TB,17,2027-01-03,LA,TB,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.17,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LA_TB,17,2027-01-03,LA,TB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LA_TB,17,2027-01-03,LA,TB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",164,,,164,0.3789,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LV_ARI,17,2027-01-03,LV,ARI,SPREAD,1st: side,1.54,,,1.54,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LV_ARI,17,2027-01-03,LV,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.41,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LV_ARI,17,2027-01-03,LV,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_LV_ARI,17,2027-01-03,LV,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-120,,,-120,0.5457,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_MIN_NYJ,17,2027-01-03,MIN,NYJ,SPREAD,1st: side,-6.22,,,-6.22,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_MIN_NYJ,17,2027-01-03,MIN,NYJ,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.95,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_MIN_NYJ,17,2027-01-03,MIN,NYJ,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_MIN_NYJ,17,2027-01-03,MIN,NYJ,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",212,,,212,0.3208,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NO_ATL,17,2027-01-03,NO,ATL,SPREAD,1st: side,1.99,,,1.99,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NO_ATL,17,2027-01-03,NO,ATL,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.92,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NO_ATL,17,2027-01-03,NO,ATL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NO_ATL,17,2027-01-03,NO,ATL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-127,,,-127,0.5592,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NYG_DAL,17,2027-01-03,NYG,DAL,SPREAD,1st: side,2.16,,,2.16,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NYG_DAL,17,2027-01-03,NYG,DAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.31,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NYG_DAL,17,2027-01-03,NYG,DAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_NYG_DAL,17,2027-01-03,NYG,DAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-130,,,-130,0.5643,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PHI_SF,17,2027-01-03,PHI,SF,SPREAD,1st: side,6.05,,,6.05,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PHI_SF,17,2027-01-03,PHI,SF,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.03,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PHI_SF,17,2027-01-03,PHI,SF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.3,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PHI_SF,17,2027-01-03,PHI,SF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-207,,,-207,0.6747,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PIT_TEN,17,2027-01-03,PIT,TEN,SPREAD,1st: side,-6.17,,,-6.17,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PIT_TEN,17,2027-01-03,PIT,TEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.36,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PIT_TEN,17,2027-01-03,PIT,TEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_PIT_TEN,17,2027-01-03,PIT,TEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",210,,,210,0.3221,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_SEA_CAR,17,2027-01-03,SEA,CAR,SPREAD,1st: side,-6.27,,,-6.27,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_SEA_CAR,17,2027-01-03,SEA,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.57,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_SEA_CAR,17,2027-01-03,SEA,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_SEA_CAR,17,2027-01-03,SEA,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",213,,,213,0.3196,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_WAS_JAX,17,2027-01-03,WAS,JAX,SPREAD,1st: side,11.49,,,11.49,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_WAS_JAX,17,2027-01-03,WAS,JAX,TOTAL,"2nd: total, estimator T1 (scoring rates)",46.64,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_WAS_JAX,17,2027-01-03,WAS,JAX,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_WAS_JAX,17,2027-01-03,WAS,JAX,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-413,,,-413,0.8049,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_HOU_GB,17,2027-01-04,HOU,GB,SPREAD,1st: side,-0.47,,,-0.47,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_HOU_GB,17,2027-01-04,HOU,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.08,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_HOU_GB,17,2027-01-04,HOU,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_17_HOU_GB,17,2027-01-04,HOU,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",106,,,106,0.4859,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_ATL_CAR,18,2027-01-10,ATL,CAR,SPREAD,1st: side,2.15,,,2.15,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_ATL_CAR,18,2027-01-10,ATL,CAR,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.25,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_ATL_CAR,18,2027-01-10,ATL,CAR,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_ATL_CAR,18,2027-01-10,ATL,CAR,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-129,,,-129,0.5639,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CHI_MIN,18,2027-01-10,CHI,MIN,SPREAD,1st: side,1.2,,,1.2,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CHI_MIN,18,2027-01-10,CHI,MIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.29,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CHI_MIN,18,2027-01-10,CHI,MIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CHI_MIN,18,2027-01-10,CHI,MIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-115,,,-115,0.5357,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CLE_CIN,18,2027-01-10,CLE,CIN,SPREAD,1st: side,4.65,,,4.65,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CLE_CIN,18,2027-01-10,CLE,CIN,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.74,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CLE_CIN,18,2027-01-10,CLE,CIN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_CLE_CIN,18,2027-01-10,CLE,CIN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-175,,,-175,0.6359,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DAL_WAS,18,2027-01-10,DAL,WAS,SPREAD,1st: side,-0.45,,,-0.45,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DAL_WAS,18,2027-01-10,DAL,WAS,TOTAL,"2nd: total, estimator T1 (scoring rates)",51.44,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DAL_WAS,18,2027-01-10,DAL,WAS,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DAL_WAS,18,2027-01-10,DAL,WAS,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",105,,,105,0.4866,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DET_GB,18,2027-01-10,DET,GB,SPREAD,1st: side,-0.55,,,-0.55,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DET_GB,18,2027-01-10,DET,GB,TOTAL,"2nd: total, estimator T1 (scoring rates)",47.6,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DET_GB,18,2027-01-10,DET,GB,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_DET_GB,18,2027-01-10,DET,GB,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",107,,,107,0.4836,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_JAX_IND,18,2027-01-10,JAX,IND,SPREAD,1st: side,-5.11,,,-5.11,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_JAX_IND,18,2027-01-10,JAX,IND,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.08,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_JAX_IND,18,2027-01-10,JAX,IND,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_JAX_IND,18,2027-01-10,JAX,IND,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",185,,,185,0.351,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LAC_DEN,18,2027-01-10,LAC,DEN,SPREAD,1st: side,6.17,,,6.17,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LAC_DEN,18,2027-01-10,LAC,DEN,TOTAL,"2nd: total, estimator T1 (scoring rates)",41.99,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LAC_DEN,18,2027-01-10,LAC,DEN,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LAC_DEN,18,2027-01-10,LAC,DEN,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-210,,,-210,0.6777,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LV_KC,18,2027-01-10,LV,KC,SPREAD,1st: side,10.27,,,10.27,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LV_KC,18,2027-01-10,LV,KC,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.14,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LV_KC,18,2027-01-10,LV,KC,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_LV_KC,18,2027-01-10,LV,KC,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-352,,,-352,0.7787,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_MIA_NE,18,2027-01-10,MIA,NE,SPREAD,1st: side,9.27,,,9.27,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_MIA_NE,18,2027-01-10,MIA,NE,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.23,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_MIA_NE,18,2027-01-10,MIA,NE,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_MIA_NE,18,2027-01-10,MIA,NE,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-310,,,-310,0.756,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_NYJ_BUF,18,2027-01-10,NYJ,BUF,SPREAD,1st: side,13.35,,,13.35,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_NYJ_BUF,18,2027-01-10,NYJ,BUF,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.19,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_NYJ_BUF,18,2027-01-10,NYJ,BUF,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_NYJ_BUF,18,2027-01-10,NYJ,BUF,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-529,,,-529,0.841,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PHI_NYG,18,2027-01-10,PHI,NYG,SPREAD,1st: side,0.95,,,0.95,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PHI_NYG,18,2027-01-10,PHI,NYG,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PHI_NYG,18,2027-01-10,PHI,NYG,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",44.5,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PHI_NYG,18,2027-01-10,PHI,NYG,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-112,,,-112,0.5282,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PIT_BAL,18,2027-01-10,PIT,BAL,SPREAD,1st: side,0.02,,,0.02,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PIT_BAL,18,2027-01-10,PIT,BAL,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.76,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PIT_BAL,18,2027-01-10,PIT,BAL,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.86,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_PIT_BAL,18,2027-01-10,PIT,BAL,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-100,,,-100,0.5006,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SEA_LA,18,2027-01-10,SEA,LA,SPREAD,1st: side,1.61,,,1.61,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SEA_LA,18,2027-01-10,SEA,LA,TOTAL,"2nd: total, estimator T1 (scoring rates)",45.43,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SEA_LA,18,2027-01-10,SEA,LA,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SEA_LA,18,2027-01-10,SEA,LA,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-121,,,-121,0.5479,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SF_ARI,18,2027-01-10,SF,ARI,SPREAD,1st: side,-7.89,,,-7.89,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SF_ARI,18,2027-01-10,SF,ARI,TOTAL,"2nd: total, estimator T1 (scoring rates)",48.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SF_ARI,18,2027-01-10,SF,ARI,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_SF_ARI,18,2027-01-10,SF,ARI,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",260,,,260,0.2777,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TB_NO,18,2027-01-10,TB,NO,SPREAD,1st: side,-0.87,,,-0.87,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TB_NO,18,2027-01-10,TB,NO,TOTAL,"2nd: total, estimator T1 (scoring rates)",43.97,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TB_NO,18,2027-01-10,TB,NO,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",47.98,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TB_NO,18,2027-01-10,TB,NO,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",111,,,111,0.4739,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TEN_HOU,18,2027-01-10,TEN,HOU,SPREAD,1st: side,11.59,,,11.59,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TEN_HOU,18,2027-01-10,TEN,HOU,TOTAL,"2nd: total, estimator T1 (scoring rates)",44.34,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TEN_HOU,18,2027-01-10,TEN,HOU,TOTAL_T2,"2b: total, estimator T2 (venue/rest context) - published until one wins",45.47,,,,,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,
+2026_18_TEN_HOU,18,2027-01-10,TEN,HOU,MONEYLINE,"3rd: moneyline, derived from the side's margin distribution",-418,,,-418,0.807,,,13.371,,PRE-KICKOFF; market price timing uncertified,0.0,

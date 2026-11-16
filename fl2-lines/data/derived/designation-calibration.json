@@ -1,0 +1,226 @@
+{
+  "estimated_on": "2016-2024 official-report rows joined to participation rows",
+  "trap_documented": "joining only to snap counts returns a 100% play rate, because participation lists contain only players who took a snap. Those rows are excluded (denominator = every listed player-week that has a participation file for that team-week), never imputed.",
+  "by_designation": {
+    "Out": {
+      "n": 8736,
+      "played": 2,
+      "play_rate_pct": 0.02,
+      "ci95_pct": [
+        0.01,
+        0.08
+      ]
+    },
+    "Questionable": {
+      "n": 13131,
+      "played": 8464,
+      "play_rate_pct": 64.46,
+      "ci95_pct": [
+        63.64,
+        65.27
+      ]
+    },
+    "Doubtful": {
+      "n": 1522,
+      "played": 14,
+      "play_rate_pct": 0.92,
+      "ci95_pct": [
+        0.55,
+        1.54
+      ]
+    }
+  },
+  "by_designation_and_position": {
+    "Out|LB": {
+      "n": 1231,
+      "played": 1,
+      "play_rate_pct": 0.08,
+      "ci95_pct": [
+        0.01,
+        0.46
+      ]
+    },
+    "Questionable|DB": {
+      "n": 2901,
+      "played": 1768,
+      "play_rate_pct": 60.94,
+      "ci95_pct": [
+        59.16,
+        62.7
+      ]
+    },
+    "Questionable|LB": {
+      "n": 1782,
+      "played": 1242,
+      "play_rate_pct": 69.7,
+      "ci95_pct": [
+        67.52,
+        71.79
+      ]
+    },
+    "Questionable|SKILL": {
+      "n": 3703,
+      "played": 2402,
+      "play_rate_pct": 64.87,
+      "ci95_pct": [
+        63.31,
+        66.39
+      ]
+    },
+    "Out|DB": {
+      "n": 2012,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        0.19
+      ]
+    },
+    "Out|SKILL": {
+      "n": 2487,
+      "played": 1,
+      "play_rate_pct": 0.04,
+      "ci95_pct": [
+        0.01,
+        0.23
+      ]
+    },
+    "Questionable|OL": {
+      "n": 2282,
+      "played": 1409,
+      "play_rate_pct": 61.74,
+      "ci95_pct": [
+        59.73,
+        63.72
+      ]
+    },
+    "Questionable|QB": {
+      "n": 285,
+      "played": 136,
+      "play_rate_pct": 47.72,
+      "ci95_pct": [
+        41.99,
+        53.51
+      ]
+    },
+    "Doubtful|DB": {
+      "n": 367,
+      "played": 4,
+      "play_rate_pct": 1.09,
+      "ci95_pct": [
+        0.42,
+        2.77
+      ]
+    },
+    "Questionable|DL": {
+      "n": 1997,
+      "played": 1381,
+      "play_rate_pct": 69.15,
+      "ci95_pct": [
+        67.09,
+        71.14
+      ]
+    },
+    "Out|QB": {
+      "n": 277,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        1.37
+      ]
+    },
+    "Out|DL": {
+      "n": 1132,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        0.34
+      ]
+    },
+    "Doubtful|LB": {
+      "n": 193,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        1.95
+      ]
+    },
+    "Doubtful|SKILL": {
+      "n": 440,
+      "played": 6,
+      "play_rate_pct": 1.36,
+      "ci95_pct": [
+        0.63,
+        2.94
+      ]
+    },
+    "Out|OL": {
+      "n": 1513,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        0.25
+      ]
+    },
+    "Doubtful|OL": {
+      "n": 278,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        1.36
+      ]
+    },
+    "Doubtful|DL": {
+      "n": 176,
+      "played": 4,
+      "play_rate_pct": 2.27,
+      "ci95_pct": [
+        0.89,
+        5.7
+      ]
+    },
+    "Doubtful|QB": {
+      "n": 53,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        6.76
+      ]
+    },
+    "Questionable|ST": {
+      "n": 181,
+      "played": 126,
+      "play_rate_pct": 69.61,
+      "ci95_pct": [
+        62.56,
+        75.85
+      ]
+    },
+    "Out|ST": {
+      "n": 84,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        4.37
+      ]
+    },
+    "Doubtful|ST": {
+      "n": 15,
+      "played": 0,
+      "play_rate_pct": 0.0,
+      "ci95_pct": [
+        0.0,
+        20.39
+      ]
+    }
+  },
+  "no_reserve_list_in_source": "the source carries only Out/Questionable/Doubtful/Probable game statuses; IR and reserve lists are not represented, so 'not listed' is not evidence of health",
+  "rows_2026_published": 1239
+}

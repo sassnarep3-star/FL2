@@ -1,0 +1,17 @@
+{
+  "n_records": 2911,
+  "seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "definition": "one record per game: mu_A (ratings only), t1, t2, availability gap, and the actual margin/total where played"
+}

@@ -1,0 +1,99 @@
+{
+  "official_only_panel": {
+    "definition": "computed from game results and published schedule facts only - no operator prices",
+    "values": {
+      "home_margin_vs_game_total_2015_2026": {
+        "r": 0.0161,
+        "n": 3032,
+        "fisher_ci95": [
+          -0.0195,
+          0.0517
+        ]
+      },
+      "rest_differential_vs_home_margin_2015_2026": {
+        "r": 0.0449,
+        "n": 3032,
+        "fisher_ci95": [
+          0.0093,
+          0.0803
+        ]
+      },
+      "rest_differential_vs_game_total_2015_2026": {
+        "r": 0.0139,
+        "n": 3032,
+        "fisher_ci95": [
+          -0.0218,
+          0.0494
+        ]
+      },
+      "roof_vs_game_total_2015_2026": {
+        "r": 0.0976,
+        "n": 3032,
+        "fisher_ci95": [
+          0.0623,
+          0.1328
+        ]
+      },
+      "surface_vs_game_total_2015_2026": {
+        "r": 0.073,
+        "n": 3032,
+        "fisher_ci95": [
+          0.0375,
+          0.1083
+        ]
+      },
+      "availability_gap_vs_home_margin_2026": {
+        "r": -0.1764,
+        "n": 136,
+        "fisher_ci95": [
+          -0.3348,
+          -0.0083
+        ]
+      }
+    }
+  },
+  "market_panel": {
+    "definition": "uses recorded prices from the mirror; labelled so it can never be quoted as an official-number correlation",
+    "values": {
+      "signed_edge_vs_cover_2026": {
+        "r": -0.0408,
+        "n": 130,
+        "fisher_ci95": [
+          -0.2115,
+          0.1323
+        ]
+      }
+    },
+    "note": "phi for the side/total parlay is reported separately in parlay-joint-evidence.json"
+  },
+  "parlay_joint": {
+    "n_games": 130,
+    "p_home_cover_pct": 43.08,
+    "p_over_pct": 50.77,
+    "p_both_measured_pct": 17.692,
+    "p_both_if_independent_pct": 21.87,
+    "difference_pct_points": -4.178,
+    "phi": -0.1687,
+    "joint_ci95_pct": [
+      12.09,
+      25.15
+    ],
+    "gate_status": "OPEN for a two-leg same-game parlay IF an operator void/push rule is recorded; CLOSED while the void rule is unknown",
+    "historical_baseline_2015_2025": {
+      "n_games": 2927,
+      "phi": 0.0134,
+      "difference_pct_points": 0.334,
+      "why": "the pricing constant should come from the long window; this corpus is a sample, not a law"
+    },
+    "small_sample_warning": "the 130-game interval must overlap the long-window estimate before either is used; a phi of this size on n=130 is about 1.9 standard errors from zero",
+    "why_still_blocked": "A parlay may only be ranked when the validated joint probability AND the operator's void/push rules are both available. The joint term is now measured on two windows; the void rules are not, so no parlay is ranked."
+  },
+  "priors_used_for_context": {
+    "home_field_advantage_pts": 1.74,
+    "sigma_margin_default": 14.201
+  },
+  "suppressed": {
+    "player_prop_leg_correlation": "No prop price feed exists in this repository, so a prop combo's joint term cannot be measured. Withheld rather than assumed 0.",
+    "correlation_between_designation_levels_and_scores": "Levels are not used as features (the brief requires a surprise, not a level), so no level correlation is published."
+  }
+}

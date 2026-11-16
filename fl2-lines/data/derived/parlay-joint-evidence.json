@@ -1,0 +1,22 @@
+{
+  "n_games": 130,
+  "p_home_cover_pct": 43.08,
+  "p_over_pct": 50.77,
+  "p_both_measured_pct": 17.692,
+  "p_both_if_independent_pct": 21.87,
+  "difference_pct_points": -4.178,
+  "phi": -0.1687,
+  "joint_ci95_pct": [
+    12.09,
+    25.15
+  ],
+  "gate_status": "OPEN for a two-leg same-game parlay IF an operator void/push rule is recorded; CLOSED while the void rule is unknown",
+  "historical_baseline_2015_2025": {
+    "n_games": 2927,
+    "phi": 0.0134,
+    "difference_pct_points": 0.334,
+    "why": "the pricing constant should come from the long window; this corpus is a sample, not a law"
+  },
+  "small_sample_warning": "the 130-game interval must overlap the long-window estimate before either is used; a phi of this size on n=130 is about 1.9 standard errors from zero",
+  "why_still_blocked": "A parlay may only be ranked when the validated joint probability AND the operator's void/push rules are both available. The joint term is now measured on two windows; the void rules are not, so no parlay is ranked."
+}

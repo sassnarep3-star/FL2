@@ -1,0 +1,19 @@
+{
+  "n_games_compared": 137,
+  "MAE_T1_scoring_rates": 11.231,
+  "MAE_T2_context_only": 11.51,
+  "MAE_market_line": 10.551,
+  "paired_mean_T1_minus_T2_abs_err": -0.28,
+  "paired_ci95": [
+    -0.7483,
+    0.1658
+  ],
+  "mean_gap_between_estimators_pts": 2.32,
+  "collapse_decision": {
+    "rule": "publish both until a paired comparison on n>=300 games has an interval that excludes zero",
+    "n_required": 300,
+    "n_actual": 137,
+    "decision": "NOT COLLAPSED (n below the gate)"
+  },
+  "note": "Both estimators are published for every fixture, with the gap between them as its own column."
+}

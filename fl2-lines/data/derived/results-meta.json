@@ -1,0 +1,85 @@
+{
+  "games_in_feed": 272,
+  "games_scheduled_no_final": 124,
+  "games_priced_forward": 15,
+  "forward_weeks": {
+    "10": 2,
+    "11": 13,
+    "12": 16,
+    "13": 14,
+    "14": 15,
+    "15": 16,
+    "16": 16,
+    "17": 16,
+    "18": 16
+  },
+  "games_with_confirmed_final": 148,
+  "games_blank_unverified": 124,
+  "week1_total": {
+    "1": 16,
+    "2": 16,
+    "3": 16,
+    "4": 16,
+    "5": 15,
+    "6": 14,
+    "7": 14,
+    "8": 14,
+    "9": 15,
+    "10": 12
+  },
+  "pre_kickoff_corpus_games": 136,
+  "reconciliation": {
+    "teams_compared": 32,
+    "teams_matching_official": 32,
+    "metric": "W-L-T, points for, points against, recomputed from the feed only",
+    "result": "32/32 exact"
+  },
+  "sign_convention_checks": {
+    "gate_sign_spread_line_is_home_line_positive_home_fav": {
+      "window": "all games 2015-2026 in the committed mirror",
+      "share_of_home_moneyline_favourites_with_positive_spread_line": 0.9688,
+      "n": 1924,
+      "pass": true
+    },
+    "gate_home_cover_rate_near_50": {
+      "window": "all games 2015-2026 in the committed mirror",
+      "home_cover_pct": 47.25,
+      "n_graded": 3031,
+      "pass": true,
+      "note": "pushes counted as non-cover; a flipped sign lands near 57% and aborts"
+    },
+    "measurement_home_cover_2026": {
+      "home_cover_pct": 40.88,
+      "n_graded": 137,
+      "share_home_ml_favs_with_positive_line_pct": 95.0,
+      "n": 100,
+      "note": "published as a finding, not used as a gate; a gate on this window would abort on a real league-wide pattern"
+    }
+  },
+  "capture": {
+    "requested_utc": "2026-11-16T01:15:24Z",
+    "pages": {
+      "https://www.nfl.com/standings/division/2026/REG": "2026-11-16T01:15Z",
+      "https://www.nfl.com/schedules/2026/by-week/week-10": "2026-11-16T01:16Z",
+      "https://www.nfl.com/schedules/2026/by-week/week-11": "2026-11-16T01:19Z",
+      "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10": "2026-11-16T01:22Z",
+      "https://www.nfl.com/injuries/": "2026-11-16T01:12Z",
+      "https://www.nfl.com/news/2026-nfl-schedule-release-complete-slate-of-week-1-games": "2026-11-16T01:26Z"
+    },
+    "observed_state": "Week 10 Sunday 1:00/4:05/4:25 PM ET games printed FINAL; the 8:20 PM ET game (PIT @ CIN) still printed its 8:20 PM kickoff and no score, and the Monday 8:15 PM ET game (LAC @ BAL) was listed as upcoming. Standings showed PIT and CIN at 6-2 with PF/PA excluding that game, so the standings snapshot and the results snapshot are mutually consistent at the capture instant."
+  },
+  "sources": {
+    "nflverse_games": "https://github.com/nflverse/nfldata",
+    "nflverse_closing_lines": "https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv",
+    "nflverse_initial_lines": "https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv",
+    "nflcom_standings": "https://www.nfl.com/standings/division/2026/REG",
+    "nflcom_week10": "https://www.nfl.com/schedules/2026/by-week/week-10",
+    "nflcom_week11": "https://www.nfl.com/schedules/2026/by-week/week-11",
+    "nflcom_injuries": "https://www.nfl.com/injuries/"
+  },
+  "built_from": {
+    "nflverse_games_sha256": "9db20ab7cc0941c726f07540c2935684e196473e2d91a4de82e8099cdabe27e3",
+    "nflverse_games_rows": 7548,
+    "git_head": "ffcfedbd8e3c43740a95c263c93a993b76217434"
+  }
+}

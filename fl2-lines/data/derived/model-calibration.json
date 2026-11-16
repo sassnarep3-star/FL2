@@ -1,0 +1,15 @@
+{
+  "window": "2016-2024",
+  "margin": {
+    "intercept": 0.4358,
+    "slope": 0.7586,
+    "n": 2367,
+    "resid_sd": 13.366
+  },
+  "total": {
+    "intercept": 21.3197,
+    "slope": 0.5307,
+    "n": 2367
+  },
+  "note": "fitted on past seasons only; the season being priced is never in the fit"
+}

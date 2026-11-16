@@ -1,0 +1,146 @@
+{
+  "corpus": {
+    "definition": "2026 regular season, weeks 1-9, games with a graded outcome and a recorded price",
+    "n_games": 136,
+    "frozen": true
+  },
+  "by_market": {
+    "SPREAD": {
+      "n_graded": 130,
+      "brier_ours": 0.26399,
+      "brier_market_devig": 0.25021,
+      "brier_coin_flip": 0.25,
+      "brier_skill_vs_market": -0.0551,
+      "brier_skill_cluster_ci95": [
+        -0.0411,
+        -0.1822
+      ],
+      "log_loss_ours": 0.72236,
+      "log_loss_market": 0.69357,
+      "mean_signed_prob_gap_vs_market": 0.0103,
+      "hit_rate_ours": 43.0769,
+      "calibration_note": "hit rate alone is not a skill measure: a 52.4% rate at -110 is break-even, not profitable"
+    },
+    "TOTAL": {
+      "n_graded": 136,
+      "brier_ours": 0.2618,
+      "brier_market_devig": 0.25038,
+      "brier_coin_flip": 0.25,
+      "brier_skill_vs_market": -0.0456,
+      "brier_skill_cluster_ci95": [
+        -0.0424,
+        -0.1399
+      ],
+      "log_loss_ours": 0.7173,
+      "log_loss_market": 0.69391,
+      "mean_signed_prob_gap_vs_market": 0.0101,
+      "hit_rate_ours": 51.4706,
+      "calibration_note": "hit rate alone is not a skill measure: a 52.4% rate at -110 is break-even, not profitable"
+    },
+    "MONEYLINE": {
+      "n_graded": 136,
+      "brier_ours": 0.22908,
+      "brier_market_devig": 0.24505,
+      "brier_coin_flip": 0.25,
+      "brier_skill_vs_market": 0.0652,
+      "brier_skill_cluster_ci95": [
+        0.2166,
+        0.0419
+      ],
+      "log_loss_ours": 0.64923,
+      "log_loss_market": 0.68324,
+      "mean_signed_prob_gap_vs_market": 0.0573,
+      "hit_rate_ours": 49.2647,
+      "calibration_note": "hit rate alone is not a skill measure: a 52.4% rate at -110 is break-even, not profitable"
+    }
+  },
+  "multiplicity": {
+    "method": "Benjamini-Hochberg",
+    "q": 0.1,
+    "n_hypotheses": 3,
+    "reject": {
+      "skill:MONEYLINE": false,
+      "skill:SPREAD": false,
+      "skill:TOTAL": false
+    }
+  },
+  "controls_and_luck": {
+    "n_games": 130,
+    "home_cover_rate_pct": 43.08,
+    "control_random_brier": {
+      "mean": 0.27956,
+      "best_of_400": 0.24192,
+      "percentile_95": 0.25602,
+      "definition": "400 seeded random probability forecasts on the same graded games; the best one is the bar luck clears without skill"
+    },
+    "control_favourites_only": {
+      "hit_rate_pct": 51.54,
+      "brier": 0.48462,
+      "definition": "always take the side the market line favours"
+    },
+    "model_brier": 0.26399,
+    "luck_p_value": 0.15,
+    "interpretation": "A model that does not beat the best random forecast by a clear margin has not removed luck; it has exhibited it."
+  },
+  "staking_division": {
+    "windows": [
+      {
+        "edge_threshold_pts": 0.0,
+        "n_bets": 130,
+        "hit_rate_pct": 47.69,
+        "breakeven_hit_rate_pct": 52.381,
+        "roi_pct": -8.66,
+        "priced_from_real_odds_pct": 100.0,
+        "mean_abs_line_disagreement_pts": 2.75,
+        "graded_by": "staking division only; never used to rank a signal",
+        "warning": "ROI on a corpus this small cannot separate a 55% bettor from a 45% one: detecting 55% at alpha=.05 and 80% power needs ~2,243 bets"
+      },
+      {
+        "edge_threshold_pts": 1.0,
+        "n_bets": 100,
+        "hit_rate_pct": 47.0,
+        "breakeven_hit_rate_pct": 52.381,
+        "roi_pct": -10.37,
+        "priced_from_real_odds_pct": 100.0,
+        "mean_abs_line_disagreement_pts": 3.47,
+        "graded_by": "staking division only; never used to rank a signal",
+        "warning": "ROI on a corpus this small cannot separate a 55% bettor from a 45% one: detecting 55% at alpha=.05 and 80% power needs ~2,243 bets"
+      },
+      {
+        "edge_threshold_pts": 1.5,
+        "n_bets": 85,
+        "hit_rate_pct": 45.88,
+        "breakeven_hit_rate_pct": 52.381,
+        "roi_pct": -12.59,
+        "priced_from_real_odds_pct": 100.0,
+        "mean_abs_line_disagreement_pts": 3.87,
+        "graded_by": "staking division only; never used to rank a signal",
+        "warning": "ROI on a corpus this small cannot separate a 55% bettor from a 45% one: detecting 55% at alpha=.05 and 80% power needs ~2,243 bets"
+      },
+      {
+        "edge_threshold_pts": 2.5,
+        "n_bets": 60,
+        "hit_rate_pct": 43.33,
+        "breakeven_hit_rate_pct": 52.381,
+        "roi_pct": -17.34,
+        "priced_from_real_odds_pct": 100.0,
+        "mean_abs_line_disagreement_pts": 4.66,
+        "graded_by": "staking division only; never used to rank a signal",
+        "warning": "ROI on a corpus this small cannot separate a 55% bettor from a 45% one: detecting 55% at alpha=.05 and 80% power needs ~2,243 bets"
+      },
+      {
+        "edge_threshold_pts": 4.0,
+        "n_bets": 32,
+        "hit_rate_pct": 53.12,
+        "breakeven_hit_rate_pct": 52.381,
+        "roi_pct": 1.45,
+        "priced_from_real_odds_pct": 100.0,
+        "mean_abs_line_disagreement_pts": 5.93,
+        "graded_by": "staking division only; never used to rank a signal",
+        "warning": "ROI on a corpus this small cannot separate a 55% bettor from a 45% one: detecting 55% at alpha=.05 and 80% power needs ~2,243 bets"
+      }
+    ],
+    "note": "These are backtest figures. They appear on the evaluation page and are structurally excluded from the leaderboard."
+  },
+  "seed": 20261116
+}
