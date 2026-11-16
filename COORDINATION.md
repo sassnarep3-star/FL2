@@ -18,7 +18,7 @@ Flagged for Review page; does not block anything).
 | `e70150db` and others | `arena/e70150db-fl2` | NFL Decision Hub: requirements, gates, luck/skill, repo audit | `/hub/` | **merged** |
 | `68b4e431` | `arena/68b4e431-fl2` | **Evidence Ledger**: verified 2026 data, line model, 11-strategy validation harness, suggestions register, site hub | `/` (hub) + `/ledger/` | **this PR** |
 | `arena-48561869-fl2` | `arena/48561869-fl2` | **FL2 Dashboard**: verified official-source data foundation (2026 standings, Week 10 schedule, 345-row injury report, depth-chart example), executive summary, questions/answers register, suggestions section, strategy design with validation gates and luck-removal scoring, leaderboard spec, flagged-review page; integrated into the hub as `/fl2-dashboard/` | `/fl2-dashboard/` | **merged (PR #9)** |
-| `310620fe` | `arena/310620fe-fl2` | **Requirements Register v2 + Decision-Readiness + Ops layer**: every requirement line of the current brief registered verbatim (R26+), one row per requirement with blocking gate and clearing number; price-snapshot store, verified results feed, snapshot-ledger format, drift alarms, control baselines, luck panel, venue/fixture-context feed; cross-source score verification (T1 transcription × nflverse); site section `/readiness/` | `/readiness/`, `ops/`, `research/requirements-v2.md`, `index.html` (integration edit), `COORDINATION.md` | **in progress** |
+| `310620fe` | `arena/310620fe-fl2` | **Requirements Register v2 + Decision-Readiness + Ops layer**: every requirement line of the current brief registered verbatim (R26+), one row per requirement with blocking gate and clearing number; price-snapshot store, verified results feed, snapshot-ledger format, drift alarms, control baselines, luck panel, venue/fixture-context feed; cross-source score verification (T1 transcription × nflverse); site section `/readiness/` | `/readiness/`, `ops/`, `research/requirements-v2.md`, `index.html` (integration edit), `COORDINATION.md` | **done (this session, see its section below)** |
 
 
 **Integration completed 2026-11-14** (PR #8, merged as `ab37150`). How the four sites
@@ -1153,10 +1153,10 @@ Pending at the time of writing; recorded in the PR description and below on comp
 
 | ID | Task | Status | Owner | Files in scope (exclusive) |
 |---|---|---|---|---|
-| R2-REG | Register every requirement line of the current brief verbatim as R26+, each with category, status, blocking gate, and the number that would clear the gate; publish as `research/requirements-v2.md` + `ops/data/requirements_v2.json` | in progress | session `310620fe` | `research/requirements-v2.md`, `ops/**` |
-| R2-OPS | Implement the feasible infrastructure requirements against data already in the repo: price-snapshot store (empty-by-policy until a price source is reachable), verified results feed (137 games, T1×T2 cross-verified), snapshot-ledger format + ingest of existing captures, drift alarms pinned to committed row counts, seeded control baselines (random, favourites-only), Pythagorean luck panel with n, venue/fixture-context feed from nflverse (T2, labelled) | in progress | session `310620fe` | `ops/**` |
-| R2-SITE | `/readiness/` site section: decision-readiness table (one row per requirement: gate that blocks it, number that would clear it), ops register, flagged list; own link/row checker `ops/check_readiness.py` | in progress | session `310620fe` | `readiness/**`, `ops/check_readiness.py` |
-| R2-INTEGRATION | Landing-page integration: one tile + nav link + readiness summary on `index.html` (root hub). Deviation recorded: the full decision-readiness table lives on `/readiness/` because the hub's row-level source-link contract (enforced by `scripts/check_site.py`) cannot be satisfied by process requirements that have no official source; the landing page carries a status summary + link instead of a table that would fail CI. | pending | session `310620fe` | `index.html` |
+| R2-REG | Register every requirement line of the current brief verbatim as R26+, each with category, status, blocking gate, and the number that would clear the gate; publish as `research/requirements-v2.md` + `ops/data/requirements_v2.json` | **done** (2026-11-16T02:30Z) | session `310620fe` | `research/requirements-v2.md`, `ops/**` |
+| R2-OPS | Implement the feasible infrastructure requirements against data already in the repo: price-snapshot store (28 seeded T3 rows, openings blank by policy), verified results feed (150 games: 148 final + 2 pending; 137/137 T1×T2 cross-verified), snapshot ledger (10 sha256-stamped entries), drift alarms (7 pinned datasets), seeded control baselines, Pythagorean luck panel with n, venue feed (150 fixtures, 1 official game-centre cross-check), per-team availability view, STRAT-1 pre-registration + 13 Week 11 forecasts recorded pre-kickoff | **done** (2026-11-16T02:30Z) | session `310620fe` | `ops/**` |
+| R2-SITE | `/readiness/` site section: decision-readiness table (one row per requirement: gate that blocks it, number that would clear it), ops dashboard, flagged list; own link/row checker `ops/check_readiness.py` (3 pages, all rows linked, 0 failures) | **done** (2026-11-16T02:30Z) | session `310620fe` | `readiness/**`, `ops/check_readiness.py` |
+| R2-INTEGRATION | Landing-page integration: readiness section with tiles + readiness summary on `index.html` (root hub), plus the nav link to `/fl2-signals/` that session `1374049c` had requested and that had never been applied. Deviation recorded: the full decision-readiness table lives on `/readiness/` because the hub's row-level source-link contract (enforced by `scripts/check_site.py`) cannot be satisfied by process requirements that have no official source; the landing page carries a status summary + link instead of a table that would fail CI. | **done** (2026-11-16T02:35Z) | session `310620fe` | `index.html` |
 
 **Rule:** all files above are new or, for `index.html`/`COORDINATION.md`, are shared files edited
 only as final integration after every earlier session's work was merged (PRs #1–#15 all merged,
@@ -1166,3 +1166,80 @@ only as final integration after every earlier session's work was merged (PRs #1�
 
 - 2026-11-16T01:15Z — session `310620fe` inspected the repo at `229d5fa` (merge of PR #15): 251 files, all prior sessions merged, Pages workflow active. Verified no requirement register exists for the ~70 newer requirement lines in the current brief (searched for "price-snapshot", "demotion", "decision-readiness", "removal of luck", "change our mind" — zero hits). Claimed the tasks above.
 - 2026-11-16T01:20Z — Cross-source verification performed: all 137 transcribed official scores in `data/games.json` (T1, nfl.com) match `raw/games.csv` (T2, nflverse) row for row — 137/137, zero mismatches. Recorded as new verification evidence (R2-OPS results feed).
+
+## Completion record — session 310620fe (2026-11-16)
+
+### What was built
+
+1. **Requirements Register v2 (R26–R96, 71 rows).** Every requirement line of the current brief,
+   verbatim, each with category, status (29 done / 25 partial / 8 registered / 7 blocked /
+   2 rejected), the gate that blocks it, and the number that would clear it. Machine file
+   `ops/data/requirements_v2.json`, human file `research/requirements-v2.md`, rendered at
+   `/readiness/index.html`.
+2. **Ops layer (`ops/`)**, every number recomputed by a linked stdlib-only script:
+   - `price_store.py` — append-only price-snapshot store; 28 rows (14 Week 10 games × spread+total),
+     T3-labelled with source sha256; **openings blank by policy** (no reachable source publishes them).
+   - `price_policy.md` — the seven-point price-data policy, frozen before any price-dependent result.
+   - `results_feed.py` — verified results feed: 150 games, 148 final, 2 pending (SNF in progress /
+     MNF upcoming at fetch; scores blank, never inferred).
+   - `luck_panel.py` — Pythagorean removal-of-luck panel, 32 teams, n=148, exponent 2.37.
+   - `baselines.py` — frozen-seed random baseline (54.05%) and favourites-only baseline
+     (SU 68.24%, cover 52.03%, cover-rate band asserted = sign-convention check).
+   - `venues.py` — stadium/roof/surface for all 150 fixtures through Week 10 (T2), NWS cells blank.
+   - `team_view.py` — per-team availability: report rows, Out/Doubtful/Q/DNP, net injury count,
+     explicit IR-unknown flag (28 clubs with a Week 10 report; 4 bye clubs excluded with a note).
+   - `snapshot_ledger.py` — append-only point-in-time ledger; 10 existing captures registered with
+     sha256 + row counts + conflicts; delta-not-level policy stated.
+   - `drift_check.py` — 7 datasets pinned to row counts, required fields and max capture age;
+     exits 1 loudly.
+   - `forecast_week11.py` — **STRAT-1 pre-registration** (singles-only shadow baseline): frozen
+     method, gates G1–G5, demotion gate D1, two-sided abandon-if/promote-if; **13 Week 11 forecasts
+     recorded 2026-11-16, three days before the Week 11 opener**, each with inputs, probability and
+     market residuals. Registration commit: `25104b3`.
+   - `availability_capture.py` + `.github/workflows/availability-snapshot.yml` — Wed/Thu/Fri 21:15 UTC
+     capture of the official injury report, hash-stamped immutable raw HTML, structural drift alarm,
+     delta-vs-previous publication. Untested until its first CI run (flagged).
+   - `check_readiness.py` — section validator: every data table row carries a link, hosts allowlisted,
+     internal links resolve, no CDN, no NaN/undefined. 3 pages, 0 failures.
+
+### Sources used (all fetches on 2026-11-16)
+
+| Source | Role |
+|---|---|
+| https://www.nfl.com/injuries/ (live fetch) | Week 10 report re-verification: Lions Out×3 present; SEA 15 rows, CIN 9 rows live; practice-status columns |
+| https://www.nfl.com/schedules/2026/reg10/ (live fetch, both chunks) | 11 new Week 10 finals transcribed; SNF/MNF status; bye teams; Week 16/17/18 flexible-scheduling announcement text |
+| https://www.nfl.com/games/patriots-at-lions-2026-reg-10 (live fetch) | Game centre: Munich, FC Bayern Munich Stadium; Game Book PDF link; venue cross-check |
+| https://www.nfl.com/schedules/2026/reg11/ (live fetch) | Redirects to the live week → Week 11 T1 confirmation pending (flagged) |
+| https://api.github.com/repos/nflverse/nfldata/contents/data (live probe) | Confirms no injury table exists in nflverse/nfldata → archive requirement stays blocked |
+| `data/games.json`, `data/standings.json`, `data/injuries.json`, `data/depth_charts.json`, `data/market_lines.json` (committed T1 captures) | corpus, team stats, availability |
+| `raw/games.csv` (committed nflverse snapshot) | T2 cross-check + closing lines (T3) + stadium facts |
+
+### Verification performed
+
+1. **T1×T2 score cross-check: 137/137 match, 0 mismatches** (new verification, not previously recorded).
+2. Results feed integrity: every final row has an official `nfl.com` source URL.
+3. Sign-convention assertion (P4): favourite cover 52.03% inside the (0.40, 0.60) band on 148 games.
+4. Sigma re-derivation: 12.97 on 4,056 games 2011–2026 — matches the frozen constant exactly.
+5. Luck panel double-count guard: 2×148 team-games reconciles.
+6. `scripts/check_site.py`: 7 pages OK after the hub edit. `tools/check_links.py`: OK.
+7. `ops/check_readiness.py`: 3 pages, all rows linked, 0 failures.
+8. Live-page verifications: Lions designations (Out ×3) in both committed captures and live; SEA/CIN
+   present in both captures (the 254-row / missing-SEA-CIN state predates the committed files);
+   fl2-dashboard 345 rows = fl2-signals 345 rows.
+
+### Irregularities and flags (published on /readiness/flagged.html)
+
+1. Opening prices unavailable (source publishes closings only) → blank, flagged.
+2. No official odds page exists (nfl.com/odds/ 404, previously verified) → all prices T3-labelled.
+3. Reserve/IR status has no verified source → explicit IR-unknown flag on every team row.
+4. NWS weather grids unreachable → wind/precip blank, flagged.
+5. Week 11 fixtures T2-only (official /reg11 page redirects to the live week) → flagged.
+6. PIT@CIN / LAC@BAL without final scores at fetch time → blank, flagged.
+7. Availability workflow untested until first CI run → flagged.
+8. Multi-season injury archive unreachable (API-verified) → R69/R78/R91 blocked.
+9. STRAT-1 has no QB-quality term → Week 11 residuals vs market reach double digits; declared, not hidden.
+10. CIN live report count grew (4 → 9) between the requirement text's capture and now → both numbers recorded.
+11. Deviation on R47: the full decision-readiness table lives on `/readiness/`, not inline on the hub,
+    because hub table rows must carry official source links (CI contract) — process requirements cannot.
+12. Session 1374049c's request for a `/fl2-signals/` nav link on the hub had never been applied;
+    fulfilled here as final integration.
