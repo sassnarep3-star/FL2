@@ -15,6 +15,16 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+      - name: Install pinned DOM-test dependency
+        run: npm install --no-save --package-lock=false jsdom@26.1.0
+      - name: Validate decision-readiness register integrity and legacy crosswalk
+        run: python3 scripts/check_readiness.py
+      - name: Check readiness browser script syntax
+        run: node --check assets/readiness.js
+      - name: Exercise readiness table and review filters
+        run: node scripts/test_readiness_ui.js
+      - name: Validate rendered page DOM, links, and tables
+        run: python3 engine/check_site.py
       - name: Validate pages, local links, and evidence rows
         run: python3 scripts/check_site.py
       - name: Rebuild and validate Week 10 data dashboard (docs/)

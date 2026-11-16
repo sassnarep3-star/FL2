@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for Review · Decision readiness · FL2</title>
+<meta name="description" content="Unresolved evidence, source, coverage, freshness and policy gates in the FL2 NFL decision-readiness register.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/readiness.css">
+<script defer src="assets/readiness.js"></script>
+</head>
+<body data-readiness-page="review">
+<header class="site-header"><div class="inner">
+  <div class="brand-row"><a class="brand" href="index.html">FL2 <span>· NFL research hub</span></a><div class="brand-sub">Readiness review · audit date 2026-11-16 UTC</div></div>
+  <nav class="tabs" aria-label="Sections"><a href="index.html">Overview</a><a href="index.html#decision-readiness">Decision readiness</a><a href="ledger/suggestions.html">Suggestions</a><a href="ledger/decisions.html">Questions &amp; Answers</a><a href="ledger/flagged.html">Evidence Ledger flags</a></nav>
+</div></header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">78 flagged rows · 81 total requirements</p>
+    <h1>Flagged for Review</h1>
+    <p class="lede">Open data, source, coverage, policy, or validation gates appear here. Linked official sources support only their stated scope; repository findings point to local project evidence. Clearance measures are proposed targets unless explicitly stated otherwise.</p>
+    <div class="pills"><span class="badge warn">Unresolved evidence and decisions</span><span class="badge info">78 flagged requirements</span><span class="badge mute">No betting advice</span></div>
+  </section>
+  <section class="block">
+    <div class="note warn"><strong>Freshness warning:</strong> The repository Week 10 data snapshot is dated 2026-11-14. Selected live official pages were read on 2026-11-16, but the page responses were not persisted or hashed. Those later reads do not refresh, re-version, or prove byte-for-byte agreement with the local Nov 14 files; Week 10 statuses are historical, not current availability.</div>
+    <div class="note info" style="margin-top:10px"><strong>Scope warning:</strong> This expanded operational checklist contains 81 atomic readiness rows. A many-to-many crosswalk in data/requirements-crosswalk.csv traces all 25 records in data/requirements.csv and all 10 grouped rows in research/requirements.md; the 81 rows are not a one-to-one replacement for those older inventories. The legacy CSV retains its original status/note claims, now labels its trailing date as recorded_date, and adds current_evidence paths. Treat the new row-level status/evidence as the current readiness view.</div>
+  </section>
+  <section class="block">
+    <h2>Open evidence and decision gates</h2>
+    <p class="sub">Search the flagged register or choose a status. Missing official-source values are left blank, never inferred. Every card includes its evidence state, clearance measure, project references, and available official links.</p>
+    <div class="readiness-review-controls" role="search" aria-label="Filter flagged requirements">
+      <label for="readiness-review-search">Search flagged requirements
+        <input id="readiness-review-search" type="search" autocomplete="off" placeholder="Search a requirement or evidence note…">
+      </label>
+      <label for="readiness-review-status">Status
+        <select id="readiness-review-status"><option value="">All flagged statuses</option><option value="blocked">Blocked</option><option value="needs-review">Needs review</option><option value="partial">Partial</option><option value="proposed">Proposed</option><option value="implemented">Implemented but flagged</option></select>
+      </label>
+      <button id="readiness-review-clear" type="button">Clear filters</button>
+      <span id="readiness-review-count" aria-live="polite">Loading 78 flagged requirements…</span>
+    </div>
+    <p class="readiness-load-state" id="readiness-review-load-state" role="status">Loading flagged requirements…</p>
+    <p class="readiness-error" id="readiness-review-error" role="alert" hidden></p>
+    <p class="readiness-review-empty" id="readiness-review-empty" hidden>No flagged requirements match these filters.</p>
+    <div class="readiness-flag-list" id="readiness-review-list" aria-live="polite"></div>
+  </section>
+  <section class="block">
+    <div class="note warn"><strong>Do not treat a green/implemented row as end-to-end validation:</strong> status describes the named requirement only. NFL data provenance, model quality, pricing rights, joint-probability gates, and point-in-time capture remain separate. Historical backtests are not prospective leaderboard evidence.</div>
+  </section>
+</main>
+<footer class="footer">FL2 research tool, not betting advice. <a href="index.html#decision-readiness">Return to the readiness table</a> · <a href="data/decision-readiness.json">Raw register JSON</a> · <a href="data/requirements-crosswalk.csv">Legacy requirements crosswalk</a> · <a href="research/readiness-reconciliation-2026-11-16.md">Reconciliation and source audit</a> · <a href="COORDINATION.md">Coordination and verification log</a></footer>
+</body>
+</html>

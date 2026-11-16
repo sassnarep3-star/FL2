@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FL2 · NFL research hub</title>
-<meta name="description" content="NFL 2026 research hub: a verified evidence ledger with sourced tables, a validation harness that rejects unproven strategies, and an explicit register of open questions.">
+<meta name="description" content="NFL research hub with a searchable readiness register, historical data, source limitations, model-validation gates, and an explicit Flagged for Review route.">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/readiness.css">
 <style>
   .hub-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0,1fr)); }
   @media (max-width: 980px) { .hub-grid { grid-template-columns: 1fr; } }
@@ -26,13 +27,14 @@
   .hero p.lede { font-size: 15.5px; color: var(--ink-2); max-width: 74ch; margin: 0; }
   .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
 </style>
+<script defer src="assets/readiness.js"></script>
 </head>
-<body>
+<body data-readiness-page="index">
 <header class="site-header">
   <div class="inner">
     <div class="brand-row">
       <div class="brand">FL2 <span>· NFL research hub</span></div>
-      <div class="brand-sub">2026 season · Week 10 snapshot · every value sourced or left blank</div>
+      <div class="brand-sub">Historical Week 10 snapshot: 2026-11-14 · audit date: 2026-11-16 · not current availability</div>
     </div>
     <nav class="tabs" aria-label="Sections">
       <a href="index.html" aria-current="page">Overview</a>
@@ -45,6 +47,8 @@
       <a href="ledger/summary.html">Executive Summary</a>
       <a href="fl2-dashboard/index.html">FL2 Dashboard</a>
       <a href="signal/index.html">Signal Lab</a>
+      <a href="index.html#decision-readiness">Readiness</a>
+      <a href="readiness-review.html">Review queue</a>
       <a href="ledger/flagged.html">Flagged</a>
     </nav>
   </div>
@@ -52,32 +56,92 @@
 
 <main>
   <section class="hero">
-    <p class="eyebrow">Start here</p>
-    <h1>A verified NFL dataset, a line model, and the case against pretending it works</h1>
-    <p class="lede">Ten single-bet strategies were tested against 16 seasons of closing lines with eight
-    validation gates each. <strong>None passed.</strong> A transparent Elo model scores Brier 0.2277
-    against the market's 0.2106 — 8.1% worse — which is exactly why. This hub publishes the verified
-    data, the harness that produces that verdict in an afternoon, and an explicit register of what is
-    still unknown.</p>
+    <p class="eyebrow">Start here · audit date 2026-11-16</p>
+    <h1>NFL research with the unresolved gates in the open</h1>
+    <p class="lede">This repository contains multiple research sites and populated market, backtest, injury, and correlation artifacts. Their source coverage and methods differ, and some claims conflict. The local Week 10 files are dated Nov 14; selected official pages read Nov 16 were not archived or hashed, so they do not refresh the local snapshot or establish current availability. Start with the requirement-level register below.</p>
     <div class="pills">
-      <span class="badge ok">118 officially sourced rows</span>
-      <span class="badge info">45 tables · 319 verified links</span>
-      <span class="badge bad">0 strategies validated</span>
-      <span class="badge warn">13 items flagged for review</span>
-      <span class="badge mute">not betting advice</span>
+      <span class="badge info">81 readiness requirements</span>
+      <span class="badge warn">78 flagged rows</span>
+      <span class="badge mute">historical Week 10 snapshot</span>
+      <span class="badge mute">research only · not betting advice</span>
     </div>
   </section>
 
+<!-- DECISION-READINESS:START -->
+<section class="block readiness-block" id="decision-readiness" aria-labelledby="readiness-title">
+  <div class="readiness-heading">
+    <div>
+      <p class="eyebrow">Decision gate · 81 requirements · 9 categories</p>
+      <h2 id="readiness-title">Decision readiness: what blocks a trustworthy decision?</h2>
+      <p class="sub">One row per operational requirement, with status, current repository evidence, blocker, explicit clearance measure, evidence/source state, and a review route.</p>
+    </div>
+    <a class="badge warn" href="readiness-review.html">Flagged for Review ↗</a>
+  </div>
+  <div class="readiness-caveat note warn">
+    <strong>Snapshot and source warning:</strong> The repository Week 10 data snapshot is dated 2026-11-14. Selected live official pages were read on 2026-11-16, but the page responses were not persisted or hashed. Those later reads do not refresh, re-version, or prove byte-for-byte agreement with the local Nov 14 files; Week 10 statuses are historical, not current availability.
+  </div>
+  <div class="readiness-caveat note info">
+    <strong>How to read the register:</strong> Clearance measures are proposed engineering/research gates or targets, not official NFL thresholds or observed NFL values. Freeze them before evaluation. A linked official page supports only the fact and scope stated in its source note; it does not validate local coverage, model methods, or performance.
+    <br><strong>Register scope:</strong> This expanded operational checklist contains 81 atomic readiness rows. A many-to-many crosswalk in data/requirements-crosswalk.csv traces all 25 records in data/requirements.csv and all 10 grouped rows in research/requirements.md; the 81 rows are not a one-to-one replacement for those older inventories. The legacy CSV retains its original status/note claims, now labels its trailing date as recorded_date, and adds current_evidence paths. Treat the new row-level status/evidence as the current readiness view.
+  </div>
+  <div class="readiness-controls" role="search" aria-label="Filter decision-readiness requirements">
+    <label for="readiness-search">Search requirements
+      <input id="readiness-search" type="search" autocomplete="off" placeholder="Search injuries, odds, snapshots…">
+    </label>
+    <label for="readiness-status-filter">Status
+      <select id="readiness-status-filter">
+        <option value="">All statuses</option>
+        <option value="blocked">Blocked</option>
+        <option value="needs-review">Needs review</option>
+        <option value="partial">Partial</option>
+        <option value="proposed">Proposed</option>
+        <option value="implemented">Implemented</option>
+      </select>
+    </label>
+    <label for="readiness-category-filter">Category
+      <select id="readiness-category-filter"><option value="">All categories</option></select>
+    </label>
+    <label class="flagged-toggle" for="readiness-flagged-only">
+      <input id="readiness-flagged-only" type="checkbox"> Flagged only
+    </label>
+    <button id="readiness-clear" type="button">Clear filters</button>
+    <span id="readiness-count" aria-live="polite">Loading 81 requirements…</span>
+  </div>
+  <div class="readiness-kpis" aria-label="Requirement status totals">
+    <div class="readiness-kpi"><span>Total</span><strong data-kpi="total">—</strong></div>
+    <div class="readiness-kpi"><span>Implemented</span><strong data-kpi="implemented">—</strong></div>
+    <div class="readiness-kpi"><span>Partial</span><strong data-kpi="partial">—</strong></div>
+    <div class="readiness-kpi"><span>Blocked / review / proposed</span><strong data-kpi="open">—</strong></div>
+  </div>
+  <p class="readiness-load-state" id="readiness-load-state" role="status">Loading the checked-in readiness register…</p>
+  <p class="readiness-error" id="readiness-error" role="alert" hidden></p>
+  <p class="readiness-review-empty" id="readiness-empty" hidden>No requirements match these filters.</p>
+  <div class="table-wrap readiness-table-wrap">
+    <table id="decision-readiness-table" aria-describedby="readiness-table-caption" aria-busy="true">
+      <caption id="readiness-table-caption">Requirement-level readiness register. Project references support local-state findings; official links are scope-limited as described beside each row. A blank official-source cell means no applicable official source was verified.</caption>
+      <thead><tr>
+        <th scope="col">ID / category</th><th scope="col">Requirement / current evidence</th>
+        <th scope="col">Status</th><th scope="col">Blocking gate</th>
+        <th scope="col">Clearance measure</th><th scope="col">Project evidence</th>
+        <th scope="col">Evidence/source state</th><th scope="col">Official source / review</th>
+      </tr></thead>
+      <tbody id="readiness-rows"></tbody>
+    </table>
+  </div>
+  <noscript><p class="note warn">JavaScript is required to load the searchable table. The full register is available as <a href="data/decision-readiness.json">JSON</a>; open <a href="readiness-review.html">Flagged for Review</a> for unresolved items.</p></noscript>
+  <p class="small readiness-footnote">Register data: <a href="data/decision-readiness.json">decision-readiness.json</a> · <a href="readiness-review.html">Flagged for Review</a> · <a href="data/requirements-crosswalk.csv">legacy requirements crosswalk</a> · <a href="research/readiness-reconciliation-2026-11-16.md">reconciliation and source audit</a> · <a href="COORDINATION.md">coordination and integration log</a>.</p>
+</section>
+<!-- DECISION-READINESS:END -->
+
   <section class="block">
-    <h2>The evidence ledger — verified numbers only</h2>
-    <p class="sub">This is the section with real, sourced figures. Every table row links to an official
-    source; anything unconfirmed is blank and listed under Flagged for Review.</p>
+    <h2>Evidence Ledger — data, methods, and source notes</h2>
+    <p class="sub">This section contains historical NFL data and derived model outputs. Source tiers differ: market-line fields point to nflverse rather than an official NFL odds feed, and local structural checks do not verify a live page's contents. Use the row-level readiness register and Flagged for Review notes before relying on any claim.</p>
     <div class="hub-grid">
       <a class="tile pri" href="ledger/overview.html">
         <div class="eyebrow">Overview</div>
         <h3>What this project found</h3>
         <p>The headline result, the four key numbers, and where to look first.</p>
-        <div class="meta">10 sections · generated from one verified data bundle</div>
+        <div class="meta">10 sections · ledger-specific snapshot; cross-site reconciliation remains open</div>
       </a>
       <a class="tile pri" href="ledger/suggestions.html">
         <div class="eyebrow">Read before building</div>
@@ -96,73 +160,64 @@
       <a class="tile" href="ledger/lines.html">
         <div class="eyebrow">Week 10</div>
         <h3>My own lines</h3>
-        <p>Projected total, home margin and win probability for all 14 games, with every input and
-        the arithmetic exposed. Market comparison blank where no price is citable.</p>
-        <div class="meta">13 of 14 games have a citable market line</div>
+        <p>Historical Week 10 total, margin and win-probability outputs with model inputs exposed. Market fields point to an aggregated nflverse file, not an approved sportsbook quote source; the price-data policy remains open.</p>
+        <div class="meta">Snapshot dated 2026-11-14 · no current prices</div>
       </a>
       <a class="tile" href="ledger/injuries.html">
         <div class="eyebrow">Availability</div>
         <h3>Injuries &amp; lineups</h3>
-        <p>66 players Out and 10 Doubtful, read verbatim from the league's Week 10 report, plus the
-        seven quarterback situations an official page actually confirms.</p>
-        <div class="meta">28 teams · 4 on bye</div>
+        <p>Historical Week 10 injury-report rows and selected quarterback notes. Official status pages are dynamic; the local Nov 14 data is not a current availability feed or an immutable source capture.</p>
+        <div class="meta">28 reporting teams · Week 10 snapshot only</div>
       </a>
       <a class="tile" href="ledger/strategies.html">
         <div class="eyebrow">Validation</div>
         <h3>Strategy Lab</h3>
-        <p>Eleven hypotheses, eight gates, season-by-season profit, luck fraction, and the measured
-        correlation values used to price multi-leg tickets.</p>
-        <div class="meta">2,086 bets in the largest test · FDR-corrected</div>
+        <p>Several strategy and backtest artifacts from separate pipelines. Registries, price coverage, and evaluation scopes differ; treat reported performance and correlation values as repository claims until the source and method gates clear.</p>
+        <div class="meta">Backtests are not prospective leaderboard entries</div>
       </a>
       <a class="tile sec" href="ledger/summary.html">
         <div class="eyebrow">One page</div>
         <h3>Executive summary</h3>
-        <p>Eight findings, eight key numbers, six prioritised recommendations, and what would
-        overturn the conclusion.</p>
-        <div class="meta">Generated from the same data as the tables</div>
+        <p>Key findings, open decisions, limitations, and next steps. Several summaries exist; compare their claims against the readiness register and dated evidence.</p>
+        <div class="meta">Historical summaries · reconciliation still needed</div>
       </a>
       <a class="tile sec" href="ledger/verification.html">
         <div class="eyebrow">Provenance</div>
         <h3>Verification &amp; sources</h3>
-        <p>The three rules this site obeys, every source with its tier, dataset hashes, and the checks
-        actually performed this session.</p>
-        <div class="meta">T1 league · T2 registry · T3 market, labelled</div>
+        <p>Source tiers, provenance notes, hashes present in some existing artifacts, and local checks. Structural success establishes page integrity—not live source availability, row truth, or reuse permission.</p>
+        <div class="meta">External content and rights remain open where flagged</div>
       </a>
       <a class="tile sec" href="ledger/flagged.html">
         <div class="eyebrow">Review queue</div>
         <h3>Flagged for Review</h3>
-        <p>13 items — unconfirmed, blocked, or found wrong and fixed. Each names the source that
-        would close it. Ordered most serious first.</p>
-        <div class="meta">Includes the sign error that was caught</div>
+        <p>Unresolved and historically flagged claims, with source scope, local evidence, and decision gates. Some values have no applicable official source; those cells stay blank.</p>
+        <div class="meta">Use the newer readiness-review route for requirement-level blockers</div>
       </a>
       <a class="tile sec" href="ledger/method.html">
         <div class="eyebrow">Reproduce</div>
         <h3>Method</h3>
         <p>Five plain Python scripts, fixed seeds, leakage controls, the luck decomposition, and the
         multiple-testing arithmetic.</p>
-        <div class="meta">Runs in about a minute</div>
+        <div class="meta">Reproduction details and limits are recorded in the method page</div>
       </a>
     </div>
   </section>
 
   <section class="block">
     <h2>Also in this repository</h2>
-    <p class="sub">Several agent sessions worked on this repo in parallel. Their structures are kept
-    rather than deleted. They differ from the ledger in one important way, stated plainly below.</p>
+    <p class="sub">Several sessions built parallel sections, and their distinct artifacts are retained. Multiple sections contain numeric or derived values; provenance, freshness, and methods are not uniform. The readiness register flags cross-section conflicts without treating structural checks as source validation.</p>
     <div class="hub-grid">
       <a class="tile sec" href="docs/index.html">
         <div class="eyebrow">Session d263eab0</div>
         <h3>NFL Analysis Dashboard</h3>
-        <p>16 pages, 345 transcribed injury rows, 14 games, a unit-exposure view and its own flagged
-        list. Careful structure — but no numeric projections, by design.</p>
-        <div class="meta"><span class="badge warn">framework only · values intentionally blank</span></div>
+        <p>Week 10 injury and schedule tables, unit-exposure counts, and a separate review list. Its values are historical and its source pages are dynamic; the local audit does not recertify every row.</p>
+        <div class="meta"><span class="badge warn">historical snapshot · row-level freshness not established</span></div>
       </a>
       <a class="tile sec" href="hub/index.html">
         <div class="eyebrow">Sessions e70150db + others</div>
         <h3>NFL Decision Hub</h3>
-        <p>Requirement coverage, validation gates, a luck-vs-skill explainer, a repository audit and
-        a correlation page.</p>
-        <div class="meta"><span class="badge warn">framework only · no sourced NFL values</span></div>
+        <p>Requirement coverage, validation gates, a luck-vs-skill explainer, a repository audit, and populated standings/statistics artifacts. Check its source and scope notes before treating results as verified.</p>
+        <div class="meta"><span class="badge warn">historical values · provenance review required</span></div>
       </a>
       <a class="tile sec" href="strategy.html">
         <div class="eyebrow">Session 4a77261b</div>
@@ -175,30 +230,18 @@
       <a class="tile sec" href="fl2-dashboard/index.html">
         <div class="eyebrow">Session arena-48561869-fl2</div>
         <h3>FL2 Dashboard</h3>
-        <p>A verified-data dashboard: 2026 standings, the Week 10 schedule, the full Week 10 injury
-        report, a depth-chart example, a questions/answers register, a suggestions section with a
-        decision log, strategy design with validation gates and luck-removal scoring, and a flagged
-        review page. Every data row links to its official source.</p>
-        <div class="meta"><span class="badge ok">verified official data</span></div>
+        <p>A dashboard with 2026 standings, the Week 10 schedule and injury report, a club depth-chart example, decision and suggestion registers, strategy gates, and a review page. Its snapshots are historical; links and local checks do not certify current source content.</p>
+        <div class="meta"><span class="badge warn">historical official-source snapshots · freshness check required</span></div>
       </a>
       <a class="tile sec" href="signal/index.html">
         <div class="eyebrow">Session arena-d10a1d25-fl2</div>
         <h3>Signal Lab</h3>
-        <p>A measured-signal lab: 16 seasons of closing lines with a validated sign convention, the
-        realised play rate of each official injury designation, a test of whether the published depth
-        chart predicts who plays, measured same-game leg correlation, and a pre-registered validation
-        gate that six strategies were run through — none passed. Every figure is re-derived from the
-        committed data by CI, and the site build is byte-reproducible.</p>
-        <div class="meta"><span class="badge ok">measured + CI-verified</span></div>
+        <p>Contains multi-season market, injury, depth, and correlation analyses plus a local rebuild workflow. The Nov 16 reproducibility audit recorded a rebuild failure after zero market rows; treat derived figures and reproducibility claims as under review until that owner resolves it.</p>
+        <div class="meta"><span class="badge warn">rebuild failure recorded · see review notes</span></div>
       </a>    </div>
 
     <div class="note warn" style="margin-top:16px">
-      <p><strong>Which one should you read?</strong> Read the <a href="ledger/overview.html">Evidence
-      Ledger</a>. It is the only section that contains verified numeric NFL data — standings, points
-      for and against, defensive yardage, the official injury report, seven quarterback decisions, and
-      16 seasons of closing lines with results. The other sections are well-built frameworks that
-      deliberately left every NFL value blank. Their restraint was correct at the time; the ledger is
-      what those frameworks were waiting for.</p>
+      <p><strong>Which one should you read?</strong> Start with this <a href="#decision-readiness">readiness register</a> for current blockers, then use the <a href="ledger/overview.html">Evidence Ledger</a> for its data and methods. Numeric and derived artifacts appear in several sections with different source, coverage, and validation scopes; no structural check alone certifies their current truth. Follow each row's source-state note and review route.</p>
       <p class="small" style="margin-bottom:0">Consolidating the five structures into one is proposed
       as a decision, not done silently. See <a href="ledger/suggestions.html">Suggestions</a>.</p>
     </div>
@@ -209,18 +252,15 @@
     <div class="hub-grid">
       <div class="tile sec" style="cursor:default">
         <div class="eyebrow">An em dash —</div>
-        <p>Means <strong>not confirmed from an official source</strong>. It is never a zero and never
-        an estimate. Every such cell is also on the Flagged page with the source that would fill it.</p>
+        <p>Means <strong>not confirmed from an applicable official source</strong>; it is never zero or an estimate. The review route says whether an official source path exists, the gap is a policy decision, or the item is only supported by local repository artifacts.</p>
       </div>
       <div class="tile sec" style="cursor:default">
         <div class="eyebrow">Badges are status, not opinion</div>
-        <p><span class="badge ok">validated</span> requires 8/8 gates on out-of-sample data.
-        <span class="badge bad">rejected</span> means it failed them. Nothing is currently green.</p>
+        <p>A status badge describes the named section's own rule; it does not certify the whole repository. The intended leaderboard gate separates backtests from prospective results and does not rank on win rate or ROI alone; existing rankings remain exploratory until validated.</p>
       </div>
       <div class="tile sec" style="cursor:default">
         <div class="eyebrow">No prices without a source</div>
-        <p>Sportsbook prices have no official publisher. Market numbers come only from an aggregated
-        closing-line file, are always labelled T3, and are never a model input.</p>
+        <p>The Week 10 comparison points to nflverse, not a sportsbook quote source. Price-source terms and redistribution policy are unresolved, so do not read it as an approved or current quote.</p>
       </div>
     </div>
   </section>
@@ -228,13 +268,12 @@
 
 <footer class="footer">
   <div class="pills" style="margin-bottom:8px">
-    <span class="badge mute">snapshot 2026-11-14 03:00 UTC</span>
-    <span class="badge info">76 verified injury rows</span>
-    <span class="badge info">11 strategies tested</span>
-    <span class="badge warn">13 flagged items</span>
+    <span class="badge mute">Week 10 data snapshot: 2026-11-14</span>
+    <span class="badge info">readiness audit: 2026-11-16</span>
+    <span class="badge info">81 requirements</span>
+    <span class="badge warn">78 flagged rows</span>
   </div>
-  Research tool, not betting advice. No market price is quoted unless it came from a citable source;
-  no value is estimated. <a href="ledger/verification.html">Verification rules</a> ·
+  Research tool, not betting advice. Model outputs and derived values are estimates; historical snapshots are not current availability, and market-price terms remain unresolved. <a href="ledger/verification.html">Verification rules</a> ·
   <a href="ledger/method.html">Method</a> ·
   <a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository</a> ·
   <a href="COORDINATION.md">Coordination board</a>

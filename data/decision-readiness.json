@@ -1,0 +1,1945 @@
+{
+  "meta": {
+    "title": "FL2 requirement decision-readiness register",
+    "audit_date_utc": "2026-11-16",
+    "requirement_count": 81,
+    "scope_note": "This expanded operational checklist contains 81 atomic readiness rows. A many-to-many crosswalk in data/requirements-crosswalk.csv traces all 25 records in data/requirements.csv and all 10 grouped rows in research/requirements.md; the 81 rows are not a one-to-one replacement for those older inventories. The legacy CSV retains its original status/note claims, now labels its trailing date as recorded_date, and adds current_evidence paths. Treat the new row-level status/evidence as the current readiness view.",
+    "freshness_warning": "The repository Week 10 data snapshot is dated 2026-11-14. Selected live official pages were read on 2026-11-16, but the page responses were not persisted or hashed. Those later reads do not refresh, re-version, or prove byte-for-byte agreement with the local Nov 14 files; Week 10 statuses are historical, not current availability.",
+    "clearance_note": "Clearance measures are proposed engineering/research gates or targets, not official NFL thresholds or observed NFL values. Freeze them before evaluation. A linked official page supports only the fact and scope stated in its source note; it does not validate local coverage, model methods, or performance.",
+    "source_policy": "Sourceable NFL facts must link to an official NFL/club/Game Book/NWS page. Club charts remain explicitly unofficial. If no applicable official source exists, the source link is blank and the row identifies its repository-only or not-applicable evidence state; unresolved factual claims are flagged rather than inferred.",
+    "source_capture_policy": "checked_date_utc is a calendar date, not a retrieval timestamp. captured_at_utc and sha256 are null because no raw page response was saved. A clickable dynamic URL is not an immutable point-in-time snapshot.",
+    "status_definitions": {
+      "implemented": "The specific deliverable exists; this does not imply the complete NFL system is production-ready.",
+      "partial": "Some artifact or coverage exists, but at least one stated gate remains open.",
+      "blocked": "A required source, policy, dataset, or implementation is absent.",
+      "proposed": "A design/request exists but is not validated as an operating system.",
+      "needs-review": "A conflict, stale snapshot, provenance, or measurement inconsistency needs review."
+    },
+    "evidence_state_definitions": {
+      "official-direct-unarchived": "The linked official page directly states the named external fact; the fetched response is not archived or hashed.",
+      "official-pathway-unarchived": "An official page/feed is a source route or limited example, not proof of repository coverage or model validity; no response hash is saved.",
+      "club-unofficial-historical": "A club-site chart is recorded in local historical data and is labeled unofficial there; it is not an NFL-issued depth chart or actual-starter record.",
+      "stale-or-conflicted": "Local claims, page vintages, counts, or methods conflict or lack a matching immutable snapshot; values remain claims under review.",
+      "repository-only": "The finding concerns local files, code, process, or product state; project references are the evidence, and no NFL source can certify it.",
+      "no-official-source": "No applicable official NFL source can substantiate this analysis/policy requirement; the source cell is intentionally blank."
+    }
+  },
+  "sources": {
+    "injury_w10": {
+      "url": "https://www.nfl.com/injuries/league/2026/reg10",
+      "label": "NFL official 2026 Week 10 injury report",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; page has dated Nov 12 and Nov 15 Week 10 sections and shows the Detroit game-status rows. Dynamic response was not archived or hashed; it is not the local Nov 14 snapshot."
+    },
+    "schedule_w10": {
+      "url": "https://www.nfl.com/schedules/2026/REG10",
+      "label": "NFL official 2026 Week 10 schedule/results",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; the official page lists Week 10 final results, including WAS–NYG on Nov 12 and NE–DET on Nov 15. Page response not archived or hashed; it does not supply a full immutable results ledger."
+    },
+    "schedule_release": {
+      "url": "https://www.nfl.com/nfl-schedule-release/",
+      "label": "NFL official 2026 schedule release",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; the release page links to the full schedule and lists FC Bayern Munich Stadium for the Nov 15 NE–DET international game. It does not provide venue coverage for all 14 Week 10 fixtures."
+    },
+    "transactions_ir": {
+      "url": "https://www.nfl.com/transactions/league/reserve-list/2026/11",
+      "label": "NFL official November 2026 reserve-list transactions",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; lists dated November reserve/injured transactions. It is not a complete point-in-time roster/IR snapshot for every club or player; response not archived or hashed."
+    },
+    "gamebook": {
+      "url": "https://static.www.nfl.com/image/upload/v1789989332/gamecenter/a9e0ef5d-4feb-11f1-abca-2c54536568a9.pdf",
+      "label": "NFL official Game Book sample: Miami at San Francisco, Sep 20 2026",
+      "authority": "NFL league / Game Book",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; one sample contains lineups, substitutions, Did Not Play, Not Active, venue/surface/weather, and statistics. Its copyright notice limits use to media coverage and says other use requires written NFL permission. It is not a Week 10 book; reuse permission for this project is not established; response not archived or hashed."
+    },
+    "roster": {
+      "url": "https://www.nfl.com/teams/buffalo-bills/roster",
+      "label": "NFL official Buffalo Bills roster",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; roster lists Buffalo players, position, roster status, and attributes. It is one-club roster evidence, not a depth chart or game-specific starter list; response not archived or hashed."
+    },
+    "team_stats": {
+      "url": "https://www.nfl.com/stats/team-stats/",
+      "label": "NFL official 2026 team statistics",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; page displayed 2026 team passing statistics and navigation to other team-stat categories. It does not verify locally derived correlations or model validity; response not archived or hashed."
+    },
+    "player_stats": {
+      "url": "https://www.nfl.com/stats/player-stats/",
+      "label": "NFL official 2026 player statistics",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; page lists passing, rushing, receiving and other categories. It does not establish an official all-team snap-count feed; response not archived or hashed."
+    },
+    "snap_counts_offense": {
+      "url": "https://www.nfl.com/stats/player-stats/category/snap-counts/offense/2026/reg/all",
+      "label": "NFL snap-count category URL tested: offense (404)",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The fetched page returned the NFL 404 page on 2026-11-16. This establishes only that this URL did not resolve in this check; it does not prove no official snap-count source exists elsewhere."
+    },
+    "snap_counts_defense": {
+      "url": "https://www.nfl.com/stats/player-stats/category/snap-counts/defense/2026/reg/all",
+      "label": "NFL snap-count category URL tested: defense (404)",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The fetched page returned the NFL 404 page on 2026-11-16. This establishes only that this URL did not resolve in this check; it does not prove no official snap-count source exists elsewhere."
+    },
+    "standings": {
+      "url": "https://www.nfl.com/standings/",
+      "label": "NFL official 2026 division standings",
+      "authority": "NFL league",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; dynamic standings page displays current-season team records and points. It is newer than local Nov 14 files and was not archived or hashed."
+    },
+    "rulebook": {
+      "url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+      "label": "NFL Football Operations 2026 Rulebook",
+      "authority": "NFL Football Operations",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; the 2026 rule-change table says rule 6-1-6 permits the kicking team to declare an onside kick at any time. It establishes the rule, not a rate or model effect; response not archived or hashed."
+    },
+    "nws": {
+      "url": "https://www.weather.gov/documentation/services-web-api",
+      "label": "National Weather Service API documentation",
+      "authority": "U.S. National Weather Service",
+      "checked_date_utc": "2026-11-16",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "Fetched on 2026-11-16; NWS describes forecasts, alerts and observations as open data, with reasonable rate limits and a required identifying User-Agent. No stadium-level forecast was captured for this project."
+    },
+    "depth_ne": {
+      "url": "https://www.patriots.com/team/depth-chart",
+      "label": "New England Patriots club depth chart (stored as unofficial)",
+      "authority": "Official club website; chart labeled unofficial in local source record",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The local data/depth_charts.json records this URL and identifies the chart as unofficial; the session did not re-fetch this dynamic page. The source record has page_date=None. Do not treat it as NFL-issued depth or actual game starters."
+    },
+    "depth_det": {
+      "url": "https://www.detroitlions.com/team/depth-chart",
+      "label": "Detroit Lions club depth chart (stored as unofficial)",
+      "authority": "Official club website; chart labeled unofficial in local source record",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The local data/depth_charts.json records this URL and identifies the chart as unofficial; the session did not re-fetch this dynamic page. The source record has page_date=None. Do not treat it as NFL-issued depth or actual game starters."
+    },
+    "depth_gb": {
+      "url": "https://www.packers.com/team/depth-chart",
+      "label": "Green Bay Packers club depth chart (stored as unofficial)",
+      "authority": "Official club website; chart labeled unofficial in local source record",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The local data/depth_charts.json records this URL and identifies the chart as unofficial; the session did not re-fetch this dynamic page. The source record has page_date='2026-11-10'. Do not treat it as NFL-issued depth or actual game starters."
+    },
+    "depth_kc": {
+      "url": "https://www.chiefs.com/team/depth-chart",
+      "label": "Kansas City Chiefs club depth chart (stored as unofficial)",
+      "authority": "Official club website; chart labeled unofficial in local source record",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The local data/depth_charts.json records this URL and identifies the chart as unofficial; the session did not re-fetch this dynamic page. The source record has page_date=None. Do not treat it as NFL-issued depth or actual game starters."
+    },
+    "depth_sf": {
+      "url": "https://www.49ers.com/team/depth-chart",
+      "label": "San Francisco 49ers club depth chart (stored as unofficial)",
+      "authority": "Official club website; chart labeled unofficial in local source record",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "The local data/depth_charts.json records this URL and identifies the chart as unofficial; the session did not re-fetch this dynamic page. The source record has page_date='2026-11-10'. Do not treat it as NFL-issued depth or actual game starters."
+    },
+    "qb_news_nov11": {
+      "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-wednesday-nov-11",
+      "label": "NFL Nov 11 roundup — QB starter announcements (local link only)",
+      "authority": "NFL league",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "URL and headline are recorded in data/news_2026_week10.csv (2026-11-14 data vintage). The dynamic article was not re-fetched on 2026-11-16 and its response is not archived or hashed; the local row establishes a repository link/headline, not current article content or all-team starter coverage."
+    },
+    "qb_news_darnold": {
+      "url": "https://www.nfl.com/news/sam-darnold-ruled-out-for-seahawks-week-10-game-vs-raiders-drew-lock-expected-to-start-again",
+      "label": "NFL Week 10 Sam Darnold/Drew Lock starter announcement (local link only)",
+      "authority": "NFL league",
+      "checked_date_utc": null,
+      "repository_recorded_date_utc": "2026-11-14",
+      "captured_at_utc": null,
+      "sha256": null,
+      "verification": "URL and headline are recorded in data/news_2026_week10.csv (2026-11-14 data vintage). The dynamic article was not re-fetched on 2026-11-16 and its response is not archived or hashed; the local row establishes a repository link/headline, not current article content or all-team starter coverage."
+    }
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "category": "Markets",
+      "requirement": "Store opening and closing prices for every originated market.",
+      "status": "blocked",
+      "finding": "No immutable open/close store or approved price policy is recorded in this repo; the Week 10 market fields point to nflverse. This register does not establish that no other official feed exists.",
+      "gate": "Choose permitted price source/terms; define event IDs, timestamps and immutable retention.",
+      "clearance_metric": "100% of originated rows have open, close, source, timestamp and hash; 0 required-field gaps.",
+      "source_ids": [],
+      "project_refs": [
+        "data/market_lines.json",
+        "ledger/lines.html",
+        "ledger/flagged.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-001",
+      "evidence_state": "no-official-source",
+      "evidence_note": "No applicable official NFL source establishes a permitted bookmaker price feed or the project’s price-data rights decision. The repository states and existing artifacts are linked; unresolved values/policy remain blank and flagged."
+    },
+    {
+      "id": "REQ-002",
+      "category": "Results & ratings",
+      "requirement": "Ingest verified results so backtests and ROI can be computed.",
+      "status": "partial",
+      "finding": "data/games.json has 137 games as of Nov 14; no immutable Game Book settlement ledger or void/push state.",
+      "gate": "Freeze game IDs and reconcile final scores/settlement states to official evidence.",
+      "clearance_metric": "100% of settled games have canonical ID, official result source, status and timestamp; 0 unresolved outcomes.",
+      "source_ids": [
+        "schedule_w10",
+        "gamebook"
+      ],
+      "project_refs": [
+        "data/games.json",
+        "data/schedule_week10.json",
+        "data/standings.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-002",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-003",
+      "category": "Markets",
+      "requirement": "Originate side first, then total, then moneyline.",
+      "status": "proposed",
+      "finding": "Current builder emits total, margin/spread and win probability together; it does not enforce this sequence.",
+      "gate": "Specify and test a versioned three-stage pricing pipeline.",
+      "clearance_metric": "3 ordered stages (side, total, moneyline); 100% of published prices follow the order.",
+      "source_ids": [],
+      "project_refs": [
+        "engine/build_market.py",
+        "data/market_lines.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-003",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-004",
+      "category": "Markets",
+      "requirement": "Publish fair line, market line and residual as separate columns.",
+      "status": "partial",
+      "finding": "Model values and residuals exist for one slate, but market fields use nflverse and are not a validated official quote table.",
+      "gate": "Adopt price policy; expose fair, sourced market and residual separately for each market.",
+      "clearance_metric": "3 distinct values for 100% of eligible rows; otherwise market/residual stay blank.",
+      "source_ids": [
+        "team_stats",
+        "schedule_w10"
+      ],
+      "project_refs": [
+        "data/market_lines.json",
+        "ledger/lines.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-004",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-005",
+      "category": "Leaderboard",
+      "requirement": "Separate signal quality from staking on the leaderboard.",
+      "status": "partial",
+      "finding": "Reports include ROI/staking paths, but no eligible prospective leaderboard separates signal from staking.",
+      "gate": "Define signal qualification and keep stake/ROI as separate descriptive fields.",
+      "clearance_metric": "100% of entries show separate signal/staking; 0 qualify on ROI/staking alone.",
+      "source_ids": [],
+      "project_refs": [
+        "data/backtest_summary.json",
+        "ledger/strategies.html",
+        "fl2-dashboard/leaderboard.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-005",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-006",
+      "category": "Availability & depth",
+      "requirement": "Track replacement depth, not only that a replacement exists.",
+      "status": "partial",
+      "finding": "Five of 32 club charts are captured; they are club-published/unofficial and some players are absent from their chart.",
+      "gate": "Verify a per-club depth/playing-time route and preserve uncertainty/shared slots.",
+      "clearance_metric": "32/32 clubs have dated source-backed depth/role evidence before a league-wide feature.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook",
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "data/derived/backup_impact.json",
+        "ledger/injuries.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-006",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-007",
+      "category": "Leaderboard",
+      "requirement": "Compute correlations from official numbers and publish n.",
+      "status": "needs-review",
+      "finding": "Some correlations exist, but two records say n=16 while scope says 32 clubs; other inputs are nflverse-derived.",
+      "gate": "Define each pair; source official inputs; reconcile n and publish uncertainty.",
+      "clearance_metric": "100% include official inputs, actual n and 95% interval; n matches paired records.",
+      "source_ids": [
+        "team_stats",
+        "player_stats"
+      ],
+      "project_refs": [
+        "data/derived-correlation.json",
+        "data/derived/analytics.json",
+        "signal/data/correlation.json",
+        "ledger/flagged.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-007",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The linked official stat pages are inputs only. The n=16 versus 32-club scope conflict is within repository-derived records; it is not resolved by the source pages."
+    },
+    {
+      "id": "REQ-008",
+      "category": "Leaderboard",
+      "requirement": "Define a demotion gate from live strategy back to paper.",
+      "status": "blocked",
+      "finding": "No live/paper state or explicit demotion rule is present.",
+      "gate": "Pre-register monitoring statistic, minimum sample, failure boundary and automatic paper action.",
+      "clearance_metric": "1 frozen demotion rule per live strategy; set numeric boundary/minimum n before live use.",
+      "source_ids": [],
+      "project_refs": [
+        "data/validation-gates.csv",
+        "research/validation-gates.md",
+        "fl2-dashboard/strategies.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-008",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-009",
+      "category": "Leaderboard",
+      "requirement": "Pre-register every strategy; forbid backtest numbers from leaderboard.",
+      "status": "partial",
+      "finding": "Some registries pre-register gates; no unified registry enforces separation from a prospective leaderboard.",
+      "gate": "Freeze definition/parameters/window before results; keep backtest metrics out of leaderboard ranking.",
+      "clearance_metric": "100% registered pre-results; 0 backtest-only metrics on leaderboard.",
+      "source_ids": [],
+      "project_refs": [
+        "data/strategies.csv",
+        "signal/data/strategies.json",
+        "ledger/strategies.html",
+        "fl2-dashboard/leaderboard.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-009",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-010",
+      "category": "Availability & depth",
+      "requirement": "Build expected-vs-actual starter availability graph.",
+      "status": "partial",
+      "finding": "Injury and lineup tables exist, but no complete official gamebook expected/actual starter graph exists.",
+      "gate": "Join dated expected lineup evidence to actual Game Book lineups; retain unknown/conflict states.",
+      "clearance_metric": "100% of player-game starter records have expected evidence, actual evidence and source/time.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook"
+      ],
+      "project_refs": [
+        "data/week10_lineups.json",
+        "data/depth_charts.json",
+        "ledger/injuries.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-010",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-011",
+      "category": "Availability & depth",
+      "requirement": "Model depth from playing time, not jersey order.",
+      "status": "partial",
+      "finding": "Signal Lab has exploratory depth/participation analysis from derived data; no official all-club depth order is verified.",
+      "gate": "Verify an official playing-time or dated club-slot source; prohibit jersey ordering.",
+      "clearance_metric": "100% of ranks source-backed; 0 depth ranks inferred from jersey number.",
+      "source_ids": [
+        "gamebook",
+        "player_stats",
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "signal/data/depth_accuracy.json",
+        "signal/data/depth_player.json",
+        "data/depth_charts.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-011",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-012",
+      "category": "Availability & depth",
+      "requirement": "Make injury a surprise/change, never a static level.",
+      "status": "needs-review",
+      "finding": "market_lines.json uses an availability level and a declared 3-point scale; no delta ablation is shown.",
+      "gate": "Use a timestamped change-from-prior feature and compare identical models with/without it.",
+      "clearance_metric": "0 fixed level penalties; 1 preregistered delta feature plus chronological ablation/uncertainty.",
+      "source_ids": [
+        "injury_w10"
+      ],
+      "project_refs": [
+        "data/market_lines.json",
+        "engine/build_market.py",
+        "research/validation-gates.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-012",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The local market method declares a 3-point availability-index scale while a caveat says there is no injury market adjustment. The linked injury page does not resolve this model-method contradiction."
+    },
+    {
+      "id": "REQ-013",
+      "category": "Availability & depth",
+      "requirement": "Run a 32-team roster/IR sweep before trusting team models.",
+      "status": "partial",
+      "finding": "Standings cover 32 teams and an official reserve-list page exists, but no complete roster+IR snapshot is joined.",
+      "gate": "Capture roster and reserve status for every club at each forecast cutoff.",
+      "clearance_metric": "32/32 clubs have dated roster and reserve/IR status with source for each run.",
+      "source_ids": [
+        "roster",
+        "transactions_ir",
+        "standings"
+      ],
+      "project_refs": [
+        "data/standings.json",
+        "data/depth_charts.json",
+        "data/injuries.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-013",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-014",
+      "category": "Schedule & context",
+      "requirement": "Build fixture-context features only from published schedule facts.",
+      "status": "proposed",
+      "finding": "No schema allowlist distinguishes schedule facts from inferred context fields.",
+      "gate": "Create source-backed fixture schema and block fields not in an official schedule/game centre.",
+      "clearance_metric": "100% of fixture-context fields cite a published schedule fact; 0 inferred fields.",
+      "source_ids": [
+        "schedule_w10",
+        "schedule_release"
+      ],
+      "project_refs": [
+        "data/schedule_week10.json",
+        "data/market_lines.json",
+        "engine/build_market.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-014",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-015",
+      "category": "Markets",
+      "requirement": "Store every model output as probability plus inputs, not only a pick.",
+      "status": "partial",
+      "finding": "One 14-game bundle stores inputs and home-win probability; no durable versioned ledger covers every run.",
+      "gate": "Persist probability, input snapshot IDs, model hash and pre-kickoff timestamp.",
+      "clearance_metric": "100% of outputs contain probability in [0,1], inputs, model version and capture time.",
+      "source_ids": [
+        "team_stats",
+        "schedule_w10"
+      ],
+      "project_refs": [
+        "data/market_lines.json",
+        "engine/build_market.py",
+        "ledger/lines.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-015",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-016",
+      "category": "Leaderboard",
+      "requirement": "Publish a removal-of-luck panel on the dashboard.",
+      "status": "partial",
+      "finding": "Luck/skill metrics exist in research pages; landing page lacks a single benchmark-relative uncertainty panel.",
+      "gate": "Show benchmark, proper score, game-cluster uncertainty, multiplicity adjustment and n.",
+      "clearance_metric": "1 dashboard panel per run; 100% of displayed scores include benchmark and uncertainty.",
+      "source_ids": [],
+      "project_refs": [
+        "data/backtest_summary.json",
+        "data/derived/analytics.json",
+        "index.html",
+        "ledger/strategies.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-016",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-017",
+      "category": "Leaderboard",
+      "requirement": "Add two-sided what-would-change-our-mind fields to every strategy.",
+      "status": "partial",
+      "finding": "Some registries have a thesis and kill condition; support and falsification fields are not enforced across all records.",
+      "gate": "Normalize schema; require one supporting and one falsifying observation.",
+      "clearance_metric": "2 explicit fields per strategy in 100% of records.",
+      "source_ids": [],
+      "project_refs": [
+        "data/strategies.csv",
+        "research/strategies.md",
+        "signal/data/strategies.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-017",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-018",
+      "category": "Markets",
+      "requirement": "Price our own line and publish residual on a schedule from day one.",
+      "status": "partial",
+      "finding": "One slate has fair outputs/residuals, but source is not an approved price feed and no scheduled prospective run is recorded.",
+      "gate": "Approve price source and schedule immutable pre-kickoff runs.",
+      "clearance_metric": "1 run per slate; 100% of eligible markets have timestamp, fair price and sourced residual.",
+      "source_ids": [
+        "team_stats",
+        "schedule_w10"
+      ],
+      "project_refs": [
+        "data/market_lines.json",
+        "engine/build_market.py",
+        ".github/workflows/pages.yml"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-018",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-019",
+      "category": "Leaderboard",
+      "requirement": "Make the 136-game log a pre-registered backtest corpus.",
+      "status": "needs-review",
+      "finding": "data/games.json has 137 games: 136 from Weeks 1-9 plus the Week 10 Thursday game; no frozen 136-game registration exists.",
+      "gate": "Define exact cutoff/game IDs, freeze corpus hash and register evaluation before outcomes.",
+      "clearance_metric": "Exactly 136 games in frozen corpus; 100% source IDs; registration predates evaluation.",
+      "source_ids": [
+        "schedule_w10",
+        "standings"
+      ],
+      "project_refs": [
+        "data/games.json",
+        "engine/run_backtest.py",
+        "research/strategies.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-019",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The 137-game local corpus and proposed 136-game cutoff are repository claims; the historical registration/hash is absent. Official dynamic pages are not an immutable copy of that corpus."
+    },
+    {
+      "id": "REQ-020",
+      "category": "Data governance",
+      "requirement": "Decide price-data policy before any backtest is published.",
+      "status": "needs-review",
+      "finding": "Backtests are published using T3 nflverse prices; no rights/retention/redistribution decision is documented.",
+      "gate": "Record source terms, attribution, retention and retraction policy before publishing further tests.",
+      "clearance_metric": "1 dated price policy before the next publication; 0 prices without approved terms.",
+      "source_ids": [],
+      "project_refs": [
+        "docs/SOURCES.md",
+        "data/sources.json",
+        "data/backtest_summary.json",
+        "ledger/flagged.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-020",
+      "evidence_state": "no-official-source",
+      "evidence_note": "No applicable official NFL source establishes a permitted bookmaker price feed or the project’s price-data rights decision. The repository states and existing artifacts are linked; unresolved values/policy remain blank and flagged."
+    },
+    {
+      "id": "REQ-021",
+      "category": "Availability & depth",
+      "requirement": "Timestamp every injury-hub read and publish the delta.",
+      "status": "blocked",
+      "finding": "Injury files have dates but no timestamp for every read and no linked delta series.",
+      "gate": "Capture each official version immutably and compare against the previous version.",
+      "clearance_metric": "1 timestamp/hash per read; 100% of consecutive reads have field-level deltas.",
+      "source_ids": [
+        "injury_w10"
+      ],
+      "project_refs": [
+        "data/injuries.json",
+        "data/injury-report-2026-w10.csv",
+        "signal/data/injury_week.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-021",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-022",
+      "category": "Product & review",
+      "requirement": "Put a decision-readiness table on the landing page, one row per requirement.",
+      "status": "implemented",
+      "finding": "The landing page now has a JSON-backed 81-row searchable table with status, gate, clearance measure, project evidence, source state and a review route; the integrity checker validates the full register.",
+      "gate": "Keep coverage complete; leave unsourced numbers blank and flag them.",
+      "clearance_metric": "81/81 requirements; 100% have gate and clearance measure or explicit unresolved threshold.",
+      "source_ids": [],
+      "project_refs": [
+        "index.html",
+        "data/decision-readiness.json",
+        "assets/readiness.js",
+        "assets/readiness.css",
+        "scripts/check_readiness.py",
+        "readiness-review.html"
+      ],
+      "flagged": false,
+      "flag_id": null,
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-023",
+      "category": "Schedule & context",
+      "requirement": "Transcribe venue for every fixture from the official game centre.",
+      "status": "partial",
+      "finding": "The Week 10 bundle has matchup/date/time/network but no venue field; the official schedule-release page names FC Bayern Munich Stadium for NE–DET, not all 14 fixtures.",
+      "gate": "Add venue from official game centre/Game Book; never infer from home team.",
+      "clearance_metric": "14/14 Week 10 fixtures have venue/source; expand to 100% of published fixtures.",
+      "source_ids": [
+        "schedule_w10",
+        "schedule_release"
+      ],
+      "project_refs": [
+        "data/schedule_week10.json",
+        "data/games_2026_week10.csv",
+        "ledger/lines.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-023",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "The official page supports only the stated source fact or sample; it does not establish full repository coverage. The fetched page response is not archived or hashed."
+    },
+    {
+      "id": "REQ-024",
+      "category": "Schedule & context",
+      "requirement": "Publish the league's dated schedule announcement beside live schedule.",
+      "status": "partial",
+      "finding": "The official 2026 schedule-release page exists, but the site does not pair it with the schedule view.",
+      "gate": "Pair each season's dated NFL release with live schedule; keep capture date separate.",
+      "clearance_metric": "1 announcement link per season beside schedule page.",
+      "source_ids": [
+        "schedule_release",
+        "schedule_w10"
+      ],
+      "project_refs": [
+        "data/schedule_week10.json",
+        "fl2-dashboard/schedule.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-024",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "The official page supports only the stated source fact or sample; it does not establish full repository coverage. The fetched page response is not archived or hashed."
+    },
+    {
+      "id": "REQ-025",
+      "category": "Schedule & results",
+      "requirement": "Use NFL Game Books for actual starters/game-day status; do not infer ranks/snaps.",
+      "status": "partial",
+      "finding": "One official 2026 Game Book has lineups and Not Active section; no full corpus is ingested.",
+      "gate": "Capture permitted books/authorized feed; treat actual starters/inactives as game-specific evidence.",
+      "clearance_metric": "100% of evaluated games have official starter/status evidence; 0 inferred ranks/snaps.",
+      "source_ids": [
+        "gamebook"
+      ],
+      "project_refs": [
+        "data/games.json",
+        "data/week10_lineups.json",
+        "data/depth_charts.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-025",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "The official page supports only the stated source fact or sample; it does not establish full repository coverage. The fetched page response is not archived or hashed."
+    },
+    {
+      "id": "REQ-026",
+      "category": "Results & ratings",
+      "requirement": "Use game-level results to make ratings opponent-aware.",
+      "status": "partial",
+      "finding": "Historical Elo is opponent-aware; no immutable official results feed updates the current 2026 rating run.",
+      "gate": "Update only from prior game results with opponent IDs; reconcile with standings.",
+      "clearance_metric": "100% rating updates use prior results/opponent IDs; 0 future leakage; standings reconcile 32/32.",
+      "source_ids": [
+        "schedule_w10",
+        "standings"
+      ],
+      "project_refs": [
+        "engine/run_backtest.py",
+        "data/games.json",
+        "data/standings.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-026",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-027",
+      "category": "Availability & depth",
+      "requirement": "Use personnel ablations instead of fixed point penalties.",
+      "status": "needs-review",
+      "finding": "The market file declares a 3-point scale for availability-index gaps; no matched with/without personnel test is shown.",
+      "gate": "Compare identical models with and without personnel on paired chronological holdouts.",
+      "clearance_metric": "2 matched variants; 1 paired out-of-time delta/95% interval; 0 fixed penalties.",
+      "source_ids": [
+        "injury_w10",
+        "team_stats"
+      ],
+      "project_refs": [
+        "engine/build_market.py",
+        "data/market_lines.json",
+        "research/validation-gates.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-027",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The local market method declares a 3-point availability-index scale and separately says there is no injury market adjustment; no matched ablation resolves the contradiction."
+    },
+    {
+      "id": "REQ-028",
+      "category": "Availability & depth",
+      "requirement": "Run injury/depth ablations with identical models and chronological holdouts.",
+      "status": "blocked",
+      "finding": "No controlled repository-wide with/without verified availability ablation is present.",
+      "gate": "Freeze features, cutoffs, holdout seasons and uncertainty before comparing models.",
+      "clearance_metric": "2 identical variants and 3 temporal partitions; report n and 95% interval.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook"
+      ],
+      "project_refs": [
+        "signal/analysis/injury_signal.py",
+        "engine/run_backtest.py",
+        "research/validation-gates.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-028",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-029",
+      "category": "Data governance",
+      "requirement": "Automate immutable daily multi-day availability snapshots with hashes.",
+      "status": "blocked",
+      "finding": "No scheduled official injury/depth capture exists; current files are static dated records.",
+      "gate": "Choose authorized endpoints; schedule capture; retain raw hashes and monitor failures.",
+      "clearance_metric": "At least 1 capture per published report day Wed-to-kickoff; 100% hashes retained.",
+      "source_ids": [
+        "injury_w10",
+        "transactions_ir"
+      ],
+      "project_refs": [
+        ".github/workflows/fetch-nflverse-data.yml",
+        "data/injuries.json",
+        "signal/data/manifest.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-029",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-030",
+      "category": "Data governance",
+      "requirement": "Capture immutable official injury, depth and inactive evidence with timestamps/conflict flags.",
+      "status": "blocked",
+      "finding": "No unified three-source append-only ledger with per-read raw hashes and conflict flags exists.",
+      "gate": "Define source/published/captured times, identity keys and conflict states, then schedule all sources.",
+      "clearance_metric": "3 source classes; 100% rows have hash/time/conflict flag; 0 overwritten captures.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook",
+        "transactions_ir"
+      ],
+      "project_refs": [
+        "data/injury-report-2026-w10.csv",
+        "data/depth_charts.json",
+        "signal/data/manifest.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-030",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-031",
+      "category": "Availability & depth",
+      "requirement": "Capture official inactive lists and snap counts.",
+      "status": "partial",
+      "finding": "A Game Book sample has Not Active and lineup data; no complete official inactive/snap series is stored.",
+      "gate": "Use official inactives and verify an official snap source across clubs before publishing snap shares.",
+      "clearance_metric": "100% games have inactive evidence; 1 verified all-team snap source before snap features.",
+      "source_ids": [
+        "gamebook",
+        "player_stats"
+      ],
+      "project_refs": [
+        "data/games.json",
+        "signal/data/snap_participation.json",
+        "data/week10_lineups.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-031",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "The official page supports only the stated source fact or sample; it does not establish full repository coverage. The fetched page response is not archived or hashed."
+    },
+    {
+      "id": "REQ-032",
+      "category": "Availability & depth",
+      "requirement": "Fix Texans image/Packers jersey-number parsing; keep raw strings; never transcribe image by eye.",
+      "status": "blocked",
+      "finding": "No authorized structured Texans source or parser regression fixtures for both failures are present.",
+      "gate": "Acquire structured Houston data; split Packers number/name while preserving original string.",
+      "clearance_metric": "2/2 parser fixtures pass; 0 visual transcription; 1 authorized Texans structured source.",
+      "source_ids": [],
+      "project_refs": [
+        "data/depth_charts.json",
+        "tools/backup_impact.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-032",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-033",
+      "category": "Availability & depth",
+      "requirement": "Represent depth slots as groups, not one starter.",
+      "status": "partial",
+      "finding": "Rank columns exist, but shared rank-1 and empty-slot semantics are not validated across clubs.",
+      "gate": "Store slot ID, rank group, all members and explicit empty state.",
+      "clearance_metric": "100% slots retain all members/empty states; 0 forced single rank-1 picks.",
+      "source_ids": [
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "data/derived/backup_impact.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-033",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-034",
+      "category": "Availability & depth",
+      "requirement": "Version depth/lineups against official roster turnover events.",
+      "status": "partial",
+      "finding": "Official reserve transactions exist, but depth and lineup evidence are not versioned against the latest roster event.",
+      "gate": "Join transactions to each snapshot cutoff and retain event/conflict history.",
+      "clearance_metric": "100% evidence links to latest known roster event; 0 unresolved stale rows.",
+      "source_ids": [
+        "transactions_ir",
+        "roster"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "data/injuries.json",
+        "data/news_2026_week10.csv"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-034",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-035",
+      "category": "Leaderboard",
+      "requirement": "Start with a pre-registered singles-only shadow baseline frozen pre-kickoff.",
+      "status": "partial",
+      "finding": "Elo/power baselines are backtested; no prospective pre-kickoff forecast ledger exists.",
+      "gate": "Register one single-bet baseline and record forecasts before event start.",
+      "clearance_metric": "1 registered baseline; 100% forecast timestamps before kickoff; 0 parlay/prop shadow entries.",
+      "source_ids": [],
+      "project_refs": [
+        "engine/run_backtest.py",
+        "data/backtest_summary.json",
+        "ledger/strategies.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-035",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-036",
+      "category": "Leaderboard",
+      "requirement": "Keep parlays/prop combos behind joint-probability and void/push evidence gate.",
+      "status": "partial",
+      "finding": "Historical parlay sensitivity exists; no validated player-prop joint model or operator settlement rules are recorded.",
+      "gate": "Estimate joint probabilities directly from aligned data and encode settlement rules.",
+      "clearance_metric": "100% ranked combos have validated joint probability and void/push rules; 0 marginal products alone.",
+      "source_ids": [],
+      "project_refs": [
+        "engine/run_parlays.py",
+        "data/parlay_analysis.json",
+        "fl2-signals/player-props.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-036",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-037",
+      "category": "Leaderboard",
+      "requirement": "Separate leaderboard divisions for singles, game parlays, same-game parlays and prop combos.",
+      "status": "partial",
+      "finding": "A leaderboard specification exists, but no eligible prospective four-division leaderboard is live.",
+      "gate": "Define shape-specific qualification, benchmark and uncertainty.",
+      "clearance_metric": "4 divisions; 100% of ranked strategies use proper scores and uncertainty.",
+      "source_ids": [],
+      "project_refs": [
+        "fl2-dashboard/leaderboard.html",
+        "ledger/strategies.html",
+        "research/validation-gates.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-037",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-038",
+      "category": "Leaderboard",
+      "requirement": "Rank by proper score and uncertainty, not win rate/ROI.",
+      "status": "partial",
+      "finding": "Brier/benchmark and multiplicity analyses exist; no universal game-cluster lower-bound ranking rule is enforced.",
+      "gate": "Use benchmark-relative Brier skill, game-cluster interval and predeclared multiplicity adjustment.",
+      "clearance_metric": "Lower 95% game-cluster bound >0 and survives predeclared FDR; 0 raw-win-rate-only ranks.",
+      "source_ids": [],
+      "project_refs": [
+        "data/backtest_summary.json",
+        "data/validation-gates.csv",
+        "signal/data/strategies.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-038",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-039",
+      "category": "Data governance",
+      "requirement": "Store durable snapshots outside the static site and alert on freshness/schema changes.",
+      "status": "blocked",
+      "finding": "Only static files are configured; no external snapshot store, freshness service or schema alert exists.",
+      "gate": "Choose authorized external storage/monitoring and define freshness SLA and failure behavior.",
+      "clearance_metric": "0 unalerted failures; 100% captures report last-success time and hash.",
+      "source_ids": [],
+      "project_refs": [
+        ".github/workflows/pages.yml",
+        ".github/workflows/fetch-nflverse-data.yml",
+        "COORDINATION.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-039",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-040",
+      "category": "Data governance",
+      "requirement": "Separate public derived analysis from private raw data until terms are reviewed.",
+      "status": "needs-review",
+      "finding": "The official 2026 Game Book sample restricts use to media coverage and requires written NFL permission for other use. Raw/_nfldata and archive files are tracked publicly; their separate terms and this project’s redistribution basis are not reconciled.",
+      "gate": "Review terms and keep only authorized derived outputs public; restrict raw rows as required.",
+      "clearance_metric": "0 unreviewed raw datasets public; 100% retained sources have documented terms decisions.",
+      "source_ids": [
+        "gamebook"
+      ],
+      "project_refs": [
+        "README.md",
+        "docs/SOURCES.md",
+        "raw/_nfldata.tgz",
+        "ledger/flagged.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-040",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The official Game Book sample states its own reuse restriction. It does not determine terms for the separate nflverse files or establish permission for this site; those decisions remain open."
+    },
+    {
+      "id": "REQ-041",
+      "category": "Availability & depth",
+      "requirement": "Show per-team starters out, named replacements and net injury count.",
+      "status": "partial",
+      "finding": "Partial team-depletion/backup-impact tables exist, but only 5/32 depth charts and no league-wide starter coverage.",
+      "gate": "Join designations, expected/actual starters and source-backed replacement evidence; keep unknowns blank.",
+      "clearance_metric": "32/32 teams show all 3 fields with source/time or explicit unknown.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook",
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "data/week10_lineups.json",
+        "data/derived/backup_impact.json",
+        "ledger/injuries.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-041",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-042",
+      "category": "Availability & depth",
+      "requirement": "Add announced-starter evidence, not inferred replacement labels.",
+      "status": "partial",
+      "finding": "Several Week 10 QB announcements have official links; no all-position/game evidence field is enforced.",
+      "gate": "Store dated announcement link, game and source for each explicit starter change.",
+      "clearance_metric": "100% announced starters have dated official evidence; 0 inferred announcements.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook",
+        "qb_news_nov11",
+        "qb_news_darnold"
+      ],
+      "project_refs": [
+        "data/week10_lineups.json",
+        "data/news_2026_week10.csv",
+        "ledger/injuries.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-042",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "The local news CSV records several NFL.com announcement links, including a Nov 11 roundup and the Darnold/Drew Lock item; those dynamic articles were not re-fetched in this audit and their responses are not archived. The links do not establish an all-position/game starter field or complete league-wide coverage; injury reports and a single Game Book sample are not substitutes."
+    },
+    {
+      "id": "REQ-043",
+      "category": "Availability & depth",
+      "requirement": "Maintain an official depth-chart register with date and source per row.",
+      "status": "partial",
+      "finding": "Five club chart URLs are recorded in the local snapshot; chart metadata labels them unofficial and page dates are missing for some. The current external pages were not recaptured.",
+      "gate": "Capture dated club source and authority/disclaimer; do not call unofficial charts NFL-issued.",
+      "clearance_metric": "32/32 clubs have dated source or explicit unavailable status; 100% preserve authority labels.",
+      "source_ids": [
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "data/derived/backup_impact.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-043",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-044",
+      "category": "Availability & depth",
+      "requirement": "Calibrate Questionable play rate empirically, not with old percentages.",
+      "status": "partial",
+      "finding": "Signal Lab has multi-season designation/participation analysis, but not a complete official inactive/Game Book join.",
+      "gate": "Join several seasons of official designations to official game-day evidence; publish n/interval by label.",
+      "clearance_metric": "At least 3 seasons; all 3 game designations have n and 95% interval; no assumed percentage.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook"
+      ],
+      "project_refs": [
+        "signal/data/injury_play_rate.json",
+        "signal/data/snap_participation.json",
+        "ledger/injuries.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-044",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-045",
+      "category": "Availability & depth",
+      "requirement": "Build an interactive offense-vs-defense first-through-fourth-string matchup matrix.",
+      "status": "blocked",
+      "finding": "No interactive matrix with verified grouped first-to-fourth-string evidence exists.",
+      "gate": "Resolve all-club depth and actual starters before building the matrix.",
+      "clearance_metric": "4 strings across offense/defense; 100% cells sourced or explicitly unknown.",
+      "source_ids": [
+        "gamebook",
+        "team_stats"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "fl2-dashboard/injuries.html",
+        "index.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-045",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-046",
+      "category": "Availability & depth",
+      "requirement": "Flag stale depth rows against the official transactions log.",
+      "status": "blocked",
+      "finding": "Transaction pages exist; no automated depth/transaction conflict alarm exists.",
+      "gate": "Join events to dated depth snapshots and flag active entries with unresolved conflict.",
+      "clearance_metric": "0 unresolved stale depth rows; 100% transaction events checked.",
+      "source_ids": [
+        "transactions_ir"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "data/derived/backup_impact.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-046",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-047",
+      "category": "Data governance",
+      "requirement": "Create a point-in-time ledger for injury, depth and inactive snapshots.",
+      "status": "blocked",
+      "finding": "Static dated data/manifests exist, not an append-only point-in-time ledger for all three sources.",
+      "gate": "Key immutable records by event/source/published/captured time; prohibit overwrite.",
+      "clearance_metric": "0 overwritten snapshots; 100% records have source, capture time and SHA-256.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook",
+        "transactions_ir"
+      ],
+      "project_refs": [
+        "signal/data/manifest.json",
+        "data/injuries.json",
+        "data/depth_charts.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-047",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-048",
+      "category": "Availability & depth",
+      "requirement": "Populate the three Lions Week 10 statuses for Kerby Joseph, Cade Mays and D.J. Reed.",
+      "status": "implemented",
+      "finding": "The official Week 10 page read on Nov 16 lists Kerby Joseph, Cade Mays and D.J. Reed as Out. Local Week 10 files contain those statuses, but their Nov 14 source response/hash was not preserved; this is historical, not current availability.",
+      "gate": "Keep source/capture date tied to the same report version.",
+      "clearance_metric": "3/3 named players have nonblank Out status matching the official Week 10 report.",
+      "source_ids": [
+        "injury_w10"
+      ],
+      "project_refs": [
+        "data/injuries.json",
+        "data/injuries_2026_week10.csv",
+        "data/injury-report-2026-w10.csv"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-048",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The Week 10 page read on Nov 16 supports the named Out designations, but the local Nov 14 response/hash is absent. This is historical evidence, not current availability or proof of an identical archived version."
+    },
+    {
+      "id": "REQ-049",
+      "category": "Data governance",
+      "requirement": "Re-capture Week 10 injury tables and reconcile stale row/section counts.",
+      "status": "needs-review",
+      "finding": "Local representations have 345 rows in injuries.json/injuries_2026_week10.csv and 160 rows in injury-report-2026-w10.csv with different schemas; live page was fetched but not fully reconciled.",
+      "gate": "Choose canonical row definition, recapture official page and reconcile every team/date section.",
+      "clearance_metric": "1 canonical snapshot; 0 unexplained row/section-count conflicts; 100% source-linked rows.",
+      "source_ids": [
+        "injury_w10",
+        "schedule_w10"
+      ],
+      "project_refs": [
+        "data/injuries.json",
+        "data/injuries_2026_week10.csv",
+        "data/injury-report-2026-w10.csv",
+        "docs/data/injuries.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-049",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The 345-row and 160-row files use different schemas. The live page is dynamic and no captured response/hash is available to reconcile those representations against the same page version."
+    },
+    {
+      "id": "REQ-050",
+      "category": "Availability & depth",
+      "requirement": "Reject jersey/experience/salary as depth-order evidence.",
+      "status": "partial",
+      "finding": "Rank strings are stored, but no repository-wide automated rule was verified against future pipelines.",
+      "gate": "Prohibit those inputs in schema/CI; retain jersey only as roster attribute.",
+      "clearance_metric": "0 ranks derived from jersey, experience or salary.",
+      "source_ids": [
+        "roster"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "signal/analysis/depth_accuracy.py",
+        "scripts/check_site.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-050",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-051",
+      "category": "Availability & depth",
+      "requirement": "Represent shared and empty depth slots faithfully.",
+      "status": "partial",
+      "finding": "The five stored club charts have rank columns and blanks, but shared-rank and empty-slot semantics are not validated across all clubs.",
+      "gate": "Store original slot IDs, rank-group members and explicit empty state.",
+      "clearance_metric": "100% source slots preserved; 0 forced single-player rank-1 selections.",
+      "source_ids": [
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "data/derived/backup_impact.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-051",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-052",
+      "category": "Availability & depth",
+      "requirement": "Verify depth-order route for all 32 clubs before building the backup feature.",
+      "status": "blocked",
+      "finding": "The local register contains five club charts; the two tested NFL snap-count category URLs returned 404 on 2026-11-16. This does not establish that no other official snap feed exists.",
+      "gate": "Verify each official club chart or an all-team official snap route before promoting the feature.",
+      "clearance_metric": "32/32 clubs have verified route and dated source before league-wide use.",
+      "source_ids": [
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf",
+        "player_stats",
+        "snap_counts_offense",
+        "snap_counts_defense"
+      ],
+      "project_refs": [
+        "data/depth_charts.json",
+        "signal/data/manifest.json",
+        "research/injury-backup-analysis.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-052",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-053",
+      "category": "Availability & depth",
+      "requirement": "Score designation reliability vs official inactives over seasons with confidence intervals.",
+      "status": "partial",
+      "finding": "Exploratory multi-season play-rate analysis exists; official inactive/Game Book validation is incomplete.",
+      "gate": "Define seasons/identity joins; compare each label with gamebook active/inactive evidence.",
+      "clearance_metric": "At least 3 seasons; all published labels have n and 95% intervals from official evidence.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook"
+      ],
+      "project_refs": [
+        "signal/data/injury_play_rate.json",
+        "signal/data/manifest.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-053",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-054",
+      "category": "Data governance",
+      "requirement": "Snapshot nfl.com injury reports Wednesday, Thursday and Friday.",
+      "status": "blocked",
+      "finding": "No scheduled workflow captures separate official report versions on those days.",
+      "gate": "Add authorized scheduled snapshot with immutable dated history.",
+      "clearance_metric": "At least 3 captures per normal report week (Wed/Thu/Fri), plus kickoff updates when published.",
+      "source_ids": [
+        "injury_w10"
+      ],
+      "project_refs": [
+        "data/injuries.json",
+        ".github/workflows/fetch-nflverse-data.yml"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-054",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-055",
+      "category": "Data governance",
+      "requirement": "Treat injuries as a timestamped daily series through each game's kickoff.",
+      "status": "blocked",
+      "finding": "Current official report files are point-in-time tables without per-read timestamps/deltas.",
+      "gate": "Capture each published report day and diff status against the prior version.",
+      "clearance_metric": "At least 1 immutable capture per published day; 100% of status changes have timestamped deltas.",
+      "source_ids": [
+        "injury_w10"
+      ],
+      "project_refs": [
+        "data/injuries.json",
+        "data/injury-report-2026-w10.csv"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-055",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-056",
+      "category": "Availability & depth",
+      "requirement": "Use snap counts as starter proxy when official depth charts are unavailable.",
+      "status": "blocked",
+      "finding": "Participation data in the repo is derived; the two tested NFL.com snap-count category URLs returned 404 on 2026-11-16. No all-team official snap source was verified; absence of a feed is not established.",
+      "gate": "Verify one authorized official snap source across clubs/seasons or leave proxy blank.",
+      "clearance_metric": "1 official source covers 32/32 clubs; 100% proxy values include n/source/time.",
+      "source_ids": [
+        "player_stats",
+        "snap_counts_offense",
+        "snap_counts_defense",
+        "gamebook"
+      ],
+      "project_refs": [
+        "signal/data/snap_participation.json",
+        "signal/data/depth_accuracy.json",
+        "data/depth_charts.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-056",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-057",
+      "category": "Leaderboard",
+      "requirement": "Add random-pick and favorites-only control baselines to every run.",
+      "status": "partial",
+      "finding": "Market/Brier baselines exist, but no common run includes both requested controls.",
+      "gate": "Freeze random seed, favorite definition and matched sample.",
+      "clearance_metric": "2 controls (random and favorites-only) reported on 100% of leaderboard runs.",
+      "source_ids": [],
+      "project_refs": [
+        "data/backtest_summary.json",
+        "data/derived/analytics.json",
+        "fl2-dashboard/leaderboard.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-057",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-058",
+      "category": "Weather & rules",
+      "requirement": "Overlay stadium roof/surface and NWS hourly wind/precipitation with official 90-minute roof status.",
+      "status": "partial",
+      "finding": "One official Game Book includes venue, surface and game weather; NWS documents an official forecast API; there is no per-fixture archived forecast/roof-status overlay in this repo.",
+      "gate": "Map each venue to an NWS grid and capture forecast vintage plus official roof status at cutoff.",
+      "clearance_metric": "100% fixtures have roof/surface; at least 1 archived hourly NWS forecast and 1 90-minute roof status per game.",
+      "source_ids": [
+        "gamebook",
+        "nws",
+        "schedule_w10",
+        "schedule_release"
+      ],
+      "project_refs": [
+        "raw/games.csv",
+        "data/market_lines.json",
+        "README.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-058",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "The official page supports only the stated source fact or sample; it does not establish full repository coverage. The fetched page response is not archived or hashed."
+    },
+    {
+      "id": "REQ-059",
+      "category": "Leaderboard",
+      "requirement": "Use two-stage skill leaderboard: proper-score qualification, then prospective CLV/ROI escrow.",
+      "status": "blocked",
+      "finding": "No prospective escrow leaderboard or two-stage reward flow is deployed.",
+      "gate": "Specify qualification, forward escrow window, source prices and settlement rules.",
+      "clearance_metric": "2 mandatory stages; prospective stage starts only after qualification and frozen window.",
+      "source_ids": [],
+      "project_refs": [
+        "fl2-dashboard/leaderboard.html",
+        "data/validation-gates.csv",
+        "ledger/strategies.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-059",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-060",
+      "category": "Markets",
+      "requirement": "Separate vig-free market consensus from originated fair line/residual.",
+      "status": "partial",
+      "finding": "Vig arithmetic exists, but no authorized multi-operator consensus feed or market-margin decomposition is documented.",
+      "gate": "Choose permitted quotes, remove overround and publish consensus/fair/residual separately.",
+      "clearance_metric": "At least 2 independent authorized quotes per market; otherwise consensus/residual remain blank.",
+      "source_ids": [],
+      "project_refs": [
+        "data/derived-metrics.json",
+        "data/market_lines.json",
+        "ledger/lines.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-060",
+      "evidence_state": "no-official-source",
+      "evidence_note": "Sportsbook quote availability/terms are not established by an NFL source. The local arithmetic and missing feed are repository findings; no authorized consensus prices are supplied."
+    },
+    {
+      "id": "REQ-061",
+      "category": "Data governance",
+      "requirement": "Publish weekly what-changed diff for rank, rating and availability.",
+      "status": "blocked",
+      "finding": "Static snapshots exist, but no paired snapshot history/diff renderer is present.",
+      "gate": "Retain consecutive snapshots and compare stable IDs/definitions.",
+      "clearance_metric": "1 diff per weekly update; 100% changed fields show prior/current or blank.",
+      "source_ids": [],
+      "project_refs": [
+        "data/standings.json",
+        "data/injuries.json",
+        "index.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-061",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-062",
+      "category": "Markets",
+      "requirement": "Publish two independent model totals and their gap until walk-forward comparison selects one.",
+      "status": "blocked",
+      "finding": "market_lines.json publishes one total estimator; no second independent estimator/gap is stored.",
+      "gate": "Pre-register two estimators and compare on identical chronological holdouts.",
+      "clearance_metric": "2 totals and 1 gap per game until a frozen walk-forward winner gate is met.",
+      "source_ids": [],
+      "project_refs": [
+        "data/market_lines.json",
+        "engine/build_market.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-062",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-063",
+      "category": "Data governance",
+      "requirement": "Add drift alarms to every scraper for row counts and required fields.",
+      "status": "partial",
+      "finding": "Some builders validate counts/schema; there is no uniform alarm for every scraper/source.",
+      "gate": "Declare source-specific expected counts/fields and fail closed on drift.",
+      "clearance_metric": "100% scrapers have count/schema tests; 1 missing required field fails build.",
+      "source_ids": [],
+      "project_refs": [
+        "engine/build_week10.py",
+        "engine/build_site_data.py",
+        "scripts/check_site.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-063",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-064",
+      "category": "Availability & depth",
+      "requirement": "Capture reserve list so unlisted never means available.",
+      "status": "partial",
+      "finding": "Official reserve-list page exists; no complete dated reserve/IR snapshot is joined to injury status.",
+      "gate": "Check roster and reserve transactions before interpreting a missing report row.",
+      "clearance_metric": "1 reserve/IR lookup per roster player/cutoff; 0 unlisted players treated healthy by default.",
+      "source_ids": [
+        "transactions_ir",
+        "roster",
+        "injury_w10"
+      ],
+      "project_refs": [
+        "data/news_2026_week10.csv",
+        "data/injuries.json",
+        "data/depth_charts.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-064",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-065",
+      "category": "Leaderboard",
+      "requirement": "Reject season-long ROI-only ranking.",
+      "status": "partial",
+      "finding": "No populated leaderboard exists, but no universal ranking rule prevents ROI-only sorting in future.",
+      "gate": "Use proper-score qualification/uncertainty; keep ROI descriptive or escrow-only.",
+      "clearance_metric": "0 leaderboard ranks solely by season ROI; every rank cites a proper-score gate.",
+      "source_ids": [],
+      "project_refs": [
+        "data/backtest_summary.json",
+        "ledger/strategies.html",
+        "fl2-dashboard/leaderboard.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-065",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-066",
+      "category": "Data governance",
+      "requirement": "Archive weekly injury reports from past seasons.",
+      "status": "partial",
+      "finding": "Signal Lab has multi-season derived injury data, not immutable official report versions/capture times.",
+      "gate": "Acquire permitted official history or authorized archive; retain week and capture/published times.",
+      "clearance_metric": "100% of selected backtest seasons have dated official weekly report archive or are excluded.",
+      "source_ids": [
+        "injury_w10",
+        "transactions_ir"
+      ],
+      "project_refs": [
+        "signal/data/manifest.json",
+        "signal/data/injury_week.json",
+        "research/open-questions.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-066",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-067",
+      "category": "Leaderboard",
+      "requirement": "Pre-register each strategy definition before results are seen.",
+      "status": "partial",
+      "finding": "Multiple strategy registries exist; not every strategy has a frozen definition, cutoff and registration hash.",
+      "gate": "Use one registry and commit definition/parameters/window before evaluation.",
+      "clearance_metric": "100% registered before results; 0 unregistered result rows.",
+      "source_ids": [],
+      "project_refs": [
+        "data/strategies.csv",
+        "signal/data/strategies.json",
+        "research/strategies.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-067",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-068",
+      "category": "Weather & rules",
+      "requirement": "Include 2026 kickoff/declared-onside-kick rule regime in preregistered priors.",
+      "status": "blocked",
+      "finding": "Official 2026 rulebook allows a declared onside kick at any time; no model regime feature or test exists.",
+      "gate": "Define rule-regime feature from rulebook and test only under preregistered season split.",
+      "clearance_metric": "1 regime indicator and 1 out-of-time test; 0 guessed effect rates.",
+      "source_ids": [
+        "rulebook"
+      ],
+      "project_refs": [
+        "engine/run_backtest.py",
+        "research/strategies.md",
+        "data/games.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-068",
+      "evidence_state": "official-direct-unarchived",
+      "evidence_note": "The linked official page directly supports the named rule, designation, or reuse notice. The fetched response is not archived or hashed; it does not certify unrelated repository data."
+    },
+    {
+      "id": "REQ-069",
+      "category": "Leaderboard",
+      "requirement": "Freeze each rule before data; use commit hash as registration.",
+      "status": "partial",
+      "finding": "Git history exists, but strategy records do not consistently store pre-evaluation hash and test-window start.",
+      "gate": "Record registration commit/time, parameters hash and window for every strategy.",
+      "clearance_metric": "1 pre-result commit hash per strategy; 0 results against later-edited definitions.",
+      "source_ids": [],
+      "project_refs": [
+        "COORDINATION.md",
+        "data/strategies.csv",
+        "signal/data/strategies.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-069",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-070",
+      "category": "Leaderboard",
+      "requirement": "Split data into train, validation and final holdout seasons.",
+      "status": "partial",
+      "finding": "Backtest sections show train/calibration/evaluation; no single three-way split is frozen across all strategies/shapes.",
+      "gate": "Pre-register chronological non-overlapping train, validation and untouched final holdout.",
+      "clearance_metric": "3 temporal partitions; 0 final-holdout peeks before registration.",
+      "source_ids": [],
+      "project_refs": [
+        "engine/run_backtest.py",
+        "signal/analysis/strategies.py",
+        "data/backtest_summary.json"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-070",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-071",
+      "category": "Product & review",
+      "requirement": "Maintain a suggestions section for reviewer choice before implementation.",
+      "status": "partial",
+      "finding": "Several suggestions pages exist but do not share one authoritative decision log.",
+      "gate": "Consolidate options, dependencies, recommendation and adopt/test/defer/reject state.",
+      "clearance_metric": "1 authoritative register; 100% proposals have options/evidence/dependencies/state.",
+      "source_ids": [],
+      "project_refs": [
+        "ledger/suggestions.html",
+        "fl2-dashboard/suggestions.html",
+        "signal/suggestions.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-071",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-072",
+      "category": "Product & review",
+      "requirement": "List decision questions, known/missing information, answers and discovery steps.",
+      "status": "partial",
+      "finding": "Q&A pages exist in multiple sections; not one current register, and some answers depend on stale snapshots.",
+      "gate": "Maintain one register with answer/evidence, missing fact, blocked decision and discovery action.",
+      "clearance_metric": "100% open decisions have missing-information field and at least 1 discovery step.",
+      "source_ids": [],
+      "project_refs": [
+        "ledger/decisions.html",
+        "fl2-dashboard/questions-answers.html",
+        "research/open-questions.md"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-072",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-073",
+      "category": "Leaderboard",
+      "requirement": "Research own-line strategies and a rewards competition for singles, parlays and props.",
+      "status": "partial",
+      "finding": "Strategy catalogues/backtests/specification exist, but no strategy clears prospective gates and no reward competition is deployed.",
+      "gate": "Require preregistration, authorized price/results, joint evidence where needed and prospective validation.",
+      "clearance_metric": "3 bet-form divisions; 0 rewards until each strategy clears its applicable gates.",
+      "source_ids": [],
+      "project_refs": [
+        "data/strategies.csv",
+        "data/validation-gates.csv",
+        "fl2-dashboard/leaderboard.html",
+        "ledger/strategies.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-073",
+      "evidence_state": "repository-only",
+      "evidence_note": "The finding is about repository artifacts or analyses. Linked official pages are context/source routes only; project references, not NFL pages, support the local-state claim."
+    },
+    {
+      "id": "REQ-074",
+      "category": "Availability & depth",
+      "requirement": "Track injuries and offensive/defensive deficiencies when backups replace starters.",
+      "status": "partial",
+      "finding": "Week 10 injury report plus five club charts support limited joins; verified replacement coverage is not league-wide.",
+      "gate": "Require official game-day starter evidence and verified role/depth or playing-time evidence for both units.",
+      "clearance_metric": "32/32 clubs and both units have evidence or explicit unknowns.",
+      "source_ids": [
+        "injury_w10",
+        "gamebook",
+        "transactions_ir",
+        "depth_ne",
+        "depth_det",
+        "depth_gb",
+        "depth_kc",
+        "depth_sf"
+      ],
+      "project_refs": [
+        "data/derived/backup_impact.json",
+        "data/depth_charts.json",
+        "ledger/injuries.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-074",
+      "evidence_state": "club-unofficial-historical",
+      "evidence_note": "Official club URLs are linked, but local metadata labels these charts unofficial. Their dynamic pages were not re-fetched in this pass; they do not establish actual game starters or playing time."
+    },
+    {
+      "id": "REQ-075",
+      "category": "Product & review",
+      "requirement": "Provide an executive summary of important details.",
+      "status": "partial",
+      "finding": "Several executive summaries exist, but they carry conflicting verification/strategy claims and use the Nov 14 snapshot; no single current summary reconciles scope, source state and open gates.",
+      "gate": "Keep claims synchronized with dated data, gates and flagged limitations.",
+      "clearance_metric": "1 current summary; 100% key metrics link to evidence/method.",
+      "source_ids": [],
+      "project_refs": [
+        "ledger/summary.html",
+        "docs/EXECUTIVE-SUMMARY.md",
+        "signal/EXECUTIVE_SUMMARY.md",
+        "fl2-dashboard/executive-summary.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-075",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "This is a repository-content finding: summary pages disagree on verification scope/performance claims and point to an older snapshot. No single official NFL page can reconcile those local claims."
+    },
+    {
+      "id": "REQ-076",
+      "category": "Data governance",
+      "requirement": "Require no manual owner data entry.",
+      "status": "partial",
+      "finding": "Builds automate rendering/analytics; official captures, price-source/rights choices and some reviews are not unattended.",
+      "gate": "Automate permissible ingestion and fail closed; keep legal/source approvals as explicit gates.",
+      "clearance_metric": "0 per-game manual entries after setup; 100% scheduled jobs report status.",
+      "source_ids": [],
+      "project_refs": [
+        ".github/workflows/pages.yml",
+        ".github/workflows/fetch-nflverse-data.yml",
+        "engine/fetch_data.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-076",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-077",
+      "category": "Product & review",
+      "requirement": "Review repository claims against official sources, link manual review and flag irregularities.",
+      "status": "partial",
+      "finding": "The formerly unnamed trailing date is now a recorded_date column, and the checked crosswalk covers all 25 legacy CSV records plus the 10 grouped research requirements. Selected official pages were fetched, but no comprehensive site-wide factual-row audit or immutable capture has been completed.",
+      "gate": "Combine source/schema checks with row-by-row review; distinguish official sources from derived/open data.",
+      "clearance_metric": "100% factual rows have checked official source or blank+flag; 0 unflagged unsupported facts.",
+      "source_ids": [
+        "injury_w10",
+        "schedule_w10",
+        "schedule_release",
+        "transactions_ir",
+        "gamebook",
+        "team_stats",
+        "player_stats"
+      ],
+      "project_refs": [
+        "data/requirements.csv",
+        "research/requirements.md",
+        "review/reproducibility-2026-11-16.md",
+        "scripts/check_site.py",
+        "tools/check_links.py",
+        "tools/check_signals_links.py"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-077",
+      "evidence_state": "stale-or-conflicted",
+      "evidence_note": "The CSV header discrepancy is fixed and the crosswalk maps each legacy inventory row; original status/note claims remain dated legacy statements. Linked official pages are examples or source pathways, not proof of every local row. Full site-wide source/content review remains open."
+    },
+    {
+      "id": "REQ-078",
+      "category": "Product & review",
+      "requirement": "Create a clean GitHub Pages landing page and organized category subpages/tables.",
+      "status": "implemented",
+      "finding": "Root landing, organized category sections and the Pages workflow already exist; the new register is linked from the root navigation and landing page.",
+      "gate": "Maintain navigation, readable tables, sources and passing build checks.",
+      "clearance_metric": "1 landing page plus category pages; 0 broken internal links in CI.",
+      "source_ids": [],
+      "project_refs": [
+        "index.html",
+        "assets/readiness.js",
+        "assets/readiness.css",
+        ".github/workflows/pages.yml"
+      ],
+      "flagged": false,
+      "flag_id": null,
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-079",
+      "category": "Product & review",
+      "requirement": "Every factual table row needs an official source; missing values stay blank/flagged; never infer.",
+      "status": "partial",
+      "finding": "Some source checks exist; other outputs derive from PFR/nflverse, and policy rows have no applicable NFL source. New table shows blanks/flags.",
+      "gate": "Require official link for sourceable facts; non-sourceable policy rows get explicit blank plus flagged explanation.",
+      "clearance_metric": "100% factual rows sourced or explicitly blank+Flagged; 0 inferred values.",
+      "source_ids": [
+        "injury_w10",
+        "schedule_w10",
+        "gamebook",
+        "team_stats"
+      ],
+      "project_refs": [
+        "scripts/check_site.py",
+        "ledger/flagged.html",
+        "readiness-review.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-079",
+      "evidence_state": "official-pathway-unarchived",
+      "evidence_note": "Official URLs identify source material or a limited example; they do not independently establish full local coverage, derived calculations, or model validity. No response snapshot/hash is archived."
+    },
+    {
+      "id": "REQ-080",
+      "category": "Product & review",
+      "requirement": "Coordinate sessions with exclusive scope and a shared task board.",
+      "status": "implemented",
+      "finding": "The claim was committed/pushed before implementation; the PR #16 owner was notified of the shared-log overlap. PR #16 later merged; this branch was rebased and the COORDINATION.md append conflict was resolved while retaining both entries.",
+      "gate": "Record claims/handoffs and preserve other sessions' coordination entries during integration.",
+      "clearance_metric": "1 active claim with explicit scope; 0 unlogged overlapping edits.",
+      "source_ids": [],
+      "project_refs": [
+        "COORDINATION.md"
+      ],
+      "flagged": false,
+      "flag_id": null,
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    },
+    {
+      "id": "REQ-081",
+      "category": "Product & review",
+      "requirement": "Open/merge PR to main and verify GitHub Pages deployment.",
+      "status": "partial",
+      "finding": "The register and CI gate are implemented on this branch; the integration PR, merge and Pages deployment remain pending.",
+      "gate": "Run all checks, open the integration PR, merge only after CI passes, then verify the Pages deployment and live page.",
+      "clearance_metric": "1 merged PR and 1 successful Pages deployment showing the new table.",
+      "source_ids": [],
+      "project_refs": [
+        ".github/workflows/pages.yml",
+        "COORDINATION.md",
+        "index.html"
+      ],
+      "flagged": true,
+      "flag_id": "FR-REQ-081",
+      "evidence_state": "repository-only",
+      "evidence_note": "This is a local implementation/process finding. Repository paths are the evidence; no NFL source can certify the state of this code, analysis, or product."
+    }
+  ]
+}

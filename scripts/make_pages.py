@@ -21,6 +21,7 @@ NAV = [
     ("questions.html", "Open questions"),
     ("sources.html", "Sources"),
     ("flagged.html", "Flagged for review"),
+    ("../hub/index.html", "Decision Hub ↗"),
     ("../index.html", "Main site (Fourth & Signal)"),
 ]
 

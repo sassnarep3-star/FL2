@@ -1,7 +1,17 @@
 # Requirements Inventory — FL2
 
-Executive summary first, then the register. Every "status" below was checked against files that
-actually exist in the repository (`git ls-files` / `ls`), not against intentions.
+> **Reconciliation note — 2026-11-16:** This is the earlier 10-row grouped inventory. Its summary figures,
+> source-coverage statements, and status labels are retained as historical project claims, not re-verified
+> by the current integration. [`data/requirements-crosswalk.csv`](../data/requirements-crosswalk.csv) maps
+> every grouped row and all 25 rows in the legacy CSV to the 81-row operational register. Local Week 10
+> files are dated 2026-11-14; selected dynamic NFL pages were read on Nov 16 without archived responses
+> or hashes. The older inventory's full-season, row-by-row, and 5-of-32 depth claims therefore remain
+> subject to the source, coverage, and freshness gates in [`readiness-review.html`](../readiness-review.html).
+>
+> The current readiness status is assessed per atomic row and does not inherit an older `done` label.
+
+Executive summary first, then the register. The original status wording and summaries below describe
+that earlier inventory; they should not be read as current-source or current-deployment certification.
 
 ## Executive summary
 
