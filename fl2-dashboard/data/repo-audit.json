@@ -2,11 +2,11 @@
   "title": "Repository audit - scripted review",
   "generated_by": "tools/repo_audit.py",
   "branch": "arena/8326a20d-fl2",
-  "head_commit": "229d5fab3afa0524f6d29b29d0fa0e087ab39510",
-  "base_commit_of_main": "229d5fab3afa0524f6d29b29d0fa0e087ab39510",
+  "head_commit": "128eafb31efb9051b345ac88c9f797ad03e93a9b",
+  "base_commit_of_main": "a395f99a8fa2cfe25e326e387b6788f535291a9e",
   "pages_config_checked": "2026-11-16 via gh api repos/sassnarep3-star/FL2/pages: source main:/ , legacy build",
   "json": {
-    "json_files_checked": 56,
+    "json_files_checked": 59,
     "parse_failures": []
   },
   "injury_row_counts": [
@@ -94,24 +94,25 @@
       "fl2-signals": 506310,
       "docs": 359331,
       "hub": 333346,
-      "tools": 285965,
-      "fl2-dashboard": 235830,
-      "(root files)": 150801,
+      "tools": 313826,
+      "fl2-dashboard": 282756,
+      "(root files)": 152069,
       "engine": 109945,
       "assets": 106357,
       "research": 48681,
       "scripts": 32973,
       "ledger": 11288,
-      ".github": 7840
+      ".github": 7840,
+      "review": 5423
     },
-    "total_tracked_bytes": 95114820
+    "total_tracked_bytes": 95196298
   },
   "coordination": {
     "file": "COORDINATION.md",
-    "lines": 775,
+    "lines": 786,
     "status_word_counts": {
-      "**done**": 21,
-      "done": 58,
+      "**done**": 22,
+      "done": 59,
       "in progress": 6,
       "unclaimed": 2,
       "needs review": 4,
