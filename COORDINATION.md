@@ -901,3 +901,31 @@ this PR merged. That is a concurrent session's branch and workflow; untouched he
 non-overlapping-scope rule. Its owner should fix or the integration session should gate on it.
 
 **This bookkeeping record** is carried by the follow-up PR to this branch.
+
+# Session 74f76e34 — Line Lab (claim)
+
+**Claimed (UTC):** 2026-11-16T00:00Z · **Owner:** `arena/74f76e34-fl2` · **Branch:** `arena/74f76e34-fl2`
+(base `229d5fa`)
+
+**Exclusive file scope claimed by this session** (nothing outside this list is edited):
+
+| Scope | Paths |
+|---|---|
+| New site section | `linelab/**` |
+| New engine + data | `engine/linelab/**`, `data/linelab/**` |
+| Coordination | `COORDINATION.md` (append-only section), `COORDINATION-session-74f76e34.md` |
+| Root hub nav tile | `index.html` (single nav link + tile only — logged as a cross-scope edit) |
+| Link gate | `scripts/check_site.py` (allowlist only, if a new source host needs it — logged) |
+
+**Out of scope / untouched:** `docs/**`, `hub/**`, `signal/**`, `fl2-dashboard/**`, `fl2-signals/**`,
+`ledger/**`, root `*.html` other than `index.html`, `assets/**`, `tools/**`.
+
+**Status of other sessions' claims:** all prior sessions are merged and closed (PRs #1–#15). No
+other session is active. This session therefore also acts as the final integration session for its
+own section and publishes it.
+
+**Environment fact discovered this session (supersedes the earlier "release assets unreachable" note):**
+`codeload.github.com` **is** reachable and serves `tar.gz` of arbitrary repositories. The nflverse
+*binary release assets* (`release-assets.githubusercontent.com`) are **not** reachable. Therefore bulk
+data is obtainable from GitHub repositories, not from releases. Recording this because three earlier
+sessions recorded the opposite.
