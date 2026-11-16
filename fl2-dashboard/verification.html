@@ -125,6 +125,36 @@
         link on the page.</li>
     </ul>
   </div>
+  <div class="panel" id="fetch-2026-11-16">
+    <h2 style="margin-top:0">5. Fetch log — 2026-11-16</h2>
+    <p class="muted">Pages were read with the page-fetch tool. Bash cannot reach nfl.com from this sandbox. Nothing below was
+      stored as raw HTML, so no byte hash exists; the transcription was checked by counts, structure rules and a diff.</p>
+    <table class="data">
+      <thead><tr><th>Source</th><th>What was checked</th><th>Result</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries</a></td>
+          <td>Week 10 report, all 8 chunks, row by row</td>
+          <td>14 games, 28 clubs, 347 player rows. Structure checks pass (<code>tools/official_injury_capture.py</code>). Team-level counts published; rows private.</td>
+          <td><span class="badge verified">Verified 2026-11-16</span></td></tr>
+        <tr><td class="src"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">nfl.com/legal/terms</a></td>
+          <td>Section 1.3 (permitted uses) and section 1.1 (ownership)</td>
+          <td>Systematic retrieval to compile a database prohibited without express written consent (Flagged F-T1).</td>
+          <td><span class="badge flagged">Read — decision open</span></td></tr>
+        <tr><td class="src"><a href="https://www.nfl.com/terms-of-use/" target="_blank" rel="noopener">nfl.com/terms-of-use</a></td>
+          <td>Whether the page exists</td>
+          <td>404 page, 'Flag on the Play' (Flagged F-T2).</td>
+          <td><span class="badge warn">Broken link</span></td></tr>
+        <tr><td class="src"><a href="https://www.detroitlions.com/team/depth-chart" target="_blank" rel="noopener">detroitlions.com depth chart</a></td>
+          <td>Not re-fetched in this session</td>
+          <td>Earlier record stands; labelled unofficial by the club (Flagged F-1).</td>
+          <td><span class="badge pending">Not re-checked</span></td></tr>
+        <tr><td class="src"><a href="https://www.nfl.com/news/" target="_blank" rel="noopener">nfl.com news items</a></td>
+          <td>Not re-fetched in this session</td>
+          <td>Starter and IR statements from earlier sessions are not used as inputs here (Flagged F-X1).</td>
+          <td><span class="badge pending">Not re-checked</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 </main>
 
 <footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
