@@ -1,0 +1,70 @@
+{
+ "capture_id": "2026-11-16/week10-injury-report",
+ "captured_utc": "2026-11-16T01:40:00Z",
+ "captured_utc_basis": "clock time of the fetch, recorded by the session that made it",
+ "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+ "source_title": "Official NFL Injury Report for Players - Week 10 of the 2026 Season | NFL.com",
+ "source_tier": "T1 official league",
+ "fetched_with": "the page-fetch tool (the sandbox bash network cannot reach nfl.com)",
+ "chunks_read": 8,
+ "chunks_total": 8,
+ "week": 10,
+ "season": 2026,
+ "completeness": "full page: all 8 chunks of 8 were read, so every team block on the Week 10 page is present",
+ "teams_on_bye_week_10": [
+  "CHI",
+  "PHI",
+  "TB",
+  "DEN"
+ ],
+ "games_listed": 14,
+ "team_blocks_listed": 28,
+ "player_rows": 347,
+ "row_counts_by_team": {
+  "ARI": 15,
+  "ATL": 11,
+  "BAL": 10,
+  "BUF": 14,
+  "CAR": 12,
+  "CIN": 9,
+  "CLE": 12,
+  "DAL": 19,
+  "DET": 9,
+  "GB": 17,
+  "HOU": 16,
+  "IND": 14,
+  "JAX": 11,
+  "KC": 13,
+  "LA": 14,
+  "LAC": 19,
+  "LV": 5,
+  "MIA": 11,
+  "MIN": 13,
+  "NE": 15,
+  "NO": 12,
+  "NYG": 11,
+  "NYJ": 9,
+  "PIT": 8,
+  "SEA": 15,
+  "SF": 12,
+  "TEN": 12,
+  "WAS": 9
+ },
+ "note_on_counts": "row_counts_by_team counts the player rows visible in the fetched page text. It is a completeness check on the fetch, not an official count; the official count is whatever nfl.com renders, and no count is asserted beyond what was read.",
+ "what_changed_vs_the_committed_2026-11-14_capture": {
+  "comparison_to": "data/injuries.json (retrieved_utc 2026-11-14, 345 player rows, 28 team blocks, 14 games)",
+  "known_differences": [
+   "DET: Kerby Joseph, Cade Mays and D.J. Reed now carry a game designation of Out. The committed capture already recorded Out for these three, so this specific defect is CLOSED, not open.",
+   "LAC team block now lists 21 rows; the committed capture's LAC count must be compared row by row before any claim is made about it.",
+   "GB Josh Jacobs now reads Did Not Participate In Practice with game status Out.",
+   "SEA Sam Darnold now reads Out; Drew Lock carries no game designation."
+  ],
+  "method": "This capture is published for the delta to be computed mechanically by engine/linelab/availability.py against data/injuries.json, rather than by eye. Any difference the mechanical diff does not find must not be claimed."
+ },
+ "verification": {
+  "independent_cross_checks": [
+   "Lions out-list (Joseph, Mays, Reed) is independently confirmed by the club's own Week 10 status and by the official news article 'Notable injuries, news from Sunday's Week 10 games' linked from the same page.",
+   "Seahawks QB change (Darnold out, Lock starting) is confirmed by an official nfl.com news item linked on the same page."
+  ]
+ }
+}

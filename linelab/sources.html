@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources · FL2 Line Lab</title>
+<meta name="description" content="NFL line origination lab: verified prices, probabilities with inputs, proper-score evaluation, and a named gate on every blocked requirement.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
+  <div class="sub">2026 · built 2026-11-16 01:32 UTC · every row sourced or flagged</div>
+  <nav><a href="index.html">Overview</a>
+<a href="requirements.html">Decision readiness</a>
+<a href="lines.html">Our lines</a>
+<a href="models.html">Model comparison</a>
+<a href="strategies.html">Strategies &amp; gates</a>
+<a href="availability.html">Availability</a>
+<a href="depth.html">Depth graph</a>
+<a href="prices.html">Price store</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged</a>
+<a href="sources.html" aria-current=page>Sources</a></nav>
+</div></header>
+<main>
+
+
+<h1>Sources</h1>
+<p class="lede">Every source used, what it provided, and how it is tiered. A T1 source is the league
+or the official statistical registry; T2 is the publisher's open data or the club itself. No
+commercial odds aggregator is used to fill a value anywhere on this site.</p>
+<div class="tw"><table class=""><thead><tr><th class="src">Source</th><th class="">Tier</th><th class="">What it provided</th></tr></thead><tbody>
+<tr><td class="src"><a class="src" href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td><td class="">T1 official league</td><td class="">The official injury report; the page every availability capture is read from.</td></tr>
+<tr><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td><td class="">T1 official league</td><td class="">The Week 10 2026 injury report, read in full (8 of 8 chunks) on 2026-11-16.</td></tr>
+<tr><td class="src"><a class="src" href="https://www.nfl.com/schedules/2026/reg10" rel="noopener">https://www.nfl.com/schedules/2026/reg10</a></td><td class="">T1 official league</td><td class="">Official Week 10 schedule and final scores, used to reconcile the corpus.</td></tr>
+<tr><td class="src"><a class="src" href="https://www.nfl.com/teams/new-england-patriots/depth-chart" rel="noopener">https://www.nfl.com/teams/new-england-patri…</a></td><td class="">T1 official league</td><td class="">Returns 404 — the evidence that no league-official depth chart exists.</td></tr>
+<tr><td class="src"><a class="src" href="https://github.com/nflverse/nfldata" rel="noopener">https://github.com/nflverse/nfldata</a></td><td class="">T2 open data</td><td class="">Publisher of games.csv, closing_lines.csv, initial_lines.csv and sc_lines.csv: results and market numbers.</td></tr>
+<tr><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="">T2 open data</td><td class="">Results and the single undated spread/total/moneyline per game.</td></tr>
+<tr><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="">T2 open data</td><td class="">Closing prices with per-side odds, 2006–2018 games present.</td></tr>
+<tr><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="">T2 open data</td><td class="">The only genuine opening prices in the data: 2021 spread and total.</td></tr>
+<tr><td class="src"><a class="src" href="https://github.com/nflverse/nflverse-data/releases/tag/injuries" rel="noopener">https://github.com/nflverse/nflverse-data/r…</a></td><td class="">T2 open data</td><td class="">Multi-season weekly designations used for the designation-reliability join.</td></tr>
+<tr><td class="src"><a class="src" href="https://github.com/nflverse/nflverse-data/releases/tag/snap_counts" rel="noopener">https://github.com/nflverse/nflverse-data/r…</a></td><td class="">T2 open data</td><td class="">Participation used to measure the play rate per designation.</td></tr>
+<tr><td class="src"><a class="src" href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td><td class="">T2 club</td><td class="">Lions depth chart (club-published).</td></tr>
+<tr><td class="src"><a class="src" href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td><td class="">T2 club</td><td class="">Patriots depth chart (club-published).</td></tr>
+<tr><td class="src"><a class="src" href="https://www.packers.com/team/depth-chart" rel="noopener">https://www.packers.com/team/depth-chart</a></td><td class="">T2 club</td><td class="">Packers depth chart (club-published).</td></tr>
+<tr><td class="src"><a class="src" href="https://www.chiefs.com/team/depth-chart" rel="noopener">https://www.chiefs.com/team/depth-chart</a></td><td class="">T2 club</td><td class="">Chiefs depth chart (club-published).</td></tr>
+<tr><td class="src"><a class="src" href="https://www.49ers.com/team/depth-chart" rel="noopener">https://www.49ers.com/team/depth-chart</a></td><td class="">T2 club</td><td class="">49ers depth chart (club-published).</td></tr>
+</tbody></table></div>
+<h2>How to check any number here</h2>
+<ol>
+<li>Open the artefact named on the <a href="requirements.html">decision-readiness</a> row.</li>
+<li>Re-run the builder that produced it. Every builder is deterministic and re-runnable:
+<code>price_store.py</code>, <code>model.py</code>, <code>scoring.py</code>, <code>availability.py</code>,
+<code>depth_graph.py</code>, <code>backtest.py</code>, <code>requirements.py</code>.</li>
+<li>Compare the SHA-256 of any input against the value on <a href="prices.html">Price store</a> or
+<a href="availability.html">Availability</a>.</li>
+</ol>
+<div class="note warn"><strong>What is reused read-only and cannot be re-derived here.</strong> The
+43 files in <code>signal/data/</code> were produced by a workflow whose raw inputs were never committed.
+This site uses three of them for the designation-reliability join and labels them as such. They are
+listed on <a href="flagged.html">Flagged</a>.</div>
+
+</main>
+<footer>
+  <p><strong>Not betting advice.</strong> This is a measurement project. Every value is either
+  reproducible from a committed file in this repository or left blank; blanks are listed on
+  <a href="flagged.html">Flagged</a>. Model prices come from nflverse/nfldata, an open mirror of
+  published official results and market numbers; availability comes from nfl.com.</p>
+  <p>Source allowlist and hashes: <a href="sources.html">Sources</a>.
+  Repository: <a href="https://github.com/sassnarep3-star/FL2">github.com/sassnarep3-star/FL2</a>.</p>
+</footer>
+</body>
+</html>

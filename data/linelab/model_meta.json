@@ -1,0 +1,47 @@
+{
+ "built_utc": "2026-11-16T01:30:33Z",
+ "builder": "engine/linelab/model.py",
+ "rows": 41229,
+ "split": {
+  "train": [
+   1999,
+   2015
+  ],
+  "validation": [
+   2016,
+   2021
+  ],
+  "holdout": [
+   2022,
+   2026
+  ]
+ },
+ "market_order": [
+  "side",
+  "total",
+  "moneyline"
+ ],
+ "hyperparameters_fixed_before_running": {
+  "ridge": 12.0,
+  "hfa_prior": 2.0,
+  "note": "Ridge and the home-field prior were fixed in the source file before the model was first executed. They are not tuned on the holdout. Changing them changes the file, which is visible in git."
+ },
+ "residuals": {
+  "E1": {
+   "n_games": 7088,
+   "margin_residual_sd": 14.258,
+   "total_residual_sd": 13.999,
+   "mean_margin_residual": -0.27,
+   "mean_total_residual": 1.4134
+  },
+  "E2": {
+   "n_games": 6655,
+   "margin_residual_sd": 13.76,
+   "total_residual_sd": 13.822,
+   "mean_margin_residual": 0.7763,
+   "mean_total_residual": -1.392
+  }
+ },
+ "source": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+ "source_note": "Results and market lines come from nflverse/nfldata data/games.csv, the published mirror of Lee Sharpe's games table. Every market line is the single nflverse line, basis unspecified \u2014 see price_store.csv."
+}

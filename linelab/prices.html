@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Price store · FL2 Line Lab</title>
+<meta name="description" content="NFL line origination lab: verified prices, probabilities with inputs, proper-score evaluation, and a named gate on every blocked requirement.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
+  <div class="sub">2026 · built 2026-11-16 01:32 UTC · every row sourced or flagged</div>
+  <nav><a href="index.html">Overview</a>
+<a href="requirements.html">Decision readiness</a>
+<a href="lines.html">Our lines</a>
+<a href="models.html">Model comparison</a>
+<a href="strategies.html">Strategies &amp; gates</a>
+<a href="availability.html">Availability</a>
+<a href="depth.html">Depth graph</a>
+<a href="prices.html" aria-current=page>Price store</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged</a>
+<a href="sources.html">Sources</a></nav>
+</div></header>
+<main>
+
+
+<h1>Price store</h1>
+<p class="lede">Opening and closing numbers for every market we originate, with the basis of each
+number stated explicitly. The price-data policy was decided before any backtest was published, and it
+is the reason this page is mostly about what does <em>not</em> exist.</p>
+
+<h2>The policy, in four rules</h2>
+<div class="note"><strong>1. Four line families, never merged.</strong>
+<code>games.spread_line</code> is a single undated line — labelled
+<code>unspecified_single_line</code> and excluded from any open-to-close computation.
+<code>sc_lines.csv</code> is a two-sided spread whose date is unstated — a fallback, never an opening
+price. <code>initial_lines.csv</code> is a genuine opening price and covers 2021 only.
+<code>closing_lines.csv</code> is a genuine closing price.</div>
+<div class="note bad"><strong>2. There is no opening moneyline. Anywhere.</strong> Not for 2021, not for
+any season. Moneyline is close-only, and its opening column is null on every row. This is published as
+a fact about the data rather than worked around by inference.</div>
+<div class="note warn"><strong>3. Only 272 games have both an opening and a closing side price</strong> —
+all of them in 2021. Measuring our line's movement from open to close is therefore not possible for
+current games until a daily price capture exists.</div>
+<div class="note"><strong>4. No price is ever inferred.</strong> A market without a dated opening price
+stores null. A closing price is never used as a stand-in for an opening one.</div>
+
+<h2>Coverage by season</h2>
+<p class="sub2">Each row counts games in that season by the price evidence available. "Single line only"
+means the game has one undated number and nothing else.</p>
+<div class="tw"><table class=""><thead><tr><th class="mono">Season</th><th class="n">Side: open+close</th><th class="n">Side: open only</th><th class="n">Side: close only</th><th class="n">Side: single line</th><th class="n">Total: open+close</th><th class="n">Total: open only</th><th class="n">Total: single line</th><th class="n">Moneyline: close only</th><th class="src">Source</th></tr></thead><tbody>
+<tr><td class="mono">2026</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">163</td><td class="n">0</td><td class="n">0</td><td class="n">163</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2025</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2024</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2023</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2022</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">271</td><td class="n">0</td><td class="n">0</td><td class="n">271</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2021</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">272</td><td class="n">0</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2020</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2019</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">0</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2018</td><td class="n">0</td><td class="n">0</td><td class="n">224</td><td class="n">32</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">224</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2017</td><td class="n">0</td><td class="n">0</td><td class="n">239</td><td class="n">17</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">239</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2016</td><td class="n">0</td><td class="n">0</td><td class="n">237</td><td class="n">19</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">237</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2015</td><td class="n">0</td><td class="n">0</td><td class="n">252</td><td class="n">4</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">252</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2014</td><td class="n">0</td><td class="n">0</td><td class="n">252</td><td class="n">4</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">252</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono">2013</td><td class="n">0</td><td class="n">0</td><td class="n">254</td><td class="n">2</td><td class="n">0</td><td class="n">0</td><td class="n">256</td><td class="n">254</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+</tbody></table></div>
+
+<h2>Inputs and their hashes</h2>
+<div class="tw"><table class=""><thead><tr><th class="mono">File</th><th class="src">Source</th><th class="mono">SHA-256</th><th class="">Note</th></tr></thead><tbody>
+<tr><td class="mono">games.csv</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/games.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="mono"><code>9db20ab7cc0941c726f07540…</code></td><td class=""></td></tr>
+<tr><td class="mono">closing_lines.csv</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="mono"><code>3571e1c9fc8d7396f405fb7c…</code></td><td class=""></td></tr>
+<tr><td class="mono">sc_lines.csv</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/sc_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="mono"><code>384039e92630831eaf4d8514…</code></td><td class=""></td></tr>
+<tr><td class="mono">initial_lines.csv</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td><td class="mono"><code>654770173d11fdb2074537d5…</code></td><td class=""></td></tr>
+<tr><td class="mono">repository tarball</td><td class="src"><a class="src" href="https://codeload.github.com/nflverse/nfldata/tar.gz/refs/heads/master" rel="noopener">https://codeload.github.com/nflverse/nfldat…</a></td><td class="mono">—</td><td class="">how the four files were obtained</td></tr>
+</tbody></table></div>
+
+<div class="note"><strong>How this was obtained, and why it matters.</strong> The nflverse release
+assets are the canonical long-run location, but they are served from a host this sandbox cannot reach.
+The same publisher's repository copies were used instead, via a repository tarball, and their hashes
+are on this page. The repository's existing GitHub Action runs where egress is open and can re-derive
+these from the release — which is the correct long-run fix.</div>
+
+</main>
+<footer>
+  <p><strong>Not betting advice.</strong> This is a measurement project. Every value is either
+  reproducible from a committed file in this repository or left blank; blanks are listed on
+  <a href="flagged.html">Flagged</a>. Model prices come from nflverse/nfldata, an open mirror of
+  published official results and market numbers; availability comes from nfl.com.</p>
+  <p>Source allowlist and hashes: <a href="sources.html">Sources</a>.
+  Repository: <a href="https://github.com/sassnarep3-star/FL2">github.com/sassnarep3-star/FL2</a>.</p>
+</footer>
+</body>
+</html>

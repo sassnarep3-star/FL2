@@ -1,0 +1,1525 @@
+{
+ "built_utc": "2026-11-16T01:31:27Z",
+ "builder": "engine/linelab/availability.py",
+ "policy": {
+  "snapshot_rule": "Every capture keeps its raw SHA-256 and the clock time it was read. A capture is never edited; a correction is a new capture.",
+  "delta_rule": "The site publishes the change between two captures, never a single level presented as though it were stable.",
+  "not_listed_rule": "Absence from the report means the league did not list the player. It is never rendered as 'healthy' or 'available'.",
+  "snapshot_count": 2,
+  "honest_limitation": "The brief asks for at least daily capture of the official report, club depth pages and inactive lists. This repository holds the captures listed below and no others. It cannot self-schedule; a scheduled job must own the cadence. Until that job exists, the number of vintages is what you see, not what was asked for."
+ },
+ "captures": [
+  {
+   "capture_id": "2026-11-14/week10-injury-report",
+   "path": "data/linelab/captures/2026-11-14/week10-injury-report.csv",
+   "sha256": "ed4c0dc4418aeb3e4602140a17f74280bf2f020cc3e2d751f47605404ac1c19d",
+   "bytes": 39501,
+   "captured_utc": "2026-11-14T00:00:00Z",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "season": 2026,
+   "week": 10,
+   "rows": 345,
+   "_key": "2026-10"
+  },
+  {
+   "capture_id": "2026-11-16/week10-injury-report",
+   "path": "data/linelab/captures/2026-11-16/week10-injury-report.csv",
+   "sha256": "758cb9fe111fb3c00319941ab9c767842ad6cd0cb33f29f5e34f660ca8065fa6",
+   "bytes": 39561,
+   "captured_utc": "2026-11-16T01:40:00Z",
+   "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "season": 2026,
+   "week": 10,
+   "rows": 347,
+   "_key": "2026-10"
+  }
+ ],
+ "deltas": [
+  {
+   "from_capture": "2026-11-14/week10-injury-report",
+   "to_capture": "2026-11-16/week10-injury-report",
+   "from_captured_utc": "2026-11-14T00:00:00Z",
+   "to_captured_utc": "2026-11-16T01:40:00Z",
+   "rows_from": 345,
+   "rows_to": 347,
+   "n_changes": 21,
+   "changes": [
+    {
+     "team": "BAL",
+     "player": "Adam Randall",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "BAL",
+     "player": "Calais Campbell",
+     "change": "appeared",
+     "from": null,
+     "to": "Did Not Participate In Practice"
+    },
+    {
+     "team": "BAL",
+     "player": "Jaylinn Hawkins",
+     "change": "game_status",
+     "from": "",
+     "to": "Out"
+    },
+    {
+     "team": "BAL",
+     "player": "Ronnie Stanley",
+     "change": "appeared",
+     "from": null,
+     "to": "Did Not Participate In Practice"
+    },
+    {
+     "team": "IND",
+     "player": "Arden Key",
+     "change": "game_status",
+     "from": "Questionable",
+     "to": ""
+    },
+    {
+     "team": "LAC",
+     "player": "Branson Taylor",
+     "change": "game_status",
+     "from": "",
+     "to": "Out"
+    },
+    {
+     "team": "LAC",
+     "player": "Brenen Thompson",
+     "change": "game_status",
+     "from": "",
+     "to": "Doubtful"
+    },
+    {
+     "team": "LAC",
+     "player": "Bud Dupree",
+     "change": "practice_status",
+     "from": "Did Not Participate In Practice",
+     "to": "Full Participation in Practice"
+    },
+    {
+     "team": "LAC",
+     "player": "David Njoku",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "LAC",
+     "player": "David Njoku",
+     "change": "practice_status",
+     "from": "Limited Participation in Practice",
+     "to": "Full Participation in Practice"
+    },
+    {
+     "team": "LAC",
+     "player": "Denzel Perryman",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "LAC",
+     "player": "Isas Waxter",
+     "change": "game_status",
+     "from": "",
+     "to": "Out"
+    },
+    {
+     "team": "LAC",
+     "player": "Justin Eboigbe",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "LAC",
+     "player": "Kayode Awosika",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "LAC",
+     "player": "Kayode Awosika",
+     "change": "practice_status",
+     "from": "Limited Participation in Practice",
+     "to": "Full Participation in Practice"
+    },
+    {
+     "team": "LAC",
+     "player": "Keaton Mitchell",
+     "change": "practice_status",
+     "from": "Limited Participation in Practice",
+     "to": "Full Participation in Practice"
+    },
+    {
+     "team": "LAC",
+     "player": "Kendall Williamson",
+     "change": "game_status",
+     "from": "",
+     "to": "Out"
+    },
+    {
+     "team": "LAC",
+     "player": "Ladd McConkey",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "LAC",
+     "player": "Rodney Shelley",
+     "change": "practice_status",
+     "from": "Limited Participation in Practice",
+     "to": "Full Participation in Practice"
+    },
+    {
+     "team": "LAC",
+     "player": "Trey Pipkins",
+     "change": "game_status",
+     "from": "",
+     "to": "Questionable"
+    },
+    {
+     "team": "LAC",
+     "player": "Trey Pipkins",
+     "change": "practice_status",
+     "from": "Did Not Participate In Practice",
+     "to": "Limited Participation in Practice"
+    }
+   ],
+   "season_week": "2026-10"
+  }
+ ],
+ "capture_quality_findings": [
+  {
+   "capture_id": "2026-11-14/week10-injury-report",
+   "type": "team_block_without_any_designation",
+   "teams": [
+    "BAL"
+   ],
+   "rows_affected": 8,
+   "why_it_matters": "A team whose entire block carries no game status and no non-participation practice flag is indistinguishable from 'everyone practised fully'. Any model that reads a blank cell as healthy will under-estimate that team's unavailability by exactly this many players.",
+   "two_possible_causes": [
+    "the league had not yet published game statuses for that team when the capture was taken",
+    "the capture omitted the column values for that block"
+   ],
+   "how_to_resolve": "Take a third capture of the same week. If the block is populated, the first capture was a reading artefact; if it is still blank, the league had not published. Held open as an irregularity until that capture exists.",
+   "status": "needs review"
+  }
+ ],
+ "team_view": [
+  {
+   "team": "ARI",
+   "listed": 15,
+   "out": 3,
+   "doubtful": 0,
+   "questionable": 6,
+   "net_unavailable": 3
+  },
+  {
+   "team": "ATL",
+   "listed": 11,
+   "out": 1,
+   "doubtful": 1,
+   "questionable": 3,
+   "net_unavailable": 2
+  },
+  {
+   "team": "BAL",
+   "listed": 10,
+   "out": 1,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 1
+  },
+  {
+   "team": "BUF",
+   "listed": 14,
+   "out": 0,
+   "doubtful": 1,
+   "questionable": 4,
+   "net_unavailable": 1
+  },
+  {
+   "team": "CAR",
+   "listed": 12,
+   "out": 1,
+   "doubtful": 2,
+   "questionable": 4,
+   "net_unavailable": 3
+  },
+  {
+   "team": "CIN",
+   "listed": 9,
+   "out": 1,
+   "doubtful": 3,
+   "questionable": 0,
+   "net_unavailable": 4
+  },
+  {
+   "team": "CLE",
+   "listed": 12,
+   "out": 2,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 2
+  },
+  {
+   "team": "DAL",
+   "listed": 19,
+   "out": 5,
+   "doubtful": 1,
+   "questionable": 5,
+   "net_unavailable": 6
+  },
+  {
+   "team": "DET",
+   "listed": 9,
+   "out": 3,
+   "doubtful": 0,
+   "questionable": 2,
+   "net_unavailable": 3
+  },
+  {
+   "team": "GB",
+   "listed": 17,
+   "out": 4,
+   "doubtful": 1,
+   "questionable": 7,
+   "net_unavailable": 5
+  },
+  {
+   "team": "HOU",
+   "listed": 16,
+   "out": 5,
+   "doubtful": 0,
+   "questionable": 6,
+   "net_unavailable": 5
+  },
+  {
+   "team": "IND",
+   "listed": 14,
+   "out": 6,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 6
+  },
+  {
+   "team": "JAX",
+   "listed": 11,
+   "out": 3,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 3
+  },
+  {
+   "team": "KC",
+   "listed": 13,
+   "out": 3,
+   "doubtful": 0,
+   "questionable": 3,
+   "net_unavailable": 3
+  },
+  {
+   "team": "LA",
+   "listed": 14,
+   "out": 2,
+   "doubtful": 0,
+   "questionable": 5,
+   "net_unavailable": 2
+  },
+  {
+   "team": "LAC",
+   "listed": 19,
+   "out": 3,
+   "doubtful": 1,
+   "questionable": 6,
+   "net_unavailable": 4
+  },
+  {
+   "team": "LV",
+   "listed": 5,
+   "out": 0,
+   "doubtful": 0,
+   "questionable": 2,
+   "net_unavailable": 0
+  },
+  {
+   "team": "MIA",
+   "listed": 11,
+   "out": 2,
+   "doubtful": 1,
+   "questionable": 1,
+   "net_unavailable": 3
+  },
+  {
+   "team": "MIN",
+   "listed": 13,
+   "out": 5,
+   "doubtful": 0,
+   "questionable": 3,
+   "net_unavailable": 5
+  },
+  {
+   "team": "NE",
+   "listed": 15,
+   "out": 3,
+   "doubtful": 0,
+   "questionable": 9,
+   "net_unavailable": 3
+  },
+  {
+   "team": "NO",
+   "listed": 12,
+   "out": 4,
+   "doubtful": 0,
+   "questionable": 2,
+   "net_unavailable": 4
+  },
+  {
+   "team": "NYG",
+   "listed": 11,
+   "out": 0,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 0
+  },
+  {
+   "team": "NYJ",
+   "listed": 9,
+   "out": 1,
+   "doubtful": 0,
+   "questionable": 8,
+   "net_unavailable": 1
+  },
+  {
+   "team": "PIT",
+   "listed": 8,
+   "out": 0,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 0
+  },
+  {
+   "team": "SEA",
+   "listed": 15,
+   "out": 4,
+   "doubtful": 0,
+   "questionable": 0,
+   "net_unavailable": 4
+  },
+  {
+   "team": "SF",
+   "listed": 12,
+   "out": 1,
+   "doubtful": 0,
+   "questionable": 7,
+   "net_unavailable": 1
+  },
+  {
+   "team": "TEN",
+   "listed": 12,
+   "out": 5,
+   "doubtful": 0,
+   "questionable": 1,
+   "net_unavailable": 5
+  },
+  {
+   "team": "WAS",
+   "listed": 9,
+   "out": 2,
+   "doubtful": 0,
+   "questionable": 0,
+   "net_unavailable": 2
+  }
+ ],
+ "latest_capture_id": "2026-11-16/week10-injury-report",
+ "designation_reliability": {
+  "status": "ok",
+  "note": "This is the empirical answer to 'what does Questionable mean'. It replaces any borrowed percentage, and it carries n and a Wilson interval because a play rate without its sample size is not evidence.",
+  "caveat": "A snap-count row proves participation, not a start, and it does not prove the player was on the game-day 48. It is the strongest join the committed data supports, and it is labelled as a participation join.",
+  "buckets": [
+   {
+    "designation": "Out",
+    "n": 10674,
+    "observed_play_rate": 0.0002,
+    "ci95_wilson": [
+     0.0001,
+     0.0007
+    ],
+    "seasons": "2016-2026",
+    "seasons_count": 11,
+    "definition": "share of player-weeks with that designation for which a snap-count row exists, i.e. the player took at least one snap",
+    "source": "nflverse injuries_*.csv joined to snap_counts_*.csv"
+   },
+   {
+    "designation": "Doubtful",
+    "n": 1684,
+    "observed_play_rate": 0.0083,
+    "ci95_wilson": [
+     0.005,
+     0.0139
+    ],
+    "seasons": "2016-2026",
+    "seasons_count": 11,
+    "definition": "share of player-weeks with that designation for which a snap-count row exists, i.e. the player took at least one snap",
+    "source": "nflverse injuries_*.csv joined to snap_counts_*.csv"
+   },
+   {
+    "designation": "Questionable",
+    "n": 14950,
+    "observed_play_rate": 0.6388,
+    "ci95_wilson": [
+     0.6311,
+     0.6465
+    ],
+    "seasons": "2016-2026",
+    "seasons_count": 11,
+    "definition": "share of player-weeks with that designation for which a snap-count row exists, i.e. the player took at least one snap",
+    "source": "nflverse injuries_*.csv joined to snap_counts_*.csv"
+   }
+  ]
+ },
+ "reserve_check": {
+  "status": "ok",
+  "latest_capture_week": 10,
+  "n_missing_vs_earlier_weeks": 100,
+  "players": [
+   {
+    "team": "ARI",
+    "player": "Isaiah Adams",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "1",
+     "2",
+     "5",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ARI",
+    "player": "Walter Nolen",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "5",
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Beaux Collins",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Brian Robinson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Cameron Williams",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "1",
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Yasir Abdullah",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "4",
+     "5",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Avieon Terrell",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Billy Bowman Jr.",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "1",
+     "2",
+     "3",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Charles Snowden",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Olamide Zaccheaus",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "ATL",
+    "player": "Samson Ebukam",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "3",
+     "4",
+     "5",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BAL",
+    "player": "Lamar Jackson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "5",
+     "6",
+     "7",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BAL",
+    "player": "Tyler Huntley",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BAL",
+    "player": "T.J. Tampa",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "2",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BUF",
+    "player": "Josh Palmer",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "5",
+     "6",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BUF",
+    "player": "DJ Moore",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "3",
+     "5",
+     "6",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BUF",
+    "player": "Dee Alford",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "5",
+     "6",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "BUF",
+    "player": "TJ Parker",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CAR",
+    "player": "Corey Bullock",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CAR",
+    "player": "Akayleb Evans",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CAR",
+    "player": "Bobby Brown III",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "2",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CHI",
+    "player": "Kyle Monangai",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CHI",
+    "player": "Malik Muhammad",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CHI",
+    "player": "Tyrique Stevenson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "6",
+     "7",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CHI",
+    "player": "D'Marco Jackson",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CIN",
+    "player": "Cedric Johnson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CIN",
+    "player": "Joe Giles-Harris",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CLE",
+    "player": "Deshaun Watson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CLE",
+    "player": "Daniel Thomas",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "CLE",
+    "player": "Myles Harden",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DAL",
+    "player": "Malachi Lawrence",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DAL",
+    "player": "Dee Winters",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DAL",
+    "player": "Kenny Clark",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Brandon Jones",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Dondrea Tillman",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "4",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Eyioma Uwazurike",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Kris Abrams-Draine",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Pat Bryant",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Talanoa Hufanga",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Garett Bolles",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Jaylen Waddle",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "RJ Harvey",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "2",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DEN",
+    "player": "Zach Allen",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DET",
+    "player": "Jack Campbell",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "DET",
+    "player": "Roger McCreary",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "GB",
+    "player": "Keisean Nixon",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "GB",
+    "player": "MarShawn Lloyd",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "GB",
+    "player": "Anthony Campbell",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "3",
+     "4",
+     "5",
+     "6",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "GB",
+    "player": "Brenton Cox Jr.",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "GB",
+    "player": "Devonte Wyatt",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "GB",
+    "player": "Matthew Golden",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "IND",
+    "player": "Andrew Ogletree",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "IND",
+    "player": "Anthony Gould",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "IND",
+    "player": "Bryce Boettcher",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "KC",
+    "player": "Nikko Remigio",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "KC",
+    "player": "L'Jarius Sneed",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "6",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "KC",
+    "player": "R Mason Thomas",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LA",
+    "player": "Grant Stuard",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LA",
+    "player": "Jaylen Watson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "4",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LA",
+    "player": "Jordan Whittington",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "2",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LA",
+    "player": "Coleman Shelton",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LAC",
+    "player": "Derwin James",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "4",
+     "5",
+     "6",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LAC",
+    "player": "Donte Jackson",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "4",
+     "5",
+     "6",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LV",
+    "player": "Darien Porter",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "2",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LV",
+    "player": "Carter Runyon",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "6",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LV",
+    "player": "Jack Bech",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LV",
+    "player": "Jackson Powers-Johnson",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "4",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "LV",
+    "player": "Patrick Johnson",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "MIA",
+    "player": "Julius Brents",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "3",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "MIA",
+    "player": "Kadyn Proctor",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "MIA",
+    "player": "Reese Taylor",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "5",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "MIN",
+    "player": "Demond Claiborne",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NE",
+    "player": "Mack Hollins",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "5",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NE",
+    "player": "Christian Elliss",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "4",
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NO",
+    "player": "Jordyn Tyson",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NYJ",
+    "player": "Breece Hall",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "4",
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NYJ",
+    "player": "David Bailey",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NYJ",
+    "player": "Dylan Parham",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "4",
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NYJ",
+    "player": "Max Mitchell",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "NYJ",
+    "player": "T'Vondre Sweat",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Britain Covey",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "DeVonta Smith",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "4",
+     "5",
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Dontayvion Wicks",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Jihaad Campbell",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Jonathan Jones",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Michael Carter II",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "6",
+     "7",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Tanner McKee",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "PHI",
+    "player": "Jakorian Bennett",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "6",
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "SEA",
+    "player": "Velus Jones Jr.",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "SF",
+    "player": "Christian Kirk",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "6",
+     "7",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "TB",
+    "player": "Emeka Egbuka",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "7",
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "TB",
+    "player": "Yaya Diaby",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "TB",
+    "player": "Kenny Gainwell",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "TB",
+    "player": "Luke Goedeke",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "TEN",
+    "player": "Calvin Ridley",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "TEN",
+    "player": "Dorian Mausi",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "7",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "WAS",
+    "player": "Dyami Brown",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "WAS",
+    "player": "Jer'Zhan Newton",
+    "last_seen_week": 9,
+    "weeks_seen": [
+     "8",
+     "9"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "WAS",
+    "player": "Daron Payne",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   },
+   {
+    "team": "WAS",
+    "player": "Javon Kinlaw",
+    "last_seen_week": 8,
+    "weeks_seen": [
+     "2",
+     "6",
+     "8"
+    ],
+    "reading": "Not on the current report. This does NOT mean available: a player placed on injured reserve, suspended, or released comes off the report entirely. The reserve list must be checked."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "url": "https://www.nfl.com/injuries/",
+   "tier": "T1 official league",
+   "used_for": "the weekly injury report page that every capture is read from"
+  },
+  {
+   "url": "https://www.nfl.com/injuries/league/2026/reg10",
+   "tier": "T1 official league",
+   "used_for": "the Week 10 2026 capture"
+  },
+  {
+   "url": "https://github.com/nflverse/nflverse-data/releases/tag/injuries",
+   "tier": "T2 open data mirror of the same official report",
+   "used_for": "the multi-season designation-reliability join"
+  }
+ ]
+}

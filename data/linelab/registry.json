@@ -1,0 +1,352 @@
+{
+ "registry_version": 1,
+ "frozen_at_utc": "2026-11-16T01:31:28Z",
+ "registration_mechanism": "This file is committed. The commit hash of the commit that introduced or last changed a strategy is that strategy's registration. Rules are never edited to fit a result; a change means a new strategy id.",
+ "leaderboard_rule": "No number produced by the backtest corpus may appear on the leaderboard. The leaderboard reads scores.json only, and its payload is asserted at build time.",
+ "strategies": [
+  {
+   "id": "S1-opp-adjusted-side",
+   "name": "Opponent-adjusted side",
+   "rule": "Bet the side when the E1 opponent-adjusted fair spread differs from the market spread by at least 2.5 points, on the side the model prefers.",
+   "market": "side",
+   "divisions": [
+    "singles"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G3-proper-score",
+    "G4-uncertainty",
+    "G5-multiplicity"
+   ],
+   "rationale": "The simplest test of whether opponent adjustment carries information.",
+   "gates_evaluated": {
+    "G3-proper-score": {
+     "status": "fail",
+     "detail": "BSS -0.2103 on 1189 games",
+     "value": -0.21029
+    },
+    "G4-uncertainty": {
+     "status": "fail",
+     "detail": "95% game-cluster CI lower bound -0.2612",
+     "value": -0.26124
+    },
+    "G5-multiplicity": {
+     "status": "fail",
+     "detail": "Holm-adjusted p 1.0",
+     "value": 1.0
+    },
+    "G1-data": {
+     "status": "pass",
+     "detail": "price store and model inputs present and hashed"
+    },
+    "G2-sample": {
+     "status": "pass",
+     "detail": "n_games 1189 vs minimum 1000"
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  },
+  {
+   "id": "S2-unadjusted-side",
+   "name": "Unadjusted season-average side",
+   "rule": "Bet the side when the E2 season-average fair spread differs from the market spread by at least 2.5 points.",
+   "market": "side",
+   "divisions": [
+    "singles"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G3-proper-score",
+    "G4-uncertainty",
+    "G5-multiplicity"
+   ],
+   "rationale": "Control for S1: if the naive estimator does as well, adjustment is not the value.",
+   "gates_evaluated": {
+    "G3-proper-score": {
+     "status": "fail",
+     "detail": "BSS -0.2103 on 1189 games",
+     "value": -0.21029
+    },
+    "G4-uncertainty": {
+     "status": "fail",
+     "detail": "95% game-cluster CI lower bound -0.2612",
+     "value": -0.26124
+    },
+    "G5-multiplicity": {
+     "status": "fail",
+     "detail": "Holm-adjusted p 1.0",
+     "value": 1.0
+    },
+    "G1-data": {
+     "status": "pass",
+     "detail": "price store and model inputs present and hashed"
+    },
+    "G2-sample": {
+     "status": "pass",
+     "detail": "n_games 1189 vs minimum 1000"
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  },
+  {
+   "id": "S3-opp-adjusted-total",
+   "name": "Opponent-adjusted total",
+   "rule": "Bet over/under when the E1 fair total differs from the market total by at least 2.5 points.",
+   "market": "total",
+   "divisions": [
+    "singles"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G3-proper-score",
+    "G4-uncertainty",
+    "G5-multiplicity"
+   ],
+   "rationale": "Totals are the market this project originates second, per the brief.",
+   "gates_evaluated": {
+    "G3-proper-score": {
+     "status": "fail",
+     "detail": "BSS -0.0827 on 1216 games",
+     "value": -0.08274
+    },
+    "G4-uncertainty": {
+     "status": "fail",
+     "detail": "95% game-cluster CI lower bound -0.1124",
+     "value": -0.11238
+    },
+    "G5-multiplicity": {
+     "status": "fail",
+     "detail": "Holm-adjusted p 1.0",
+     "value": 1.0
+    },
+    "G1-data": {
+     "status": "pass",
+     "detail": "price store and model inputs present and hashed"
+    },
+    "G2-sample": {
+     "status": "pass",
+     "detail": "n_games 1216 vs minimum 1000"
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  },
+  {
+   "id": "S4-moneyline-value",
+   "name": "Moneyline value",
+   "rule": "Bet the moneyline side when model P(win) exceeds the vig-free implied probability by at least 4 percentage points.",
+   "market": "moneyline",
+   "divisions": [
+    "singles"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G3-proper-score",
+    "G4-uncertainty",
+    "G5-multiplicity"
+   ],
+   "rationale": "The one market where both estimators cleared a benchmark in validation.",
+   "gates_evaluated": {
+    "G3-proper-score": {
+     "status": "pass",
+     "detail": "BSS +0.0112 on 1220 games",
+     "value": 0.01117
+    },
+    "G4-uncertainty": {
+     "status": "fail",
+     "detail": "95% game-cluster CI lower bound -0.0122",
+     "value": -0.01224
+    },
+    "G5-multiplicity": {
+     "status": "fail",
+     "detail": "Holm-adjusted p 1.0",
+     "value": 1.0
+    },
+    "G1-data": {
+     "status": "pass",
+     "detail": "price store and model inputs present and hashed"
+    },
+    "G2-sample": {
+     "status": "pass",
+     "detail": "n_games 1220 vs minimum 1000"
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  },
+  {
+   "id": "S5-side-total-parlay",
+   "name": "Side + total same-game parlay",
+   "rule": "Combine S1 and S3 only when a directly validated JOINT probability exists; never multiply the two marginal probabilities.",
+   "market": "parlay",
+   "divisions": [
+    "same_game_parlays"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G3-proper-score",
+    "G4-uncertainty",
+    "G5-multiplicity",
+    "G6-joint-evidence"
+   ],
+   "rationale": "The brief's parlay rule: marginal multiplication is invalid under dependence.",
+   "blocked_reason": "No validated joint probability distribution exists for the joint event. The measured margin/total correlation is near zero, which makes the multiplication approximately valid for THAT pair, but 'approximately valid' is not the same as 'directly validated'.",
+   "gates_evaluated": {
+    "G1-data": {
+     "status": "fail",
+     "detail": "No validated joint probability distribution exists for the joint event. The measured margin/total correlation is near zero, which makes the multiplication approximately valid for THAT pair, but 'approximately valid' is not the same as 'directly validated'."
+    },
+    "G6-joint-evidence": {
+     "status": "fail",
+     "detail": "No validated joint probability distribution exists for the joint event. The measured margin/total correlation is near zero, which makes the multiplication approximately valid for THAT pair, but 'approximately valid' is not the same as 'directly validated'."
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  },
+  {
+   "id": "S6-prop-combo",
+   "name": "Player prop combination",
+   "rule": "Combine player prop markets only with validated joint probabilities and operator void rules.",
+   "market": "prop",
+   "divisions": [
+    "prop_combos"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G3-proper-score",
+    "G4-uncertainty",
+    "G5-multiplicity",
+    "G6-joint-evidence"
+   ],
+   "rationale": "The brief asks for prop combos to be considered, not to be assumed feasible.",
+   "blocked_reason": "No player-level price data exists in this repository's verified sources, so neither a marginal nor a joint probability can be validated. The division is registered as blocked rather than omitted.",
+   "gates_evaluated": {
+    "G1-data": {
+     "status": "fail",
+     "detail": "No player-level price data exists in this repository's verified sources, so neither a marginal nor a joint probability can be validated. The division is registered as blocked rather than omitted."
+    },
+    "G6-joint-evidence": {
+     "status": "fail",
+     "detail": "No player-level price data exists in this repository's verified sources, so neither a marginal nor a joint probability can be validated. The division is registered as blocked rather than omitted."
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  },
+  {
+   "id": "S7-availability-ablation-side",
+   "name": "Availability ablation, side",
+   "rule": "Identical side model run twice, with and without verified availability features, on chronological holdouts; report the difference with uncertainty.",
+   "market": "side",
+   "divisions": [
+    "singles"
+   ],
+   "gates": [
+    "G1-data",
+    "G2-sample",
+    "G4-uncertainty"
+   ],
+   "rationale": "Replaces a fixed points penalty for a missing starter with a measured ablation.",
+   "blocked_reason": "Requires availability snapshots that are pre-kickoff for the games in the test window. The repository holds one capture per week, taken after most of that week's games had kicked off, so the ablation cannot yet be run without lookahead. See availability.json.",
+   "gates_evaluated": {
+    "G3-proper-score": {
+     "status": "fail",
+     "detail": "BSS -0.2103 on 1189 games",
+     "value": -0.21029
+    },
+    "G4-uncertainty": {
+     "status": "fail",
+     "detail": "95% game-cluster CI lower bound -0.2612",
+     "value": -0.26124
+    },
+    "G5-multiplicity": {
+     "status": "fail",
+     "detail": "Holm-adjusted p 1.0",
+     "value": 1.0
+    },
+    "G1-data": {
+     "status": "pass",
+     "detail": "price store and model inputs present and hashed"
+    },
+    "G2-sample": {
+     "status": "pass",
+     "detail": "n_games 1189 vs minimum 1000"
+    }
+   },
+   "verdict": "not_eligible",
+   "paper_or_live": "paper",
+   "demotion_gate": {
+    "rule": "A live strategy returns to paper when, over its last 100 prospective bets, the game-cluster lower bound of its Brier skill against the benchmark falls to zero or below, or when its closing-line value is negative at the 95% level. Demotion is automatic and published on the leaderboard the same day.",
+    "current_state": "paper",
+    "note": "Nothing is live. The gate exists so that promotion has a defined reversal."
+   },
+   "what_would_change_our_mind": {
+    "toward_belief": "A positive game-cluster lower bound on BSS over at least 1,000 prospective games, holding after multiplicity adjustment.",
+    "away_from_belief": "A lower bound at or below zero over 100 consecutive prospective bets, or a documented data fault in its inputs."
+   }
+  }
+ ]
+}

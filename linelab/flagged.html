@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged · FL2 Line Lab</title>
+<meta name="description" content="NFL line origination lab: verified prices, probabilities with inputs, proper-score evaluation, and a named gate on every blocked requirement.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
+  <div class="sub">2026 · built 2026-11-16 01:32 UTC · every row sourced or flagged</div>
+  <nav><a href="index.html">Overview</a>
+<a href="requirements.html">Decision readiness</a>
+<a href="lines.html">Our lines</a>
+<a href="models.html">Model comparison</a>
+<a href="strategies.html">Strategies &amp; gates</a>
+<a href="availability.html">Availability</a>
+<a href="depth.html">Depth graph</a>
+<a href="prices.html">Price store</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html" aria-current=page>Flagged</a>
+<a href="sources.html">Sources</a></nav>
+</div></header>
+<main>
+
+
+<h1>Flagged for review</h1>
+<p class="lede">Everything a reader should not take on trust, with the source that shows the problem
+and what would resolve it. None of these blocks the site; all of them should be read before any number
+here is used in a decision.</p>
+<div class="note bad"><strong>Two of these are corrections of this project's own earlier claims</strong>
+— a correlation that was assumed and turned out to be near zero, and a model that was expected to beat
+its control and did not. They are listed here rather than quietly fixed, because a project that only
+flags other people's errors is not being honest.</div>
+<div class="tw"><table class=""><thead><tr><th class="mono">ID</th><th class="">What</th><th class="">Why it matters</th><th class="">State</th><th class="">What would resolve it</th><th class="src">Source</th></tr></thead><tbody>
+<tr><td class="mono"><code>F01</code></td><td class="">Capture defect: team_block_without_any_designation in 2026-11-14/week10-injury-report — BAL (8 rows with no designation at all)</td><td class="">A team whose entire block carries no game status and no non-participation practice flag is indistinguishable from &#x27;everyone practised fully&#x27;. Any model that reads a blank cell as healthy will under-estimate that team&#x27;s unavailability by exactly this many players.</td><td class=""><span class="badge warn">needs review</span></td><td class="">Take a third capture of the same week. If the block is populated, the first capture was a reading artefact; if it is still blank, the league had not published. Held open as an irregularity until that capture exists.</td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+<tr><td class="mono"><code>F02</code></td><td class="">No opening moneyline exists for any game, any season</td><td class="">The moneyline market cannot be evaluated open-to-close, only at the close.</td><td class=""><span class="badge warn">needs review</span></td><td class="">Capture a dated moneyline before kickoff for the games being tracked.</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono"><code>F03</code></td><td class="">Only 272 games (2021) have both an opening and a closing side price</td><td class="">Line movement cannot be measured for any current game from committed data.</td><td class=""><span class="badge warn">needs review</span></td><td class="">A daily price capture from open to close.</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv" rel="noopener">https://github.com/nflverse/nfldata/blob/ma…</a></td></tr>
+<tr><td class="mono"><code>F04</code></td><td class="">No league-official depth chart exists; nfl.com returns 404</td><td class="">Every depth claim rests on a club page the club itself may caption unofficial.</td><td class=""><span class="badge info">permanent limitation</span></td><td class="">Cite the club page on every row, as done here; license a structured feed if a full 32-club matrix is required.</td><td class="src"><a class="src" href="https://www.nfl.com/teams/new-england-patriots/depth-chart" rel="noopener">https://www.nfl.com/teams/new-england-patri…</a></td></tr>
+<tr><td class="mono"><code>F05</code></td><td class="">Only 5 of 32 club depth charts are held</td><td class="">The matchup-deficiency matrix and the backup-deficiency feature cannot be built.</td><td class=""><span class="badge warn">needs review</span></td><td class="">Acquire or license the remaining 27.</td><td class="src"><a class="src" href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td></tr>
+<tr><td class="mono"><code>F06</code></td><td class="">No official inactive list or 2026 snap count is held</td><td class="">&#x27;Actually started&#x27; is null on every depth row; a replacement is suspected, never confirmed.</td><td class=""><span class="badge warn">needs review</span></td><td class="">Capture the official inactive list weekly and a participation feed.</td><td class="src"><a class="src" href="https://www.nfl.com/news/" rel="noopener">https://www.nfl.com/news/</a></td></tr>
+<tr><td class="mono"><code>F07</code></td><td class="">The margin/total correlation is near zero, contradicting the usual justification for banning side+total parlays</td><td class="">A rule this project inherited was not supported by its own data. Corrected on the models page.</td><td class=""><span class="badge ok">resolved — corrected</span></td><td class="">The parlay ban now rests on same-team dependence, which is not yet measured.</td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/engine/linelab/scoring.py" rel="noopener">engine/linelab/scoring.py</a></td></tr>
+<tr><td class="mono"><code>F08</code></td><td class="">The opponent-adjusted model does not beat the unadjusted control</td><td class="">Any claim that adjustment adds value would be false on this data.</td><td class=""><span class="badge ok">resolved — reported</span></td><td class="">Publish both with a gap column; do not collapse to the adjusted model.</td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/scores.json" rel="noopener">data/linelab/scores.json</a></td></tr>
+<tr><td class="mono"><code>F09</code></td><td class="">nflverse release assets are unreachable from the build sandbox</td><td class="">Data had to be taken from the publisher&#x27;s repository rather than its release assets; hashes are published so the bytes can be confirmed.</td><td class=""><span class="badge warn">needs review</span></td><td class="">Keep the GitHub Action that runs where egress is open.</td><td class="src"><a class="src" href="https://github.com/nflverse/nfldata" rel="noopener">https://github.com/nflverse/nfldata</a></td></tr>
+<tr><td class="mono"><code>F10</code></td><td class="">Two prior sessions recorded the opposite environment fact and left 43 unhashed data files</td><td class="">signal/data/*.csv were produced by a workflow whose raw inputs were never committed, so they cannot be re-derived in this repository. They are used here read-only and labelled as such.</td><td class=""><span class="badge warn">needs review</span></td><td class="">Re-run the fetch workflow and commit its manifest, or stop citing those files.</td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/signal/data/manifest.json" rel="noopener">signal/data/manifest.json</a></td></tr>
+</tbody></table></div>
+
+</main>
+<footer>
+  <p><strong>Not betting advice.</strong> This is a measurement project. Every value is either
+  reproducible from a committed file in this repository or left blank; blanks are listed on
+  <a href="flagged.html">Flagged</a>. Model prices come from nflverse/nfldata, an open mirror of
+  published official results and market numbers; availability comes from nfl.com.</p>
+  <p>Source allowlist and hashes: <a href="sources.html">Sources</a>.
+  Repository: <a href="https://github.com/sassnarep3-star/FL2">github.com/sassnarep3-star/FL2</a>.</p>
+</footer>
+</body>
+</html>
