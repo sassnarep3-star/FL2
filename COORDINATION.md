@@ -783,4 +783,14 @@ Bash cannot reach nfl.com (TLS error from the sandbox). The page-fetch tool retu
 
 ## Pull request and merge
 
-Recorded below after the PR is opened and merged.
+| Item | Record |
+|---|---|
+| PR | https://github.com/sassnarep3-star/FL2/pull/17 — `arena/8326a20d-fl2` → `main` |
+| Head at merge | `128eafb` (rebased onto `main` at `a395f99`; the only conflict was this file's append-only log, both blocks kept) |
+| Merge | `gh pr merge 17 --merge`; merge commit `52a9a5d`; merged 2026-11-16 01:28:22 UTC; not auto-merged |
+| CI at merge | PR run: `validate` pass (`scripts/check_site.py`, `make_pages.py`, `build_site.py`); deploy skipped on PR. Main push run `43786463988`: success |
+| Pages | Legacy build from `main:/` for `52a9a5d`: status `built`. The `pages.yml` deploy job also ran on the main push. The Pages publish-path conflict (`.` vs `/docs` vs legacy `main:/`) is NOT resolved; logged as a request to the owner |
+| Live check | Sandbox curl to `github.io` fails (TLS; host not on the outbound allowlist). Checked with the page-fetch tool on 2026-11-16: `fl2-dashboard/index.html` shows the readiness table and the 347-row card; `flagged-review.html` shows §A–§C |
+| Not done | Automated capture; leaderboard and strategy evaluation; 32-club depth source; `strategies.html` source for "Situational efficiency" (F-S1). Terms chunks 1–8 of 9 still unread |
+
+Follow-up records for this section are in the bookkeeping PR (see the next entry).
