@@ -42,6 +42,7 @@ PAGES = [
     ("data.html", "Data layer and artefacts"),
 ]
 NAV = [(p, t) for p, t in PAGES]
+REPO_BLOB = "https://github.com/sassnarep3-star/FL2/blob/main/"
 BLANK = "—"
 
 
@@ -81,7 +82,8 @@ def link(url: str, label: str = "source") -> str:  # noqa: C901 - one place deci
         url = url[len("fl2-lines/"):]
     if url.startswith(".github/") or "github/workflows" in url:
         rel = url.split("fl2-lines/")[-1]
-        return f'<code>{esc(rel)}</code> <span class="fine">in the repository; .github is not published</span>'
+        return (f'<a href="{REPO_BLOB}{esc(rel)}" rel="noopener"><code>{esc(rel)}</code></a> '
+                f'<span class="fine">in the repository; .github is not published by Pages</span>')
     if url.startswith("http"):
         return f'<a href="{esc(url)}" rel="noopener">{esc(label)}</a>'
     rel = url
@@ -203,31 +205,39 @@ def p_exec(d) -> str:
     lb = d["leaderboard"]
     body = []
     body.append(
-        '<div class="callout"><strong>Headline.</strong> The data foundation now exists and reconciles: 148 confirmed '
-        '2026 results reproduce the official standings exactly for 32 of 32 clubs, so a backtest and a ROI figure are '
-        'computable for the first time. With that in place the honest verdict on the model is unflattering and useful: '
-        'on the frozen 136-game corpus our originated side is '
-        f'{pro["by_market"]["SPREAD"]["brier_skill_vs_market"] * 100:.1f}% <em>worse</em> than the devigged market '
+        f'<div class="callout"><strong>Headline.</strong> The data foundation now exists and reconciles: '
+        f'{meta["games_with_confirmed_final"]} confirmed 2026 results reproduce the official standings exactly for '
+        f'{meta["reconciliation"]["teams_matching_official"]} of {meta["reconciliation"]["teams_compared"]} clubs, so a '
+        'backtest and a ROI figure are computable for the first time. With that in place the honest verdict on the model '
+        f'is unflattering and useful: on the frozen {pro["corpus"]["n_games"]}-game corpus our originated side is '
+        f'{pro["by_market"]["SPREAD"]["brier_skill_vs_market"] * 100:.1f}% against the devigged market '
         'Brier, and no interval excludes zero. That is why the leaderboard is empty rather than optimistic.</div>'
     )
     rows = [
-        ["Results feed", "148 confirmed finals, 124 fixtures carried blank, 32/32 reconciliation",
+        ["Results feed", f'{meta["games_with_confirmed_final"]} confirmed finals, {meta["games_blank_unverified"]} '
+         f'fixtures carried blank, {meta["reconciliation"]["teams_matching_official"]}/'
+         f'{meta["reconciliation"]["teams_compared"]} reconciliation',
          "<a href=\"results.html\">results</a>", "The gate every other number depends on is now met"],
         ["Price store", f'{d["price_meta"]["markets_recorded"]} market rows; {d["price_meta"]["with_opening_number"]} opening prices; 0 timestamps',
          "<a href=\"prices.html\">prices</a>", "No official price exists; the opening number is the binding gap"],
-        ["Origination", "side then total then moneyline, fair/market/difference in separate columns, 1,088 rows",
+        ["Origination", f"side then total then moneyline, fair/market/difference in separate columns, {len(lines):,} rows",
          "<a href=\"lines.html\">lines</a>", "Two total estimators still published, because neither has won"],
         ["Injury and availability", f'{d["availability_n"]} player-week rows; P(play|Questionable) = '
          f'{d["calib"]["by_designation"]["Questionable"]["play_rate_pct"]}% (n={d["calib"]["by_designation"]["Questionable"]["n"]})',
          "<a href=\"availability.html\">availability</a>", "Depth of replacement is still not modelled: no 2026 snap counts exist"],
-        ["Ablation not penalty", f'-0.485 points per expected miss, CI [-0.736, -0.299], n=2,367',
+        ["Ablation not penalty", f'{ab["coefficient"]["beta_pts_per_expected_miss"]} points per expected miss, CI '
+         f'[{ab["coefficient"]["ci95"][0]}, {ab["coefficient"]["ci95"][1]}], n={ab["coefficient"]["n_games"]:,}',
          "<a href=\"analytics.html\">analytics</a>", "A fixed 3-point penalty for a missing starter is unsupported by the data"],
         ["Skill measurement", "cluster-bootstrap CIs, Benjamini-Hochberg across the tested family, random and favourites-only controls, luck panel",
-         "<a href=\"analytics.html\">analytics</a>", "0 of 3 markets clears its gate"],
+         "<a href=\"analytics.html\">analytics</a>",
+         f'{sum(1 for v in pro["multiplicity"]["reject"].values() if v)} of {pro["multiplicity"]["n_hypotheses"]} '
+         'tested markets clears the gate'],
         ["Governance", f'{len(lb["entries"])} pre-registered entries; backtest numbers structurally excluded from the leaderboard',
          "<a href=\"prereg.html\">pre-registration</a>", "Rewards cannot settle until a division has 200 graded singles"],
         ["Biggest risk", "the availability and depth requirements all wait on captures nobody is running",
-         "<a href=\"suggestions.html\">suggestions</a>", "SG-01 (turn on the snapshot workflow) unblocks 9 requirement lines"],
+         "<a href=\"suggestions.html\">suggestions</a>",
+         f'{sum(1 for r in d["readiness"] if r["status"] == "BLOCKED")} requirement lines are blocked outright, '
+         f'{sum(1 for r in d["readiness"] if r["status"] == "PARTIAL")} are partial pending a capture'],
     ]
     body.append(table(["area", "state of play", "detail", "why it matters"],
                       [[esc(a), esc(b), c, esc(dd)] for a, b, c, dd in rows]))
@@ -237,7 +247,9 @@ def p_exec(d) -> str:
         f"(n={pri['n_games']}), and the residual scale used for every probability is <strong>{pri['sigma_margin_default']}</strong> points.</li>"
         f"<li>2026 is a road-team season: home covers <strong>{d['sign']['measurement_home_cover_2026']['home_cover_pct']}%</strong> "
         f"of {d['sign']['measurement_home_cover_2026']['n_graded']} graded games. A gate sized to one season would have aborted a correct "
-        'sign convention; the gate now runs on 3,165 games and the season figure is published as a finding.</li>'
+        f"sign convention; the gate now runs on {d['sign']['gate_home_cover_rate_near_50']['n_graded']:,} graded games "
+        f"({d['sign']['gate_home_cover_rate_near_50']['home_cover_pct']}% home cover) and the season figure is published "
+        'as a finding rather than a gate.</li>'
         f"<li>Designations are not levels: <strong>Out</strong> plays {d['calib']['by_designation']['Out']['play_rate_pct']}% of the time "
         f"(n={d['calib']['by_designation']['Out']['n']}), <strong>Doubtful</strong> {d['calib']['by_designation']['Doubtful']['play_rate_pct']}% "
         f"(n={d['calib']['by_designation']['Doubtful']['n']}), <strong>Questionable</strong> "
@@ -782,7 +794,8 @@ def p_sources(d) -> str:
                 "<li><strong>Reconcile to the official page.</strong> The results feed is summed back into the published standings and "
                 "compared for all 32 clubs; the check fails the build on any mismatch.</li>"
                 "<li><strong>Prove the sign conventions.</strong> The spread-line convention is tested against the moneyline sign and against "
-                "the cover rate on 3,165 games; the model's own sanity is tested by requiring corr(model, market) &gt; 0.55.</li>"
+                f"the cover rate on {d['sign']['gate_home_cover_rate_near_50']['n_graded']:,} graded games; the model's own sanity is "
+                "tested by requiring corr(model, market) &gt; 0.55.</li>"
                 "<li><strong>Refuse to fill gaps.</strong> Blank scores for unconfirmed results, blank replacements, blank opening prices, "
                 "blank depth cells; each is labelled rather than estimated.</li>"
                 "<li><strong>Keep the tiers apart.</strong> T1 official, T2 mirror of official, T3 aggregated market. A T3 number is never "
@@ -804,18 +817,47 @@ def p_data(d) -> str:
             "are read; where a mirror already sits in the repository (another session's scope) it is listed here and requested, "
             "not moved.</div>"]
     body.append(table(["artefact", "bytes", "sha-256", "layer", "role"], rows))
-    body.append("<h2>Freshness and drift alarms</h2>")
-    body.append(table(["check", "expected", "today", "alarm"], [
-        ["Week 10 injury rows in the mirror", "a count near the official page's row count", "18 rows across 4 clubs", '<span class="bad">would fire: row count below floor</span>'],
-        ["Required field: game_status present", "every listed row carries a designation or an explicit blank", "1239 rows, 0 lost columns", '<span class="ok">silent</span>'],
-        ["Depth rows per season", "> 0 for every season in the window", "0 rows for 2026 while the download reported 784,796", '<span class="bad">fires (FL-09)</span>'],
-        ["Snap counts", "a 2026 file with per-game rows", "not present", '<span class="bad">fires (R31/R06)</span>'],
-        ["Price store opening coverage", "grows weekly once a capture runs", "0 of 816", '<span class="bad">fires (R01)</span>'],
-        ["Feed vs standings", "32/32 exact", "32/32 exact", '<span class="ok">silent</span>'],
-    ]))
-    body.append('<p class="fine">The alarms above are implemented in '
-                '<a href="../.github/workflows/fl2-lines-snapshot.yml">fl2-lines-snapshot.yml</a>, which captures, hashes, '
-                "counts and fails loudly on a schema or row-count change.</p>")
+    fr = d["fresh"]
+    written_2026 = fr["depth_written_by_season"].get("2026", 0)
+    dl_2026 = [v for k, v in fr["depth_downloaded"].items() if k.endswith("_2026.csv")]
+    dl_n = dl_2026[0]["rows"] if dl_2026 else None
+    floor = 60
+    rows = [
+        ["Injury rows for the most recent completed week in the availability feed",
+         f"a count near the official page's, and above the {floor}-row floor the capture enforces",
+         f'{fr["w10_rows"]} rows across {fr["w10_teams"]} clubs (the feed only carries weeks where a report was ingested)',
+         f'<span class="bad">below floor: only {fr["w10_teams"]} clubs were ingested for that week, so the mirror '
+         'is a partial extract and cannot be a row-count baseline</span>'
+         if fr["w10_rows"] < floor else '<span class="ok">silent</span>'],
+        ["Required field: a designation on every listed row",
+         "0 rows without Out / Questionable / Probable / Doubtful",
+         f'{fr["avail_rows"]} rows, {fr["avail_blank_designation"]} missing a designation',
+         '<span class="ok">silent</span>' if fr["avail_blank_designation"] == 0 else '<span class="bad">fires</span>'],
+        ["Depth rows written per season",
+         "a row for every season the download claims to cover",
+         f'{written_2026} rows for 2026 while the ingestion report claims {dl_n:,} downloaded rows for that season; '
+         f'written data stops at {max(fr["depth_written_by_season"]) if fr["depth_written_by_season"] else "n/a"}',
+         '<span class="bad">fires (FL-09: the parser drops 2025-2026)</span>' if written_2026 == 0 else '<span class="ok">silent</span>'],
+        ["Snap counts",
+         "a per-game snap count column for the current season",
+         f'{fr["snap_rows_2026"]:,} 2026 rows exist but the columns are {", ".join(fr["snap_columns"]) or "none"} '
+         f'- {"a count column is present" if fr["snap_has_count_column"] else "no count column at all"}',
+         '<span class="ok">silent</span>' if fr["snap_has_count_column"] else '<span class="bad">fires (R06/R31)</span>'],
+        ["Price store opening coverage",
+         "grows every week once a dated capture is running",
+         f'{d["price_meta"]["with_opening_number"]} of {d["price_meta"]["markets_recorded"]} market rows, '
+         f'{d["price_meta"]["with_any_observed_at"]} with any timestamp',
+         '<span class="bad">fires (R01)</span>'],
+        ["Results feed vs official standings",
+         "32 of 32 clubs exact on W-L-T, PF and PA",
+         f'{d["results_meta"]["reconciliation"]["teams_matching_official"]} of '
+         f'{d["results_meta"]["reconciliation"]["teams_compared"]} ({d["results_meta"]["games_with_confirmed_final"]} '
+         "confirmed finals in the feed)",
+         '<span class="ok">silent</span>' if d["results_meta"]["reconciliation"]["teams_matching_official"] == 32
+         else '<span class="bad">fires: the feed does not reproduce the league table</span>'],
+    ]
+    body.append("<h2>Freshness and drift alarms, measured at build time</h2>")
+    body.append(table(["check", "expected", "measured today", "alarm state"], rows))
     return page("data.html", "Data layer and artefacts",
                 "What is stored where, its hash, and the alarms that catch a silent source change.",
                 "".join(body))
@@ -870,6 +912,46 @@ def load_all() -> dict:
     for v in team.values():
         v["net_unavailable"] = round(v["miss"], 2)
     events.sort(key=lambda r: (r["team"], r["week"]))
+    # ---- measured freshness inputs (nothing below is typed: a count that cannot be
+    # measured on disk prints "not measurable here" instead of a remembered number)
+    def _count_seasons(path: Path) -> tuple[int, dict[str, int], list[str]]:
+        if not path.exists():
+            return 0, {}, []
+        total, per, fields = 0, {}, []
+        with open(path, newline="", encoding="utf-8") as fh:
+            rd = csv.reader(fh)
+            hdr = next(rd, [])
+            fields = hdr
+            si = hdr.index("season") if "season" in hdr else -1
+            for row in rd:
+                total += 1
+                if si >= 0 and si < len(row):
+                    per[row[si]] = per.get(row[si], 0) + 1
+        return total, per, fields
+
+    SIGNAL = SEC.parent / "signal" / "data"
+    depth_total, depth_by_season, _ = _count_seasons(SIGNAL / "depth_player.csv")
+    snap_total, snap_by_season, snap_fields = _count_seasons(SIGNAL / "snap_participation.csv")
+    agg = jload(SIGNAL / "aggregate_report.json", {})
+    downloaded = {}
+    def _find(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if str(k).startswith("depth_charts_") and isinstance(v, dict):
+                    downloaded[str(k)] = v
+                _find(v)
+    _find(agg)
+    w10 = [r for r in avail if r["week"] == "10"]
+    fresh = {
+        "avail_rows": len(avail),
+        "avail_blank_designation": sum(1 for r in avail if not r["designation"].strip()),
+        "w10_rows": len(w10), "w10_teams": len({r["team"] for r in w10}),
+        "depth_written_rows": depth_total, "depth_written_by_season": depth_by_season,
+        "depth_downloaded": downloaded,
+        "snap_rows_2026": snap_by_season.get("2026", 0), "snap_total_rows": snap_total,
+        "snap_columns": snap_fields,
+        "snap_has_count_column": any("snap" in c.lower() and c.lower() != "snap" for c in snap_fields),
+    }
     ledger = []
     lp = SEC / "data" / "ledger" / "forecasts-week11.jsonl"
     if lp.exists():
@@ -909,6 +991,7 @@ def load_all() -> dict:
         "availability_n": len(avail),
         "surprise_counts": {"expected-out-but-played": sum(1 for r in avail if r["surprise"] == "expected-out-but-played"),
                             "expected-in-but-missed": sum(1 for r in avail if r["surprise"] == "expected-in-but-missed")},
+        "fresh": fresh,
         "surprise_by_team": dict(sur), "team_view": dict(team), "pg_view": dict(pg),
         "starter_events": events[:40],
         "sign": jload(DER / "results-meta.json", {}).get("sign_convention_checks", {}),

@@ -335,7 +335,9 @@ def build_results() -> dict:
         "built_from": {
             "nflverse_games_sha256": sha256(NFLVERSE_GAMES),
             "nflverse_games_rows": len(read_csv(NFLVERSE_GAMES)),
-            "git_head": git_rev(),
+            "provenance": "the commit that carries this file is the record of when it was built; "
+                          "a git SHA is deliberately not embedded here because it would make the "
+                          "artefact non-reproducible from the same inputs",
         },
     }
 
@@ -480,7 +482,8 @@ def build_price_store(originate_ids: set[str]) -> dict:
         "source_files": files,
         "historical_price_index_rows": len(index),
         "manifest": "fl2-lines/data/prices/MANIFEST.sha256",
-        "git_head": git_rev(),
+        "provenance": "content-pinned by MANIFEST.sha256; no build-time git SHA is embedded so the "
+                      "store rebuilds byte-identically from the same inputs",
     }
 
 

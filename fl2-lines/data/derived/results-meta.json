@@ -80,6 +80,6 @@
   "built_from": {
     "nflverse_games_sha256": "9db20ab7cc0941c726f07540c2935684e196473e2d91a4de82e8099cdabe27e3",
     "nflverse_games_rows": 7548,
-    "git_head": "58c41f4d6e645e0ba07844301dce4691764e07db"
+    "provenance": "the commit that carries this file is the record of when it was built; a git SHA is deliberately not embedded here because it would make the artefact non-reproducible from the same inputs"
   }
 }
