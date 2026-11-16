@@ -226,6 +226,20 @@ def main() -> int:
         for bad in ("TBD", "TODO", "FIXME", "PLACEHOLDER"):
             if bad in txt:
                 fail(f"{p.name}: contains {bad}")
+    # R09: a backtest number must never reach the leaderboard renderer. Two structural asserts:
+    # the page may not name a backtest metric, and no entry may look ranked.
+    lbpage = (SEC / "leaderboard.html").read_text() if (SEC / "leaderboard.html").exists() else ""
+    if lbpage:
+        for token in ("brier_skill_vs_market", "backtest_roi", "corpus_roi", "\"roi_pct\""):
+            if token in lbpage:
+                fail(f"leaderboard.html contains a backtest metric ({token}) - pre-registration forbids it")
+        if re.search(r"<td>\s*(?:[1-9][0-9]{2,})\s*</td>\s*<td>[+-]?[0-9.]+%?</td>", lbpage):
+            fail("leaderboard.html shows a ranked row with graded bets and a value - only escrow rows are permitted")
+        esc = json.loads((DER / "leaderboard-prospective.json").read_text())
+        for e in esc["entries"]:
+            if e["graded_bets"] >= esc.get("min_graded_for_ranking", 200) and e["stage"] != "live":
+                fail(f'{e["id"]} has {e["graded_bets"]} graded bets but is not live - promotion gate bypassed')
+
     idx = (SEC / "index.html").read_text()
     for r in rd:
         if f'>{r["id"]}</td>' not in idx:

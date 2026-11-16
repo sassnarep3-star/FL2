@@ -1,0 +1,45 @@
+name: Availability snapshots
+
+# Requirements served:
+#  - "Snapshot the nfl.com injury report every Wed, Thu and Fri and keep a dated history"
+#  - "Automate immutable multi-day availability snapshots ... with retained hashes"
+#  - "Add durable snapshot storage and alerts ... monitor freshness and alert on source/schema changes"
+#
+# GATE F-T1 (session 8326a20d, fl2-dashboard/flagged-review.html): nfl.com Terms §1.3 prohibit
+# systematic retrieval of data to compile a database without express prior written consent.
+# Until the owner resolves that gate (written consent, or derived-counts-only), the schedule
+# is DISABLED and capture runs only on explicit manual dispatch below. The cron line is kept
+# commented so the intended cadence is documented.
+
+on:
+  # schedule:
+  #   - cron: "15 21 * * 3,4,5"   # reports publish ~16:00 ET Wed/Thu/Fri — ENABLE ONLY AFTER F-T1 IS RESOLVED
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Capture official injury report (immutable, hash-stamped)
+        run: python3 ops/availability_capture.py
+      - name: Commit the new snapshot
+        run: |
+          git config user.name "fl2-availability-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add ops/data/availability_snapshots/
+          if git diff --cached --quiet; then
+            echo "No change in the official report page snapshot."
+          else
+            git commit -m "availability snapshot $(date -u +%Y%m%dT%H%MZ) [automated]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Drift alarm (fail loudly on any structural change)
+        run: python3 ops/drift_check.py

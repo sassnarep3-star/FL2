@@ -47,7 +47,8 @@
       <a href="signal/index.html">Signal Lab</a>
       <a href="fl2-signals/index.html">Verified Signals</a>
       <a href="linelab/index.html">Line Lab</a>
-      <a href="fl2-lines/index.html">Originated Lines</a>
+<a href="fl2-lines/index.html">Originated Lines</a>
+      <a href="readiness/index.html">Readiness</a>
       <a href="ledger/flagged.html">Flagged</a>
     </nav>
   </div>
@@ -233,7 +234,7 @@
       <p><strong>Which one should you read?</strong> Read the <a href="fl2-lines/index.html">decision-readiness
       table</a> first — it states, requirement by requirement, what is settled and what is still blocked,
       then follow the numbers into the <a href="ledger/overview.html">Evidence
-      Ledger</a> and the <a href="ledger/strategies.html">Strategy Lab</a>. Four sections now carry
+      Ledger</a> and the <a href="ledger/strategies.html">Strategy Lab</a>. Six sections now carry
       verified or measured NFL data — the ledger (standings, points for and against, defensive yardage,
       the official injury report, 16 seasons of closing lines), Originated Lines (a 2026 results feed
       reconciled to the official standings, originated prices with residuals, designation rates measured
@@ -246,8 +247,50 @@
       (<a href="docs/index.html">docs</a>, <a href="hub/index.html">hub</a>, and the framework pages at
       this root) deliberately left every NFL value blank. Their restraint was correct
       at the time; the reconciled data is what those frameworks were waiting for.</p>
-      <p class="small" style="margin-bottom:0">Consolidating the seven structures into one is proposed
-      as a decision, not done silently. See <a href="ledger/suggestions.html">Suggestions</a>.</p>
+      <p class="small" style="margin-bottom:0"><strong>Three independent decision-readiness tables now
+      exist</strong> — <a href="fl2-lines/index.html">/fl2-lines/</a> (74 requirements, this session),
+      <a href="readiness/index.html">/readiness/</a> and <a href="linelab/index.html">/linelab/</a>, written by
+      three sessions given the same brief. They are kept apart deliberately: where two of them disagree about a
+      requirement's status, that disagreement is the finding, and collapsing them into one table would erase it.
+      Consolidating the eight structures into one is proposed as a decision, not done silently. See
+      <a href="ledger/suggestions.html">Suggestions</a>.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Decision readiness &amp; verified signals</h2>
+    <p class="sub">Added by session <code>310620fe</code> (2026-11-16), reconciled with the DR-table above:
+    <a href="readiness/index.html">/readiness/</a> holds the verbatim R26&ndash;R96 register (71 requirement lines of
+    the current brief, each with its status, blocking gate, clearing number and evidence) plus the ops layer that
+    backs several gates &mdash; price-snapshot store, verified 150-game results feed, luck panel, control baselines,
+    team availability, venues, the pre-registered Week 11 forecasts and the snapshot ledger. Every number there is
+    recomputed by a linked script.</p>
+    <div class="hub-grid">
+      <a class="tile pri" href="readiness/index.html">
+        <div class="eyebrow">One row per requirement</div>
+        <h3>Decision readiness table</h3>
+        <p>All 71 requirement lines (R26–R96) verbatim, each with its status, the gate that blocks it, and the
+        number that would clear it. Counts: 29 done · 25 partial · 8 registered · 7 blocked · 2 rejected.</p>
+        <div class="meta"><span class="badge ok">register + gates + clearing numbers</span></div>
+      </a>
+      <a class="tile pri" href="readiness/ops.html">
+        <div class="eyebrow">The ops layer</div>
+        <h3>Ops dashboard</h3>
+        <p>Price-snapshot store (openings blank by policy), the verified 150-game results feed (137/137
+        cross-verified), the removal-of-luck panel, control baselines, per-team availability, venues with the Munich
+        cross-check, pre-registered Week 11 forecasts, the snapshot ledger and drift pins.</p>
+        <div class="meta"><span class="badge ok">every number recomputed by a linked script</span></div>
+      </a>
+    </div>
+    <div class="note warn" style="margin-top:16px">
+      <p class="small" style="margin-bottom:0">Readiness headlines: home-field advantage measures
+      <strong>−0.65 points</strong> on the extended 148-game verified corpus (the "HFA is approximately zero in
+      2026" finding replicates); the favourites-only control covers <strong>52.0%</strong> and the frozen-seed random
+      control wins <strong>54.1%</strong> — both baselines are now mandatory in every leaderboard run; the first
+      strategy (STRAT-1) was <strong>pre-registered on 2026-11-16, before Week 11 kickoff</strong>, with its
+      forecasts, inputs and market residuals recorded. Blocked items (IR/reserve status, NWS weather, archived
+      injury seasons) are listed with their missing sources on
+      <a href="readiness/flagged.html">Readiness · Flagged for Review</a>.</p>
     </div>
   </section>
 

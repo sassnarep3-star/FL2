@@ -1,0 +1,190 @@
+{
+ "depth_charts_2026": {
+  "captured_as_of": "2026-11-14",
+  "max_age_days": 10,
+  "min_rows": 5,
+  "note": "only 5 of 32 clubs acquired \u2014 min pin reflects reality, gap flagged",
+  "path": "data/depth_charts.json",
+  "pinned_fields": [
+   "clubs",
+   "injury_conflicts",
+   "registry"
+  ],
+  "pinned_rows": 5,
+  "required_fields": [
+   "clubs"
+  ]
+ },
+ "injuries_2026_w10": {
+  "captured_as_of": "2026-11-14",
+  "max_age_days": 10,
+  "min_rows": 300,
+  "note": "official Week 10 report; 345 rows at capture; live count changes as games pass",
+  "path": "data/injuries.json",
+  "pinned_fields": [
+   "games",
+   "teams",
+   "players"
+  ],
+  "pinned_rows": 345,
+  "required_fields": [
+   "games"
+  ]
+ },
+ "nflverse_games": {
+  "captured_as_of": "2026-11-14",
+  "max_age_days": 14,
+  "min_rows": 7000,
+  "note": "T2/T3 open data mirror",
+  "path": "raw/games.csv",
+  "pinned_fields": [
+   "game_id",
+   "season",
+   "game_type",
+   "week",
+   "gameday",
+   "weekday",
+   "gametime",
+   "away_team",
+   "away_score",
+   "home_team",
+   "home_score",
+   "location",
+   "result",
+   "total",
+   "overtime",
+   "old_game_id",
+   "gsis",
+   "nfl_detail_id",
+   "pfr",
+   "pff",
+   "espn",
+   "ftn",
+   "away_rest",
+   "home_rest",
+   "away_moneyline",
+   "home_moneyline",
+   "spread_line",
+   "away_spread_odds",
+   "home_spread_odds",
+   "total_line",
+   "under_odds",
+   "over_odds",
+   "div_game",
+   "roof",
+   "surface",
+   "temp",
+   "wind",
+   "away_qb_id",
+   "home_qb_id",
+   "away_qb_name",
+   "home_qb_name",
+   "away_coach",
+   "home_coach",
+   "referee",
+   "stadium_id",
+   "stadium"
+  ],
+  "pinned_rows": 7548,
+  "required_fields": [
+   "game_id",
+   "season",
+   "week",
+   "spread_line",
+   "total_line",
+   "stadium",
+   "roof",
+   "surface"
+  ]
+ },
+ "price_snapshots": {
+  "captured_as_of": "2026-11-16",
+  "max_age_days": 14,
+  "min_rows": 28,
+  "path": "ops/data/price_snapshots.csv",
+  "pinned_fields": [
+   "ts_utc",
+   "season",
+   "week",
+   "game_id",
+   "market",
+   "tier",
+   "line_open",
+   "line_close",
+   "home_team",
+   "away_team",
+   "source_url",
+   "source_sha256",
+   "verified_by_official_source",
+   "note"
+  ],
+  "pinned_rows": 28,
+  "required_fields": [
+   "ts_utc",
+   "season",
+   "week",
+   "game_id",
+   "market",
+   "tier",
+   "line_close",
+   "source_url"
+  ]
+ },
+ "results_2026_feed": {
+  "captured_as_of": "2026-11-16",
+  "max_age_days": 14,
+  "min_rows": 150,
+  "note": "verified results corpus; grows weekly",
+  "path": "ops/data/results/results_2026_reg.csv",
+  "pinned_fields": [
+   "game_id",
+   "season",
+   "week",
+   "gameday",
+   "away_team",
+   "home_team",
+   "away_pts",
+   "home_pts",
+   "status",
+   "tier",
+   "source_url",
+   "cross_check",
+   "note"
+  ],
+  "pinned_rows": 150,
+  "required_fields": [
+   "game_id",
+   "away_pts",
+   "home_pts",
+   "status",
+   "source_url",
+   "tier"
+  ]
+ },
+ "standings_2026": {
+  "captured_as_of": "2026-11-14",
+  "max_age_days": 10,
+  "min_rows": 32,
+  "path": "data/standings.json",
+  "pinned_fields": [
+   "divisions"
+  ],
+  "pinned_rows": 32,
+  "required_fields": [
+   "divisions"
+  ]
+ },
+ "team_stats_2026": {
+  "captured_as_of": "2026-11-14",
+  "max_age_days": 10,
+  "min_rows": 32,
+  "path": "data/team_stats.json",
+  "pinned_fields": [
+   "tables"
+  ],
+  "pinned_rows": 128,
+  "required_fields": [
+   "tables"
+  ]
+ }
+}
