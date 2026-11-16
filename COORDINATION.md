@@ -18,6 +18,7 @@ Flagged for Review page; does not block anything).
 | `e70150db` and others | `arena/e70150db-fl2` | NFL Decision Hub: requirements, gates, luck/skill, repo audit | `/hub/` | **merged** |
 | `68b4e431` | `arena/68b4e431-fl2` | **Evidence Ledger**: verified 2026 data, line model, 11-strategy validation harness, suggestions register, site hub | `/` (hub) + `/ledger/` | **this PR** |
 | `arena-48561869-fl2` | `arena/48561869-fl2` | **FL2 Dashboard**: verified official-source data foundation (2026 standings, Week 10 schedule, 345-row injury report, depth-chart example), executive summary, questions/answers register, suggestions section, strategy design with validation gates and luck-removal scoring, leaderboard spec, flagged-review page; integrated into the hub as `/fl2-dashboard/` | `/fl2-dashboard/` | **merged (PR #9)** |
+| `session-65556dd2` | `arena/65556dd2-fl2` | **Origination & Competition**: verified results feed (Week 10 completion), price-snapshot store + price-data policy, pre-registered shadow baseline with Week 11 fair/market/diff lines, signal-vs-staking leaderboard with control baselines and removal-of-luck panel, availability graph, decision-readiness register on the landing page | `/origination/` + landing-page readiness table | **in progress** |
 
 
 **Integration completed 2026-11-14** (PR #8, merged as `ab37150`). How the four sites
@@ -45,7 +46,50 @@ Deleting or silently rewriting three other sessions' work was not an option, so 
 
 ---
 
-# Session 68b4e431 — Evidence Ledger (current)
+---
+
+# Session session-65556dd2 — Origination & Competition (`/origination/`) — current
+
+Repo: `sassnarep3-star/FL2` · Session: `session-65556dd2` · Branch: `arena/65556dd2-fl2`
+Base: `main` @ `229d5fa` (after PR #15). Started 2026-11-16. All earlier sessions' work is
+merged and their claims are released; this session additionally acts as the **final
+integration session** described in the brief (shared outputs: hub `index.html`, nav,
+`README.md`, `COORDINATION.md`).
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+|---|---|---|---|---|---|
+| T20 | Claim + coordination | **done** (2026-11-16) | session-65556dd2 | `COORDINATION.md` | this board |
+| T21 | Verified results feed: Week 10 completion + full 2026 corpus, per-row official source | in progress | session-65556dd2 | `data/results_feed.*`, `tools/build_results_feed.py` | nfl.com schedule pages + nflverse `raw/games.csv` cross-check |
+| T22 | Price-snapshot store (opening + closing per market) + price-data policy decided **before** any backtest publish | in progress | session-65556dd2 | `data/price_snapshots.*`, `tools/build_price_store.py`, `research/price-data-policy.md` | nflverse `initial_lines.csv`/`closing_lines.csv` + live market capture (labeled T3) |
+| T23 | Pre-registered shadow baseline (singles-only): side → total → moneyline, fair/market/difference columns, forecasts frozen before Week 11 kickoff | in progress | session-65556dd2 | `research/preregistration.md`, `tools/run_shadow_model.py`, `data/origination_week11.*`, `data/forecast_ledger.*` | registration commit hash is the registration |
+| T24 | Leaderboard: signal vs staking split, proper-score divisions, control baselines (random / favorites-only), removal-of-luck panel, demotion gate, two-sided "what would change our mind" per strategy | in progress | session-65556dd2 | `tools/run_leaderboard.py`, `data/leaderboard.*` | parlay + prop divisions remain behind the joint-evidence gate |
+| T25 | Availability graph (expected vs actually active) + Week-10 injury-data fixes verifiable from official pages | in progress | session-65556dd2 | `data/availability_graph.*`, `tools/build_availability_graph.py` | Lions designations, IR/reserve capture, announced-starter evidence, stale-depth flags |
+| T26 | Decision-readiness register: one row per requirement with the blocking gate and the number that clears it, on the landing page | in progress | session-65556dd2 | `data/decision_readiness.*`, `research/requirements-register.md` | full backlog from the 2026-11-16 brief |
+| T27 | `/origination/` site section + hub integration (landing table, nav, README) | in progress | session-65556dd2 | `origination/**`, `tools/build_origination_site.py`, `tools/check_origination.py`, `index.html` (integration), `README.md` (integration) | |
+| T28 | Final integration: re-verify all checkers, PR, merge, Pages live check | in progress | session-65556dd2 | `.git` (via gh), this file | do not merge a broken site |
+
+## Claims
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-65556dd2 | `origination/**`, `tools/build_results_feed.py`, `tools/build_price_store.py`, `tools/run_shadow_model.py`, `tools/run_leaderboard.py`, `tools/build_availability_graph.py`, `tools/build_origination_site.py`, `tools/check_origination.py`, `data/results_feed.*`, `data/price_snapshots.*`, `data/origination_week11.*`, `data/forecast_ledger.*`, `data/leaderboard.*`, `data/decision_readiness.*`, `data/availability_graph.*`, `research/price-data-policy.md`, `research/preregistration.md`, `research/requirements-register.md`, plus integration edits to `index.html`, `README.md`, `COORDINATION.md` | 2026-11-16 | — |
+
+No other session has an open claim (all prior sessions are merged and complete; the most
+recent claim, `session-1374049c`, was a single-session run finished by PR #15 on 2026-11-14,
+well beyond the 60-minute takeover rule). Non-overlapping scope is preserved: nothing under
+`docs/`, `hub/`, `ledger/`, `fl2-dashboard/`, `fl2-signals/`, `signal/`, `engine/`,
+`scripts/`, or the root Fourth & Signal pages is edited except the hub `index.html` and
+`README.md`, which the brief assigns to the final integration session.
+
+## Log
+
+- 2026-11-16 — session-65556dd2 inspection: repo at `229d5fa` on `arena/65556dd2-fl2`, clean tree. Six site sections live. Read this board before any task, as instructed. Claimed T20–T28 above.
+
+---
+
+
 
 ## Task board
 
