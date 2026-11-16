@@ -126,7 +126,9 @@ well beyond the 60-minute takeover rule). Non-overlapping scope is preserved: no
 | 7 | Shared-worktree parallel sessions + duplicate claim commit (`dbdd706`) | resolved by rebase/merge keeping both sides; logged above |
 | 8 | Two overlapping decision-readiness registers (R01-R74 vs DR-01-DR-72) | both kept; reconciled in the landing table integration-update column |
 
-**Integration record:** PR link and merge result are recorded in the follow-up commit below.
+**Integration record:** PR [#30](https://github.com/sassnarep3-star/FL2/pull/30) merged to `main` at **2026-11-16 02:24:02Z**, merge commit `1a96a606d1723af8b87148f51c5a76516eed4bdd`. Post-merge workflow run `43791928093` passed both validation and the GitHub Pages deploy jobs; live site verified at https://sassnarep3-star.github.io/FL2/. PR checks also passed: session check `43791874821` and site validation `43791880110`. The integrated decision-readiness table renders client-side from `data/landing_readiness.js`; the page-fetch text extractor omits JavaScript-rendered rows, while the CI jsdom check validated all 75 rows in the source payload and 56 rendered tables across the site.
+
+**Post-merge irregularity:** the live hub intentionally names three independent readiness tables after PR #28; the 75-row combined landing table remains a distinct client-rendered section immediately before “How to read any number”. This preserves the parallel sessions' independent analyses rather than replacing them.
 
 ---
 
