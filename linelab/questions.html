@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questions · FL2 Line Lab</title>
+<meta name="description" content="NFL line origination lab: verified prices, probabilities with inputs, proper-score evaluation, and a named gate on every blocked requirement.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
+  <div class="sub">2026 · build 53f2b0df12f4 (hash of inputs) · every row sourced or flagged</div>
+  <nav><a href="index.html">Overview</a>
+<a href="requirements.html">Decision readiness</a>
+<a href="lines.html">Our lines</a>
+<a href="models.html">Model comparison</a>
+<a href="strategies.html">Strategies &amp; gates</a>
+<a href="availability.html">Availability</a>
+<a href="depth.html">Depth graph</a>
+<a href="prices.html">Price store</a>
+<a href="questions.html" aria-current=page>Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged</a>
+<a href="sources.html">Sources</a></nav>
+</div></header>
+<main>
+
+
+<h1>Questions this project had to answer before deciding anything</h1>
+<p class="lede">Each question below was blocking a decision. Each answer is derived from a committed
+file, and where the answer was "the data cannot say", that is the answer.</p>
+<div class="tw"><table class=""><thead><tr><th class="">Question</th><th class="">Answer, with its number</th><th class="">State</th><th class="src">Evidence</th></tr></thead><tbody>
+<tr><td class="">What does &#x27;opening line&#x27; mean in this repository, and how many games have one?</td><td class="">272 side markets and 272 total markets, all in 2021. Every other game has a single undated line. This is a data fact, not a choice.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/price_store_meta.json" rel="noopener">data/linelab/price_store_meta.json</a></td></tr>
+<tr><td class="">Does the opponent-adjusted model beat the unadjusted one?</td><td class="">No. On the holdout the unadjusted estimator scores better on the moneyline (0.06858 vs 0.01117) and both lose on side and total. The adjusted model is not carrying information the naive one lacks.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/scores.json" rel="noopener">data/linelab/scores.json</a></td></tr>
+<tr><td class="">What does &#x27;Questionable&#x27; mean empirically?</td><td class="">Out: 0.0% of 10674 player-weeks played (95% CI 0.0%-0.1%); Doubtful: 0.8% of 1684 player-weeks played (95% CI 0.5%-1.4%); Questionable: 63.9% of 14950 player-weeks played (95% CI 63.1%-64.6%)</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/availability.json" rel="noopener">data/linelab/availability.json</a></td></tr>
+<tr><td class="">Is the margin/total dependence that supposedly invalidates same-game parlays real?</td><td class="">Not in this data. The measured correlation is close to zero and its 95% interval contains zero. The invalid-multiplication rule therefore rests on same-team and same-player dependence, which has NOT been measured here and must not be described as measured.</td><td class=""><span class="badge ok">answered — and it corrected a prior assumption</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/scores.json" rel="noopener">data/linelab/scores.json</a></td></tr>
+<tr><td class="">Which games could the Week 10 availability capture have informed, given its clock time?</td><td class="">135 of 137 completed games have a pre-kickoff availability vintage. The rest kicked off before the capture existed.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/corpus.json" rel="noopener">data/linelab/corpus.json</a></td></tr>
+<tr><td class="">What is missing before an injury ablation can be run?</td><td class="">A pre-kickoff availability capture per game in the evaluation window. With one capture per week taken after most kickoffs, any ablation would leak the future.</td><td class=""><span class="badge ok">answered — it is a scheduling gap</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/registry.json" rel="noopener">data/linelab/registry.json</a></td></tr>
+<tr><td class="">Should the leaderboard show staking results next to signal results?</td><td class="">It shows both but never combines them. The luck panel exists to show why a staking run cannot be trusted at the sample sizes this project can reach.</td><td class=""><span class="badge ok">answered by design</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/scores.json" rel="noopener">data/linelab/scores.json</a></td></tr>
+<tr><td class="">How many club depth charts are actually verified?</td><td class="">5 of 32. The other 27 are recorded as not acquired, not estimated.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/depth_graph.json" rel="noopener">data/linelab/depth_graph.json</a></td></tr>
+<tr><td class="">Can a starter be identified when the club publishes three players at rank 1?</td><td class="">No, and the data says so 25 times. The slot is stored as a group. Choosing one would be an invention.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/depth_graph.json" rel="noopener">data/linelab/depth_graph.json</a></td></tr>
+<tr><td class="">Is there an official depth chart anywhere?</td><td class="">No. The nfl.com per-team depth-chart path returns 404. Every chart used is club-published and captioned unofficial.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://www.nfl.com/teams/new-england-patriots/depth-chart" rel="noopener">https://www.nfl.com/teams/new-england-patri…</a></td></tr>
+<tr><td class="">What would make any strategy here eligible to go live?</td><td class="">A positive game-cluster lower bound on Brier skill over at least 1,000 prospective games, holding after multiplicity adjustment, plus a defined demotion rule. None is eligible today.</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/registry.json" rel="noopener">data/linelab/registry.json</a></td></tr>
+<tr><td class="">Which requirement rows are blocked on a scheduler rather than on analysis?</td><td class="">R18, R28, R45, R52, R61</td><td class=""><span class="badge ok">answered</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/engine/linelab/requirements.py" rel="noopener">engine/linelab/requirements.py</a></td></tr>
+</tbody></table></div>
+<div class="note"><strong>The questions that are still open</strong> are the ones inside the blocked
+requirements: what the reserve list contains, what each club's depth chart says beyond the five
+acquired, what the official inactives were, and what the league's 2026 kickoff rule text says. None of
+them is guessed at here.</div>
+
+</main>
+<footer>
+  <p><strong>Not betting advice.</strong> This is a measurement project. Every value is either
+  reproducible from a committed file in this repository or left blank; blanks are listed on
+  <a href="flagged.html">Flagged</a>. Model prices come from nflverse/nfldata, an open mirror of
+  published official results and market numbers; availability comes from nfl.com.</p>
+  <p>Source allowlist and hashes: <a href="sources.html">Sources</a>.
+  Repository: <a href="https://github.com/sassnarep3-star/FL2">github.com/sassnarep3-star/FL2</a>.</p>
+</footer>
+</body>
+</html>

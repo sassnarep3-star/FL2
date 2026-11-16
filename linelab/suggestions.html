@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions · FL2 Line Lab</title>
+<meta name="description" content="NFL line origination lab: verified prices, probabilities with inputs, proper-score evaluation, and a named gate on every blocked requirement.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
+  <div class="sub">2026 · build 53f2b0df12f4 (hash of inputs) · every row sourced or flagged</div>
+  <nav><a href="index.html">Overview</a>
+<a href="requirements.html">Decision readiness</a>
+<a href="lines.html">Our lines</a>
+<a href="models.html">Model comparison</a>
+<a href="strategies.html">Strategies &amp; gates</a>
+<a href="availability.html">Availability</a>
+<a href="depth.html">Depth graph</a>
+<a href="prices.html">Price store</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html" aria-current=page>Suggestions</a>
+<a href="flagged.html">Flagged</a>
+<a href="sources.html">Sources</a></nav>
+</div></header>
+<main>
+
+
+<h1>Suggestions, for review before anything is built</h1>
+<p class="lede">These are proposals, not changes. Each names the problem, the options, and a
+recommendation, so a reviewer can pick a path before work starts rather than after. Nothing on this
+page has been implemented.</p>
+<div class="tw"><table class=""><thead><tr><th class="mono">ID</th><th class="">Proposal</th><th class="">Why it matters</th><th class="">Options</th><th class="">Recommendation</th><th class="">Decision</th><th class="src">Source</th></tr></thead><tbody>
+<tr><td class="mono"><code>S-A1</code></td><td class=""><strong>Ship the scheduler before anything else</strong></td><td class="">Rows  are all blocked on the same thing: nothing captures on a cadence. One GitHub Action that runs daily, fetches the official injury report, hashes it and commits closes all of them at once.</td><td class="">· GitHub Action on a cron schedule (recommended: runs where the network is open)<br>· external cron on a small worker<br>· manual capture with a checklist</td><td class="">GitHub Action. The repository already has workflows; this is the smallest change with the largest unblock.</td><td class=""><span class="badge mute">open</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/requirements.json" rel="noopener">data/linelab/requirements.json</a></td></tr>
+<tr><td class="mono"><code>S-A2</code></td><td class=""><strong>Buy one more independent price source</strong></td><td class="">Every price claim rests on one publisher&#x27;s files. A second book per game would turn the vig-free decomposition from a single-book calculation into an actual consensus.</td><td class="">· add a second book&#x27;s historical closes<br>· keep one book and label it plainly<br>· drop the consensus claim</td><td class="">Keep one book and label it; only buy a second if the originated line is going to be evaluated against consensus rather than movement.</td><td class=""><span class="badge mute">open</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/requirements.json" rel="noopener">data/linelab/requirements.json</a></td></tr>
+<tr><td class="mono"><code>S-A3</code></td><td class=""><strong>Publish the unadjusted model as the headline, not the adjusted one</strong></td><td class="">The adjusted model does not beat the control. Presenting it first would repeat the pattern every section before this one fell into: a framework that looks sophisticated and loses to a spreadsheet.</td><td class="">· headline the control<br>· headline both with the gap column (recommended)<br>· headline neither</td><td class="">Headline both, with the gap column, exactly as the brief&#x27;s &#x27;publish every model total twice&#x27; asks.</td><td class=""><span class="badge mute">open</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/requirements.json" rel="noopener">data/linelab/requirements.json</a></td></tr>
+<tr><td class="mono"><code>S-A4</code></td><td class=""><strong>Put the blocked-requirement count on the landing page, not in a footnote</strong></td><td class="">Most requirements are blocked. A landing page that leads with the ones that are done would give a reader a false impression of readiness.</td><td class="">· count on the landing page (recommended)<br>· counts only on the requirements page<br>· no counts</td><td class="">Count on the landing page. Decision-readiness is the product; shipping it quietly defeats it.</td><td class=""><span class="badge mute">open</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/requirements.json" rel="noopener">data/linelab/requirements.json</a></td></tr>
+<tr><td class="mono"><code>S-A5</code></td><td class=""><strong>Treat the depth-chart gap as a purchasing decision, not an engineering one</strong></td><td class="">27 clubs remain. Scraping 27 differently-built club pages is weeks of work with a permanent maintenance tail. A licensed structured feed is a contract.</td><td class="">· scrape the remaining clubs (weeks, fragile)<br>· license a structured depth/participation feed (cost, stable)<br>· stay at 5 clubs and say so (free, honest, limited)</td><td class="">License it. The brief already forbids the shortcuts that would make scraping 32 clubs seem cheap.</td><td class=""><span class="badge mute">open</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/requirements.json" rel="noopener">data/linelab/requirements.json</a></td></tr>
+<tr><td class="mono"><code>S-A6</code></td><td class=""><strong>Report &#x27;blocked&#x27; as a first-class outcome on every page</strong></td><td class="">The failure mode of this repository&#x27;s earlier sections was publishing frameworks whose every value was blank, and the failure mode of this one could be publishing numbers whose provenance is thin. A blocked count makes both visible.</td><td class="">· blocked column on every table (recommended)<br>· a single blocked page<br>· no blocked reporting</td><td class="">A blocked column, plus the existing Flagged page for the items that need a human read.</td><td class=""><span class="badge mute">open</span></td><td class="src"><a class="src" href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/requirements.json" rel="noopener">data/linelab/requirements.json</a></td></tr>
+</tbody></table></div>
+<div class="note"><strong>How to use this page.</strong> Mark a decision beside each proposal. The
+recommended path is the one the evidence on this site supports; the alternatives are listed because
+several of them are cheaper and one of them is free.</div>
+
+</main>
+<footer>
+  <p><strong>Not betting advice.</strong> This is a measurement project. Every value is either
+  reproducible from a committed file in this repository or left blank; blanks are listed on
+  <a href="flagged.html">Flagged</a>. Model prices come from nflverse/nfldata, an open mirror of
+  published official results and market numbers; availability comes from nfl.com.</p>
+  <p>Source allowlist and hashes: <a href="sources.html">Sources</a>.
+  Repository: <a href="https://github.com/sassnarep3-star/FL2">github.com/sassnarep3-star/FL2</a>.</p>
+</footer>
+</body>
+</html>

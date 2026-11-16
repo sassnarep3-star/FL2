@@ -1,0 +1,102 @@
+name: verify-linelab
+
+# Rebuilds the entire Line Lab section from committed inputs and fails if the
+# committed pages or data differ from a rebuild. A number on the site that
+# cannot be reproduced is a bug, so this is a gate rather than a smoke test.
+#
+# No network is required: every input is committed (raw/_nfldata/*.csv and
+# data/linelab/captures/*). That is deliberate — a build that needs the internet
+# is a build that cannot be rerun by a reviewer.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, "arena/74f76e34-fl2"]
+    paths:
+      - "engine/linelab/**"
+      - "data/linelab/**"
+      - "linelab/**"
+      - ".github/workflows/verify-linelab.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild every artefact and re-check the site
+        run: ./engine/linelab/build_all.sh
+
+      - name: Fail if the rebuild changed anything that was committed
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Committed Line Lab pages or data do not match a rebuild. Commit the regenerated files."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "Rebuild is reproducible: no drift."
+
+      - name: Assert the invariants the section claims
+        run: |
+          python3 - <<'PY'
+          import csv, json, sys
+          fail = []
+
+          # 1. Moneyline must have no opening price for any game, ever.
+          rows = list(csv.DictReader(open("data/linelab/price_store.csv")))
+          ml_open = [r for r in rows if r["market"] == "moneyline" and r["opening"]]
+          if ml_open:
+              fail.append(f"{len(ml_open)} moneyline rows claim an opening price")
+
+          # 2. A single undated line must never masquerade as an opening price.
+          bad = [r for r in rows if r["single_line"]
+                 and r["price_pair_status"] in ("open_and_close", "open_only")
+                 and not r["opening"]]
+          if bad:
+              fail.append(f"{len(bad)} rows use a single line as an opening price")
+
+          # 3. The holdout must not have been used to pick hyper-parameters.
+          meta = json.load(open("data/linelab/model_meta.json"))
+          split = meta.get("split", {})
+          if list(split.get("train", [])) != [1999, 2015]:
+              fail.append(f"train split changed: {split.get('train')}")
+
+          # 4. No strategy may be live while zero are eligible.
+          reg = json.load(open("data/linelab/registry.json"))
+          live = [s["id"] for s in reg["strategies"] if s["paper_or_live"] == "live"]
+          ok = [s["id"] for s in reg["strategies"] if s["verdict"] == "eligible"]
+          if live and not ok:
+              fail.append(f"live strategies with none eligible: {live}")
+
+          # 5. Every requirement row must name a gate or be done.
+          req = json.load(open("data/linelab/requirements.json"))
+          for r in req["requirements"]:
+              if r["status"] != "done" and r["blocking_gate"] in ("", "none", None):
+                  fail.append(f'{r["id"]} is {r["status"]} with no blocking gate')
+
+          # 6. Designation reliability must carry n and an interval.
+          av = json.load(open("data/linelab/availability.json"))
+          for b in (av.get("designation_reliability") or {}).get("buckets", []):
+              if not b.get("n") or not b.get("ci95_wilson"):
+                  fail.append(f'designation {b["designation"]} lacks n or CI')
+
+          # 7. Every correlation must carry n.
+          sc = json.load(open("data/linelab/scores.json"))
+          for c in sc.get("correlations", []):
+              if not c.get("n"):
+                  fail.append(f'correlation {c["pair"]} lacks n')
+
+          if fail:
+              for f in fail:
+                  print("::error::" + f)
+              sys.exit(1)
+          print("All Line Lab invariants hold.")
+          PY

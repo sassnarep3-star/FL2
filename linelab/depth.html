@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Depth graph · FL2 Line Lab</title>
+<meta name="description" content="NFL line origination lab: verified prices, probabilities with inputs, proper-score evaluation, and a named gate on every blocked requirement.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <div class="brand">FL2 Line Lab <span>· NFL line origination</span></div>
+  <div class="sub">2026 · build 53f2b0df12f4 (hash of inputs) · every row sourced or flagged</div>
+  <nav><a href="index.html">Overview</a>
+<a href="requirements.html">Decision readiness</a>
+<a href="lines.html">Our lines</a>
+<a href="models.html">Model comparison</a>
+<a href="strategies.html">Strategies &amp; gates</a>
+<a href="availability.html">Availability</a>
+<a href="depth.html" aria-current=page>Depth graph</a>
+<a href="prices.html">Price store</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged</a>
+<a href="sources.html">Sources</a></nav>
+</div></header>
+<main>
+
+
+<h1>Depth graph</h1>
+<p class="lede">Who was expected to start, stored as a first-class dataset. The two halves of that
+question are treated differently: the expected starter comes from a club page and is cited; the actual
+starter is <strong>null</strong> on every row, because no official inactive list or snap count is held
+for 2026 and inferring one would be a fabrication.</p>
+<div class="kpis">
+  <div class="kpi warn"><div class="n">5/32</div><div class="l">clubs acquired</div></div>
+  <div class="kpi info"><div class="n">596</div><div class="l">depth slots</div></div>
+  <div class="kpi warn"><div class="n">25</div><div class="l">grouped slots (club named more than one at rank 1)</div></div>
+  <div class="kpi mute"><div class="n">300</div><div class="l">empty slots (published empty, kept as rows)</div></div>
+  <div class="kpi bad"><div class="n">6</div><div class="l">slots where the expected starter is Out or Doubtful</div></div>
+</div>
+
+<h2>Why "column 1 is the starter" is wrong on this data</h2>
+<div class="note bad"><strong>25 slots list more than one player at rank 1.</strong>
+Clubs publish groups — three receivers, two cornerbacks — and choosing one of them as "the starter"
+would be an invention the club never made. Every such slot is stored as a group. 300
+slots are published empty and are kept as rows rather than skipped, because "nobody listed" is
+information, not a gap.</div>
+
+<h2>The club register, with source and page date</h2>
+<p class="sub2">There is no league-official depth chart: nfl.com returns 404 for the per-team path
+<code>/teams/TEAM/depth-chart</code>. Every chart below is club-published and several are captioned
+"unofficial" by the club itself. The page date is null where the club prints none — which is most of
+them, and that absence is why a dated transaction log is required to flag staleness.</p>
+<div class="tw"><table class=""><thead><tr><th class="mono">Team</th><th class="">Club</th><th class="src">Source</th><th class="">The club's own caption</th><th class="">Page date</th><th class="">Status</th><th class="">Basis</th></tr></thead><tbody>
+<tr><td class="mono">NE</td><td class="">New England Patriots</td><td class="src"><a class="src" href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td><td class="">The 2026 depth chart is unofficial and is published by the writers of Patriots.com. The depth chart reflects the opinions of the Patriots.com writers and don&#x…</td><td class=""><span class="na">—</span></td><td class=""><span class="badge ok">verified</span></td><td class=""><span class="badge bad">club (unofficial)</span></td></tr>
+<tr><td class="mono">DET</td><td class="">Detroit Lions</td><td class="src"><a class="src" href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td><td class="">Unofficial Depth Chart Compiled by Lions Football Communications</td><td class=""><span class="na">—</span></td><td class=""><span class="badge ok">verified</span></td><td class=""><span class="badge bad">club (unofficial)</span></td></tr>
+<tr><td class="mono">GB</td><td class="">Green Bay Packers</td><td class="src"><a class="src" href="https://www.packers.com/team/depth-chart" rel="noopener">https://www.packers.com/team/depth-chart</a></td><td class="">Unofficial, Nov. 10, 2026</td><td class="">2026-11-10</td><td class=""><span class="badge ok">verified</span></td><td class=""><span class="badge bad">club (unofficial)</span></td></tr>
+<tr><td class="mono">KC</td><td class="">Kansas City Chiefs</td><td class="src"><a class="src" href="https://www.chiefs.com/team/depth-chart" rel="noopener">https://www.chiefs.com/team/depth-chart</a></td><td class="">Unofficial Depth Chart</td><td class=""><span class="na">—</span></td><td class=""><span class="badge ok">verified</span></td><td class=""><span class="badge bad">club (unofficial)</span></td></tr>
+<tr><td class="mono">SF</td><td class="">San Francisco 49ers</td><td class="src"><a class="src" href="https://www.49ers.com/team/depth-chart" rel="noopener">https://www.49ers.com/team/depth-chart</a></td><td class="">Updated as of 11/10/26</td><td class="">2026-11-10</td><td class=""><span class="badge ok">verified</span></td><td class=""><span class="badge bad">club (unofficial)</span></td></tr>
+</tbody></table></div>
+
+<h2>Replacement depth: not just that a replacement exists, but how deep</h2>
+<p>For every slot where the club's rank-1 group is out or doubtful per the official report, this shows
+the rank of the man who would step in and whether he is himself unavailable.</p>
+<div class="tw"><table class=""><thead><tr><th class="mono">Team</th><th class="">Unit</th><th class="mono">Pos</th><th class="">Expected starter(s)</th><th class="">Unavailable</th><th class="">Next man up</th><th class="n">His depth rank</th><th class="n">Group size</th><th class="src">Club source</th><th class="src">Official source</th></tr></thead><tbody>
+<tr><td class="mono">DET</td><td class="">offense</td><td class="mono">C</td><td class="">Cade Mays</td><td class="">Cade Mays</td><td class="">Juice Scruggs</td><td class="n">2</td><td class="n">1</td><td class="src"><a class="src" href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+<tr><td class="mono">DET</td><td class="">defense</td><td class="mono">CB</td><td class="">D.J. Reed, Roger McCreary</td><td class="">D.J. Reed</td><td class="">Rock Ya-Sin</td><td class="n">2</td><td class="n">2</td><td class="src"><a class="src" href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+<tr><td class="mono">KC</td><td class="">offense</td><td class="mono">RT</td><td class="">Jaylon Moore</td><td class="">Jaylon Moore</td><td class="">Joshua Ezeudu</td><td class="n">2</td><td class="n">1</td><td class="src"><a class="src" href="https://www.chiefs.com/team/depth-chart" rel="noopener">https://www.chiefs.com/team/depth-chart</a></td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+<tr><td class="mono">NE</td><td class="">defense</td><td class="mono">CB</td><td class="">Carlton Davis III, Marcus Jones, Christian Gonzalez</td><td class="">Carlton Davis III</td><td class="">Channing Canada</td><td class="n">2</td><td class="n">3</td><td class="src"><a class="src" href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+<tr><td class="mono">NE</td><td class="">offense</td><td class="mono">LG</td><td class="">Ben Brown</td><td class="">Ben Brown</td><td class="">Walter Rouse</td><td class="n">2</td><td class="n">1</td><td class="src"><a class="src" href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+<tr><td class="mono">SF</td><td class="">offense</td><td class="mono">WR</td><td class="">Mike Evans, Deebo Samuel Sr.</td><td class="">Mike Evans</td><td class="">Jordan Watkins</td><td class="n">2</td><td class="n">2</td><td class="src"><a class="src" href="https://www.49ers.com/team/depth-chart" rel="noopener">https://www.49ers.com/team/depth-chart</a></td><td class="src"><a class="src" href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">https://www.nfl.com/injuries/league/2026/reg10</a></td></tr>
+</tbody></table></div>
+
+<h2>The feature this section deliberately does not build</h2>
+<div class="note warn"><strong>Backup deficiency: not built.</strong>
+The brief requires resolving the depth-order source before building this feature. Two routes were required to be evaluated in order: (a) per-club official pages, verified club by club; (b) snap counts from an official source. Route (a) is unavailable as an OFFICIAL source because no league-official chart exists, and only 5 of 32 clubs have been acquired. Route (b) has no official source reachable from this repository. The feature is therefore not built.
+<h3>What would unblock it</h3>
+<ul><li>acquisition and dated capture of all 32 club charts, or</li><li>an official snap-count or participation source for 2026</li></ul>
+<strong>Shortcut refused:</strong> Deriving depth order from jersey number, experience, salary or roster order. None of those is a depth order and using them would fabricate a starter.</div>
+
+</main>
+<footer>
+  <p><strong>Not betting advice.</strong> This is a measurement project. Every value is either
+  reproducible from a committed file in this repository or left blank; blanks are listed on
+  <a href="flagged.html">Flagged</a>. Model prices come from nflverse/nfldata, an open mirror of
+  published official results and market numbers; availability comes from nfl.com.</p>
+  <p>Source allowlist and hashes: <a href="sources.html">Sources</a>.
+  Repository: <a href="https://github.com/sassnarep3-star/FL2">github.com/sassnarep3-star/FL2</a>.</p>
+</footer>
+</body>
+</html>

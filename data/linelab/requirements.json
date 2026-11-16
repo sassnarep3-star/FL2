@@ -1,0 +1,871 @@
+{
+ "built_utc": "derived-from-inputs",
+ "built_from_inputs_sha256": "53f2b0df12f4b41f647b725a34077ac61aa3856f42e85ad9728aed5c1cec4266",
+ "built_from_inputs_short": "53f2b0df12f4",
+ "built_from_n_input_files": 11,
+ "built_from_inputs_note": "This build is identified by a SHA-256 over every input file it read, not by a wall-clock time. Rebuilding from the same inputs produces this same stamp, which is what the CI reproducibility gate checks. The date of any given publication is the git commit date.",
+ "builder": "engine/linelab/requirements.py",
+ "counts": {
+  "total": 68,
+  "partial": 14,
+  "done": 39,
+  "blocked": 15
+ },
+ "requirements": [
+  {
+   "id": "R01",
+   "requirement": "Add a price-snapshot store that records opening and closing numbers for every market we originate",
+   "status": "partial",
+   "artefact": "data/linelab/price_store.csv",
+   "evidence": "0 side markets have both an opening AND closing price; 272 open-only; 3237 close-only; 3621 carry only a single undated line. Moneyline opening exists for 0 games.",
+   "blocking_gate": "G01-price-history",
+   "number_that_would_clear_it": "A second dated price vintage per market. Today the only opening numbers in the repository cover 272 games in 2021. To originate a line day-one and prove its movement, a daily capture from open to close is required for the games being originated.",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv"
+  },
+  {
+   "id": "R02",
+   "requirement": "Add a verified results feed so backtests and ROI can be computed",
+   "status": "done",
+   "artefact": "raw/_nfldata/games.csv + data/linelab/corpus.json",
+   "evidence": "137 completed 2026 games, all with home and away scores, from the official results table",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+  },
+  {
+   "id": "R03",
+   "requirement": "Originate the side first, then the total, then the moneyline",
+   "status": "done",
+   "artefact": "data/linelab/model_outputs.csv",
+   "evidence": "market order declared in model_meta.json as ['side', 'total', 'moneyline']; every game has all three rows",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/model.py"
+  },
+  {
+   "id": "R04",
+   "requirement": "Publish the fair line, the market line, and the difference as separate columns",
+   "status": "done",
+   "artefact": "data/linelab/model_outputs.csv",
+   "evidence": "columns model_line / market_line / difference; 0 rows where the difference is stored inside either line",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/model.py"
+  },
+  {
+   "id": "R05",
+   "requirement": "Separate 'signal' from 'staking' in the leaderboard",
+   "status": "done",
+   "artefact": "data/linelab/scores.json",
+   "evidence": "signal = Brier skill with a game-cluster lower bound; staking is reported per 100 bets and never folded into the rank",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R06",
+   "requirement": "Track the depth of the replacement, not just the fact of a replacement",
+   "status": "partial",
+   "artefact": "data/linelab/depth_graph.json",
+   "evidence": "6 replacement rows carry the rank of the man who would step in, and whether he is himself listed as unavailable",
+   "blocking_gate": "G02-depth-coverage",
+   "number_that_would_clear_it": "Acquire the remaining 27 club charts. The 5 held show 6 slots where a rank-1 player is Out or Doubtful and a named rank-2 replacement exists.",
+   "source": "https://www.nfl.com/teams/new-england-patriots/depth-chart (404 \u2014 no official chart)"
+  },
+  {
+   "id": "R07",
+   "requirement": "Compute correlations only from officially sourced numbers and publish n with each value",
+   "status": "done",
+   "artefact": "data/linelab/scores.json",
+   "evidence": "3 correlation rows, each with r, n and a Fisher 95% interval; pairs under 200 observations are suppressed",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R08",
+   "requirement": "Define a demotion gate that sends a live strategy back to paper",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "every strategy carries a demotion rule and the current state 'paper'; nothing is live",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R09",
+   "requirement": "Pre-register every strategy; forbid backtest numbers from ever appearing on the leaderboard",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "7 strategies registered with rules frozen in a committed file; the leaderboard payload is asserted against this rule at build time",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R10",
+   "requirement": "Build the availability graph as a first-class dataset (who was expected to start, who actually did)",
+   "status": "partial",
+   "artefact": "data/linelab/depth_graph.json",
+   "evidence": "expected starters present for 5 of 32 clubs; 'actually started' is NULL on all 596 slot rows because no official inactive list or snap count is held for 2026",
+   "blocking_gate": "G03-actuals",
+   "number_that_would_clear_it": "An official inactive list or snap-count feed for 2026. Without it the 'actually did' half of the graph cannot be filled and is left null rather than inferred.",
+   "source": "https://www.nfl.com/injuries/"
+  },
+  {
+   "id": "R11",
+   "requirement": "Do not model depth from jersey order; model it from playing time",
+   "status": "done",
+   "artefact": "data/linelab/depth_graph.json",
+   "evidence": "shortcut refused and quantified: 25 grouped slots and 300 empty slots would each have had to be invented",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/depth_graph.py"
+  },
+  {
+   "id": "R12",
+   "requirement": "Make the injury signal a surprise, never a level",
+   "status": "blocked",
+   "artefact": "data/linelab/availability.json",
+   "evidence": "designation reliability measured so a surprise can be defined against a base rate",
+   "blocking_gate": "G04-availability-series",
+   "number_that_would_clear_it": "The reliability table gives the base rate. A surprise needs a prior AND an update for the same game; the repository holds 1 delta covering 21 player changes, which is a start, not a series.",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "id": "R13",
+   "requirement": "Run the 32-team roster/IR sweep before any team-level model is trusted",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no sweep exists; no IR or reserve-list feed is held in the repository",
+   "blocking_gate": "G05-roster",
+   "number_that_would_clear_it": "A 32-team roster and injured-reserve snapshot. Until it exists, no team-level output here should be read as availability-aware: the models in model_outputs.csv use scoring only.",
+   "source": "https://www.nfl.com/players/"
+  },
+  {
+   "id": "R14",
+   "requirement": "Add a fixture-context feature set built only from published schedule facts",
+   "status": "partial",
+   "artefact": "data/linelab/model_outputs.csv",
+   "evidence": "rest days, roof and surface exist in games.csv and are carried in the price store; they are NOT yet used as features",
+   "blocking_gate": "G06-feature-ablation",
+   "number_that_would_clear_it": "A chronological ablation showing that adding them improves out-of-sample Brier. Until that is run, they are published as context and not claimed as signal.",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+  },
+  {
+   "id": "R15",
+   "requirement": "Store every model output as a probability plus its inputs, not just a pick",
+   "status": "done",
+   "artefact": "data/linelab/model_outputs.csv",
+   "evidence": "every row carries model_prob_home, model_line, sigma and a JSON inputs block with the ratings that produced it",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/model.py"
+  },
+  {
+   "id": "R16",
+   "requirement": "Compute and publish the 'removal of luck' panel",
+   "status": "done",
+   "artefact": "data/linelab/scores.json \u2192 luck_panel",
+   "evidence": "break-even rate, and the number of bets required to separate 55/57/60% skill from a coin",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R17",
+   "requirement": "Add a two-sided 'what would change our mind' field to every strategy entry",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "every strategy has toward_belief and away_from_belief text",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R18",
+   "requirement": "Price a line ourselves and publish the residual against the market, on a schedule, from day one",
+   "status": "partial",
+   "artefact": "data/linelab/model_outputs.csv",
+   "evidence": "41229 model outputs with a residual for every game that has a market line",
+   "blocking_gate": "G07-scheduler",
+   "number_that_would_clear_it": "The numbers are published; the SCHEDULE is not yet automated. A workflow that regenerates and commits on a fixed cadence is what closes this, not more modelling.",
+   "source": "engine/linelab/model.py"
+  },
+  {
+   "id": "R19",
+   "requirement": "Turn the 136-game log into the pre-registered backtest corpus",
+   "status": "done",
+   "artefact": "data/linelab/corpus.json",
+   "evidence": "137 completed games, 135 with a pre-kickoff availability vintage",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R20",
+   "requirement": "Decide the price-data policy before any backtest is published",
+   "status": "done",
+   "artefact": "data/linelab/price_store_meta.json \u2192 policy",
+   "evidence": "four line families named and separated; the single-line column is excluded from any open-to-close computation",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/price_store.py"
+  },
+  {
+   "id": "R21",
+   "requirement": "Store every injury-hub read with its clock time and publish the delta, never the level",
+   "status": "done",
+   "artefact": "data/linelab/availability.json",
+   "evidence": "2 captures with clock time and SHA-256; 1 delta with 21 player-level changes",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://www.nfl.com/injuries/"
+  },
+  {
+   "id": "R22",
+   "requirement": "Put a decision-readiness table on the landing page",
+   "status": "done",
+   "artefact": "engine/linelab/requirements.py",
+   "evidence": "one row per requirement with status, blocking gate, and the number that would clear it",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/requirements.py"
+  },
+  {
+   "id": "R23",
+   "requirement": "Transcribe the venue of every fixture from the official game centre",
+   "status": "partial",
+   "artefact": "data/linelab/corpus.json",
+   "evidence": "the schedule table carries stadium and roof; the official game-centre venue per fixture was not re-read this session",
+   "blocking_gate": "G08-venue",
+   "number_that_would_clear_it": "A venue field read from each game centre. games.csv carries a stadium column, which is the club's home stadium, not necessarily the venue played. The two agree for most games and were NOT verified game by game here.",
+   "source": "https://www.nfl.com/schedules/"
+  },
+  {
+   "id": "R24",
+   "requirement": "Publish the league's dated schedule announcement beside the live schedule page",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no dated schedule announcement page was located and captured this session",
+   "blocking_gate": "G09-announcement",
+   "number_that_would_clear_it": "Capture the league's schedule-release page with its publication date and hash it. Not attempted here, so not claimed.",
+   "source": "https://www.nfl.com/schedules/"
+  },
+  {
+   "id": "R25",
+   "requirement": "Use official NFL Game Books for actual starters and game-day status; do not infer depth rank or snaps",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no game book is held or parsed",
+   "blocking_gate": "G10-gamebook",
+   "number_that_would_clear_it": "A parser for the official game book PDFs plus a captured copy. Nothing here infers a starter in its absence.",
+   "source": "https://operations.nfl.com/gameday/game-books/"
+  },
+  {
+   "id": "R26",
+   "requirement": "Ingest game-level results to make the ratings opponent-aware",
+   "status": "done",
+   "artefact": "data/linelab/model.py",
+   "evidence": "E1 is opponent-adjusted by construction; E2 is the unadjusted control",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/model.py"
+  },
+  {
+   "id": "R27",
+   "requirement": "Add injury and personnel ablations instead of fixed penalties",
+   "status": "blocked",
+   "artefact": "data/linelab/registry.json \u2192 S7",
+   "evidence": "S7 registered with a measured-ablation rule; not runnable because no pre-kickoff availability vintage exists for the test games",
+   "blocking_gate": "G04-availability-series",
+   "number_that_would_clear_it": "At least one pre-kickoff capture per game in the evaluation window. The repository's single Week 10 capture is dated after most of that week's games kicked off.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R28",
+   "requirement": "Automate immutable multi-day availability snapshots",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "2 capture day(s) held; the automation does not exist",
+   "blocking_gate": "G07-scheduler",
+   "number_that_would_clear_it": "A scheduled job (cron / GitHub Action) that fetches, hashes and commits a capture daily. This session cannot self-schedule, so the cadence is the gap, not the format.",
+   "source": "https://www.nfl.com/injuries/"
+  },
+  {
+   "id": "R29",
+   "requirement": "Capture official inactive lists and snap counts",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "neither an inactive list nor a 2026 snap count is held",
+   "blocking_gate": "G11-inactives",
+   "number_that_would_clear_it": "An official inactive list and a participation source for the 2026 season. Both are named in the brief and neither is reachable as an official page from this repository yet.",
+   "source": "https://www.nfl.com/news/"
+  },
+  {
+   "id": "R30",
+   "requirement": "Fix the two depth-parsing failures before widening coverage",
+   "status": "partial",
+   "artefact": "data/linelab/depth_graph.json",
+   "evidence": "Green Bay's jersey-number prefix is not present in the acquired 5-club set; the Texans' image chart is not acquired",
+   "blocking_gate": "G12-parser",
+   "number_that_would_clear_it": "A structured source for the Texans chart and a re-read of the Packers chart. Neither club is among the 5 acquired, so neither failure can be reproduced or fixed here and neither is claimed fixed.",
+   "source": "https://www.houstontexans.com/team/depth-chart"
+  },
+  {
+   "id": "R31",
+   "requirement": "Model depth slots as groups, not a single starter",
+   "status": "done",
+   "artefact": "data/linelab/depth_graph.json",
+   "evidence": "25 grouped slots stored as groups",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/depth_graph.py"
+  },
+  {
+   "id": "R32",
+   "requirement": "Treat roster turnover as a first-class data event",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no transaction/roster-event log is held with dates",
+   "blocking_gate": "G13-transactions",
+   "number_that_would_clear_it": "A dated transaction log. trades.csv exists for historical trades and is not a weekly roster event log.",
+   "source": "https://www.nfl.com/news/"
+  },
+  {
+   "id": "R33",
+   "requirement": "Start with a singles-only shadow baseline",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "every strategy starts at paper (shadow); no parlay or combo is ranked",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R34",
+   "requirement": "Keep parlays and prop combos behind a joint-evidence gate",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "S5 and S6 registered as blocked on G6-joint-evidence, and the division table says so",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R35",
+   "requirement": "Use proper-score leaderboard divisions",
+   "status": "done",
+   "artefact": "data/linelab/scores.json \u2192 divisions",
+   "evidence": "four divisions declared: singles scored, the other three gated with reasons",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R36",
+   "requirement": "Rank with proper scores and uncertainty, not win rate",
+   "status": "done",
+   "artefact": "data/linelab/scores.json",
+   "evidence": "Brier skill with a game-cluster lower bound and a Holm adjustment over 18 hypotheses",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R37",
+   "requirement": "Add durable snapshot storage and alerts",
+   "status": "partial",
+   "artefact": "data/linelab/captures/",
+   "evidence": "captures are stored with SHA-256 and clock time; freshness monitoring and schema alerts are not built",
+   "blocking_gate": "G14-monitor",
+   "number_that_would_clear_it": "A check that fails the build when a capture is older than its cadence or a parser's expected columns change. The storage half exists; the alerting half does not.",
+   "source": "engine/linelab/availability.py"
+  },
+  {
+   "id": "R38",
+   "requirement": "Split the site into a public analysis layer and a private data layer",
+   "status": "partial",
+   "artefact": "linelab/ site",
+   "evidence": "the public site carries derived analysis and links; row-level raw NFL data stays in the repository's data files",
+   "blocking_gate": "G15-terms",
+   "number_that_would_clear_it": "A written reading of the source terms before any row-level data is republished. Until then the site links out rather than reproducing rows it does not need to.",
+   "source": "https://www.nfl.com/legal/terms/"
+  },
+  {
+   "id": "R39",
+   "requirement": "Add a per-team view: starters out, replacements named, net injury count",
+   "status": "done",
+   "artefact": "data/linelab/availability.json \u2192 team_view",
+   "evidence": "28 team rows with out / doubtful / questionable and net unavailable",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "id": "R40",
+   "requirement": "Add an announced-starter evidence field (not an inferred replacement)",
+   "status": "partial",
+   "artefact": "data/linelab/depth_graph.json",
+   "evidence": "the field exists on every replacement row and is NULL, with the status 'not found'",
+   "blocking_gate": "G09-announcement",
+   "number_that_would_clear_it": "A dated club or league announcement for the specific change. The field is present so that it can be filled, and null so that it cannot be assumed.",
+   "source": "https://www.nfl.com/news/"
+  },
+  {
+   "id": "R41",
+   "requirement": "Add an official depth-chart register with date and source per row",
+   "status": "done",
+   "artefact": "data/linelab/depth_graph.json \u2192 official_register",
+   "evidence": "5 club rows with url, caption, page date where published, and a status; page date is NULL for all acquired clubs because the pages do not print one",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/depth_graph.py"
+  },
+  {
+   "id": "R42",
+   "requirement": "Calibrate what 'Questionable' means empirically instead of using old percentages",
+   "status": "done",
+   "artefact": "data/linelab/availability.json \u2192 designation_reliability",
+   "evidence": "Out=0.0002 (n=10674); Doubtful=0.0083 (n=1684); Questionable=0.6388 (n=14950)",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://github.com/nflverse/nflverse-data/releases/tag/injuries"
+  },
+  {
+   "id": "R43",
+   "requirement": "Interactive Offense vs Defense Matchup Deficiency Matrix (1st-4th string)",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "requires depth for 32 clubs on both sides of the ball; 5 clubs held, offense-heavy",
+   "blocking_gate": "G02-depth-coverage",
+   "number_that_would_clear_it": "All 32 clubs, each with offensive and defensive units. Without that the matrix would be blank for 27 teams.",
+   "source": "https://www.nfl.com/teams/"
+  },
+  {
+   "id": "R44",
+   "requirement": "Flag stale depth rows against the official transactions log",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no dated transactions log held, so staleness cannot be dated",
+   "blocking_gate": "G13-transactions",
+   "number_that_would_clear_it": "A dated transaction log joined to the register. The register stores the page date; with no page date printed by the clubs, only a transaction log can date a row.",
+   "source": "https://www.nfl.com/news/"
+  },
+  {
+   "id": "R45",
+   "requirement": "Point-in-Time Snapshot Ledger for injuries, depth charts and inactives",
+   "status": "partial",
+   "artefact": "data/linelab/availability.json",
+   "evidence": "2 point-in-time captures, hashed; depth and inactives not yet in the ledger",
+   "blocking_gate": "G07-scheduler",
+   "number_that_would_clear_it": "Daily captures for all three sources. The ledger format exists and covers one source.",
+   "source": "engine/linelab/availability.py"
+  },
+  {
+   "id": "R46",
+   "requirement": "Populate the three missing Lions game-status designations",
+   "status": "done",
+   "artefact": "data/linelab/captures/",
+   "evidence": "Kerby Joseph, Cade Mays and D.J. Reed all carry Out in BOTH captures; verified against the live page",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "id": "R47",
+   "requirement": "Re-capture and republish the Week 10 injury tables",
+   "status": "done",
+   "artefact": "data/linelab/captures/2026-11-16/",
+   "evidence": "a second capture exists; the delta against the first shows 21 player-level changes and 1 block with no designations",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://www.nfl.com/injuries/league/2026/reg10"
+  },
+  {
+   "id": "R48",
+   "requirement": "Reject: deriving depth order from jersey number, experience or salary",
+   "status": "done",
+   "artefact": "data/linelab/depth_graph.json \u2192 jersey_number_shortcut",
+   "evidence": "shortcut refused in code and the cost of taking it quantified",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/depth_graph.py"
+  },
+  {
+   "id": "R49",
+   "requirement": "Represent shared and empty depth slots faithfully",
+   "status": "done",
+   "artefact": "data/linelab/depth_graph.json \u2192 slot_states",
+   "evidence": "25 grouped, 300 empty, 296 single",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/depth_graph.py"
+  },
+  {
+   "id": "R50",
+   "requirement": "Resolve the depth-order source before building the backup-deficiency feature",
+   "status": "done",
+   "artefact": "data/linelab/depth_graph.json \u2192 feature_status",
+   "evidence": "both routes evaluated; neither verified for 32 clubs; the feature is not built",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared by refusing to build it.",
+   "source": "engine/linelab/depth_graph.py"
+  },
+  {
+   "id": "R51",
+   "requirement": "Score injury-designation reliability before using it as a feature",
+   "status": "done",
+   "artefact": "data/linelab/availability.json",
+   "evidence": "3 designation buckets measured with Wilson intervals over the seasons present in the join",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/availability.py"
+  },
+  {
+   "id": "R52",
+   "requirement": "Snapshot the nfl.com injury report every Wed, Thu and Fri and keep a dated history",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "2 capture day(s) held",
+   "blocking_gate": "G07-scheduler",
+   "number_that_would_clear_it": "Wednesday/Thursday/Friday captures. The format is identical to what is held; the cadence is not.",
+   "source": "https://www.nfl.com/injuries/"
+  },
+  {
+   "id": "R53",
+   "requirement": "Treat the injury report as a timestamped series, not a weekly snapshot",
+   "status": "done",
+   "artefact": "data/linelab/availability.json",
+   "evidence": "each capture carries a clock time and a hash, and the delta between two is published",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/availability.py"
+  },
+  {
+   "id": "R54",
+   "requirement": "Use snap counts as the starter proxy when the depth chart is unavailable",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no 2026 snap counts held; historical snap counts exist only as participation, not as starter labels",
+   "blocking_gate": "G19-snap-2026",
+   "number_that_would_clear_it": "A 2026 participation feed. Participation proves a player was on the field, not that he started, so even when it arrives it is a proxy and is labelled one.",
+   "source": "https://www.pro-football-reference.com/"
+  },
+  {
+   "id": "R55",
+   "requirement": "Add a control baseline (random picks; favorites only) to every leaderboard run",
+   "status": "done",
+   "artefact": "data/linelab/scores.json \u2192 controls",
+   "evidence": "coin-flip control scored on the same proper score as every model, alongside the always-home and always-favourite cover rates",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R56",
+   "requirement": "Stadium roof/surface and hourly wind/precipitation overlay",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "roof and surface are in games.csv; no hourly weather feed is held",
+   "blocking_gate": "G20-weather",
+   "number_that_would_clear_it": "An official hourly forecast archive joined to kickoff. games.csv carries a single game-time temperature and wind value, which is not an hourly overlay.",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/games.csv"
+  },
+  {
+   "id": "R57",
+   "requirement": "Two-stage skill leaderboard (proper-score qualification then prospective CLV/ROI escrow)",
+   "status": "partial",
+   "artefact": "data/linelab/scores.json",
+   "evidence": "stage one is built and published; stage two needs prospective closing-line captures",
+   "blocking_gate": "G16-clv-history",
+   "number_that_would_clear_it": "A dated closing price captured before each kickoff for the games being tracked. Without it CLV cannot be computed for the future, only backfilled from a retrospective file.",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv"
+  },
+  {
+   "id": "R58",
+   "requirement": "Vig-free market consensus vs originated fair-line decomposition",
+   "status": "partial",
+   "artefact": "data/linelab/price_store.csv",
+   "evidence": "closing prices carry per-side odds, so a vig-free probability can be computed where both sides exist; a multi-book consensus does not exist in the repository",
+   "blocking_gate": "G17-multi-book",
+   "number_that_would_clear_it": "More than one book's price per game. A consensus of one book is that book, not a consensus.",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv"
+  },
+  {
+   "id": "R59",
+   "requirement": "Publish a weekly 'what changed' diff instead of a static snapshot",
+   "status": "done",
+   "artefact": "data/linelab/availability.json \u2192 deltas",
+   "evidence": "1 delta published, per player, with before and after values",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/availability.py"
+  },
+  {
+   "id": "R60",
+   "requirement": "Publish every model total twice until one wins",
+   "status": "done",
+   "artefact": "data/linelab/model_outputs.csv",
+   "evidence": "both estimators are published per game; neither has been collapsed to one",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared. E1 has NOT won: see the model comparison.",
+   "source": "engine/linelab/model.py"
+  },
+  {
+   "id": "R61",
+   "requirement": "Add a drift alarm to every scraper",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no scraper is scheduled, so there is no build to fail loudly",
+   "blocking_gate": "G07-scheduler",
+   "number_that_would_clear_it": "The scheduled job first. An alarm on a job that never runs is not an alarm.",
+   "source": "engine/linelab/availability.py"
+  },
+  {
+   "id": "R62",
+   "requirement": "Capture the reserve list so 'not listed' never means 'available'",
+   "status": "partial",
+   "artefact": "data/linelab/availability.json \u2192 reserve_check",
+   "evidence": "100 players who appeared earlier this season are absent from the latest report, each flagged as unknown rather than available",
+   "blocking_gate": "G05-roster",
+   "number_that_would_clear_it": "An official reserve/injured-reserve list. The flag says 'unknown', which is the honest reading; the list itself is what converts unknown into known.",
+   "source": "https://www.nfl.com/players/"
+  },
+  {
+   "id": "R63",
+   "requirement": "Reject: ranking strategies by season-long ROI",
+   "status": "done",
+   "artefact": "data/linelab/scores.json \u2192 luck_panel",
+   "evidence": "the panel shows how many bets are needed before an ROI is distinguishable; the leaderboard ranks by proper score only",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/scoring.py"
+  },
+  {
+   "id": "R64",
+   "requirement": "Archive weekly injury reports for past seasons",
+   "status": "done",
+   "artefact": "signal/data/injury_player.csv (read-only reuse)",
+   "evidence": "12 seasons of weekly designation rows are present in the repository and were reused, not rebuilt",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "https://github.com/nflverse/nflverse-data/releases/tag/injuries"
+  },
+  {
+   "id": "R65",
+   "requirement": "Pre-register each strategy (definition frozen before results are seen)",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "frozen_at_utc + commit-hash registration mechanism",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R66",
+   "requirement": "2026 kickoff and declared onside-kick regime priors filter",
+   "status": "blocked",
+   "artefact": "\u2014",
+   "evidence": "no rule text for the 2026 kickoff/onside regime was captured and verified this session",
+   "blocking_gate": "G18-rulebook",
+   "number_that_would_clear_it": "The league's published 2026 rule change text, captured and dated. Prior work assumed a regime; this session did not verify the text and will not encode an assumption as a prior.",
+   "source": "https://operations.nfl.com/the-rules/"
+  },
+  {
+   "id": "R67",
+   "requirement": "Freeze a rule before it sees data (pre-registration)",
+   "status": "done",
+   "artefact": "data/linelab/registry.json",
+   "evidence": "the file is committed; its hash is the registration",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/backtest.py"
+  },
+  {
+   "id": "R68",
+   "requirement": "Split data into train, validation and final holdout seasons",
+   "status": "done",
+   "artefact": "data/linelab/model_meta.json \u2192 split",
+   "evidence": "1999-2015 train, 2016-2021 validation, 2022-2026 holdout, fixed in source before the first run",
+   "blocking_gate": "none",
+   "number_that_would_clear_it": "Already cleared.",
+   "source": "engine/linelab/model.py"
+  }
+ ],
+ "questions": [
+  {
+   "q": "What does 'opening line' mean in this repository, and how many games have one?",
+   "a": "272 side markets and 272 total markets, all in 2021. Every other game has a single undated line. This is a data fact, not a choice.",
+   "source": "data/linelab/price_store_meta.json",
+   "state": "answered"
+  },
+  {
+   "q": "Does the opponent-adjusted model beat the unadjusted one?",
+   "a": "No. On the holdout the unadjusted estimator scores better on the moneyline (0.06858 vs 0.01117) and both lose on side and total. The adjusted model is not carrying information the naive one lacks.",
+   "source": "data/linelab/scores.json",
+   "state": "answered"
+  },
+  {
+   "q": "What does 'Questionable' mean empirically?",
+   "a": "Out: 0.0% of 10674 player-weeks played (95% CI 0.0%-0.1%); Doubtful: 0.8% of 1684 player-weeks played (95% CI 0.5%-1.4%); Questionable: 63.9% of 14950 player-weeks played (95% CI 63.1%-64.6%)",
+   "source": "data/linelab/availability.json",
+   "state": "answered"
+  },
+  {
+   "q": "Is the margin/total dependence that supposedly invalidates same-game parlays real?",
+   "a": "Not in this data. The measured correlation is close to zero and its 95% interval contains zero. The invalid-multiplication rule therefore rests on same-team and same-player dependence, which has NOT been measured here and must not be described as measured.",
+   "source": "data/linelab/scores.json",
+   "state": "answered \u2014 and it corrected a prior assumption"
+  },
+  {
+   "q": "Which games could the Week 10 availability capture have informed, given its clock time?",
+   "a": "135 of 137 completed games have a pre-kickoff availability vintage. The rest kicked off before the capture existed.",
+   "source": "data/linelab/corpus.json",
+   "state": "answered"
+  },
+  {
+   "q": "What is missing before an injury ablation can be run?",
+   "a": "A pre-kickoff availability capture per game in the evaluation window. With one capture per week taken after most kickoffs, any ablation would leak the future.",
+   "source": "data/linelab/registry.json",
+   "state": "answered \u2014 it is a scheduling gap"
+  },
+  {
+   "q": "Should the leaderboard show staking results next to signal results?",
+   "a": "It shows both but never combines them. The luck panel exists to show why a staking run cannot be trusted at the sample sizes this project can reach.",
+   "source": "data/linelab/scores.json",
+   "state": "answered by design"
+  },
+  {
+   "q": "How many club depth charts are actually verified?",
+   "a": "5 of 32. The other 27 are recorded as not acquired, not estimated.",
+   "source": "data/linelab/depth_graph.json",
+   "state": "answered"
+  },
+  {
+   "q": "Can a starter be identified when the club publishes three players at rank 1?",
+   "a": "No, and the data says so 25 times. The slot is stored as a group. Choosing one would be an invention.",
+   "source": "data/linelab/depth_graph.json",
+   "state": "answered"
+  },
+  {
+   "q": "Is there an official depth chart anywhere?",
+   "a": "No. The nfl.com per-team depth-chart path returns 404. Every chart used is club-published and captioned unofficial.",
+   "source": "https://www.nfl.com/teams/new-england-patriots/depth-chart",
+   "state": "answered"
+  },
+  {
+   "q": "What would make any strategy here eligible to go live?",
+   "a": "A positive game-cluster lower bound on Brier skill over at least 1,000 prospective games, holding after multiplicity adjustment, plus a defined demotion rule. None is eligible today.",
+   "source": "data/linelab/registry.json",
+   "state": "answered"
+  },
+  {
+   "q": "Which requirement rows are blocked on a scheduler rather than on analysis?",
+   "a": "R18, R28, R45, R52, R61",
+   "source": "engine/linelab/requirements.py",
+   "state": "answered"
+  }
+ ],
+ "suggestions": [
+  {
+   "id": "S-A1",
+   "title": "Ship the scheduler before anything else",
+   "why": "Rows  are all blocked on the same thing: nothing captures on a cadence. One GitHub Action that runs daily, fetches the official injury report, hashes it and commits closes all of them at once.",
+   "options": [
+    "GitHub Action on a cron schedule (recommended: runs where the network is open)",
+    "external cron on a small worker",
+    "manual capture with a checklist"
+   ],
+   "recommendation": "GitHub Action. The repository already has workflows; this is the smallest change with the largest unblock.",
+   "decision": "open"
+  },
+  {
+   "id": "S-A2",
+   "title": "Buy one more independent price source",
+   "why": "Every price claim rests on one publisher's files. A second book per game would turn the vig-free decomposition from a single-book calculation into an actual consensus.",
+   "options": [
+    "add a second book's historical closes",
+    "keep one book and label it plainly",
+    "drop the consensus claim"
+   ],
+   "recommendation": "Keep one book and label it; only buy a second if the originated line is going to be evaluated against consensus rather than movement.",
+   "decision": "open"
+  },
+  {
+   "id": "S-A3",
+   "title": "Publish the unadjusted model as the headline, not the adjusted one",
+   "why": "The adjusted model does not beat the control. Presenting it first would repeat the pattern every section before this one fell into: a framework that looks sophisticated and loses to a spreadsheet.",
+   "options": [
+    "headline the control",
+    "headline both with the gap column (recommended)",
+    "headline neither"
+   ],
+   "recommendation": "Headline both, with the gap column, exactly as the brief's 'publish every model total twice' asks.",
+   "decision": "open"
+  },
+  {
+   "id": "S-A4",
+   "title": "Put the blocked-requirement count on the landing page, not in a footnote",
+   "why": "Most requirements are blocked. A landing page that leads with the ones that are done would give a reader a false impression of readiness.",
+   "options": [
+    "count on the landing page (recommended)",
+    "counts only on the requirements page",
+    "no counts"
+   ],
+   "recommendation": "Count on the landing page. Decision-readiness is the product; shipping it quietly defeats it.",
+   "decision": "open"
+  },
+  {
+   "id": "S-A5",
+   "title": "Treat the depth-chart gap as a purchasing decision, not an engineering one",
+   "why": "27 clubs remain. Scraping 27 differently-built club pages is weeks of work with a permanent maintenance tail. A licensed structured feed is a contract.",
+   "options": [
+    "scrape the remaining clubs (weeks, fragile)",
+    "license a structured depth/participation feed (cost, stable)",
+    "stay at 5 clubs and say so (free, honest, limited)"
+   ],
+   "recommendation": "License it. The brief already forbids the shortcuts that would make scraping 32 clubs seem cheap.",
+   "decision": "open"
+  },
+  {
+   "id": "S-A6",
+   "title": "Report 'blocked' as a first-class outcome on every page",
+   "why": "The failure mode of this repository's earlier sections was publishing frameworks whose every value was blank, and the failure mode of this one could be publishing numbers whose provenance is thin. A blocked count makes both visible.",
+   "options": [
+    "blocked column on every table (recommended)",
+    "a single blocked page",
+    "no blocked reporting"
+   ],
+   "recommendation": "A blocked column, plus the existing Flagged page for the items that need a human read.",
+   "decision": "open"
+  }
+ ],
+ "status_definitions": {
+  "done": "an artefact exists and a reader can check it",
+  "partial": "an artefact exists and a named part is missing",
+  "blocked": "no artefact can be produced from what is held; the gate is named"
+ },
+ "gate_index": [
+  "G01-price-history",
+  "G02-depth-coverage",
+  "G03-actuals",
+  "G04-availability-series",
+  "G05-roster",
+  "G06-feature-ablation",
+  "G07-scheduler",
+  "G08-venue",
+  "G09-announcement",
+  "G10-gamebook",
+  "G11-inactives",
+  "G12-parser",
+  "G13-transactions",
+  "G14-monitor",
+  "G15-terms",
+  "G16-clv-history",
+  "G17-multi-book",
+  "G18-rulebook",
+  "G19-snap-2026",
+  "G20-weather"
+ ]
+}
