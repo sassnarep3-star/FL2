@@ -45,7 +45,7 @@ jobs:
       - name: Validate tables, registers, links and reconciliation
         run: python3 fl2-lines/engine/check.py | tee check.log
 
-      - name: Reproducibility: derived data must regenerate byte-identically
+      - name: "Reproducibility: derived data must regenerate byte-identically"
         run: |
           set -uo pipefail
           drift=0
