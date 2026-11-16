@@ -1,0 +1,3693 @@
+{
+ "meta": {
+  "generated_by": "tools/build_availability_graph.py",
+  "generated_at_utc": "2026-11-16T03:15:00Z",
+  "schema": "chart (club pages, verbatim) | out/doubtful/questionable (official report) | announced_replacements (dated official news only) | actually_played (game-day source only)",
+  "rule": "replacements are names announced by a dated official source, never inferred; actually_played stays blank without a game-day source; not-listed never means available",
+  "coverage": "Week 10, 32 teams; chart layer 5/32 clubs (F-D1); actually_played 0/32 (DR-31)",
+  "official_recount_2026_11_16": {
+   "rows": 347,
+   "clubs": 28,
+   "games": 14,
+   "structure_errors": 0,
+   "designations": {
+    "Out": 70,
+    "Doubtful": 11,
+    "Questionable": 90
+   },
+   "source": "fl2-dashboard/data/official/injuries-w10-team-summary.json (session 8326a20d capture)"
+  }
+ },
+ "snapshot_ledger": [
+  {
+   "capture_id": "w10-report-2026-11-14",
+   "captured_at_utc": "2026-11-14T03:30:00Z",
+   "what": "nfl.com Week 10 injury report transcription (345 rows, 28 teams)",
+   "retained": true,
+   "source": "https://www.nfl.com/injuries/"
+  },
+  {
+   "capture_id": "w10-report-2026-11-16",
+   "captured_at_utc": "2026-11-16T01:00:00Z",
+   "what": "official recount (347 rows; team counts public, rows kept in git-ignored private/)",
+   "retained": true,
+   "source": "https://www.nfl.com/injuries/"
+  }
+ ],
+ "snapshot_gap": "Two dated captures exist now (the brief's 'one capture' finding predates the 2026-11-16 recount). The designations series needs >= 5 captures per club-week (Wed-kickoff daily) before deltas can be replayed; blocked on gate F-T1 (NFL terms section 1.3).",
+ "depth_conflicts_stale_rows": {
+  "note": "Players listed as 1st string on a club depth chart who carry an Out/Doubtful game status on the official NFL Week 10 injury report (https://www.nfl.com/injuries/league/2026/reg10). This is the concrete demonstration that club depth charts lag the official injury report.",
+  "rows": [
+   {
+    "team": "GB",
+    "player": "Josh Jacobs",
+    "pos": "RB",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Finger",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "GB",
+    "player": "Sean Rhyan",
+    "pos": "C",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Ankle",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "GB",
+    "player": "Zaire Franklin",
+    "pos": "LB",
+    "depth": "1st string",
+    "injury_status": "Doubtful",
+    "injury": "Shin",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "GB",
+    "player": "Josh Whyle",
+    "pos": "TE",
+    "depth": "4th string",
+    "injury_status": "Out",
+    "injury": "Concussion",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "DET",
+    "player": "Cade Mays",
+    "pos": "C",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Ankle",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "DET",
+    "player": "D.J. Reed",
+    "pos": "CB",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Hip",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "KC",
+    "player": "Jaylon Moore",
+    "pos": "RT",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Ankle",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "KC",
+    "player": "Peter Woods",
+    "pos": "DT",
+    "depth": "2nd string",
+    "injury_status": "Out",
+    "injury": "Neck",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "NE",
+    "player": "Ben Brown",
+    "pos": "LG",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Knee",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "NE",
+    "player": "Carlton Davis III",
+    "pos": "CB",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Knee",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "NE",
+    "player": "TreVeyon Henderson",
+    "pos": "RB",
+    "depth": "2nd string",
+    "injury_status": "Out",
+    "injury": "Illness",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   },
+   {
+    "team": "SF",
+    "player": "Mike Evans",
+    "pos": "WR",
+    "depth": "1st string",
+    "injury_status": "Out",
+    "injury": "Achilles",
+    "source": "https://www.nfl.com/injuries/league/2026/reg10"
+   }
+  ]
+ },
+ "reserve_registry": [
+  {
+   "date": "(none shown)",
+   "headline": "Dolphins place QB Malik Willis (groin) on injured reserve; Kyle McCord in line for first start",
+   "source_url": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Rams WR Puka Nacua likely to be placed on injured reserve with turf toe, sprained MCL and PCL",
+   "source_url": "https://www.nfl.com/news/rams-wr-puka-nacua-likely-to-be-placed-on-injured-reserve-with-turf-toe-sprained-mcl-and-pcl",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 5 (per URL)",
+   "headline": "NFL news roundup: Ravens officially place Lamar Jackson on injured reserve",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-5",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  }
+ ],
+ "roster_events": [
+  {
+   "date": "Nov 13 (per URL)",
+   "headline": "NFL news roundup: Ravens confirm Lamar Jackson expected to miss 6-10 weeks; Kenneth Walker questionable",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Drew Lock (elbow/oblique) has no injury designation, will start for Seahawks vs. Raiders",
+   "source_url": "https://www.nfl.com/news/drew-lock-no-injury-designation-seahawks-raiders",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 12 (per title)",
+   "headline": "NFL news roundup: Latest league updates from Thursday, Nov. 12",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-12",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 11 (per URL)",
+   "headline": "NFL news roundup: Browns to start QB Deshaun Watson vs. Texans; Cardinals' Carson Beck to start vs. Rams",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-wednesday-nov-11",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Dolphins place QB Malik Willis (groin) on injured reserve; Kyle McCord in line for first start",
+   "source_url": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 10 (per URL)",
+   "headline": "NFL news roundup: Bills acquire S Amani Hooker; Broncos trade for Chargers' Daiyan Henley",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-tuesday-nov-10",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Rams WR Puka Nacua likely to be placed on injured reserve with turf toe, sprained MCL and PCL",
+   "source_url": "https://www.nfl.com/news/rams-wr-puka-nacua-likely-to-be-placed-on-injured-reserve-with-turf-toe-sprained-mcl-and-pcl",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Packers RB Josh Jacobs to undergo surgery on finger this week; timeline to return TBD",
+   "source_url": "https://www.nfl.com/news/packers-rb-josh-jacobs-to-undergo-surgery-on-finger-this-week",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Sam Darnold ruled out for Seahawks' Week 10 game vs. Raiders; Drew Lock expected to start again",
+   "source_url": "https://www.nfl.com/news/sam-darnold-ruled-out-for-seahawks-week-10-game-vs-raiders-drew-lock-expected-to-start-again",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 9 (per URL)",
+   "headline": "NFL news roundup: J.J. McCarthy expected to play Week 10; Justin Herbert avoids finger fracture",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-monday-nov-9",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Week 9 (per title)",
+   "headline": "Notable injuries, news from Sunday's Week 9 games: Rams WR Puka Nacua to undergo testing on knee injury",
+   "source_url": "https://www.nfl.com/news/notable-injuries-news-sunday-week-9-games-2026",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "NFL Network: Ravens' Lamar Jackson (right thumb) out 6-9 weeks, expects to return this season",
+   "source_url": "https://www.nfl.com/news/ravens-lamar-jackson-right-thumb-out-6-9-weeks-expects-to-return-this-season",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Week 9 (per URL)",
+   "headline": "NFL Week 9 injuries to monitor for Sunday's games",
+   "source_url": "https://www.nfl.com/news/week-9-injuries-sunday-pregame-2026-nfl-season",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Week 9 (per title)",
+   "headline": "NFL Week 9 inactives: Players ruled out for Sunday's 13 games",
+   "source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 7 (per URL)",
+   "headline": "NFL news roundup: Saints waive Kendre Miller; Cowboys place Malachi Lawrence on IR",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-7",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 6 (per URL)",
+   "headline": "NFL news roundup: Jets' Garrett Wilson ruled out; Falcons RB Brian Robinson out for Madrid game",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-6",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Pats' TreVeyon Henderson says he was hospitalized after 'unusual' emergency; RB focused on recovery",
+   "source_url": "https://www.nfl.com/news/pats-treveyon-henderson-says-he-was-hospitalized-after-unusual-emergency-focused-on-recovery",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Nov 5 (per URL)",
+   "headline": "NFL news roundup: Ravens officially place Lamar Jackson on injured reserve",
+   "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-5",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Week 9 (per title)",
+   "headline": "NFL Week 9 injury report: Player statuses for all 15 games",
+   "source_url": "https://www.nfl.com/news/nfl-week-9-injury-report-2026-season",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "Week 9 (per title)",
+   "headline": "Deshaun Watson enters concussion protocol ahead of Browns' Week 9 game vs. Saints",
+   "source_url": "https://www.nfl.com/news/deshaun-watson-concussion-protocol-browns-week-9-shedeur-sanders",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  },
+  {
+   "date": "(none shown)",
+   "headline": "Report: Ravens QB Tyler Huntley out for season with turf toe injury",
+   "source_url": "https://www.nfl.com/news/ravens-qb-tyler-huntley-out-for-season-turf-toe-injury",
+   "listed_on_page": "https://www.nfl.com/injuries/"
+  }
+ ],
+ "teams": [
+  {
+   "team": "ARI",
+   "week": 10,
+   "opponent": "LA",
+   "game_id": "2026_10_LA_ARI",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Zachary Carter",
+     "position": "DT",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/zachary-carter-x9168/"
+    },
+    {
+     "player": "Hjalte Froholdt",
+     "position": "C",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/hjalte-froholdt/"
+    },
+    {
+     "player": "Jon Gaines II",
+     "position": "G",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jon-gaines-ii/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Hunter Long",
+     "position": "TE",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/hunter-long/"
+    },
+    {
+     "player": "Roy Lopez",
+     "position": "DT",
+     "injury": "Toe, Ankle",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/roy-lopez/"
+    },
+    {
+     "player": "Max Melton",
+     "position": "CB",
+     "injury": "Knee, Hand",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/max-melton/"
+    },
+    {
+     "player": "Darius Robinson",
+     "position": "DT",
+     "injury": "Wrist",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/darius-robinson-2/"
+    },
+    {
+     "player": "Jayden Williams",
+     "position": "T",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jayden-williams/"
+    },
+    {
+     "player": "Andrew Wingard",
+     "position": "S",
+     "injury": "Groin",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/andrew-wingard/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "ATL",
+   "week": 10,
+   "opponent": "KC",
+   "game_id": "2026_10_KC_ATL",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Zachariah Branch",
+     "position": "WR",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/zachariah-branch/"
+    }
+   ],
+   "doubtful": [
+    {
+     "player": "Divine Deablo",
+     "position": "LB",
+     "injury": "Forearm",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/divine-deablo/"
+    }
+   ],
+   "questionable": [
+    {
+     "player": "Gervon Dexter Sr.",
+     "position": "DT",
+     "injury": "Illness",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/gervon-dexter/"
+    },
+    {
+     "player": "James Pearce Jr.",
+     "position": "DE",
+     "injury": "Back",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/james-pearce-jr/"
+    },
+    {
+     "player": "Josh Woods",
+     "position": "LB",
+     "injury": "Ankle",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/josh-woods/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 2,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "BAL",
+   "week": 10,
+   "opponent": "LAC",
+   "game_id": "2026_10_LAC_BAL",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [
+    {
+     "date": "Nov 13 (per URL)",
+     "headline": "NFL news roundup: Ravens confirm Lamar Jackson expected to miss 6-10 weeks; Kenneth Walker questionable",
+     "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    },
+    {
+     "date": "(none shown)",
+     "headline": "NFL Network: Ravens' Lamar Jackson (right thumb) out 6-9 weeks, expects to return this season",
+     "source_url": "https://www.nfl.com/news/ravens-lamar-jackson-right-thumb-out-6-9-weeks-expects-to-return-this-season",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    },
+    {
+     "date": "Nov 5 (per URL)",
+     "headline": "NFL news roundup: Ravens officially place Lamar Jackson on injured reserve",
+     "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-5",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    },
+    {
+     "date": "(none shown)",
+     "headline": "Report: Ravens QB Tyler Huntley out for season with turf toe injury",
+     "source_url": "https://www.nfl.com/news/ravens-qb-tyler-huntley-out-for-season-turf-toe-injury",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "BUF",
+   "week": 10,
+   "opponent": "NYJ",
+   "game_id": "2026_10_BUF_NYJ",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [
+    {
+     "player": "Spencer Brown",
+     "position": "T",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/spencer-brown/"
+    }
+   ],
+   "questionable": [
+    {
+     "player": "Christian Benford",
+     "position": "CB",
+     "injury": "Wrist",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/christian-benford/"
+    },
+    {
+     "player": "Sam Franklin Jr.",
+     "position": "S",
+     "injury": "Shoulder",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/sam-franklin/"
+    },
+    {
+     "player": "Jordan Hancock",
+     "position": "CB",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jordan-hancock/"
+    },
+    {
+     "player": "Tyrell Shavers",
+     "position": "WR",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/tyrell-shavers/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 1,
+   "announced_replacements": [
+    {
+     "date": "Nov 10 (per URL)",
+     "headline": "NFL news roundup: Bills acquire S Amani Hooker; Broncos trade for Chargers' Daiyan Henley",
+     "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-tuesday-nov-10",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "CAR",
+   "week": 10,
+   "opponent": "NO",
+   "game_id": "2026_10_CAR_NO",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Bobby Okereke",
+     "position": "LB",
+     "injury": "Foot",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/bobby-okereke/"
+    }
+   ],
+   "doubtful": [
+    {
+     "player": "Jonathon Brooks",
+     "position": "RB",
+     "injury": "Groin",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/jonathon-brooks/"
+    },
+    {
+     "player": "Mike Jackson",
+     "position": "CB",
+     "injury": "Groin",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/mike-jackson/"
+    }
+   ],
+   "questionable": [
+    {
+     "player": "Brady Christensen",
+     "position": "G",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/brady-christensen/"
+    },
+    {
+     "player": "Will Lee III",
+     "position": "CB",
+     "injury": "Hamstring",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/will-lee-iii/"
+    },
+    {
+     "player": "Xavier Legette",
+     "position": "WR",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/xavier-legette/"
+    },
+    {
+     "player": "Jaelan Phillips",
+     "position": "LB",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jaelan-phillips/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "CHI",
+   "week": 10,
+   "opponent": "",
+   "game_id": "",
+   "week10_state": "bye \u2014 no Week 10 report exists; absence of rows is NOT a health claim",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "CIN",
+   "week": 10,
+   "opponent": "PIT",
+   "game_id": "2026_10_PIT_CIN",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Kyle Dugger",
+     "position": "S",
+     "injury": "Quadricep",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/kyle-dugger/"
+    }
+   ],
+   "doubtful": [
+    {
+     "player": "Jalen Davis",
+     "position": "CB",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/jalen-davis/"
+    },
+    {
+     "player": "Andrei Iosivas",
+     "position": "WR",
+     "injury": "Thumb",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/andrei-iosivas/"
+    },
+    {
+     "player": "Brian Parker II",
+     "position": "G",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/brian-parker-ii/"
+    }
+   ],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 4,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "CLE",
+   "week": 10,
+   "opponent": "HOU",
+   "game_id": "2026_10_HOU_CLE",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Michael Burton",
+     "position": "FB",
+     "injury": "Calf",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/michael-burton/"
+    },
+    {
+     "player": "Ronnie Hickman Jr.",
+     "position": "S",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/ronnie-hickman-jr/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Denzel Boston",
+     "position": "WR",
+     "injury": "Toe",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/denzel-boston/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 2,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "DAL",
+   "week": 10,
+   "opponent": "SF",
+   "game_id": "2026_10_SF_DAL",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Donovan Ezeiruaku",
+     "position": "LB",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/donovan-ezeiruaku/"
+    },
+    {
+     "player": "Jake Ferguson",
+     "position": "TE",
+     "injury": "Knee, Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jake-ferguson/"
+    },
+    {
+     "player": "Tyler Goodson",
+     "position": "RB",
+     "injury": "Ankle, Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/tyler-goodson/"
+    },
+    {
+     "player": "P.J. Locke",
+     "position": "S",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/p-j-locke/"
+    },
+    {
+     "player": "Jonathan Mingo",
+     "position": "WR",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jonathan-mingo/"
+    }
+   ],
+   "doubtful": [
+    {
+     "player": "Juanyeh Thomas",
+     "position": "S",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/juanyeh-thomas/"
+    }
+   ],
+   "questionable": [
+    {
+     "player": "DaRon Bland",
+     "position": "CB",
+     "injury": "Ankle",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/daron-bland/"
+    },
+    {
+     "player": "Jonathan Bullard",
+     "position": "DT",
+     "injury": "Calf",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jonathan-bullard/"
+    },
+    {
+     "player": "Alijah Clark",
+     "position": "S",
+     "injury": "Illness",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/alijah-clark/"
+    },
+    {
+     "player": "Devin Moore",
+     "position": "CB",
+     "injury": "Hip",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/devin-moore-2/"
+    },
+    {
+     "player": "Joey Porter Jr.",
+     "position": "CB",
+     "injury": "Ankle, Foot",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/joey-porter-jr/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 6,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "DEN",
+   "week": 10,
+   "opponent": "",
+   "game_id": "",
+   "week10_state": "bye \u2014 no Week 10 report exists; absence of rows is NOT a health claim",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [
+    {
+     "date": "Nov 10 (per URL)",
+     "headline": "NFL news roundup: Bills acquire S Amani Hooker; Broncos trade for Chargers' Daiyan Henley",
+     "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-tuesday-nov-10",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "DET",
+   "week": 10,
+   "opponent": "NE",
+   "game_id": "2026_10_NE_DET",
+   "week10_state": "played",
+   "chart": {
+    "slots": [
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Jameson Williams"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Amon-Ra St. Brown",
+       "DeAndre Carter"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LT",
+      "chart_row_names_published_order": [
+       "Penei Sewell"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LG",
+      "chart_row_names_published_order": [
+       "Christian Mahogany",
+       "Miles Frazier"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "C",
+      "chart_row_names_published_order": [
+       "Cade Mays",
+       "Juice Scruggs"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RG",
+      "chart_row_names_published_order": [
+       "Tate Ratledge",
+       "Seth McLaughlin"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RT",
+      "chart_row_names_published_order": [
+       "Blake Miller",
+       "Larry Borom"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "TE",
+      "chart_row_names_published_order": [
+       "Sam LaPorta",
+       "Brock Wright",
+       "Tyler Conklin",
+       "Jackson Meeks"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Isaac TeSlaa",
+       "Tay Martin"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "QB",
+      "chart_row_names_published_order": [
+       "Jared Goff",
+       "Joshua Dobbs"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RB",
+      "chart_row_names_published_order": [
+       "Jahmyr Gibbs",
+       "Sione Vaki",
+       "Jacob Saylors"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "EDGE",
+      "chart_row_names_published_order": [
+       "Aidan Hutchinson",
+       "Derrick Moore",
+       "Eric O'Neill"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DL",
+      "chart_row_names_published_order": [
+       "Alim McNeill",
+       "Skyler Gill-Howard",
+       "Mekhi Wingo"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DL",
+      "chart_row_names_published_order": [
+       "Tyleik Williams",
+       "Levi Onwuzurike"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "EDGE",
+      "chart_row_names_published_order": [
+       "DJ Wonnum",
+       "Tyler Lacy",
+       "Ahmed Hassanein"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Derrick Barnes",
+       "Joe Bachie"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Malcolm Rodriguez",
+       "K.J. Britt"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Trevor Nowaske",
+       "Amen Ogbongbemiga"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "D.J. Reed",
+       "Rock Ya-Sin",
+       "Khalil Dorsey",
+       "Nick Whiteside"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "Roger McCreary",
+       "Ennis Rakestraw Jr.",
+       "Keith Abney II"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "Chuck Clark"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "Brian Branch",
+       "Christian Izien"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "K",
+      "chart_row_names_published_order": [
+       "Jake Bates"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "H",
+      "chart_row_names_published_order": [
+       "Jack Fox"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "P",
+      "chart_row_names_published_order": [
+       "Jack Fox"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "LS",
+      "chart_row_names_published_order": [
+       "Hogan Hatten"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "PR",
+      "chart_row_names_published_order": [
+       "DeAndre Carter"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "KR",
+      "chart_row_names_published_order": [
+       "Jacob Saylors",
+       "DeAndre Carter"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     }
+    ],
+    "source": "https://www.detroitlions.com/team/depth-chart",
+    "page_date": null,
+    "disclaimer": "Unofficial Depth Chart Compiled by Lions Football Communications"
+   },
+   "chart_flag": "",
+   "out": [
+    {
+     "player": "Kerby Joseph",
+     "position": "S",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/kerby-joseph/"
+    },
+    {
+     "player": "Cade Mays",
+     "position": "C",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/cade-mays/"
+    },
+    {
+     "player": "D.J. Reed",
+     "position": "CB",
+     "injury": "Hip",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/d-j-reed/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Amon-Ra St. Brown",
+     "position": "WR",
+     "injury": "Rib",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/amon-ra-st-brown/"
+    },
+    {
+     "player": "Sione Vaki",
+     "position": "RB",
+     "injury": "Ankle",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/sione-vaki/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "GB",
+   "week": 10,
+   "opponent": "MIN",
+   "game_id": "2026_10_MIN_GB",
+   "week10_state": "played",
+   "chart": {
+    "slots": [
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "9 Christian Watson",
+       "16 Bo Melton"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "0 Matthew Golden",
+       "87 J. Michael Sturdivant"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LT",
+      "chart_row_names_published_order": [
+       "77 Jordan Morgan",
+       "73 John Williams"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LG",
+      "chart_row_names_published_order": [
+       "65 Aaron Banks",
+       "79 Travis Glover",
+       "67 Donovan Jennings"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "C",
+      "chart_row_names_published_order": [
+       "75 Sean Rhyan",
+       "52 Jager Burton"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RG",
+      "chart_row_names_published_order": [
+       "72 Laken Tomlinson",
+       "70 Kevin Zeitler"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RT",
+      "chart_row_names_published_order": [
+       "71 Anthony Belton",
+       "74 Mekhi Becton Sr."
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "TE",
+      "chart_row_names_published_order": [
+       "85 Tucker Kraft",
+       "18 Jonnu Smith",
+       "86 Mark Redman",
+       "81 Josh Whyle"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "83 Savion Williams",
+       "13 Coleman Owen"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "QB",
+      "chart_row_names_published_order": [
+       "10 Jordan Love",
+       "6 Tyrod Taylor"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RB",
+      "chart_row_names_published_order": [
+       "8 Josh Jacobs",
+       "32 MarShawn Lloyd",
+       "22 Pierre Strong Jr.",
+       "26 Kaleb Johnson"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "94 Karl Brooks",
+       "97 Jordon Riley",
+       "93 Anthony Campbell"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "95 Devonte Wyatt",
+       "55 Chris McClellan"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "EDGE",
+      "chart_row_names_published_order": [
+       "90 Lukas Van Ness",
+       "57 Brenton Cox Jr"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "44 Zaire Franklin",
+       "59 Ty'Ron Hopper",
+       "54 Kristian Welch"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "58 Isaiah McDuffie",
+       "31 Nick Niemann"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "EDGE",
+      "chart_row_names_published_order": [
+       "99 Barryn Sorrell",
+       "51 Dani Dennis-Sutton"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "25 Keisean Nixon",
+       "24 Carrington Valentine"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "2 Brandon Cisse",
+       "21 Benjamin St-Juste"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "29 Xavier McKinney",
+       "27 Kitan Oladapo"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "33 Evan Williams",
+       "27 Kitan Oladapo"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "NB",
+      "chart_row_names_published_order": [
+       "7 Javon Bullard",
+       "36 Kamal Hadden"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "K",
+      "chart_row_names_published_order": [
+       "28 Trey Smack"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "P",
+      "chart_row_names_published_order": [
+       "19 Daniel Whelan"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "H",
+      "chart_row_names_published_order": [
+       "19 Daniel Whelan"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "PR",
+      "chart_row_names_published_order": [
+       "13 Coleman Owen",
+       "0 Matthew Golden"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "KR",
+      "chart_row_names_published_order": [
+       "16 Bo Melton",
+       "13 Coleman Owen"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "LS",
+      "chart_row_names_published_order": [
+       "42 Matt Orzech"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     }
+    ],
+    "source": "https://www.packers.com/team/depth-chart",
+    "page_date": "2026-11-10",
+    "disclaimer": "Unofficial, Nov. 10, 2026"
+   },
+   "chart_flag": "",
+   "out": [
+    {
+     "player": "Josh Jacobs",
+     "position": "RB",
+     "injury": "Finger",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/josh-jacobs-x3315/"
+    },
+    {
+     "player": "Micah Parsons",
+     "position": "LB",
+     "injury": "Knee, Illness",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/micah-parsons/"
+    },
+    {
+     "player": "Sean Rhyan",
+     "position": "C",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/sean-rhyan/"
+    },
+    {
+     "player": "Josh Whyle",
+     "position": "TE",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/josh-whyle/"
+    }
+   ],
+   "doubtful": [
+    {
+     "player": "Zaire Franklin",
+     "position": "LB",
+     "injury": "Shin",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/zaire-franklin/"
+    }
+   ],
+   "questionable": [
+    {
+     "player": "Chris Brooks",
+     "position": "RB",
+     "injury": "Ankle",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/christopher-brooks/"
+    },
+    {
+     "player": "Javon Bullard",
+     "position": "S",
+     "injury": "Ankle, Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/javon-bullard/"
+    },
+    {
+     "player": "Travis Glover",
+     "position": "G",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/travis-glover/"
+    },
+    {
+     "player": "Xavier McKinney",
+     "position": "S",
+     "injury": "Foot",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/xavier-mckinney/"
+    },
+    {
+     "player": "Skyy Moore",
+     "position": "WR",
+     "injury": "Ankle",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/skyy-moore/"
+    },
+    {
+     "player": "Lukas Van Ness",
+     "position": "LB",
+     "injury": "Back",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/lukas-van-ness/"
+    },
+    {
+     "player": "Kevin Zeitler",
+     "position": "G",
+     "injury": "Ankle, Triceps",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/kevin-zeitler/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 5,
+   "announced_replacements": [
+    {
+     "date": "(none shown)",
+     "headline": "Packers RB Josh Jacobs to undergo surgery on finger this week; timeline to return TBD",
+     "source_url": "https://www.nfl.com/news/packers-rb-josh-jacobs-to-undergo-surgery-on-finger-this-week",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "HOU",
+   "week": 10,
+   "opponent": "CLE",
+   "game_id": "2026_10_HOU_CLE",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Azeez Al-Shaair",
+     "position": "LB",
+     "injury": "Groin, Not injury related - personal matter",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/azeez-al-shaair/"
+    },
+    {
+     "player": "Marvin Harrison Jr.",
+     "position": "WR",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/marvin-harrison-jr/"
+    },
+    {
+     "player": "Danielle Hunter",
+     "position": "DE",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/danielle-hunter/"
+    },
+    {
+     "player": "Brevin Jordan",
+     "position": "TE",
+     "injury": "Finger, Foot",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/brevin-jordan/"
+    },
+    {
+     "player": "Keylan Rutledge",
+     "position": "G",
+     "injury": "Neck, Shoulder",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/keylan-rutledge/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Will Anderson Jr.",
+     "position": "DE",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/will-anderson-jr/"
+    },
+    {
+     "player": "Trent Brown",
+     "position": "T",
+     "injury": "Wrist, Illness",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/trent-brown/"
+    },
+    {
+     "player": "Jacob Hummel",
+     "position": "LB",
+     "injury": "Groin",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jake-hummel/"
+    },
+    {
+     "player": "David Montgomery",
+     "position": "RB",
+     "injury": "Groin",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/david-montgomery/"
+    },
+    {
+     "player": "Jaylin Smith",
+     "position": "CB",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jaylin-smith/"
+    },
+    {
+     "player": "Wyatt Teller",
+     "position": "G",
+     "injury": "Illness, Back",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/wyatt-teller/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 5,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "IND",
+   "week": 10,
+   "opponent": "MIA",
+   "game_id": "2026_10_MIA_IND",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Mo Alie-Cox",
+     "position": "TE",
+     "injury": "Groin",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/mo-alie-cox/"
+    },
+    {
+     "player": "Jaylon Carlies",
+     "position": "LB",
+     "injury": "Neck",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jaylon-carlies/"
+    },
+    {
+     "player": "Akeem Davis-Gaither",
+     "position": "LB",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/akeem-davis-gaither/"
+    },
+    {
+     "player": "Luke Rhodes",
+     "position": "LS",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/luke-rhodes/"
+    },
+    {
+     "player": "Jerry Tillery",
+     "position": "DT",
+     "injury": "Calf",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jerry-tillery/"
+    },
+    {
+     "player": "Jalen Travis",
+     "position": "T",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jalen-travis/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Arden Key",
+     "position": "DE",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/arden-key/"
+    },
+    {
+     "player": "Will Mallory",
+     "position": "TE",
+     "injury": "Hamstring",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/will-mallory/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 6,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "JAX",
+   "week": 10,
+   "opponent": "TEN",
+   "game_id": "2026_10_JAX_TEN",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Jessie Bates",
+     "position": "S",
+     "injury": "Not injury related - resting player",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jessie-bates/"
+    },
+    {
+     "player": "Jordan Davis",
+     "position": "DT",
+     "injury": "Not injury related - resting player",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jordan-davis/"
+    },
+    {
+     "player": "BJ Green II",
+     "position": "DE",
+     "injury": "Forearm",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/bj-green-ii/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Robert Hainsey",
+     "position": "C",
+     "injury": "Concussion",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/robert-hainsey/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "KC",
+   "week": 10,
+   "opponent": "ATL",
+   "game_id": "2026_10_KC_ATL",
+   "week10_state": "played",
+   "chart": {
+    "slots": [
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Rashee Rice",
+       "Jalen Royals",
+       "Andrew Armstrong"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LT",
+      "chart_row_names_published_order": [
+       "Kahlil Benson",
+       "Diego Pounds"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LG",
+      "chart_row_names_published_order": [
+       "Kingsley Suamataia",
+       "Joshua Ezeudu"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "C",
+      "chart_row_names_published_order": [
+       "Creed Humphrey",
+       "Hunter Nourzad"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RG",
+      "chart_row_names_published_order": [
+       "Trey Smith",
+       "Mike Caliendo"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RT",
+      "chart_row_names_published_order": [
+       "Jaylon Moore",
+       "Joshua Ezeudu"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "TE",
+      "chart_row_names_published_order": [
+       "Travis Kelce",
+       "Noah Gray",
+       "Jared Wiley",
+       "Jake Briningstool"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "QB",
+      "chart_row_names_published_order": [
+       "Patrick Mahomes",
+       "Justin Fields",
+       "Garrett Nussmeier"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RB",
+      "chart_row_names_published_order": [
+       "Kenneth Walker",
+       "Emmett Johnson",
+       "Jaydn Ott"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "FB",
+      "chart_row_names_published_order": [
+       "Ben VanSumeren"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Xavier Worthy",
+       "Cyrus Allen",
+       "Josh Downs"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DE",
+      "chart_row_names_published_order": [
+       "Felix Anudike-Uzomah",
+       "Ashton Gillotte"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "Chris Jones",
+       "Peter Woods",
+       "Marcus Harris"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "Khyiris Tonga",
+       "Bryson Eason"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DE",
+      "chart_row_names_published_order": [
+       "George Karlaftis",
+       "R Mason Thomas"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Jack Cochrane",
+       "Cooper McDonald"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Nick Bolton",
+       "Jack Cochrane"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Drue Tranquill",
+       "Jeffrey Bassa"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "Nohl Williams",
+       "Jadon Canady"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "Mansoor Delane",
+       "Kristian Fulton",
+       "Melvin Smith"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "Alohi Gilman",
+       "Chris Roland-Wallace"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "Chamarri Conner",
+       "Jaden Hicks",
+       "Xavier Nwankpa"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "K",
+      "chart_row_names_published_order": [
+       "Harrison Butker"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "H",
+      "chart_row_names_published_order": [
+       "Matt Araiza"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "P",
+      "chart_row_names_published_order": [
+       "Matt Araiza"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "LS",
+      "chart_row_names_published_order": [
+       "James Winchester"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "KR",
+      "chart_row_names_published_order": [
+       "Emmett Johnson",
+       "Cyrus Allen"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "PR",
+      "chart_row_names_published_order": [
+       "Emmett Johnson",
+       "Cyrus Allen"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     }
+    ],
+    "source": "https://www.chiefs.com/team/depth-chart",
+    "page_date": null,
+    "disclaimer": "Unofficial Depth Chart"
+   },
+   "chart_flag": "",
+   "out": [
+    {
+     "player": "Jaylon Moore",
+     "position": "T",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jaylon-moore-2/"
+    },
+    {
+     "player": "Omarr Norman-Lott",
+     "position": "DT",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/omarr-norman-lott/"
+    },
+    {
+     "player": "Peter Woods",
+     "position": "DT",
+     "injury": "Neck",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/peter-woods/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Mansoor Delane",
+     "position": "CB",
+     "injury": "Shoulder",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/mansoor-delane/"
+    },
+    {
+     "player": "Jaydn Ott",
+     "position": "RB",
+     "injury": "Hamstring",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jaydn-ott/"
+    },
+    {
+     "player": "Kenneth Walker III",
+     "position": "RB",
+     "injury": "Groin",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/kenneth-walker-iii/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "LA",
+   "week": 10,
+   "opponent": "ARI",
+   "game_id": "2026_10_LA_ARI",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Steve Avila",
+     "position": "G",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/steve-avila/"
+    },
+    {
+     "player": "Terrance Ferguson",
+     "position": "TE",
+     "injury": "Ankle, Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/terrance-ferguson-2/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Davis Allen",
+     "position": "TE",
+     "injury": "Oblique",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/davis-allen/"
+    },
+    {
+     "player": "Joe Cardona",
+     "position": "LS",
+     "injury": "Ankle",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/joe-cardona/"
+    },
+    {
+     "player": "Kam Curl",
+     "position": "S",
+     "injury": "Toe",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/kamren-curl/"
+    },
+    {
+     "player": "Myles Garrett",
+     "position": "LB",
+     "injury": "Knee, Not injury related - resting player",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/myles-garrett/"
+    },
+    {
+     "player": "Trent McDuffie",
+     "position": "CB",
+     "injury": "Back",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/trent-mcduffie/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 2,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "LAC",
+   "week": 10,
+   "opponent": "BAL",
+   "game_id": "2026_10_LAC_BAL",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "LV",
+   "week": 10,
+   "opponent": "SEA",
+   "game_id": "2026_10_SEA_LV",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Thomas Booker",
+     "position": "DT",
+     "injury": "Ankle",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/thomas-booker/"
+    },
+    {
+     "player": "Dont'e Thornton Jr.",
+     "position": "WR",
+     "injury": "Back",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/dont-e-thornton-jr/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [
+    {
+     "date": "(none shown)",
+     "headline": "Drew Lock (elbow/oblique) has no injury designation, will start for Seahawks vs. Raiders",
+     "source_url": "https://www.nfl.com/news/drew-lock-no-injury-designation-seahawks-raiders",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    },
+    {
+     "date": "(none shown)",
+     "headline": "Sam Darnold ruled out for Seahawks' Week 10 game vs. Raiders; Drew Lock expected to start again",
+     "source_url": "https://www.nfl.com/news/sam-darnold-ruled-out-for-seahawks-week-10-game-vs-raiders-drew-lock-expected-to-start-again",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "MIA",
+   "week": 10,
+   "opponent": "IND",
+   "game_id": "2026_10_MIA_IND",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Aaron Brewer",
+     "position": "C",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/aaron-brewer-2/"
+    },
+    {
+     "player": "Jared Wayne",
+     "position": "WR",
+     "injury": "Quadricep",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jared-wayne/"
+    }
+   ],
+   "doubtful": [
+    {
+     "player": "Chris Bell",
+     "position": "WR",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Doubtful",
+     "source_url": "https://www.nfl.com/players/chris-bell-2/"
+    }
+   ],
+   "questionable": [
+    {
+     "player": "Darrell Baker Jr.",
+     "position": "CB",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/darrell-baker-jr/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [
+    {
+     "date": "(none shown)",
+     "headline": "Dolphins place QB Malik Willis (groin) on injured reserve; Kyle McCord in line for first start",
+     "source_url": "https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "MIN",
+   "week": 10,
+   "opponent": "GB",
+   "game_id": "2026_10_MIN_GB",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Blake Cashman",
+     "position": "LB",
+     "injury": "Concussion",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/blake-cashman/"
+    },
+    {
+     "player": "T.J. Hockenson",
+     "position": "TE",
+     "injury": "Wrist, Chest",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/t-j-hockenson/"
+    },
+    {
+     "player": "Tyrion Ingram-Dawkins",
+     "position": "DT",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/tyrion-ingram-dawkins/"
+    },
+    {
+     "player": "Jauan Jennings",
+     "position": "WR",
+     "injury": "Calf",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/jauan-jennings/"
+    },
+    {
+     "player": "Kyler Murray",
+     "position": "QB",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/kyler-murray/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Jordan Addison",
+     "position": "WR",
+     "injury": "Thumb",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jordan-addison/"
+    },
+    {
+     "player": "Josh Metellus",
+     "position": "S",
+     "injury": "Shoulder",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/josh-metellus/"
+    },
+    {
+     "player": "Kyle Van Noy",
+     "position": "LB",
+     "injury": "Calf",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/kyle-van-noy/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 5,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "NE",
+   "week": 10,
+   "opponent": "DET",
+   "game_id": "2026_10_NE_DET",
+   "week10_state": "played",
+   "chart": {
+    "slots": [
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "A.J. Brown",
+       "Efton Chism III"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LT",
+      "chart_row_names_published_order": [
+       "Will Campbell",
+       "Dametrious Crownover",
+       "Marcus Bryant"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LG",
+      "chart_row_names_published_order": [
+       "Ben Brown",
+       "Walter Rouse"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "C",
+      "chart_row_names_published_order": [
+       "Jared Wilson",
+       "Ben Brown"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RG",
+      "chart_row_names_published_order": [
+       "Matt Pryor",
+       "Walter Rouse"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RT",
+      "chart_row_names_published_order": [
+       "Morgan Moses",
+       "Caleb Lomu"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "TE",
+      "chart_row_names_published_order": [
+       "Hunter Henry",
+       "Eli Raridon",
+       "Cameron Latu"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "DeMario Douglas",
+       "Kyle Williams"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Efton Chism III",
+       "Kyle Williams"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RB",
+      "chart_row_names_published_order": [
+       "Rhamondre Stevenson",
+       "TreVeyon Henderson",
+       "Corey Kiner",
+       "Lan Larison"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "QB",
+      "chart_row_names_published_order": [
+       "Drake Maye",
+       "Tommy DeVito",
+       "Behren Morton"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "OLB",
+      "chart_row_names_published_order": [
+       "Dre'Mont Jones",
+       "Gabe Jacas"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "Christian Barmore",
+       "Leonard Taylor III"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "Cory Durden",
+       "DaQuan Jones"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "DT",
+      "chart_row_names_published_order": [
+       "Milton Williams",
+       "Joshua Farmer"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "OLB",
+      "chart_row_names_published_order": [
+       "Elijah Ponder",
+       "Gabe Jacas"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Robert Spillane",
+       "Darius Muasau",
+       "Erick Hunter"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LB",
+      "chart_row_names_published_order": [
+       "Christian Elliss",
+       "Namdi Obiazor"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "Carlton Davis III",
+       "Channing Canada"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "Craig Woodson",
+       "Mike Brown"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "S",
+      "chart_row_names_published_order": [
+       "Kevin Byard III",
+       "Jaylen Reed",
+       "Brenden Schooler"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "Marcus Jones",
+       "Charles Woods"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "CB",
+      "chart_row_names_published_order": [
+       "Christian Gonzalez",
+       "Karon Prunty"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "K",
+      "chart_row_names_published_order": [
+       "Andy Borregales"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "P",
+      "chart_row_names_published_order": [
+       "Mitch Wishnowsky"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "H",
+      "chart_row_names_published_order": [
+       "Mitch Wishnowsky"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "LS",
+      "chart_row_names_published_order": [
+       "Julian Ashby"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "PR",
+      "chart_row_names_published_order": [
+       "Marcus Jones",
+       "DeMario Douglas"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "KR",
+      "chart_row_names_published_order": [
+       "Kyle Williams",
+       "Corey Kiner",
+       "Lan Larison"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     }
+    ],
+    "source": "https://www.patriots.com/team/depth-chart",
+    "page_date": null,
+    "disclaimer": "The 2026 depth chart is unofficial and is published by the writers of Patriots.com. The depth chart reflects the opinions of the Patriots.com writers and don't necessarily reflect those of the organization."
+   },
+   "chart_flag": "",
+   "out": [
+    {
+     "player": "Ben Brown",
+     "position": "C",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/ben-brown-2/"
+    },
+    {
+     "player": "Carlton Davis III",
+     "position": "CB",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/carlton-davis/"
+    },
+    {
+     "player": "TreVeyon Henderson",
+     "position": "RB",
+     "injury": "Illness",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/treveyon-henderson/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "A.J. Brown",
+     "position": "WR",
+     "injury": "Ankle, Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/a-j-brown/"
+    },
+    {
+     "player": "Kevin Byard",
+     "position": "S",
+     "injury": "Chest",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/kevin-byard/"
+    },
+    {
+     "player": "Reggie Gilliam",
+     "position": "FB",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/reggie-gilliam/"
+    },
+    {
+     "player": "Cameron Latu",
+     "position": "TE",
+     "injury": "Back",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/cameron-latu/"
+    },
+    {
+     "player": "Walter Rouse",
+     "position": "T",
+     "injury": "Concussion",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/walter-rouse/"
+    },
+    {
+     "player": "Brenden Schooler",
+     "position": "S",
+     "injury": "Hamstring",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/brenden-schooler/"
+    },
+    {
+     "player": "Rhamondre Stevenson",
+     "position": "RB",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/rhamondre-stevenson/"
+    },
+    {
+     "player": "Greg Van Roten",
+     "position": "G",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/greg-van-roten/"
+    },
+    {
+     "player": "Charles Woods",
+     "position": "CB",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/charles-woods/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 3,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "NO",
+   "week": 10,
+   "opponent": "CAR",
+   "game_id": "2026_10_CAR_NO",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "CJ Donaldson",
+     "position": "RB",
+     "injury": "Shoulder",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/cj-donaldson/"
+    },
+    {
+     "player": "Taliese Fuaga",
+     "position": "T",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/taliese-fuaga/"
+    },
+    {
+     "player": "Erik McCoy",
+     "position": "C",
+     "injury": "Biceps",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/erik-mccoy/"
+    },
+    {
+     "player": "Christen Miller",
+     "position": "DT",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/christen-miller/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Martin Emerson",
+     "position": "CB",
+     "injury": "Shin",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/martin-emerson/"
+    },
+    {
+     "player": "Travis Etienne",
+     "position": "RB",
+     "injury": "Hamstring",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/travis-etienne/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 4,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "NYG",
+   "week": 10,
+   "opponent": "WAS",
+   "game_id": "2026_10_WAS_NYG",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Malik Harrison",
+     "position": "LB",
+     "injury": "Groin",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/malik-harrison/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "NYJ",
+   "week": 10,
+   "opponent": "BUF",
+   "game_id": "2026_10_BUF_NYJ",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Trevin Wallace",
+     "position": "LB",
+     "injury": "Groin",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/trevin-wallace/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Jarvis Brownlee Jr.",
+     "position": "CB",
+     "injury": "Illness",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/jarvis-brownlee-jr/"
+    },
+    {
+     "player": "Omar Cooper Jr.",
+     "position": "WR",
+     "injury": "Ankle",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/omar-cooper-jr/"
+    },
+    {
+     "player": "Adonai Mitchell",
+     "position": "WR",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/adonai-mitchell/"
+    },
+    {
+     "player": "Joseph Ossai",
+     "position": "DE",
+     "injury": "Ankle",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/joseph-ossai/"
+    },
+    {
+     "player": "VJ Payne",
+     "position": "S",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/vj-payne/"
+    },
+    {
+     "player": "Harrison Phillips",
+     "position": "DT",
+     "injury": "Ankle",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/harrison-phillips/"
+    },
+    {
+     "player": "Garrett Wilson",
+     "position": "WR",
+     "injury": "Concussion",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/garrett-wilson/"
+    },
+    {
+     "player": "Nahshon Wright",
+     "position": "CB",
+     "injury": "Back",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/nahshon-wright/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 1,
+   "announced_replacements": [
+    {
+     "date": "Nov 6 (per URL)",
+     "headline": "NFL news roundup: Jets' Garrett Wilson ruled out; Falcons RB Brian Robinson out for Madrid game",
+     "source_url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-6",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "PHI",
+   "week": 10,
+   "opponent": "",
+   "game_id": "",
+   "week10_state": "bye \u2014 no Week 10 report exists; absence of rows is NOT a health claim",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "PIT",
+   "week": 10,
+   "opponent": "CIN",
+   "game_id": "2026_10_PIT_CIN",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Derrick Harmon",
+     "position": "DT",
+     "injury": "Foot",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/derrick-harmon-2/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "SEA",
+   "week": 10,
+   "opponent": "LV",
+   "game_id": "2026_10_SEA_LV",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Charles Cross",
+     "position": "T",
+     "injury": "Ankle",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/charles-cross-2/"
+    },
+    {
+     "player": "Sam Darnold",
+     "position": "QB",
+     "injury": "Ribs, Quadricep",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/sam-darnold/"
+    },
+    {
+     "player": "Quenton Nelson",
+     "position": "G",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/quenton-nelson/"
+    },
+    {
+     "player": "Leonard Williams",
+     "position": "DT",
+     "injury": "Stinger",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/leonard-williams/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 4,
+   "announced_replacements": [
+    {
+     "date": "(none shown)",
+     "headline": "Drew Lock (elbow/oblique) has no injury designation, will start for Seahawks vs. Raiders",
+     "source_url": "https://www.nfl.com/news/drew-lock-no-injury-designation-seahawks-raiders",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    },
+    {
+     "date": "(none shown)",
+     "headline": "Sam Darnold ruled out for Seahawks' Week 10 game vs. Raiders; Drew Lock expected to start again",
+     "source_url": "https://www.nfl.com/news/sam-darnold-ruled-out-for-seahawks-week-10-game-vs-raiders-drew-lock-expected-to-start-again",
+     "listed_on_page": "https://www.nfl.com/injuries/"
+    }
+   ],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "SF",
+   "week": 10,
+   "opponent": "DAL",
+   "game_id": "2026_10_SF_DAL",
+   "week10_state": "played",
+   "chart": {
+    "slots": [
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Mike Evans",
+       "Jordan Watkins",
+       "Brandin Cooks"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LT",
+      "chart_row_names_published_order": [
+       "Trent Williams",
+       "Vederian Lowe",
+       "Enrique Cruz Jr."
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "LG",
+      "chart_row_names_published_order": [
+       "Connor Colby",
+       "Carver Willis"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "C",
+      "chart_row_names_published_order": [
+       "Jake Brendel",
+       "Jarrett Patterson"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RG",
+      "chart_row_names_published_order": [
+       "Dominick Puni"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RT",
+      "chart_row_names_published_order": [
+       "Colton McKivitz"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "TE",
+      "chart_row_names_published_order": [
+       "George Kittle",
+       "Luke Farrell",
+       "Brayden Willis"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "WR",
+      "chart_row_names_published_order": [
+       "Deebo Samuel Sr.",
+       "Demarcus Robinson",
+       "Jacob Cowing"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "RB",
+      "chart_row_names_published_order": [
+       "Christian McCaffrey",
+       "Kaelon Black",
+       "Jordan James"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "FB",
+      "chart_row_names_published_order": [
+       "Kyle Juszczyk"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "offense",
+      "position": "QB",
+      "chart_row_names_published_order": [
+       "Brock Purdy",
+       "Mac Jones",
+       "Kurtis Rourke"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LDE",
+      "chart_row_names_published_order": [
+       "Keion White",
+       "Mykel Williams",
+       "Khalid Kareem"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LDT",
+      "chart_row_names_published_order": [
+       "DeForest Buckner",
+       "Gracen Halton",
+       "Sebastian Valdez"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "RDT",
+      "chart_row_names_published_order": [
+       "Osa Odighizuwa",
+       "James Thompson Jr."
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "RDE",
+      "chart_row_names_published_order": [
+       "Nick Bosa",
+       "Romello Height"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "SAM",
+      "chart_row_names_published_order": [
+       "Jaden Dugger",
+       "Luke Gifford"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "MIKE",
+      "chart_row_names_published_order": [
+       "Fred Warner",
+       "Tatum Bethune"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "WILL",
+      "chart_row_names_published_order": [
+       "Dre Greenlaw",
+       "Garret Wallow"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "LCB",
+      "chart_row_names_published_order": [
+       "Renardo Green"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "RCB",
+      "chart_row_names_published_order": [
+       "Deommodore Lenoir",
+       "Ephesians Prysock"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "NB",
+      "chart_row_names_published_order": [
+       "Upton Stout"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "FS",
+      "chart_row_names_published_order": [
+       "Ji'Ayir Brown",
+       "Siran Neal"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "defense",
+      "position": "SS",
+      "chart_row_names_published_order": [
+       "Malik Mustapha",
+       "Marques Sigle",
+       "Ashtyn Davis"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "P",
+      "chart_row_names_published_order": [
+       "Corliss Waitman"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "K",
+      "chart_row_names_published_order": [
+       "Eddy Pinheiro"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "H",
+      "chart_row_names_published_order": [
+       "Corliss Waitman"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "PR",
+      "chart_row_names_published_order": [
+       "Jacob Cowing",
+       "Jordan Watkins"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "KOR",
+      "chart_row_names_published_order": [
+       "Deebo Samuel Sr.",
+       "Jordan James"
+      ],
+      "shared_slot": true,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     },
+     {
+      "unit": "special_teams",
+      "position": "LS",
+      "chart_row_names_published_order": [
+       "Jon Weeks"
+      ],
+      "shared_slot": false,
+      "note": "club-published order preserved verbatim; rank groups not re-derived (DR-50 rejection)"
+     }
+    ],
+    "source": "https://www.49ers.com/team/depth-chart",
+    "page_date": "2026-11-10",
+    "disclaimer": "Updated as of 11/10/26"
+   },
+   "chart_flag": "",
+   "out": [
+    {
+     "player": "Mike Evans",
+     "position": "WR",
+     "injury": "Achilles",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/mike-evans/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Renardo Green",
+     "position": "CB",
+     "injury": "Back",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/renardo-green/"
+    },
+    {
+     "player": "Dre Greenlaw",
+     "position": "LB",
+     "injury": "Knee",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/dre-greenlaw-x9042/"
+    },
+    {
+     "player": "Nate Hobbs",
+     "position": "CB",
+     "injury": "Groin",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/nate-hobbs/"
+    },
+    {
+     "player": "Deommodore Lenoir",
+     "position": "CB",
+     "injury": "Foot",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/deommodore-lenoir/"
+    },
+    {
+     "player": "Upton Stout",
+     "position": "CB",
+     "injury": "Shoulder, Neck",
+     "practice_status": "Limited Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/upton-stout/"
+    },
+    {
+     "player": "C.J. West",
+     "position": "DT",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/cj-west/"
+    },
+    {
+     "player": "Trent Williams",
+     "position": "T",
+     "injury": "Shoulder",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/trent-williams/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 1,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "TB",
+   "week": 10,
+   "opponent": "",
+   "game_id": "",
+   "week10_state": "bye \u2014 no Week 10 report exists; absence of rows is NOT a health claim",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 0,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "TEN",
+   "week": 10,
+   "opponent": "JAX",
+   "game_id": "2026_10_JAX_TEN",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Cody Barton",
+     "position": "LB",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/cody-barton/"
+    },
+    {
+     "player": "Anthony Hill Jr.",
+     "position": "LB",
+     "injury": "Neck",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/anthony-hill-jr/"
+    },
+    {
+     "player": "Peter Skoronski",
+     "position": "G",
+     "injury": "Hamstring",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/peter-skoronski/"
+    },
+    {
+     "player": "Carnell Tate",
+     "position": "WR",
+     "injury": "Shoulder",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/carnell-tate/"
+    },
+    {
+     "player": "Tommy Townsend",
+     "position": "P",
+     "injury": "Knee, Achilles",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/tommy-townsend/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [
+    {
+     "player": "Tyjae Spears",
+     "position": "RB",
+     "injury": "Knee",
+     "practice_status": "Full Participation in Practice",
+     "game_status": "Questionable",
+     "source_url": "https://www.nfl.com/players/tyjae-spears/"
+    }
+   ],
+   "net_injury_count_out_doubtful": 5,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  },
+  {
+   "team": "WAS",
+   "week": 10,
+   "opponent": "NYG",
+   "game_id": "2026_10_WAS_NYG",
+   "week10_state": "played",
+   "chart": null,
+   "chart_flag": "no verified club depth page captured (F-D1) \u2014 chart layer blank, NOT inferred",
+   "out": [
+    {
+     "player": "Lucas Patrick",
+     "position": "C",
+     "injury": "Concussion",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/lucas-patrick/"
+    },
+    {
+     "player": "Colson Yankoff",
+     "position": "TE",
+     "injury": "Knee",
+     "practice_status": "Did Not Participate In Practice",
+     "game_status": "Out",
+     "source_url": "https://www.nfl.com/players/colson-yankoff/"
+    }
+   ],
+   "doubtful": [],
+   "questionable": [],
+   "net_injury_count_out_doubtful": 2,
+   "announced_replacements": [],
+   "actually_played": "",
+   "actually_played_flag": "blank: game-day inactive/actives list not captured (DR-31) \u2014 never inferred"
+  }
+ ]
+}

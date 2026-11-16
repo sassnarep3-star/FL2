@@ -1,0 +1,405 @@
+{
+ "ledger_id": "fl2-forecast-ledger-v1",
+ "model_id": "SB-1.0.0",
+ "registration_commit": "55b94c1",
+ "preregistration_doc": "research/preregistration.md",
+ "price_data_policy": "research/price-data-policy.md",
+ "generated_at_utc": "2026-11-16T02:45:00Z",
+ "gate_G4_first_kickoff_utc": "2026-11-20T01:15:00Z",
+ "gate_G4_status": "pass (generated before first Week 11 kickoff)",
+ "immutability_rule": "this ledger is append-only; graded results are appended, never edited",
+ "model_inputs_summary": {
+  "fit_games": 148,
+  "teams": 32,
+  "b0_measured_hfa": -0.618,
+  "sigma_in_sample": 11.732,
+  "Tbar": 46.108,
+  "ratings": {
+   "ARI": -9.176,
+   "ATL": -2.697,
+   "BAL": -5.098,
+   "BUF": 8.987,
+   "CAR": -1.445,
+   "CHI": 6.524,
+   "CIN": 7.722,
+   "CLE": -3.298,
+   "DAL": -1.719,
+   "DEN": 3.205,
+   "DET": 5.798,
+   "GB": 2.611,
+   "HOU": 0.86,
+   "IND": -6.02,
+   "JAX": 11.774,
+   "KC": 6.272,
+   "LA": 3.176,
+   "LAC": -10.551,
+   "LV": -3.357,
+   "MIA": -6.225,
+   "MIN": 7.18,
+   "NE": 0.613,
+   "NO": -3.855,
+   "NYG": -3.378,
+   "NYJ": -5.123,
+   "PHI": -8.475,
+   "PIT": 3.746,
+   "SEA": 3.627,
+   "SF": 7.513,
+   "TB": 4.805,
+   "TEN": -9.158,
+   "WAS": -4.835
+  }
+ },
+ "forecasts": [
+  {
+   "game_id": "2026_11_IND_HOU",
+   "kickoff_utc_or_et": "2026-11-19T20:15ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 0.86,
+    "ratings_away": -6.02,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 1.963,
+    "off_away": -1.61,
+    "def_home": 0.886,
+    "def_away": 2.89,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.7033,
+    "p_away": 0.2967,
+    "fair_margin_home": 6.26,
+    "fair_spread_home_display": -6.3,
+    "fair_total": 50.2,
+    "fair_ml_home_american": -237.0,
+    "fair_ml_away_american": 237.0
+   }
+  },
+  {
+   "game_id": "2026_11_ARI_KC",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 6.272,
+    "ratings_away": -9.176,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 2.27,
+    "off_away": -3.324,
+    "def_home": -3.96,
+    "def_away": 4.176,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.8969,
+    "p_away": 0.1031,
+    "fair_margin_home": 14.83,
+    "fair_spread_home_display": -14.8,
+    "fair_total": 45.3,
+    "fair_ml_home_american": -870.0,
+    "fair_ml_away_american": 870.0
+   }
+  },
+  {
+   "game_id": "2026_11_BAL_CAR",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": -1.445,
+    "ratings_away": -5.098,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 0.886,
+    "off_away": -1.422,
+    "def_home": 2.193,
+    "def_away": 2.193,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.6021,
+    "p_away": 0.3979,
+    "fair_margin_home": 3.04,
+    "fair_spread_home_display": -3.0,
+    "fair_total": 50.0,
+    "fair_ml_home_american": -151.0,
+    "fair_ml_away_american": 151.0
+   }
+  },
+  {
+   "game_id": "2026_11_MIA_BUF",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 8.987,
+    "ratings_away": -6.225,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 6.116,
+    "off_away": -4.576,
+    "def_home": -0.653,
+    "def_away": 1.27,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.8932,
+    "p_away": 0.1068,
+    "fair_margin_home": 14.59,
+    "fair_spread_home_display": -14.6,
+    "fair_total": 48.3,
+    "fair_ml_home_american": -837.0,
+    "fair_ml_away_american": 837.0
+   }
+  },
+  {
+   "game_id": "2026_11_NO_CHI",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 6.524,
+    "ratings_away": -3.855,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 2.578,
+    "off_away": -0.422,
+    "def_home": -1.807,
+    "def_away": 2.193,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.7973,
+    "p_away": 0.2027,
+    "fair_margin_home": 9.76,
+    "fair_spread_home_display": -9.8,
+    "fair_total": 48.7,
+    "fair_ml_home_american": -393.0,
+    "fair_ml_away_american": 393.0
+   }
+  },
+  {
+   "game_id": "2026_11_PIT_PHI",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": -8.475,
+    "ratings_away": 3.746,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": -4.576,
+    "off_away": -0.369,
+    "def_home": 1.04,
+    "def_away": -3.369,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.1369,
+    "p_away": 0.8631,
+    "fair_margin_home": -12.84,
+    "fair_spread_home_display": 12.8,
+    "fair_total": 38.8,
+    "fair_ml_home_american": 630.0,
+    "fair_ml_away_american": -630.0
+   }
+  },
+  {
+   "game_id": "2026_11_TB_DET",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 5.798,
+    "ratings_away": 4.805,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 3.809,
+    "off_away": -0.422,
+    "def_home": -0.653,
+    "def_away": -2.268,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.5128,
+    "p_away": 0.4872,
+    "fair_margin_home": 0.38,
+    "fair_spread_home_display": -0.4,
+    "fair_total": 46.6,
+    "fair_ml_home_american": -105.0,
+    "fair_ml_away_american": 105.0
+   }
+  },
+  {
+   "game_id": "2026_11_TEN_DAL",
+   "kickoff_utc_or_et": "2026-11-22T13:00ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": -1.719,
+    "ratings_away": -9.158,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 3.961,
+    "off_away": -3.114,
+    "def_home": 3.676,
+    "def_away": 2.424,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.7195,
+    "p_away": 0.2805,
+    "fair_margin_home": 6.82,
+    "fair_spread_home_display": -6.8,
+    "fair_total": 53.1,
+    "fair_ml_home_american": -257.0,
+    "fair_ml_away_american": 257.0
+   }
+  },
+  {
+   "game_id": "2026_11_NYJ_LAC",
+   "kickoff_utc_or_et": "2026-11-22T16:05ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": -10.551,
+    "ratings_away": -5.123,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": -5.286,
+    "off_away": -2.61,
+    "def_home": 2.881,
+    "def_away": 1.676,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.3032,
+    "p_away": 0.6968,
+    "fair_margin_home": -6.05,
+    "fair_spread_home_display": 6.0,
+    "fair_total": 42.8,
+    "fair_ml_home_american": 230.0,
+    "fair_ml_away_american": -230.0
+   }
+  },
+  {
+   "game_id": "2026_11_JAX_NYG",
+   "kickoff_utc_or_et": "2026-11-22T16:25ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": -3.378,
+    "ratings_away": 11.774,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": -0.345,
+    "off_away": 4.732,
+    "def_home": -0.884,
+    "def_away": -4.884,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.0894,
+    "p_away": 0.9106,
+    "fair_margin_home": -15.77,
+    "fair_spread_home_display": 15.8,
+    "fair_total": 44.7,
+    "fair_ml_home_american": 1018.0,
+    "fair_ml_away_american": -1018.0
+   }
+  },
+  {
+   "game_id": "2026_11_LV_DEN",
+   "kickoff_utc_or_et": "2026-11-22T16:25ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 3.205,
+    "ratings_away": -3.357,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": -0.73,
+    "off_away": 1.461,
+    "def_home": -1.653,
+    "def_away": 4.176,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.6938,
+    "p_away": 0.3062,
+    "fair_margin_home": 5.94,
+    "fair_spread_home_display": -5.9,
+    "fair_total": 49.4,
+    "fair_ml_home_american": -227.0,
+    "fair_ml_away_american": 227.0
+   }
+  },
+  {
+   "game_id": "2026_11_MIN_SF",
+   "kickoff_utc_or_et": "2026-11-22T20:20ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": 7.513,
+    "ratings_away": 7.18,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": 5.655,
+    "off_away": -2.422,
+    "def_home": -0.884,
+    "def_away": -6.268,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.4903,
+    "p_away": 0.5097,
+    "fair_margin_home": -0.28,
+    "fair_spread_home_display": 0.3,
+    "fair_total": 42.2,
+    "fair_ml_home_american": 104.0,
+    "fair_ml_away_american": -104.0
+   }
+  },
+  {
+   "game_id": "2026_11_CIN_WAS",
+   "kickoff_utc_or_et": "2026-11-23T20:15ET",
+   "forecast_generated_at_utc": "2026-11-16T02:45:00Z",
+   "inputs": {
+    "ratings_home": -4.835,
+    "ratings_away": 7.722,
+    "b0_measured_hfa": -0.618,
+    "sigma": 11.732,
+    "Tbar": 46.108,
+    "off_home": -0.884,
+    "off_away": 4.631,
+    "def_home": 1.193,
+    "def_away": -0.786,
+    "fit_window": "2026 REG weeks 1-10 finals",
+    "fit_games": 148
+   },
+   "outputs": {
+    "p_home": 0.1307,
+    "p_away": 0.8693,
+    "fair_margin_home": -13.17,
+    "fair_spread_home_display": 13.2,
+    "fair_total": 50.3,
+    "fair_ml_home_american": 665.0,
+    "fair_ml_away_american": -665.0
+   }
+  }
+ ]
+}

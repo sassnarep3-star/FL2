@@ -1,0 +1,103 @@
+{
+ "meta": {
+  "generated_by": "tools/run_leaderboard.py",
+  "generated_at_utc": "2026-11-16T02:55:00Z",
+  "registration_commit": "55b94c1",
+  "rule": "backtest numbers are forbidden here (brief + preregistration section 7); signal and staking columns are never combined",
+  "prospective_window": "2026 Weeks 11-18, graded at closing prices",
+  "window_status": "open at Week 11 kickoff 2026-11-19; no prospective forecast is graded yet"
+ },
+ "divisions": [
+  {
+   "division": "Singles",
+   "eligible": "yes",
+   "ranking_metric": "benchmark-relative Brier skill (game-cluster 90% lower bound) + multiplicity adjustment",
+   "gate": "G1-G8 (research/preregistration.md)",
+   "entries": "SB-1 + controls"
+  },
+  {
+   "division": "Game parlays",
+   "eligible": "no \u2014 joint-evidence gate",
+   "ranking_metric": "proper score on the validated joint probability",
+   "gate": "needs a directly validated joint probability (n >= 500 joint outcomes) AND operator void/push rules; multiplying marginals is invalid under dependence",
+   "entries": "none registered"
+  },
+  {
+   "division": "Same-game parlays",
+   "eligible": "no \u2014 joint-evidence gate",
+   "ranking_metric": "proper score on the validated joint probability",
+   "gate": "same as game parlays; dependence is strongest here",
+   "entries": "none registered"
+  },
+  {
+   "division": "Prop combos",
+   "eligible": "no \u2014 joint-evidence gate",
+   "ranking_metric": "proper score on the validated joint probability",
+   "gate": "needs player-level joint model + rules; snap-count and inactives feeds first (availability gate)",
+   "entries": "none registered"
+  }
+ ],
+ "entries": [
+  {
+   "id": "SB-1.0.0",
+   "name": "Shadow baseline (team strength, singles only)",
+   "division": "Singles",
+   "status": "paper (shadow)",
+   "registered_at_utc": "2026-11-16T02:45:00Z",
+   "registration_commit": "55b94c1",
+   "definition": "research/preregistration.md (frozen): OLS margin ratings + shrinkage total model + Normal win probability",
+   "signal_columns": {
+    "brier_skill": "pending",
+    "lower_bound_90": "pending",
+    "n_graded": 0
+   },
+   "staking_columns": {
+    "scheme": "flat 1 unit",
+    "roi": "pending",
+    "max_drawdown": "pending"
+   },
+   "what_would_change_our_mind": {
+    "up": "Prospective Brier skill > 0 with 90% lower bound > 0 over >= 500 graded forecasts and the side-balance gate holds (0.35-0.65).",
+    "down": "Skill point estimate < 0 at the Week-14 checkpoint (n >= 200); any G4/G7 violation; or sigma drifts > 20% from the registered 11.73."
+   },
+   "gates": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7",
+    "G8"
+   ]
+  }
+ ],
+ "controls": [
+  {
+   "id": "CTL-RANDOM",
+   "definition": "uniform random side, flat 1 unit, seed 20261116; the pure-luck distribution is published in the removal-of-luck panel",
+   "signal_score": "n/a by construction",
+   "staking": "flat 1 unit",
+   "role": "luck floor"
+  },
+  {
+   "id": "CTL-FAV",
+   "definition": "always take the closing favourite at the closing price, flat 1 unit",
+   "signal_score": "pending prospective grading",
+   "staking": "flat 1 unit",
+   "role": "market-strength control"
+  },
+  {
+   "id": "CTL-HOME",
+   "definition": "always take the home team at the closing price, flat 1 unit",
+   "signal_score": "pending prospective grading",
+   "staking": "flat 1 unit",
+   "role": "HFA control (2026 measured HFA is negative: b0 = -0.618)"
+  }
+ ],
+ "demotion_gate": {
+  "rule": "live -> paper when any of: (a) trailing 200 graded forecasts with Brier-skill 90% lower bound < 0 at two consecutive weekly checkpoints; (b) flat-stake drawdown > 25 units; (c) feed-integrity failure in its inputs. Re-promotion needs a fresh 200-forecast run with lower bound > 0.",
+  "source": "research/preregistration.md section 5 (frozen at 55b94c1)"
+ },
+ "divisions_ineligible_note": "Parlay and prop-combo divisions exist but carry no entries; the joint-evidence gate must clear first."
+}
