@@ -107,8 +107,8 @@ add("R46", "Store every injury-hub read with its clock time and publish the delt
     "two clock-stamped captures of the same report, and a published delta file",
     ["ops/data/snapshots/ledger.csv", "ops/availability_capture.py"])
 add("R47", "Put a decision-readiness table on the landing page: one row per requirement, with the gate that blocks it and the number that would clear it", "",
-    "site", "done", "", "the full table lives at /readiness/ (this register); the landing page carries the readiness summary and a link — deviation logged: hub rows must carry official source links (scripts/check_site.py contract), which process requirements cannot",
-    ["readiness/index.html", "index.html"])
+    "site", "done", "", "two reconciled views now exist: the landing page carries the DR-xx decision table (session 56a33eb6, PR #19) and /readiness/ carries the verbatim R26\u2013R96 register with gates and clearing numbers (session 310620fe); the earlier deviation note is superseded by the DR-table's landing-page presence",
+    ["readiness/index.html", "index.html", "fl2-dashboard/data/decision-readiness.json"])
 add("R48", "Transcribe the venue of every fixture from the official game centre and publish it", "",
     "data", "done", "", "stadium published for all 150 fixtures (T2); the Munich game (NE@DET, W10) verified directly against the official game centre 2026-11-16",
     ["ops/data/venues_2026_reg.csv", NFL + "/games/patriots-at-lions-2026-reg-10"])
@@ -134,8 +134,8 @@ add("R53", "Add injury/depth ablations, not fixed penalties",
     ["signal/analysis/strategies.py", "research/validation-gates.md"])
 add("R54", "Automate immutable multi-day availability snapshots",
     "Capture the official report and club depth pages at least daily with retained hashes, so practice designations can be replayed as they were known. Today the site holds one capture, which cannot support backtesting.",
-    "data", "partial", "the capture workflow is committed and scheduled (Wed/Thu/Fri 21:15 UTC) but has not completed a run yet; club depth pages are not in the workflow's first version",
-    "first successful CI capture run, then daily cadence including club pages",
+    "data", "partial", "gate F-T1 (session 8326a20d): nfl.com Terms \u00a71.3 prohibit systematic retrieval to compile a database without written consent \u2014 the schedule is disabled and capture runs only on explicit manual dispatch; club depth pages are not in the first version",
+    "owner resolves F-T1 (written consent or derived-counts-only policy), then a successful capture run, then daily cadence including club pages",
     [".github/workflows/availability-snapshot.yml", "ops/availability_capture.py"])
 add("R55", "Build immutable official availability snapshots",
     "Scheduled capture of NFL injury reports, club depth pages and inactive evidence with raw hashes, timestamps and conflict flags",
@@ -250,8 +250,8 @@ add("R78", "Score injury-designation reliability before using it as a feature",
     ["research/open-questions.md"])
 add("R79", "Snapshot the nfl.com injury report every Wed, Thu and Fri and keep a dated history",
     "Lets us see Questionable→Out changes and practice trends (DNP→LP→FP)",
-    "data", "partial", "workflow scheduled Wed/Thu/Fri 21:15 UTC with hash-stamped history; awaiting its first successful run",
-    "three dated captures in the history with a published delta",
+    "data", "partial", "workflow committed with hash-stamped history but the schedule is disabled pending gate F-T1 (nfl.com Terms \u00a71.3); capture is manual-dispatch only until the owner decides",
+    "owner resolves F-T1; then three dated captures in the history with a published delta",
     [".github/workflows/availability-snapshot.yml", "ops/availability_capture.py"])
 add("R80", "Treat the injury report as a timestamped series, not a weekly snapshot",
     "Capture the report daily from Wednesday to kickoff with the fetch timestamp, then measure how designations evolve.",

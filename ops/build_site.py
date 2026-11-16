@@ -314,7 +314,8 @@ not hidden. <b>These are research forecasts, not betting recommendations.</b></d
 
 <h2 id="drift">Drift pins</h2>
 <p>{len(json.load(open(os.path.join(HERE, 'data', 'drift_manifest.json'))))} datasets pinned to row counts, required
-fields and maximum capture age; violations exit 1 ({repo_link('ops/drift_check.py')}). Schedule announcement, as
+fields and maximum capture age; violations exit 1 ({repo_link('ops/drift_check.py')}). The availability-capture
+schedule is disabled pending the terms gate F-T1 (see Flagged for Review). Schedule announcement, as
 published on the official page beside the live schedule: Week 16/17/18 windows are announced with
 <a href="https://www.nfl.com/legal/flexible-scheduling-procedures">the league's flexible-scheduling procedures</a>
 (dated 2026 announcement text captured in {repo_link('ops/build_site.py')} inputs and the official schedule page).</p>
@@ -343,9 +344,9 @@ def build_flagged() -> None:
         ("Two Week 10 games without final scores at fetch time",
          "PIT@CIN (SNF, Nov 15) was in progress and LAC@BAL (MNF, Nov 16) unplayed when the official page was fetched 2026-11-16. Their score cells are blank and flagged; they were not inferred.",
          ["https://www.nfl.com/games/steelers-at-bengals-2026-reg-10", "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10"]),
-        ("Availability-capture workflow untested",
-         "The Wed/Thu/Fri capture workflow (.github/workflows/availability-snapshot.yml) is committed and scheduled but has not completed a run in CI; its first successful run is the gate for R54/R79.",
-         [".github/workflows/availability-snapshot.yml"]),
+        ("Availability-capture schedule disabled pending the terms gate (F-T1)",
+         "The capture workflow (ops/availability_capture.py + .github/workflows/availability-snapshot.yml) is committed but its automatic schedule is DISABLED: session 8326a20d flagged (F-T1) that nfl.com Terms \u00a71.3 prohibit systematic retrieval to compile a database without written consent. Capture runs only on explicit manual dispatch until the owner resolves the gate. Its first successful run remains the gate for R54/R79.",
+         [".github/workflows/availability-snapshot.yml", "https://www.nfl.com/legal/terms/"]),
         ("Multi-season injury archive not reachable",
          "nflverse/nfldata contains no injury-report table (verified via the GitHub contents API 2026-11-16); release assets fail from this environment. This keeps designation-calibration (R69/R78) and past-season archives (R91) blocked.",
          ["https://api.github.com/repos/nflverse/nfldata/contents/data"]),

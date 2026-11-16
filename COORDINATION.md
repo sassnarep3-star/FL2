@@ -1243,3 +1243,23 @@ only as final integration after every earlier session's work was merged (PRs #1�
     because hub table rows must carry official source links (CI contract) — process requirements cannot.
 12. Session 1374049c's request for a `/fl2-signals/` nav link on the hub had never been applied;
     fulfilled here as final integration.
+
+### Reconciliation with concurrent sessions (2026-11-16, pre-merge)
+
+1. **Rebase onto main at `8f741fe` (PR #20).** Sessions `b899e38d` (reproducibility audit), `8326a20d`
+   (FL2 dashboard update) and `56a33eb6` (decision-readiness landing table + /fl2-signals/ nav) had
+   merged while this session worked. One conflict each in `COORDINATION.md` (both sides additive;
+   both kept) and `index.html` (nav). Resolution preserved every other session's addition:
+   - Kept the 56a33eb6 landing-page **DR-xx decision-readiness table** and its /fl2-signals/ tile verbatim.
+   - Removed this session's duplicate /fl2-signals/ tile; kept only the new `Readiness` nav link and the
+     complementary section describing the verbatim R26–R96 register + ops layer at `/readiness/`.
+   - `/fl2-signals/index.html` now appears twice on the hub (nav + tile), both from the merged state.
+2. **F-T1 reconciliation.** Session 8326a20d flagged that nfl.com Terms §1.3 prohibit systematic
+   retrieval to compile a database without written consent. This session's availability-capture
+   workflow was therefore **de-scheduled**: automatic capture is disabled and the workflow runs only
+   on explicit `workflow_dispatch` until the owner resolves F-T1. Register rows R54/R79 carry the F-T1
+   gate; `/readiness/flagged.html` item 7 records it with the terms link.
+3. **Coexistence note.** Two requirement registers now exist by design: the DR-xx table on the landing
+   page (decision view, session 56a33eb6) and the verbatim R26–R96 register at `/readiness/`
+   (gate + clearing number per line, session 310620fe). Register row R47 documents the relationship.
+   No DR-xx row was edited.

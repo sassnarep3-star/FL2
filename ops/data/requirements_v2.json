@@ -290,10 +290,11 @@
    "category": "site",
    "status": "done",
    "gate": "",
-   "clearing_metric": "the full table lives at /readiness/ (this register); the landing page carries the readiness summary and a link \u2014 deviation logged: hub rows must carry official source links (scripts/check_site.py contract), which process requirements cannot",
+   "clearing_metric": "two reconciled views now exist: the landing page carries the DR-xx decision table (session 56a33eb6, PR #19) and /readiness/ carries the verbatim R26\u2013R96 register with gates and clearing numbers (session 310620fe); the earlier deviation note is superseded by the DR-table's landing-page presence",
    "evidence": [
     "readiness/index.html",
-    "index.html"
+    "index.html",
+    "fl2-dashboard/data/decision-readiness.json"
    ]
   },
   {
@@ -379,8 +380,8 @@
    "detail": "Capture the official report and club depth pages at least daily with retained hashes, so practice designations can be replayed as they were known. Today the site holds one capture, which cannot support backtesting.",
    "category": "data",
    "status": "partial",
-   "gate": "the capture workflow is committed and scheduled (Wed/Thu/Fri 21:15 UTC) but has not completed a run yet; club depth pages are not in the workflow's first version",
-   "clearing_metric": "first successful CI capture run, then daily cadence including club pages",
+   "gate": "gate F-T1 (session 8326a20d): nfl.com Terms \u00a71.3 prohibit systematic retrieval to compile a database without written consent \u2014 the schedule is disabled and capture runs only on explicit manual dispatch; club depth pages are not in the first version",
+   "clearing_metric": "owner resolves F-T1 (written consent or derived-counts-only policy), then a successful capture run, then daily cadence including club pages",
    "evidence": [
     ".github/workflows/availability-snapshot.yml",
     "ops/availability_capture.py"
@@ -697,8 +698,8 @@
    "detail": "Lets us see Questionable\u2192Out changes and practice trends (DNP\u2192LP\u2192FP)",
    "category": "data",
    "status": "partial",
-   "gate": "workflow scheduled Wed/Thu/Fri 21:15 UTC with hash-stamped history; awaiting its first successful run",
-   "clearing_metric": "three dated captures in the history with a published delta",
+   "gate": "workflow committed with hash-stamped history but the schedule is disabled pending gate F-T1 (nfl.com Terms \u00a71.3); capture is manual-dispatch only until the owner decides",
+   "clearing_metric": "owner resolves F-T1; then three dated captures in the history with a published delta",
    "evidence": [
     ".github/workflows/availability-snapshot.yml",
     "ops/availability_capture.py"
