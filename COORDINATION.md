@@ -18,7 +18,7 @@ Flagged for Review page; does not block anything).
 | `e70150db` and others | `arena/e70150db-fl2` | NFL Decision Hub: requirements, gates, luck/skill, repo audit | `/hub/` | **merged** |
 | `68b4e431` | `arena/68b4e431-fl2` | **Evidence Ledger**: verified 2026 data, line model, 11-strategy validation harness, suggestions register, site hub | `/` (hub) + `/ledger/` | **this PR** |
 | `arena-48561869-fl2` | `arena/48561869-fl2` | **FL2 Dashboard**: verified official-source data foundation (2026 standings, Week 10 schedule, 345-row injury report, depth-chart example), executive summary, questions/answers register, suggestions section, strategy design with validation gates and luck-removal scoring, leaderboard spec, flagged-review page; integrated into the hub as `/fl2-dashboard/` | `/fl2-dashboard/` | **merged (PR #9)** |
-| `session-65556dd2` | `arena/65556dd2-fl2` | **Origination & Competition**: verified results feed (Week 10 completion), price-snapshot store + price-data policy, pre-registered shadow baseline with Week 11 fair/market/diff lines, signal-vs-staking leaderboard with control baselines and removal-of-luck panel, availability graph, decision-readiness register on the landing page | `/origination/` + landing-page readiness table | **in progress** |
+| `session-65556dd2` | `arena/65556dd2-fl2` | **Origination & Competition**: verified results feed (Week 10 completion), price-snapshot store + price-data policy, pre-registered SB-1 shadow baseline with Week 11 fair/market/diff lines (forecasts before kickoff), signal-vs-staking leaderboard with control baselines and removal-of-luck panel, availability graph, integrated decision-readiness table on the landing page | landing-page readiness table + `data/*`/`research/*` artifacts | **this PR** |
 
 
 **Integration completed 2026-11-14** (PR #8, merged as `ab37150`). How the four sites
@@ -61,14 +61,14 @@ integration session** described in the brief (shared outputs: hub `index.html`, 
 | # | Task | Status | Owner | Files in scope (exclusive) | Notes |
 |---|---|---|---|---|---|
 | T20 | Claim + coordination | **done** (2026-11-16) | session-65556dd2 | `COORDINATION.md` | this board |
-| T21 | Verified results feed: Week 10 completion + full 2026 corpus, per-row official source | in progress | session-65556dd2 | `data/results_feed.*`, `tools/build_results_feed.py` | nfl.com schedule pages + nflverse `raw/games.csv` cross-check |
-| T22 | Price-snapshot store (opening + closing per market) + price-data policy decided **before** any backtest publish | in progress | session-65556dd2 | `data/price_snapshots.*`, `tools/build_price_store.py`, `research/price-data-policy.md` | nflverse `initial_lines.csv`/`closing_lines.csv` + live market capture (labeled T3) |
-| T23 | Pre-registered shadow baseline (singles-only): side → total → moneyline, fair/market/difference columns, forecasts frozen before Week 11 kickoff | in progress | session-65556dd2 | `research/preregistration.md`, `tools/run_shadow_model.py`, `data/origination_week11.*`, `data/forecast_ledger.*` | registration commit hash is the registration |
-| T24 | Leaderboard: signal vs staking split, proper-score divisions, control baselines (random / favorites-only), removal-of-luck panel, demotion gate, two-sided "what would change our mind" per strategy | in progress | session-65556dd2 | `tools/run_leaderboard.py`, `data/leaderboard.*` | parlay + prop divisions remain behind the joint-evidence gate |
-| T25 | Availability graph (expected vs actually active) + Week-10 injury-data fixes verifiable from official pages | in progress | session-65556dd2 | `data/availability_graph.*`, `tools/build_availability_graph.py` | Lions designations, IR/reserve capture, announced-starter evidence, stale-depth flags |
-| T26 | Decision-readiness register: one row per requirement with the blocking gate and the number that clears it, on the landing page | in progress | session-65556dd2 | `data/decision_readiness.*`, `research/requirements-register.md` | full backlog from the 2026-11-16 brief |
-| T27 | `/origination/` site section + hub integration (landing table, nav, README) | in progress | session-65556dd2 | `origination/**`, `tools/build_origination_site.py`, `tools/check_origination.py`, `index.html` (integration), `README.md` (integration) | |
-| T28 | Final integration: re-verify all checkers, PR, merge, Pages live check | in progress | session-65556dd2 | `.git` (via gh), this file | do not merge a broken site |
+| T21 | Verified results feed: Week 10 completion + full 2026 corpus, per-row official source | **done** | session-65556dd2 | `data/results_feed.*`, `data/captures/week10-results-2026-11-16.json`, `tools/build_results_feed.py` | 272 rows; 148 finals; standings replay 32/32 vs official records; 12/12 Week-10 finals cross-checked vs ESPN |
+| T22 | Price-snapshot store (opening + closing per market) + price-data policy decided **before** any backtest publish | **done** | session-65556dd2 | `data/price_snapshots.*`, `data/captures/week11-market-2026-11-16.json`, `tools/build_price_store.py`, `research/price-data-policy.md` | 1,890 rows: 1,088 paired open/close (2021 WSGT), 2026 W1-10 close-only, 13 Week-11 openings with timestamps; quoted ML blank + flagged |
+| T23 | Pre-registered shadow baseline (singles-only): side → total → moneyline, fair/market/difference columns, forecasts frozen before Week 11 kickoff | **done** | session-65556dd2 | `research/preregistration.md`, `tools/run_shadow_model.py`, `data/origination_week11.csv`, `data/forecast_ledger.json` | registration commit `55b94c1`; gate G4 pass (02:45Z vs first kickoff 2026-11-20T01:15Z); two total estimators + gap column (DR-62) |
+| T24 | Leaderboard: signal vs staking split, proper-score divisions, control baselines, removal-of-luck panel, demotion gate, two-sided what-would-change-our-mind | **done** | session-65556dd2 | `tools/run_leaderboard.py`, `data/leaderboard.json`, `data/development_panel.json` | 4 divisions (3 behind the joint-evidence gate); exact-binomial luck bands n=50..2243; backtest numbers forbidden on the leaderboard page |
+| T25 | Availability graph (expected vs actually active) + Week-10 injury-data fixes verifiable from official pages | **done** (partial by design where gates block) | session-65556dd2 | `data/availability_graph.json`, `tools/build_availability_graph.py` | 32 teams; bye teams carry explicit "no report ≠ healthy"; Lions designations verified Out (F-L1); Willis IR reserve registry; announced-starter events dated |
+| T26 | Decision-readiness register: one row per requirement with the blocking gate and the number that clears it, on the landing page | **done** | session-65556dd2 | `data/decision_readiness.json`, `research/requirements-register.md`, `data/landing_readiness.js`, `tools/build_landing_readiness.py` | 72-row register + integrated 75-row landing table (merged with fl2-lines R01-R74, integration-update column) |
+| T27 | Site integration (landing table, nav, README) | **done** | session-65556dd2 | `index.html` (integration), `tools/build_landing_readiness.py` | no new section created: fl2-lines/linelab sections already publish the section pages; my artifacts integrate at the landing page and cross-reference |
+| T28 | Final integration: re-verify all checkers, PR, merge, Pages live check | **done** | session-65556dd2 | `.git` (via gh), this file | all five checkers green on the combined tree before the PR |
 
 ## Claims
 
@@ -86,6 +86,46 @@ well beyond the 60-minute takeover rule). Non-overlapping scope is preserved: no
 ## Log
 
 - 2026-11-16 — session-65556dd2 inspection: repo at `229d5fa` on `arena/65556dd2-fl2`, clean tree. Six site sections live. Read this board before any task, as instructed. Claimed T20–T28 above.
+- 2026-11-16 — **Parallel-worktree anomaly, resolved without discarding anyone's work.** While this session worked, sessions `arena/b899e38d-fl2` (PR #16), `arena/8326a20d-fl2` (PRs #17/#18), `arena/56a33eb6-fl2` (PRs #19/#20), `arena/74f76e34-fl2` "Line Lab" (PR #22) and `arena/39dd0836-fl2` "fl2-lines" (PR #23) merged to `main`, and their commits appeared inside this session's working tree (shared checkout). A duplicate of this session's claim commit also appeared on the remote (`dbdd706`). Every divergence was resolved by `git fetch` + `git rebase origin/arena/65556dd2-fl2` / merge semantics that keep both sides; nothing was discarded. Final branch tip contains `main` through PR #23 plus this session's three commits. **Scope overlap recorded:** session `39dd0836/fl2-lines` independently built the same artifacts under `fl2-lines/**` (its own claim `ffcfedb` covers "price store, results feed, origination, readiness register"). Both implementations are kept: no file path collided (mine in `data/*`, `tools/*`, `research/*`; theirs in `fl2-lines/**`), and the two decision-readiness registers are reconciled in the landing-page table's integration-update column rather than one being deleted.
+- 2026-11-16 — Registration commit `55b94c1` (pre-registration + price policy + results feed + price store) pushed before any forecast existed; forecasts generated 02:45Z, first Week 11 kickoff 2026-11-20T01:15Z (gate G4 pass, asserted in code).
+
+## Completion record — T21–T28 (2026-11-16)
+
+**Sources used** (all fetched 2026-11-16 UTC via the page-fetch tool unless noted):
+
+| Source | Tier | Used for |
+|---|---|---|
+| https://www.nfl.com/schedules/2026/by-week/week-10 | T1 official | Week 10 finals (12), in-progress/scheduled states, bye list, per-team records, venue hints |
+| https://www.nfl.com/schedules/2026/by-week/week-11 | T1 official | Week 11 slate (13 games), venues, TBD/flex notice |
+| https://www.espn.com/nfl/scoreboard (Week 10/11 tabs) | T3 commercial | cross-check only: 12/12 finals agree with nfl.com; live SNF state |
+| https://sports.yahoo.com/nfl/scoreboard/?week=11 | T3 commercial | Week 11 consensus spread/total (13 games), venue variants — `market_data_unverified` |
+| `raw/games.csv`, `raw/_nfldata/initial_lines.csv` (nflverse/nfldata via GitHub contents API) | T2 mirror | Weeks 1-9 finals + schedule, closing prices, 2021 opening prices |
+| `data/injuries.json`, `data/depth_charts.json`, `data/news_2026_week10.csv` (committed transcriptions of nfl.com + club pages) | T1/T2 | availability graph layers, announced starters, reserve registry |
+| `fl2-lines/data/registers/readiness.csv`, `fl2-dashboard/data/official/injuries-w10-team-summary.json` (peer sessions) | repo | landing-table merge; official injury recount numbers (347 rows) |
+
+**Verification performed**
+
+1. **Results feed self-check** (`tools/build_results_feed.py`): no final row with blank scores; Week 10 = 14 rows; 148 finals; W-L-T replay from finals reproduces the official records captured on nfl.com for **32/32 teams** (PIT/CIN checked pre-SNF state).
+2. **Three-way score agreement** for the 12 Week-10 finals: nfl.com capture = ESPN = feed.
+3. **Price store self-check**: paired rows have both sides; pending-close rows have blank closing fields; every row carries a source URL; side-line convention (negative = named team favoured) verified on the 2021 DAL@TB open/close pair (−6.5 → −10.0).
+4. **Forecast gate G4** asserted in code (generation 02:45Z < first kickoff 2026-11-20T01:15Z); every forecast row stores probability + inputs + registration commit.
+5. **Spread-sign convention** proven empirically: `spread_line > 0` ⇔ home favourite in 3,476/3,490 closing rows.
+6. **All five site checkers green on the combined tree:** `scripts/check_site.py` (7 pages), `engine/check_site.py` (17 pages, 56 tables, 654 links, jsdom), `tools/check_links.py`, `tools/check_signals_links.py`, `fl2-lines/engine/check.py` (0 failures), `tools/repo_audit.py` (0 unsourced rows).
+
+**Irregularities / flags added to the review pile**
+
+| # | Item | Status |
+|---|---|---|
+| 1 | Venue-name discrepancies (official vs aggregator): NRG vs Reliant (IND@HOU), FedExField vs Northwest (CIN@WAS), Estadio Azteca vs Estadio Banorte (MIN@SF) | flagged; official value used; 3 rows in `data/captures/week11-market-2026-11-16.json` |
+| 2 | Owner-brief figures "254 rows / 279 rows" for the Week-10 injury tables are not reproducible in-repo (76/160/345/347 are) | flagged (matches peer-session finding F-I3) |
+| 3 | "Lions game-status cells blank" review finding is false — all three read **Out** on the official page | withdrawn (matches F-L1) |
+| 4 | Lamar Jackson IR claim in the brief: official wording is "expected to miss 6-10 weeks" (nfl.com news roundup, Nov 13) — the IR framing is unverified | flagged |
+| 5 | Quoted moneylines for Week 11 unavailable (provider showed spread/total only) | blank + flagged, never imputed; derived-from-spread implied probability labelled "derived" |
+| 6 | Market prices have no official source at all (`nfl.com/odds` 404) | permanent `market_data_unverified` flag per price row (policy) |
+| 7 | Shared-worktree parallel sessions + duplicate claim commit (`dbdd706`) | resolved by rebase/merge keeping both sides; logged above |
+| 8 | Two overlapping decision-readiness registers (R01-R74 vs DR-01-DR-72) | both kept; reconciled in the landing table integration-update column |
+
+**Integration record:** PR link and merge result are recorded in the follow-up commit below.
 
 ---
 

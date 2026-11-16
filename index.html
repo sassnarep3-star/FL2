@@ -251,6 +251,19 @@
     </div>
   </section>
 
+  <section class="block" id="decision-readiness">
+    <h2>Decision readiness — one row per requirement</h2>
+    <p class="sub">Every requirement from the project brief, with the gate that blocks it and the
+    number that would clear it. This is an <strong>integrated</strong> view: the two independent
+    registers written in parallel sessions — <a href="fl2-lines/index.html">R01–R74 (Originated
+    Lines)</a> and DR-01–DR-72 (session-65556dd2) — reconciled row by row, with an integration-update
+    column where newer artifacts changed the picture. Unmet is not hidden: <strong>BLOCKED</strong>
+    rows name the external gate (NFL terms §1.3, missing depth sources, unlicensed game books).
+    <span class="small">Source data: <a href="fl2-lines/data/registers/readiness.csv">readiness.csv</a>
+    · <a href="data/decision_readiness.json">decision_readiness.json</a></span></p>
+    <div id="readiness-mount" style="max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:var(--r)"></div>
+  </section>
+
   <section class="block">
     <h2>How to read any number on this site</h2>
     <div class="hub-grid">
@@ -286,5 +299,61 @@
   <a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Repository</a> ·
   <a href="COORDINATION.md">Coordination board</a>
 </footer>
+<script src="data/landing_readiness.js"></script>
+<script>
+(function () {
+  var mount = document.getElementById("readiness-mount");
+  var data = window.FL2_READINESS;
+  if (!mount || !data) { return; }
+  var cls = { DONE: "ok", PARTIAL: "warn", "NEEDS-REVIEW": "warn", BLOCKED: "bad" };
+  var table = document.createElement("table");
+  var thead = document.createElement("thead");
+  var hr = document.createElement("tr");
+  ["ID", "Requirement", "Status", "Gate that blocks it", "Number that would clear it",
+   "Integration update (2026-11-16)", "Source"].forEach(function (t) {
+    var th = document.createElement("th");
+    th.textContent = t;
+    hr.appendChild(th);
+  });
+  thead.appendChild(hr);
+  table.appendChild(thead);
+  var tbody = document.createElement("tbody");
+  data.rows.forEach(function (r) {
+    var tr = document.createElement("tr");
+    function td(v) {
+      var c = document.createElement("td");
+      c.textContent = (v == null || v === "") ? "—" : String(v);
+      tr.appendChild(c);
+      return c;
+    }
+    td(r.id);
+    td(r.requirement);
+    var st = document.createElement("td");
+    var b = document.createElement("span");
+    b.className = "badge " + (cls[r.status] || "mute");
+    b.textContent = r.status;
+    st.appendChild(b);
+    tr.appendChild(st);
+    td(r.gate);
+    td(r.clearing_number);
+    td(r.update);
+    var src = document.createElement("td");
+    var a = document.createElement("a");
+    var href = (typeof r.official_source === "string" &&
+                (r.official_source.indexOf("http") === 0 || r.official_source.indexOf("/") > -1))
+      ? r.official_source : "ledger/verification.html";
+    a.setAttribute("href", href);
+    a.textContent = "source";
+    src.appendChild(a);
+    if (r.evidence) {
+      src.appendChild(document.createTextNode(" · " + r.evidence));
+    }
+    tr.appendChild(src);
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  mount.appendChild(table);
+})();
+</script>
 </body>
 </html>
