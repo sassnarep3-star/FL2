@@ -1,0 +1,124 @@
+{
+  "title": "Repository audit - scripted review",
+  "generated_by": "tools/repo_audit.py",
+  "branch": "arena/8326a20d-fl2",
+  "head_commit": "128eafb31efb9051b345ac88c9f797ad03e93a9b",
+  "base_commit_of_main": "a395f99a8fa2cfe25e326e387b6788f535291a9e",
+  "pages_config_checked": "2026-11-16 via gh api repos/sassnarep3-star/FL2/pages: source main:/ , legacy build",
+  "json": {
+    "json_files_checked": 59,
+    "parse_failures": []
+  },
+  "injury_row_counts": [
+    {
+      "file": "fl2-dashboard/data/verified/injuries-week10.json",
+      "rows": 345,
+      "teams": 28,
+      "note": "json teams[].rows"
+    },
+    {
+      "file": "data/injuries_2026_week10.csv",
+      "rows": 345,
+      "teams": null,
+      "note": "csv: header + data lines"
+    },
+    {
+      "file": "data/injury-report-2026-w10.csv",
+      "rows": 160,
+      "teams": null,
+      "note": "csv: header + data lines"
+    }
+  ],
+  "pages": {
+    "pages_checked": 12,
+    "broken_internal_links": [],
+    "missing_anchors": [],
+    "table_rows_without_source_link": [],
+    "table_rows_linking_only_to_site_pages": [
+      {
+        "page": "flagged-review.html",
+        "rows_linking_only_to_site_pages": 3,
+        "rows_with_source_column": 19
+      },
+      {
+        "page": "index.html",
+        "rows_linking_only_to_site_pages": 61,
+        "rows_with_source_column": 67
+      },
+      {
+        "page": "strategies.html",
+        "rows_linking_only_to_site_pages": 3,
+        "rows_with_source_column": 6
+      }
+    ]
+  },
+  "size": {
+    "largest_tracked_files": [
+      {
+        "file": "signal/data/depth_player.json",
+        "bytes": 21026323
+      },
+      {
+        "file": "signal/data/snap_participation.json",
+        "bytes": 16817802
+      },
+      {
+        "file": "signal/data/player_week_keys.json",
+        "bytes": 7771574
+      },
+      {
+        "file": "signal/data/depth_player.csv",
+        "bytes": 7045186
+      },
+      {
+        "file": "signal/data/snap_participation.csv",
+        "bytes": 6978966
+      },
+      {
+        "file": "signal/data/injury_week.json",
+        "bytes": 3038050
+      },
+      {
+        "file": "signal/data/injury_player.csv",
+        "bytes": 2945377
+      },
+      {
+        "file": "raw/_nfldata.tgz",
+        "bytes": 2682384
+      }
+    ],
+    "tracked_bytes_by_top_directory": {
+      "signal": 75523392,
+      "raw": 16605931,
+      "data": 796830,
+      "fl2-signals": 506310,
+      "docs": 359331,
+      "hub": 333346,
+      "tools": 313826,
+      "fl2-dashboard": 282756,
+      "(root files)": 152069,
+      "engine": 109945,
+      "assets": 106357,
+      "research": 48681,
+      "scripts": 32973,
+      "ledger": 11288,
+      ".github": 7840,
+      "review": 5423
+    },
+    "total_tracked_bytes": 95196298
+  },
+  "coordination": {
+    "file": "COORDINATION.md",
+    "lines": 786,
+    "status_word_counts": {
+      "**done**": 22,
+      "done": 59,
+      "in progress": 6,
+      "unclaimed": 2,
+      "needs review": 4,
+      "**merged**": 3,
+      "merged": 28,
+      "open": 21
+    }
+  }
+}

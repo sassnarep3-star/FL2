@@ -27,16 +27,24 @@
 
 <main>
   <h1>Injuries &amp; Depth-Deficiency Tracking</h1>
-  <p class="lead">The system tracks injuries and knows deficiencies in offenses and defenses — including
-    when 2nd-, 3rd-, or 4th-string backups must replace starters. The verified Week 10 injury report is
-    below, followed by the depth-chart tracking design and a verified worked example.</p>
+  <p class="lead">Injury status for every club on the official Week 10 report, captured 2026-11-16, followed by the
+    news context and the depth-chart design. Depth-deficiency tracking (2nd–4th string replacing starters) is
+    <strong>not yet possible</strong>: it needs a verified depth-chart source for all 32 clubs.</p>
 
   <div class="panel">
-    <h2 style="margin-top:0">1. Verified injury report — Week 10, 2026 season</h2>
-    <p class="muted">Source: the official NFL injury report, fetched and verified line by line on 2026-11-14.
-      Every row links to the player's official profile and the report. Blank injury cell = no injury listed
-      on the official report for that player.</p>
+    <h2 style="margin-top:0">1. Official Week 10 injury report — team-level view (captured 2026-11-16)</h2>
+    <p class="muted">Source: the official <a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">NFL.com injury report</a>,
+      Week 10 of the 2026 season, transcribed on 2026-11-16 from all eight page chunks and checked by
+      <code>tools/official_injury_capture.py</code>. Counts only are shown on this page.</p>
+    <div class="notice"><strong>Row-level player data is not published here.</strong> The NFL.com terms of use
+      (section 1.3) prohibit systematic retrieval of content to compile a database without written consent.
+      Player rows are held in a git-ignored private store until that is resolved — see
+      <a href="flagged-review.html#F-T1">Flagged F-T1</a>. Each club below links to the official report, where every
+      player row can be checked directly. Earlier row-level tables (2026-11-14 capture) are superseded by this view.</div>
     <div id="injuries-list"></div>
+    <p class="muted">The official report does not state which players are starters, so this page cannot name starters out
+      or replacements. That requires a verified depth-chart source for each club (see Q-section and Flagged F-D1).</p>
+  </div>
   </div>
 
   <div class="panel">
@@ -136,7 +144,7 @@
   </div>
 </main>
 
-<footer class="sitefoot">FL2 — GitHub Pages site. Data verified 2026-11-14 against official NFL and team sources; see <a href="verification.html">Verification</a>.</footer>
+<footer class="sitefoot">FL2 — GitHub Pages site. Standings and schedule verified 2026-11-14; Week 10 injury counts captured 2026-11-16 from the official NFL report; see <a href="verification.html">Verification</a>.</footer>
 <script src="assets/app.js"></script>
 </body>
 </html>

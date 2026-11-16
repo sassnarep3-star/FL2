@@ -6,7 +6,7 @@
   var DATA = {
     standings: "data/verified/standings-2026-reg.json",
     schedule: "data/verified/schedule-week10.json",
-    injuries: "data/verified/injuries-week10.json",
+    injuries: "data/official/injuries-w10-team-summary.json",
     depth: "data/verified/depth-lions-2026.json"
   };
 
@@ -112,46 +112,39 @@
     }).catch(function (e) { onError("schedule-table", "Could not load schedule JSON: " + e.message); });
   }
 
-  /* ---------- Injuries ---------- */
+  /* ---------- Injuries (team-level; player rows are private, see Flagged F-T1) ---------- */
   function renderInjuries() {
     var box = document.getElementById("injuries-list");
     if (!box) return;
     load(DATA.injuries).then(function (d) {
-      var teams = d.teams;
-      var html = '<p class="muted">Verified from the official NFL.com injury report (Week 10, 2026 season). ' +
-        'Blank injury cell = no injury listed on the official report. Bye teams (CHI, DEN, PHI, TB) have no Week 10 report.</p>';
-      html += '<select class="filter" id="injury-filter"><option value="">All ' + teams.length + ' teams</option>';
-      teams.forEach(function (t) {
-        html += '<option value="' + esc(t.team) + '">' + esc(t.team) + ' (' + esc(t.record) + ')</option>';
+      var clubs = d.clubs;
+      var s = d.summary;
+      var html = '<p class="muted">Counts computed from the official NFL.com injury report, captured ' + esc(d.captured) +
+        ' (' + esc(s.rows) + ' listed players, ' + esc(s.clubs) + ' clubs, ' + esc(s.games) + ' games). ' +
+        'A club with no designation shows 0. &ldquo;Differs from stored&rdquo; compares each club with the ' +
+        'stored 2026-11-14 capture; it is a change or an error to review, not a verdict.</p>';
+      html += '<table class="data"><thead><tr><th>Club</th><th>Record</th><th>Game (ET)</th>' +
+        '<th class="num">Listed</th><th class="num">With designation</th><th class="num">Out</th>' +
+        '<th class="num">Doubtful</th><th class="num">Questionable</th><th class="num">Did not practice</th>' +
+        '<th class="num">Differs from stored</th><th>Source</th></tr></thead><tbody>';
+      clubs.forEach(function (c) {
+        var diff = c.players_differing_from_stored === null || c.players_differing_from_stored === undefined
+          ? '<span class="empty">n/a</span>'
+          : (c.players_differing_from_stored ? '<span class="status-q">' + esc(c.players_differing_from_stored) + ' player(s)</span>' : '0');
+        html += '<tr><td>' + esc(c.club) + '</td><td>' + esc(c.record_on_report) + '</td>' +
+          '<td>' + esc(c.kickoff_et) + ' vs ' + esc(c.opponent_abbr) + '<br><span class="muted">' + esc(c.network) + '</span></td>' +
+          '<td class="num">' + esc(c.players_listed) + '</td>' +
+          '<td class="num">' + esc(c.with_injury_designation) + '</td>' +
+          '<td class="num">' + esc(c.out) + '</td>' +
+          '<td class="num">' + esc(c.doubtful) + '</td>' +
+          '<td class="num">' + esc(c.questionable) + '</td>' +
+          '<td class="num">' + esc(c.did_not_participate) + '</td>' +
+          '<td class="num">' + diff + '</td>' +
+          srcCell(c.official_report_url) + '</tr>';
       });
-      html += '</select>';
-      html += '<div id="injury-sections"></div>';
+      html += '</tbody></table>';
       box.innerHTML = html;
-
-      var sections = document.getElementById("injury-sections");
-      function paint() {
-        var val = document.getElementById("injury-filter").value;
-        var out = "";
-        teams.forEach(function (t) {
-          if (val && t.team !== val) return;
-          out += '<h3>' + esc(t.team) + ' <span class="muted">(' + esc(t.record) + ')</span></h3>';
-          out += '<table class="data"><thead><tr><th>Player</th><th>Pos</th><th>Injury</th>' +
-            '<th>Practice status</th><th>Game status</th><th>Source</th></tr></thead><tbody>';
-          t.rows.forEach(function (r) {
-            var cls = r.gs === "Out" ? "out" : (r.gs === "Questionable" ? "q" : (r.gs === "Doubtful" ? "d" : ""));
-            var gs = r.gs ? '<span class="status-' + cls + '">' + esc(r.gs) + '</span>' : '<span class="empty">&mdash;</span>';
-            out += '<tr><td><a href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(r.player) + '</a></td>' +
-              '<td>' + esc(r.pos) + '</td>' +
-              '<td>' + (r.inj ? esc(r.inj) : '<span class="empty">&mdash;</span>') + '</td>' +
-              '<td>' + esc(r.prac) + '</td><td>' + gs + '</td>' + srcCell(d.source) + '</tr>';
-          });
-          out += '</tbody></table>';
-        });
-        sections.innerHTML = out || '<p class="empty">No rows match this filter.</p>';
-      }
-      document.getElementById("injury-filter").addEventListener("change", paint);
-      paint();
-    }).catch(function (e) { onError("injuries-list", "Could not load injury JSON: " + e.message); });
+    }).catch(function (e) { onError("injuries-list", "Could not load injury summary JSON: " + e.message); });
   }
 
   /* ---------- Depth chart (Lions example) ---------- */
@@ -186,18 +179,13 @@
     Promise.all([load(DATA.standings), load(DATA.schedule), load(DATA.injuries)])
       .then(function (res) {
         var st = res[0], sc = res[1], inj = res[2];
-        var injCount = inj.teams.reduce(function (n, t) { return n + t.rows.length; }, 0);
-        var outCount = inj.teams.reduce(function (n, t) {
-          return n + t.rows.filter(function (r) { return r.gs === "Out"; }).length; }, 0);
-        var qCount = inj.teams.reduce(function (n, t) {
-          return n + t.rows.filter(function (r) { return r.gs === "Questionable" || r.gs === "Doubtful"; }).length; }, 0);
         var top = st.teams.slice().sort(function (a, b) { return (b.w - a.w) || (b.net - a.net); })[0];
         box.innerHTML =
           '<div class="cards">' +
           '<div class="card"><div class="num">' + st.teams.length + '</div><div class="lbl">Teams in verified 2026 standings <a href="standings.html">&#8599;</a></div></div>' +
           '<div class="card"><div class="num">' + sc.games.length + '</div><div class="lbl">Week 10 games verified <a href="schedule.html">&#8599;</a></div></div>' +
-          '<div class="card"><div class="num">' + injCount + '</div><div class="lbl">Injury-report entries verified (Week 10) <a href="injuries.html">&#8599;</a></div></div>' +
-          '<div class="card"><div class="num">' + outCount + ' / ' + qCount + '</div><div class="lbl">Players Out / Questionable-Doubtful (Week 10) <a href="injuries.html">&#8599;</a></div></div>' +
+          '<div class="card"><div class="num">' + inj.summary.rows + '</div><div class="lbl">Players on the official Week 10 injury report (captured ' + esc(inj.captured) + ') <a href="injuries.html">&#8599;</a></div></div>' +
+          '<div class="card"><div class="num">' + inj.summary.game_status_out + ' / ' + (inj.summary.game_status_questionable + inj.summary.game_status_doubtful) + '</div><div class="lbl">Game status Out / Questionable-Doubtful <a href="injuries.html">&#8599;</a></div></div>' +
           '<div class="card"><div class="num">' + esc(top.team) + '</div><div class="lbl">Top record: ' + esc(top.w + "-" + top.l + "-" + top.t) + ' (' + esc(top.pct) + ') <a href="standings.html">&#8599;</a></div></div>' +
           '</div>';
       })

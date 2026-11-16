@@ -694,7 +694,7 @@ Official only. Full list with what each page provided: `docs/sources.html`.
 
 ---
 
-# Session 39dd0836 — Originated Lines, Price Store & Decision Readiness (current)
+# Session 39dd0836 — Originated Lines, Price Store & Decision Readiness (this PR)
 
 Branch `arena/39dd0836-fl2` · base `229d5fa` (`main` @ PR #15 merge) · started 2026-11-16T01:05Z
 
@@ -722,3 +722,213 @@ of this same session (announced here so no other session double-edits).
 4. nfl.com serves `NE @ DET` (Week 10) as an **International Game played in Munich** and `MIN @ SF`
    (Week 11) in **Mexico City**, while nflverse `stadium`/`location` fields carry the *designated home
    club's* venue. Venue must be transcribed from the game centre, not inferred from the mirror.
+
+---
+
+# Session arena/b899e38d-fl2 — Local verification and reproducibility audit
+
+| Task | Status | Owner | Files in scope | Verification |
+|---|---|---|---|---|
+| Audit current repo checks and record reproduced failures/limitations without changing other sessions' data or site scopes | **done** | `arena/b899e38d-fl2` | `review/reproducibility-2026-11-16.md`, this coordination entry | `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/check_site.py`, Python compileall, `git diff --check`; `signal/analysis/run_local.py` failure reproduced and generated artifacts reverted |
+
+**Findings:** local site and source-column/link checks pass, but do not re-verify external page contents. The Signal local rebuild fails after producing zero market rows (`IndexError` in `descriptive()`); detailed reproduction and limitations are in the audit note. No NFL values were newly transcribed or asserted as live-verified. External official-source verification remains outstanding for every current-week claim.
+
+**Scope note:** the failed Signal rebuild writes within `signal/analysis` and `signal/data`, owned by the existing Signal Lab section. No code or data in that scope was changed. The finding is logged for its owner to address.
+
+---
+
+# Session 8326a20d — FL2 Dashboard update (branch `arena/8326a20d-fl2`, base `229d5fa`)
+
+## Branch and claim
+
+- The session is pinned to `arena/8326a20d-fl2`. The brief's `session-<id>/<task>` scheme cannot be used here. This is a logged deviation. All work and the PR use this branch.
+- **Handoff logged.** Session `session-1374049c` holds a claim on "entire repository" (2026-11-14, Released "—"). Its T16 row still reads "in progress", but its integration (PR #15) is merged. The claim is more than 60 minutes old with no commits since. This session takes over the files listed below, and no other session's files are changed.
+- Claimed scope for this session: `fl2-dashboard/**` (dashboard pages, `assets/app.js`, `data/repo-audit.json`, `data/decision-readiness.json`, `data/official/injuries-w10-team-summary.json`), `tools/repo_audit.py`, `tools/build_fl2_pages.py`, `tools/official_injury_capture.py`, `.gitignore` (one line: `private/`), and this section of `COORDINATION.md`.
+- Not edited: `signal/`, `docs/`, `hub/`, `fl2-signals/`, `ledger/`, `data/`, `engine/`, `scripts/`, `.github/`, and the root `README.md`. Changes needed there are logged as requests below.
+
+## Task board
+
+| ID | Task | Status | Evidence |
+|---|---|---|---|
+| S8-01 | Repository audit, scripted | done | `tools/repo_audit.py` → `data/repo-audit.json`: 0 JSON parse failures, 0 broken internal links, 0 missing anchors, 0 table rows without a source link |
+| S8-02 | Week 10 official injury capture | done for team counts; row data kept private | `tools/official_injury_capture.py`: 14 games, 28 clubs, 347 rows, structure errors 0. Public output is team-level counts only (`fl2-dashboard/data/official/injuries-w10-team-summary.json`) |
+| S8-03 | Read nfl.com terms before automated capture | done; decision open | https://www.nfl.com/legal/terms/ §1.3 (see F-T1). Automated capture not built |
+| S8-04 | Decision-readiness table on the landing page | done | `fl2-dashboard/data/decision-readiness.json` (67 rows) rendered by `tools/build_fl2_pages.py` into `index.html` |
+| S8-05 | Flagged for Review, section C | done | `fl2-dashboard/flagged-review.html` (14 entries) |
+| S8-06 | Executive summary update and fetch log | done | `executive-summary.html`, `verification.html` §5 |
+| S8-07 | Daily Wed–kickoff snapshots, alerts, point-in-time ledger | blocked | Gate F-T1 (terms §1.3), and a storage decision (F-P2) |
+| S8-08 | 32-club depth source, snap counts | blocked | Gate F-D1: no verified source for 32 clubs |
+| S8-09 | Demotion gate and "what would change our mind" | not started | Owner must set thresholds (F-G1) |
+| S8-10 | Strategy pre-registration, shadow baseline, leaderboard statistics | not started | Needs a frozen commit before the evaluation window; no permitted price source (Q1/Q03) |
+
+## Sources
+
+| Source | Used for | Retrieved |
+|---|---|---|
+| https://www.nfl.com/injuries/ (8 chunks) | Week 10 2026 report: player, position, injury, practice status, game status | 2026-11-16 by page-fetch tool |
+| https://www.nfl.com/legal/terms/ (chunk 0 of 9: §1.1, §1.3; chunks 1–8 not yet read) | Terms for automated capture | 2026-11-16 |
+| https://www.nfl.com/terms-of-use/ | Checked: returns 404 (F-T2) | 2026-11-16 |
+| `data/backtest_summary.json`, `docs/STRATEGY_VALIDATION.md` | Train/calibration/eval protocol (R53) and Elo vs market Brier (R45) | repo, as of 2026-11-14 |
+| `README.md` | "None passed" (R54) | repo |
+| `fl2-dashboard/data/verified/injuries-week10.json` | Compared with the official capture, not re-used | repo, dated 2026-11-14 |
+
+Bash cannot reach nfl.com (TLS error from the sandbox). The page-fetch tool returns text, so no byte-level hash is stored. The capture is a transcription, checked by structure rules, counts, and a diff.
+
+## Verification
+
+1. **Structure of the official capture** (`tools/official_injury_capture.py`): 14 games; 28 clubs, each in exactly one game; each row has 6 fields; every practice and game status is in the allowed set; no empty names; no club with zero rows. Errors: 0.
+2. **Counts in the capture:** 347 rows; 171 with a designation (70 Out, 11 Doubtful, 90 Questionable). Every club has at least one designation. Seattle lists 15 players (4 designated). Cincinnati lists 9 players (4 designated).
+3. **Diff against the stored 2026-11-14 file:** 18 players differ across three clubs (LAC 13, BAL 4, IND 1). Ravens: 8 stored, 10 official (two players absent from the stored file; two with blank statuses stored (names in the private capture)). Colts: one player is stored as Hamstring/Questionable and has no matching official designation. Unresolved; see F-I1.
+4. **Lions:** three players (Knee, Ankle, Hip) each read "Did Not Participate In Practice" and game status "Out" on the official page. The earlier claim of blank Lions game-status cells was wrong and is withdrawn (F-L1).
+5. **Register values checked against the repo:** R45 (Elo Brier 0.2277 vs market 0.2106, n = 4,041) matches `data/backtest_summary.json`. R53 (train 2006, calibration to 2010, evaluation from 2011, no holdout key) matches the same file. R54 ("none passed") matches `README.md`. R23 matches the Lions rows of the capture.
+6. **Site checks, run in this session:** `tools/repo_audit.py` (exit 0); `tools/build_fl2_pages.py` (ok); `scripts/check_site.py` ("validation passed for 7 pages", exit 0); `tools/check_links.py` (all internal links and anchors resolve, exit 0); jsdom render of all 12 `fl2-dashboard` pages with their own scripts (no script errors, no leaked `undefined`/`NaN` cells).
+
+## Flagged irregularities (all on `fl2-dashboard/flagged-review.html` §C)
+
+| ID | Summary | Status |
+|---|---|---|
+| F-T1 | nfl.com terms §1.3 prohibit systematic retrieval to compile a database without written consent. Automated capture conflicts with it | Open — owner decision |
+| F-T2 | `/terms-of-use/` returns 404; the operative page is `/legal/terms/` | Recorded |
+| F-I1 | Stored 2026-11-14 injury file differs from the official page for 18 players (LAC 13, BAL 4, IND 1) | Open |
+| F-I2 | Ravens: 8 stored rows vs 10 official | Open |
+| F-I3 | Week 10 row figures in the repo: 76 (README label), 160 (CSV), 345 (JSON), 347 (official capture). The owner brief's figures 254 and 279 do not appear in the repo | Open |
+| F-L1 | Lions game-status cells: all three read Out on the official page | Resolved for this capture |
+| F-D1 | Depth: 5 of 32 club pages in the repo; no verified route for 32 clubs | Open — blocks depth features |
+| F-P1 | Row-level injury data still published in tracked files (`data/verified/injuries-week10.json`, `hub/`, `docs/`, `fl2-signals/`) | Open — owner decision |
+| F-P2 | Pages publishes the whole repository; `private/` is git-ignored, but tracked row-level data is public | Open — owner decision |
+| F-S1 | Two Strategies rows have no source link (Situational efficiency; Correlation matrix placeholder). Now linked to this flag | Open |
+| F-G1 | No demotion gate and no "what would change our mind" field | Open |
+| F-A1 | Three broken anchors | Resolved |
+| F-X1 | Earlier-session claims not re-verified this session | Open |
+
+## Not done this session
+
+- Automated or scheduled nfl.com capture (blocked by F-T1). Terms chunks 1–8 of 9 not read.
+- Strategy leaderboard, backtest, and pre-registration: no permitted price source, and no frozen registration commit.
+- Depth source for 32 clubs; snap counts; roster and transaction logs; Game Books.
+- Consolidating the four older site sections is the owner's decision.
+
+## Requests to other sessions
+
+- Owner or the `signal/` session: decide F-P1 and F-P2 (whether row-level injury data and `signal/` stay public). The Pages config is also unresolved: `.github/workflows/pages.yml` deploys `.`, the 1374049c board says `/docs`, and the live legacy build serves `main:/`.
+
+## Pull request and merge
+
+| Item | Record |
+|---|---|
+| PR | https://github.com/sassnarep3-star/FL2/pull/17 — `arena/8326a20d-fl2` → `main` |
+| Head at merge | `128eafb` (rebased onto `main` at `a395f99`; the only conflict was this file's append-only log, both blocks kept) |
+| Merge | `gh pr merge 17 --merge`; merge commit `52a9a5d`; merged 2026-11-16 01:28:22 UTC; not auto-merged |
+| CI at merge | PR run: `validate` pass (`scripts/check_site.py`, `make_pages.py`, `build_site.py`); deploy skipped on PR. Main push run `43786463988`: success |
+| Pages | Legacy build from `main:/` for `52a9a5d`: status `built`. The `pages.yml` deploy job also ran on the main push. The Pages publish-path conflict (`.` vs `/docs` vs legacy `main:/`) is NOT resolved; logged as a request to the owner |
+| Live check | Sandbox curl to `github.io` fails (TLS; host not on the outbound allowlist). Checked with the page-fetch tool on 2026-11-16: `fl2-dashboard/index.html` shows the readiness table and the 347-row card; `flagged-review.html` shows §A–§C |
+| Not done | Automated capture; leaderboard and strategy evaluation; 32-club depth source; `strategies.html` source for "Situational efficiency" (F-S1). Terms chunks 1–8 of 9 still unread |
+
+Follow-up records for this section are in the bookkeeping PR (see the next entry).
+# Session `arena/56a33eb6-fl2` — Final integration & decision-readiness (current)
+
+**Role:** final integration session (all prior sessions' PRs #1–#15 are merged). Per the brief,
+shared outputs — the site index/navigation and the coordination board — are now in scope for this
+session, and it will close the open request to link `/fl2-signals/` from the hub.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope | Sources used | Verification |
+|---|------|--------|-------|----------------|--------------|--------------|
+| F01 | Claim + board write-up | **done** | session-56a33eb6 | `COORDINATION.md` | — | this section |
+| F02 | Fresh line-by-line re-verification of the combined data against official sources (post-Week-10, 2026-11-16); drift/staleness flags | **done** | session-56a33eb6 | `COORDINATION.md` (verification log) | nfl.com official pages via fetch tool | see Verification record below: 32/32 standings rows reconciled, 96/96 injury rows exact, 14/14 schedule rows matched |
+| F03 | Decision-readiness table on the landing page — one row per brief requirement, with the blocking gate and the number that would clear it | **done** | session-56a33eb6 | `index.html`, `README.md` | brief + existing registers; official pages linked per row | `scripts/check_site.py`: index.html 75 sourced rows, 114 links, 0 failures |
+| F04 | Hub navigation integration: add `/fl2-signals/` tile + nav link (closes session-1374049c's request) | **done** | session-56a33eb6 | `index.html` | — | nav link + tile present; `scripts/check_site.py` green |
+| F05 | Full-site link/render re-check (all checkers), fix anything broken | **done** | session-56a33eb6 | — | — | `scripts/check_site.py` (7 pages), `tools/check_links.py` (16 pages), `tools/check_signals_links.py` (16 pages), `engine/check_site.py` (17 pages, 56 tables, 640 links) — all green |
+| F06 | PR to `main`, merge, confirm GitHub Pages deploy, record links here | in progress | session-56a33eb6 | `COORDINATION.md` | — | CI run + live fetch |
+| F07 | Close gap DR-61: add the two-sided 'what would change our mind' field to every strategy entry | **done** | session-56a33eb6 | `data/backtest_summary.json`, `assets/app.js`, `data/site_data.js` | strategy theses + measured results in the same file | 11/11 entries carry both sides; jsdom render shows 11 blocks |
+
+## Claims
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-56a33eb6 | `index.html`, `assets/style.css`, `README.md`, `COORDINATION.md` | 2026-11-16T01:20Z | — |
+
+All prior sessions are merged and idle, so no live claim is being taken over. Non-overlapping rule
+still holds: this session touches only the four files above.
+
+## Log
+
+- 2026-11-16T01:20Z — `arena/56a33eb6-fl2` inspection: repo at `229d5fa` (PR #15 merged); six
+  published sections (`/`, `/docs/`, `/hub/`, `/ledger/`, `/fl2-dashboard/`, `/signal/`,
+  `/fl2-signals/`); `scripts/check_site.py` (7 pages), `tools/check_links.py` (16 pages),
+  `tools/check_signals_links.py` all green at claim time. Open cross-session request found:
+  hub `/index.html` never received its `/fl2-signals/` tile — claimed as F04. The brief's required
+  decision-readiness table is absent from every landing page — claimed as F03.
+- 2026-11-16T01:25Z — **Merge conflict resolved.** `git pull --rebase` while pushing the claim
+  found that `arena/b899e38d-fl2` (PR #16) had appended its own section to `COORDINATION.md` on
+  `main`. Resolved append-vs-append by keeping **both** sections verbatim (b899e38d's first, this
+  session's second). No other-session text was altered or discarded. Also noted on first contact:
+  re-running `scripts/build_site.py` regenerates `docs/` pages from a template that predates the
+  integration cross-links (it drops the 'Decision Hub' nav link); the committed, hand-integrated
+  `docs/` pages are the source of truth and were restored (`git checkout -- docs/`). Flagged as
+  irregularity F-I1 below.
+
+## Verification record — F02 (2026-11-16, session-56a33eb6)
+
+Every number below was re-checked against the linked **live official page** with the page-fetch
+tool on 2026-11-16 (after Week 10 Sunday; SNF/MNF had not kicked off at check time).
+
+| # | Check | Method | Result |
+|---|-------|--------|--------|
+| V1 | `data/standings.json` (32 teams, W-L-T/PF/PA) vs https://www.nfl.com/standings/league/2026/REG | For every team: snapshot + the official Week-10 game result = live row | **32/32 exact** — W-L-T, PF and PA all reconcile (e.g. BUF 256+31=287 PF, 187+12=199 PA). Byes (CHI, DEN, PHI, TB) and the two unplayed prime-time games (PIT, CIN, LAC, BAL) explain every unchanged row |
+| V2 | `data/schedule_week10.json` (14 games) vs https://www.nfl.com/schedules/2026/by-week/week-10 | Game-by-game incl. kickoff slots, networks, Munich site, 4 bye teams | **14/14 exact** (12 finals + PIT@CIN SNF + LAC@BAL MNF scheduled); bye list CHI/DEN/PHI/TB matches |
+| V3 | `data/injuries.json` (345 rows) vs https://www.nfl.com/injuries/league/2026/reg10 | Rows transcribed from the live page and diffed field-by-field (player, position, injuries, practice status, game status) for WAS, NYG, NE, DET, CAR, NO, HOU, CLE | **96/96 rows exact, 0 mismatches**; totals Out 66 / Doubtful 10 / Questionable 84 / blank 185 = 345 consistent |
+| V4 | Lions designations (brief VR-08/VR-12: Joseph, Mays, Reed) | Live page row check | **3/3 published Out** (Knee / Ankle / Hip, all DNP) — the earlier "blank game-status" defect is not present in this dataset |
+| V5 | Game centre + Game Book + venue (brief: transcribe venue from game centre) | https://www.nfl.com/games/patriots-at-lions-2026-reg-10 | Score 10–35 final matches; **Game Book PDF link present** (static.www.nfl.com); **Location MUNICH, Stadium FC BAYERN MUNICH STADIUM** published on the page |
+| V6 | Transactions / reserve list (brief: capture reserve list; stale-depth flags) | https://www.nfl.com/transactions/ + /league/reserve-list/2026/11 | Official wire live with dated rows (Nov 10 trades incl. Cousins→MIN, Downs→KC; Nov 6 Brissett→BAL — the brief's VR-25 Brissett item is on the official wire) |
+| V7 | Dated schedule announcement (brief req) | https://www.nfl.com/news/week-11-schedule-change (linked from operations.nfl.com) | Exists and is dated — captured as the announcement beside the live slate |
+| V8 | Rules/policy anchor | https://operations.nfl.com/ | Live; 2026 Rulebook published there (the /the-rules/ deep path 404s — use the root) |
+| V9 | Market-price source (brief: price snapshots, residuals, CLV, vig-free) | https://www.nfl.com/odds/ | **404 — no official market source exists.** This single fact blocks DR-01/04/42/56/57; all corresponding cells stay blank and flagged |
+| V10 | Official depth chart (brief: depth register) | https://www.nfl.com/teams/new-england-patriots/depth-chart | **404 — the league publishes none** (confirmed again); club pages remain unofficial-by-their-own-caption |
+
+**Derived numbers** (Brier scores, hit rates, correlation grids, luck fractions) are internal
+arithmetic over the verified corpus, reproducible via `engine/run_backtest.py`; they are not
+official-source claims and are labelled as such on the site.
+
+## Completion record — F03/F04/F05/F07 (2026-11-16)
+
+* **F03** — `index.html` now carries the required decision-readiness table: **75 rows**, one per
+  requirement in the brief, each with status, the gate that blocks it, the number that would clear
+  it, and an official source link (CI-enforced: 75 sourced rows, 0 failures).
+* **F04** — `/fl2-signals/` linked from the hub nav and given a tile in "Also in this repository",
+  closing the request left by session-1374049c. README lists the section too.
+* **F05** — all four checkers green (`scripts/check_site.py`, `tools/check_links.py`,
+  `tools/check_signals_links.py`, `engine/check_site.py`).
+* **F07** — the two-sided "what would change our mind" field (brief req.) added to **11/11**
+  strategy entries in `data/backtest_summary.json` (measured, per-strategy support/refute
+  conditions), rendered in the ledger strategy cards (`assets/app.js`), bundle regenerated
+  (`data/site_data.js`). jsdom render shows 11/11 blocks. Gap DR-61 closed in the table.
+
+## Irregularities — this session
+
+| ID | Item | Status |
+|---|---|---|
+| F-I1 | `scripts/build_site.py` regenerates `docs/` from a template that predates the integration cross-links; re-running it drops the "Decision Hub" nav link from `docs/*.html`. Committed, hand-integrated `docs/` pages are the source of truth (restored with `git checkout -- docs/`). | **open — flagged on the landing page** |
+| F-I2 | Expected drift: live standings moved after the 2026-11-14 snapshot by the Week-10 Sunday results; reconciled exactly in V1. SNF/MNF pending at check time. | **explained, not a defect** |
+| F-I3 | `signal/analysis/run_local.py` empty-data crash (found by session b899e38d, `review/reproducibility-2026-11-16.md`) — outside this session's scope; left with its owner. | **open — logged** |
+| F-I4 | Append-vs-append conflict in `COORDINATION.md` when pushing the claim (session b899e38d merged PR #16 concurrently) — resolved keeping **both** sections verbatim. | **resolved** |
+
+## F06 — Pull request, merge and Pages record (2026-11-16)
+
+| Item | Record |
+|---|---|
+| PR | https://github.com/sassnarep3-star/FL2/pull/19 — "Final integration: decision-readiness table (75 rows), fresh official-source re-verification, two-sided strategy falsifiers, /fl2-signals/ hub link" |
+| CI at merge | PR run `43787646516`: `validate` **pass** (8s), `deploy` skipped on PR as designed |
+| Merge | `gh pr merge 19 --merge`; merge commit on `main`; merged 2026-11-16, without waiting for approval, as instructed |
+| Main CI | Run `43787689265` ("Validate and publish site"): **completed / success** (validate + deploy) |
+| Pages | Legacy build from `main:/` — status **built**; `https://sassnarep3-star.github.io/FL2/` live |
+| Live check | 2026-11-16 page-fetch: landing page shows the 75-row decision-readiness table with per-row source links; `/fl2-signals/` nav + tile present; `/fl2-signals/index.html` renders (KPI cards + sourced tables) |
+| Conflicts during this PR | Two `COORDINATION.md` append-vs-append rebase conflicts (PRs #16 and #17/#18 merged concurrently); both resolved keeping **both** sides verbatim (F-I4). One force-with-lease push of this session's own branch to replace the pre-rebase duplicate claim commit; no other session's commit was on the branch |
+
+**Observation (not this session's scope):** workflow run `43787004721` ("Line Lab: CI gate with seven
+asserted invariants", branch `arena/74f76e34-fl2`, workflow `verify-linelab`) was **failing** while
+this PR merged. That is a concurrent session's branch and workflow; untouched here per the
+non-overlapping-scope rule. Its owner should fix or the integration session should gate on it.
+
+**This bookkeeping record** is carried by the follow-up PR to this branch.

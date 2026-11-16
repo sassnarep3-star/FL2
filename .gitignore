@@ -5,6 +5,11 @@ node_modules/
 package-lock.json
 engine/.check_driver.js
 
+<<<<<<< HEAD
 # Raw dated captures of official pages: stored on branch fl2-snapshots and as Actions
 # artefacts, never published inside the site tree (public analysis layer vs private data layer).
 fl2-lines/data/snapshots/
+=======
+# Row-level captures of NFL.com pages (terms s.1.3 - see Flagged F-T1). Never committed.
+private/
+>>>>>>> origin/main
