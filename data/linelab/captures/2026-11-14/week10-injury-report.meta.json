@@ -1,0 +1,17 @@
+{
+ "capture_id": "2026-11-14/week10-injury-report",
+ "captured_utc": "2026-11-14T00:00:00Z",
+ "captured_utc_basis": "the retrieval date recorded by the session that made the capture (data/injuries.json meta.retrieved_utc = 2026-11-14). The exact clock time was not recorded by that session, so midnight UTC is used as a conservative floor and is labelled as such. It is EARLIER than any 2026 Week 10 kickoff, so treating it as pre-kickoff is safe; it is also EARLIER than the true read time, so it is conservative for the purpose of deciding which games it could have informed.",
+ "derived_from": "data/injuries.json",
+ "derived_from_sha256": "cc243a7ad58ebf99fa9b818cc81e70513f37eb6ac4972620bd0b6f51317c5069",
+ "derivation": "engine/linelab/availability.py reads the CSV form; this file is a lossless reshape of the committed JSON to that form, not a re-fetch",
+ "source_url": "https://www.nfl.com/injuries/league/2026/reg10",
+ "source_title": "NFL.com Official NFL Injury Report for Players - Week 10 of the 2026 Season",
+ "source_tier": "T1 official league",
+ "season": 2026,
+ "week": 10,
+ "player_rows": 345,
+ "teams": 28,
+ "note": "This capture was NOT re-fetched by the session that published the 2026-11-16 capture. It is the previously committed transcription, reshaped so that a mechanical delta between two official reads can be computed instead of an eyeball comparison.",
+ "discrepancy_flag": "Data/injuries.json records 345 player rows; this reshape yields 345. Any difference is a reshaping error and must be fixed, not explained."
+}

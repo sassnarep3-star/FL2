@@ -1,0 +1,229 @@
+{
+ "built_utc": "derived-from-inputs",
+ "built_from_inputs_sha256": "53f2b0df12f4b41f647b725a34077ac61aa3856f42e85ad9728aed5c1cec4266",
+ "built_from_inputs_short": "53f2b0df12f4",
+ "built_from_n_input_files": 11,
+ "built_from_inputs_note": "This build is identified by a SHA-256 over every input file it read, not by a wall-clock time. Rebuilding from the same inputs produces this same stamp, which is what the CI reproducibility gate checks. The date of any given publication is the git commit date.",
+ "builder": "engine/linelab/price_store.py",
+ "rows": 21717,
+ "markets": [
+  "moneyline",
+  "side",
+  "total"
+ ],
+ "policy": {
+  "opening_price_defined_as": "A number published before kickoff that the repository dates as an opening price. In nfldata that is initial_lines.csv and only initial_lines.csv, which covers 2021 and nothing else.",
+  "closing_price_defined_as": "A number in closing_lines.csv, which the repository dates as a close.",
+  "single_line_rule": "games.spread_line / total_line / home_moneyline are ONE number per market whose open-or-close status the repository does not state. They are stored in separate columns, labelled unspecified_single_line, and are excluded from any open-to-close computation.",
+  "never_inferred": "No opening price is inferred from a closing price, from sc_lines, or from another season. A market without a dated opening price stores null.",
+  "fallback_spread_rule": "sc_lines.csv (2013-2020) is a two-sided spread that sums to zero (verified: 2040/2040 two-row games sum to 0). Its date relative to kickoff is not stated, so it is a fallback spread and never an opening or closing price."
+ },
+ "coverage": {
+  "1999": {
+   "side:single_line_only": 248,
+   "total:single_line_only": 248,
+   "moneyline:none": 248
+  },
+  "2000": {
+   "side:single_line_only": 248,
+   "total:single_line_only": 248,
+   "moneyline:none": 248
+  },
+  "2001": {
+   "side:single_line_only": 248,
+   "total:single_line_only": 248,
+   "moneyline:none": 248
+  },
+  "2002": {
+   "side:single_line_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:none": 256
+  },
+  "2003": {
+   "side:single_line_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:none": 256
+  },
+  "2004": {
+   "side:single_line_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:none": 256
+  },
+  "2005": {
+   "side:single_line_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:none": 256
+  },
+  "2006": {
+   "side:close_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 256
+  },
+  "2007": {
+   "side:close_only": 255,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 255,
+   "side:single_line_only": 1,
+   "moneyline:single_line_only": 1
+  },
+  "2008": {
+   "side:close_only": 254,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 254,
+   "side:single_line_only": 2,
+   "moneyline:single_line_only": 2
+  },
+  "2009": {
+   "side:close_only": 254,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 254,
+   "side:single_line_only": 2,
+   "moneyline:single_line_only": 2
+  },
+  "2010": {
+   "side:close_only": 251,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 251,
+   "side:single_line_only": 5,
+   "moneyline:single_line_only": 5
+  },
+  "2011": {
+   "side:close_only": 254,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 254,
+   "side:single_line_only": 2,
+   "moneyline:single_line_only": 2
+  },
+  "2012": {
+   "side:close_only": 255,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 255,
+   "side:single_line_only": 1,
+   "moneyline:single_line_only": 1
+  },
+  "2013": {
+   "side:close_only": 254,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 254,
+   "side:single_line_only": 2,
+   "moneyline:single_line_only": 2
+  },
+  "2014": {
+   "side:close_only": 252,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 252,
+   "side:single_line_only": 4,
+   "moneyline:single_line_only": 4
+  },
+  "2015": {
+   "side:close_only": 252,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 252,
+   "side:single_line_only": 4,
+   "moneyline:single_line_only": 4
+  },
+  "2016": {
+   "side:close_only": 237,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 237,
+   "side:single_line_only": 19,
+   "moneyline:single_line_only": 19
+  },
+  "2017": {
+   "side:close_only": 239,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 239,
+   "side:single_line_only": 17,
+   "moneyline:single_line_only": 17
+  },
+  "2018": {
+   "side:close_only": 224,
+   "total:single_line_only": 256,
+   "moneyline:close_only": 224,
+   "side:single_line_only": 32,
+   "moneyline:single_line_only": 32
+  },
+  "2019": {
+   "side:single_line_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:single_line_only": 256
+  },
+  "2020": {
+   "side:single_line_only": 256,
+   "total:single_line_only": 256,
+   "moneyline:single_line_only": 256
+  },
+  "2021": {
+   "side:open_only": 272,
+   "total:open_only": 272,
+   "moneyline:single_line_only": 272
+  },
+  "2022": {
+   "side:single_line_only": 271,
+   "total:single_line_only": 271,
+   "moneyline:single_line_only": 271
+  },
+  "2023": {
+   "side:single_line_only": 272,
+   "total:single_line_only": 272,
+   "moneyline:single_line_only": 272
+  },
+  "2024": {
+   "side:single_line_only": 272,
+   "total:single_line_only": 272,
+   "moneyline:single_line_only": 272
+  },
+  "2025": {
+   "side:single_line_only": 272,
+   "total:single_line_only": 272,
+   "moneyline:single_line_only": 272
+  },
+  "2026": {
+   "side:single_line_only": 163,
+   "total:single_line_only": 163,
+   "moneyline:single_line_only": 163,
+   "side:none": 109,
+   "total:none": 109,
+   "moneyline:none": 109
+  }
+ },
+ "totals": {
+  "spread_single_only": 3621,
+  "total_single_line_only": 6858,
+  "moneyline_none": 4002,
+  "spread_close_only": 3237,
+  "moneyline_close_only": 3237,
+  "spread_open_only": 272,
+  "total_open_only": 272,
+  "spread_none": 109,
+  "total_none": 109
+ },
+ "inputs": [
+  {
+   "file": "games.csv",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/games.csv",
+   "sha256": "9db20ab7cc0941c726f07540c2935684e196473e2d91a4de82e8099cdabe27e3"
+  },
+  {
+   "file": "closing_lines.csv",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv",
+   "sha256": "3571e1c9fc8d7396f405fb7c17d43c15676d335ffc932fbb03ff18da691d1729"
+  },
+  {
+   "file": "sc_lines.csv",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/sc_lines.csv",
+   "sha256": "384039e92630831eaf4d851471ba9e521f4a7b0207d0d7da7d376c4a1cc5004e"
+  },
+  {
+   "file": "initial_lines.csv",
+   "source": "https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv",
+   "sha256": "654770173d11fdb2074537d520f6b1213d663e3bbf47689e5cc9994c1af255e5"
+  },
+  {
+   "file": "repository tarball",
+   "source": "https://codeload.github.com/nflverse/nfldata/tar.gz/refs/heads/master",
+   "note": "how the four files were obtained"
+  }
+ ],
+ "release_mirror_note": "The nflverse release assets at https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv are the canonical long-run location. They are not reachable from this sandbox (release-assets.githubusercontent.com is blocked); the repository copies used here are the same publisher. A GitHub Actions runner has open egress and the existing fetch-nflverse-data workflow can re-derive these from the release."
+}

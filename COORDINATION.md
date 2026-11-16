@@ -1013,3 +1013,135 @@ this PR merged. That is a concurrent session's branch and workflow; untouched he
 non-overlapping-scope rule. Its owner should fix or the integration session should gate on it.
 
 **This bookkeeping record** is carried by the follow-up PR to this branch.
+
+# Session 74f76e34 — Line Lab (claim)
+
+**Claimed (UTC):** 2026-11-16T00:00Z · **Owner:** `arena/74f76e34-fl2` · **Branch:** `arena/74f76e34-fl2`
+(base `229d5fa`)
+
+**Exclusive file scope claimed by this session** (nothing outside this list is edited):
+
+| Scope | Paths |
+|---|---|
+| New site section | `linelab/**` |
+| New engine + data | `engine/linelab/**`, `data/linelab/**` |
+| Coordination | `COORDINATION.md` (append-only section), `COORDINATION-session-74f76e34.md` |
+| Root hub nav tile | `index.html` (single nav link + tile only — logged as a cross-scope edit) |
+| Link gate | `scripts/check_site.py` (allowlist only, if a new source host needs it — logged) |
+
+**Out of scope / untouched:** `docs/**`, `hub/**`, `signal/**`, `fl2-dashboard/**`, `fl2-signals/**`,
+`ledger/**`, root `*.html` other than `index.html`, `assets/**`, `tools/**`.
+
+**Status of other sessions' claims:** all prior sessions are merged and closed (PRs #1–#15). No
+other session is active. This session therefore also acts as the final integration session for its
+own section and publishes it.
+
+**Environment fact discovered this session (supersedes the earlier "release assets unreachable" note):**
+`codeload.github.com` **is** reachable and serves `tar.gz` of arbitrary repositories. The nflverse
+*binary release assets* (`release-assets.githubusercontent.com`) are **not** reachable. Therefore bulk
+data is obtainable from GitHub repositories, not from releases. Recording this because three earlier
+sessions recorded the opposite.
+
+---
+
+# Session 74f76e34 — Line Lab (completion record)
+
+**Status:** done · **Branch:** `arena/74f76e34-fl2` · **Site path:** `/linelab/`
+
+## What this session added that no prior section had
+
+Every prior section in this repository concluded that no strategy passed its gates, and
+none of them ever *originated a line*. This one does, for all three markets, and it
+carries the price provenance to prove which of its numbers are openings and which are
+closes.
+
+| Artefact | File | What a reader can check |
+|---|---|---|
+| Price store | `data/linelab/price_store.csv` | 21,717 market rows; each carries an explicit `*_basis` (opening / closing / unspecified_single_line) and the source URL for that specific number |
+| Model outputs | `data/linelab/model_outputs.csv` | 41,229 rows, each a probability plus a JSON `inputs` block naming the ratings, σ, training-window size and cutoff gameday that produced it |
+| Proper scores | `data/linelab/scores.json` | 18 hypotheses with a 2,000-resample game-cluster bootstrap interval and a Holm adjustment |
+| Availability | `data/linelab/availability.json` | 2 dated captures with SHA-256, a 21-change delta, designation reliability with Wilson intervals |
+| Depth graph | `data/linelab/depth_graph.json` | 5 club registers, 596 slots, groups and empty slots preserved |
+| Registry | `data/linelab/registry.json` | 7 pre-registered strategies, 0 eligible, demotion rule on each |
+| Requirements | `data/linelab/requirements.json` | 68 rows with status, gate and clearing number; 12 answered questions; 6 suggestions |
+| Site | `linelab/` (12 pages) | `engine/linelab/check_site.py` fails the build on a sourceless row or a broken link |
+
+## Findings that changed a claim, including one of this project's own
+
+1. **The opponent-adjusted model loses to its own control.** Holdout moneyline Brier skill is
+   +0.0686 for the unadjusted estimator and +0.0112 for the adjusted one. On side and total
+   both are negative. This is published on the landing page, not in a footnote.
+2. **A prior assumption was wrong and is corrected.** This project has repeatedly justified
+   banning side+total parlay multiplication by the dependence between margin and total. Measured
+   here on 7,088 games: r = 0.0171, 95% CI [-0.0062, 0.0404] — statistically indistinguishable
+   from zero. The ban now rests on same-team dependence, which has NOT been measured, and the
+   site says so.
+3. **There is no opening moneyline for any game in any season.** `initial_lines.csv` carries
+   spread and total only. Moneyline is close-only everywhere, and its opening column is null on
+   every row rather than back-filled.
+4. **A mechanical diff caught a capture defect the earlier section could not see.** Between the
+   2026-11-14 and 2026-11-16 reads of the Week 10 report, one team block (BAL, 8 rows) carried no
+   designation at all in the first capture. `capture_quality()` detects this pattern
+   automatically. The finding is held open with both possible causes named and is on
+   `linelab/flagged.html`.
+5. **"Questionable" measured, not quoted**: 63.9% observed play rate over 14,950 player-weeks
+   [63.1%, 64.7%]; Doubtful 0.83% over 1,684; Out 0.02% over 10,674. Doubtful is effectively an
+   absence, which means it and Out should be treated as one category by any model.
+6. **"Column 1 is the starter" would have invented a starter 25 times** in the 5 acquired clubs.
+   Those slots are stored as groups.
+
+## Irregularities found (all published on `linelab/flagged.html`)
+
+| # | Irregularity | State |
+|---|---|---|
+| 1 | BAL block had no designations in the 2026-11-14 capture | **needs review** — third capture required |
+| 2 | No opening moneyline exists for any game | permanent limitation |
+| 3 | Only 272 games (2021) have both an opening and a closing side price | needs review |
+| 4 | No league-official depth chart exists; nfl.com per-team path 404s | permanent limitation |
+| 5 | 5 of 32 club charts held | needs review |
+| 6 | No official inactive list or 2026 snap count held | needs review |
+| 7 | margin/total dependence assumption was wrong | **resolved — corrected** |
+| 8 | adjusted model loses to control | **resolved — reported** |
+| 9 | nflverse release assets unreachable from the build sandbox | needs review |
+| 10 | `signal/data/*.csv` (43 files) have no committed raw inputs and cannot be re-derived here | needs review — used read-only and labelled |
+
+## Environment fact corrected
+
+Three earlier sessions recorded that bulk data could not be obtained at all. In fact
+`codeload.github.com` **is** reachable and serves repository tarballs;
+`release-assets.githubusercontent.com` is what is blocked. The `nfldata` repository copies were
+used for results and prices, and their SHA-256 hashes are published on `linelab/prices.html` so a
+reviewer can confirm the exact bytes.
+
+## Cross-scope edits, logged rather than hidden
+
+* `index.html` — **one nav link and one tile added**, nothing else touched. Root HTML belongs to
+  session `4a77261b`'s original scope; the addition is additive and reversible.
+* `.github/workflows/verify-linelab.yml` — a new workflow, no existing workflow edited.
+* `COORDINATION.md` — appended only. The one rebase conflict (with session `b899e38d`'s audit
+  entry) was resolved by keeping **both** blocks, in order, with nothing deleted.
+
+## Verification performed
+
+1. `./engine/linelab/build_all.sh` runs the full pipeline deterministic-order and ends with the
+   site gate. Result: 12 pages, 0 failures.
+2. `engine/linelab/check_site.py`: every internal link and anchor resolves, every external host
+   is on a reviewed allowlist, **every table data row carries a source cell**, no leaked Python
+   artefacts, no unintrpolated f-strings.
+3. Seven asserted invariants (in CI and run locally): 0 moneyline openings; 0 single lines used
+   as openings; split unchanged at 1999–2015; no live strategy while none is eligible; no non-done
+   requirement without a named gate; every reliability bucket carries n and an interval; every
+   correlation carries n.
+4. `scripts/check_site.py` → 7 pages pass. `tools/check_links.py` → 16 pages, all links resolve.
+5. The 21-change injury delta was produced by code, not by eye; the reliability table was produced
+   by a join, not by quoting a percentage.
+
+## Not done, and named
+
+A daily scheduled capture (the single change that would unblock five requirements), 27 club depth
+charts, an official inactive/participation source, a dated transaction log, a second price book,
+and the 2026 rulebook text. Each is a row on the decision-readiness table with its gate spelled out.
+
+## PR and merge
+
+Pending at the time of writing; recorded in the PR description and below on completion.

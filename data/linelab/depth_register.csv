@@ -1,0 +1,597 @@
+team,unit,position,depth_rank,players,n_players,slot_state,source,page_date,official,actually_started,actually_started_status
+NE,offense,WR,1,A.J. Brown,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,2,Efton Chism III,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LT,1,Will Campbell,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LT,2,Dametrious Crownover,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LT,3,Marcus Bryant,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LT,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LG,1,Ben Brown,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LG,2,Walter Rouse,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LG,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,LG,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,C,1,Jared Wilson,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,C,2,Ben Brown,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,C,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,C,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RG,1,Matt Pryor,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RG,2,Walter Rouse,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RG,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RG,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RT,1,Morgan Moses,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RT,2,Caleb Lomu,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RT,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RT,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,TE,1,Hunter Henry,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,TE,2,Eli Raridon,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,TE,3,Cameron Latu,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,TE,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,1,DeMario Douglas,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,2,Kyle Williams,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,1,Efton Chism III,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,2,Kyle Williams,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,WR,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RB,1,Rhamondre Stevenson,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RB,2,TreVeyon Henderson,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RB,3,Corey Kiner,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,RB,4,Lan Larison,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,QB,1,Drake Maye,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,QB,2,Tommy DeVito,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,QB,3,Behren Morton,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,offense,QB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,1,Dre'Mont Jones,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,2,Gabe Jacas,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,1,Christian Barmore,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,2,Leonard Taylor III,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,1,Cory Durden,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,2,DaQuan Jones,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,1,Milton Williams,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,2,Joshua Farmer,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,DT,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,1,Elijah Ponder,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,2,Gabe Jacas,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,OLB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,1,Robert Spillane,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,2,Darius Muasau,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,3,Erick Hunter,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,1,Christian Elliss,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,2,Namdi Obiazor,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,LB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,1,Carlton Davis III,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,2,Channing Canada,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,1,Craig Woodson,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,2,Mike Brown,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,1,Kevin Byard III,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,2,Jaylen Reed,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,3,Brenden Schooler,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,S,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,1,Marcus Jones,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,2,Charles Woods,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,1,Christian Gonzalez,1,group,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,2,Karon Prunty,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,defense,CB,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,K,1,Andy Borregales,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,K,2,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,K,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,K,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,P,1,Mitch Wishnowsky,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,P,2,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,P,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,P,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,H,1,Mitch Wishnowsky,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,H,2,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,H,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,H,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,LS,1,Julian Ashby,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,LS,2,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,LS,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,LS,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,PR,1,Marcus Jones,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,PR,2,DeMario Douglas,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,PR,3,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,PR,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,KR,1,Kyle Williams,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,KR,2,Corey Kiner,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,KR,3,Lan Larison,1,single,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+NE,special_teams,KR,4,,0,empty,https://www.patriots.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,1,Jameson Williams,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,1,Amon-Ra St. Brown,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,2,DeAndre Carter,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LT,1,Penei Sewell,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LT,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LT,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LT,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LT,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LG,1,Christian Mahogany,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LG,2,Miles Frazier,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LG,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LG,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,LG,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,C,1,Cade Mays,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,C,2,Juice Scruggs,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,C,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,C,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,C,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RG,1,Tate Ratledge,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RG,2,Seth McLaughlin,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RG,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RG,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RG,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RT,1,Blake Miller,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RT,2,Larry Borom,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RT,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RT,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RT,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,TE,1,Sam LaPorta,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,TE,2,Brock Wright,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,TE,3,Tyler Conklin,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,TE,4,Jackson Meeks,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,TE,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,1,Isaac TeSlaa,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,2,Tay Martin,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,WR,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,QB,1,Jared Goff,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,QB,2,Joshua Dobbs,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,QB,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,QB,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,QB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RB,1,Jahmyr Gibbs,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RB,2,Sione Vaki,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RB,3,Jacob Saylors,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RB,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,offense,RB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,1,Aidan Hutchinson,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,2,Derrick Moore,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,3,Eric O'Neill,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,1,Alim McNeill,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,2,Skyler Gill-Howard,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,3,Mekhi Wingo,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,1,Tyleik Williams,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,2,Levi Onwuzurike,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,DL,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,1,DJ Wonnum,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,2,Tyler Lacy,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,3,Ahmed Hassanein,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,EDGE,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,1,Derrick Barnes,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,2,Joe Bachie,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,1,Malcolm Rodriguez,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,2,K.J. Britt,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,1,Trevor Nowaske,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,2,Amen Ogbongbemiga,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,LB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,1,D.J. Reed,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,2,Rock Ya-Sin,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,3,Khalil Dorsey,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,4,Nick Whiteside,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,1,Roger McCreary,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,2,Ennis Rakestraw Jr.,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,3,Keith Abney II,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,CB,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,1,Chuck Clark,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,1,Brian Branch,1,group,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,2,Christian Izien,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,defense,S,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,K,1,Jake Bates,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,K,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,K,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,K,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,K,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,H,1,Jack Fox,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,H,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,H,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,H,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,H,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,P,1,Jack Fox,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,P,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,P,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,P,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,P,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,LS,1,Hogan Hatten,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,LS,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,LS,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,LS,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,LS,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,PR,1,DeAndre Carter,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,PR,2,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,PR,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,PR,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,PR,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,KR,1,Jacob Saylors,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,KR,2,DeAndre Carter,1,single,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,KR,3,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,KR,4,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+DET,special_teams,KR,5,,0,empty,https://www.detroitlions.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,1,9 Christian Watson,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,2,16 Bo Melton,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,1,0 Matthew Golden,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,2,87 J. Michael Sturdivant,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LT,1,77 Jordan Morgan,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LT,2,73 John Williams,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LT,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LT,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LG,1,65 Aaron Banks,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LG,2,79 Travis Glover,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LG,3,67 Donovan Jennings,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,LG,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,C,1,75 Sean Rhyan,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,C,2,52 Jager Burton,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,C,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,C,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RG,1,72 Laken Tomlinson,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RG,2,70 Kevin Zeitler,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RG,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RG,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RT,1,71 Anthony Belton,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RT,2,74 Mekhi Becton Sr.,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RT,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RT,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,TE,1,85 Tucker Kraft,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,TE,2,18 Jonnu Smith,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,TE,3,86 Mark Redman,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,TE,4,81 Josh Whyle,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,1,83 Savion Williams,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,2,13 Coleman Owen,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,WR,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,QB,1,10 Jordan Love,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,QB,2,6 Tyrod Taylor,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,QB,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,QB,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RB,1,8 Josh Jacobs,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RB,2,32 MarShawn Lloyd,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RB,3,22 Pierre Strong Jr.,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,offense,RB,4,26 Kaleb Johnson,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,1,94 Karl Brooks,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,2,97 Jordon Riley,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,3,93 Anthony Campbell,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,1,95 Devonte Wyatt,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,2,55 Chris McClellan,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,DT,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,1,90 Lukas Van Ness,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,2,57 Brenton Cox Jr,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,1,44 Zaire Franklin,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,2,59 Ty'Ron Hopper,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,3,54 Kristian Welch,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,1,58 Isaiah McDuffie,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,2,31 Nick Niemann,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,LB,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,1,99 Barryn Sorrell,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,2,51 Dani Dennis-Sutton,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,EDGE,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,1,25 Keisean Nixon,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,2,24 Carrington Valentine,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,1,2 Brandon Cisse,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,2,21 Benjamin St-Juste,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,CB,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,1,29 Xavier McKinney,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,2,27 Kitan Oladapo,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,1,33 Evan Williams,1,group,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,2,27 Kitan Oladapo,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,S,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,NB,1,7 Javon Bullard,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,NB,2,36 Kamal Hadden,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,NB,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,defense,NB,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,K,1,28 Trey Smack,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,K,2,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,K,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,K,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,P,1,19 Daniel Whelan,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,P,2,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,P,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,P,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,H,1,19 Daniel Whelan,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,H,2,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,H,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,H,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,PR,1,13 Coleman Owen,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,PR,2,0 Matthew Golden,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,PR,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,PR,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,KR,1,16 Bo Melton,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,KR,2,13 Coleman Owen,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,KR,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,KR,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,LS,1,42 Matt Orzech,1,single,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,LS,2,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,LS,3,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+GB,special_teams,LS,4,,0,empty,https://www.packers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,1,Rashee Rice,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,2,Jalen Royals,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,3,Andrew Armstrong,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LT,1,Kahlil Benson,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LT,2,Diego Pounds,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LT,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LT,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LG,1,Kingsley Suamataia,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LG,2,Joshua Ezeudu,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LG,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,LG,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,C,1,Creed Humphrey,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,C,2,Hunter Nourzad,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,C,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,C,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RG,1,Trey Smith,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RG,2,Mike Caliendo,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RG,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RG,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RT,1,Jaylon Moore,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RT,2,Joshua Ezeudu,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RT,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RT,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,TE,1,Travis Kelce,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,TE,2,Noah Gray,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,TE,3,Jared Wiley,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,TE,4,Jake Briningstool,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,QB,1,Patrick Mahomes,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,QB,2,Justin Fields,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,QB,3,Garrett Nussmeier,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,QB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RB,1,Kenneth Walker,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RB,2,Emmett Johnson,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RB,3,Jaydn Ott,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,RB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,FB,1,Ben VanSumeren,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,FB,2,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,FB,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,FB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,1,Xavier Worthy,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,2,Cyrus Allen,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,3,Josh Downs,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,offense,WR,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,1,Felix Anudike-Uzomah,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,2,Ashton Gillotte,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,1,Chris Jones,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,2,Peter Woods,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,3,Marcus Harris,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,1,Khyiris Tonga,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,2,Bryson Eason,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DT,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,1,George Karlaftis,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,2,R Mason Thomas,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,DE,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,1,Jack Cochrane,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,2,Cooper McDonald,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,1,Nick Bolton,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,2,Jack Cochrane,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,1,Drue Tranquill,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,2,Jeffrey Bassa,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,LB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,1,Nohl Williams,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,2,Jadon Canady,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,1,Mansoor Delane,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,2,Kristian Fulton,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,3,Melvin Smith,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,CB,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,1,Alohi Gilman,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,2,Chris Roland-Wallace,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,1,Chamarri Conner,1,group,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,2,Jaden Hicks,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,3,Xavier Nwankpa,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,defense,S,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,K,1,Harrison Butker,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,K,2,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,K,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,K,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,H,1,Matt Araiza,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,H,2,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,H,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,H,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,P,1,Matt Araiza,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,P,2,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,P,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,P,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,LS,1,James Winchester,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,LS,2,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,LS,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,LS,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,KR,1,Emmett Johnson,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,KR,2,Cyrus Allen,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,KR,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,KR,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,PR,1,Emmett Johnson,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,PR,2,Cyrus Allen,1,single,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,PR,3,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+KC,special_teams,PR,4,,0,empty,https://www.chiefs.com/team/depth-chart,,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,1,Mike Evans,1,group,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,2,Jordan Watkins,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,3,Brandin Cooks,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LT,1,Trent Williams,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LT,2,Vederian Lowe,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LT,3,Enrique Cruz Jr.,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LT,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LG,1,Connor Colby,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LG,2,Carver Willis,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LG,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,LG,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,C,1,Jake Brendel,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,C,2,Jarrett Patterson,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,C,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,C,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RG,1,Dominick Puni,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RG,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RG,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RG,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RT,1,Colton McKivitz,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RT,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RT,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RT,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,TE,1,George Kittle,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,TE,2,Luke Farrell,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,TE,3,Brayden Willis,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,TE,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,1,Deebo Samuel Sr.,1,group,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,2,Demarcus Robinson,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,3,Jacob Cowing,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,WR,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RB,1,Christian McCaffrey,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RB,2,Kaelon Black,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RB,3,Jordan James,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,RB,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,FB,1,Kyle Juszczyk,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,FB,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,FB,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,FB,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,QB,1,Brock Purdy,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,QB,2,Mac Jones,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,QB,3,Kurtis Rourke,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,offense,QB,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDE,1,Keion White,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDE,2,Mykel Williams,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDE,3,Khalid Kareem,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDE,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDT,1,DeForest Buckner,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDT,2,Gracen Halton,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDT,3,Sebastian Valdez,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LDT,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDT,1,Osa Odighizuwa,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDT,2,James Thompson Jr.,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDT,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDT,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDE,1,Nick Bosa,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDE,2,Romello Height,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDE,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RDE,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SAM,1,Jaden Dugger,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SAM,2,Luke Gifford,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SAM,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SAM,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,MIKE,1,Fred Warner,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,MIKE,2,Tatum Bethune,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,MIKE,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,MIKE,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,WILL,1,Dre Greenlaw,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,WILL,2,Garret Wallow,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,WILL,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,WILL,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LCB,1,Renardo Green,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LCB,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LCB,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,LCB,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RCB,1,Deommodore Lenoir,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RCB,2,Ephesians Prysock,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RCB,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,RCB,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,NB,1,Upton Stout,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,NB,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,NB,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,NB,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,FS,1,Ji'Ayir Brown,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,FS,2,Siran Neal,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,FS,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,FS,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SS,1,Malik Mustapha,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SS,2,Marques Sigle,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SS,3,Ashtyn Davis,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,defense,SS,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,P,1,Corliss Waitman,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,P,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,P,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,P,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,K,1,Eddy Pinheiro,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,K,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,K,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,K,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,H,1,Corliss Waitman,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,H,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,H,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,H,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,PR,1,Jacob Cowing,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,PR,2,Jordan Watkins,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,PR,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,PR,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,KOR,1,Deebo Samuel Sr.,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,KOR,2,Jordan James,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,KOR,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,KOR,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,LS,1,Jon Weeks,1,single,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,LS,2,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,LS,3,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
+SF,special_teams,LS,4,,0,empty,https://www.49ers.com/team/depth-chart,2026-11-10,False,,unavailable — no official inactive list or snap count held for 2026
