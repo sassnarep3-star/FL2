@@ -1,6 +1,6 @@
 # Game Book capture log - 2026 week 10
 
-Captured 2026-11-17T03:19:52Z. 
+Captured 2026-11-17T03:22:23Z. 
 
 | game | status | book url | sha256 | playtime rows | error |
 |---|---|---|---|---|---|
