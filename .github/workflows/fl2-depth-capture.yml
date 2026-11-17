@@ -14,7 +14,8 @@ name: FL2 depth capture (official Game Books)
 on:
   push:
     paths:
-      - 'fl2-depth/**'
+      - 'fl2-depth/engine/**'
+      - 'fl2-depth/*.html'
       - '.github/workflows/fl2-depth-capture.yml'
   workflow_dispatch:
     inputs:
@@ -83,7 +84,11 @@ jobs:
             echo "no capture changes"
           else
             git commit -m "fl2-depth: official Game Book capture ${{ inputs.season || '2026' }} week ${{ inputs.week || '10' }}"
-            git push
+            for attempt in 1 2 3; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" && git push && break
+              echo "push attempt $attempt failed, retrying"
+              sleep 8
+            done
           fi
 
       - name: Fail loudly on hard capture failures
