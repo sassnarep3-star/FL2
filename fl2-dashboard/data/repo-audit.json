@@ -1,12 +1,12 @@
 {
   "title": "Repository audit - scripted review",
   "generated_by": "tools/repo_audit.py",
-  "branch": "arena/8326a20d-fl2",
-  "head_commit": "128eafb31efb9051b345ac88c9f797ad03e93a9b",
-  "base_commit_of_main": "a395f99a8fa2cfe25e326e387b6788f535291a9e",
+  "branch": "arena/b184fdaf-fl2",
+  "head_commit": "160cf251c458aae96bcb53bb977012f303c275fc",
+  "base_commit_of_main": "08ff8e7bfdbe786830592318bba44851d8e91d64",
   "pages_config_checked": "2026-11-16 via gh api repos/sassnarep3-star/FL2/pages: source main:/ , legacy build",
   "json": {
-    "json_files_checked": 59,
+    "json_files_checked": 99,
     "parse_failures": []
   },
   "injury_row_counts": [
@@ -63,6 +63,10 @@
         "bytes": 16817802
       },
       {
+        "file": "data/linelab/model_outputs.csv",
+        "bytes": 13678575
+      },
+      {
         "file": "signal/data/player_week_keys.json",
         "bytes": 7771574
       },
@@ -75,50 +79,50 @@
         "bytes": 6978966
       },
       {
+        "file": "data/linelab/price_store.csv",
+        "bytes": 4634940
+      },
+      {
         "file": "signal/data/injury_week.json",
         "bytes": 3038050
-      },
-      {
-        "file": "signal/data/injury_player.csv",
-        "bytes": 2945377
-      },
-      {
-        "file": "raw/_nfldata.tgz",
-        "bytes": 2682384
       }
     ],
     "tracked_bytes_by_top_directory": {
       "signal": 75523392,
+      "data": 22436175,
       "raw": 16605931,
-      "data": 796830,
+      "fl2-lines": 1230957,
       "fl2-signals": 506310,
+      "linelab": 377840,
+      "tools": 369223,
       "docs": 359331,
       "hub": 333346,
-      "tools": 313826,
-      "fl2-dashboard": 282756,
-      "(root files)": 152069,
-      "engine": 109945,
-      "assets": 106357,
-      "research": 48681,
+      "engine": 325082,
+      "fl2-dashboard": 282901,
+      "ops": 252937,
+      "(root files)": 246068,
+      "readiness": 118759,
+      "assets": 106731,
+      "research": 94595,
       "scripts": 32973,
-      "ledger": 11288,
-      ".github": 7840,
-      "review": 5423
+      ".github": 20668,
+      "review": 18985,
+      "ledger": 11288
     },
-    "total_tracked_bytes": 95196298
+    "total_tracked_bytes": 119253492
   },
   "coordination": {
     "file": "COORDINATION.md",
-    "lines": 786,
+    "lines": 1549,
     "status_word_counts": {
-      "**done**": 22,
-      "done": 59,
-      "in progress": 6,
-      "unclaimed": 2,
-      "needs review": 4,
+      "**done**": 43,
+      "done": 94,
+      "in progress": 15,
+      "unclaimed": 4,
+      "needs review": 14,
       "**merged**": 3,
-      "merged": 28,
-      "open": 21
+      "merged": 57,
+      "open": 52
     }
   }
 }

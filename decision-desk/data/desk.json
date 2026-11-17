@@ -9,7 +9,7 @@
   "collisions": 15,
   "questions_present": 55,
   "question_entries": 70,
-  "evidence_entries": 12,
+  "evidence_entries": 14,
   "blocked_requirements": 7,
   "readiness_rows": 74,
   "archive_premise_rows": 3,
@@ -272,59 +272,6 @@
     "EV-04"
    ],
    "how_to_check": "Compare the report's week label with the fixture date; the gap is a property of the source calendar, not of our parser.",
-   "breadth": 1,
-   "linked_count": 4,
-   "in_degree": 0,
-   "evidence_count": 1,
-   "cost": 1.0,
-   "score": 8.0,
-   "path_tier": "P1 next"
-  },
-  {
-   "uid": "DS-08",
-   "order": 64,
-   "who": "engineering",
-   "title": "Do not carry placeholder scores for fixtures that are already decided",
-   "problem": "The committed feed holds 2026_10_PIT_CIN at status in_progress with scores written as 0-0, while the official page has printed 18-38 FINAL since November 15. Replaying the feed reproduces the official record for 29 of 31 sampled clubs and fails for exactly the two clubs in that fixture.",
-   "change": "Rebuild the feed from a fresh dated capture so that fixture becomes final, and change the writer so a non-final row carries blank scores rather than 0-0 - a numeric placeholder on an open row is read as a result by anything that ignores status. The rebuild belongs to the owning script, so this row asks for it rather than editing the file.",
-   "effort": "Low",
-   "impact": "High",
-   "risk": "Medium",
-   "state": "proposed",
-   "recommendation": "new from this session's audit",
-   "missing": "",
-   "registers": [
-    "decision-desk:DS-08"
-   ],
-   "sources": [
-    {
-     "register": "decision-desk",
-     "path": "decision-desk/data/evidence.json",
-     "id": "DS-08"
-    }
-   ],
-   "linked_rows": [
-    {
-     "id": "R23",
-     "status": "BLOCKED"
-    },
-    {
-     "id": "R25",
-     "status": "BLOCKED"
-    },
-    {
-     "id": "R30",
-     "status": "PARTIAL"
-    },
-    {
-     "id": "R46",
-     "status": "BLOCKED"
-    }
-   ],
-   "capture_refs": [
-    "EV-10"
-   ],
-   "how_to_check": "Replay the feed's finals against the official records and count the exceptions: it is 2, both from the same fixture, and 0 once that fixture is applied.",
    "breadth": 1,
    "linked_count": 4,
    "in_degree": 0,
@@ -648,7 +595,7 @@
    "evidence_count": 0,
    "cost": 2.0,
    "score": 5.5,
-   "path_tier": "P2 later"
+   "path_tier": "P1 next"
   },
   {
    "uid": "signal-S09",
@@ -975,6 +922,48 @@
    "linked_count": 1,
    "in_degree": 1,
    "evidence_count": 0,
+   "cost": 1.0,
+   "score": 4.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-08",
+   "order": 64,
+   "who": "engineering",
+   "title": "A non-final row must not carry numeric scores",
+   "problem": "The fixture this row was raised about (2026_10_PIT_CIN) has since been settled in the committed feed by another session, so the record-keeping half of the complaint is closed. 1 row(s) in data/results_feed.csv are not final and carry numeric scores: 2026_10_LAC_BAL at 17-7 with status in_progress. Of those, 0 are scoreless placeholders and 0 carry no machine-readable mark that the number is not a result. A live scoreline that says so in a note column is defensible; the hazard is a consumer that reads the score column without reading status or the disclaimer, and a 0-0 placeholder is never defensible.",
+   "change": "Ask for two things, both cheap: a boolean column that says whether a row's scores are a result, so a consumer never has to read the status column correctly to avoid being misled; and a writer rule that a non-final row is never given 0-0, which is a placeholder rather than an observation. Recording a live scoreline next to an explicit not-a-result mark stays allowed - it is information, and blanking it would lose the fact that a game is being played.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Medium",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-08"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-08"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R40",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-10",
+    "EV-13"
+   ],
+   "how_to_check": "Count non-final rows with numeric scores, split into placeholders and undisclaimed: today 1 total, 0 placeholder, 0 undisclaimed; 0 in the last two columns closes this row.",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 2,
    "cost": 1.0,
    "score": 4.5,
    "path_tier": "P2 later"
@@ -3765,13 +3754,13 @@
  "freshness": {
   "feed": {
    "rows": 272,
-   "final": 148,
+   "final": 149,
    "in_progress": 1,
-   "scheduled": 123,
+   "scheduled": 122,
    "week10_rows": 14,
-   "week10_final": 12,
+   "week10_final": 13,
    "open_ids": [
-    "2026_10_PIT_CIN"
+    "2026_10_LAC_BAL"
    ]
   },
   "price": [
@@ -3794,14 +3783,12 @@
   ],
   "replay": {
    "sampled": 31,
-   "as_is_ok": 29,
-   "as_is_bad": [
-    "CIN",
-    "PIT"
-   ],
+   "as_is_ok": 31,
+   "as_is_bad": [],
    "with_pending_ok": 31,
    "with_pending_bad": [],
-   "applied": [
+   "applied": [],
+   "settled_upstream": [
     "2026_10_PIT_CIN"
    ],
    "still_open": [
@@ -3938,7 +3925,7 @@
       0
      ],
      "replay": [
-      6,
+      7,
       2,
       0
      ],
@@ -3948,7 +3935,7 @@
       0
      ],
      "pub_ok": false,
-     "rep_ok": false
+     "rep_ok": true
     },
     {
      "team": "CLE",
@@ -4319,7 +4306,7 @@
      ],
      "replay": [
       6,
-      2,
+      3,
       0
      ],
      "official": [
@@ -4328,7 +4315,7 @@
       0
      ],
      "pub_ok": false,
-     "rep_ok": false
+     "rep_ok": true
     },
     {
      "team": "SEA",
@@ -4433,7 +4420,7 @@
    ],
    "sampled": 31,
    "pub_match": 7,
-   "replay_match": 29,
+   "replay_match": 31,
    "source_of_official": "decision-desk/data/evidence.json EV-08 / EV-02 (nfl.com Week 10 and Week 11 pages, 2026-11-17)"
   },
   "injury_capture": {
@@ -4465,6 +4452,8 @@
   "captures": {
    "data_captures": [
     "week10-results-2026-11-16.json",
+    "week10-snf-final-2026-11-17.json",
+    "week10-venues-2026-11-17.json",
     "week11-market-2026-11-16.json"
    ],
    "linelab_capture_days": [

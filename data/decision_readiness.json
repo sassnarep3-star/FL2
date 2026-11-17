@@ -26,8 +26,8 @@
    "category": "results",
    "status": "done",
    "gate": "\u2014",
-   "number_to_clear": "148/148 finals carry an official source URL; standings replay 32/32",
-   "evidence": "data/results_feed.csv; capture data/captures/week10-results-2026-11-16.json (nfl.com T1, cross-checked 12/12 vs ESPN)",
+   "number_to_clear": "149/150 finals verified from official pages (replay of settled records 30/30 exact); LAC@BAL pending \u2014 MNF live at the 2026-11-17 capture, never inferred",
+   "evidence": "data/results_feed.csv; captures data/captures/week10-results-2026-11-16.json (2026-11-16) + data/captures/week10-snf-final-2026-11-17.json (SNF final, 2026-11-17); venue register data/captures/week10-venues-2026-11-17.json (14/14 game centres)",
    "evidence_url": "https://www.nfl.com/schedules/2026/by-week/week-11"
   },
   {

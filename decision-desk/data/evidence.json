@@ -148,7 +148,7 @@
         "the 136-game backtest corpus count",
         "every margin and total feature derived from the feed"
       ],
-      "status_after_check": "new finding - the feed needs a rebuild from a fresh capture; the owning script is tools/build_results_feed.py, so the correction is requested in COORDINATION.md rather than hand-edited into another session's artefact",
+      "status_after_check": "new finding - reported as a rebuild request; RECONCILED THE SAME DAY by session b184fdaf (PR #38, main@8a6d908): the fixture is final in the feed and the replay closes at 31/31. See EV-13. The scores-blank rule for non-final rows is still open, which is why board row DS-08 remains on the list.",
       "kind": "official-page"
     },
     {
@@ -185,6 +185,39 @@
         "the hub readiness table"
       ],
       "status_after_check": "new finding - not edited (another session owns those files); raised as board row DS-11 and as a rebuild request in COORDINATION.md; this desk quotes the artefact value"
+    },
+    {
+      "id": "EV-13",
+      "object": "Follow-up: the results-feed correction this desk asked for, checked after it landed",
+      "url": "https://github.com/sassnarep3-star/FL2/blob/main/data/results_feed.csv",
+      "kind": "repository-check",
+      "kind_note": "not a league fact: this row records the state of a file in this repository after another session merged PR #38; the scores it now carries were transcribed from the official page by that session (capture week10-snf-final-2026-11-17)",
+      "fetched_at_utc": "2026-11-17T03:40:00Z",
+      "observed": "data/results_feed.csv at main@8a6d908: row 2026_10_PIT_CIN is status final with 18-38, and the replay of the feed's finals now reproduces the official record for 31 of 31 clubs sampled by this session, where it reproduced 29 of 31 four hours earlier. The row that remains open, 2026_10_LAC_BAL, now carries the live 17-7 with status in_progress - correctly not graded, but still numeric scores on a non-final row. Two new captures accompany the fix (week10-snf-final-2026-11-17, week10-venues-2026-11-17); data/standings.json is still the 2026-11-14 table, so the standings disagreement this desk raised is unchanged.",
+      "consequence": "One of the two rebuild requests logged against another session's files has been carried out, and this desk's own page now shows the reconciliation closing without any edit to the arithmetic. The remaining half of the earlier complaint is the format rule, not the score. The standings finding (I-2) and the venue finding (I-4) stay open.",
+      "affects": [
+        "data/results_feed.csv",
+        "the 149-final corpus count",
+        "board row DS-08",
+        "irregularity I-8 (the hub still says '150-game results feed' on 2026-11-17, so the finding narrows to one game rather than closing)"
+      ],
+      "status_after_check": "closed as a request - the desk's numbers are recomputed from the file on every build, so the page cannot keep asserting the old gap"
+    },
+    {
+      "id": "EV-14",
+      "object": "Committed merge-conflict markers found in the tree by scan, not by reading",
+      "url": "https://github.com/sassnarep3-star/FL2/blob/main/COORDINATION.md",
+      "kind": "repository-check",
+      "kind_note": "not a league fact: a scan of this repository's tracked text files for marker lines",
+      "fetched_at_utc": "2026-11-17T03:45:00Z",
+      "observed": "While resolving the merge of main@8a6d908, COORDINATION.md was found to contain a committed conflict block: an empty HEAD side and, on the other side, another session's cross-scope edit note about fl2-dashboard/data/repo-audit.json. The marker lines (<<<<<<< HEAD / ======= / >>>>>>> 96e0678) were committed to main by the merge of PR #38. The same class had already been recorded once before, in .gitignore at 56453a0, and fixed by a later session. The scan now runs inside the desk builder over every tracked .md, .html, .json, .py, .csv, .yml and .js file.",
+      "consequence": "A page or board committed with markers renders them as content: readers see them, and any tool that parses the file sees a line starting with '=======' as data. The resolution here kept both sides - the paragraph was preserved and the note records who resolved it - and the check is now standing rather than one-off, printing 'no file contains a marker' on a clean tree so the absence is a result and not an omission.",
+      "affects": [
+        "COORDINATION.md",
+        ".gitignore (previously fixed)",
+        "every generated page that quotes a markdown register"
+      ],
+      "status_after_check": "resolved in this PR for COORDINATION.md; the scan stays on the page as a regression check"
     }
   ],
   "official_club_records_2026_11_17": {

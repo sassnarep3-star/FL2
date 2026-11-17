@@ -3,7 +3,7 @@
 
 Builds on:
   - data/games.json            (T1: NFL.com by-week pages, 137 games W1–W10-TNF, retrieved 2026-11-14)
-  - live transcription 2026-11-16 (T1: https://www.nfl.com/schedules/2026/reg10/ , 11 new finals)
+  - live transcription 2026-11-16 + SNF final re-read 2026-11-17 (T1: https://www.nfl.com/schedules/2026/by-week/week-10 , 12 new finals)
   - raw/games.csv (nflverse)   (T2: used ONLY as an independent cross-check of the T1 scores)
 
 Outputs ops/data/results/results_2026_reg.csv with per-row source_url, tier and a
@@ -38,10 +38,11 @@ NEW_W10_FINALS = [
     ("LA", "ARI", 34, 6, "2026-11-15", "https://www.nfl.com/games/rams-at-cardinals-2026-reg-10"),
     ("SEA", "LV", 21, 13, "2026-11-15", "https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10"),
     ("SF", "DAL", 46, 40, "2026-11-15", "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10"),
+    ("PIT", "CIN", 18, 38, "2026-11-15", "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10"),
 ]
-# Games on the official Week 10 slate with no final score as of the 2026-11-16 fetch.
+# Games on the official Week 10 slate with no final score as of the latest fetch
+# (2026-11-17: MNF LAC@BAL was live in Q2 at fetch; scores left blank, never inferred).
 W10_PENDING = [
-    ("PIT", "CIN", "2026-11-15", "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10"),
     ("LAC", "BAL", "2026-11-16", "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10"),
 ]
 
@@ -83,7 +84,7 @@ def append_live_rows(rows: list[dict]) -> list[dict]:
             "gameday": date, "away_team": away, "home_team": home,
             "away_pts": str(ap), "home_pts": str(hp), "status": "final", "tier": "T1",
             "source_url": url, "cross_check": "T1_only_nflverse_snapshot_older",
-            "note": "Transcribed 2026-11-16 from official Week 10 schedule page; nflverse snapshot (2026-11-14) predates these finals",
+            "note": "Transcribed 2026-11-16 (11 games) + SNF final re-read 2026-11-17 from the official Week 10 schedule page; nflverse snapshot (2026-11-14) predates these finals",
         })
     for away, home, date, url in W10_PENDING:
         if ("10", away, home) in have:
@@ -93,7 +94,7 @@ def append_live_rows(rows: list[dict]) -> list[dict]:
             "gameday": date, "away_team": away, "home_team": home,
             "away_pts": "", "home_pts": "", "status": "not_final_as_of_fetch",
             "tier": "T1", "source_url": url, "cross_check": "n/a",
-            "note": "Official page shows no final score at fetch time (SNF in progress / MNF upcoming); scores left blank, never inferred",
+            "note": "Official page shows no final score at fetch time (MNF LAC@BAL live in Q2 at the 2026-11-17 fetch; SNF final captured 2026-11-17); scores left blank, never inferred",
         })
     return rows
 

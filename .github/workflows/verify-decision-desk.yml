@@ -119,8 +119,54 @@ jobs:
           rp = desk["freshness"]["replay"]
           if rp["as_is_ok"] + len(rp["as_is_bad"]) != rp["sampled"]:
               fail.append("the reconciliation table does not add up")
-          if rp["with_pending_ok"] != rp["sampled"]:
-              fail.append("applying the decided fixtures should reconcile every sampled club; it does not")
+          if rp["as_is_ok"] != rp["sampled"]:
+              fail.append(f"the results feed no longer replays to the official records for every sampled club: "
+                          f"{rp['as_is_ok']}/{rp['sampled']}, failing for {rp['as_is_bad']}")
+
+          # 3b. no non-final row may carry numeric scores, and no decided fixture may be open
+          feed = list(csv.DictReader(open("data/results_feed.csv")))
+          # a live scoreline is acceptable only when the row says so where a consumer can see it;
+          # a 0-0 placeholder for a fixture that is decided is never acceptable
+          for g in feed:
+              if g.get("status") == "final":
+                  continue
+              aw, ho = (g.get("away_score") or "").strip(), (g.get("home_score") or "").strip()
+              if not (aw and ho):
+                  continue
+              says_open = ("not-final" in (g.get("verified") or "").lower()
+                           or "capture-time" in (g.get("note") or "").lower())
+              if not says_open:
+                  fail.append(f"{g['game_id']}: non-final row with scores {aw}-{ho} and no machine-readable "
+                              "disclaimer in `verified` or `note`")
+              if aw == "0" and ho == "0":
+                  fail.append(f"{g['game_id']}: 0-0 placeholder on a non-final row reads as a result")
+          for x in (json.load(open("decision-desk/data/evidence.json"))
+                    .get("pending_fixtures_now_decided") or {}).get("rows", []):
+              if x.get("home_score") is None:
+                  continue
+              row = next((g for g in feed if g["game_id"] == x["game_id"]), None)
+              if row is None:
+                  fail.append(f"the capture log tracks {x['game_id']} but the feed has no such row")
+              elif row.get("status") != "final" or row.get("home_score") != str(x["home_score"]):
+                  fail.append(f"{x['game_id']}: capture says {x['away_score']}-{x['home_score']} final, "
+                              f"feed says {row.get('away_score')}-{row.get('home_score')} {row.get('status')}")
+
+          # 3c. committed merge-conflict markers anywhere in tracked text files
+          import subprocess
+          files = subprocess.run(["git", "ls-files", "--", "*.md", "*.html", "*.json", "*.py", "*.csv", "*.yml", "*.js"],
+                                 capture_output=True, text=True).stdout.split()
+          marked = []
+          for rel in files:
+              try:
+                  with open(rel, encoding="utf-8", errors="ignore") as fh:
+                      for line in fh:
+                          if line.startswith("<<<<<<< ") or line.startswith(">>>>>>> "):
+                              marked.append(rel)
+                              break
+              except Exception:
+                  continue
+          if marked:
+              fail.append("committed conflict markers in: " + ", ".join(marked[:6]))
 
           # 4. A grading run must not be presented while a graded window is incomplete.
           feed = list(csv.DictReader(open("data/results_feed.csv")))

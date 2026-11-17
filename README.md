@@ -13,7 +13,7 @@ FL2 is a research dashboard for originating NFL lines and testing signals. It ke
 - [Cross-section integrity audit / Flagged for Review](review/integration-audit-2026-11-17.html) — concrete inconsistencies, unresolved source/rights gates, questions, and proposed next steps.
 - [Suggestions and decision paths](fl2-lines/suggestions.html) — adopt/test/reject/defer proposals, including the information needed to choose.
 - [Questions and answers](fl2-lines/questions.html) — current answers, unknowns, and what would close them.
-- [Decision desk — the review surface](decision-desk/index.html) — one ranked board holding 68 decisions (57 merged from 68 register entries across 11 registers, 11 raised by this session), the 55 open questions, and the 12 dated captures behind every claim made about them.
+- [Decision desk — the review surface](decision-desk/index.html) — one ranked board holding 68 decisions (57 merged from 68 register entries across 11 registers, 11 raised by this session), the 55 open questions, and the 14 dated captures behind every claim made about them.
 
 ## Current decision status (as of the committed artifacts)
 
