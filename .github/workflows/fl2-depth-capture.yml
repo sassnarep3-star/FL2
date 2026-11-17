@@ -12,6 +12,10 @@ name: FL2 depth capture (official Game Books)
 # stored with the data, not dropped.
 
 on:
+  push:
+    paths:
+      - 'fl2-depth/**'
+      - '.github/workflows/fl2-depth-capture.yml'
   workflow_dispatch:
     inputs:
       season:
