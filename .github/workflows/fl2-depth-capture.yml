@@ -91,11 +91,23 @@ jobs:
           } >> fl2-depth/data/verified/capture-stdout.txt
           git add fl2-depth/data/verified
           git commit -m "fl2-depth: official Game Book capture ${{ inputs.season || '2026' }} week ${{ inputs.week || '10' }} [automated]" || echo "nothing to commit"
+          # actions/checkout leaves a detached HEAD, so "git push" alone has no
+          # upstream to push to. Name the ref explicitly, and fail the job if every
+          # attempt fails rather than reporting success with nothing published.
+          pushed=0
           for attempt in 1 2 3; do
-            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && break
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}" || git rebase --abort
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then pushed=1; break; fi
             echo "push attempt $attempt failed, retrying"
             sleep 8
           done
+          if [ "$pushed" != "1" ]; then
+            echo "CAPTURE PUSH FAILED after 3 attempts"
+            git status --porcelain | head -20
+            exit 1
+          fi
+          echo "capture pushed"
 
       - name: Fail loudly on hard capture failures
         if: always()
