@@ -62,7 +62,7 @@ jobs:
       - name: Validate the capture
         run: python3 fl2-depth/engine/validate_depth.py
 
-      - name: Build the depth site
+      - name: Build the depth site (validates the build; output is not committed here)
         run: python3 fl2-depth/engine/build_site.py
 
       - name: Upload raw text as an artifact (not committed)
@@ -79,7 +79,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add fl2-depth/data/verified fl2-depth/*.html fl2-depth/assets
+          git add fl2-depth/data/verified
           if git diff --cached --quiet; then
             echo "no capture changes"
           else
