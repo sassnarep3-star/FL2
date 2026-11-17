@@ -60,13 +60,10 @@ jobs:
       - name: Debug dump (temporary - removed before merge)
         if: always()
         run: |
-          set -uo pipefail
+          set -euo pipefail
           mkdir -p fl2-depth/data/_debug
-          for g in 2026_10_NE_DET 2026_10_LAC_BAL; do
-            if [ -f /tmp/fl2-depth-work/$g.txt ]; then
-              cp /tmp/fl2-depth-work/$g.txt fl2-depth/data/_debug/$g.txt
-            fi
-          done
+          ls -la /tmp/fl2-depth-work > fl2-depth/data/_debug/_ls.txt 2>&1 || true
+          cp /tmp/fl2-depth-work/2026_10_NE_DET.txt fl2-depth/data/_debug/NE_DET.txt || echo "NO NE_DET TXT" >> fl2-depth/data/_debug/_ls.txt
           ls -la fl2-depth/data/_debug
 
       - name: Upload raw text as an artifact (not committed)
