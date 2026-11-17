@@ -55,7 +55,7 @@ jobs:
         env:
           SEASON: ${{ inputs.season || '2026' }}
           WEEK: ${{ inputs.week || '10' }}
-          DUMP_GAMES: 2026_10_NE_DET,2026_10_MIA_IND
+          DUMP_GAMES: 2026_10_PIT_CIN,2026_10_WAS_NYG
         run: bash fl2-depth/engine/run_capture.sh
 
       - name: Upload raw text as an artifact (not committed)
