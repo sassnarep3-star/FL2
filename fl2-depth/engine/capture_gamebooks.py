@@ -103,15 +103,22 @@ def parse_header(text: str) -> dict:
         out["copyright_notice"] = " ".join(m.group(1).split())
 
     # Venue: "<Away> at <Home> at <Venue>, <City>, <State/Country>"
-    m = re.search(r"at\s+([A-Z][A-Za-z0-9.'&\- ]+?)\s+at\s+(.{3,90}?)\s{2,}", text)
-    if m:
-        out["book_venue"] = " ".join(m.group(2).split())
+    # the venue sits on the same printed line as the date and the start time:
+    #   "Date: Sunday, 11/15/2026  <Away> at <Home> at <Venue>, <City>   Start Time: 3:33 PM CET"
+    for line in text.splitlines():
+        if "Start Time:" in line and " at " in line:
+            seg = line.split("Start Time:")[0]
+            parts = seg.split(" at ")
+            if len(parts) >= 3:
+                out["book_venue"] = " ".join(parts[-1].split()).strip(" ,")
+            break
     # Roof / surface tokens the league prints on their own line
     m = re.search(r"((?:Open|Closed|Fixed|Retractable)[\w \-]*?(?:Stadium|Dome|Roof)[\w \-]*?on\s+\w[\w ]*)", text)
     if not m:
         m = re.search(r"(Retractable Roof\s*-\s*(?:Open|Closed)\s+on\s+\w[\w ]*)", text)
     if m:
-        out["book_roof_surface"] = " ".join(m.group(1).split())
+        surf = re.split(r"\s{2,}|\bWind Chill\b", " ".join(m.group(1).split()).strip())[0]
+        out["book_roof_surface"] = surf.strip()
 
     m = re.search(r"Game Weather:\s*(.{0,60}?)\s{2,}", text)
     if m:
@@ -172,6 +179,16 @@ def _slot_rows(line: str) -> list:
     return rows
 
 
+def club_split_column(text: str, away: str, home: str):
+    """The column at which the two clubs' printed blocks separate."""
+    for line in text.splitlines():
+        i = line.find(away)
+        j = line.find(home, i + 1) if i >= 0 else -1
+        if i >= 0 and j > i:
+            return (i + len(away) + j) // 2
+    return None
+
+
 def parse_lineups(text: str, away: str, home: str) -> list:
     """Return [(club, unit, slot, jersey, player)] from the Lineups block."""
     m = re.search(r"^\s*Lineups\s*$", text, re.M)
@@ -181,7 +198,8 @@ def parse_lineups(text: str, away: str, home: str) -> list:
     if not m:
         return []
     start = m.end()
-    end = re.search(r"^\s*(Substitutions|Did Not Play|Not Active)\s*$", text[start:], re.M)
+    end = re.search(r"^\s*(?:Substitutions|Did Not Play|Not Active|Field Goals|VISITOR:|HOME:)\s*$",
+                    text[start:], re.M)
     block = text[start:start + end.start()] if end else text[start:start + 4000]
 
     out = []
@@ -231,6 +249,8 @@ def parse_lineups(text: str, away: str, home: str) -> list:
             continue
         for club, pairs in ((away, lp), (home, rp)):
             for idx, (slot, jersey, name) in enumerate(pairs):
+                if not name or not jersey:
+                    continue
                 unit = "offense" if idx % 2 == 0 else "defense"
                 out.append((club, unit, slot, jersey, name))
     return out
@@ -239,37 +259,63 @@ def parse_lineups(text: str, away: str, home: str) -> list:
 # --------------------------------------------------------------------------- roster lists
 
 
-def parse_named_list(text: str, heading: str, away: str, home: str) -> list:
-    """Parse a comma-separated roster list ('Not Active', 'Did Not Play', 'Substitutions')."""
-    stop = re.compile(r"^\s*(?:Paid Attendance|Playtime Percentage|Field Goals|VISITOR:|HOME:|"
-                      r"Did Not Play|Not Active|Substitutions|Lineups|Officials|Scoring Plays|"
-                      r"National Football League Game Summary|Miscellaneous|Ten Longest)\b")
+def _items(flat: str) -> list:
     out = []
-    for m in re.finditer(r"^\s*" + heading + r"\s*$", text, re.M):
-        lines = []
+    for item in flat.split(","):
+        item = " ".join(item.split())
+        if not item:
+            continue
+        m2 = re.match(r"^([A-Za-z0-9/]{1,6})\s+(\d{0,2})\s*([A-Za-z][\w.'\u2019\- ]+)$", item)
+        if m2:
+            out.append({"pos_raw": m2.group(1), "jersey": m2.group(2),
+                        "player_raw": m2.group(3).strip(), "club": ""})
+        else:
+            m3 = re.match(r"^(\d{0,2})\s*([A-Za-z][\w.'\u2019\- ]+)$", item)
+            if m3:
+                out.append({"pos_raw": "", "jersey": m3.group(1),
+                            "player_raw": m3.group(2).strip(), "club": ""})
+    return out
+
+
+def parse_named_list(text: str, heading: str, away: str, home: str) -> list:
+    """Parse a comma-separated roster list ('Not Active', 'Did Not Play').
+
+    The two clubs are printed side by side and wrap across lines, so each line is
+    cut at the club split column first and each side is then flattened separately.
+    """
+    stop = re.compile(r"^\s*(?:Paid Attendance|Playtime Percentage|Field Goals|VISITOR:|HOME:|"
+                      r"Not Active|Substitutions|Lineups|Officials|Scoring Plays|"
+                      r"National Football League Game Summary|Miscellaneous|Ten Longest)\b")
+    split = club_split_column(text, away, home)
+    out = []
+    for m in re.finditer(r"^\s*" + heading + r"\b.*$", text, re.M):
+        sides = {"L": [], "R": [], "U": []}
+        seen = False
         for line in text[m.end():].splitlines():
             if stop.match(line):
                 break
-            lines.append(line)
-            if len(" ".join(lines)) > 3000:
-                break
-        # collapse wrapped lines: the lists are comma separated and wrap mid-item
-        flat = " ".join(l.strip() for l in lines if l.strip())
-        if not flat:
-            continue
-        for item in flat.split(","):
-            item = " ".join(item.split())
-            if not item:
+            if not line.strip() or heading in line:
                 continue
-            m2 = re.match(r"^([A-Za-z0-9/]{1,6})\s+(\d{0,2})\s*([A-Za-z][\w.'’\- ]+)$", item)
-            if m2:
-                out.append({"pos_raw": m2.group(1), "jersey": m2.group(2),
-                            "player_raw": m2.group(3).strip(), "club": ""})
+            cuts_word = (split is not None and len(line) > split
+                         and line[split - 1] != " " and line[split] != " ")
+            if split is not None and len(line) > split and not cuts_word:
+                sides["L"].append(line[:split])
+                sides["R"].append(line[split:])
             else:
-                m3 = re.match(r"^(\d{0,2})\s*([A-Za-z][\w.'’\- ]+)$", item)
-                if m3:
-                    out.append({"pos_raw": "", "jersey": m3.group(1),
-                                "player_raw": m3.group(2).strip(), "club": ""})
+                sides["U"].append(line)
+            seen = True
+            if len(" ".join(sides["L"])) > 3000:
+                break
+        if not seen:
+            continue
+        for key, club in (("L", away), ("R", home), ("U", "")):
+            flat = " ".join(sides[key]).strip()
+            if not flat:
+                continue
+            for rec in _items(flat):
+                rec["club"] = club
+                out.append(rec)
+        break  # the two clubs share one heading; one pass covers both
     return out
 
 
@@ -369,7 +415,9 @@ def parse_playtime(text: str, away: str, home: str):
             if club == home:
                 lo = min(c[1] for c in right_cols) - 24
             player, pos = name_window(line, max(lo, 0), first_start)
-            if not player:
+            if not player or len(player) < 3 or "." not in player:
+                continue
+            if not re.fullmatch(r"[A-Z][\w.'\u2019\-]*(?:\s+[A-Z][\w.'\u2019\-]*)*", player):
                 continue
             rec = {"club": club, "player_raw": player, "pos_raw": pos,
                    "off_snaps": "", "off_pct": "", "def_snaps": "", "def_pct": "",
