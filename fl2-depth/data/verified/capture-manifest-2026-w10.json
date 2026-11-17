@@ -1,5 +1,5 @@
 {
- "captured_at_utc": "2026-11-17T03:27:14Z",
+ "captured_at_utc": "2026-11-17T03:36:07Z",
  "season": "2026",
  "week": "10",
  "games": [
@@ -19,7 +19,7 @@
    "kickoff_local": "8:15 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 48
+   "playtime_rows": 3
   },
   {
    "game_id": "2026_10_NE_DET",
@@ -37,7 +37,7 @@
    "kickoff_local": "3:33 PM CET",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 48
+   "playtime_rows": 7
   },
   {
    "game_id": "2026_10_KC_ATL",
@@ -55,7 +55,7 @@
    "kickoff_local": "1:02 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 48
+   "playtime_rows": 6
   },
   {
    "game_id": "2026_10_HOU_CLE",
@@ -73,7 +73,7 @@
    "kickoff_local": "1:02 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 46
+   "playtime_rows": 4
   },
   {
    "game_id": "2026_10_MIN_GB",
@@ -91,7 +91,7 @@
    "kickoff_local": "12:02 PM CST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 47
+   "playtime_rows": 5
   },
   {
    "game_id": "2026_10_MIA_IND",
@@ -109,7 +109,7 @@
    "kickoff_local": "1:03 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 46
+   "playtime_rows": 2
   },
   {
    "game_id": "2026_10_CAR_NO",
@@ -127,7 +127,7 @@
    "kickoff_local": "12:02 PM CST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 47
+   "playtime_rows": 5
   },
   {
    "game_id": "2026_10_BUF_NYJ",
@@ -145,7 +145,7 @@
    "kickoff_local": "1:03 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 47
+   "playtime_rows": 6
   },
   {
    "game_id": "2026_10_JAX_TEN",
@@ -163,7 +163,7 @@
    "kickoff_local": "12:02 PM CST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 47
+   "playtime_rows": 5
   },
   {
    "game_id": "2026_10_LAR_ARI",
@@ -181,7 +181,7 @@
    "kickoff_local": "2:05 PM MST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 47
+   "playtime_rows": 4
   },
   {
    "game_id": "2026_10_SEA_LV",
@@ -199,7 +199,7 @@
    "kickoff_local": "1:05 PM PST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 46
+   "playtime_rows": 3
   },
   {
    "game_id": "2026_10_SF_DAL",
@@ -217,7 +217,7 @@
    "kickoff_local": "3:25 PM CST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 47
+   "playtime_rows": 5
   },
   {
    "game_id": "2026_10_PIT_CIN",
@@ -235,7 +235,7 @@
    "kickoff_local": "8:22 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 48
+   "playtime_rows": 7
   },
   {
    "game_id": "2026_10_LAC_BAL",
@@ -253,7 +253,7 @@
    "kickoff_local": "8:15 PM EST",
    "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
    "playtime_unofficial": true,
-   "playtime_rows": 48
+   "playtime_rows": 3
   }
  ],
  "copyright_notice": "NFL Copyright \u00a9 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.",
