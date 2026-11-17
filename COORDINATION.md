@@ -1420,3 +1420,54 @@ updated gate wording. Pre-existing on main (not this session's edit): the hub na
   /readiness/ops.html and /readiness/flagged.html published alongside.
 * Final bookkeeping (this section, plus a repair of two parenthetical evidence links in
   /readiness/) is carried by the follow-up PR from this branch.
+
+---
+
+# Session `arena/d81dd61b-fl2` — line-by-line repo review, official-source verification, and integration close-out
+
+Branch: `arena/d81dd61b-fl2`, branched from `main` @ `56453a0` (all PRs #1–#31 merged). This session is the
+sole active session; all prior claims are released. Work is kept to new files under `review/` plus the
+root `.gitignore` (which carries committed merge-conflict markers) and `COORDINATION.md`. No other
+session's claimed data files are edited; gaps found in claimed files are logged here as requests.
+
+## Claimed tasks
+
+| # | Task | Status | Owner | Files in scope | Notes |
+|---|------|--------|-------|----------------|-------|
+| D1 | Claim + board write-up | in progress | `arena/d81dd61b-fl2` | `COORDINATION.md` | this section |
+| D2 | Line-by-line repo review; flag irregularities; verify headline numbers against official NFL sources | in progress | `arena/d81dd61b-fl2` | `review/` (new) | spot checks vs nfl.com standings / injuries / schedule |
+| D3 | Fix committed `.gitignore` merge-conflict markers | unclaimed | `arena/d81dd61b-fl2` | `.gitignore` | conflict markers committed at `56453a0` |
+| D4 | Confirm site checkers pass (links, sourced rows, anchors) | done | `arena/d81dd61b-fl2` | — | `scripts/check_site.py` 7 pages OK; `tools/check_links.py` 16 pages OK |
+| D5 | Commit, push, open PR `arena/d81dd61b-fl2` → `main`, merge, confirm GitHub Pages deploys | unclaimed | `arena/d81dd61b-fl2` | `.git` (via gh) | record PR link + merge result below |
+
+## Official-source verification performed (2026-11-17, page-fetch tool)
+
+| # | Check | Official source | Result |
+|---|-------|-----------------|--------|
+| V1 | Week 10 injury report — Lions designations Kerby Joseph / Cade Mays / D.J. Reed | https://www.nfl.com/injuries/ (Week 10) | All three read **Out** (Knee/Ankle/Hip, DNP) — confirms the earlier "blank game-status" claim is not present; consistent with repo `data/injuries.json` |
+| V2 | Week 10 schedule — 14-game slate, kickoffs, networks, bye teams | https://www.nfl.com/schedules/2026/by-week/week-10 | 14 games transcribed (WAS@NYG Thu; NE@DET Munich International; 12 Sunday; PIT@CIN SNF; LAC@BAL MNF); bye teams CHI/DEN/PHI/TB — consistent with repo `data/schedule_week10.json` |
+| V3 | Standings snapshot staleness | https://www.nfl.com/standings/ (live) | Live page shows BUF 8-1 (287/199), NE 5-5, DET 7-2 (257/199); repo `data/standings.json` is an **as-of 2026-11-14** snapshot (BUF 7-1 256/187, NE 5-4, DET 6-2 222/189) — pre-Sunday. Labelled as a snapshot on the site; staleness is expected and disclosed, flagged for awareness. |
+
+## Irregularities found this session (to be published on a Flagged for Review page)
+
+| ID | Item | Severity | Disposition |
+|----|------|----------|-------------|
+| D-I1 | `.gitignore` contains unresolved merge-conflict markers (`<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`) committed at `56453a0` | high | Fixed in this session (D3) |
+| D-I2 | Venue not transcribed for any of the 14 Week 10 fixtures | medium | `data/injuries.json` and `data/schedule_week10.json` carry `venue: None` for all 14 games. The brief requires venue transcribed from the official game centre (NE@DET is Munich / FC Bayern Munich Stadium per `nfl.com/games/patriots-at-lions-2026-reg-10`). Data files are owned by prior sessions; logged as a request — not edited here. |
+| D-I3 | Standings snapshot is as-of 2026-11-14 and does not reflect Week 10 Sunday results | low | Disclosed via `as_of` on the site; not a defect, but readers must treat it as a dated snapshot |
+| D-I4 | Injury-report count figures differ across artefacts (76 / 160 / 345 / 347 reported in various places; brief's 254/279 not reproducible) | medium | Previously flagged as F-I3 / FL-05; kept open, no new number asserted |
+
+## Requests to other sessions / owner
+
+- Venue transcription for the 14 Week 10 fixtures (D-I2): the owning sessions of `data/injuries.json` / `data/schedule_week10.json` should add a `venue` field transcribed from each game's official NFL.com game centre, with a source URL per row. NE@DET = Munich, FC Bayern Munich Stadium (confirmed on the game centre page).
+- Consolidation of the three decision-readiness tables (/fl2-lines/, /readiness/, /linelab/) and the eight site sections is left as an owner decision; this session keeps them apart, as earlier integration did.
+
+## Pull request and merge result (D5)
+
+| Item | Record |
+|------|--------|
+| PR | pending |
+| Merge | pending |
+| Pages deploy | pending |
+| PR link / merge SHA | to be recorded after merge |
+
