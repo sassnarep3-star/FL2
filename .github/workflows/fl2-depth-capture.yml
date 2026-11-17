@@ -15,7 +15,6 @@ on:
   push:
     paths:
       - 'fl2-depth/engine/**'
-      - 'fl2-depth/*.html'
       - '.github/workflows/fl2-depth-capture.yml'
   workflow_dispatch:
     inputs:
@@ -84,7 +83,10 @@ jobs:
             echo "=== git status before add ==="
             git status --porcelain | head -30
           } >> fl2-depth/data/verified/capture-stdout.txt
-          git add -A fl2-depth/data/verified
+          # Stage everything under fl2-depth, not just the data: the build step
+          # rewrites tracked HTML, and leaving those unstaged makes the rebase below
+          # refuse to run ("cannot rebase: You have unstaged changes").
+          git add -A fl2-depth
           {
             echo "=== git status after add (staged) ==="
             git diff --cached --name-only | head -30
