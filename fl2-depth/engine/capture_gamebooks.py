@@ -338,6 +338,10 @@ def parse_playtime(text: str, away: str, home: str):
         if not seg:
             return None, None
         toks = seg.split()
+        # the home club's name window can start inside the away club's last numeric
+        # column; drop leading number/percent tokens rather than mis-reading them
+        while toks and re.fullmatch(r"\d{1,3}%?", toks[0]):
+            toks.pop(0)
         for ti in range(len(toks) - 1, -1, -1):
             if toks[ti] in POS_WORDS:
                 if ti == 0:
@@ -635,7 +639,6 @@ def self_test() -> int:
 
     lu = parse_lineups(txt, "Test Away", "Test Home")
     names = {(r[0], r[2], r[4]) for r in lu}
-    assert ("Test Away", "offense", "LT") in {(r[0], r[2], r[3]) for r in lu}, lu
     for expect in (("Test Away", "LT", "W.Campbell"), ("Test Away", "OLB", "Dr.Jones"),
                    ("Test Home", "WR", "I.TeSlaa"), ("Test Home", "DE", "A.Hutchinson"),
                    ("Test Away", "LG", "G.Van Roten"), ("Test Home", "TE", "S.LaPorta")):
@@ -661,3 +664,7 @@ def self_test() -> int:
     assert by[("Test Home", "R.McCreary")]["def_snaps"] == "59", rows
     print("self-test OK")
     return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
