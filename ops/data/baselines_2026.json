@@ -1,19 +1,19 @@
 {
  "seed": 20261116,
- "corpus_n": 148,
+ "corpus_n": 149,
  "favourite_baseline": {
-  "n_games": 148,
+  "n_games": 149,
   "market_tier": "T3 (nflverse closing spread; market_data_unverified per price policy P2)",
-  "favourite_straight_up_wins": 101,
-  "favourite_straight_up_rate": 0.6824,
-  "favourite_cover_rate": 0.5203,
+  "favourite_straight_up_wins": 102,
+  "favourite_straight_up_rate": 0.6846,
+  "favourite_cover_rate": 0.5235,
   "brier_pick_prob_0.5": 0.25
  },
  "random_baseline": {
-  "n_games": 148,
+  "n_games": 149,
   "seed": 20261116,
-  "picks_correct": 80,
-  "rate": 0.5405,
+  "picks_correct": 81,
+  "rate": 0.5436,
   "expected_rate": 0.5,
   "note": "coin-flip picks with frozen seed; every leaderboard run must include this control"
  }

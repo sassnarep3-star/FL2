@@ -1,18 +1,19 @@
 {
  "meta": {
   "generated_by": "tools/build_results_feed.py",
-  "generated_at_utc": "2026-11-16T02:20:00Z",
+  "generated_at_utc": "2026-11-17T03:10:00Z",
   "policy": "research/price-data-policy.md; verification rule: source-or-blank",
   "counts": {
    "rows": 272,
-   "final": 148,
+   "final": 149,
    "in_progress": 1,
-   "scheduled": 123
+   "scheduled": 122
   },
   "layers": [
    "Weeks 1-9 (136 finals) + Week 10 TNF: nflverse/nfldata games.csv via GitHub contents API; standings replayed 32/32 against nfl.com (TNF re-verified against the official capture)",
    "Week 10 Sunday (11 finals incl. Munich international): official nfl.com capture week10-results-2026-11-16, cross-checked 12/12 finals vs ESPN",
-   "Week 10 PIT@CIN in progress at capture; LAC@BAL scheduled (MNF 2026-11-16)"
+   "Week 10 SNF final (PIT 18 @ CIN 38): official nfl.com capture week10-snf-final-2026-11-17 read 2026-11-17, agreeing with the nfl.com game centre and the ESPN scoreboard (T3 cross-check)",
+   "Week 10 LAC@BAL (MNF) in progress at the 2026-11-17 capture: live score recorded as transient, never final; official record blocks for LAC/BAL withheld by the official page while live and left blank here"
   ]
  },
  "games": [
@@ -3578,19 +3579,19 @@
    "venue_stadium": "Paycor Stadium",
    "roof": "outdoors",
    "surface": "fieldturf",
-   "away_score": 0,
-   "home_score": 0,
-   "status": "in_progress",
-   "result_home_margin": "",
-   "total_points": "",
+   "away_score": 18,
+   "home_score": 38,
+   "status": "final",
+   "result_home_margin": 20,
+   "total_points": 56,
    "overtime": "",
    "source_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10",
    "source_week_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-   "source_tier": "T1 nfl.com schedule page (capture week10-results-2026-11-16)",
-   "cross_check": "ESPN scoreboard 12/12 finals agree on both scores; PIT@CIN in progress at both at capture time; LAC@BAL not started at both",
-   "verified": "not-final-at-capture",
-   "captured_at_utc": "2026-11-16T01:35:00Z",
-   "note": "SNF in progress at capture: 1st quarter, 2nd & 1, CIN 23, 14:54 remaining (per ESPN live). Scores are capture-time state, NOT a result."
+   "source_tier": "T1 nfl.com schedule page (capture week10-snf-final-2026-11-17)",
+   "cross_check": "ESPN scoreboard 12 settled finals agree on both scores; SNF final PIT 18 / CIN 38 shown FINAL by ESPN agreeing with nfl.com schedule page and game centre; LAC@BAL in progress at both sources at capture (nfl.com Q2 00:38 17-7 at 02:47Z; ESPN halftime 17-10 at 02:52Z - a live score, transient by definition)",
+   "verified": "verified",
+   "captured_at_utc": "2026-11-17T02:50:00Z",
+   "note": "SNF final; game centre read 2026-11-17: Location CINCINNATI, OH; Stadium PAYCOR STADIUM; game book PDF linked"
   },
   {
    "game_id": "2026_10_LAC_BAL",
@@ -3602,19 +3603,19 @@
    "venue_stadium": "M&T Bank Stadium",
    "roof": "outdoors",
    "surface": "grass",
-   "away_score": "",
-   "home_score": "",
-   "status": "scheduled",
+   "away_score": 17,
+   "home_score": 7,
+   "status": "in_progress",
    "result_home_margin": "",
    "total_points": "",
    "overtime": "",
    "source_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
    "source_week_url": "https://www.nfl.com/schedules/2026/by-week/week-10",
-   "source_tier": "T1 nfl.com schedule page (capture week10-results-2026-11-16)",
-   "cross_check": "ESPN scoreboard 12/12 finals agree on both scores; PIT@CIN in progress at both at capture time; LAC@BAL not started at both",
+   "source_tier": "T1 nfl.com schedule page (capture week10-snf-final-2026-11-17)",
+   "cross_check": "ESPN scoreboard 12 settled finals agree on both scores; SNF final PIT 18 / CIN 38 shown FINAL by ESPN agreeing with nfl.com schedule page and game centre; LAC@BAL in progress at both sources at capture (nfl.com Q2 00:38 17-7 at 02:47Z; ESPN halftime 17-10 at 02:52Z - a live score, transient by definition)",
    "verified": "not-final-at-capture",
-   "captured_at_utc": "2026-11-16T01:35:00Z",
-   "note": "MNF 8:15 PM ET 2026-11-16 (after this capture)"
+   "captured_at_utc": "2026-11-17T02:50:00Z",
+   "note": "MNF live at capture (Q2 00:38, LAC 17 BAL 7, 2026-11-17T02:47Z); live scores are transient and never final; game centre read 2026-11-17: Location BALTIMORE, MD; Stadium M&T BANK STADIUM"
   },
   {
    "game_id": "2026_11_IND_HOU",
