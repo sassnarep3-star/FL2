@@ -394,12 +394,24 @@ def parse_playtime(text: str, away: str, home: str):
 
 def capture_game(row: dict, workdir: str) -> dict:
     gid = row["game_id"]
-    gc = row["gamecenter_url"].strip()
+    gc = (row.get("gamecenter_url") or "").strip()
     res = {"game_id": gid, "gamecenter_url": gc, "status": "", "gamebook_url": "",
            "pdf_sha256": "", "error": ""}
     if not gc:
         res["status"] = "no_gamecenter_url"
         return res
+    try:
+        return _capture_game_inner(row, workdir, res)
+    except Exception as exc:  # noqa: BLE001 - recorded, never swallowed silently
+        import traceback
+        res["status"] = "exception"
+        res["error"] = f"{type(exc).__name__}: {exc}\n{traceback.format_exc()[-1500:]}"
+        return res
+
+
+def _capture_game_inner(row: dict, workdir: str, res: dict) -> dict:
+    gid = row["game_id"]
+    gc = res["gamecenter_url"]
     try:
         html = http_get(gc).decode("utf-8", "replace")
     except Exception as exc:  # noqa: BLE001
@@ -529,6 +541,22 @@ def main() -> int:
     with open(os.path.join(args.out, f"capture-manifest-{args.season}-w{args.week}.json"),
               "w", encoding="utf-8") as fh:
         json.dump(manifest, fh, indent=1)
+
+    log = {"captured_at_utc": stamp, "season": args.season, "week": args.week,
+           "games": [{k: v for k, v in r.items() if not k.startswith("_")} for r in results]}
+    with open(os.path.join(args.out, f"capture-log-{args.season}-w{args.week}.json"),
+              "w", encoding="utf-8") as fh:
+        json.dump(log, fh, indent=1)
+    with open(os.path.join(args.out, f"capture-log-{args.season}-w{args.week}.md"),
+              "w", encoding="utf-8") as fh:
+        fh.write(f"# Game Book capture log — {args.season} week {args.week}\n\n")
+        fh.write(f"Captured {stamp}\n\n")
+        fh.write("| game | status | book url | sha256 | playtime rows | error |\n")
+        fh.write("|---|---|---|---|---|---|\n")
+        for r in results:
+            fh.write(f"| {r['game_id']} | {r['status']} | {r.get('gamebook_url','')} | "
+                     f"{(r.get('pdf_sha256') or '')[:16]} | {r.get('playtime_rows','')} | "
+                     f"{str(r.get('error',''))[:300].replace('|','/')} |\n")
 
     failures = [r for r in results if not r["status"].startswith("captured")]
     print(json.dumps({"games": len(results),

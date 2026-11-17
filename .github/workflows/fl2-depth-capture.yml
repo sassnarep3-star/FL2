@@ -51,6 +51,7 @@ jobs:
 
       - name: Capture Game Books
         id: capture
+        continue-on-error: true
         run: |
           set -euo pipefail
           python3 fl2-depth/engine/capture_gamebooks.py \
@@ -70,7 +71,8 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
-      - name: Commit capture
+      - name: Commit capture (always, so failures are readable)
+        if: always()
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -82,3 +84,23 @@ jobs:
             git commit -m "fl2-depth: official Game Book capture ${{ inputs.season || '2026' }} week ${{ inputs.week || '10' }}"
             git push
           fi
+
+      - name: Fail loudly on hard capture failures
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, glob, sys
+          bad = []
+          for f in glob.glob('fl2-depth/data/verified/capture-log-*.json'):
+              d = json.load(open(f))
+              for g in d['games']:
+                  if g['status'] not in ('captured', 'no_gamebook_published_yet'):
+                      bad.append((g['game_id'], g['status'], str(g.get('error',''))[:200]))
+          if bad:
+              print('HARD CAPTURE FAILURES:')
+              for b in bad:
+                  print(b)
+              sys.exit(1)
+          print('no hard capture failures')
+          PY
