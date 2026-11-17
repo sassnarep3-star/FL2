@@ -52,22 +52,10 @@ jobs:
       - name: Capture Game Books
         id: capture
         continue-on-error: true
-        run: |
-          set -euo pipefail
-          mkdir -p fl2-depth/data/verified
-          {
-            echo "season=${{ inputs.season || '2026' }} week=${{ inputs.week || '10' }}"
-            echo "seed: $(wc -l < fl2-depth/data/verified/gamecenter-seed.csv) lines"
-            ls -la fl2-depth/data/verified
-          } > fl2-depth/data/verified/capture-stdout.txt 2>&1
-          set +e
-          python3 fl2-depth/engine/capture_gamebooks.py \
-            --seed fl2-depth/data/verified/gamecenter-seed.csv \
-            --season "${{ inputs.season || '2026' }}" \
-            --week "${{ inputs.week || '10' }}" \
-            --out fl2-depth/data/verified \
-            --work /tmp/fl2-depth-work >> fl2-depth/data/verified/capture-stdout.txt 2>&1
-          echo "exit=$?" >> fl2-depth/data/verified/capture-stdout.txt
+        env:
+          SEASON: ${{ inputs.season || '2026' }}
+          WEEK: ${{ inputs.week || '10' }}
+        run: bash fl2-depth/engine/run_capture.sh
 
       - name: Upload raw text as an artifact (not committed)
         uses: actions/upload-artifact@v4
