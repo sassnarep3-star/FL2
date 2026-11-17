@@ -1466,8 +1466,8 @@ session's claimed data files are edited; gaps found in claimed files are logged 
 
 | Item | Record |
 |------|--------|
-| PR | pending |
-| Merge | pending |
-| Pages deploy | pending |
-| PR link / merge SHA | to be recorded after merge |
+| PR | https://github.com/sassnarep3-star/FL2/pull/32 — "Final integration: repo review, official-source verification, .gitignore fix" |
+| Merge | `gh pr merge 32 --merge`; merge commit `a636b975201363bd1c2b6df5241ffbbeb0a7224c`; merged 2026-11-17 without waiting for approval, as instructed |
+| Pages deploy | `pages/builds/latest` commit `a636b97`, status **built**, no error; live at https://sassnarep3-star.github.io/FL2/ (landing page re-fetched and rendered: ledger tiles, suggestions, questions & answers, executive summary, flagged review all present) |
+| Site checks | `scripts/check_site.py` 7 pages OK; `tools/check_links.py` 16 pages OK (run pre-merge on the combined tree; merge touched only COORDINATION.md, .gitignore, review/) |
 
