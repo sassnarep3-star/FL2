@@ -1471,3 +1471,52 @@ session's claimed data files are edited; gaps found in claimed files are logged 
 | Pages deploy | pending |
 | PR link / merge SHA | to be recorded after merge |
 
+
+---
+
+# Session `arena/7e474dc8-fl2` — landing page dashboard, source-linked verification, irregularity flags, and PR merge close-out
+
+Branch: `arena/7e474dc8-fl2`, branched from `main` @ `56453a0`. Sole active session; all prior claims released. Files in scope: root `index.html` only (shared landing page, edited additively). No other session's claimed data files were edited; all existing tiles, nav and the integrated readiness table were preserved.
+
+## Claimed tasks
+
+| # | Task | Status | Owner | Files in scope | Notes |
+|---|------|--------|-------|----------------|-------|
+| L1 | Claim + board write-up | done | `arena/7e474dc8-fl2` | `COORDINATION.md` | this section |
+| L2 | Enhance root landing page as a clean dashboard | done | `arena/7e474dc8-fl2` | `index.html` | verified-figures table, derived-findings card, irregularities table |
+| L3 | Verify headline figures against live official NFL sources | done | `arena/7e474dc8-fl2` | nfl.com via page-fetch | injuries, standings, schedule spot checks |
+| L4 | Fix `check_site.py` failure (every table row needs an official source link) | done | `arena/7e474dc8-fl2` | `index.html` | split derived metrics out of the table |
+| L5 | Commit, push, open PR `arena/7e474dc8-fl2` → `main`, merge, confirm GitHub Pages deploys | done | `arena/7e474dc8-fl2` | `.git` (via `gh`) | PR #33 then PR #34 |
+
+## Verification performed (2026-11-17, page-fetch tool; sandbox bash cannot reach nfl.com directly)
+
+| # | Check | Official source | Result |
+|---|-------|-----------------|--------|
+| L-V1 | Week 10 injury report — Lions: Kerby Joseph (Knee), Cade Mays (Ankle), D.J. Reed (Hip) | https://www.nfl.com/injuries/ (Week 10) | All three read **Out**, Did Not Participate — consistent with repo `data/injuries.json`; the earlier "blank game-status" claim is not present |
+| L-V2 | Week 10 schedule — 14 games, kickoffs, networks, byes | https://www.nfl.com/schedules/2026/by-week/week-10 | 14 games transcribed (WAS@NYG Thu; NE@DET Munich International; 12 Sunday; PIT@CIN SNF; LAC@BAL MNF); bye teams CHI/DEN/PHI/TB — consistent with repo `data/schedule_week10.json` |
+| L-V3 | Standings snapshot staleness | https://www.nfl.com/standings/ (live) | Live page shows post-Week-10 records (BUF 8-1 / 287-199, CIN 7-2, DET 7-2, NE 5-5); repo `data/standings.json` is an **as-of 2026-11-14** snapshot (pre-Sunday). Labelled as a dated snapshot on the site; staleness disclosed and flagged. |
+
+## Irregularities
+
+Published on the landing page's irregularities table and consolidated in `review/REPO-REVIEW-2026-11-17.md` (session `arena/d81dd61b-fl2`, merged as PR #32):
+
+| ID | Item | Severity | Disposition |
+|----|------|----------|-------------|
+| D-I1 | `.gitignore` contained unresolved merge-conflict markers committed at `56453a0` | high | Fixed by session `arena/d81dd61b-fl2` (PR #32) |
+| L-I1 | Snapshot staleness vs live official sources (committed bundle is pre-Week-10) | high | Disclosed on landing page; readers must re-check nfl.com |
+| L-I2 | No validated strategy — 11 ideas × 8 gates, none passed | high | Finding, not a gap; backtest numbers not ranked, no picks offered |
+| L-I3 | Depth-chart rank not published alongside injury report | high | Availability index is a declared proxy, not a measured starter/backup split |
+| L-I4 | No official sportsbook price source — nfl.com/odds/ returns 404 | medium | Permanent limitation; all prices T3-labelled, never a model input |
+| D-I2 | Venue not transcribed for any of the 14 Week 10 fixtures | medium | Request to owning sessions of `data/injuries.json` / `data/schedule_week10.json` |
+
+## Pull request and merge result
+
+| Item | Record |
+|------|--------|
+| PR #33 | https://github.com/sassnarep3-star/FL2/pull/33 — merged, merge commit `0a04d6c2913aa892734f08d891bd06509a051475` |
+| PR #34 | https://github.com/sassnarep3-star/FL2/pull/34 — merged, merge commit `0bb0f4a076f966f552eb70db9860db615a4407c2` (fixes the `check_site.py` unsourced-table-row failure on #33) |
+| CI | `Validate and publish site` at `0bb0f4a`: validate success, deploy success |
+| Pages deploy | status `built`, commit `0bb0f4a`, error none |
+| Live site | https://sassnarep3-star.github.io/FL2/ |
+
+Concurrency note: session `arena/d81dd61b-fl2` (PR #32, merged as `a636b97`) added `review/REPO-REVIEW-2026-11-17.md` (line-by-line repo review) and fixed the committed `.gitignore` conflict markers; both are in `main` ahead of this session's PRs. No other session's content was discarded.
