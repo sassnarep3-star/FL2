@@ -57,6 +57,18 @@ jobs:
           WEEK: ${{ inputs.week || '10' }}
         run: bash fl2-depth/engine/run_capture.sh
 
+      - name: Debug dump (temporary - removed before merge)
+        if: always()
+        run: |
+          set -uo pipefail
+          mkdir -p fl2-depth/data/_debug
+          for g in 2026_10_NE_DET 2026_10_LAC_BAL; do
+            if [ -f /tmp/fl2-depth-work/$g.txt ]; then
+              cp /tmp/fl2-depth-work/$g.txt fl2-depth/data/_debug/$g.txt
+            fi
+          done
+          ls -la fl2-depth/data/_debug
+
       - name: Upload raw text as an artifact (not committed)
         uses: actions/upload-artifact@v4
         with:

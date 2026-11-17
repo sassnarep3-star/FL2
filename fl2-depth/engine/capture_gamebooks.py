@@ -198,7 +198,7 @@ def parse_lineups(text: str, away: str, home: str) -> list:
     if not m:
         return []
     start = m.end()
-    end = re.search(r"^\s*(?:Substitutions|Did Not Play|Not Active|Field Goals|VISITOR:|HOME:)\s*$",
+    end = re.search(r"^\s*(?:Substitutions|Did Not Play|Not Active|Field Goals|VISITOR:|HOME:)",
                     text[start:], re.M)
     block = text[start:start + end.start()] if end else text[start:start + 4000]
 
