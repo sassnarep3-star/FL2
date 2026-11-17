@@ -160,6 +160,10 @@ def club_short(full: str) -> str:
 
 GAMES = [g["game_id"] for g in gamebooks]
 
+# Only one register may exist per dataset. The hand-built files from the manual
+# verification pass (gamebooks-w10.csv / starters-w10.csv) were deliberately removed
+# once the mechanical capture superseded them, so nothing has two competing sources.
+
 # --------------------------------------------------------------------------- overview
 
 def build_index() -> str:
