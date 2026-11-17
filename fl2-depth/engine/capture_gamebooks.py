@@ -485,9 +485,8 @@ def _capture_game_inner(row: dict, workdir: str, res: dict) -> dict:
         return res
     with open(pdf_path, "wb") as fh:
         fh.write(blob)
-    if os.environ.get("KEEP_TEXT"):
-        with open(os.path.join(workdir, f"{gid}-keep.txt"), "w", encoding="utf-8") as fh:
-            fh.write("PLACEHOLDER")
+    with open(txt_path, "w", encoding="utf-8") as fh:
+        fh.write("")  # ensure the file exists even if pdftotext fails
     res["pdf_sha256"] = hashlib.sha256(blob).hexdigest()
     if len(blob) < 5000:
         res["status"], res["error"] = "pdf_too_small", f"{len(blob)} bytes"
@@ -520,6 +519,8 @@ def main() -> int:
     ap.add_argument("--out", default="fl2-depth/data/verified")
     ap.add_argument("--work", default="/tmp/fl2-depth-work")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--dump-games", default="",
+                    help="comma separated game_ids whose extracted text is written to --out")
     args = ap.parse_args()
 
     if args.self_test:
@@ -549,6 +550,7 @@ def main() -> int:
                          f"{r.get('playtime_rows','')} | "
                          f"{str(r.get('error',''))[:400].replace('|','/')} |\n")
 
+    dump_ids = {g.strip() for g in args.dump_games.split(",") if g.strip()}
     results = []
     try:
         with open(args.seed, newline="", encoding="utf-8") as fh:
@@ -559,6 +561,14 @@ def main() -> int:
             write_log([], extra=f"NO SEED ROWS for season={args.season} week={args.week}")
             return 2
         results = [capture_game(r, args.work) for r in seed]
+        for r in results:
+            if r["game_id"] in dump_ids:
+                src = os.path.join(args.work, f"{r['game_id']}.txt")
+                if os.path.exists(src):
+                    dst = os.path.join(args.out, f"debug-text-{r['game_id']}.txt")
+                    with open(src, encoding="utf-8", errors="replace") as a, \
+                            open(dst, "w", encoding="utf-8") as b:
+                        b.write(a.read())
         write_log(results)
     except Exception:  # noqa: BLE001
         import traceback

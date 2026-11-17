@@ -55,21 +55,8 @@ jobs:
         env:
           SEASON: ${{ inputs.season || '2026' }}
           WEEK: ${{ inputs.week || '10' }}
+          DUMP_GAMES: 2026_10_NE_DET
         run: bash fl2-depth/engine/run_capture.sh
-
-      - name: Debug dump (temporary - removed before merge)
-        if: always()
-        run: |
-          set -euo pipefail
-          mkdir -p fl2-depth/data/_debug
-          ls -la /tmp/fl2-depth-work > fl2-depth/data/_debug/_ls.txt 2>&1 || true
-          for f in /tmp/fl2-depth-work/*.txt; do
-            [ -f "$f" ] || continue
-            b=$(basename "$f")
-            echo "### $b" >> fl2-depth/data/_debug/all.txt
-            cat "$f" >> fl2-depth/data/_debug/all.txt
-          done
-          wc -l fl2-depth/data/_debug/all.txt >> fl2-depth/data/_debug/_ls.txt
 
       - name: Upload raw text as an artifact (not committed)
         uses: actions/upload-artifact@v4

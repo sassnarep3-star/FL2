@@ -25,7 +25,8 @@ python3 -u fl2-depth/engine/capture_gamebooks.py \
   --season "$SEASON" \
   --week "$WEEK" \
   --out "$OUTDIR" \
-  --work /tmp/fl2-depth-work >> "$LOG" 2>&1
+  --work /tmp/fl2-depth-work \
+  --dump-games "${DUMP_GAMES:-}" >> "$LOG" 2>&1
 code=$?
 {
   echo "exit=$code"
