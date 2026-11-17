@@ -189,14 +189,20 @@ def club_split_column(header: str, away: str, home: str):
     midpoint between where the away name ends and the home name begins. Falls back
     to the midpoint of the widest run of spaces in the header.
     """
+    if len(away) < 4 or len(home) < 4:
+        raise ValueError(
+            f"club_split_column needs full club names, got {away!r}/{home!r}: an "
+            "abbreviation such as 'NE' matches inside unrelated words")
+    a_re = re.compile(r"\b" + re.escape(away))
+    h_re = re.compile(r"\b" + re.escape(home))
     best = None
     for line in header.splitlines():
-        a = line.find(away)
-        if a < 0:
+        am = a_re.search(line)
+        if not am:
             continue
-        h = line.find(home, a + len(away))
-        if h > a:
-            cand = (a + len(away) + h) // 2
+        hm = h_re.search(line, am.end())
+        if hm:
+            cand = (am.end() + hm.start()) // 2
             if best is None or cand > best:
                 best = cand
     if best is not None:
@@ -590,7 +596,8 @@ def _capture_game_inner(row: dict, workdir: str, res: dict) -> dict:
         res["status"], res["error"] = "pdftotext_failed", str(exc)
         return res
 
-    away, home = row["away"], row["home"]
+    away = row.get("away_name") or row["away"]
+    home = row.get("home_name") or row["home"]
     res.update(parse_header(text))
     res["_lineups"] = parse_lineups(text, away, home)
     res["_not_active"] = parse_named_list(text, "Not Active", away, home)
