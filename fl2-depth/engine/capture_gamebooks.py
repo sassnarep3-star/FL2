@@ -102,23 +102,36 @@ def parse_header(text: str) -> dict:
     if m:
         out["copyright_notice"] = " ".join(m.group(1).split())
 
-    # Venue: "<Away> at <Home> at <Venue>, <City>, <State/Country>"
-    # the venue sits on the same printed line as the date and the start time:
-    #   "Date: Sunday, 11/15/2026  <Away> at <Home> at <Venue>, <City>   Start Time: 3:33 PM CET"
-    for line in text.splitlines():
-        if "Start Time:" in line and " at " in line:
-            seg = line.split("Start Time:")[0]
-            parts = seg.split(" at ")
-            if len(parts) >= 3:
-                out["book_venue"] = " ".join(parts[-1].split()).strip(" ,")
-            break
-    # Roof / surface tokens the league prints on their own line
-    m = re.search(r"((?:Open|Closed|Fixed|Retractable)[\w \-]*?(?:Stadium|Dome|Roof)[\w \-]*?on\s+\w[\w ]*)", text)
+    # The book prints the date line, then the venue indented on the NEXT line:
+    #   "Date: Sunday, 11/15/2026   <Away> at <Home>   Start Time: 3:33 PM CET"
+    #   "                                    at Allianz Arena, Munich, Germany"
+    lines = text.splitlines()
+    for idx, line in enumerate(lines):
+        if "Start Time:" not in line:
+            continue
+        for follow in lines[idx + 1:idx + 4]:
+            vm = re.match(r"^\s*at\s+(.{3,90}?)\s*$", follow)
+            if vm:
+                out["book_venue"] = " ".join(vm.group(1).split()).strip(" ,")
+                break
+            if follow.strip():
+                break
+        break
+
+    # Roof / surface. The league prints it on its own line, sometimes followed on the
+    # same line by an unrelated "Outdoor Weather" label that must not be captured as
+    # part of the surface.
+    m = re.search(r"^\s*((?:Open|Closed|Fixed|Domed|Retractable)[A-Za-z ]*?"
+                  r"(?:Stadium|Dome|Roof)[A-Za-z ]*?(?:-\s*\w+)?\s+on\s+[A-Za-z][A-Za-z ]*?)\s*$",
+                  text, re.M)
     if not m:
-        m = re.search(r"(Retractable Roof\s*-\s*(?:Open|Closed)\s+on\s+\w[\w ]*)", text)
+        m = re.search(r"((?:Open|Closed|Fixed|Domed|Retractable)[A-Za-z ]*?"
+                      r"(?:Stadium|Dome|Roof)[A-Za-z ]*?(?:-\s*\w+)?\s+on\s+[A-Za-z][A-Za-z ]*?)"
+                      r"\s*(?:Outdoor Weather|Indoor|Wind Chill|$)", text)
     if m:
-        surf = re.split(r"\s{2,}|\bWind Chill\b", " ".join(m.group(1).split()).strip())[0]
-        out["book_roof_surface"] = surf.strip()
+        surf = " ".join(m.group(1).split())
+        surf = re.sub(r"\s*(Outdoor Weather|Indoor|Wind Chill)\s*$", "", surf).strip()
+        out["book_roof_surface"] = surf
 
     m = re.search(r"Game Weather:\s*(.{0,60}?)\s{2,}", text)
     if m:
@@ -132,7 +145,7 @@ def parse_header(text: str) -> dict:
     m = re.search(r"Paid Attendance:\s*([\d,]+)", text)
     if m:
         out["attendance"] = m.group(1).replace(",", "")
-    m = re.search(r"Start Time:\s*(.{0,30}?)\s{2,}", text)
+    m = re.search(r"Start Time:\s*(.{0,30}?)(?:\s{2,}|$)", text, re.M)
     if m:
         out["kickoff_local"] = " ".join(m.group(1).split())
     return out
@@ -815,8 +828,9 @@ def self_test() -> int:
         "This summary and play-by-play is for the express purpose of assisting media in "
         "their coverage of the game; any other use of this material is prohibited "
         "without the written permission of the National Football League.\n"
-        "Date: Sunday, 11/15/2026   Test Away at Test Home at Test Field, Test City, TS"
+        "Date: Sunday, 11/15/2026   Test Away at Test Home"
         "      Start Time: 1:02 PM EST\n"
+        "                                    at Test Field, Test City, TS\n"
         "Game Day Weather\n"
         "Game Weather: Cloudy                    Temp: 46 F (7.8 C) Humidity: 75%, Wind: NW 15 mph\n"
         "Open Stadium on Natural Grass\n"
@@ -863,6 +877,33 @@ def self_test() -> int:
     assert h["book_wind"] == "NW 15 mph", h
     assert h["attendance"] == "58342", h
     assert h["book_roof_surface"] == "Open Stadium on Natural Grass", h
+
+    # real book headers: the venue is on the line AFTER the date line, and an
+    # unrelated "Outdoor Weather" label can trail the roof/surface on the same line
+    real = (
+        "Date: Sunday, 11/15/2026"
+        "                                  New England Patriots at Detroit Lions"
+        "                                             Start Time: 3:33 PM CET\n"
+        "                                                                   "
+        "at Allianz Arena, Munich, Germany\n"
+        "                                                                        Game Day Weather\n"
+        "Game Weather: Cloudy                                    Temp: 52 F (11.1 C) "
+        "Humidity: 51%, Wind: SE 3 mph\n"
+        "Open Stadium on Natural Grass\n"
+    )
+    hr = parse_header(real)
+    assert hr["book_venue"] == "Allianz Arena, Munich, Germany", hr
+    assert hr["book_roof_surface"] == "Open Stadium on Natural Grass", hr
+    assert hr["book_temp_f"] == "52", hr
+    assert hr["book_wind"] == "SE 3 mph", hr
+
+    mia = ("Date: Sunday, 11/15/2026   Start Time: 1:02 PM EST\n"
+           "                                        at Hard Rock Stadium, Miami Gardens, FL\n"
+           "Retractable Roof - Closed on Field Turf Outdoor Weather\n"
+           "Game Weather: Cloudy    Temp: 48 F   Wind: N 6 mph\n")
+    hm = parse_header(mia)
+    assert hm["book_venue"] == "Hard Rock Stadium, Miami Gardens, FL", hm
+    assert hm["book_roof_surface"] == "Retractable Roof - Closed on Field Turf", hm
     assert h["book_venue"] == "Test Field, Test City, TS", h
     assert "National Football League" in h["copyright_notice"], h
 

@@ -369,7 +369,7 @@ def build_sources() -> str:
     rows = []
     for g in gamebooks:
         rows.append("<tr%s><td class='nowrap'>%s</td><td>%s</td><td>%s</td>"
-                    "<td class='mono'>%s</td><td>%s</td><td>%s</td><td>%s</td>"
+                    "<td class='mono'>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>"
                     "<td class='num'>%s</td><td>%s</td></tr>" % (
                         ' class="flag"' if g["status"] != "captured" else "",
                         esc(game_label(g["game_id"])),
@@ -377,6 +377,7 @@ def build_sources() -> str:
                         '<a href="%s">game centre</a>' % esc(g["gamecenter_url"]),
                         esc((g.get("pdf_sha256") or "")[:24]),
                         book_link(g.get("gamebook_url", "")),
+                        esc(g.get("book_venue", "")) if g.get("book_venue") else '<span class="badge warn">not captured</span>',
                         esc(g.get("book_roof_surface", "")),
                         esc(g.get("book_weather", "")),
                         esc(g.get("attendance", "")),
@@ -395,8 +396,8 @@ is recorded at capture time, so a re-capture can prove the bytes did not change.
 <section class="card pad">
   <h2>Game Book register — 2026 week {WEEK}</h2>
   {table("One row per game. T1 = official league source.",
-         ["Game", "Status", "Game centre", "SHA-256", "Book", "Roof / surface",
-          "Weather", "Attendance", "Captured (UTC)"], rows)}
+         ["Game", "Status", "Game centre", "SHA-256", "Book", "Venue (as printed)",
+          "Roof / surface", "Weather", "Attendance", "Captured (UTC)"], rows)}
 </section>
 
 <section class="card pad">
@@ -577,7 +578,21 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>3. What this data cannot be used for</h2>
+  <h2>3. A venue name disagrees with another section of this repo</h2>
+  <p>Session <code>arena/d81dd61b-fl2</code> recorded the NE @ DET venue as
+  <em>Munich / FC Bayern Munich Stadium</em>, read from the game-centre page. The Game Book
+  for the same fixture prints <strong>Allianz Arena, Munich, Germany</strong> on its header.
+  Both are official league sources, so this is published as a discrepancy rather than
+  silently reconciled: for anything that keys off the venue, the Game Book value should win,
+  because it is the league's own game record rather than a fixture listing.</p>
+  {table("Conflicting official venue strings for one fixture",
+         ["Fixture", "Game-centre page (session d81dd61b)", "Game Book (this section)"],
+         ["<tr><td>NE @ DET, 2026 week 10</td><td>Munich / FC Bayern Munich Stadium</td>"
+          "<td><strong>Allianz Arena, Munich, Germany</strong></td></tr>"])}
+</section>
+
+<section class="card pad">
+  <h2>4. What this data cannot be used for</h2>
   <p>A Game Book is published only after a game kicks off. It is therefore never a pre-game
   input: it is the ground truth a pre-game model is scored against, and the historical corpus
   a depth model is fitted on. Any use of it as a same-week input would be look-ahead.</p>

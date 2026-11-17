@@ -77,7 +77,26 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>3. What this data cannot be used for</h2>
+  <h2>3. A venue name disagrees with another section of this repo</h2>
+  <p>Session <code>arena/d81dd61b-fl2</code> recorded the NE @ DET venue as
+  <em>Munich / FC Bayern Munich Stadium</em>, read from the game-centre page. The Game Book
+  for the same fixture prints <strong>Allianz Arena, Munich, Germany</strong> on its header.
+  Both are official league sources, so this is published as a discrepancy rather than
+  silently reconciled: for anything that keys off the venue, the Game Book value should win,
+  because it is the league's own game record rather than a fixture listing.</p>
+  <div class="table-wrap">
+<table class="">
+<caption>Conflicting official venue strings for one fixture</caption>
+<thead><tr><th>Fixture</th><th>Game-centre page (session d81dd61b)</th><th>Game Book (this section)</th></tr></thead>
+<tbody>
+<tr><td>NE @ DET, 2026 week 10</td><td>Munich / FC Bayern Munich Stadium</td><td><strong>Allianz Arena, Munich, Germany</strong></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card pad">
+  <h2>4. What this data cannot be used for</h2>
   <p>A Game Book is published only after a game kicks off. It is therefore never a pre-game
   input: it is the ground truth a pre-game model is scored against, and the historical corpus
   a depth model is fitted on. Any use of it as a same-week input would be look-ahead.</p>
