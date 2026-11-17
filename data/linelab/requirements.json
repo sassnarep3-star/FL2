@@ -17,7 +17,7 @@
    "requirement": "Add a price-snapshot store that records opening and closing numbers for every market we originate",
    "status": "partial",
    "artefact": "data/linelab/price_store.csv",
-   "evidence": "0 side markets have both an opening AND closing price; 272 open-only; 3237 close-only; 3621 carry only a single undated line. Moneyline opening exists for 0 games.",
+   "evidence": "Side markets with BOTH an opening and a closing price: 0. Not one game has both, because every opening number is from 2021 and every closing number is from 2006-2018, so the two sets do not overlap at all. 272 games are open-only (2021), 3237 are close-only (2006-2018), and 3621 carry only a single undated line. Moneyline opening exists for 0 games.",
    "blocking_gate": "G01-price-history",
    "number_that_would_clear_it": "A second dated price vintage per market. Today the only opening numbers in the repository cover 272 games in 2021. To originate a line day-one and prove its movement, a daily capture from open to close is required for the games being originated.",
    "source": "https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv"
@@ -69,8 +69,8 @@
    "artefact": "data/linelab/depth_graph.json",
    "evidence": "6 replacement rows carry the rank of the man who would step in, and whether he is himself listed as unavailable",
    "blocking_gate": "G02-depth-coverage",
-   "number_that_would_clear_it": "Acquire the remaining 27 club charts. The 5 held show 6 slots where a rank-1 player is Out or Doubtful and a named rank-2 replacement exists.",
-   "source": "https://www.nfl.com/teams/new-england-patriots/depth-chart (404 \u2014 no official chart)"
+   "number_that_would_clear_it": "Acquire the remaining 27 club charts. The 5 held show 6 slots where a rank-1 player is Out or Doubtful and a named rank-2 replacement exists. The linked nfl.com per-team path returns 404, which is why the register cites club pages instead.",
+   "source": "https://www.nfl.com/teams/new-england-patriots/depth-chart"
   },
   {
    "id": "R07",

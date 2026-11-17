@@ -868,9 +868,11 @@ price. <code>initial_lines.csv</code> is a genuine opening price and covers 2021
 <div class="note bad"><strong>2. There is no opening moneyline. Anywhere.</strong> Not for 2021, not for
 any season. Moneyline is close-only, and its opening column is null on every row. This is published as
 a fact about the data rather than worked around by inference.</div>
-<div class="note warn"><strong>3. Only 272 games have both an opening and a closing side price</strong> —
-all of them in 2021. Measuring our line's movement from open to close is therefore not possible for
-current games until a daily price capture exists.</div>
+<div class="note bad"><strong>3. Not one game has both an opening and a closing side price.</strong>
+Every opening number is from 2021 and every closing number is from 2006–2018, so the two sets do not
+overlap: 272 games are open-only, 3,237 are close-only, and 3,621 carry only a single undated line.
+Measuring our line's movement from open to close is therefore impossible for <em>any</em> game in this
+data, not merely for current ones. A daily price capture is the only fix.</div>
 <div class="note"><strong>4. No price is ever inferred.</strong> A market without a dated opening price
 stores null. A closing price is never used as a stand-in for an opening one.</div>
 
@@ -957,8 +959,8 @@ several of them are cheaper and one of them is free.</div>
          "why": "The moneyline market cannot be evaluated open-to-close, only at the close.",
          "state": "needs review", "resolve": "Capture a dated moneyline before kickoff for the games being tracked.",
          "source": "https://github.com/nflverse/nfldata/blob/master/data/closing_lines.csv"},
-        {"id": f"F{len(fl)+2:02d}", "what": "Only 272 games (2021) have both an opening and a closing side price",
-         "why": "Line movement cannot be measured for any current game from committed data.",
+        {"id": f"F{len(fl)+2:02d}", "what": "No game has both an opening and a closing side price: openings are 2021-only, closes are 2006-2018-only",
+         "why": "Line movement cannot be measured for ANY game from committed data, not just current ones.",
          "state": "needs review", "resolve": "A daily price capture from open to close.",
          "source": "https://github.com/nflverse/nfldata/blob/master/data/initial_lines.csv"},
         {"id": f"F{len(fl)+3:02d}", "what": "No league-official depth chart exists; nfl.com returns 404",

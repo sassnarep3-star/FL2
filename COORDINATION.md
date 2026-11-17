@@ -1228,7 +1228,7 @@ closes.
 |---|---|---|
 | 1 | BAL block had no designations in the 2026-11-14 capture | **needs review** — third capture required |
 | 2 | No opening moneyline exists for any game | permanent limitation |
-| 3 | Only 272 games (2021) have both an opening and a closing side price | needs review |
+| 3 | **No game** has both an opening and a closing side price: openings are 2021-only, closes are 2006-2018-only | needs review |
 | 4 | No league-official depth chart exists; nfl.com per-team path 404s | permanent limitation |
 | 5 | 5 of 32 club charts held | needs review |
 | 6 | No official inactive list or 2026 snap count held | needs review |
