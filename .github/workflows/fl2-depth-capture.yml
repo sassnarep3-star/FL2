@@ -63,8 +63,13 @@ jobs:
           set -euo pipefail
           mkdir -p fl2-depth/data/_debug
           ls -la /tmp/fl2-depth-work > fl2-depth/data/_debug/_ls.txt 2>&1 || true
-          cp /tmp/fl2-depth-work/2026_10_NE_DET.txt fl2-depth/data/_debug/NE_DET.txt || echo "NO NE_DET TXT" >> fl2-depth/data/_debug/_ls.txt
-          ls -la fl2-depth/data/_debug
+          for f in /tmp/fl2-depth-work/*.txt; do
+            [ -f "$f" ] || continue
+            b=$(basename "$f")
+            echo "### $b" >> fl2-depth/data/_debug/all.txt
+            cat "$f" >> fl2-depth/data/_debug/all.txt
+          done
+          wc -l fl2-depth/data/_debug/all.txt >> fl2-depth/data/_debug/_ls.txt
 
       - name: Upload raw text as an artifact (not committed)
         uses: actions/upload-artifact@v4

@@ -485,6 +485,9 @@ def _capture_game_inner(row: dict, workdir: str, res: dict) -> dict:
         return res
     with open(pdf_path, "wb") as fh:
         fh.write(blob)
+    if os.environ.get("KEEP_TEXT"):
+        with open(os.path.join(workdir, f"{gid}-keep.txt"), "w", encoding="utf-8") as fh:
+            fh.write("PLACEHOLDER")
     res["pdf_sha256"] = hashlib.sha256(blob).hexdigest()
     if len(blob) < 5000:
         res["status"], res["error"] = "pdf_too_small", f"{len(blob)} bytes"
