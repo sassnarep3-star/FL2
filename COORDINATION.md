@@ -1228,7 +1228,7 @@ closes.
 |---|---|---|
 | 1 | BAL block had no designations in the 2026-11-14 capture | **needs review** — third capture required |
 | 2 | No opening moneyline exists for any game | permanent limitation |
-| 3 | Only 272 games (2021) have both an opening and a closing side price | needs review |
+| 3 | **No game** has both an opening and a closing side price: openings are 2021-only, closes are 2006-2018-only | needs review |
 | 4 | No league-official depth chart exists; nfl.com per-team path 404s | permanent limitation |
 | 5 | 5 of 32 club charts held | needs review |
 | 6 | No official inactive list or 2026 snap count held | needs review |
@@ -1423,10 +1423,153 @@ updated gate wording. Pre-existing on main (not this session's edit): the hub na
 
 ---
 
+# Session `arena/d81dd61b-fl2` — line-by-line repo review, official-source verification, and integration close-out
+
+Branch: `arena/d81dd61b-fl2`, branched from `main` @ `56453a0` (all PRs #1–#31 merged). This session is the
+sole active session; all prior claims are released. Work is kept to new files under `review/` plus the
+root `.gitignore` (which carries committed merge-conflict markers) and `COORDINATION.md`. No other
+session's claimed data files are edited; gaps found in claimed files are logged here as requests.
+
+## Claimed tasks
+
+| # | Task | Status | Owner | Files in scope | Notes |
+|---|------|--------|-------|----------------|-------|
+| D1 | Claim + board write-up | in progress | `arena/d81dd61b-fl2` | `COORDINATION.md` | this section |
+| D2 | Line-by-line repo review; flag irregularities; verify headline numbers against official NFL sources | in progress | `arena/d81dd61b-fl2` | `review/` (new) | spot checks vs nfl.com standings / injuries / schedule |
+| D3 | Fix committed `.gitignore` merge-conflict markers | unclaimed | `arena/d81dd61b-fl2` | `.gitignore` | conflict markers committed at `56453a0` |
+| D4 | Confirm site checkers pass (links, sourced rows, anchors) | done | `arena/d81dd61b-fl2` | — | `scripts/check_site.py` 7 pages OK; `tools/check_links.py` 16 pages OK |
+| D5 | Commit, push, open PR `arena/d81dd61b-fl2` → `main`, merge, confirm GitHub Pages deploys | unclaimed | `arena/d81dd61b-fl2` | `.git` (via gh) | record PR link + merge result below |
+
+## Official-source verification performed (2026-11-17, page-fetch tool)
+
+| # | Check | Official source | Result |
+|---|-------|-----------------|--------|
+| V1 | Week 10 injury report — Lions designations Kerby Joseph / Cade Mays / D.J. Reed | https://www.nfl.com/injuries/ (Week 10) | All three read **Out** (Knee/Ankle/Hip, DNP) — confirms the earlier "blank game-status" claim is not present; consistent with repo `data/injuries.json` |
+| V2 | Week 10 schedule — 14-game slate, kickoffs, networks, bye teams | https://www.nfl.com/schedules/2026/by-week/week-10 | 14 games transcribed (WAS@NYG Thu; NE@DET Munich International; 12 Sunday; PIT@CIN SNF; LAC@BAL MNF); bye teams CHI/DEN/PHI/TB — consistent with repo `data/schedule_week10.json` |
+| V3 | Standings snapshot staleness | https://www.nfl.com/standings/ (live) | Live page shows BUF 8-1 (287/199), NE 5-5, DET 7-2 (257/199); repo `data/standings.json` is an **as-of 2026-11-14** snapshot (BUF 7-1 256/187, NE 5-4, DET 6-2 222/189) — pre-Sunday. Labelled as a snapshot on the site; staleness is expected and disclosed, flagged for awareness. |
+
+## Irregularities found this session (to be published on a Flagged for Review page)
+
+| ID | Item | Severity | Disposition |
+|----|------|----------|-------------|
+| D-I1 | `.gitignore` contains unresolved merge-conflict markers (`<<<<<<< HEAD` / `=======` / `>>>>>>> origin/main`) committed at `56453a0` | high | Fixed in this session (D3) |
+| D-I2 | Venue not transcribed for any of the 14 Week 10 fixtures | medium | `data/injuries.json` and `data/schedule_week10.json` carry `venue: None` for all 14 games. The brief requires venue transcribed from the official game centre (NE@DET is Munich / FC Bayern Munich Stadium per `nfl.com/games/patriots-at-lions-2026-reg-10`). Data files are owned by prior sessions; logged as a request — not edited here. |
+| D-I3 | Standings snapshot is as-of 2026-11-14 and does not reflect Week 10 Sunday results | low | Disclosed via `as_of` on the site; not a defect, but readers must treat it as a dated snapshot |
+| D-I4 | Injury-report count figures differ across artefacts (76 / 160 / 345 / 347 reported in various places; brief's 254/279 not reproducible) | medium | Previously flagged as F-I3 / FL-05; kept open, no new number asserted |
+
+## Requests to other sessions / owner
+
+- Venue transcription for the 14 Week 10 fixtures (D-I2): the owning sessions of `data/injuries.json` / `data/schedule_week10.json` should add a `venue` field transcribed from each game's official NFL.com game centre, with a source URL per row. NE@DET = Munich, FC Bayern Munich Stadium (confirmed on the game centre page).
+- Consolidation of the three decision-readiness tables (/fl2-lines/, /readiness/, /linelab/) and the eight site sections is left as an owner decision; this session keeps them apart, as earlier integration did.
+
+## Pull request and merge result (D5)
+
+| Item | Record |
+|------|--------|
+| PR | pending |
+| Merge | pending |
+| Pages deploy | pending |
+| PR link / merge SHA | to be recorded after merge |
+
+
+---
+
+# Session `arena/7e474dc8-fl2` — landing page dashboard, source-linked verification, irregularity flags, and PR merge close-out
+
+Branch: `arena/7e474dc8-fl2`, branched from `main` @ `56453a0`. Sole active session; all prior claims released. Files in scope: root `index.html` only (shared landing page, edited additively). No other session's claimed data files were edited; all existing tiles, nav and the integrated readiness table were preserved.
+
+## Claimed tasks
+
+| # | Task | Status | Owner | Files in scope | Notes |
+|---|------|--------|-------|----------------|-------|
+| L1 | Claim + board write-up | done | `arena/7e474dc8-fl2` | `COORDINATION.md` | this section |
+| L2 | Enhance root landing page as a clean dashboard | done | `arena/7e474dc8-fl2` | `index.html` | verified-figures table, derived-findings card, irregularities table |
+| L3 | Verify headline figures against live official NFL sources | done | `arena/7e474dc8-fl2` | nfl.com via page-fetch | injuries, standings, schedule spot checks |
+| L4 | Fix `check_site.py` failure (every table row needs an official source link) | done | `arena/7e474dc8-fl2` | `index.html` | split derived metrics out of the table |
+| L5 | Commit, push, open PR `arena/7e474dc8-fl2` → `main`, merge, confirm GitHub Pages deploys | done | `arena/7e474dc8-fl2` | `.git` (via `gh`) | PR #33 then PR #34 |
+
+## Verification performed (2026-11-17, page-fetch tool; sandbox bash cannot reach nfl.com directly)
+
+| # | Check | Official source | Result |
+|---|-------|-----------------|--------|
+| L-V1 | Week 10 injury report — Lions: Kerby Joseph (Knee), Cade Mays (Ankle), D.J. Reed (Hip) | https://www.nfl.com/injuries/ (Week 10) | All three read **Out**, Did Not Participate — consistent with repo `data/injuries.json`; the earlier "blank game-status" claim is not present |
+| L-V2 | Week 10 schedule — 14 games, kickoffs, networks, byes | https://www.nfl.com/schedules/2026/by-week/week-10 | 14 games transcribed (WAS@NYG Thu; NE@DET Munich International; 12 Sunday; PIT@CIN SNF; LAC@BAL MNF); bye teams CHI/DEN/PHI/TB — consistent with repo `data/schedule_week10.json` |
+| L-V3 | Standings snapshot staleness | https://www.nfl.com/standings/ (live) | Live page shows post-Week-10 records (BUF 8-1 / 287-199, CIN 7-2, DET 7-2, NE 5-5); repo `data/standings.json` is an **as-of 2026-11-14** snapshot (pre-Sunday). Labelled as a dated snapshot on the site; staleness disclosed and flagged. |
+
+## Irregularities
+
+Published on the landing page's irregularities table and consolidated in `review/REPO-REVIEW-2026-11-17.md` (session `arena/d81dd61b-fl2`, merged as PR #32):
+
+| ID | Item | Severity | Disposition |
+|----|------|----------|-------------|
+| D-I1 | `.gitignore` contained unresolved merge-conflict markers committed at `56453a0` | high | Fixed by session `arena/d81dd61b-fl2` (PR #32) |
+| L-I1 | Snapshot staleness vs live official sources (committed bundle is pre-Week-10) | high | Disclosed on landing page; readers must re-check nfl.com |
+| L-I2 | No validated strategy — 11 ideas × 8 gates, none passed | high | Finding, not a gap; backtest numbers not ranked, no picks offered |
+| L-I3 | Depth-chart rank not published alongside injury report | high | Availability index is a declared proxy, not a measured starter/backup split |
+| L-I4 | No official sportsbook price source — nfl.com/odds/ returns 404 | medium | Permanent limitation; all prices T3-labelled, never a model input |
+| D-I2 | Venue not transcribed for any of the 14 Week 10 fixtures | medium | Request to owning sessions of `data/injuries.json` / `data/schedule_week10.json` |
+
+## Pull request and merge result
+
+| Item | Record |
+|------|--------|
+| PR #33 | https://github.com/sassnarep3-star/FL2/pull/33 — merged, merge commit `0a04d6c2913aa892734f08d891bd06509a051475` |
+| PR #34 | https://github.com/sassnarep3-star/FL2/pull/34 — merged, merge commit `0bb0f4a076f966f552eb70db9860db615a4407c2` (fixes the `check_site.py` unsourced-table-row failure on #33) |
+| CI | `Validate and publish site` at `0bb0f4a`: validate success, deploy success |
+| Pages deploy | status `built`, commit `0bb0f4a`, error none |
+| Live site | https://sassnarep3-star.github.io/FL2/ |
+
+Concurrency note: session `arena/d81dd61b-fl2` (PR #32, merged as `a636b97`) added `review/REPO-REVIEW-2026-11-17.md` (line-by-line repo review) and fixed the committed `.gitignore` conflict markers; both are in `main` ahead of this session's PRs. No other session's content was discarded.
+
+---
+
+# Session session-22f6b1d9 — Final site integrity and decision-readiness integration
+
+Repo: `sassnarep3-star/FL2` · Session: `session-22f6b1d9` · Branch: `arena/22f6b1d9-fl2`
+Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the final integration session for its own additions and additive root/README integration; all concurrent merged work is preserved.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+|---|---|---|---|---|---|
+| T29 | Claim + coordination | **done** | session-22f6b1d9 | `COORDINATION.md` | initial claim commit was pushed before implementation; rebase kept all newer main records |
+| T30 | Reconcile the root landing page and README with the currently merged site; preserve the readiness view and remove stale headline claims | **done** | session-22f6b1d9 | `index.html` (additive final integration), `README.md` | kept the merged landing dashboard and 75-row requirement view; README now maps all sections and preserves source/vintage limits |
+| T31 | Publish a cross-section integrity audit and decision queue with official links and unresolved gates | **done** | session-22f6b1d9 | `review/integration-audit-2026-11-17.html`, `review/integration-audit-2026-11-17.md` | dated, source-linked discrepancies; no live NFL claims introduced |
+| T32 | Add an offline audit for all published internal links and rerun section verification gates | **done** | session-22f6b1d9 | `tools/check_integrated_site.py` | 115 pages / 2,477 local targets pass; external URLs not fetched; section and Pages build gates pass |
+| T33 | Final PR, merge and Pages verification | **done** | session-22f6b1d9 | `.git` (via `gh`), `COORDINATION.md` | PR #36 merged after all PR checks passed; its Pages validate/deploy run succeeded; latest Pages API build is `built` at a later main commit that includes this merge |
+| T34 | Repair the one broken `results.html#announcement` fragment identified by the site-wide audit | **done** | session-22f6b1d9 | `fl2-lines/engine/build_site.py`, generated `fl2-lines/results.html` | added only the missing heading id; deterministic rebuild changed no data or surrounding content |
+
+## Claim
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-22f6b1d9 | `index.html` (additive final integration); `README.md`; `review/integration-audit-2026-11-17.{html,md}`; `tools/check_integrated_site.py`; `fl2-lines/engine/build_site.py` and generated `fl2-lines/results.html` for the single missing fragment; `COORDINATION.md` append only; PR/merge/deployment via `gh` | 2026-11-17 | 2026-11-17 |
+
+## Log
+
+- 2026-11-17 — Read `COORDINATION.md` before starting. At initial inspection, `HEAD` was `56453a0a` (PR #31), and the working tree was clean. Claimed T29–T33 and pushed the claim before implementation.
+- 2026-11-17 — While this session worked, main advanced through PRs #32–#35 (sessions `d81dd61b` and `7e474dc8`). `git pull --rebase origin main` exposed an additive conflict in this board. Resolution kept the complete D81 and 7e sections from main and appended this session's record; no other session's work was discarded.
+- 2026-11-17 — The `.gitignore` conflict markers observed at base `56453a0` were already fixed by session `d81dd61b` in PR #32 and are no longer present on rebased main. The audit will mark this as resolved, not open.
+- 2026-11-17 — The new whole-site link audit found one broken fragment in the completed `fl2-lines` section: `fl2-lines/index.html` links to `results.html#announcement`, while the schedule-announcement heading lacked `id="announcement"`. The original `39dd0836` section is complete and merged; a narrow non-destructive T34 handoff claims only the generator heading and its regenerated output so the full-site link check can pass.
+- 2026-11-17 — T34 repaired only the heading id in `fl2-lines/engine/build_site.py`; `python3 fl2-lines/engine/build_site.py` regenerated 16 pages, and only `fl2-lines/results.html` changed. No schedule, source values, results, model output or other section content changed.
+- 2026-11-17 — Full section gates passed after integration: `scripts/check_site.py` (7 pages); `tools/check_links.py` (16 pages/22 sources); Line Lab deterministic rebuild + `engine/linelab/check_site.py` (12 pages; seven strategies remain `not_eligible`); Originated Lines check (16 pages, 74 requirements, 272 feed, 1,088 lines, 816 prices); signals (18 pages/101 tables/1,305 rows/352 links); ops readiness (3 pages); signal analysis (216 checks); and the integrated audit (115 pages/2,477 local links; no failures). No external links were fetched.
+- 2026-11-17 — The Pages build steps `scripts/make_pages.py` and `scripts/build_site.py` passed (`wrote 11 pages`, `Build OK`). Their generated docs HTML was restored because that known generator drops hand-integrated navigation (F-I1); no generated docs changes are included.
+- 2026-11-17 — Updated the root readiness renderer to label missing NFL URLs explicitly as “No official NFL source recorded — unverified as an NFL fact.” The whole-site checker now strips fragments before filesystem evidence-path validation; `R24`'s `results.html#announcement` reference no longer appears as a missing file.
+- 2026-11-17 — PR #36 (`Integrate decision readiness and repository-wide site audit`) was merged after checks passed: https://github.com/sassnarep3-star/FL2/pull/36. Merge commit `0ecab4c70f01aa65f5620285f5687d3bb72f6504`. PR checks `validate` and both Line Lab `check` runs succeeded; the PR's `deploy` check was correctly skipped. Main push workflow run `44006659792` on the merge commit passed both validate and Pages deploy. Pages API reports public URL `https://sassnarep3-star.github.io/FL2/`, status `built`; its latest build `1376590547` is for main commit `c393488bdc1a41e9aaa34464b2c593fe2789c981`, which includes PR #36 and a subsequent merged PR #24. Thus the integrated merge was deployed and the current published main is also built. No live NFL fetch or capture was part of this verification.
+
+## Requests to prior scopes / owner
+
+- F-AUD-01: make `.github/workflows/fl2-lines-snapshot.yml` consistent with the still-open NFL Terms gate; the workflow file declares scheduled NFL-page fetches while `.github/workflows/availability-snapshot.yml` disables its schedule. No workflow edit is made here.
+- F-AUD-02: resolve public/private storage for tracked row-level NFL captures before any further systematic capture or publication. Pages currently uploads the repository root (`.`).
+- Data-vintage crosswalk: reconcile the 148-final ops results feed and the 137-game Line Lab 2026 corpus from one immutable manifest rather than silently rewriting either section's results.
+
+---
+
 # Session session-3189b65d — Decision Desk (`/decision-desk/`) — current
 
 Repo: `sassnarep3-star/FL2` · Session: `session-3189b65d` · Branch: `arena/3189b65d-fl2`
-Base: `main` @ `56453a0` (after PR #31). Started 2026-11-17. This session also acts as the
+Base: `main` @ `56453a0` (after PR #31), merged forward to `b2af0da` (PR #37) before this PR so
+the board, the hub and the README sit on the integrated site rather than on a stale branch. This session also acts as the
 **final integration session** for the artefacts it adds (shared edits limited to the hub
 `index.html` nav tile, `README.md` and this file).
 

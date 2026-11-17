@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integration audit · Flagged for Review · FL2</title>
+<meta name="description" content="Cross-section source, data-vintage, capture-policy, and repository integrity audit for the FL2 NFL decision research site.">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .audit-hero { padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+  .audit-hero h1 { margin: 0 0 8px; font-size: clamp(24px,4vw,34px); line-height: 1.15; }
+  .audit-hero p { max-width: 84ch; margin: 0; color: var(--ink-2); }
+  .audit-nav { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 0; }
+  .audit-nav a { padding:6px 10px; background:var(--surface-2); border-radius:18px; font-size:12px; }
+  .audit-note { padding:14px 16px; border-left:4px solid var(--warn); background:var(--warn-bg); border-radius:5px; }
+  .audit-note p:last-child { margin-bottom:0; }
+  .audit-note.danger { border-color:var(--bad); background:var(--bad-bg); }
+  .status { font-weight:700; white-space:nowrap; }
+  .status.open { color:var(--bad); }
+  .status.partial { color:var(--warn); }
+  .status.resolved { color:var(--ok); }
+  .source { min-width:190px; }
+  .source a { display:inline-block; margin:0 7px 4px 0; }
+  .small { font-size:12px; color:var(--ink-3); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <div class="brand-row"><div class="brand"><a href="../index.html" style="color:#fff">FL2 <span>· Flagged for Review</span></a></div><div class="brand-sub">Integration audit · 2026-11-17</div></div>
+    <nav class="tabs" aria-label="Review navigation">
+      <a href="../index.html">Overview</a>
+      <a href="../ledger/summary.html">Executive summary</a>
+      <a href="../fl2-lines/index.html">Readiness</a>
+      <a href="../fl2-lines/suggestions.html">Suggestions</a>
+      <a href="../fl2-lines/questions.html">Questions</a>
+      <a href="integration-audit-2026-11-17.html" aria-current="page">Flagged review</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="audit-hero">
+    <p class="eyebrow">Flagged for Review · unresolved items do not block publication</p>
+    <h1>Integration audit and decision queue</h1>
+    <p>This audit checked the committed repository state and reran local deterministic validators on 2026-11-17. It did <strong>not</strong> fetch live NFL pages. NFL facts below retain the source and capture date recorded in the repository; where a live fact or permission cannot be confirmed, it is explicitly marked unresolved rather than inferred.</p>
+    <div class="audit-nav" aria-label="Audit sections">
+      <a href="#decision-summary">Decision summary</a><a href="#F-AUD-01">Capture terms</a><a href="#F-AUD-03">Data vintages</a><a href="#repo-findings">Repository findings</a><a href="#questions">Questions</a><a href="#suggestions">Suggested path</a><a href="#checks">Checks performed</a>
+    </div>
+  </section>
+
+  <section class="block" id="decision-summary">
+    <h2>Executive summary</h2>
+    <div class="audit-note danger">
+      <strong>Do not promote a strategy or run an automated NFL-page capture based on this audit alone.</strong>
+      The strategy registry has no eligible entry; more importantly, the repository records an unresolved NFL content-use gate while one workflow file still declares a schedule. The data-rights and public/private-store decisions must be settled before further systematic capture or republication.
+    </div>
+    <div class="grid c3" style="margin-top:14px">
+      <div class="stat bad"><div class="k">Strategy eligibility</div><div class="v">0 of 7</div><div class="d">Line Lab's committed registry records all seven as not eligible and paper-only. This is an internal research result, not an NFL fact. <a href="../data/linelab/registry.json">Registry evidence</a>.</div></div>
+      <div class="stat warn"><div class="k">Availability coverage</div><div class="v">Incomplete</div><div class="d">Two dated Week 10 capture artifacts; 5 of 32 clubs in the Line Lab depth register. They do not establish a 32-team starter/inactive/snap graph. <a href="../data/linelab/availability.json">Availability evidence</a> · <a href="../data/linelab/depth_graph.json">Depth evidence</a>.</div></div>
+      <div class="stat warn"><div class="k">Decision registers</div><div class="v">Multiple scopes</div><div class="d">The landing union and three section registers differ in coverage and status. Treat each status as versioned evidence, not a single canonical truth. <a href="../fl2-lines/data/registers/readiness.csv">R01–R74</a> · <a href="../data/decision_readiness.json">DR register</a>.</div></div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="nfl-findings">
+    <h2 id="nfl-findings">NFL-source and model-evidence findings</h2>
+    <p class="sub">Each finding is tied to the official NFL reference where one applies. Repository counts are capture/parser outputs, not NFL-published totals. Official pages were not re-fetched during this pass.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID / status</th><th>Finding</th><th>What is evidenced</th><th>Gate / number that clears it</th><th>Official source and repository artifact</th></tr></thead>
+        <tbody>
+          <tr id="F-AUD-01" class="flag">
+            <td><strong>F-AUD-01</strong><br><span class="status open">NEEDS REVIEW</span></td>
+            <td>Scheduled NFL-page capture conflicts with the documented terms gate.</td>
+            <td><code>fl2-lines-snapshot.yml</code> declares Wed/Thu/Fri scheduled runs that fetch the injury report and weekly schedule. <code>availability-snapshot.yml</code> explicitly comments out its schedule pending F-T1. The repository's prior terms note says only the first Terms chunk was read; full terms review and written permission are not recorded. The Actions run-history query returned no runs for <code>fl2-lines-snapshot.yml</code> during this audit, so configuration is established but execution is not.</td>
+            <td>Before scheduled collection: record a complete terms/permission review or use a licensed source. Keep the two workflows consistent; do not treat the schedule as authorized while F-T1 remains open.</td>
+            <td class="source"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">Official NFL Terms</a><a href="../.github/workflows/fl2-lines-snapshot.yml">scheduled workflow</a><a href="../.github/workflows/availability-snapshot.yml">manual-only workflow</a><a href="../fl2-dashboard/flagged-review.html#F-T1">prior F-T1 record</a></td>
+          </tr>
+          <tr id="F-AUD-02" class="flag">
+            <td><strong>F-AUD-02</strong><br><span class="status open">NEEDS REVIEW</span></td>
+            <td>The public/private data-layer requirement is not satisfied by the current Pages workflow.</td>
+            <td>The Pages workflow uploads the repository root (<code>.</code>). Tracked files include row-level injury transcriptions. A prior review flags this as an unresolved redistribution/terms issue; adding <code>private/</code> to <code>.gitignore</code> does not make already-tracked rows private.</td>
+            <td>Resolve written permission/licensing and storage policy; until then, avoid adding raw NFL page captures to the public site artifact. A private store needs explicit access control and retention.</td>
+            <td class="source"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">Official NFL Terms</a><a href="../.github/workflows/pages.yml">Pages publish path</a><a href="../data/injuries_2026_week10.csv">tracked row-level injury file</a><a href="../fl2-dashboard/flagged-review.html#F-P2">prior F-P2 record</a></td>
+          </tr>
+          <tr id="F-AUD-03" class="flag">
+            <td><strong>F-AUD-03</strong><br><span class="status partial">RECONCILE</span></td>
+            <td>2026 result inputs have different cutoffs across model sections.</td>
+            <td>The ops results feed records 148 final scores out of 150 Week 1–10 fixtures as of its 2026-11-16 capture. Line Lab's corpus metadata records 137 2026 games played. These may be different vintages; they must not be treated as the same evaluation set or compared without rebuilding from a shared manifest.</td>
+            <td>Rebuild every evaluation from the same immutable results manifest; publish the cutoff, game IDs included, and a row-level reconciliation. Clearing target: identical eligible 2026 game IDs and scores across feeds, with all differences explained.</td>
+            <td class="source"><a href="https://www.nfl.com/standings/division/2026/REG" target="_blank" rel="noopener">Official NFL standings</a><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official NFL Week 10 schedule</a><a href="../ops/data/results/results_2026_reg.csv">148-final results feed</a><a href="../data/linelab/corpus.json">Line Lab corpus manifest</a></td>
+          </tr>
+          <tr id="F-AUD-04" class="flag">
+            <td><strong>F-AUD-04</strong><br><span class="status partial">INCOMPLETE</span></td>
+            <td>Availability snapshots do not yet provide a complete point-in-time starter/inactive record.</td>
+            <td>The saved Week 10 captures on 2026-11-14 and 2026-11-16 contain 345 and 347 parsed rows. Those counts describe stored artifacts, not an official NFL total. Only two dated reads are present, and actual starter/game-day inactive evidence and 2026 snaps are still missing or rights-gated.</td>
+            <td>At least three consecutive dated reads per reporting week, plus official game-day inactive/starter evidence and playing-time data. Keep each capture's clock, hash, source URL and conflict status.</td>
+            <td class="source"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">Official NFL injury report</a><a href="../data/linelab/captures/2026-11-14/week10-injury-report.meta.json">2026-11-14 metadata</a><a href="../data/linelab/captures/2026-11-16/week10-injury-report.meta.json">2026-11-16 metadata</a><a href="../fl2-lines/availability.html">availability graph</a></td>
+          </tr>
+          <tr id="F-AUD-05" class="flag">
+            <td><strong>F-AUD-05</strong><br><span class="status open">BLOCKED</span></td>
+            <td>Official 32-club depth / actual starter route is not established.</td>
+            <td>Line Lab stores five club depth registers and preserves groups/empty slots. It does not establish a complete 32-club route. User-requested starter evidence from Game Books, inactive lists and per-game snaps is not present as a verified 32-team dataset.</td>
+            <td>Verify one official source route for all 32 clubs or use official per-game playing-time evidence; never infer rank from jersey number, experience, salary, or a single rank-1 slot.</td>
+            <td class="source"><a href="https://www.nfl.com/teams/" target="_blank" rel="noopener">Official NFL team directory</a><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">Official NFL injury report</a><a href="../data/linelab/depth_graph.json">five-club depth graph</a><a href="../linelab/depth.html">depth caveats</a></td>
+          </tr>
+          <tr id="F-AUD-06" class="flag">
+            <td><strong>F-AUD-06</strong><br><span class="status open">UNVERIFIED</span></td>
+            <td>There is no recorded official NFL odds feed for a full opening/closing price history.</td>
+            <td>Repository policy and source registers treat available historical odds as secondary/market-mirror data; the NFL odds path was previously recorded unavailable on 2026-11-16 and was not rechecked in this pass. Do not infer an opening price from a single undated line.</td>
+            <td>Choose a permitted, timestamped, licensed source before publishing price-dependent ROI or CLV. The clearing evidence is a source policy plus dated opening and closing snapshots for the claimed markets.</td>
+            <td class="source"><a href="https://www.nfl.com/odds/" target="_blank" rel="noopener">NFL odds path (prior check: unavailable)</a><a href="../research/price-data-policy.md">price policy</a><a href="../fl2-lines/prices.html">price provenance</a></td>
+          </tr>
+          <tr id="F-AUD-07" class="flag">
+            <td><strong>F-AUD-07</strong><br><span class="status open">NO PROMOTION</span></td>
+            <td>No strategy currently qualifies for a live leaderboard reward.</td>
+            <td>The Line Lab registry lists seven entries, all <code>not_eligible</code> and paper-only. Historical backtest results stay separate from the prospective leaderboard. This is an internal FL2 research finding, not an NFL fact.</td>
+            <td>Continue singles-only shadow forecasts; require pre-registration, proper-score qualification with game-cluster uncertainty and multiplicity control, then a prospective escrow. Parlays/props remain behind joint-probability and operator void/push-rule gates.</td>
+            <td class="source"><span>Official NFL source: not applicable to an internal model status.</span><a href="../data/linelab/registry.json">strategy registry</a><a href="../linelab/strategies.html">strategy gates</a><a href="../fl2-lines/leaderboard.html">prospective leaderboard</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="repo-findings">
+    <h2>Repository-only integration findings</h2>
+    <p class="sub">These are observations about committed code and documents, not NFL facts. No NFL official source applies; the code/data artifacts are the evidence.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID / state</th><th>Finding</th><th>Why it matters</th><th>Requested action</th><th>Repository evidence</th></tr></thead>
+        <tbody>
+          <tr id="F-AUD-08" class="flag">
+            <td><strong>F-AUD-08</strong><br><span class="status resolved">RESOLVED UPSTREAM</span></td>
+            <td>The base commit contained literal merge-conflict markers in <code>.gitignore</code>.</td>
+            <td>The issue was present at this session's starting commit <code>56453a0a</code>. Concurrent session <code>d81dd61b</code> resolved it in PR #32; rebased main now contains both intended ignore patterns (<code>fl2-lines/data/snapshots/</code> and <code>private/</code>) without conflict markers.</td>
+            <td>No further action. Keep both ignore entries if the file is edited again. This audit records the defect and its resolution; it did not modify <code>.gitignore</code>.</td>
+            <td class="source"><span>Official NFL source: not applicable to repository hygiene.</span><a href="../.gitignore">current .gitignore</a><a href="../COORDINATION.md">PR #32 resolution record</a><a href="https://github.com/sassnarep3-star/FL2/pull/32" target="_blank" rel="noopener">PR #32</a></td>
+          </tr>
+          <tr id="F-AUD-09" class="flag">
+            <td><strong>F-AUD-09</strong><br><span class="status resolved">RECONCILED; READINESS VIEW PRESERVED</span></td>
+            <td>The README lagged behind the merged site; the root landing already contains a dated evidence snapshot, section inventory, and the one-row-per-requirement table.</td>
+            <td>The landing page and 75-row table were preserved. This pass adds the audit navigation link and changes the table renderer so rows without NFL URLs say they are unverified as NFL facts. README now reflects the merged sections and separate data vintages.</td>
+            <td>Keep as-of dates, explicit source-status language, the one-row-per-requirement view and separate vintage comparisons. Do not combine model corpora until manifests match.</td>
+            <td class="source"><span>Official NFL source: not applicable to site-copy history.</span><a href="../index.html">preserved landing page</a><a href="../README.md">updated README</a><a href="../data/landing_readiness.js">75-row source bundle</a><a href="../COORDINATION.md">integration log</a></td>
+          </tr>
+          <tr id="F-AUD-10" class="flag">
+            <td><strong>F-AUD-10</strong><br><span class="status partial">NEEDS RECONCILIATION</span></td>
+            <td>Four independent readiness presentations are not a single canonical register.</td>
+            <td>The integrated landing table is a 75-row merge of R01–R74 and DR records; <code>/readiness/</code> publishes R26–R96; Line Lab has 68 rows. Scope, statuses and clearing metrics differ. The union is a navigation aid, not permission to silently collapse disagreements.</td>
+            <td>Use one generated requirement ID/source manifest for future updates; keep per-section histories but publish one reconciliation delta and reject a status that has no current evidence path or source tier.</td>
+            <td class="source"><span>Official NFL source: not applicable to requirement-register structure.</span><a href="../data/landing_readiness.js">75-row landing data</a><a href="../ops/data/requirements_v2.json">R26–R96 register</a><a href="../data/linelab/requirements.json">Line Lab register</a><a href="../fl2-lines/data/registers/readiness.csv">R01–R74 register</a></td>
+          </tr>
+          <tr id="F-AUD-11" class="flag">
+            <td><strong>F-AUD-11</strong><br><span class="status partial">CUTOFF WARNING</span></td>
+            <td>The site includes figures from multiple capture dates and model cutoffs.</td>
+            <td>The 2026-11-16 ops results feed has 148 final scores, while Line Lab's input corpus has 137 2026 games played. The two counts describe different committed artifacts, not one automatically reconciled dataset. Landing-page counts are now explicitly dated.</td>
+            <td>Publish a shared immutable manifest with source hash, capture time, included game IDs, and model code version; rerun all derived pages from that manifest before comparing strategies.</td>
+            <td class="source"><span>Official NFL source: see the linked results reconciliation.</span><a href="../ops/data/results/results_2026_reg.csv">ops results feed</a><a href="../data/linelab/corpus.json">Line Lab corpus</a><a href="https://www.nfl.com/standings/division/2026/REG" target="_blank" rel="noopener">Official NFL standings</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="questions">
+    <h2>Questions, current answers, and missing information</h2>
+    <p class="sub">A decision is reasonable only when the missing evidence and the gate that clears it are explicit.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Question</th><th>Answer from current records</th><th>Missing information</th><th>How to discover it</th><th>Source / evidence</th></tr></thead>
+        <tbody>
+          <tr><td>May nfl.com reports be collected on a schedule and republished?</td><td>Unresolved. The prior notes flag a restriction in NFL Terms §1.3; full Terms review and written permission are not recorded.</td><td>Full terms text, written consent or a licensed feed, data retention/publication rights.</td><td>Complete the Terms review, obtain written permission or select a licensed source; keep raw captures private until cleared.</td><td class="source"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">Official NFL Terms</a><a href="../fl2-dashboard/flagged-review.html#F-T1">F-T1</a></td></tr>
+          <tr><td>Does “not listed” mean available?</td><td>No. The stored injury report is not a full reserve/IR or active-list dataset.</td><td>Reserve/injured lists, game-day inactive evidence and roster/transaction changes at the same cutoff.</td><td>Build a permitted, timestamped official roster/inactive feed; reconcile each player to an official game-day source and preserve conflicts.</td><td class="source"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">Official NFL injury report</a><a href="https://www.nfl.com/teams/" target="_blank" rel="noopener">Official NFL teams</a><a href="../fl2-lines/flagged.html">availability flags</a></td></tr>
+          <tr><td>Can replacement depth be stated for all 32 clubs?</td><td>No. Five club depth registers are represented in Line Lab; playing-time coverage and full official starter evidence are not complete.</td><td>A verified route across 32 clubs or official per-game snap counts, plus actual inactive/game-book evidence.</td><td>Verify club-by-club source coverage before modelling; otherwise keep depth unfilled and the deficiency feature blocked.</td><td class="source"><a href="https://www.nfl.com/teams/" target="_blank" rel="noopener">Official NFL team directory</a><a href="../data/linelab/depth_graph.json">depth graph</a></td></tr>
+          <tr><td>Can the results feed and Line Lab scores be compared directly?</td><td>No. Their 2026 game counts differ (148 final results versus 137 played in the Line Lab corpus).</td><td>A shared source hash, included-game-ID set, capture cutoff, and matching model evaluation split.</td><td>Rebuild both from one immutable manifest; compare exact IDs and scores before publishing a cross-section conclusion.</td><td class="source"><a href="https://www.nfl.com/standings/division/2026/REG" target="_blank" rel="noopener">Official NFL standings</a><a href="../ops/data/results/results_2026_reg.csv">results feed</a><a href="../data/linelab/corpus.json">model corpus</a></td></tr>
+          <tr><td>Is a reward leaderboard justified now?</td><td>No. The committed seven-strategy registry has zero eligible entries; prospective escrow has not cleared its gates.</td><td>Prospective sample size, benchmark-relative proper-score skill, uncertainty, multiplicity control and permitted closing-price data.</td><td>Continue pre-registered singles-only shadow records; unlock rewards only after the frozen gates pass. Keep parlays/props behind a directly validated joint probability and published void/push rules.</td><td class="source"><span>Official NFL source: not applicable to model qualification.</span><a href="../data/linelab/registry.json">registry</a><a href="../fl2-lines/leaderboard.html">escrow rules</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="suggestions">
+    <h2>Suggested path before implementing more features</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Priority</th><th>Suggestion</th><th>Why it improves decisions</th><th>Missing information / gate</th><th>Review source</th></tr></thead>
+        <tbody>
+          <tr><td>P0</td><td>Resolve source terms and the public/private boundary before any scheduled NFL capture.</td><td>A scheduled request is not authorization; publishing raw rows can violate the stated data policy.</td><td>Written permission or a licensed feed; explicit retention and republication terms; consistent workflow configuration.</td><td class="source"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">Official NFL Terms</a><a href="../.github/workflows/fl2-lines-snapshot.yml">workflow requiring review</a></td></tr>
+          <tr><td>P1</td><td>Publish one immutable input manifest shared by all model sections.</td><td>Stops 137-game and 148-final vintages from being compared as though they were identical.</td><td>Source hashes, retrieval times, included game IDs, parser/code versions and per-file rights status.</td><td class="source"><a href="https://www.nfl.com/standings/division/2026/REG" target="_blank" rel="noopener">Official standings reconciliation target</a><a href="../review/integration-audit-2026-11-17.html#F-AUD-03">audit F-AUD-03</a></td></tr>
+          <tr><td>P1</td><td>Keep availability features gated on actual game-day evidence and playing time.</td><td>Prevents an injury label or jersey order from being mistaken for a starter, an active player, or a replacement-string number.</td><td>Licensed/official inactive evidence, dated Game Books or a verified snap-count route covering all clubs.</td><td class="source"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">Official NFL injury report</a><a href="https://www.nfl.com/teams/" target="_blank" rel="noopener">Official NFL teams</a></td></tr>
+          <tr><td>P1</td><td>Retain singles-only shadow competition until the signal qualifies.</td><td>Proper-score skill and uncertainty must qualify before any staking or reward; marginal probabilities do not prove a parlay joint probability.</td><td>Prospective sample, benchmark provenance, game-cluster uncertainty, multiplicity adjustment, and operator-specific push/void rules for combos.</td><td class="source"><span>Official NFL source: not applicable to strategy governance.</span><a href="../fl2-lines/suggestions.html">strategy suggestions</a><a href="../fl2-lines/prereg.html">pre-registration</a></td></tr>
+          <tr><td>P2</td><td>Reconcile the requirement registers without deleting each section's history.</td><td>One dated status view is easier to act on, while the crosswalk preserves disagreements and makes changes reviewable.</td><td>Canonical IDs, explicit evidence/source tier, status timestamp and a conflict-resolution rule.</td><td class="source"><span>Official NFL source: not applicable to repository governance.</span><a href="../data/landing_readiness.js">landing register</a><a href="../ops/data/requirements_v2.json">requirements register</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">These are proposals, not silent implementation decisions. The existing [<a href="../fl2-lines/suggestions.html">Suggestions register</a>] retains its own options and state.</p>
+  </section>
+
+  <section class="block" id="checks">
+    <h2>Verification performed in this integration pass</h2>
+    <ul>
+      <li><code>scripts/check_site.py</code>: seven top-level pages passed.</li>
+      <li><code>tools/check_links.py</code>: 16 hub pages and 22 registered sources passed.</li>
+      <li><code>./engine/linelab/build_all.sh</code>: deterministic rebuild completed; 12 pages passed source/link checks; all seven strategies remain ineligible.</li>
+      <li><code>fl2-lines/engine/check.py</code>: 16 pages, 74 requirements, 272 feed rows, 1,088 line rows and 816 price rows; zero failures.</li>
+      <li><code>tools/check_signals_links.py</code>: 18 pages, 101 tables, 1,305 table rows and 352 internal links passed its checks.</li>
+      <li><code>ops/check_readiness.py</code>: three readiness pages passed source-host and link checks.</li>
+      <li><code>signal/analysis/verify.py</code>: all 216 measurement and rendering checks passed.</li>
+      <li><code>engine/linelab/check_site.py</code>: 12 pages passed row-source, host and link checks.</li>
+      <li>Pages build commands <code>python3 scripts/make_pages.py</code> and <code>python3 scripts/build_site.py</code>: 11 pages regenerated; build reported <strong>Build OK</strong>. Generated <code>docs/*.html</code> was restored because the known generator drops hand-integrated navigation (F-I1 in <code>COORDINATION.md</code>); committed integrated docs remain unchanged.</li>
+      <li><code>tools/check_integrated_site.py</code>: PASS — 115 HTML pages; all 2,477 local href/src targets and fragments resolve. It reports 3,063 external references but does not fetch them. The 75-row landing register has 46 NFL URLs, 25 rows explicitly unverified as NFL facts, and 4 non-NFL references. The evidence-path probe reports 0 unresolved paths.</li>
+    </ul>
+    <div class="audit-note">
+      <strong>Limits.</strong> These checks validate the committed files and internal references; they do not prove that external pages are currently live, grant reuse rights, or re-verify NFL values against a live source. External official URLs are included for manual review. The workflow and storage requests above remain open and do not block publication of this clearly flagged audit.
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>FL2 research record · audit date 2026-11-17 · evidence captures latest central bundle 2026-11-16 · no live NFL fetch performed for this page.</p>
+  <p><a href="../index.html">Site overview</a> · <a href="../ledger/summary.html">Executive summary</a> · <a href="../COORDINATION.md">Coordination board</a> · <a href="https://github.com/sassnarep3-star/FL2" target="_blank" rel="noopener">Source repository</a></p>
+</footer>
+</body>
+</html>

@@ -51,6 +51,7 @@
 <a href="fl2-lines/index.html">Originated Lines</a>
       <a href="readiness/index.html">Readiness</a>
       <a href="ledger/flagged.html">Flagged</a>
+      <a href="review/integration-audit-2026-11-17.html">Integration audit</a>
     </nav>
   </div>
 </header>
@@ -70,6 +71,115 @@
       <span class="badge bad">0 strategies validated</span>
       <span class="badge warn">13 items flagged for review</span>
       <span class="badge mute">not betting advice</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Key verified figures — this snapshot</h2>
+    <p class="sub">Every figure below was read from the linked official source at the stated time and is held as a dated snapshot. Nothing here is estimated or inferred. Blanks mean "not confirmed," never zero.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Figure</th><th class="num">Value</th><th>Official source</th><th class="num">Captured</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Week 10 injury report — players listed Out</td>
+          <td class="num">66</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries/</a></td>
+          <td class="num">2026-11-14</td>
+          <td><span class="badge ok">verified at capture</span></td>
+        </tr>
+        <tr>
+          <td>Week 10 injury report — players listed Doubtful</td>
+          <td class="num">10</td>
+          <td class="src"><a href="https://www.nfl.com/injuries/" target="_blank" rel="noopener">nfl.com/injuries/</a></td>
+          <td class="num">2026-11-14</td>
+          <td><span class="badge ok">verified at capture</span></td>
+        </tr>
+        <tr>
+          <td>2026 regular-season standings — teams</td>
+          <td class="num">32</td>
+          <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings/</a></td>
+          <td class="num">2026-11-14</td>
+          <td><span class="badge ok">verified at capture</span></td>
+        </tr>
+        <tr>
+          <td>Week 10 schedule — games</td>
+          <td class="num">14</td>
+          <td class="src"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">nfl.com schedule</a></td>
+          <td class="num">2026-11-14</td>
+          <td><span class="badge ok">verified at capture</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Derived findings — not from an official source</h2>
+    <p class="sub">These are produced by the project's own backtest engine, not read from an official site. Per the verification rule they carry no official source link and are not presented as table rows.</p>
+    <div class="grid c2">
+      <div class="card pad">
+        <div class="eyebrow">Derived</div>
+        <strong>Strategies tested</strong>
+        <div class="small">Eleven single-bet strategies run out-of-sample (2011&ndash;2026), eight gates each. <span class="badge bad">0 validated</span>. See <a href="ledger/strategies.html">Strategy Lab</a> and <a href="ledger/method.html">Method</a>.</div>
+      </div>
+      <div class="card pad">
+        <div class="eyebrow">Derived</div>
+        <strong>Model vs market &mdash; Brier skill</strong>
+        <div class="num" style="font-size:20px">-8.1%</div>
+        <div class="small">The project's Elo model scores worse than the closing line on Brier. Derived from closing lines; not an official figure. See <a href="ledger/method.html">Method</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Data currency &amp; irregularities found this session</h2>
+    <div class="note warn">
+      <p><strong>This snapshot is dated.</strong> The data bundle is captured <strong>2026-11-14</strong>, before Week 10 kicked off. Live official pages now reflect post-Week-10 results &mdash; for example the standings show Buffalo 8&ndash;1, Cincinnati 7&ndash;2, Detroit 7&ndash;2 and New England 5&ndash;5, whereas the snapshot holds pre-Week-10 records. Treat every table as <em>dated</em>, not live, and re-check nfl.com before acting on any number.</p>
+    </div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">#</th><th>Irregularity</th><th>Severity</th><th>Source that would close it</th></tr></thead>
+      <tbody>
+        <tr class="flag">
+          <td class="num">1</td>
+          <td><strong>Snapshot staleness vs live official sources.</strong> Committed data is pre-Week-10 (2026-11-14); live nfl.com standings/schedule have advanced after Week 10 finals.</td>
+          <td><span class="badge warn">high</span></td>
+          <td class="src"><a href="https://www.nfl.com/standings/" target="_blank" rel="noopener">nfl.com/standings/</a> &middot; <a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">nfl.com schedule</a></td>
+        </tr>
+        <tr class="flag">
+          <td class="num">2</td>
+          <td><strong>No official sportsbook price source.</strong> nfl.com/odds/ returns 404; market prices come from an aggregated closing-line file and are labelled, never official.</td>
+          <td><span class="badge warn">medium</span></td>
+          <td class="src"><a href="https://www.nfl.com/odds/" target="_blank" rel="noopener">nfl.com/odds/ (404)</a> &middot; <a href="ledger/verification.html">Verification tiers</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="note">
+      <p><strong>Also flagged elsewhere (see <a href="ledger/flagged.html">Flagged for Review</a>):</strong> no validated strategy (11 ideas, 8 gates, none passed) and the unpublished depth-chart rank &mdash; the site cannot say whether a listed replacement is 2nd, 3rd or 4th string, so the availability index is a declared proxy, not a measured starter/backup split. See <a href="ledger/injuries.html">Injuries &amp; Lineups</a>.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Start here &mdash; the three decision registers</h2>
+    <p class="sub">Before implementing anything, review the proposals, the open questions, and what is blocked.</p>
+    <div class="grid c3">
+      <a class="card pad" href="ledger/suggestions.html" style="text-decoration:none;color:inherit">
+        <div class="eyebrow">Review before building</div>
+        <strong>Suggestions &amp; decision paths</strong>
+        <div class="small">Ten ranked proposals (S-01&hellip;S-10), each with options, an evidence-based recommendation, and an accept / reject / defer control. Nothing is implemented on your behalf.</div>
+      </a>
+      <a class="card pad" href="ledger/decisions.html" style="text-decoration:none;color:inherit">
+        <div class="eyebrow">20 questions</div>
+        <strong>What we know and what we don't</strong>
+        <div class="small">Each question tagged verified / partially verified / unknown / your-call, with the exact information that would close it.</div>
+      </a>
+      <a class="card pad" href="ledger/summary.html" style="text-decoration:none;color:inherit">
+        <div class="eyebrow">One page</div>
+        <strong>Executive summary</strong>
+        <div class="small">The headline finding, key numbers, prioritised recommendations, and what would overturn the conclusion.</div>
+      </a>
     </div>
   </section>
 
@@ -426,11 +536,11 @@
     td(r.update);
     var src = document.createElement("td");
     var a = document.createElement("a");
-    var href = (typeof r.official_source === "string" &&
-                (r.official_source.indexOf("http") === 0 || r.official_source.indexOf("/") > -1))
-      ? r.official_source : "ledger/verification.html";
+    var hasOfficialSource = typeof r.official_source === "string" &&
+      r.official_source.trim() !== "" && r.official_source.trim() !== "-" && r.official_source.trim() !== "—";
+    var href = hasOfficialSource ? r.official_source : "ledger/verification.html";
     a.setAttribute("href", href);
-    a.textContent = "source";
+    a.textContent = hasOfficialSource ? "source" : "No official NFL source recorded — unverified as an NFL fact";
     src.appendChild(a);
     if (r.evidence) {
       src.appendChild(document.createTextNode(" · " + r.evidence));

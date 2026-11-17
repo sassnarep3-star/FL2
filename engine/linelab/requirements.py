@@ -83,9 +83,11 @@ def main():
     reqs = [
         row("R01", "Add a price-snapshot store that records opening and closing numbers for every market we originate",
             "partial", "data/linelab/price_store.csv",
-            f"{spread_open_close} side markets have both an opening AND closing price; "
-            f"{spread_open_only} open-only; {spread_close_only} close-only; {spread_single} carry only a "
-            f"single undated line. Moneyline opening exists for 0 games.",
+            f"Side markets with BOTH an opening and a closing price: {spread_open_close}. Not one game "
+            f"has both, because every opening number is from 2021 and every closing number is from "
+            f"2006-2018, so the two sets do not overlap at all. {spread_open_only} games are open-only (2021), "
+            f"{spread_close_only} are close-only (2006-2018), and {spread_single} carry only a single "
+            f"undated line. Moneyline opening exists for 0 games.",
             "G01-price-history",
             "A second dated price vintage per market. Today the only opening numbers in the "
             "repository cover 272 games in 2021. To originate a line day-one and prove its "
@@ -114,8 +116,9 @@ def main():
             f"and whether he is himself listed as unavailable",
             "G02-depth-coverage",
             "Acquire the remaining 27 club charts. The 5 held show 6 slots where a rank-1 player is Out "
-            "or Doubtful and a named rank-2 replacement exists.",
-            "https://www.nfl.com/teams/new-england-patriots/depth-chart (404 — no official chart)"),
+            "or Doubtful and a named rank-2 replacement exists. The linked nfl.com per-team path "
+            "returns 404, which is why the register cites club pages instead.",
+            "https://www.nfl.com/teams/new-england-patriots/depth-chart"),
         row("R07", "Compute correlations only from officially sourced numbers and publish n with each value",
             "done", "data/linelab/scores.json",
             f"{len(scores.get('correlations', []))} correlation rows, each with r, n and a Fisher 95% interval; "

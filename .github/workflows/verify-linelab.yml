@@ -63,6 +63,15 @@ jobs:
           if bad:
               fail.append(f"{len(bad)} rows use a single line as an opening price")
 
+          # 2b. The published coverage claim must match the data it describes.
+          #     An earlier version of the site said 272 games had an open AND a
+          #     close; the true count is 0, because openings are 2021-only and
+          #     closes are 2006-2018-only. This asserts the count, not the prose.
+          both = [r for r in rows if r["opening"] and r["closing"]]
+          if both:
+              fail.append(f"{len(both)} rows have both an opening and a closing price; "
+                          f"the published coverage claim says none do")
+
           # 3. The holdout must not have been used to pick hyper-parameters.
           meta = json.load(open("data/linelab/model_meta.json"))
           split = meta.get("split", {})
