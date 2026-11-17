@@ -1624,12 +1624,12 @@ Per the coordination rules these are requests, not edits:
    edited by this session; #24's corrected claim (zero 2026 open+close pairs) is treated as true where this desk
    cites price coverage.
 |---|------|--------|-------|-----------------------------|-------|
-| B1 | Claim + coordination | **in progress** (2026-11-17) | `arena/b184fdaf-fl2` | `COORDINATION.md` | this section |
-| B2 | Complete the verified results feed: Week-10 SNF (PIT@CIN) + MNF (LAC@BAL) finals from official sources, layered immutable capture, self-checks to 150 finals + 32/32 replay vs post-Week-10 official records | **in progress** | `arena/b184fdaf-fl2` | `data/captures/week10-snf-final-2026-11-17.json`, `tools/build_results_feed.py`, `data/results_feed.*`, `ops/data/results/*`, ops recompute outputs (`ops/data/baselines_2026.json`, `ops/data/luck_panel_2026.csv`, `ops/data/drift_manifest.json`) | closes the 2 pending rows left on 2026-11-16 |
-| B3 | Venue transcription (D-I2): all 14 Week-10 fixtures from official game centres, per-row source URL | **in progress** | `arena/b184fdaf-fl2` | `data/captures/week10-venues-2026-11-17.json`, `data/venue_week10.csv` | game-centre fetches 2026-11-17 |
+| B1 | Claim + coordination | **done** (2026-11-17) | `arena/b184fdaf-fl2` | `COORDINATION.md` | this section |
+| B2 | Complete the verified results feed: Week-10 SNF (PIT@CIN) + MNF (LAC@BAL) finals from official sources, layered immutable capture, self-checks to 150 finals + 32/32 replay vs post-Week-10 official records | **done** (partial by design: SNF captured final, MNF live at capture → 149/150 with the pending row published and the completion recipe on the Flagged page) | `arena/b184fdaf-fl2` | `data/captures/week10-snf-final-2026-11-17.json`, `tools/build_results_feed.py`, `data/results_feed.*`, `ops/data/results/*`, ops recompute outputs (`ops/data/baselines_2026.json`, `ops/data/luck_panel_2026.csv`, `ops/data/drift_manifest.json`) | closes the 2 pending rows left on 2026-11-16 |
+| B3 | Venue transcription (D-I2): all 14 Week-10 fixtures from official game centres, per-row source URL | **done** (T1×T2 14/14 agree) | `arena/b184fdaf-fl2` | `data/captures/week10-venues-2026-11-17.json`, `data/venue_week10.csv` | game-centre fetches 2026-11-17 |
 | B4 | Hub integration: publish Week-10 completion + venue register on the landing page (layered additively over session 7e474dc8's dashboard; the double "Suggestions" nav link flagged by 310620fe was already deduped on current main) | **in progress** | `arena/b184fdaf-fl2` | `index.html` | integration scope per brief |
-| B5 | Open-PR close-out: merge #24 (Line Lab self-correction, checks green); decide #29 | **in progress** | `arena/b184fdaf-fl2` | `.git` via `gh` | rationale to be recorded below |
-| B6 | Final integration: all six checkers on the combined tree, PR, merge, Pages live check, record | **pending** | `arena/b184fdaf-fl2` | `.git` via `gh`, this file | per brief |
+| B5 | Open-PR close-out: merge #24 (Line Lab self-correction, checks green); decide #29 | **done** (#24 merged; #29 closed as superseded with rationale) | `arena/b184fdaf-fl2` | `.git` via `gh` | rationale to be recorded below |
+| B6 | Final integration: all six checkers on the combined tree, PR, merge, Pages live check, record | **done** (all checkers green; PRs #38 + #41 merged; Pages verified live; verify-decision-desk repaired and green) | `arena/b184fdaf-fl2` | `.git` via `gh`, this file | per brief |
 
 ## Claims
 
@@ -1793,9 +1793,10 @@ No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-
 
 | Item | Record |
 |---|---|
-| PR | https://github.com/sassnarep3-star/FL2/pull/36 (to be confirmed after `gh pr create`) |
-| Merge | recorded after merge |
-| Pages | recorded after merge |
+| PR | https://github.com/sassnarep3-star/FL2/pull/38 — merged (merge commit) 2026-11-17T03:05:29Z |
+| Repair PR | https://github.com/sassnarep3-star/FL2/pull/41 — Decision Desk post-merge repair (with-pending reconciliation), merged after `verify-decision-desk` failed on the #38 merge commit; both workflows green on the #41 merge commit (runs 44008433009 success, 44008432984 success) |
+| Pages | pages-build-deployment run 44008431935 success; live page verified 2026-11-17 ~04:20Z: the "Week 10 completed — results feed & venue register" section renders with the 14-row venue table (per-row game-centre links) and the refreshed readiness table |
+| Open-PR close-out | PR #24 merged 2026-11-17 (Line Lab price-coverage self-correction; PR #22's branch). PR #29 closed as superseded with documented rationale (its scope delivered by merged PRs #19/#20/#21/#30; branch ~159k lines behind main; would add a fourth overlapping register) |
 <<<<<<< HEAD
 =======
 
