@@ -1,20 +1,20 @@
-=== run_capture 2026-11-17T04:41:01Z season=2026 week=10
+=== run_capture 2026-11-17T04:46:18Z season=2026 week=10
 pwd=/home/runner/work/FL2/FL2
 python=/opt/hostedtoolcache/Python/3.11.18/x64/bin/python3 Python 3.11.18
 pdftotext=/usr/bin/pdftotext
 seed lines: 15
 total 392
-drwxr-xr-x 2 runner runner   4096 Nov 17 04:40 .
-drwxr-xr-x 3 runner runner   4096 Nov 17 04:40 ..
--rw-r--r-- 1 runner runner  14380 Nov 17 04:40 capture-log-2026-w10.json
--rw-r--r-- 1 runner runner   2635 Nov 17 04:40 capture-log-2026-w10.md
--rw-r--r-- 1 runner runner  16235 Nov 17 04:40 capture-manifest-2026-w10.json
--rw-r--r-- 1 runner runner    205 Nov 17 04:41 capture-stdout.txt
--rw-r--r-- 1 runner runner   6411 Nov 17 04:40 gamebooks-2026-w10.csv
--rw-r--r-- 1 runner runner   1784 Nov 17 04:40 gamecenter-seed.csv
--rw-r--r-- 1 runner runner  33896 Nov 17 04:40 inactives-2026-w10.csv
--rw-r--r-- 1 runner runner 197415 Nov 17 04:40 playtime-2026-w10.csv
--rw-r--r-- 1 runner runner  99547 Nov 17 04:40 starters-2026-w10.csv
+drwxr-xr-x 2 runner runner   4096 Nov 17 04:46 .
+drwxr-xr-x 3 runner runner   4096 Nov 17 04:46 ..
+-rw-r--r-- 1 runner runner  14380 Nov 17 04:46 capture-log-2026-w10.json
+-rw-r--r-- 1 runner runner   2635 Nov 17 04:46 capture-log-2026-w10.md
+-rw-r--r-- 1 runner runner  16235 Nov 17 04:46 capture-manifest-2026-w10.json
+-rw-r--r-- 1 runner runner    205 Nov 17 04:46 capture-stdout.txt
+-rw-r--r-- 1 runner runner   6411 Nov 17 04:46 gamebooks-2026-w10.csv
+-rw-r--r-- 1 runner runner   1784 Nov 17 04:46 gamecenter-seed.csv
+-rw-r--r-- 1 runner runner  33896 Nov 17 04:46 inactives-2026-w10.csv
+-rw-r--r-- 1 runner runner 197415 Nov 17 04:46 playtime-2026-w10.csv
+-rw-r--r-- 1 runner runner  99547 Nov 17 04:46 starters-2026-w10.csv
 --- capture ---
 seed rows matched: 14
 {
@@ -26,17 +26,17 @@ seed rows matched: 14
 exit=0
 --- files after ---
 total 392
-drwxr-xr-x 2 runner runner   4096 Nov 17 04:40 .
-drwxr-xr-x 3 runner runner   4096 Nov 17 04:40 ..
--rw-r--r-- 1 runner runner  14380 Nov 17 04:41 capture-log-2026-w10.json
--rw-r--r-- 1 runner runner   2635 Nov 17 04:41 capture-log-2026-w10.md
--rw-r--r-- 1 runner runner  16235 Nov 17 04:41 capture-manifest-2026-w10.json
--rw-r--r-- 1 runner runner   1083 Nov 17 04:41 capture-stdout.txt
--rw-r--r-- 1 runner runner   6411 Nov 17 04:41 gamebooks-2026-w10.csv
--rw-r--r-- 1 runner runner   1784 Nov 17 04:40 gamecenter-seed.csv
--rw-r--r-- 1 runner runner  33896 Nov 17 04:41 inactives-2026-w10.csv
--rw-r--r-- 1 runner runner 197415 Nov 17 04:41 playtime-2026-w10.csv
--rw-r--r-- 1 runner runner  99547 Nov 17 04:41 starters-2026-w10.csv
+drwxr-xr-x 2 runner runner   4096 Nov 17 04:46 .
+drwxr-xr-x 3 runner runner   4096 Nov 17 04:46 ..
+-rw-r--r-- 1 runner runner  14380 Nov 17 04:46 capture-log-2026-w10.json
+-rw-r--r-- 1 runner runner   2635 Nov 17 04:46 capture-log-2026-w10.md
+-rw-r--r-- 1 runner runner  16235 Nov 17 04:46 capture-manifest-2026-w10.json
+-rw-r--r-- 1 runner runner   1083 Nov 17 04:46 capture-stdout.txt
+-rw-r--r-- 1 runner runner   6411 Nov 17 04:46 gamebooks-2026-w10.csv
+-rw-r--r-- 1 runner runner   1784 Nov 17 04:46 gamecenter-seed.csv
+-rw-r--r-- 1 runner runner  33896 Nov 17 04:46 inactives-2026-w10.csv
+-rw-r--r-- 1 runner runner 197415 Nov 17 04:46 playtime-2026-w10.csv
+-rw-r--r-- 1 runner runner  99547 Nov 17 04:46 starters-2026-w10.csv
 === git status after add (staged) ===
 fl2-depth/data/verified/capture-log-2026-w10.json
 fl2-depth/data/verified/capture-log-2026-w10.md
