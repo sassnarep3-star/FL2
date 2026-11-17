@@ -20,7 +20,7 @@ mkdir -p "$OUTDIR"
   echo "--- capture ---"
 } > "$LOG" 2>&1
 
-python3 fl2-depth/engine/capture_gamebooks.py \
+python3 -u fl2-depth/engine/capture_gamebooks.py \
   --seed "$OUTDIR/gamecenter-seed.csv" \
   --season "$SEASON" \
   --week "$WEEK" \

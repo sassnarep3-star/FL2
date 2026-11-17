@@ -470,23 +470,113 @@ def main() -> int:
     if args.self_test:
         return self_test()
 
-    with open(args.seed, newline="", encoding="utf-8") as fh:
-        seed = list(csv.DictReader(fh))
-    seed = [r for r in seed if r.get("season") == args.season and r.get("week") == args.week]
-    if not seed:
-        print(f"no seed rows for season={args.season} week={args.week}")
-        return 2
-
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     os.makedirs(args.out, exist_ok=True)
     os.makedirs(args.work, exist_ok=True)
 
     def write_log(results, extra=""):
-        failures = [r for r in results if not r["status"].startswith("captured")]
+        payload = {"captured_at_utc": stamp, "season": args.season, "week": args.week,
+                   "note": extra,
+                   "games": [{k: v for k, v in r.items() if not k.startswith("_")}
+                             for r in results]}
+        with open(os.path.join(args.out, f"capture-log-{args.season}-w{args.week}.json"),
+                  "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, indent=1)
+        with open(os.path.join(args.out, f"capture-log-{args.season}-w{args.week}.md"),
+                  "w", encoding="utf-8") as fh:
+            fh.write(f"# Game Book capture log - {args.season} week {args.week}\n\n")
+            fh.write(f"Captured {stamp}. {extra}\n\n")
+            fh.write("| game | status | book url | sha256 | playtime rows | error |\n")
+            fh.write("|---|---|---|---|---|---|\n")
+            for r in results:
+                fh.write(f"| {r.get('game_id','')} | {r.get('status','')} | "
+                         f"{r.get('gamebook_url','')} | {(r.get('pdf_sha256') or '')[:16]} | "
+                         f"{r.get('playtime_rows','')} | "
+                         f"{str(r.get('error',''))[:400].replace('|','/')} |\n")
+
+    results = []
+    try:
+        with open(args.seed, newline="", encoding="utf-8") as fh:
+            seed = list(csv.DictReader(fh))
+        seed = [r for r in seed if r.get("season") == args.season and r.get("week") == args.week]
+        print(f"seed rows matched: {len(seed)}")
+        if not seed:
+            write_log([], extra=f"NO SEED ROWS for season={args.season} week={args.week}")
+            return 2
+        results = [capture_game(r, args.work) for r in seed]
+        write_log(results)
+    except Exception:  # noqa: BLE001
+        import traceback
+        write_log(results, extra="EXCEPTION: " + traceback.format_exc()[-2000:])
+        raise
+
+    bk = os.path.join(args.out, f"gamebooks-{args.season}-w{args.week}.csv")
+    st = os.path.join(args.out, f"starters-{args.season}-w{args.week}.csv")
+    ia = os.path.join(args.out, f"inactives-{args.season}-w{args.week}.csv")
+    pt = os.path.join(args.out, f"playtime-{args.season}-w{args.week}.csv")
+
+    with open(bk, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["game_id", "season", "week", "away", "home", "gamebook_url", "gamecenter_url",
+                    "pdf_sha256", "status", "book_venue", "book_roof_surface", "book_weather",
+                    "book_temp_f", "book_wind", "attendance", "kickoff_local",
+                    "playtime_unofficial", "playtime_rows", "captured_at_utc", "source_tier"])
+        for r, s in zip(seed, results):
+            w.writerow([r["game_id"], r["season"], r["week"], r["away"], r["home"],
+                        s.get("gamebook_url", ""), s.get("gamecenter_url", ""),
+                        s.get("pdf_sha256", ""), s.get("status", ""),
+                        s.get("book_venue", ""), s.get("book_roof_surface", ""),
+                        s.get("book_weather", ""), s.get("book_temp_f", ""), s.get("book_wind", ""),
+                        s.get("attendance", ""), s.get("kickoff_local", ""),
+                        s.get("playtime_unofficial", ""), s.get("playtime_rows", ""),
+                        stamp, "T1 official NFL Game Book"])
+
+    with open(st, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["game_id", "club", "unit", "slot", "jersey", "player_raw", "source_url"])
+        for s in results:
+            for club, unit, slot, jersey, name in s.get("_lineups", []):
+                w.writerow([s["game_id"], club, unit, slot, jersey, name, s.get("gamebook_url", "")])
+
+    with open(ia, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["game_id", "club", "list_type", "pos_raw", "jersey", "player_raw", "source_url"])
+        for s in results:
+            for key, label in (("_not_active", "not_active"), ("_did_not_play", "did_not_play")):
+                for rec in s.get(key, []):
+                    w.writerow([s["game_id"], rec["club"], label, rec["pos_raw"],
+                                rec["jersey"], rec["player_raw"], s.get("gamebook_url", "")])
+
+    with open(pt, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["game_id", "club", "player_raw", "pos_raw", "off_snaps", "off_pct",
+                    "def_snaps", "def_pct", "st_snaps", "st_pct", "source_url"])
+        for s in results:
+            for rec in s.get("_playtime", []):
+                w.writerow([s["game_id"], rec["club"], rec["player_raw"], rec["pos_raw"],
+                            rec["off_snaps"], rec["off_pct"], rec["def_snaps"], rec["def_pct"],
+                            rec["st_snaps"], rec["st_pct"], s.get("gamebook_url", "")])
+
+    manifest = {
+        "captured_at_utc": stamp,
+        "season": args.season,
+        "week": args.week,
+        "games": [{k: v for k, v in r.items() if not k.startswith("_")} for r in results],
+        "copyright_notice": next((r.get("copyright_notice", "") for r in results
+                                  if r.get("copyright_notice")), ""),
+        "fetched_from": sorted({r.get("gamebook_url", "") for r in results if r.get("gamebook_url")}),
+    }
+    with open(os.path.join(args.out, f"capture-manifest-{args.season}-w{args.week}.json"),
+              "w", encoding="utf-8") as fh:
+        json.dump(manifest, fh, indent=1)
+
+    failures = [r for r in results if not r["status"].startswith("captured")]
     print(json.dumps({"games": len(results),
                       "captured": sum(1 for r in results if r["status"].startswith("captured")),
                       "no_book_yet": [r["game_id"] for r in results
                                       if r["status"] == "no_gamebook_published_yet"],
-                      "failures": [{"g": r["game_id"], "s": r["status"], "e": r.get("error", "")}
+                      "failures": [{"g": r["game_id"], "s": r["status"],
+                                    "e": str(r.get("error", ""))[:300]}
                                    for r in failures]}, indent=1))
     return 0
 
