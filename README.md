@@ -13,6 +13,7 @@ FL2 is a research dashboard for originating NFL lines and testing signals. It ke
 - [Cross-section integrity audit / Flagged for Review](review/integration-audit-2026-11-17.html) — concrete inconsistencies, unresolved source/rights gates, questions, and proposed next steps.
 - [Suggestions and decision paths](fl2-lines/suggestions.html) — adopt/test/reject/defer proposals, including the information needed to choose.
 - [Questions and answers](fl2-lines/questions.html) — current answers, unknowns, and what would close them.
+- [Decision desk — the review surface](decision-desk/index.html) — one ranked board merging 67 decisions from 68 entries across 11 registers, the 55 open questions, and the 11 dated official captures behind every claim made about them.
 
 ## Current decision status (as of the committed artifacts)
 
@@ -34,6 +35,7 @@ FL2 is a research dashboard for originating NFL lines and testing signals. It ke
 | Strategy competition | [Strategy evaluation](linelab/strategies.html) · [Prospective leaderboard](fl2-lines/leaderboard.html) · [Pre-registration](fl2-lines/prereg.html) | Proper scores, uncertainty, controls, eligibility gates, signal/staking separation, and prospective escrow. Backtests are not presented as live leaderboard rewards. |
 | Availability and personnel | [Availability graph](fl2-lines/availability.html) · [Injuries](ledger/injuries.html) · [Depth graph](linelab/depth.html) · [Matchup matrix](fl2-lines/matrix.html) | Timestamped injury captures, designation reliability, partial depth evidence, and explicit gaps for starters, inactives, IR, transactions, and snaps. |
 | Decision support | [Questions](fl2-lines/questions.html) · [Suggestions](fl2-lines/suggestions.html) · [Flagged review](review/integration-audit-2026-11-17.html) | Questions answered from existing evidence, missing information, paths to discover it, and unresolved irregularities. |
+| Decision desk | [Board](decision-desk/suggestions.html) · [Questions](decision-desk/questions.html) · [Calibration](decision-desk/calibration.html) · [Freshness](decision-desk/freshness.html) · [Verification log](decision-desk/sources.html) | Merged suggestion registers with id collisions and duplicated registers computed rather than asserted; merged question register; designation calibration with position groups, official-only correlations and the parlay joint test; freshness diff; 10 flagged irregularities. Rebuilt by `tools/build_decision_desk.py`. |
 | Provenance | [Verification and sources](ledger/verification.html) · [Coordination board](COORDINATION.md) | Source tiers, capture history, reproducibility checks, task ownership, and verification records. |
 
 ## Source and uncertainty rules
@@ -58,6 +60,7 @@ python3 fl2-lines/engine/check.py
 python3 ops/check_readiness.py
 python3 signal/analysis/verify.py
 python3 tools/check_integrated_site.py
+python3 tools/check_decision_desk.py
 ```
 
 The Pages workflow also rebuilds the `docs/` dashboard with `scripts/make_pages.py` and `scripts/build_site.py`. Live NFL fetching is intentionally not part of these local checks. Do not enable or run an automated NFL-page capture until the terms/permission and private-storage gates in the [integrity audit](review/integration-audit-2026-11-17.html) are resolved.

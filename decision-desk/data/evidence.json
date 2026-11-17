@@ -1,0 +1,385 @@
+{
+  "capture_id": "dd-capture-2026-11-17-a",
+  "session": "session-3189b65d",
+  "branch": "arena/3189b65d-fl2",
+  "captured_at_utc": "2026-11-17T02:39:08Z",
+  "captured_at_note": "Every 'observed' value below was read off the live page by this session's page reader at or before this timestamp. A value is recorded only where the page was actually fetched; where the fetch failed or only part of the page was read, the row says so instead of filling the gap.",
+  "method": "fetch_page (rendered markdown of the live official page). No aggregator, no cache, no model recall.",
+  "entries": [
+    {
+      "id": "EV-01",
+      "object": "2026 Week 10 Monday-night game state",
+      "url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+      "fetched_at_utc": "2026-11-17T02:32:00Z",
+      "observed": "Page state: Live. Scoreboard reads LAC 17, BAL 7, 'Q2 01:56'. Quarter table: LAC 10 / 7 / - / - = 17; BAL 0 / 7 / - / - = 7. Game info: Location BALTIMORE, MD; Stadium M&T BANK STADIUM; network ESPN/ABC.",
+      "consequence": "The last ungraded fixture of the 2026 Week 10 corpus is not final. Any backtest or leaderboard run that treats Week 10 as closed right now is 1 game short, and the site's data/results_feed.csv correctly carries this row as in_progress (148 final + 1 in progress).",
+      "affects": [
+        "data/results_feed.csv row 2026_10_LAC_BAL",
+        "readiness register: backtest corpus completeness",
+        "fl2-lines/data/registers/readiness.csv R02"
+      ],
+      "status_after_check": "consistent - repo already flags it as in_progress; no correction needed",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-02",
+      "object": "2026 Week 10 slate and club records",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "fetched_at_utc": "2026-11-17T02:30:00Z",
+      "observed": "13 games marked FINAL plus 1 Live (LAC at BAL). Finals read here: WAS 24 NYG 21; NE 10 DET 35 (Munich, Nov 15); KC 35 ATL 13; HOU 24 CLE 27; MIN 30 GB 10; MIA 22 IND 24; CAR 20 NO 17; BUF 31 NYJ 12; JAX 40 TEN 23; LA 34 ARI 6; SEA 21 LV 13; SF 46 DAL 40; PIT 18 CIN 38. Teams on bye: CHI (7-2), DEN (7-2), PHI (2-7), TB (3-6).",
+      "consequence": "PIT@CIN is FINAL 18-38 on the official page today, which closes the item an earlier session flagged as 'without final scores at fetch time'. The Week 10 slate is 14 fixtures, so a complete corpus needs the Monday-night game.",
+      "affects": [
+        "data/results_feed.csv week 10 rows",
+        "flag: 'PIT@CIN / LAC@BAL without final scores at fetch time'"
+      ],
+      "status_after_check": "PIT@CIN now final in repo (18-38, matches); LAC@BAL still live - flag stays open for that row only",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-03",
+      "object": "2026 Week 11 slate (the slate the frozen forecasts sit on)",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "fetched_at_utc": "2026-11-17T02:30:30Z",
+      "observed": "Read from chunk 0 of 3 only. Confirmed on the official page: IND at HOU, Thursday Nov 19, 8:15 PM, Prime Video (records IND 3-7, HOU 3-6); MIA at BUF 1:00 PM CBS (1-8 / 8-1); BAL at CAR 1:00 PM FOX (4-5 / 4-5); NO at CHI 1:00 PM FOX (3-6 / 7-2); TEN at DAL 1:00 PM FOX (1-8 / 4-6); TB at DET 1:00 PM FOX (3-6 / 7-2). The remaining Sunday/Monday fixtures are in chunks 1-2, which this session did not read.",
+      "consequence": "Thursday 8:15 PM ET on Nov 19 is 2026-11-20 01:15 UTC, which is exactly the first-kickoff instant the pre-registration gate G4 was asserted against. 6 of the 13 Week 11 fixtures are T1-verified by this session; the other 7 rest on the earlier session's capture and are not re-verified here.",
+      "affects": [
+        "research/preregistration.md gate G4",
+        "data/captures/week11-market-2026-11-16.json (13 games)"
+      ],
+      "status_after_check": "partial verification recorded; 7 fixtures flagged as not re-verified by this session",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-04",
+      "object": "Official injury report - week roll state",
+      "url": "https://www.nfl.com/injuries/",
+      "fetched_at_utc": "2026-11-17T02:34:00Z",
+      "observed": "Page title: 'Official Latest NFL Injury Report for Players - Week 10 of the 2026 Season'. The 2026 week selector lists WEEK 1 through WEEK 10 only; there is no WEEK 11 tab yet. The tables shown are the Week 10 games (Thursday Nov 12 / Sunday Nov 15), with per-player Practice Status and Game Status columns.",
+      "consequence": "No official Week 11 availability data exists at this hour. For the Thursday fixture that leaves roughly one published report day (Wednesday Nov 18) before kickoff, so any 'availability-adjusted' forecast for IND@HOU is impossible to source before then. It also means the site's Week 10 tables are still the current official table, not a superseded one.",
+      "affects": [
+        "data/injuries.json (week 10 capture, 345 rows)",
+        "availability layer for Week 11",
+        "brief line: 'Snapshot the nfl.com injury report every Wed, Thu and Fri'"
+      ],
+      "status_after_check": "new finding - the Week 11 availability window is a scheduling constraint, not a data gap in our code",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-05",
+      "object": "Past-season official injury-report archive (2025)",
+      "url": "https://www.nfl.com/injuries/league/2025/reg10",
+      "fetched_at_utc": "2026-11-17T02:35:00Z",
+      "observed": "Renders as 'Official NFL Injury Report for Players - Week 10 of the 2025 Season' with the full per-player Practice Status and Game Status columns (8 chunks). Sample rows: LV - Aiden O'Connell QB Wrist Full Participation in Practice Out; DEN - Pat Surtain II CB Pectoral Did Not Participate In Practice Out; DEN - Marvin Mims Jr. WR Concussion Limited Participation in Practice Out; IND - DeForest Buckner DT Neck Did Not Participate In Practice Out.",
+      "consequence": "The league's own weekly report archive for past seasons is reachable at a predictable URL. The premise recorded in research/requirements-v2.md for R69, R78 and R91 - 'no archive is reachable' - is false as stated. Those three requirements are unblocked at the source level.",
+      "affects": [
+        "research/requirements-v2.md R69 (blocked)",
+        "research/requirements-v2.md R78 (blocked)",
+        "research/requirements-v2.md R91 (blocked)"
+      ],
+      "status_after_check": "premise refuted - see suggestion DS-01 on this page",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-06",
+      "object": "Past-season official injury-report archive (2024)",
+      "url": "https://www.nfl.com/injuries/league/2024/reg10",
+      "fetched_at_utc": "2026-11-17T02:36:00Z",
+      "observed": "Renders as 'Official NFL Injury Report for Players - Week 10 of the 2024 Season' (9 chunks). Sample rows: CIN - Tee Higgins WR Quadricep Did Not Participate In Practice Doubtful; CIN - Charlie Jones WR Groin Did Not Participate In Practice Doubtful; BAL - Isaiah Likely TE Hamstring Did Not Participate In Practice Out; CAR - Adam Thielen WR Hamstring Did Not Participate In Practice Out; CAR - D.J. Johnson LB Concussion Out.",
+      "consequence": "A second season renders the same way, so the URL pattern is general and not a one-off. Historical designations can now be joined to the participation rows already in the repository (signal/data/snap_participation.csv, 265,892 rows, seasons 2016-2026) from the primary source instead of only from the mirror.",
+      "affects": [
+        "fl2-lines/data/derived/designation-calibration.json (built on the mirror)",
+        "signal/data/sources.json S09 ('reachable only from CI')"
+      ],
+      "status_after_check": "new finding - the T1 path exists; the T2-only claim can be retired for the designation side",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-07",
+      "object": "Lions game-status designations (the brief's VR-08 / VR-12 item)",
+      "url": "https://www.nfl.com/injuries/",
+      "fetched_at_utc": "2026-11-17T02:34:00Z",
+      "observed": "Live official Lions table shows: Kerby Joseph S Knee Did Not Participate In Practice Out; Cade Mays C Ankle Did Not Participate In Practice Out; D.J. Reed CB Hip Did Not Participate In Practice Out. The repository capture at data/injuries.json carries the same three rows with the same three designations.",
+      "consequence": "The 'blank game-status cell' defect named in the brief is not present in the committed capture as it stands today; the requirement is satisfied by data/injuries.json and independently confirmed on the live page.",
+      "affects": [
+        "brief line: 'Populate the three missing Lions game-status designations'",
+        "data/injuries.json DET rows"
+      ],
+      "status_after_check": "resolved and verified twice (repo capture + live page)",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-08",
+      "object": "Club records on the live Week 11 page vs the published standings table",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-11",
+      "fetched_at_utc": "2026-11-17T02:30:30Z",
+      "observed": "Records printed beside the Week 11 matchups: IND 3-7, HOU 3-6, MIA 1-8, BUF 8-1, BAL 4-5, CAR 4-5, NO 3-6, CHI 7-2, TEN 1-8, DAL 4-6, TB 3-6, DET 7-2. data/standings.json is captured as_of 2026-11-14 and disagrees for 9 of those 12 clubs; it agrees for BAL, CHI and TB, which are the three that had no Week 10 Sunday game to add (BAL's Monday game is still live).",
+      "consequence": "The published standings table lags the results feed by exactly the Week 10 Sunday slate. The standings table and the results feed therefore contradict each other on the live site, and anything that reads standings (division races, rest, motivation features) reads a 3-day-old snapshot while the finals are already in the repository.",
+      "affects": [
+        "data/standings.json",
+        "fl2-dashboard/standings.html",
+        "team-level features that consume standings"
+      ],
+      "status_after_check": "new finding - see suggestion DS-02; diff is computed by tools/build_decision_desk.py, not typed",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-09",
+      "object": "Week 11 fixture venue conflict (IND@HOU)",
+      "url": "https://www.nfl.com/games/colts-at-texans-2026-reg-11",
+      "fetched_at_utc": "2026-11-17T02:38:00Z",
+      "observed": "Only the overview tab (chunk 2 of 3) was read: it shows the previous meeting (HOU at IND, Sep 27, 2026, FINAL, 19 points) and did not include the Stadium field. The Week 11 schedule page for this fixture links its hotel search to 'NRG Stadium'. data/results_feed.csv carries venue_stadium 'Reliant Stadium' for 2026_11_IND_HOU, sourced from the nflverse mirror.",
+      "consequence": "The venue for the opening Week 11 fixture is still not confirmed from the official game-centre Stadium field by this session, and two artefacts in the repository name it differently. It stays unverified and flagged rather than being resolved by preference.",
+      "affects": [
+        "data/results_feed.csv row 2026_11_IND_HOU",
+        "brief line: 'Transcribe the venue of every fixture from the official game centre and publish it'"
+      ],
+      "status_after_check": "open - fetch of the game-centre info chunk failed twice at the proxy; recorded as a gap, not a value",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-10",
+      "object": "Results feed vs the official page: the one fixture recorded as pending",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "fetched_at_utc": "2026-11-17T02:30:00Z",
+      "observed": "The official page prints 'Steelers 18, Bengals 38, FINAL, Sunday, November 15th'. The committed feed (data/results_feed.csv) carries row 2026_10_PIT_CIN with status in_progress and away_score 0 / home_score 0, with a note saying the scores are capture-time state and not a result. The Monday-night fixture 2026_10_LAC_BAL is labelled scheduled with blank scores; it was live (17-7, Q2) when checked.",
+      "consequence": "Replaying the feed's finals gives the official record for 29 of the 31 clubs whose record this session transcribed; the only two that fail are PIT and CIN, the two clubs in the one fixture the feed still holds open. Applying the published 18-38 reconciles 31 of 31. Two hazards follow: the corpus is a game short of what it claims, and a row with numeric 0-0 and a non-final status will poison any consumer that reads scores without reading status.",
+      "affects": [
+        "data/results_feed.csv row 2026_10_PIT_CIN",
+        "the 136-game backtest corpus count",
+        "every margin and total feature derived from the feed"
+      ],
+      "status_after_check": "new finding - the feed needs a rebuild from a fresh capture; the owning script is tools/build_results_feed.py, so the correction is requested in COORDINATION.md rather than hand-edited into another session's artefact",
+      "kind": "official-page"
+    },
+    {
+      "id": "EV-11",
+      "object": "Reproducibility of the committed pages under their own generators",
+      "url": "https://github.com/sassnarep3-star/FL2/blob/main/scripts/make_pages.py",
+      "fetched_at_utc": "2026-11-17T03:05:00Z",
+      "observed": "Ran the repo's own generators (scripts/make_pages.py, scripts/build_site.py, tools/repo_audit.py) and diffed against the committed tree. docs/*.html changed in 11 files: the regenerated navigation drops the hand-added cross-link to ../hub/index.html ('Decision Hub') that is present in the committed pages. fl2-dashboard/data/repo-audit.json changed because it embeds the branch name and the HEAD commit of whoever ran it. The changes were reverted by this session; no other section's file is modified by this PR.",
+      "consequence": "Two committed artefacts cannot be regenerated without losing content that a later session added by hand, and one of them rewrites its own provenance on every run. The Pages 'validate' job runs make_pages.py and build_site.py but never diffs the result, so the drift is invisible in CI and will be silently destroyed the next time someone regenerates and commits.",
+      "affects": [
+        "docs/*.html navigation",
+        "fl2-dashboard/data/repo-audit.json",
+        ".github/workflows/pages.yml validate job",
+        "brief line: 'Add a drift alarm to every scraper'"
+      ],
+      "status_after_check": "new finding - reported rather than fixed, because the fix touches other sections' files; board row DS-10 asks for the generator or the link to change, not both",
+      "kind": "repository-check",
+      "kind_note": "not a league fact: this row records something observed inside the repository, so it cites the file it concerns rather than an official page"
+    }
+  ],
+  "official_club_records_2026_11_17": {
+    "note": "Win-loss-tie records transcribed from the two live nfl.com pages read today, one per club, as printed beside each club logo. LAC is deliberately absent: no record line was rendered for it on either page, because its game was in progress. This block is data, not code - the freshness tab reads it from here and computes the diff.",
+    "week10_page": "https://www.nfl.com/schedules/2026/by-week/week-10",
+    "week11_page": "https://www.nfl.com/schedules/2026/by-week/week-11",
+    "records": {
+      "ARI": [
+        3,
+        7,
+        0
+      ],
+      "ATL": [
+        3,
+        7,
+        0
+      ],
+      "BAL": [
+        4,
+        5,
+        0
+      ],
+      "BUF": [
+        8,
+        1,
+        0
+      ],
+      "CAR": [
+        4,
+        5,
+        0
+      ],
+      "CHI": [
+        7,
+        2,
+        0
+      ],
+      "CIN": [
+        7,
+        2,
+        0
+      ],
+      "CLE": [
+        6,
+        4,
+        0
+      ],
+      "DAL": [
+        4,
+        6,
+        0
+      ],
+      "DEN": [
+        7,
+        2,
+        0
+      ],
+      "DET": [
+        7,
+        2,
+        0
+      ],
+      "GB": [
+        6,
+        4,
+        0
+      ],
+      "HOU": [
+        3,
+        6,
+        0
+      ],
+      "IND": [
+        3,
+        7,
+        0
+      ],
+      "JAX": [
+        7,
+        2,
+        0
+      ],
+      "KC": [
+        7,
+        2,
+        0
+      ],
+      "LA": [
+        6,
+        4,
+        0
+      ],
+      "LV": [
+        4,
+        6,
+        0
+      ],
+      "MIA": [
+        1,
+        8,
+        0
+      ],
+      "MIN": [
+        7,
+        2,
+        0
+      ],
+      "NE": [
+        5,
+        5,
+        0
+      ],
+      "NO": [
+        3,
+        6,
+        0
+      ],
+      "NYG": [
+        5,
+        3,
+        1
+      ],
+      "NYJ": [
+        2,
+        8,
+        0
+      ],
+      "PHI": [
+        2,
+        7,
+        0
+      ],
+      "PIT": [
+        6,
+        3,
+        0
+      ],
+      "SEA": [
+        6,
+        4,
+        0
+      ],
+      "SF": [
+        8,
+        1,
+        0
+      ],
+      "TB": [
+        3,
+        6,
+        0
+      ],
+      "TEN": [
+        1,
+        8,
+        0
+      ],
+      "WAS": [
+        3,
+        5,
+        1
+      ]
+    },
+    "bye_week_10": [
+      "CHI",
+      "DEN",
+      "PHI",
+      "TB"
+    ]
+  },
+  "failed_fetches": [
+    {
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-11 (chunk 1)",
+      "at_utc": "2026-11-17T02:37:00Z",
+      "error": "page reader proxy returned SignatureDoesNotMatch; the target page was not reached",
+      "handling": "the 7 Week 11 fixtures in chunks 1-2 are marked 'not re-verified by this session' rather than assumed correct"
+    },
+    {
+      "url": "https://www.nfl.com/games/colts-at-texans-2026-reg-11 (chunk 0)",
+      "at_utc": "2026-11-17T02:38:30Z",
+      "error": "page reader proxy returned SignatureDoesNotMatch; the target page was not reached",
+      "handling": "venue left unverified (EV-09); no value filled in"
+    }
+  ],
+  "pending_fixtures_now_decided": {
+    "note": "Fixtures the committed feed does not hold as final, with the result the official page printed when this session read it on 2026-11-17. Recorded here so the reconciliation is arithmetic on the capture, not a claim typed into a page. The feed itself is left untouched: rebuilding it belongs to tools/build_results_feed.py, so a rebuild is requested in COORDINATION.md.",
+    "rows": [
+      {
+        "game_id": "2026_10_PIT_CIN",
+        "away": "PIT",
+        "home": "CIN",
+        "away_score": 18,
+        "home_score": 38,
+        "status_on_page": "FINAL",
+        "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+        "feed_status": "in_progress",
+        "feed_scores": "0-0"
+      },
+      {
+        "game_id": "2026_10_LAC_BAL",
+        "away": "LAC",
+        "home": "BAL",
+        "away_score": null,
+        "home_score": null,
+        "status_on_page": "Live, Q2 01:56, LAC 17 BAL 7",
+        "url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+        "feed_status": "scheduled",
+        "feed_scores": "blank"
+      }
+    ]
+  },
+  "schema": {
+    "official-page": "a value read off an nfl.com page, with the fetch time; this is what verifies an NFL fact",
+    "repository-check": "an observation about a file in this repository (a diff, a generator run, a row count); it cites the file, and CI does not demand an official page for it"
+  }
+}

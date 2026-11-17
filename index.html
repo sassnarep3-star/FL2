@@ -36,6 +36,7 @@
     </div>
     <nav class="tabs" aria-label="Sections">
       <a href="index.html" aria-current="page">Overview</a>
+      <a href="decision-desk/index.html">Decision Desk</a>
       <a href="ledger/overview.html">Evidence Ledger</a>
       <a href="ledger/suggestions.html">Suggestions</a>
       <a href="ledger/decisions.html">Questions &amp; Answers</a>
@@ -364,6 +365,49 @@
       requirement's status, that disagreement is the finding, and collapsing them into one table would erase it.
       Consolidating the eight structures into one is proposed as a decision, not done silently. See
       <a href="ledger/suggestions.html">Suggestions</a>.</p>
+    </div>
+  </section>
+
+  <section class="block" id="decision-desk">
+    <h2>Decision desk &mdash; suggestions, questions and the path</h2>
+    <p class="sub">Added by session <code>3189b65d</code> (2026-11-17). Every other section here holds an
+    implementation; this one holds the review surface the brief asked for: the suggestions from all six registers
+    merged into one ranked queue with the arithmetic printed, the questions that must be answered before a decision is
+    reasonable (with the five this session could close from official pages), a freshness diff against the league, and
+    a dated capture log of what was checked, when, and what could not be reached.</p>
+    <div class="hub-grid">
+      <a class="tile pri" href="decision-desk/suggestions.html">
+        <div class="eyebrow">Choose a path first</div>
+        <h3>Suggestion review board</h3>
+        <p>One row per decision, not per file: register entries deduped across sections, each keeping its originating
+        id, split into what engineering can close and what only the owner can. Register collisions and verbatim
+        duplicates between files are computed and shown, not mentioned in prose.</p>
+        <div class="meta"><span class="badge ok">every row links to its register or a dated capture</span></div>
+      </a>
+      <a class="tile pri" href="decision-desk/questions.html">
+        <div class="eyebrow">Known / missing / how to close it</div>
+        <h3>Questions &amp; answers register</h3>
+        <p>The open questions from five registers, plus the answers this session could establish from the league's own
+        pages: the past-season injury archive is reachable (three requirements were blocked on the opposite premise),
+        the Week 11 report had not rolled yet, and the Monday-night fixture was still live.</p>
+        <div class="meta"><span class="badge ok">answers carry fetch times; gaps stay blank</span></div>
+      </a>
+      <a class="tile" href="decision-desk/freshness.html">
+        <div class="eyebrow">What the site has outlived</div>
+        <h3>Freshness diff</h3>
+        <p>Published standings versus the replay of the results feed versus the official page today; price coverage in
+        both stores; the corpus reconciliation that shows the feed is sound except for one fixture it still holds
+        open.</p>
+        <div class="meta"><span class="badge ok">computed at build time, no typed numbers</span></div>
+      </a>
+      <a class="tile" href="decision-desk/sources.html">
+        <div class="eyebrow">Manual review</div>
+        <h3>Verification log &amp; flagged items</h3>
+        <p>Ten official pages checked with timestamps, two fetches that failed and are recorded as failures, and
+        eight irregularities &mdash; including a &ldquo;blocked&rdquo; verdict that rested on a source test nobody had
+        run against the league's own archive.</p>
+        <div class="meta"><span class="badge ok">nothing filled in that could not be seen</span></div>
+      </a>
     </div>
   </section>
 
