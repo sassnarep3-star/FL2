@@ -661,6 +661,27 @@ def main() -> int:
             write_log([], extra=f"NO SEED ROWS for season={args.season} week={args.week}")
             return 2
         results = [capture_game(r, args.work) for r in seed]
+
+        # Integrity guard: if two games resolve to byte-identical PDFs, the
+        # game-centre page is not serving that game's own book (seen when a game is
+        # still in progress). Publishing the other game's players under this
+        # game's id would be fabrication, so the rows are dropped and flagged.
+        seen_hash = {}
+        for r in results:
+            h = r.get("pdf_sha256")
+            if not h:
+                continue
+            if h in seen_hash:
+                r["status"] = "duplicate_pdf_hash"
+                r["error"] = (f"byte-identical to the book already captured for "
+                              f"{seen_hash[h]}; this game's own book is not being "
+                              f"served, so its rows are withheld rather than guessed")
+                for key in ("_lineups", "_playtime", "_not_active", "_did_not_play"):
+                    r[key] = []
+                r["playtime_rows"] = 0
+            else:
+                seen_hash[h] = r["game_id"]
+
         for r in results:
             if r["game_id"] in dump_ids:
                 src = os.path.join(args.work, f"{r['game_id']}.txt")
@@ -685,7 +706,8 @@ def main() -> int:
         w.writerow(["game_id", "season", "week", "away", "home", "gamebook_url", "gamecenter_url",
                     "pdf_sha256", "status", "book_venue", "book_roof_surface", "book_weather",
                     "book_temp_f", "book_wind", "attendance", "kickoff_local",
-                    "playtime_unofficial", "playtime_rows", "captured_at_utc", "source_tier"])
+                    "playtime_unofficial", "playtime_rows", "captured_at_utc",
+                    "source_tier", "note"])
         for r, s in zip(seed, results):
             w.writerow([r["game_id"], r["season"], r["week"], r["away"], r["home"],
                         s.get("gamebook_url", ""), s.get("gamecenter_url", ""),
@@ -694,7 +716,8 @@ def main() -> int:
                         s.get("book_weather", ""), s.get("book_temp_f", ""), s.get("book_wind", ""),
                         s.get("attendance", ""), s.get("kickoff_local", ""),
                         s.get("playtime_unofficial", ""), s.get("playtime_rows", ""),
-                        stamp, "T1 official NFL Game Book"])
+                        stamp, "T1 official NFL Game Book",
+                        "" if s.get("status") == "captured" else s.get("error", "")])
 
     with open(st, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
@@ -851,6 +874,27 @@ def self_test() -> int:
     assert snap("Test Away", "J.Ashby") == ("LS", "", "", "", "", "10", "36")
     assert snap("Test Home", "J.Bates") == ("K", "", "", "", "", "11", "39")
     assert snap("Test Home", "H.Hatten") == ("LS", "", "", "", "", "9", "32")
+    # a book served for the wrong game must be withheld, not published
+    dup = [{"game_id": "A", "pdf_sha256": "abc", "status": "captured",
+            "playtime_rows": 3, "_playtime": [1], "_lineups": [1],
+            "_not_active": [1], "_did_not_play": [1]},
+           {"game_id": "B", "pdf_sha256": "abc", "status": "captured",
+            "playtime_rows": 3, "_playtime": [1], "_lineups": [1],
+            "_not_active": [1], "_did_not_play": [1]}]
+    seen = {}
+    for r in dup:
+        h = r["pdf_sha256"]
+        if h in seen:
+            r["status"] = "duplicate_pdf_hash"
+            for k in ("_lineups", "_playtime", "_not_active", "_did_not_play"):
+                r[k] = []
+            r["playtime_rows"] = 0
+        else:
+            seen[h] = r["game_id"]
+    assert dup[1]["status"] == "duplicate_pdf_hash"
+    assert dup[1]["_playtime"] == [] and dup[1]["playtime_rows"] == 0
+    assert dup[0]["status"] == "captured" and dup[0]["_playtime"] == [1]
+
     print("self-test OK")
     return 0
 
