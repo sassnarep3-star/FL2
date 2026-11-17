@@ -519,8 +519,13 @@ def freshness(ev=None):
 
     # corpus reconciliation: replay the feed, and replay it again with the fixtures this
     # session found decided applied. Both numbers are computed; neither is asserted.
+    # A captured "pending then decided" fixture may since have become final in the feed
+    # itself (e.g. the Week-10 SNF final captured 2026-11-17); applying such a fixture
+    # again would double-count it, so only still-open fixtures are applied here.
     pending = (ev.get("pending_fixtures_now_decided") or {}).get("rows", [])
-    applied = {x["game_id"]: x for x in pending if x.get("home_score") is not None}
+    final_ids = {r.get("game_id") for r in finals}
+    applied = {x["game_id"]: x for x in pending
+               if x.get("home_score") is not None and x["game_id"] not in final_ids}
 
     def replay(extra=None):
         tal = defaultdict(lambda: [0, 0, 0])
