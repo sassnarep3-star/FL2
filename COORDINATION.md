@@ -1916,10 +1916,13 @@ sets out:
 
 | Dataset | Rows | File |
 |---|---|---|
-| Game Book register | 14 (13 captured, 1 withheld) | `fl2-depth/data/verified/gamebooks-2026-w10.csv` |
-| Actual starters | 572 (11 offence + 11 defence × 2 clubs × 13 games) | `starters-2026-w10.csv` |
-| Snap counts | 1,218 (off / def / ST) | `playtime-2026-w10.csv` |
-| Not Active + Did Not Play | 188 | `inactives-2026-w10.csv` |
+| Game Book register | 14 (13 complete, 1 partial) | `fl2-depth/data/verified/gamebooks-2026-w10.csv` |
+| Actual starters | 616 (11 offence + 11 defence × 2 clubs × 14 games) | `starters-2026-w10.csv` |
+| Snap counts | 1,218 (off / def / ST), 13 of 14 books | `playtime-2026-w10.csv` |
+| Not Active + Did Not Play | 205 | `inactives-2026-w10.csv` |
+
+Venue, roof/surface, weather, temperature, wind, kickoff time and paid attendance are
+also captured per book (14/14 venues).
 
 Every row carries the URL of the exact PDF it was parsed from.
 
@@ -1942,11 +1945,20 @@ WAS Not Active = Kaliakmanis, Yiadom, Barber, Togiai, Patrick, Yankoff).
 
 ### Flagged — published, not hidden
 
-1. **LAC @ BAL withheld.** Its game-centre page was serving a Game Book **byte-identical**
-   to WAS @ NYG (same SHA-256 `12c818cc…`). The game was still in progress at capture.
-   Publishing one game's players under another game's id would be fabrication, so the
-   script drops the rows and records `status = duplicate_pdf_hash`. Re-capture once the
-   game is final. → `fl2-depth/flagged.html`
+1. **LAC @ BAL — resolved, then re-flagged.** At 03:1x UTC its game-centre page was
+   serving a Game Book **byte-identical** to WAS @ NYG (same SHA-256 `12c818cc…`) while the
+   game was still in progress. Publishing one game's players under another game's id would
+   be fabrication, so the rows were dropped and `status = duplicate_pdf_hash` recorded. At
+   04:2x UTC, after the game went final, the correct book appeared (M&T Bank Stadium) and
+   all 14 games now have starters and inactive lists. **But that book carries no Playtime
+   Percentage section yet** — the league fills sections in after a game. So the game is
+   `captured_no_playtime`: its 44 starters and inactive list are published, its snap counts
+   are **left blank**, and it is listed on the flagged page. Re-capture will fill them.
+   → `fl2-depth/flagged.html`
+
+   This is the behaviour the duplicate-hash guard exists for: without it, WAS @ NYG's
+   players would have been published as LAC @ BAL's, and the error would have been
+   invisible in a table of 616 plausible-looking rows.
 2. **The league captions its playtime table "(Unofficial)".** The caption is stored per
    game (`playtime_unofficial`) and printed on every snap table rather than dropped.
 3. **A Game Book is published only after kickoff**, so it is never a pre-game input. It is
@@ -1978,6 +1990,23 @@ parser passed a tidy synthetic test while failing on the real PDFs. What the rea
 
 Each of these is now covered by the offline self-test (`--self-test`), which is built from
 synthetic books that reproduce the real geometry. The workflow fails if it fails.
+
+### CI defect found and fixed (it would have hidden every future failure)
+
+The capture job's commit step reported **success while publishing nothing**, for four runs
+in a row. Two causes, both now fixed and commented in the workflow:
+
+1. `actions/checkout` leaves a **detached HEAD**, so a bare `git push` had no upstream and
+   failed — silently, because the step did not check its exit status. Now it pushes
+   `HEAD:$GITHUB_REF_NAME` explicitly and **fails the job** if all three attempts fail.
+2. The build step rewrites tracked HTML, so `git add` of only `data/verified` left files
+   unstaged and `git rebase` then refused to run ("cannot rebase: You have unstaged
+   changes"). Now the whole `fl2-depth` tree is staged first.
+
+The job also no longer triggers on `fl2-depth/data/**` or `fl2-depth/*.html`, so the
+bot's own commit cannot re-trigger it — that loop was what produced seven runs in ten
+minutes. And `duplicate_pdf_hash` / `captured_no_playtime` are accepted states: they are
+flagged on the site, so failing the build would only train us to ignore red builds.
 
 ### Files
 

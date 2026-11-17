@@ -164,12 +164,18 @@ GAMES = [g["game_id"] for g in gamebooks]
 
 def build_index() -> str:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    stats = [("Games captured", str(len(captured)),
-              "of %d in week %s" % (len(gamebooks), WEEK)),
+    with_playtime = sum(1 for g in gamebooks
+                        if g["status"].startswith("captured")
+                        and int(g.get("playtime_rows") or 0))
+    stats = [("Books captured", str(sum(1 for g in gamebooks
+                                        if g["status"].startswith("captured"))),
+              "of %d games in week %s" % (len(gamebooks), WEEK)),
              ("Actual starters", str(len(starters)),
-              "11 offense + 11 defence per club"),
-             ("Snap-count rows", str(len(playtime)), "offence, defence, special teams"),
-             ("Inactive / DNP rows", str(len(inactives)), "official lists")]
+              "11 offence + 11 defence per club"),
+             ("Snap-count rows", str(len(playtime)),
+              "from %d of %d books" % (with_playtime, len(gamebooks))),
+             ("Inactive / DNP rows", str(len(inactives)),
+              "official Not Active + Did Not Play")]
 
     stat_html = "\n".join(
         f'<div class="stat"><div class="k">{esc(k)}</div><div class="v">{esc(v)}</div>'
@@ -182,8 +188,13 @@ def build_index() -> str:
         pt_n = sum(1 for r in playtime if r["game_id"] == gid)
         ia_n = sum(1 for r in inactives if r["game_id"] == gid)
         status = g["status"]
-        badge = ('<span class="badge ok">captured</span>' if status == "captured"
-                 else '<span class="badge bad">withheld</span>')
+        if status == "captured":
+            badge = '<span class="badge ok">captured</span>'
+        elif status.startswith("captured"):
+            badge = '<span class="badge warn">partial</span>'
+        else:
+            badge = '<span class="badge bad">withheld</span>'
+
         rows.append("<tr><td class='nowrap'><strong>%s</strong></td><td>%s</td>"
                     "<td class='num'>%s</td><td class='num'>%s</td><td class='num'>%s</td>"
                     "<td>%s</td><td class='mono'>%s</td></tr>" % (
@@ -541,6 +552,22 @@ a path is selected.</p></div>
 # --------------------------------------------------------------------------- flagged
 
 def build_flagged() -> str:
+    incomplete_rows = []
+    for g in gamebooks:
+        if not (g["status"].startswith("captured") and not int(g.get("playtime_rows") or 0)):
+            continue
+        gid = g["game_id"]
+        incomplete_rows.append(
+            "<tr class='flag'><td>%s</td><td>%s</td><td class='num'>%d</td>"
+            "<td class='num'>%s</td><td class='num'>%d</td><td>%s</td></tr>" % (
+                esc(game_label(gid)), esc(g["status"]),
+                sum(1 for r in starters if r["game_id"] == gid),
+                esc(g.get("playtime_rows", "0")),
+                sum(1 for r in inactives if r["game_id"] == gid),
+                book_link(g.get("gamebook_url", ""))))
+    if not incomplete_rows:
+        incomplete_rows.append("<tr><td colspan='6' class='blank'>"
+                               "every captured book carries a playtime table</td></tr>")
     rows = []
     for g in withheld:
         rows.append("<tr class='flag'><td>%s</td><td>%s</td><td>%s</td>"
@@ -568,7 +595,18 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>2. The playtime table is captioned (Unofficial) by the league</h2>
+  <h2>2. Games whose book is missing a section</h2>
+  <p>A book can be published while still incomplete — the league fills sections in after
+  the game. Where the playtime table is absent, the starters and inactive lists are still
+  published and the snap-count rows are simply left blank, because a snap count that is not
+  on the page cannot be estimated.</p>
+  {table("Captured, but with a section missing",
+         ["Game", "Status", "Starters", "Snap rows", "Inactive/DNP", "Source"],
+         incomplete_rows)}
+</section>
+
+<section class="card pad">
+  <h2>3. The playtime table is captioned (Unofficial) by the league</h2>
   <p>The league prints <em>Percent of playtime per player on offense, defense and special
   teams (Unofficial)</em> above the table. It is the only official snap-count source that
   exists — <code>nfl.com/stats/snap-counts/</code> returns 404 — so we use it and carry the
@@ -578,7 +616,7 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>3. A venue name disagrees with another section of this repo</h2>
+  <h2>4. A venue name disagrees with another section of this repo</h2>
   <p>Session <code>arena/d81dd61b-fl2</code> recorded the NE @ DET venue as
   <em>Munich / FC Bayern Munich Stadium</em>, read from the game-centre page. The Game Book
   for the same fixture prints <strong>Allianz Arena, Munich, Germany</strong> on its header.
@@ -592,7 +630,7 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>4. What this data cannot be used for</h2>
+  <h2>5. What this data cannot be used for</h2>
   <p>A Game Book is published only after a game kicks off. It is therefore never a pre-game
   input: it is the ground truth a pre-game model is scored against, and the historical corpus
   a depth model is fitted on. Any use of it as a same-week input would be look-ahead.</p>

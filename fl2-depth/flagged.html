@@ -47,7 +47,24 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>2. The playtime table is captioned (Unofficial) by the league</h2>
+  <h2>2. Games whose book is missing a section</h2>
+  <p>A book can be published while still incomplete — the league fills sections in after
+  the game. Where the playtime table is absent, the starters and inactive lists are still
+  published and the snap-count rows are simply left blank, because a snap count that is not
+  on the page cannot be estimated.</p>
+  <div class="table-wrap">
+<table class="">
+<caption>Captured, but with a section missing</caption>
+<thead><tr><th>Game</th><th>Status</th><th>Starters</th><th>Snap rows</th><th>Inactive/DNP</th><th>Source</th></tr></thead>
+<tbody>
+<tr class='flag'><td>LAC @ BAL</td><td>captured_no_playtime</td><td class='num'>44</td><td class='num'>0</td><td class='num'>17</td><td><a href="https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card pad">
+  <h2>3. The playtime table is captioned (Unofficial) by the league</h2>
   <p>The league prints <em>Percent of playtime per player on offense, defense and special
   teams (Unofficial)</em> above the table. It is the only official snap-count source that
   exists — <code>nfl.com/stats/snap-counts/</code> returns 404 — so we use it and carry the
@@ -76,7 +93,7 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>3. A venue name disagrees with another section of this repo</h2>
+  <h2>4. A venue name disagrees with another section of this repo</h2>
   <p>Session <code>arena/d81dd61b-fl2</code> recorded the NE @ DET venue as
   <em>Munich / FC Bayern Munich Stadium</em>, read from the game-centre page. The Game Book
   for the same fixture prints <strong>Allianz Arena, Munich, Germany</strong> on its header.
@@ -95,7 +112,7 @@ with a link to the official source each one relates to.</p></div>
 </section>
 
 <section class="card pad">
-  <h2>4. What this data cannot be used for</h2>
+  <h2>5. What this data cannot be used for</h2>
   <p>A Game Book is published only after a game kicks off. It is therefore never a pre-game
   input: it is the ground truth a pre-game model is scored against, and the historical corpus
   a depth model is fitted on. Any use of it as a same-week input would be look-ahead.</p>

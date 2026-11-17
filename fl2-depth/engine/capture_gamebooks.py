@@ -624,6 +624,10 @@ def _capture_game_inner(row: dict, workdir: str, res: dict) -> dict:
     res["playtime_unofficial"] = unofficial
     res["playtime_rows"] = len(pt)
     res["status"] = "captured" if pt else "captured_no_playtime"
+    if not pt:
+        res["error"] = ("the book for this game is published but carries no Playtime "
+                        "Percentage section yet; starters and inactive lists are "
+                        "captured, snap counts are left blank rather than inferred")
     return res
 
 

@@ -55,7 +55,7 @@ jobs:
         env:
           SEASON: ${{ inputs.season || '2026' }}
           WEEK: ${{ inputs.week || '10' }}
-          DUMP_GAMES: '2026_10_NE_DET'
+          DUMP_GAMES: ''
         run: bash fl2-depth/engine/run_capture.sh
 
       - name: Validate the capture
@@ -78,11 +78,7 @@ jobs:
           set -uo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          {
-            echo ""
-            echo "=== git status before add ==="
-            git status --porcelain | head -30
-          } >> fl2-depth/data/verified/capture-stdout.txt
+          git add -A fl2-depth
           # Stage everything under fl2-depth, not just the data: the build step
           # rewrites tracked HTML, and leaving those unstaged makes the rebase below
           # refuse to run ("cannot rebase: You have unstaged changes").

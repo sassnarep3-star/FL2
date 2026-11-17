@@ -48,7 +48,7 @@ def read(name: str) -> list:
 
 
 def main() -> int:
-    failures, checks = [], 0
+    failures, warnings, checks = [], [], 0
 
     def check(ok: bool, label: str, detail: str = "") -> None:
         nonlocal checks
@@ -62,6 +62,12 @@ def main() -> int:
     inactives = read(f"inactives-{SEASON}-w{WEEK}.csv")
 
     captured = [g for g in gamebooks if g["status"] == "captured"]
+    for g in gamebooks:
+        if g["status"].startswith("captured") and not int(g.get("playtime_rows") or 0):
+            warnings.append("%s: book captured but the playtime table is absent "
+                            "(snap counts left blank, not inferred)" % g["game_id"])
+        if not sum(1 for r in starters if r["game_id"] == g["game_id"]):
+            warnings.append("%s: no starter rows parsed" % g["game_id"])
     check(bool(gamebooks), "the game-book register is not empty")
     check(bool(captured), "at least one game was captured")
 
@@ -117,6 +123,8 @@ def main() -> int:
     print(f"  starter rows        {len(starters)}")
     print(f"  snap-count rows     {len(playtime)}")
     print(f"  inactive / DNP rows {len(inactives)}")
+    for w in warnings:
+        print(f"  WARN: {w}")
     for f in failures:
         print(f"  FAIL: {f}")
     return 1 if failures else 0
