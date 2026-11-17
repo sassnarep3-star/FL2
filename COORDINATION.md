@@ -2020,6 +2020,17 @@ fl2-depth/{index,starters,snaps,inactives,sources,questions,suggestions,flagged}
 .github/workflows/fl2-depth-capture.yml capture → validate → build → commit
 ```
 
+### Merge
+
+PR **#43** → https://github.com/sassnarep3-star/FL2/pull/43 — merged 2026-11-17T04:46:01Z
+as `cb7ec49`. `Validate and publish site` (main) **success**; `pages build and deployment`
+**success**; GitHub Pages reports **built** at https://sassnarep3-star.github.io/FL2/.
+All 8 pages confirmed present on `main` and the hub tile confirmed present in `index.html`.
+
+Rebasing onto `main` hit two conflicts, both in this append-only board; both were resolved
+by keeping **both** sides (another session's `arena/d81dd61b-fl2` section plus this one),
+with a `<!-- merged: both sides kept -->` marker. No other session's work was discarded.
+
 ### Still open (→ `fl2-depth/questions.html`)
 
 Eight questions, each with a concrete way to discover the answer. The blocking ones:
