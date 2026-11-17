@@ -571,47 +571,47 @@ game_id,club,unit,slot,jersey,player_raw,source_url
 2026_10_PIT_CIN,Pittsburgh Steelers,defense,S,3,J.Brisker,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,offense,HB,30,C.Brown,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,defense,S,27,J.Battle,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,WR,1,Q.Johnston,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,OLB,45,T.Tuipulotu,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,WR,4,Z.Flowers,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,OLB,91,T.Hendrickson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,WR,9,T.Harris,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,DL,93,T.Tart,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,TE,85,J.Cuevas,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,DL,96,B.Washington,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,TE,88,C.Kolar,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,DL,94,D.Tomlinson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,LT,79,R.Stanley,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,DL,98,T.Jones,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,LT,76,J.Alt,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,OLB,52,K.Mack,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,LG,74,J.Simpson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,DL,92,N.Madubuike,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,LG,65,L.Taylor,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,LB,53,D.Phillips,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,C,64,C.Jurgens,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,OLB,15,M.Green,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,C,66,J.Slaughter,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,LB,0,D.Henley,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,RG,71,O.Ioane,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,ILB,32,T.Simpson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,RG,69,C.Strange,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,DB,2,E.Molden,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,RT,70,R.Rosengarten,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,ILB,0,R.Smith,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,RT,77,T.Burke,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,CB,26,D.Jackson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,WR,6,J.Lane,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,CB,2,N.Wiggins,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,QB,10,J.Herbert,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,CB,4,T.Still,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,WR,7,R.Bateman,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,CB,44,M.Humphrey,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,FB,44,S.Matlock,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,CB,20,C.Hart,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,QB,11,J.Brissett,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,S,24,M.Starks,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,offense,RB,8,O.Hampton,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Los Angeles Chargers,defense,S,23,T.Jefferson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,offense,RB,22,D.Henry,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_LAC_BAL,Baltimore Ravens,defense,S,14,K.Hamilton,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,WR,1,Q.Johnston,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,OLB,45,T.Tuipulotu,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,WR,4,Z.Flowers,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,OLB,91,T.Hendrickson,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,WR,9,T.Harris,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,DL,93,T.Tart,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,TE,85,J.Cuevas,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,DL,96,B.Washington,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,TE,88,C.Kolar,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,DL,94,D.Tomlinson,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,LT,79,R.Stanley,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,DL,98,T.Jones,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,LT,76,J.Alt,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,OLB,52,K.Mack,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,LG,74,J.Simpson,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,DL,92,N.Madubuike,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,LG,65,L.Taylor,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,LB,53,D.Phillips,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,C,64,C.Jurgens,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,OLB,15,M.Green,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,C,66,J.Slaughter,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,LB,0,D.Henley,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,RG,71,O.Ioane,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,ILB,32,T.Simpson,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,RG,69,C.Strange,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,DB,2,E.Molden,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,RT,70,R.Rosengarten,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,ILB,0,R.Smith,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,RT,77,T.Burke,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,CB,26,D.Jackson,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,WR,6,J.Lane,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,CB,2,N.Wiggins,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,QB,10,J.Herbert,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,CB,4,T.Still,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,WR,7,R.Bateman,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,CB,44,M.Humphrey,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,FB,44,S.Matlock,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,CB,20,C.Hart,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,QB,11,J.Brissett,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,S,24,M.Starks,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,offense,RB,8,O.Hampton,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,defense,S,23,T.Jefferson,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,offense,RB,22,D.Henry,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,defense,S,14,K.Hamilton,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
