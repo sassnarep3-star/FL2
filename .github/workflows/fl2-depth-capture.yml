@@ -1,0 +1,132 @@
+name: FL2 depth capture (official Game Books)
+
+# Captures official NFL Game Books for a season/week and commits the parsed CSVs
+# plus a SHA-256 manifest. Runs only when dispatched or on the weekly schedule.
+#
+# Why this runs in CI: the agent sandbox has no route to www.nfl.com, so the
+# capture cannot be performed from the workspace. GitHub-hosted runners can.
+#
+# Data policy: only www.nfl.com and static.www.nfl.com are contacted. Every row
+# written carries the URL of the exact PDF it was parsed from. The Playtime
+# Percentage table is captioned "(Unofficial)" by the league; the caption is
+# stored with the data, not dropped.
+
+on:
+  push:
+    paths:
+      - 'fl2-depth/engine/**'
+      - '.github/workflows/fl2-depth-capture.yml'
+  workflow_dispatch:
+    inputs:
+      season:
+        description: Season year
+        required: true
+        default: "2026"
+      week:
+        description: Week number
+        required: true
+        default: "10"
+  schedule:
+    # Tuesdays 09:15 UTC, after Monday Night Football is final
+    - cron: "15 9 * * 2"
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install poppler-utils (pdftotext)
+        run: sudo apt-get update -y && sudo apt-get install -y poppler-utils
+
+      - name: Parser self-test (offline, no network)
+        run: python3 fl2-depth/engine/capture_gamebooks.py --self-test
+
+      - name: Capture Game Books
+        id: capture
+        continue-on-error: true
+        env:
+          SEASON: ${{ inputs.season || '2026' }}
+          WEEK: ${{ inputs.week || '10' }}
+          DUMP_GAMES: ''
+        run: bash fl2-depth/engine/run_capture.sh
+
+      - name: Validate the capture
+        run: python3 fl2-depth/engine/validate_depth.py
+
+      - name: Build the depth site (validates the build; output is not committed here)
+        run: python3 fl2-depth/engine/build_site.py
+
+      - name: Upload raw text as an artifact (not committed)
+        uses: actions/upload-artifact@v4
+        with:
+          name: gamebook-text-${{ inputs.season || '2026' }}-w${{ inputs.week || '10' }}
+          path: /tmp/fl2-depth-work/*.txt
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Commit capture (always, so a run is readable without CI log access)
+        if: always()
+        run: |
+          set -uo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A fl2-depth
+          # Stage everything under fl2-depth, not just the data: the build step
+          # rewrites tracked HTML, and leaving those unstaged makes the rebase below
+          # refuse to run ("cannot rebase: You have unstaged changes").
+          git add -A fl2-depth
+          {
+            echo "=== git status after add (staged) ==="
+            git diff --cached --name-only | head -30
+          } >> fl2-depth/data/verified/capture-stdout.txt
+          git add fl2-depth/data/verified
+          git commit -m "fl2-depth: official Game Book capture ${{ inputs.season || '2026' }} week ${{ inputs.week || '10' }} [automated]" || echo "nothing to commit"
+          # actions/checkout leaves a detached HEAD, so "git push" alone has no
+          # upstream to push to. Name the ref explicitly, and fail the job if every
+          # attempt fails rather than reporting success with nothing published.
+          pushed=0
+          for attempt in 1 2 3; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}" || git rebase --abort
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then pushed=1; break; fi
+            echo "push attempt $attempt failed, retrying"
+            sleep 8
+          done
+          if [ "$pushed" != "1" ]; then
+            echo "CAPTURE PUSH FAILED after 3 attempts"
+            git status --porcelain | head -20
+            exit 1
+          fi
+          echo "capture pushed"
+
+      - name: Fail loudly on hard capture failures
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, glob, sys
+          bad = []
+          for f in glob.glob('fl2-depth/data/verified/capture-log-*.json'):
+              d = json.load(open(f))
+              for g in d['games']:
+                  if g['status'] not in ('captured', 'captured_no_playtime',
+                                         'no_gamebook_published_yet',
+                                         'duplicate_pdf_hash'):
+                      bad.append((g['game_id'], g['status'], str(g.get('error',''))[:200]))
+          if bad:
+              print('HARD CAPTURE FAILURES:')
+              for b in bad:
+                  print(b)
+              sys.exit(1)
+          print('no hard capture failures (duplicate_pdf_hash and '
+                'captured_no_playtime are accepted states: the gaps are published on '
+                'the flagged page rather than guessed)')
+          PY

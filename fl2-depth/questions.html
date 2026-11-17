@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questions · FL2 Depth</title>
+<meta name="description" content="Official NFL Game Book depth data: actual starters, snap counts and inactive lists for 2026 week 10, every row linked to the PDF it was parsed from.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <div class="brand-row">
+    <div class="brand">FL2 Depth <span>· who actually played</span></div>
+  </div>
+  <div class="brand-sub">2026 week 10 · every row parsed from an official NFL Game Book · build 561cba30b483</div>
+  <nav><a href="index.html">Overview</a>
+<a href="starters.html">Actual starters</a>
+<a href="snaps.html">Snap counts &amp; depth</a>
+<a href="inactives.html">Inactive list</a>
+<a href="sources.html">Sources &amp; hashes</a>
+<a href="questions.html" aria-current=page>Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged for review</a></nav>
+</div></header>
+<main class="wrap">
+
+<div class="page-head"><div class="eyebrow">Open questions</div>
+<h1>What has to be answered before depth is used in a model</h1>
+<p class="lede">These are not opinions. Each is a question with a specific way to find the
+answer, and none of them can be answered by reasoning — they need data that has not been
+captured yet.</p></div>
+<section class="card pad">
+<div class="table-wrap">
+<table class="">
+<caption>Questions, why each blocks, and how to discover the answer</caption>
+<thead><tr><th>#</th><th>Question</th><th>What it blocks</th><th>How to find out</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class='num'>1</td><td><strong>How far back do the Game Books go, and is the playtime table present in every season?</strong></td><td>A depth model needs several seasons, not one week. If older books lack the playtime table, the depth-from-playing-time route covers only recent seasons.</td><td>Capture one book per season from 2012 to 2026 and record whether a Playtime Percentage block exists. Report the earliest season that carries it.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>2</td><td><strong>Does the playtime table appear in pre-season and post-season books?</strong></td><td>Week 1 depth is uncertain; pre-season snaps are the only official evidence available before it. Post-season books would extend the corpus.</td><td>Capture one pre-season and one post-season book; record which blocks they carry.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>3</td><td><strong>Is a book published for a game that is postponed or cancelled?</strong></td><td>A missing book must be distinguishable from a capture failure, or the register will silently lose games.</td><td>Check the 2026 schedule for any postponed game and query its game-centre page.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>4</td><td><strong>How quickly after a game&#x27;s final whistle is the book published?</strong></td><td>This sets the earliest time the ground truth can be checked against a pre-game model.</td><td>Poll one game-centre page every 15 minutes after kickoff and log the first minute the PDF URL appears.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>5</td><td><strong>Do the snap percentages always sum to 100 within a unit?</strong></td><td>If they do not, the table cannot be used as a share without a correction, and any correction would be an inference.</td><td>Sum off_pct per club-game across the week already captured and publish the result.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>6</td><td><strong>Which slot labels vary between clubs, and does the parser cover them all?</strong></td><td>Cincinnati prints LDE/RDE/LOT/ROT/HB where most clubs print DE/T/RB. An unrecognised label loses that starter.</td><td>Extract the distinct slot tokens across all 32 clubs and diff against the parser&#x27;s vocabulary.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>7</td><td><strong>Does the Not Active list ever exceed the roster limit, or appear empty legitimately?</strong></td><td>An empty list could mean nobody was inactive or the block failed to parse; the two must not look the same.</td><td>Count Not Active per club-game across a season and publish the distribution.</td><td><span class='badge warn'>open</span></td></tr>
+<tr><td class='num'>8</td><td><strong>Can a player appear in both a club&#x27;s Lineups block and its Not Active list?</strong></td><td>It should be impossible; if it happens the two blocks are being read from different pages.</td><td>Left-join starters against inactives on game + club + player and report any hit.</td><td><span class='badge warn'>open</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</main>
+<footer class="site-footer"><div class="inner">
+  <p>FL2 Depth · data captured from official NFL Game Books and hashed. Where the league
+  labels a table <em>(Unofficial)</em>, that label is carried on every row that came from it.
+  Rows that could not be parsed from an official source are left blank and listed on
+  <a href="flagged.html">Flagged for review</a> — never inferred.</p>
+</div></footer>
+</body>
+</html>
