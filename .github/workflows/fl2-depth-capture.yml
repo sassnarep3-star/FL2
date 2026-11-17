@@ -1,0 +1,80 @@
+name: FL2 depth capture (official Game Books)
+
+# Captures official NFL Game Books for a season/week and commits the parsed CSVs
+# plus a SHA-256 manifest. Runs only when dispatched or on the weekly schedule.
+#
+# Why this runs in CI: the agent sandbox has no route to www.nfl.com, so the
+# capture cannot be performed from the workspace. GitHub-hosted runners can.
+#
+# Data policy: only www.nfl.com and static.www.nfl.com are contacted. Every row
+# written carries the URL of the exact PDF it was parsed from. The Playtime
+# Percentage table is captioned "(Unofficial)" by the league; the caption is
+# stored with the data, not dropped.
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: Season year
+        required: true
+        default: "2026"
+      week:
+        description: Week number
+        required: true
+        default: "10"
+  schedule:
+    # Tuesdays 09:15 UTC, after Monday Night Football is final
+    - cron: "15 9 * * 2"
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install poppler-utils (pdftotext)
+        run: sudo apt-get update -y && sudo apt-get install -y poppler-utils
+
+      - name: Parser self-test (offline, no network)
+        run: python3 fl2-depth/engine/capture_gamebooks.py --self-test
+
+      - name: Capture Game Books
+        id: capture
+        run: |
+          set -euo pipefail
+          python3 fl2-depth/engine/capture_gamebooks.py \
+            --seed fl2-depth/data/verified/gamecenter-seed.csv \
+            --season "${{ inputs.season || '2026' }}" \
+            --week "${{ inputs.week || '10' }}" \
+            --out fl2-depth/data/verified \
+            --work /tmp/fl2-depth-work
+          echo "--- manifest ---"
+          cat fl2-depth/data/verified/capture-manifest-*.json
+
+      - name: Upload raw text as an artifact (not committed)
+        uses: actions/upload-artifact@v4
+        with:
+          name: gamebook-text-${{ inputs.season || '2026' }}-w${{ inputs.week || '10' }}
+          path: /tmp/fl2-depth-work/*.txt
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Commit capture
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add fl2-depth/data/verified
+          if git diff --cached --quiet; then
+            echo "no capture changes"
+          else
+            git commit -m "fl2-depth: official Game Book capture ${{ inputs.season || '2026' }} week ${{ inputs.week || '10' }}"
+            git push
+          fi
