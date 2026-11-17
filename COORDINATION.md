@@ -1520,6 +1520,7 @@ Published on the landing page's irregularities table and consolidated in `review
 | Live site | https://sassnarep3-star.github.io/FL2/ |
 
 Concurrency note: session `arena/d81dd61b-fl2` (PR #32, merged as `a636b97`) added `review/REPO-REVIEW-2026-11-17.md` (line-by-line repo review) and fixed the committed `.gitignore` conflict markers; both are in `main` ahead of this session's PRs. No other session's content was discarded.
+<<<<<<< HEAD
 
 ---
 
@@ -1527,10 +1528,20 @@ Concurrency note: session `arena/d81dd61b-fl2` (PR #32, merged as `a636b97`) add
 
 Repo: `sassnarep3-star/FL2` · Session: `session-22f6b1d9` · Branch: `arena/22f6b1d9-fl2`
 Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the final integration session for its own additions and additive root/README integration; all concurrent merged work is preserved.
+=======
+# Session `arena/b184fdaf-fl2` — Week-10 completion, venue transcription, hub integration & open-PR close-out (current)
+
+Branch: `arena/b184fdaf-fl2`, based on `main` @ `56453a0`; rebased onto `a636b97` (PR #32) before any
+work commit and onto `08ff8e7` (PRs #33-#35, session 7e474dc8 landing-page work) during the session.
+All prior claims are released. Sessions `d81dd61b` (D-I2 venue transcription) and `7e474dc8`
+(landing-page dashboard, whose claims were released with PR #35) are built on here; no content was
+discarded in the COORDINATION.md conflict resolution (both sections kept verbatim).
+>>>>>>> c7d92d4 (Claim B1-B6: Week-10 completion, venue transcription, hub integration, open-PR close-out)
 
 ## Task board
 
 | # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+<<<<<<< HEAD
 |---|---|---|---|---|---|
 | T29 | Claim + coordination | **done** | session-22f6b1d9 | `COORDINATION.md` | initial claim commit was pushed before implementation; rebase kept all newer main records |
 | T30 | Reconcile the root landing page and README with the currently merged site; preserve the readiness view and remove stale headline claims | **done** | session-22f6b1d9 | `index.html` (additive final integration), `README.md` | kept the merged landing dashboard and 75-row requirement view; README now maps all sections and preserves source/vintage limits |
@@ -1616,11 +1627,21 @@ Per the coordination rules these are requests, not edits:
    (`arena/74f76e34-fl2`, Line Lab price-coverage self-correction) remain unmerged. Neither was merged, closed or
    edited by this session; #24's corrected claim (zero 2026 open+close pairs) is treated as true where this desk
    cites price coverage.
+=======
+|---|------|--------|-------|-----------------------------|-------|
+| B1 | Claim + coordination | **in progress** (2026-11-17) | `arena/b184fdaf-fl2` | `COORDINATION.md` | this section |
+| B2 | Complete the verified results feed: Week-10 SNF (PIT@CIN) + MNF (LAC@BAL) finals from official sources, layered immutable capture, self-checks to 150 finals + 32/32 replay vs post-Week-10 official records | **in progress** | `arena/b184fdaf-fl2` | `data/captures/week10-snf-final-2026-11-17.json`, `tools/build_results_feed.py`, `data/results_feed.*`, `ops/data/results/*`, ops recompute outputs (`ops/data/baselines_2026.json`, `ops/data/luck_panel_2026.csv`, `ops/data/drift_manifest.json`) | closes the 2 pending rows left on 2026-11-16 |
+| B3 | Venue transcription (D-I2): all 14 Week-10 fixtures from official game centres, per-row source URL | **in progress** | `arena/b184fdaf-fl2` | `data/captures/week10-venues-2026-11-17.json`, `data/venue_week10.csv` | game-centre fetches 2026-11-17 |
+| B4 | Hub integration: publish Week-10 completion + venue register on the landing page (layered additively over session 7e474dc8's dashboard; the double "Suggestions" nav link flagged by 310620fe was already deduped on current main) | **in progress** | `arena/b184fdaf-fl2` | `index.html` | integration scope per brief |
+| B5 | Open-PR close-out: merge #24 (Line Lab self-correction, checks green); decide #29 | **in progress** | `arena/b184fdaf-fl2` | `.git` via `gh` | rationale to be recorded below |
+| B6 | Final integration: all six checkers on the combined tree, PR, merge, Pages live check, record | **pending** | `arena/b184fdaf-fl2` | `.git` via `gh`, this file | per brief |
+>>>>>>> c7d92d4 (Claim B1-B6: Week-10 completion, venue transcription, hub integration, open-PR close-out)
 
 ## Claims
 
 | Session | Files claimed | Claimed (UTC) | Released |
 |---|---|---|---|
+<<<<<<< HEAD
 | session-3189b65d | `decision-desk/**`, `tools/build_decision_desk.py`, `tools/check_decision_desk.py`, `data/captures/week10-live-2026-11-17.json`, `data/captures/injury-archive-2026-11-17.json`, plus integration edits to `index.html`, `README.md`, `COORDINATION.md` | 2026-11-17 | — |
 
 Nothing under `docs/`, `hub/`, `ledger/`, `fl2-dashboard/`, `fl2-lines/`, `linelab/`,
@@ -1704,3 +1725,9 @@ edited except the two shared files the brief assigns to the integration session 
 standings table, results row or register owned by another session was rewritten; no backtest
 number was placed on any leaderboard surface; no replacement player was named for an absent
 starter, because inactive lists and snap counts are still not captured for 2026.
+=======
+| `arena/b184fdaf-fl2` | `COORDINATION.md`, `data/captures/week10-snf-final-2026-11-17.json`, `data/captures/week10-venues-2026-11-17.json`, `data/results_feed.csv`, `data/results_feed.json`, `data/venue_week10.csv`, `data/venue_week10.json`, `tools/build_results_feed.py`, `data/decision_readiness.json` (DR-02 evidence only), `data/landing_readiness.js` (regenerated), `index.html` (hub integration), `ops/data/results/*`, `ops/data/baselines_2026.json`, `ops/data/luck_panel_2026.csv`, `ops/data/drift_manifest.json`, `README.md` (only if section list changes) | 2026-11-17T02:45Z | — |
+
+No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-17T02:37Z and owns
+`review/` + `.gitignore`; those files are untouched by this session.
+>>>>>>> c7d92d4 (Claim B1-B6: Week-10 completion, venue transcription, hub integration, open-PR close-out)
