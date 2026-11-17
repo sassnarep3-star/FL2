@@ -80,9 +80,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add fl2-depth/data/verified
+          # Always committed: the log carries a fresh timestamp every run, and without
+          # it a run that changes nothing is invisible -- CI logs are not reachable
+          # from the workspace, so the committed log is the only way to read a run.
           if git diff --cached --quiet; then
             echo "no capture changes"
           else
+            printf 'run %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> fl2-depth/data/verified/capture-stdout.txt
+            git add fl2-depth/data/verified/capture-stdout.txt
             git commit -m "fl2-depth: official Game Book capture ${{ inputs.season || '2026' }} week ${{ inputs.week || '10' }}"
             for attempt in 1 2 3; do
               git pull --rebase origin "${GITHUB_REF_NAME}" && git push && break
