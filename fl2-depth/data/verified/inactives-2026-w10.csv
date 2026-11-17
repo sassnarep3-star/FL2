@@ -187,3 +187,20 @@ game_id,club,list_type,pos_raw,jersey,player_raw,source_url
 2026_10_PIT_CIN,Cincinnati Bengals,not_active,C,65,C.Lew,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,not_active,T,77,M.Hinton,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,not_active,DT,96,L.Robinson,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,not_active,WR,15,L.McConkey,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,not_active,S,32,K.Williamson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,not_active,CB,37,I.Waxter,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,not_active,OLB,48,B.Dupree,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,not_active,WR,89,B.Thompson,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,not_active,DL,92,J.Eboigbe,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,not_active,WR,13,E.Sarratt,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,not_active,3QB,18,K.Slovis,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,not_active,S,21,J.Hawkins,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,not_active,CB,29,C.Rivers,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,not_active,G/T,51,E.Jones,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,not_active,DL,90,A.Peebles,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,did_not_play,QB,7,D.Uiagalelei,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,did_not_play,C,60,J.Spomer,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Los Angeles Chargers,did_not_play,G,73,A.Harkey,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,did_not_play,QB,12,J.Fagnano,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_LAC_BAL,Baltimore Ravens,did_not_play,OL,58,R.Neuzil,https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
