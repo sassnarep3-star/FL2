@@ -1,24 +1,27 @@
-=== run_capture 2026-11-17T03:54:40Z season=2026 week=10
+=== run_capture 2026-11-17T04:04:47Z season=2026 week=10
 pwd=/home/runner/work/FL2/FL2
 python=/opt/hostedtoolcache/Python/3.11.18/x64/bin/python3 Python 3.11.18
 pdftotext=/usr/bin/pdftotext
 seed lines: 15
-total 572
-drwxr-xr-x 2 runner runner   4096 Nov 17 03:54 .
-drwxr-xr-x 3 runner runner   4096 Nov 17 03:54 ..
--rw-r--r-- 1 runner runner  13980 Nov 17 03:54 capture-log-2026-w10.json
--rw-r--r-- 1 runner runner   2611 Nov 17 03:54 capture-log-2026-w10.md
--rw-r--r-- 1 runner runner  15726 Nov 17 03:54 capture-manifest-2026-w10.json
--rw-r--r-- 1 runner runner    205 Nov 17 03:54 capture-stdout.txt
--rw-r--r-- 1 runner runner  87026 Nov 17 03:54 debug-text-2026_10_PIT_CIN.txt
--rw-r--r-- 1 runner runner  85231 Nov 17 03:54 debug-text-2026_10_WAS_NYG.txt
--rw-r--r-- 1 runner runner   5983 Nov 17 03:54 gamebooks-2026-w10.csv
--rw-r--r-- 1 runner runner   4183 Nov 17 03:54 gamebooks-w10.csv
--rw-r--r-- 1 runner runner   1784 Nov 17 03:54 gamecenter-seed.csv
--rw-r--r-- 1 runner runner  24944 Nov 17 03:54 inactives-2026-w10.csv
--rw-r--r-- 1 runner runner 196924 Nov 17 03:54 playtime-2026-w10.csv
--rw-r--r-- 1 runner runner  90733 Nov 17 03:54 starters-2026-w10.csv
--rw-r--r-- 1 runner runner  12955 Nov 17 03:54 starters-w10.csv
+total 836
+drwxr-xr-x 2 runner runner   4096 Nov 17 04:04 .
+drwxr-xr-x 3 runner runner   4096 Nov 17 04:04 ..
+-rw-r--r-- 1 runner runner  13980 Nov 17 04:04 capture-log-2026-w10.json
+-rw-r--r-- 1 runner runner   2611 Nov 17 04:04 capture-log-2026-w10.md
+-rw-r--r-- 1 runner runner  15726 Nov 17 04:04 capture-manifest-2026-w10.json
+-rw-r--r-- 1 runner runner    205 Nov 17 04:04 capture-stdout.txt
+-rw-r--r-- 1 runner runner  88923 Nov 17 04:04 debug-text-2026_10_HOU_CLE.txt
+-rw-r--r-- 1 runner runner  87432 Nov 17 04:04 debug-text-2026_10_KC_ATL.txt
+-rw-r--r-- 1 runner runner  87307 Nov 17 04:04 debug-text-2026_10_MIA_IND.txt
+-rw-r--r-- 1 runner runner  84329 Nov 17 04:04 debug-text-2026_10_MIN_GB.txt
+-rw-r--r-- 1 runner runner  84934 Nov 17 04:04 debug-text-2026_10_NE_DET.txt
+-rw-r--r-- 1 runner runner   5983 Nov 17 04:04 gamebooks-2026-w10.csv
+-rw-r--r-- 1 runner runner   4183 Nov 17 04:04 gamebooks-w10.csv
+-rw-r--r-- 1 runner runner   1784 Nov 17 04:04 gamecenter-seed.csv
+-rw-r--r-- 1 runner runner  31048 Nov 17 04:04 inactives-2026-w10.csv
+-rw-r--r-- 1 runner runner 197415 Nov 17 04:04 playtime-2026-w10.csv
+-rw-r--r-- 1 runner runner  92353 Nov 17 04:04 starters-2026-w10.csv
+-rw-r--r-- 1 runner runner  12955 Nov 17 04:04 starters-w10.csv
 --- capture ---
 seed rows matched: 14
 {
@@ -35,24 +38,22 @@ seed rows matched: 14
 }
 exit=0
 --- files after ---
-total 1008
-drwxr-xr-x 2 runner runner   4096 Nov 17 03:54 .
-drwxr-xr-x 3 runner runner   4096 Nov 17 03:54 ..
--rw-r--r-- 1 runner runner  13980 Nov 17 03:54 capture-log-2026-w10.json
--rw-r--r-- 1 runner runner   2611 Nov 17 03:54 capture-log-2026-w10.md
--rw-r--r-- 1 runner runner  15726 Nov 17 03:54 capture-manifest-2026-w10.json
--rw-r--r-- 1 runner runner   1597 Nov 17 03:54 capture-stdout.txt
--rw-r--r-- 1 runner runner  88923 Nov 17 03:54 debug-text-2026_10_HOU_CLE.txt
--rw-r--r-- 1 runner runner  87432 Nov 17 03:54 debug-text-2026_10_KC_ATL.txt
--rw-r--r-- 1 runner runner  87307 Nov 17 03:54 debug-text-2026_10_MIA_IND.txt
--rw-r--r-- 1 runner runner  84329 Nov 17 03:54 debug-text-2026_10_MIN_GB.txt
--rw-r--r-- 1 runner runner  84934 Nov 17 03:54 debug-text-2026_10_NE_DET.txt
--rw-r--r-- 1 runner runner  87026 Nov 17 03:54 debug-text-2026_10_PIT_CIN.txt
--rw-r--r-- 1 runner runner  85231 Nov 17 03:54 debug-text-2026_10_WAS_NYG.txt
--rw-r--r-- 1 runner runner   5983 Nov 17 03:54 gamebooks-2026-w10.csv
--rw-r--r-- 1 runner runner   4183 Nov 17 03:54 gamebooks-w10.csv
--rw-r--r-- 1 runner runner   1784 Nov 17 03:54 gamecenter-seed.csv
--rw-r--r-- 1 runner runner  31048 Nov 17 03:54 inactives-2026-w10.csv
--rw-r--r-- 1 runner runner 197415 Nov 17 03:54 playtime-2026-w10.csv
--rw-r--r-- 1 runner runner  92353 Nov 17 03:54 starters-2026-w10.csv
--rw-r--r-- 1 runner runner  12955 Nov 17 03:54 starters-w10.csv
+total 836
+drwxr-xr-x 2 runner runner   4096 Nov 17 04:04 .
+drwxr-xr-x 3 runner runner   4096 Nov 17 04:04 ..
+-rw-r--r-- 1 runner runner  13980 Nov 17 04:04 capture-log-2026-w10.json
+-rw-r--r-- 1 runner runner   2611 Nov 17 04:04 capture-log-2026-w10.md
+-rw-r--r-- 1 runner runner  15726 Nov 17 04:04 capture-manifest-2026-w10.json
+-rw-r--r-- 1 runner runner   1828 Nov 17 04:04 capture-stdout.txt
+-rw-r--r-- 1 runner runner  88923 Nov 17 04:04 debug-text-2026_10_HOU_CLE.txt
+-rw-r--r-- 1 runner runner  87432 Nov 17 04:04 debug-text-2026_10_KC_ATL.txt
+-rw-r--r-- 1 runner runner  87307 Nov 17 04:04 debug-text-2026_10_MIA_IND.txt
+-rw-r--r-- 1 runner runner  84329 Nov 17 04:04 debug-text-2026_10_MIN_GB.txt
+-rw-r--r-- 1 runner runner  84934 Nov 17 04:04 debug-text-2026_10_NE_DET.txt
+-rw-r--r-- 1 runner runner   5983 Nov 17 04:04 gamebooks-2026-w10.csv
+-rw-r--r-- 1 runner runner   4183 Nov 17 04:04 gamebooks-w10.csv
+-rw-r--r-- 1 runner runner   1784 Nov 17 04:04 gamecenter-seed.csv
+-rw-r--r-- 1 runner runner  31048 Nov 17 04:04 inactives-2026-w10.csv
+-rw-r--r-- 1 runner runner 197415 Nov 17 04:04 playtime-2026-w10.csv
+-rw-r--r-- 1 runner runner  92353 Nov 17 04:04 starters-2026-w10.csv
+-rw-r--r-- 1 runner runner  12955 Nov 17 04:04 starters-w10.csv
