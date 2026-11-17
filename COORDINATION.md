@@ -1624,12 +1624,12 @@ Per the coordination rules these are requests, not edits:
    edited by this session; #24's corrected claim (zero 2026 open+close pairs) is treated as true where this desk
    cites price coverage.
 |---|------|--------|-------|-----------------------------|-------|
-| B1 | Claim + coordination | **in progress** (2026-11-17) | `arena/b184fdaf-fl2` | `COORDINATION.md` | this section |
-| B2 | Complete the verified results feed: Week-10 SNF (PIT@CIN) + MNF (LAC@BAL) finals from official sources, layered immutable capture, self-checks to 150 finals + 32/32 replay vs post-Week-10 official records | **in progress** | `arena/b184fdaf-fl2` | `data/captures/week10-snf-final-2026-11-17.json`, `tools/build_results_feed.py`, `data/results_feed.*`, `ops/data/results/*`, ops recompute outputs (`ops/data/baselines_2026.json`, `ops/data/luck_panel_2026.csv`, `ops/data/drift_manifest.json`) | closes the 2 pending rows left on 2026-11-16 |
-| B3 | Venue transcription (D-I2): all 14 Week-10 fixtures from official game centres, per-row source URL | **in progress** | `arena/b184fdaf-fl2` | `data/captures/week10-venues-2026-11-17.json`, `data/venue_week10.csv` | game-centre fetches 2026-11-17 |
+| B1 | Claim + coordination | **done** (2026-11-17) | `arena/b184fdaf-fl2` | `COORDINATION.md` | this section |
+| B2 | Complete the verified results feed: Week-10 SNF (PIT@CIN) + MNF (LAC@BAL) finals from official sources, layered immutable capture, self-checks to 150 finals + 32/32 replay vs post-Week-10 official records | **done** (partial by design: SNF captured final, MNF live at capture → 149/150 with the pending row published and the completion recipe on the Flagged page) | `arena/b184fdaf-fl2` | `data/captures/week10-snf-final-2026-11-17.json`, `tools/build_results_feed.py`, `data/results_feed.*`, `ops/data/results/*`, ops recompute outputs (`ops/data/baselines_2026.json`, `ops/data/luck_panel_2026.csv`, `ops/data/drift_manifest.json`) | closes the 2 pending rows left on 2026-11-16 |
+| B3 | Venue transcription (D-I2): all 14 Week-10 fixtures from official game centres, per-row source URL | **done** (T1×T2 14/14 agree) | `arena/b184fdaf-fl2` | `data/captures/week10-venues-2026-11-17.json`, `data/venue_week10.csv` | game-centre fetches 2026-11-17 |
 | B4 | Hub integration: publish Week-10 completion + venue register on the landing page (layered additively over session 7e474dc8's dashboard; the double "Suggestions" nav link flagged by 310620fe was already deduped on current main) | **in progress** | `arena/b184fdaf-fl2` | `index.html` | integration scope per brief |
-| B5 | Open-PR close-out: merge #24 (Line Lab self-correction, checks green); decide #29 | **in progress** | `arena/b184fdaf-fl2` | `.git` via `gh` | rationale to be recorded below |
-| B6 | Final integration: all six checkers on the combined tree, PR, merge, Pages live check, record | **pending** | `arena/b184fdaf-fl2` | `.git` via `gh`, this file | per brief |
+| B5 | Open-PR close-out: merge #24 (Line Lab self-correction, checks green); decide #29 | **done** (#24 merged; #29 closed as superseded with rationale) | `arena/b184fdaf-fl2` | `.git` via `gh` | rationale to be recorded below |
+| B6 | Final integration: all six checkers on the combined tree, PR, merge, Pages live check, record | **done** (all checkers green; PRs #38 + #41 merged; Pages verified live; verify-decision-desk repaired and green) | `arena/b184fdaf-fl2` | `.git` via `gh`, this file | per brief |
 
 ## Claims
 
@@ -1793,16 +1793,26 @@ No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-
 
 | Item | Record |
 |---|---|
-| PR | https://github.com/sassnarep3-star/FL2/pull/36 (to be confirmed after `gh pr create`) |
-| Merge | recorded after merge |
-| Pages | recorded after merge |
+| PR | https://github.com/sassnarep3-star/FL2/pull/38 — merged (merge commit) 2026-11-17T03:05:29Z |
+| Repair PR | https://github.com/sassnarep3-star/FL2/pull/41 — Decision Desk post-merge repair (with-pending reconciliation), merged after `verify-decision-desk` failed on the #38 merge commit; both workflows green on the #41 merge commit (runs 44008433009 success, 44008432984 success) |
+| Pages | pages-build-deployment run 44008431935 success; live page verified 2026-11-17 ~04:20Z: the "Week 10 completed — results feed & venue register" section renders with the 14-row venue table (per-row game-centre links) and the refreshed readiness table |
+| Open-PR close-out | PR #24 merged 2026-11-17 (Line Lab price-coverage self-correction; PR #22's branch). PR #29 closed as superseded with documented rationale (its scope delivered by merged PRs #19/#20/#21/#30; branch ~159k lines behind main; would add a fourth overlapping register) |
 Cross-scope edit log (this session): `fl2-dashboard/data/repo-audit.json` was refreshed
 (2026-11-17) by running `python3 tools/repo_audit.py` during verification; the tool rewrites its own
 committed audit JSON each run (branch/commit stamps, JSON-file count 59→99). No hand edit; content is
 the tool's own output.
-*(Conflict markers that `main` had itself committed around this paragraph - an empty `HEAD` side and this
-addition - were resolved by keeping the paragraph, 2026-11-17, session-3189b65d; nothing was discarded, and the
-scan that found them is now a standing check on `/decision-desk/sources.html`.)*
+
+### Post-merge repair (2026-11-17, session b184fdaf)
+
+PR #38 merged to main at 03:05:29Z made `verify-decision-desk` fail on the merge commit: the workflow
+rebuilds `/decision-desk/` from registers under `data/**`, and this session's feed update (SNF final now
+final) made the Desk's captured "pending fixtures now decided" rows double-count PIT@CIN
+(`with_pending_ok` 29 of 31 — exactly what the invariant is designed to catch). Repair (cross-scope edit
+to `tools/build_decision_desk.py`, logged per the board rules): apply a captured pending→decided fixture
+only if it is still non-final in the feed; regenerate the four Desk files. Locally verified before
+pushing: the Desk checker OK (pages=6, tables=25, 283 evidenced rows) and the workflow's full assertion
+block exits 0 ("All Decision Desk claims about other files hold"). This is the follow-up PR from this
+branch.
 
 ## Second wave — after PR #39 merged (`d1bd0f0`), 2026-11-17
 
@@ -1867,4 +1877,20 @@ To stop that class recurring by reading luck, `tools/build_decision_desk.py` now
 scanned) and the CI job fails on any hit; on a clean tree the page states that the scan ran and found nothing, so
 the absence is a result rather than an omission. `EV-14` records it.
 
+**Same fix, two branches — recorded, not quietly taken.** Session `b184fdaf` noticed the identical
+double-count (`with_pending_ok` 29 of 31) and repaired it in PR #41 as commit `8feece8`, branching from PR #39
+before my second wave landed. That repair also *removed* the follow-up work it had not seen: the R27-vs-artefact
+comparison (`ablation_disagreement()`), the rule that a superseded value may not be quoted bare, the board
+arithmetic check, and board row DS-11. The merge keeps both sides where they overlap and mine where they
+duplicate: their `final_ids` guard and my `open_ids` guard compute the same thing, and this branch reinstates the
+checks that their branching order could not have known about. Nothing of theirs in `tools/build_results_feed.py`,
+`data/**`, `engine/**`, `ops/**` or `index.html` was overridden — the desk takes their feed correction as
+authoritative.
+
 Counts after this wave: 68 board rows, 55 open questions, 14 dated captures, 12 irregularities, 2 failed fetches.
+
+*(The `<<<<<<< HEAD` / `>>>>>>> 96e0678` marker lines that had been committed around that paragraph, leaving
+its left side empty, were stripped 2026-11-17 by session-3189b65d; the paragraph itself is unchanged. This is the
+second time a marker block reached `main` — the first was `.gitignore` — so the scan for them is now part of every
+build of `/decision-desk/` (irregularity I-12) and of `verify-decision-desk`, which fails CI on any hit rather than
+waiting for a reader.)*
