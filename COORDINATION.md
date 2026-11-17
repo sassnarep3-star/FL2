@@ -1536,14 +1536,14 @@ Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the
 | T30 | Reconcile the root landing page and README with the currently merged site; preserve the readiness view and remove stale headline claims | **done** | session-22f6b1d9 | `index.html` (additive final integration), `README.md` | kept the merged landing dashboard and 75-row requirement view; README now maps all sections and preserves source/vintage limits |
 | T31 | Publish a cross-section integrity audit and decision queue with official links and unresolved gates | **done** | session-22f6b1d9 | `review/integration-audit-2026-11-17.html`, `review/integration-audit-2026-11-17.md` | dated, source-linked discrepancies; no live NFL claims introduced |
 | T32 | Add an offline audit for all published internal links and rerun section verification gates | **done** | session-22f6b1d9 | `tools/check_integrated_site.py` | 115 pages / 2,477 local targets pass; external URLs not fetched; section and Pages build gates pass |
-| T33 | Final PR, merge and Pages verification | **in progress** | session-22f6b1d9 | `.git` (via `gh`), `COORDINATION.md` | do not merge until PR checks pass; verify the deployed commit afterward |
+| T33 | Final PR, merge and Pages verification | **done** | session-22f6b1d9 | `.git` (via `gh`), `COORDINATION.md` | PR #36 merged after all PR checks passed; its Pages validate/deploy run succeeded; latest Pages API build is `built` at a later main commit that includes this merge |
 | T34 | Repair the one broken `results.html#announcement` fragment identified by the site-wide audit | **done** | session-22f6b1d9 | `fl2-lines/engine/build_site.py`, generated `fl2-lines/results.html` | added only the missing heading id; deterministic rebuild changed no data or surrounding content |
 
 ## Claim
 
 | Session | Files claimed | Claimed (UTC) | Released |
 |---|---|---|---|
-| session-22f6b1d9 | `index.html` (additive final integration); `README.md`; `review/integration-audit-2026-11-17.{html,md}`; `tools/check_integrated_site.py`; `fl2-lines/engine/build_site.py` and generated `fl2-lines/results.html` for the single missing fragment; `COORDINATION.md` append only; PR/merge/deployment via `gh` | 2026-11-17 | — |
+| session-22f6b1d9 | `index.html` (additive final integration); `README.md`; `review/integration-audit-2026-11-17.{html,md}`; `tools/check_integrated_site.py`; `fl2-lines/engine/build_site.py` and generated `fl2-lines/results.html` for the single missing fragment; `COORDINATION.md` append only; PR/merge/deployment via `gh` | 2026-11-17 | 2026-11-17 |
 
 ## Log
 
@@ -1555,7 +1555,7 @@ Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the
 - 2026-11-17 — Full section gates passed after integration: `scripts/check_site.py` (7 pages); `tools/check_links.py` (16 pages/22 sources); Line Lab deterministic rebuild + `engine/linelab/check_site.py` (12 pages; seven strategies remain `not_eligible`); Originated Lines check (16 pages, 74 requirements, 272 feed, 1,088 lines, 816 prices); signals (18 pages/101 tables/1,305 rows/352 links); ops readiness (3 pages); signal analysis (216 checks); and the integrated audit (115 pages/2,477 local links; no failures). No external links were fetched.
 - 2026-11-17 — The Pages build steps `scripts/make_pages.py` and `scripts/build_site.py` passed (`wrote 11 pages`, `Build OK`). Their generated docs HTML was restored because that known generator drops hand-integrated navigation (F-I1); no generated docs changes are included.
 - 2026-11-17 — Updated the root readiness renderer to label missing NFL URLs explicitly as “No official NFL source recorded — unverified as an NFL fact.” The whole-site checker now strips fragments before filesystem evidence-path validation; `R24`'s `results.html#announcement` reference no longer appears as a missing file.
-- 2026-11-17 — T33 is claimed for PR, merge and Pages confirmation. The PR must not merge until its validation checks pass; after merge, verify the deployment commit and publish URL.
+- 2026-11-17 — PR #36 (`Integrate decision readiness and repository-wide site audit`) was merged after checks passed: https://github.com/sassnarep3-star/FL2/pull/36. Merge commit `0ecab4c70f01aa65f5620285f5687d3bb72f6504`. PR checks `validate` and both Line Lab `check` runs succeeded; the PR's `deploy` check was correctly skipped. Main push workflow run `44006659792` on the merge commit passed both validate and Pages deploy. Pages API reports public URL `https://sassnarep3-star.github.io/FL2/`, status `built`; its latest build `1376590547` is for main commit `c393488bdc1a41e9aaa34464b2c593fe2789c981`, which includes PR #36 and a subsequent merged PR #24. Thus the integrated merge was deployed and the current published main is also built. No live NFL fetch or capture was part of this verification.
 
 ## Requests to prior scopes / owner
 
