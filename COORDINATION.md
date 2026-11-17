@@ -1420,3 +1420,55 @@ updated gate wording. Pre-existing on main (not this session's edit): the hub na
   /readiness/ops.html and /readiness/flagged.html published alongside.
 * Final bookkeeping (this section, plus a repair of two parenthetical evidence links in
   /readiness/) is carried by the follow-up PR from this branch.
+
+---
+
+# Session session-3189b65d — Decision Desk (`/decision-desk/`) — current
+
+Repo: `sassnarep3-star/FL2` · Session: `session-3189b65d` · Branch: `arena/3189b65d-fl2`
+Base: `main` @ `56453a0` (after PR #31). Started 2026-11-17. This session also acts as the
+**final integration session** for the artefacts it adds (shared edits limited to the hub
+`index.html` nav tile, `README.md` and this file).
+
+## Mission for this session
+
+The owner's ask this round is decision-making, not more pipelines: a dedicated suggestions
+section that a human can review and choose a path from, a clear list of the questions /
+information / answers that must be settled before a decision is reasonable, and an executive
+summary. Six earlier sessions left suggestion and question registers in six places with two
+incompatible ID schemes (`SG01` in `data/suggestions.csv` vs `SG-01` in
+`fl2-lines/data/registers/suggestions.csv` are *different* suggestions). Consolidating them
+into one reviewable surface, and re-verifying the claims they rest on, is this session's work.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+|---|---|---|---|---|---|
+| T40 | Claim + coordination board entry | **in progress** | session-3189b65d | `COORDINATION.md` | this section |
+| T41 | Fresh official-source re-verification of the live claims (Week 10 completion state, Week 11 slate, injury-report roll, Lions designations) with dated captures | **unclaimed** | session-3189b65d | `data/captures/week10-live-2026-11-17.json`, `data/captures/injury-archive-2026-11-17.json` | new files only; existing captures untouched |
+| T42 | Verify whether the past-season injury-report archive is reachable (three requirements are marked blocked on the premise that it is not) | **unclaimed** | session-3189b65d | evidence recorded in T41 capture + `/decision-desk/` | flips R69/R78/R91 blocking premise if confirmed |
+| T43 | Consolidated suggestion review board: every suggestion from every register, deduped, with collision warnings, dependencies, impact/effort, and a recommended path | **unclaimed** | session-3189b65d | `decision-desk/data/suggestions.json`, `decision-desk/suggestions.html`, `tools/build_decision_desk.py` | reads the six registers, edits none of them |
+| T44 | Questions / information / answers register (known-verified vs missing vs how to close, with official links) | **unclaimed** | session-3189b65d | `decision-desk/data/questions.json`, `decision-desk/questions.html` | same dedupe rule |
+| T45 | Executive brief page + freshness/what-changed diff page + session verification log | **unclaimed** | session-3189b65d | `decision-desk/index.html`, `decision-desk/freshness.html`, `decision-desk/sources.html` | |
+| T46 | Checker for the new section (every table row carries a source link; no invented value) | **unclaimed** | session-3189b65d | `tools/check_decision_desk.py` | mirrors the repo's existing CI contract |
+| T47 | Hub nav tile + README entry (integration), run all seven existing checkers green, PR to main, merge, Pages verification | **unclaimed** | session-3189b65d | `index.html`, `README.md` | no other section's page is edited |
+
+## Claims
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-3189b65d | `decision-desk/**`, `tools/build_decision_desk.py`, `tools/check_decision_desk.py`, `data/captures/week10-live-2026-11-17.json`, `data/captures/injury-archive-2026-11-17.json`, plus integration edits to `index.html`, `README.md`, `COORDINATION.md` | 2026-11-17 | — |
+
+Nothing under `docs/`, `hub/`, `ledger/`, `fl2-dashboard/`, `fl2-lines/`, `linelab/`,
+`readiness/`, `ops/`, `signal/`, `fl2-signals/`, `engine/`, `scripts/`, `research/`, `data/*`
+(existing files) or the root Fourth & Signal pages is edited by this session except the three
+shared files listed above.
+
+## Open PRs by other sessions, noticed at claim time (not mine to merge)
+
+* PR #29 `arena/d0543ac8-fl2` "feat: add FL2 decision-readiness register" — OPEN, authored
+  2026-11-16, no merge. Overlaps the readiness-table area this session consolidates *by
+  reference only*; no file conflict is created by this session's scope.
+* PR #24 `arena/74f76e34-fl2` "Line Lab: correct my own published price-coverage claim
+  (272 with open+close -> 0)" — OPEN. It is a self-correction by that session; left to its
+  author. This session reads the corrected claim as true (zero 2026 open+close pairs).
