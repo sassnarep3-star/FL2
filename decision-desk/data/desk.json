@@ -3720,13 +3720,13 @@
  "freshness": {
   "feed": {
    "rows": 272,
-   "final": 148,
+   "final": 149,
    "in_progress": 1,
-   "scheduled": 123,
+   "scheduled": 122,
    "week10_rows": 14,
-   "week10_final": 12,
+   "week10_final": 13,
    "open_ids": [
-    "2026_10_PIT_CIN"
+    "2026_10_LAC_BAL"
    ]
   },
   "price": [
@@ -3749,16 +3749,11 @@
   ],
   "replay": {
    "sampled": 31,
-   "as_is_ok": 29,
-   "as_is_bad": [
-    "CIN",
-    "PIT"
-   ],
+   "as_is_ok": 31,
+   "as_is_bad": [],
    "with_pending_ok": 31,
    "with_pending_bad": [],
-   "applied": [
-    "2026_10_PIT_CIN"
-   ],
+   "applied": [],
    "still_open": [
     "2026_10_LAC_BAL"
    ]
@@ -3893,7 +3888,7 @@
       0
      ],
      "replay": [
-      6,
+      7,
       2,
       0
      ],
@@ -3903,7 +3898,7 @@
       0
      ],
      "pub_ok": false,
-     "rep_ok": false
+     "rep_ok": true
     },
     {
      "team": "CLE",
@@ -4274,7 +4269,7 @@
      ],
      "replay": [
       6,
-      2,
+      3,
       0
      ],
      "official": [
@@ -4283,7 +4278,7 @@
       0
      ],
      "pub_ok": false,
-     "rep_ok": false
+     "rep_ok": true
     },
     {
      "team": "SEA",
@@ -4388,7 +4383,7 @@
    ],
    "sampled": 31,
    "pub_match": 7,
-   "replay_match": 29,
+   "replay_match": 31,
    "source_of_official": "decision-desk/data/evidence.json EV-08 / EV-02 (nfl.com Week 10 and Week 11 pages, 2026-11-17)"
   },
   "injury_capture": {
@@ -4420,6 +4415,8 @@
   "captures": {
    "data_captures": [
     "week10-results-2026-11-16.json",
+    "week10-snf-final-2026-11-17.json",
+    "week10-venues-2026-11-17.json",
     "week11-market-2026-11-16.json"
    ],
    "linelab_capture_days": [
