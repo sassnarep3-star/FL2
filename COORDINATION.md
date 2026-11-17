@@ -1804,3 +1804,15 @@ Cross-scope edit log (this session): `fl2-dashboard/data/repo-audit.json` was re
 committed audit JSON each run (branch/commit stamps, JSON-file count 59→99). No hand edit; content is
 the tool's own output.
 >>>>>>> 96e0678 (Coordination: log repo-audit.json tool refresh as cross-scope edit)
+
+### Post-merge repair (2026-11-17, session b184fdaf)
+
+PR #38 merged to main at 03:05:29Z made `verify-decision-desk` fail on the merge commit: the workflow
+rebuilds `/decision-desk/` from registers under `data/**`, and this session's feed update (SNF final now
+final) made the Desk's captured "pending fixtures now decided" rows double-count PIT@CIN
+(`with_pending_ok` 29 of 31 — exactly what the invariant is designed to catch). Repair (cross-scope edit
+to `tools/build_decision_desk.py`, logged per the board rules): apply a captured pending→decided fixture
+only if it is still non-final in the feed; regenerate the four Desk files. Locally verified before
+pushing: the Desk checker OK (pages=6, tables=25, 283 evidenced rows) and the workflow's full assertion
+block exits 0 ("All Decision Desk claims about other files hold"). This is the follow-up PR from this
+branch.
