@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions · FL2 Depth</title>
+<meta name="description" content="Official NFL Game Book depth data: actual starters, snap counts and inactive lists for 2026 week 10, every row linked to the PDF it was parsed from.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <div class="brand-row">
+    <div class="brand">FL2 Depth <span>· who actually played</span></div>
+  </div>
+  <div class="brand-sub">2026 week 10 · every row parsed from an official NFL Game Book · build f9b77ca200e4</div>
+  <nav><a href="index.html">Overview</a>
+<a href="starters.html">Actual starters</a>
+<a href="snaps.html">Snap counts &amp; depth</a>
+<a href="inactives.html">Inactive list</a>
+<a href="sources.html">Sources &amp; hashes</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html" aria-current=page>Suggestions</a>
+<a href="flagged.html">Flagged for review</a></nav>
+</div></header>
+<main class="wrap">
+
+<div class="page-head"><div class="eyebrow">Suggestions</div>
+<h1>Options for the next step — pick one before anything is built</h1>
+<p class="lede">Nothing here is implemented. These are paths with their trade-offs written
+down so a reviewer can choose, in line with the project rule that a change is not made until
+a path is selected.</p></div>
+<section class="card pad">
+<div class="table-wrap">
+<table class="">
+<caption>Four paths, each with what it costs and when it is the right choice</caption>
+<thead><tr><th>#</th><th>Path</th><th>What it does</th><th>Trade-off</th><th>When to pick it</th></tr></thead>
+<tbody>
+<tr><td class='num'>1</td><td><strong>Extend the capture backwards before fitting anything</strong></td><td>Capture Game Books for 2019–2025 so depth-from-playing-time has a multi-season corpus, then fit on it.</td><td>Costs several hours of CI time and a lot of storage. No model can be fitted until it finishes.</td><td>Recommended if the goal is a depth feature in a model rather than a verified register.</td></tr>
+<tr><td class='num'>2</td><td><strong>Publish the week-10 register and stop</strong></td><td>Ship this section as the reference dataset and let another session build on it.</td><td>Does not by itself clear R71; it supplies the measurement, not the model.</td><td>Recommended if the register is the deliverable.</td></tr>
+<tr><td class='num'>3</td><td><strong>Cross-check the official snap counts against a third-party count</strong></td><td>Compare each player&#x27;s snaps here against a non-official source and publish the disagreement rate.</td><td>Introduces an unofficial source into a section whose whole premise is official-only.</td><td>Only if the (Unofficial) caption has to be quantified.</td></tr>
+<tr><td class='num'>4</td><td><strong>Derive a 1st/2nd/3rd-string label from snap shares and publish it</strong></td><td>Turn snap share into an ordinal depth slot per club-position-week.</td><td>Re-introduces exactly the thing R71 rejects if the threshold is chosen by hand.</td><td>Only with a pre-registered threshold and the uncertainty published.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="note ok">
+  <p><strong>Not suggested:</strong> deriving depth order from jersey number, experience or
+  salary. That is explicitly rejected in the brief, and the whole point of this section is
+  that playing time is observable while those are not.</p>
+</section>
+
+</main>
+<footer class="site-footer"><div class="inner">
+  <p>FL2 Depth · data captured from official NFL Game Books and hashed. Where the league
+  labels a table <em>(Unofficial)</em>, that label is carried on every row that came from it.
+  Rows that could not be parsed from an official source are left blank and listed on
+  <a href="flagged.html">Flagged for review</a> — never inferred.</p>
+</div></footer>
+</body>
+</html>

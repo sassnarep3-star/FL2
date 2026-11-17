@@ -55,8 +55,14 @@ jobs:
         env:
           SEASON: ${{ inputs.season || '2026' }}
           WEEK: ${{ inputs.week || '10' }}
-          DUMP_GAMES: 2026_10_NE_DET,2026_10_PIT_CIN,2026_10_WAS_NYG,2026_10_MIA_IND,2026_10_KC_ATL,2026_10_HOU_CLE,2026_10_MIN_GB
+          DUMP_GAMES: ''
         run: bash fl2-depth/engine/run_capture.sh
+
+      - name: Validate the capture
+        run: python3 fl2-depth/engine/validate_depth.py
+
+      - name: Build the depth site
+        run: python3 fl2-depth/engine/build_site.py
 
       - name: Upload raw text as an artifact (not committed)
         uses: actions/upload-artifact@v4
@@ -72,7 +78,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add fl2-depth/data/verified
+          git add fl2-depth/data/verified fl2-depth/*.html fl2-depth/assets
           if git diff --cached --quiet; then
             echo "no capture changes"
           else

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · FL2 Depth</title>
+<meta name="description" content="Official NFL Game Book depth data: actual starters, snap counts and inactive lists for 2026 week 10, every row linked to the PDF it was parsed from.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <div class="brand-row">
+    <div class="brand">FL2 Depth <span>· who actually played</span></div>
+  </div>
+  <div class="brand-sub">2026 week 10 · every row parsed from an official NFL Game Book · build f9b77ca200e4</div>
+  <nav><a href="index.html" aria-current=page>Overview</a>
+<a href="starters.html">Actual starters</a>
+<a href="snaps.html">Snap counts &amp; depth</a>
+<a href="inactives.html">Inactive list</a>
+<a href="sources.html">Sources &amp; hashes</a>
+<a href="questions.html">Questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="flagged.html">Flagged for review</a></nav>
+</div></header>
+<main class="wrap">
+
+<div class="page-head">
+  <div class="eyebrow">Session arena/7e6e153e-fl2</div>
+  <h1>Depth from playing time, not from a depth chart</h1>
+  <p class="lede">The league's own per-club depth charts are captioned
+  <em>unofficial</em>, and only 5 of 32 clubs publish them. So this section derives
+  depth from the one source the league publishes for <em>every</em> game: the official
+  NFL Game Book. Each book carries the actual starters, the official inactive list, and
+  a playtime table with snap counts on offence, defence and special teams. Every row on
+  this site links to the exact PDF it was parsed from, and each PDF is hashed.</p>
+</div>
+
+<section class="card pad">
+  <h2>What changed, and why it matters</h2>
+  <div class="grid c4" style="margin:12px 0 4px"><div class="stat"><div class="k">Games captured</div><div class="v">13</div><div class="d">of 14 in week 10</div></div>
+<div class="stat"><div class="k">Actual starters</div><div class="v">572</div><div class="d">11 offense + 11 defence per club</div></div>
+<div class="stat"><div class="k">Snap-count rows</div><div class="v">1218</div><div class="d">offence, defence, special teams</div></div>
+<div class="stat"><div class="k">Inactive / DNP rows</div><div class="v">188</div><div class="d">official lists</div></div></div>
+  <p>Requirement R77 asked us to settle where depth order comes from before building any
+  backup-deficiency feature. Two routes were open: the per-club depth-chart pages, and
+  playing time. The table below is the answer — route (a) covers 5 of 32 clubs and is
+  captioned unofficial by the league itself; route (b) covers every game and gives a
+  number, not a claimed order.</p>
+  <div class="table-wrap">
+<table class="">
+<caption>Depth source: the two candidate routes compared</caption>
+<thead><tr><th>Route</th><th>Coverage</th><th>Official?</th><th>Gives</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Per-club depth-chart pages</td><td>5 of 32 clubs</td><td><span class='badge bad'>no — the club writes it</span></td><td>a claimed 1st/2nd/3rd string</td><td><span class='badge warn'>insufficient alone</span></td></tr>
+<tr><td>Official NFL Game Book (this section)</td><td>every game, both clubs</td><td><span class='badge ok'>yes — the league publishes it</span></td><td>who actually started, and how many snaps each player took</td><td><span class='badge ok'>adopted for R71/R77</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card pad">
+  <h2>Week 10 capture register</h2>
+  <p>One row per game. <strong>Withheld</strong> means the game-centre page was serving a
+  byte-identical PDF to another game, so its rows were dropped rather than published
+  under the wrong game — see <a href="flagged.html">Flagged for review</a>.</p>
+  <div class="table-wrap">
+<table class="">
+<caption>Week 10 Game Book capture — 2026-11-17 04:01 UTC</caption>
+<thead><tr><th>Game</th><th>Status</th><th>Starters</th><th>Snap rows</th><th>Inactive/DNP</th><th>Book</th><th>SHA-256</th></tr></thead>
+<tbody>
+<tr><td class='nowrap'><strong>WAS @ NYG</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>92</td><td class='num'>17</td><td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>12c818cc26344849</td></tr>
+<tr><td class='nowrap'><strong>NE @ DET</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>96</td><td class='num'>12</td><td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>26b3c925e5cd0fd3</td></tr>
+<tr><td class='nowrap'><strong>KC @ ATL</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>95</td><td class='num'>15</td><td><a href="https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab582f5b-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>387e0e0fc327989a</td></tr>
+<tr><td class='nowrap'><strong>HOU @ CLE</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>93</td><td class='num'>16</td><td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>c46193bbb201a09c</td></tr>
+<tr><td class='nowrap'><strong>MIN @ GB</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>94</td><td class='num'>15</td><td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab788967-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>d19ef8d9871d04ea</td></tr>
+<tr><td class='nowrap'><strong>MIA @ IND</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>91</td><td class='num'>17</td><td><a href="https://static.www.nfl.com/image/upload/v1794829723/gamecenter/ab789365-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>107be568d8049a10</td></tr>
+<tr><td class='nowrap'><strong>CAR @ NO</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>94</td><td class='num'>15</td><td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab789769-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>0145bf25a0105f8c</td></tr>
+<tr><td class='nowrap'><strong>BUF @ NYJ</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>94</td><td class='num'>12</td><td><a href="https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab789ac9-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>19f04098343b73fd</td></tr>
+<tr><td class='nowrap'><strong>JAX @ TEN</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>94</td><td class='num'>14</td><td><a href="https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab789e15-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>a3307c0f336e8dbb</td></tr>
+<tr><td class='nowrap'><strong>LAR @ ARI</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>93</td><td class='num'>16</td><td><a href="https://static.www.nfl.com/image/upload/v1794854921/gamecenter/ab78a133-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>5bc5f89cde8e0cdb</td></tr>
+<tr><td class='nowrap'><strong>SEA @ LV</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>92</td><td class='num'>16</td><td><a href="https://static.www.nfl.com/image/upload/v1794829726/gamecenter/ab78a43c-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>2e5c44630e0f55fa</td></tr>
+<tr><td class='nowrap'><strong>SF @ DAL</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>94</td><td class='num'>14</td><td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab78a748-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>c5378c33a7fcac7c</td></tr>
+<tr><td class='nowrap'><strong>PIT @ CIN</strong></td><td><span class="badge ok">captured</span></td><td class='num'>44</td><td class='num'>96</td><td class='num'>9</td><td><a href="https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>ac36c23ed9f831d9</td></tr>
+<tr><td class='nowrap'><strong>LAC @ BAL</strong></td><td><span class="badge bad">withheld</span></td><td class='num'>0</td><td class='num'>0</td><td class='num'>0</td><td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf">PDF</a></td><td class='mono'>12c818cc26344849</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="card pad">
+  <h2>What is on each page</h2>
+  <div class="grid c3">
+    <div class="card pad"><h3><a href="starters.html">Actual starters</a></h3>
+      <p>11 offence and 11 defence per club, as printed in the book's <em>Lineups</em>
+      block — the players who actually took the first snap, not a club's claimed order.</p></div>
+    <div class="card pad"><h3><a href="snaps.html">Snap counts &amp; depth</a></h3>
+      <p>Every player's snaps and share on offence, defence and special teams. This is the
+      input for depth-from-playing-time, and it is how a backup's real workload is seen.</p></div>
+    <div class="card pad"><h3><a href="inactives.html">Inactive list</a></h3>
+      <p>The official <em>Not Active</em> and <em>Did Not Play</em> lists, per club — so
+      "not listed" and "available" are not silently treated as the same thing.</p></div>
+    <div class="card pad"><h3><a href="sources.html">Sources &amp; hashes</a></h3>
+      <p>Every PDF URL with its SHA-256, the venue, roof and weather the book printed,
+      and the league's copyright notice verbatim.</p></div>
+    <div class="card pad"><h3><a href="questions.html">Questions</a></h3>
+      <p>What still has to be answered before depth can be used in a model, and how each
+      answer would be discovered.</p></div>
+    <div class="card pad"><h3><a href="suggestions.html">Suggestions</a></h3>
+      <p>Options for the next step, with the trade-off of each, so a reviewer picks a
+      path before anything is built.</p></div>
+  </div>
+</section>
+
+<section class="note warn">
+  <p><strong>Two caveats travel with this data.</strong> First: the league captions its
+  playtime table <em>(Unofficial)</em>. That caption is stored on every snap row rather
+  than dropped. Second: the Game Book is published only for games that have kicked off,
+  so it can never be a pre-game input — it is the ground truth a pre-game model is
+  checked against, and the historical corpus a depth model is fitted on.</p>
+</section>
+
+</main>
+<footer class="site-footer"><div class="inner">
+  <p>FL2 Depth · data captured from official NFL Game Books and hashed. Where the league
+  labels a table <em>(Unofficial)</em>, that label is carried on every row that came from it.
+  Rows that could not be parsed from an official source are left blank and listed on
+  <a href="flagged.html">Flagged for review</a> — never inferred.</p>
+</div></footer>
+</body>
+</html>

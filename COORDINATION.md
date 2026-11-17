@@ -1881,3 +1881,121 @@ plus append-only sections of `COORDINATION.md` and one nav/tile edit to the hub 
 * `codeload.github.com` reachable (200); `api.github.com` reachable; `raw.githubusercontent.com`
   unreachable. Consistent with session 74f76e34's note.
 <!-- merged: both sides kept (append-only board) -->
+
+
+---
+
+## Session `arena/7e6e153e-fl2` — /fl2-depth/: depth measured from official NFL Game Books
+
+**Scope (exclusive):** `fl2-depth/**`, plus one tile + nav line on the hub `index.html`, plus this append-only board entry. No other section touched.
+
+### What was built
+
+A new section, `/fl2-depth/`, that answers R77 ("decide where depth order comes from before
+building any backup-deficiency feature") with data rather than a claim.
+
+**The decision.** Two routes were open and were evaluated in the order the requirement
+sets out:
+
+| Route | Coverage | Official? | Verdict |
+|---|---|---|---|
+| Per-club depth-chart pages | 5 of 32 clubs | no — the club writes it, and the league captions it "unofficial" | insufficient alone |
+| **Official NFL Game Book** | every game, both clubs | **yes — the league publishes it** | **adopted for R71 / R77** |
+
+`nfl.com/stats/snap-counts/` returns 404 (re-confirmed), so the Game Book
+*Playtime Percentage* table is the only official snap-count source that exists.
+
+**Capture pipeline.** The sandbox has no route to `nfl.com` (curl fails with
+`SSL_ERROR_SYSCALL`), so the capture runs in GitHub Actions:
+`.github/workflows/fl2-depth-capture.yml` → `fl2-depth/engine/run_capture.sh` →
+`fl2-depth/engine/capture_gamebooks.py`. It fetches each game-centre page, follows the
+"Download Game Book (PDF)" link, records the SHA-256 of the bytes, converts with
+`pdftotext -layout`, parses, and commits CSVs. **The PDFs are never committed.**
+
+**Result, 2026 week 10 (captured 2026-11-17T03:xx UTC):**
+
+| Dataset | Rows | File |
+|---|---|---|
+| Game Book register | 14 (13 captured, 1 withheld) | `fl2-depth/data/verified/gamebooks-2026-w10.csv` |
+| Actual starters | 572 (11 offence + 11 defence × 2 clubs × 13 games) | `starters-2026-w10.csv` |
+| Snap counts | 1,218 (off / def / ST) | `playtime-2026-w10.csv` |
+| Not Active + Did Not Play | 188 | `inactives-2026-w10.csv` |
+
+Every row carries the URL of the exact PDF it was parsed from.
+
+### Verification (not assumed — measured)
+
+`fl2-depth/engine/validate_depth.py` runs 23 structural checks; all pass. The ten most
+important are cross-checks against offensive snap totals **read by hand from the books
+during the manual pass**, before the mechanical capture existed:
+
+| Game | Club | Book | Hand-read |
+|---|---|---|---|
+| WAS @ NYG | WAS / NYG | 69 / 65 | 69 / 65 |
+| NE @ DET | NE / DET | 59 / 71 | 59 / 71 |
+| KC @ ATL | KC / ATL | 65 / 72 | 65 / 72 |
+| HOU @ CLE | HOU / CLE | 67 / 68 | 67 / 68 |
+| MIN @ GB | MIN / GB | 69 / 55 | 69 / 55 |
+
+All ten match. The inactive lists also match the hand-captured lists exactly (e.g.
+WAS Not Active = Kaliakmanis, Yiadom, Barber, Togiai, Patrick, Yankoff).
+
+### Flagged — published, not hidden
+
+1. **LAC @ BAL withheld.** Its game-centre page was serving a Game Book **byte-identical**
+   to WAS @ NYG (same SHA-256 `12c818cc…`). The game was still in progress at capture.
+   Publishing one game's players under another game's id would be fabrication, so the
+   script drops the rows and records `status = duplicate_pdf_hash`. Re-capture once the
+   game is final. → `fl2-depth/flagged.html`
+2. **The league captions its playtime table "(Unofficial)".** The caption is stored per
+   game (`playtime_unofficial`) and printed on every snap table rather than dropped.
+3. **A Game Book is published only after kickoff**, so it is never a pre-game input. It is
+   ground truth for scoring and the historical corpus for fitting; using it same-week
+   would be look-ahead. Stated on the flagged page.
+
+### Parser defects found and fixed (each was a wrong-answer bug, not a crash)
+
+Real Game Book geometry differs from any tidy assumption, and four separate drafts of this
+parser passed a tidy synthetic test while failing on the real PDFs. What the real books do:
+
+* **Lineups has four columns**, not two — away O, away D, home O, home D. Split must come
+  from the club-name line, then each half is cut again at its widest gap.
+* **Roster lists repeat their heading once per club on one line** ("Not Active" …
+  "Not Active"), and each block has its *own* column geometry — a split carried over from
+  the Lineups block silently mixes the two clubs' players into one comma list.
+* **Playtime column headers are not aligned with the numbers beneath them**, and a player
+  who took no snaps in a unit simply has that column *absent*, so columns shift left.
+  Fixed by cutting rows at NAME+POSITION+first-number anchors and assigning numbers to
+  columns by monotone alignment that tolerates missing columns.
+* **After a page break the book prints a second, unheadered block of special-teams-only
+  players.** Its single number pair is a **special-teams** figure; three drafts of the
+  parser booked it as *offence*, which is how a kicker appeared to take 11 offensive snaps.
+* **Club abbreviations cannot be used for column detection** — "NE" matches inside
+  unrelated words. The seed CSV now carries full club names and the splitter refuses
+  anything shorter than 4 characters.
+* **Cincinnati prints LDE / RDE / LOT / ROT / HB** where most clubs print DE / T / RB. The
+  slot vocabulary is now built from one `POS_WORDS` set so the two regexes cannot drift.
+
+Each of these is now covered by the offline self-test (`--self-test`), which is built from
+synthetic books that reproduce the real geometry. The workflow fails if it fails.
+
+### Files
+
+```
+fl2-depth/engine/capture_gamebooks.py   capture + parse + offline self-test
+fl2-depth/engine/run_capture.sh         CI wrapper, writes its own stdout into the repo
+fl2-depth/engine/validate_depth.py      23 checks incl. 10 hand-read cross-checks
+fl2-depth/engine/build_site.py          builds the 8 pages from the CSVs
+fl2-depth/data/verified/*.csv           the data, every row with its source URL
+fl2-depth/{index,starters,snaps,inactives,sources,questions,suggestions,flagged}.html
+.github/workflows/fl2-depth-capture.yml capture → validate → build → commit
+```
+
+### Still open (→ `fl2-depth/questions.html`)
+
+Eight questions, each with a concrete way to discover the answer. The blocking ones:
+how far back the Game Books go and whether the playtime table exists in every season (a
+depth model needs more than one week); whether pre-season books carry it; and how quickly
+after the final whistle a book is published (this sets the earliest time ground truth can
+be checked).
+<!-- merged: both sides kept (append-only board) -->
