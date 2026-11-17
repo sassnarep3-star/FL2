@@ -1,0 +1,4826 @@
+{
+ "built_by": "tools/build_decision_desk.py",
+ "built_date": "2026-11-17",
+ "stats": {
+  "suggestions_present": 67,
+  "suggestion_entries": 68,
+  "registers": 11,
+  "new_from_this_session": 10,
+  "collisions": 15,
+  "questions_present": 55,
+  "question_entries": 70,
+  "evidence_entries": 11,
+  "blocked_requirements": 7,
+  "readiness_rows": 74,
+  "archive_premise_rows": 3,
+  "archive_premise_ids": [
+   "R69",
+   "R78",
+   "R91"
+  ],
+  "not_done_readiness": 37
+ },
+ "suggestions": [
+  {
+   "uid": "fl2-lines-SG-01",
+   "order": 27,
+   "who": "engineering",
+   "title": "Run the snapshot workflow before anything else is built",
+   "problem": "Every availability and injury claim rests on a single capture, so no delta, no trend and no point-in-time replay exists",
+   "change": "Turn on fl2-lines-snapshot.yml so three dated captures per week are retained with hashes and drift alarms",
+   "effort": "Low",
+   "impact": "",
+   "risk": "Store growth and Pages build time; mitigated by committing manifests only, not raw bodies",
+   "state": "ADOPT",
+   "recommendation": "Adopt now, review after 4 weeks",
+   "missing": "Nothing - the work is unblocked and it is the only change that unlocks R06 R21 R29 R30 R34 R46 R54 R55 R61",
+   "registers": [
+    "fl2-lines:SG-01"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-01"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R47",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R13",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R29",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 4,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 13.0,
+   "path_tier": "P0 now"
+  },
+  {
+   "uid": "DS-03",
+   "order": 60,
+   "who": "engineering",
+   "title": "Give registers one namespace instead of three colliding ones",
+   "problem": "SG-01 means 'add an official depth-chart table per team' in data/suggestions.json and 'run the snapshot workflow before anything else is built' in fl2-lines - the same identifier, two different suggestions, six registers, two formats (SG01 and SG-01). A reviewer cannot approve an id without guessing which file it came from.",
+   "change": "Prefix every id with its owning section (LED-SG-01, LIN-SG-01) at generation time, and let the site-facing id be issued by the consolidator. Do not renumber by hand.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-03"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-03"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R30",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R43",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R46",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [
+    "EV-05"
+   ],
+   "how_to_check": "Run the collision table on the suggestions tab: it is computed by comparing the ids across registers, not asserted.",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 2,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 12.0,
+   "path_tier": "P0 now"
+  },
+  {
+   "uid": "hub-SG-01",
+   "order": 1,
+   "who": "engineering",
+   "title": "Add an official depth-chart table per team (starter, first backup, second backup)",
+   "problem": "",
+   "change": "",
+   "effort": "Medium (32 pages, one parser)",
+   "impact": "",
+   "risk": "Depth chart format may change; needs per-page verification.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-01",
+    "docs:SG-01"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-01"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-01"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R43",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R46",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 2,
+   "in_degree": 8,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 11.0,
+   "path_tier": "P0 now"
+  },
+  {
+   "uid": "DS-02",
+   "order": 59,
+   "who": "engineering",
+   "title": "Republish the standings table from the results feed on a schedule",
+   "problem": "The published standings table disagrees with the official page for 9 of the 12 clubs sampled today because it is a capture dated before the Week 10 Sunday slate, while the results feed already holds those finals.",
+   "change": "Derive the standings table from the results feed at build time and keep the captured table as the dated snapshot it is, with the capture date printed on the row. Add a drift alarm that fails when standings W-L-T disagrees with the replay of the feed.",
+   "effort": "Low",
+   "impact": "Medium",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-02"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-02"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R49",
+     "status": "NEEDS-REVIEW"
+    },
+    {
+     "id": "R66",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R18",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-08"
+   ],
+   "how_to_check": "Recompute the replay and diff it against the live page; the diff on the freshness tab of this section is that check, run on 2026-11-17.",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 8.0,
+   "path_tier": "P0 now"
+  },
+  {
+   "uid": "DS-05",
+   "order": 62,
+   "who": "engineering",
+   "title": "Publish the availability blackout window next to any Thursday forecast",
+   "problem": "The official report had not rolled to Week 11 when this session checked (the 2026 selector stops at WEEK 10), so for the Thursday fixture there is at most one published report day before kickoff. A model that silently runs without availability data is not the same product as one that is graded on it.",
+   "change": "Record, per fixture, whether an official report day existed inside the forecast window, and show that flag on the leaderboard row. Do not treat 'no report' as 'no injuries'.",
+   "effort": "Low",
+   "impact": "Medium",
+   "risk": "Medium",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-05"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-05"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R30",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R18",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R29",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-04"
+   ],
+   "how_to_check": "Compare the report's week label with the fixture date; the gap is a property of the source calendar, not of our parser.",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 8.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "DS-08",
+   "order": 64,
+   "who": "engineering",
+   "title": "Do not carry placeholder scores for fixtures that are already decided",
+   "problem": "The committed feed holds 2026_10_PIT_CIN at status in_progress with scores written as 0-0, while the official page has printed 18-38 FINAL since November 15. Replaying the feed reproduces the official record for 29 of 31 sampled clubs and fails for exactly the two clubs in that fixture.",
+   "change": "Rebuild the feed from a fresh dated capture so that fixture becomes final, and change the writer so a non-final row carries blank scores rather than 0-0 - a numeric placeholder on an open row is read as a result by anything that ignores status. The rebuild belongs to the owning script, so this row asks for it rather than editing the file.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Medium",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-08"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-08"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R23",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R25",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R30",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R46",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [
+    "EV-10"
+   ],
+   "how_to_check": "Replay the feed's finals against the official records and count the exceptions: it is 2, both from the same fixture, and 0 once that fixture is applied.",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 8.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "hub-SG-07",
+   "order": 7,
+   "who": "owner",
+   "title": "Define the leaderboard reward before building it",
+   "problem": "",
+   "change": "",
+   "effort": "Low",
+   "impact": "",
+   "risk": "Unclear reward definitions cause scope creep.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-07",
+    "docs:SG-07"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-07"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-07"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 4,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 8.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "DS-09",
+   "order": 65,
+   "who": "engineering",
+   "title": "One canonical count for the official injury table, everything else derived",
+   "problem": "The same official Week 10 report is published as 345 rows in data/injuries.json, 160 in the designation-only linelab capture and 76 in the ledger's own table, and the README quotes the 76. All three are defensible in isolation; together they mean a reviewer cannot say whether the report was re-captured without opening all three files.",
+   "change": "Keep the full capture as the artefact with the count printed on it, and render the other two as labelled views of it (designated rows only / ledger subset) with their filter stated on the page. Do not merge the views; label them.",
+   "effort": "Medium",
+   "impact": "High",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-09"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-09"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R49",
+     "status": "NEEDS-REVIEW"
+    },
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R40",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R18",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-07"
+   ],
+   "how_to_check": "Count rows in each of the three artefacts and compare with the live official page; the difference is the filter each view applies, which should be printed rather than discovered.",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 2.0,
+   "score": 8.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "fl2-lines-SG-07",
+   "order": 33,
+   "who": "engineering",
+   "title": "Transcribe venues and game states from the game centre in CI",
+   "problem": "2 of 148 fixtures have a venue transcribed from the official game centre, and the ticketing widget for a Munich fixture points at the home club's stadium",
+   "change": "Capture the game-centre Game Info block per fixture and store venue plus roof designation",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Copyright scope for republishing; store derived facts only (venue name, roof state, kickoff)",
+   "state": "ADOPT",
+   "recommendation": "Adopt after SG-01",
+   "missing": "Nothing",
+   "registers": [
+    "fl2-lines:SG-07"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-07"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R23",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R25",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 2,
+   "in_degree": 2,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 8.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "fl2-lines-SG-09",
+   "order": 35,
+   "who": "engineering",
+   "title": "Publish an injury-table re-capture with a per-team row count",
+   "problem": "Published counts disagree with the live page (254 rows and 4 empty sections vs 279 and 2 claimed); nobody can tell which was true when",
+   "change": "Fetch every page of the official report, store it, publish the per-team count and the delta against the previous capture",
+   "effort": "Low",
+   "impact": "",
+   "risk": "None",
+   "state": "ADOPT",
+   "recommendation": "Adopt",
+   "missing": "Nothing",
+   "registers": [
+    "fl2-lines:SG-09"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-09"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R49",
+     "status": "NEEDS-REVIEW"
+    },
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R46",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R61",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 7.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "hub-SG-02",
+   "order": 2,
+   "who": "engineering",
+   "title": "Separate 'Not injury related' absences from injury analysis",
+   "problem": "",
+   "change": "",
+   "effort": "Low",
+   "impact": "",
+   "risk": "Low",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-02",
+    "docs:SG-02"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-02"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-02"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 2,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 6.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "fl2-lines-SG-02",
+   "order": 28,
+   "who": "engineering",
+   "title": "Acquire snap counts in CI and stop calling participation a depth measure",
+   "problem": "snap_participation.csv lists who took a snap but not how many, so replacement depth cannot be measured and the 100% play-rate trap is live",
+   "change": "Extend the workflow to build a per-game snap-share series per position group and publish its row counts in the manifest",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Data volume; keep aggregates only",
+   "state": "ADOPT",
+   "recommendation": "Adopt; gate the deficiency feature on it",
+   "missing": "Whether the release snap file covers 2026 in the schema the parser expects",
+   "registers": [
+    "fl2-lines:SG-02"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-02"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R11",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R06",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 2,
+   "in_degree": 1,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 6.0,
+   "path_tier": "P1 next"
+  },
+  {
+   "uid": "hub-csv-SG09",
+   "order": 20,
+   "who": "engineering",
+   "title": "Automate per-club depth-chart capture for all 32 clubs",
+   "problem": "Depth-string deficiency is a core requirement but is covered for only 2 clubs.",
+   "change": "",
+   "effort": "Medium",
+   "impact": "High",
+   "risk": "Medium",
+   "state": "30 club pages to capture; each is structured and scrapeable.",
+   "recommendation": "test",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG09"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG09"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R43",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R52",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R73",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 3,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 5.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "signal-S09",
+   "order": 50,
+   "who": "engineering",
+   "title": "Validate depth charts against actual snap share before using them to infer a replacement",
+   "problem": "The replacement logic assumes the published depth chart knows who is next man up. If it is stale, the whole backup-tracking feature is fiction.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S09"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S09"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R06",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R52",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R56",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 3,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 5.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-04",
+   "order": 61,
+   "who": "engineering",
+   "title": "Refuse to grade a slate that contains a non-final row",
+   "problem": "Week 10 is one game short of complete (the Monday-night fixture was live at 17-7 when this session read it), and the corpus the backtest and the leaderboard escrow both draw on is 148 of 149 finals.",
+   "change": "Add a build-time gate: any grading run asserts count(final) == count(scheduled + live + final) for the window it grades, and refuses to produce a graded row for a week containing a non-final fixture. The state is already in the feed; the refusal is not.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-04"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-04"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [
+    "EV-01",
+    "EV-02"
+   ],
+   "how_to_check": "Read data/results_feed.csv: status counts are 148 final, 1 in_progress, 123 scheduled.",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 1,
+   "evidence_count": 2,
+   "cost": 1.0,
+   "score": 5.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-10",
+   "order": 66,
+   "who": "engineering",
+   "title": "Make the committed pages regenerable without destroying a hand-added link",
+   "problem": "Running the repository's own generators rewrites 11 docs pages and drops the cross-link another session added to their navigation, and rewrites the audit artefact's branch and commit provenance. Nothing in CI notices, because the validate job runs the generators but never diffs what they produce.",
+   "change": "Either move the cross-link into the generator so it is part of the template, or add a CI step that runs the generators and fails on any diff outside the section that owns the file. Do not leave it to memory.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Medium",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-10"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-10"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R39",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R61",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-11"
+   ],
+   "how_to_check": "Run the generators on a clean tree and diff; today that diff is non-empty, which is the defect.",
+   "breadth": 1,
+   "linked_count": 2,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 5.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "hub-csv-SG01",
+   "order": 12,
+   "who": "engineering",
+   "title": "Publish this site as the decision surface, not a dashboard of numbers",
+   "problem": "There is no shared place to compare options before changes are made; decisions are being made in prose.",
+   "change": "",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Done \u2014 pages/suggestions.html carries the review states.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG01"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG01"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 2,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 5.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-01",
+   "order": 58,
+   "who": "engineering",
+   "title": "Re-derive the designation-to-play-rate calibration from the league's own archive",
+   "problem": "The calibration the site already publishes (Out 0.02%, Questionable 64.46%, Doubtful 0.92%) was computed from a mirror that its own source register says is unreachable outside CI, while three requirements are recorded as blocked on the ground that 'no archive is reachable'.",
+   "change": "Pull the weekly report per season from nfl.com/injuries/league/{year}/reg{week}, which this session confirmed renders for 2025 and 2024, and re-run the join from the primary source. Keep the mirror numbers as the cross-check rather than the record. This settles the source premise behind R69 and R91; R78 stays partly blocked because the weekly report does not carry inactive lists.",
+   "effort": "Medium",
+   "impact": "High",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-01"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-01"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [
+    "EV-05",
+    "EV-06"
+   ],
+   "how_to_check": "Open the two archived pages and count the designation rows; then recompute the rate on one season and compare with the published number.",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 1,
+   "evidence_count": 2,
+   "cost": 2.0,
+   "score": 5.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-06",
+   "order": 63,
+   "who": "owner",
+   "title": "Settle the price question with a dated decision, not another inventory",
+   "problem": "Both price stores in the repository agree there is no 2026 opening price and no timestamp on any closing price, which is why every CLV-based gate is unsatisfiable. The registers document the gap; nothing yet records the decision that closes it.",
+   "change": "Choose one of the three options the policy file already lists - buy an archive, self-record dated snapshots of one agreed consensus page, or drop CLV and rank on proper scores only - and record the choice, the date and the owner next to the gate that it unblocks.",
+   "effort": "High",
+   "impact": "Critical",
+   "risk": "Medium",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-06"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-06"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R01",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R18",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-03"
+   ],
+   "how_to_check": "Count rows with both an open and a close for 2026 in the price store: it is 0, and the readiness register prints the same figure.",
+   "breadth": 1,
+   "linked_count": 2,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 3.0,
+   "score": 5.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-07",
+   "order": 67,
+   "who": "engineering",
+   "title": "Put the machine-readable copy behind every register page",
+   "problem": "Three suggestion surfaces render rows with no source file a checker can read (one static table of 22 rows, one client-side render, one page with no rows at all). A reviewer cannot diff them and CI cannot check them, so they drift first.",
+   "change": "Every page table must be generated from a CSV or JSON artefact in the repository; the page links to that artefact in its header. If a table is hand-written, mark it as prose.",
+   "effort": "Low",
+   "impact": "Medium",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-07"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-07"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "Count <tr> rows against the source artefact; a page with rows and no artefact fails.",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 1,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 4.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "fl2-lines-SG-08",
+   "order": 34,
+   "who": "owner",
+   "title": "Move raw mirrors out of the published tree",
+   "problem": "Row-level third-party mirrors sit inside a public Pages site while their terms are unread",
+   "change": "Keep public pages to derived aggregates and links; relocate raw mirrors to a private store or a release asset",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Breaks other sections' builds if they read those paths; coordinate before moving",
+   "state": "DECIDE",
+   "recommendation": "Decide at integration; do not do it mid-cycle",
+   "missing": "Legal read of the mirror licences and the league terms",
+   "registers": [
+    "fl2-lines:SG-08"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-08"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R40",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R39",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 2,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 4.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "hub-csv-SG07",
+   "order": 18,
+   "who": "engineering",
+   "title": "Pre-register the strategy registry before any backtest runs",
+   "problem": "An unbounded registry makes G10 unenforceable and lets luck win the leaderboard.",
+   "change": "",
+   "effort": "Low",
+   "impact": "Critical",
+   "risk": "Low",
+   "state": "Cheapest possible fix for the biggest governance hole.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG07"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG07"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 1,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 3.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "fl2-lines-SG-03",
+   "order": 29,
+   "who": "engineering",
+   "title": "Fix the depth-chart parser for the 2025/2026 12-column schema",
+   "problem": "The mirror holds 784,796 depth rows for 2026 but depth_player.csv contains 0 of them, so every depth claim dies at ingest",
+   "change": "Branch the parser on the header instead of assuming the 2020-2024 columns, and fail the build when a season yields zero rows",
+   "effort": "Low",
+   "impact": "",
+   "risk": "Silent behaviour change for 2020-2024 rows; cover with a golden-file test",
+   "state": "ADOPT",
+   "recommendation": "Adopt before building any depth feature",
+   "missing": "Nothing - the defect is already reproduced",
+   "registers": [
+    "fl2-lines:SG-03"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-03"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R46",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 2.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "fl2-lines-SG-11",
+   "order": 37,
+   "who": "owner",
+   "title": "One navigation for the six published sections",
+   "problem": "Four frameworks plus two data sections each shipped their own index, so a reader cannot tell which number is authoritative",
+   "change": "Root hub gains one row per section with its verification tier and its as-of date; section files stay owned by their sessions",
+   "effort": "Low",
+   "impact": "",
+   "risk": "Merge conflicts on the shared hub",
+   "state": "ADOPT",
+   "recommendation": "Adopt at integration",
+   "missing": "Owner preference only",
+   "registers": [
+    "fl2-lines:SG-11"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-11"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 2.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "fl2-lines-SG-10",
+   "order": 36,
+   "who": "engineering",
+   "title": "Add the 4th-string column honestly or not at all",
+   "problem": "A 1st-to-4th string matrix is the most requested view and the least supportable today: no official string data exists",
+   "change": "Publish a two-string view (starter group vs everyone else) from playing time, and mark 3rd/4th as unavailable until SG-02 lands",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "A fake 4th-string cell would be the single most damaging error on the site",
+   "state": "ADOPT-PARTIAL",
+   "recommendation": "Adopt the honest subset now, expand after SG-02",
+   "missing": "Snap data",
+   "registers": [
+    "fl2-lines:SG-10"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-10"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R45",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 2.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "fl2-lines-SG-15",
+   "order": 41,
+   "who": "engineering",
+   "title": "Add the NWS hourly overlay behind a coverage test",
+   "problem": "Wind and precipitation move totals and are absent; only 45 of 137 games carry any weather field in the mirror",
+   "change": "Join the public NWS hourly grid by venue lat/lon and kickoff time, and publish coverage before any effect estimate",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Venue geocoding errors leak into a model; store the coordinate and the grid time with every row",
+   "state": "ADOPT",
+   "recommendation": "Adopt after SG-07",
+   "missing": "Nothing (NWS is a public federal source)",
+   "registers": [
+    "fl2-lines:SG-15"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-15"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R58",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 2.5,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "fl2-lines-SG-04",
+   "order": 30,
+   "who": "owner",
+   "title": "Decide the price source rather than inheriting a mirror",
+   "problem": "Opening prices do not exist for 2026 and closing prices carry no timestamp, so CLV cannot be certified",
+   "change": "Pick one: (a) record our own dated snapshots of a public consensus page, (b) buy a feed, (c) price without a market benchmark and drop CLV from the gates",
+   "effort": "High",
+   "impact": "",
+   "risk": "A price feed the project cannot legally republish would poison the leaderboard",
+   "state": "DECIDE",
+   "recommendation": "Decide before Week 12; publish the decision as a one-line policy change",
+   "missing": "Terms and redistribution rights for any operator price; the owner's budget",
+   "registers": [
+    "fl2-lines:SG-04"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-04"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R01",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.5,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG04",
+   "order": 15,
+   "who": "engineering",
+   "title": "Ship the cross-sectional correlation work now, and label clearly what it cannot answer",
+   "problem": "Correlation was requested but only team-level data exists; publishing it silently would overclaim.",
+   "change": "",
+   "effort": "Done",
+   "impact": "Medium",
+   "risk": "High",
+   "state": "Done \u2014 pages/correlation.html with CI columns and a scope warning.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG04"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG04"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R13",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.5,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S06",
+   "order": 47,
+   "who": "owner",
+   "title": "Separate 'market-sourced' prop lines from 'model-originated' prop lines with an unmissable label",
+   "problem": "No licensed historical prop-line dataset is in hand. Modelling props against invented lines would produce impressive, fake results.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S06"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S06"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R18",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.5,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S07",
+   "order": 48,
+   "who": "engineering",
+   "title": "Build the prop-combo engine on outcomes first, and only add pricing when a real price exists",
+   "problem": "Prop combinations require both joint probability estimates and prices. We can do the first now; the second is blocked.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S07"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S07"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R72",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.5,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S08",
+   "order": 49,
+   "who": "engineering",
+   "title": "Measure, rather than assume, what each injury designation is worth",
+   "problem": "Any weighting of Out / Doubtful / Questionable is currently invented. The league publishes no numeric probability, so we must measure it.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S08"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S08"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R49",
+     "status": "NEEDS-REVIEW"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.5,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S11",
+   "order": 52,
+   "who": "engineering",
+   "title": "Test every signal as a residual against the closing line, not against the raw outcome",
+   "problem": "Most apparent edges are re-discoveries of information already in the price. Scoring against the raw outcome cannot distinguish the two.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S11"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S11"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R18",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 1,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.5,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-08",
+   "order": 8,
+   "who": "engineering",
+   "title": "Add responsible-gambling guardrails if any wagering use is planned",
+   "problem": "",
+   "change": "",
+   "effort": "Low",
+   "impact": "",
+   "risk": "None, if done before any strategy is shown.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-08",
+    "docs:SG-08"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-08"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-08"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-09",
+   "order": 9,
+   "who": "engineering",
+   "title": "Use one source for each data type and record the source per row",
+   "problem": "",
+   "change": "",
+   "effort": "Low",
+   "impact": "",
+   "risk": "Low",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-09",
+    "docs:SG-09"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-09"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-09"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-03",
+   "order": 3,
+   "who": "engineering",
+   "title": "Add a daily refresh with a last-verified date on every page",
+   "problem": "",
+   "change": "",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Automated scraping of NFL.com must follow their terms; needs your approval.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-03",
+    "docs:SG-03"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-03"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-03"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-06",
+   "order": 6,
+   "who": "engineering",
+   "title": "Adopt the validation gates before any strategy is ranked",
+   "problem": "",
+   "change": "",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Strict gates may produce no winners. That is a valid outcome.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-06",
+    "docs:SG-06"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-06"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-06"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-04",
+   "order": 4,
+   "who": "owner",
+   "title": "Get a licensed odds archive before any line-making work",
+   "problem": "",
+   "change": "",
+   "effort": "Depends on vendor; may have cost.",
+   "impact": "",
+   "risk": "Licence restrictions; cost; data quality.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-04",
+    "docs:SG-04"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-04"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-04"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-05",
+   "order": 5,
+   "who": "engineering",
+   "title": "Start strategy research with spreads only",
+   "problem": "",
+   "change": "",
+   "effort": "Low for scope; High for validation.",
+   "impact": "",
+   "risk": "Narrow scope may find fewer signals.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-05",
+    "docs:SG-05"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-05"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-05"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-10",
+   "order": 10,
+   "who": "engineering",
+   "title": "Add a weekly injury history table to test whether 'Questionable' predicts play",
+   "problem": "",
+   "change": "",
+   "effort": "Medium-High",
+   "impact": "",
+   "risk": "Playing status needs a verified source for each game (box scores).",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-10",
+    "docs:SG-10"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-10"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-10"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-SG-11",
+   "order": 11,
+   "who": "engineering",
+   "title": "Consolidate the two dashboards into one site",
+   "problem": "",
+   "change": "",
+   "effort": "Low-Medium (mostly moving pages and links)",
+   "impact": "",
+   "risk": "Moving pages changes URLs that may already be shared.",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "hub:SG-11",
+    "docs:SG-11"
+   ],
+   "sources": [
+    {
+     "register": "hub",
+     "path": "data/suggestions.json",
+     "id": "SG-11"
+    },
+    {
+     "register": "docs",
+     "path": "docs/data/suggestions.json",
+     "id": "SG-11"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 2,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 2.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "fl2-lines-SG-05",
+   "order": 31,
+   "who": "engineering",
+   "title": "Keep the leaderboard empty until escrow fills",
+   "problem": "Publishing a backtest ranking invites the reader to treat it as a live result",
+   "change": "Render only escrow rows; keep every historical number on the evaluation page",
+   "effort": "Low",
+   "impact": "",
+   "risk": "An empty page reads as failure to some readers; mitigate with a visible countdown to n>=200",
+   "state": "ADOPT",
+   "recommendation": "Adopt - already implemented in this section, protect it in CI",
+   "missing": "Nothing",
+   "registers": [
+    "fl2-lines:SG-05"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-05"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "fl2-lines-SG-06",
+   "order": 32,
+   "who": "engineering",
+   "title": "Replace the 3-point injury penalty wherever it survives",
+   "problem": "A fixed penalty asserts knowledge the ablation does not support (measured -0.48 pts per expected miss, CI -0.72 to -0.25)",
+   "change": "Audit other sections for fixed penalties and link them to this ablation record",
+   "effort": "Low",
+   "impact": "",
+   "risk": "None; it is a documentation change",
+   "state": "ADOPT",
+   "recommendation": "Adopt",
+   "missing": "Nothing",
+   "registers": [
+    "fl2-lines:SG-06"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-06"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "fl2-lines-SG-12",
+   "order": 38,
+   "who": "engineering",
+   "title": "Gate the correlation panel to official numbers only",
+   "problem": "Prop and price correlations were computed on mirrors; the brief restricts correlations to officially sourced numbers",
+   "change": "Split the panel into Official (results only) and Market (labelled, never used as a model input)",
+   "effort": "Low",
+   "impact": "",
+   "risk": "None",
+   "state": "ADOPT",
+   "recommendation": "Adopt - implemented here, apply to other sections",
+   "missing": "Nothing",
+   "registers": [
+    "fl2-lines:SG-12"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-12"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "fl2-lines-SG-13",
+   "order": 39,
+   "who": "engineering",
+   "title": "Give the demotion gate a real trigger now",
+   "problem": "The gate is defined but has nothing to demote, which is easy to forget shipping",
+   "change": "Wire the gate to the escrow ledger so the first qualifying strategy inherits it automatically",
+   "effort": "Low",
+   "impact": "",
+   "risk": "None",
+   "state": "ADOPT",
+   "recommendation": "Adopt",
+   "missing": "Nothing",
+   "registers": [
+    "fl2-lines:SG-13"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-13"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG02",
+   "order": 13,
+   "who": "engineering",
+   "title": "Treat every number as sourced-or-blank; never interpolate",
+   "problem": "An unsourced number is indistinguishable from a hallucination once it is on a page.",
+   "change": "",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Done \u2014 209 injury rows and 30 clubs' depth fields are blank and flagged.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG02"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG02"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG03",
+   "order": 14,
+   "who": "engineering",
+   "title": "Make 'unverified' a first-class status with its own page",
+   "problem": "Hidden gaps silently become assumptions.",
+   "change": "",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Done.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG03"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG03"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG08",
+   "order": 19,
+   "who": "engineering",
+   "title": "Set a hard sample floor before a strategy can be ranked",
+   "problem": "Ranking on 50 bets is noise.",
+   "change": "",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Recommend: show at 500, rank at 2,000.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG08"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG08"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG11",
+   "order": 22,
+   "who": "engineering",
+   "title": "Publish a zero-interest 'negative results' section",
+   "problem": "Rejected ideas get rebuilt by the next session.",
+   "change": "",
+   "effort": "Low",
+   "impact": "Medium",
+   "risk": "Low",
+   "state": "Done \u2014 rejected strategies are on the strategies page with the reason.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG11"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG11"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG12",
+   "order": 23,
+   "who": "engineering",
+   "title": "Add a changelog and a data-retrieval timestamp to every page",
+   "problem": "Without timestamps a stale page looks current.",
+   "change": "",
+   "effort": "Low",
+   "impact": "Medium",
+   "risk": "Low",
+   "state": "Done \u2014 footer stamps on all pages.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG12"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG12"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG14",
+   "order": 25,
+   "who": "engineering",
+   "title": "Decide the primary deliverable before expanding scope",
+   "problem": "Research artefact vs product vs syndicate pull in different directions.",
+   "change": "",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Recommended: research artefact that publishes originated lines.",
+   "recommendation": "test",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG14"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG14"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG15",
+   "order": 26,
+   "who": "engineering",
+   "title": "Version the injury snapshot daily during the season",
+   "problem": "A Week 10 snapshot decays hourly once practice reports change.",
+   "change": "",
+   "effort": "Low",
+   "impact": "Medium",
+   "risk": "Low",
+   "state": "Pipeline exists in tools/; needs a scheduler, which needs a host.",
+   "recommendation": "test",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG15"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG15"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 1.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "fl2-lines-SG-14",
+   "order": 40,
+   "who": "engineering",
+   "title": "Build the fixture-context set from the two dated league announcements",
+   "problem": "Rest, window, roof and international status are published facts and are currently scattered",
+   "change": "One table per fixture: kickoff UTC, broadcast window, venue, roof, international flag, rest days, all with source links",
+   "effort": "Medium",
+   "impact": "",
+   "risk": "Weather source terms",
+   "state": "ADOPT-PARTIAL",
+   "recommendation": "Adopt the schedule part now, weather as SG-15",
+   "missing": "NWS grid join for wind and precipitation",
+   "registers": [
+    "fl2-lines:SG-14"
+   ],
+   "sources": [
+    {
+     "register": "fl2-lines",
+     "path": "fl2-lines/data/registers/suggestions.csv",
+     "id": "SG-14"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG05",
+   "order": 16,
+   "who": "owner",
+   "title": "Buy a licensed historical odds archive before writing any bet logic",
+   "problem": "Gates G3, G4, G5, G9 are all unpassable without it. Every strategy is blocked at the same gate.",
+   "change": "",
+   "effort": "Medium",
+   "impact": "Critical",
+   "risk": "Medium",
+   "state": "This is the single highest-leverage spend. Recommended first action.",
+   "recommendation": "test",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG05"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG05"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG06",
+   "order": 17,
+   "who": "engineering",
+   "title": "Ingest player-level game logs to unlock prop and parlay work",
+   "problem": "Player props and correlated parlays are explicitly in scope but have zero data behind them.",
+   "change": "",
+   "effort": "Medium",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Needed for the parlay half of the brief.",
+   "recommendation": "test",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG06"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG06"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG10",
+   "order": 21,
+   "who": "engineering",
+   "title": "Calibrate injury-designation weights against realised snap counts",
+   "problem": "The proposed weights (Out 1.00 / Doubtful 0.75 / Questionable 0.40) are guesses.",
+   "change": "",
+   "effort": "Medium",
+   "impact": "High",
+   "risk": "Low",
+   "state": "Do not present the weights as measured until calibrated.",
+   "recommendation": "test",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG10"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG10"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 2.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "hub-csv-SG13",
+   "order": 24,
+   "who": "engineering",
+   "title": "Do not build an automated bettor yet",
+   "problem": "Auto-betting before any gate passes converts modelling error into money loss, and raises licensing questions.",
+   "change": "",
+   "effort": "\u2014",
+   "impact": "High",
+   "risk": "High",
+   "state": "Publish lines; do not stake them.",
+   "recommendation": "adopt",
+   "missing": "",
+   "registers": [
+    "hub-csv:SG13"
+   ],
+   "sources": [
+    {
+     "register": "hub-csv",
+     "path": "data/suggestions.csv",
+     "id": "SG13"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S01",
+   "order": 42,
+   "who": "engineering",
+   "title": "Publish a single 'Data Health' page before publishing any model output",
+   "problem": "Every number downstream inherits the quality of the raw feed. Currently nobody can see whether a data pull failed or a field went null.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S01"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S01"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S02",
+   "order": 43,
+   "who": "engineering",
+   "title": "Show the market close next to every originated line, never the line alone",
+   "problem": "An originated line is meaningless in isolation. It only has value if it differs from the close in a direction that would have been profitable.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S02"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S02"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S03",
+   "order": 44,
+   "who": "owner",
+   "title": "Make the validation gate a hard, pre-registered, code-enforced gate",
+   "problem": "A leaderboard without a gate rewards whatever was tried last. Multiple comparisons guarantee some strategy looks good by luck.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S03"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S03"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S04",
+   "order": 45,
+   "who": "engineering",
+   "title": "Split every published result into 'in-sample' and 'holdout' columns instead of one number",
+   "problem": "A single reported ROI hides whether the strategy was tuned on the same data it is scored on.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S04"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S04"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S05",
+   "order": 46,
+   "who": "engineering",
+   "title": "Publish a measured correlation matrix with sample sizes, and refuse to price a parlay without it",
+   "problem": "Parlay pricing that assumes independence is silently wrong whenever legs correlate. The request explicitly asks for correlation values.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S05"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S05"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S10",
+   "order": 51,
+   "who": "engineering",
+   "title": "Keep the site factual and non-advisory, with a standing disclaimer",
+   "problem": "The site is public and will show numbers that look like picks.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S10"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S10"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S12",
+   "order": 53,
+   "who": "engineering",
+   "title": "Use rest days, travel and short-week flags as candidate signals, and let the gate reject them",
+   "problem": "These are classic situational angles with weak evidence. They are cheap to test and easy to fool yourself with.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S12"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S12"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S13",
+   "order": 54,
+   "who": "engineering",
+   "title": "Publish a leaderboard that also ranks strategies by how much they FAILED, not only how much they won",
+   "problem": "A leaderboard of winners alone is a machine for generating false confidence.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S13"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S13"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S14",
+   "order": 55,
+   "who": "engineering",
+   "title": "Add a per-row 'unverified' flag and render unconfirmed cells blank, never estimated",
+   "problem": "The explicit requirement is that unconfirmed values are blank and flagged, never inferred.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S14"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S14"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S15",
+   "order": 56,
+   "who": "engineering",
+   "title": "Add a live 'what changed since you last looked' strip",
+   "problem": "Decision makers need to know what moved, not re-read everything.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S15"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S15"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  },
+  {
+   "uid": "signal-S16",
+   "order": 57,
+   "who": "engineering",
+   "title": "Do not publish any strategy until Q02, Q03 and Q05 are answered",
+   "problem": "Prop lines are absent, the skill gate is undefined, and correlations are unmeasured. Publishing strategies now would breach the no-hallucination requirement.",
+   "change": "",
+   "effort": "",
+   "impact": "",
+   "risk": "",
+   "state": "",
+   "recommendation": "",
+   "missing": "",
+   "registers": [
+    "signal:S16"
+   ],
+   "sources": [
+    {
+     "register": "signal",
+     "path": "signal/data/suggestions.json",
+     "id": "S16"
+    }
+   ],
+   "linked_rows": [],
+   "capture_refs": [],
+   "how_to_check": "",
+   "breadth": 1,
+   "linked_count": 0,
+   "in_degree": 0,
+   "evidence_count": 0,
+   "cost": 3.0,
+   "score": 1.0,
+   "path_tier": "P3 backlog"
+  }
+ ],
+ "questions": [
+  {
+   "uid": "DQ-001",
+   "question": "What does 'reward' mean in the strategy leaderboard: points on this site, or money?",
+   "why": "A money reward changes legal and responsible-gambling requirements; points do not.",
+   "known": "Task text says 'rewards for top performing strategies' without defining it.",
+   "missing": "Definition of reward.",
+   "close": "User decision.",
+   "priority": "High",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q2",
+    "decision-questions:Q18",
+    "docs:Q2"
+   ],
+   "paths": [
+    "data/decision-questions.csv",
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 3
+  },
+  {
+   "uid": "DQ-002",
+   "question": "Should 'Not injury related' designations (e.g., resting player, personal matter) be excluded from injury analysis?",
+   "why": "Four Week 10 players have these labels: Jessie Bates, Jordan Davis, Azeez Al-Shaair, Myles Garrett.",
+   "known": "The NFL.com report labels them 'Not injury related' in the injury column.",
+   "missing": "User preference for how to treat them.",
+   "close": "Recommend excluding them from injury counts and showing them separately. User decision.",
+   "priority": "Medium",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q7",
+    "decision-questions:Q10",
+    "docs:Q7"
+   ],
+   "paths": [
+    "data/decision-questions.csv",
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 3
+  },
+  {
+   "uid": "DQ-003",
+   "question": "Is sports betting legal for you in Mexico City, and is wagering the goal, or is it research only?",
+   "why": "Decides whether any line or strategy work has a real-money use, and what compliance applies.",
+   "known": "User location: Mexico City, MX (from user profile).",
+   "missing": "Official Mexican regulator position; the user's stated goal.",
+   "close": "Check the official gambling regulator (SEGOB, Direcci\u00f3n General de Juegos y Sorteos) and confirm the goal in writing.",
+   "priority": "Critical",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q1",
+    "docs:Q1"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-004",
+   "question": "Which markets are in scope first: point spread, total, moneyline, player props, parlays?",
+   "why": "Each market needs different data, different validation, and different correlation handling.",
+   "known": "Task names single bets, parlays, and player prop combos.",
+   "missing": "Priority order.",
+   "close": "Recommend starting with spreads only (fewest data needs). User decision.",
+   "priority": "High",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q3",
+    "docs:Q3"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-005",
+   "question": "Which source for historical closing lines and odds, and is its licence allowed for this use?",
+   "why": "Closing line value and ROI can only be measured against real odds. No official NFL source publishes lines.",
+   "known": "No verified odds source. nflverse schedule file (contains line fields) could not be downloaded here.",
+   "missing": "A licensed or open odds archive with terms of use.",
+   "close": "Check nflverse data terms and any odds vendor licence. Do not scrape sportsbook sites without permission.",
+   "priority": "Critical",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q4",
+    "docs:Q4"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-006",
+   "question": "How many seasons of history should the validation use?",
+   "why": "Sample size drives whether a result can be separated from luck.",
+   "known": "Nothing collected yet.",
+   "missing": "Target seasons (e.g., 2015-2025).",
+   "close": "Decide with user; collect from NFL.com schedules and results.",
+   "priority": "High",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q5",
+    "docs:Q5"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-007",
+   "question": "Where are official depth charts published, so starters and backups can be identified per team and week?",
+   "why": "Required to answer 'which backup replaced which starter' for offense and defense.",
+   "known": "NFL.com team roster pages exist and show position and status (sampled BUF roster page 1 of 3). Depth chart page not yet located or fetched.",
+   "missing": "Confirmed official depth-chart URL and its structure.",
+   "close": "Fetch the NFL.com team depth chart page for one team, confirm structure, then repeat for 32 teams.",
+   "priority": "Critical",
+   "status": "Next step - pending verification",
+   "answered": false,
+   "registers": [
+    "data-questions:Q6",
+    "docs:Q6"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-008",
+   "question": "How often should the site refresh (manual, daily, or before each game day)?",
+   "why": "Injury statuses change before kickoff; a stale table can mislead.",
+   "known": "Report was fetched on 2026-11-14 for Week 10.",
+   "missing": "Refresh schedule and an owner for it.",
+   "close": "User decision. Automation would need repo permission for scheduled jobs.",
+   "priority": "Medium",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q8",
+    "docs:Q8"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-009",
+   "question": "Is the site public or private?",
+   "why": "Public pages with betting-related content have different risk and legal exposure.",
+   "known": "Task asks for a GitHub Pages live site.",
+   "missing": "Visibility decision.",
+   "close": "User decision. Current build is public Pages.",
+   "priority": "High",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q9",
+    "docs:Q9"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-010",
+   "question": "Does the user have a bankroll and loss limit in mind, and what is the time horizon?",
+   "why": "Needed for responsible-gambling guardrails and for any staking model.",
+   "known": "Nothing provided.",
+   "missing": "Bankroll, limits, horizon.",
+   "close": "User input. Do not set values for the user.",
+   "priority": "Medium",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q10",
+    "docs:Q10"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-011",
+   "question": "Is the repository meant to be public, and under what license?",
+   "why": "The repo has no license and no code (see F-01).",
+   "known": "Repo is at github.com/sassnarep3-star/FL2; README only.",
+   "missing": "License choice.",
+   "close": "User decision.",
+   "priority": "Low",
+   "status": "Unanswered",
+   "answered": true,
+   "registers": [
+    "data-questions:Q11",
+    "docs:Q11"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-012",
+   "question": "Which NFL.com page confirms the weekly injury-report timing (when each report is posted)?",
+   "why": "Needed to schedule refresh and know which status is current.",
+   "known": "Week 10 report shows 'Week 10 of the 2026 Season' and game times, but posting schedule is not shown on the fetched content.",
+   "missing": "Official posting-time rule.",
+   "close": "Find the NFL.com injury report policy page and confirm wording.",
+   "priority": "Medium",
+   "status": "Next step - pending verification",
+   "answered": false,
+   "registers": [
+    "data-questions:Q12",
+    "docs:Q12"
+   ],
+   "paths": [
+    "data/questions.json",
+    "docs/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-013",
+   "question": "What is the minimum sample before a strategy may be ranked?",
+   "why": "Validation",
+   "known": "Computed: 2,243 bets are needed to detect a true 55% win rate at 80% power vs a 52.38% break-even.",
+   "missing": "Whether we can accumulate that volume per strategy per season.",
+   "close": "Historical line + outcome archive to bootstrap.",
+   "priority": "Recommended: 500-bet floor to show, 2,000-bet floor to rank. Owner must confirm.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q04",
+    "signal:Q03"
+   ],
+   "paths": [
+    "data/decision-questions.csv",
+    "signal/data/questions.json"
+   ],
+   "n": 2
+  },
+  {
+   "uid": "DQ-014",
+   "question": "Which book's closing line is our reference truth for grading?",
+   "why": "Line origination",
+   "known": "No official odds source is ingested. No book is named anywhere in the repo.",
+   "missing": "Pinnacle close / Circa close / DK close give materially different CLV numbers.",
+   "close": "A licensed odds feed with historical closing prices, per book, per market.",
+   "priority": "Yes \u2014 no strategy can be graded without it.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q01"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-015",
+   "question": "Do we originate lines against the close, or against the open?",
+   "why": "Line origination",
+   "known": "Nothing ingested. Conceptually the two are different products.",
+   "missing": "Originating vs the close measures information; originating vs the open measures speed.",
+   "close": "Both odds series, timestamped.",
+   "priority": "Yes \u2014 changes the entire scoring rule.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q02"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-016",
+   "question": "May we store and republish licensed odds and player-prop prices?",
+   "why": "Data rights",
+   "known": "Unknown. nfl.com publishes injuries/standings/stats; it does not publish prices.",
+   "missing": "Books license odds; redistribution terms vary and are not in the repo.",
+   "close": "Written terms from the feed vendor.",
+   "priority": "Yes \u2014 legal exposure if we republish without rights.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q03"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-017",
+   "question": "How many strategies are we testing at once, and do we correct for it?",
+   "why": "Validation",
+   "known": "Computed: with 500 zero-edge strategies at 200 bets each, the chance at least one shows >=55% by luck alone is effectively 100%; a single strategy has a 25.1% chance.",
+   "missing": "Our actual strategy count. It is unbounded today.",
+   "close": "A fixed, pre-registered strategy registry.",
+   "priority": "Yes \u2014 without a fixed registry, rewards reward luck.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q05"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-018",
+   "question": "Which correlation do we actually need: cross-sectional or event-level?",
+   "why": "Correlation",
+   "known": "Measured cross-sectional: offensive EPA/play vs PPG r=0.926 (R2 85.8%). This is a team-quality relationship, not a bet relationship.",
+   "missing": "Event-level (same-game) correlation between prop legs, which drives parlay pricing.",
+   "close": "Play-by-play with player attribution for both legs of each pair.",
+   "priority": "Yes \u2014 the two answer different questions and only one prices a parlay.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q06"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-019",
+   "question": "What is the actual same-game correlation between QB passing yards and his WR1 receiving yards?",
+   "why": "Correlation",
+   "known": "Unknown. Not derivable from team-level tables.",
+   "missing": "The value. Computed bivariate table shows rho=0.40 moves a two-leg fair price from -8.9% EV to +15.0% EV \u2014 so the number dominates the decision.",
+   "close": "Player-level game logs, 3+ seasons, both players in the same game.",
+   "priority": "Yes.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q07"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-020",
+   "question": "Is a 'Questionable' designation predictive of snap count?",
+   "why": "Injury",
+   "known": "Official policy: Questionable is a game-status designation filed by deadline. 84 of 160 Week 10 status rows are Questionable.",
+   "missing": "The realised snap-count distribution by designation. Not measured here.",
+   "close": "Injury designation + actual snap counts, joined per player per week.",
+   "priority": "Yes \u2014 the proposed weights are uncalibrated guesses and are labelled as such.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q08"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-021",
+   "question": "How deep is each club's offensive line, and which positions are catastrophically thin?",
+   "why": "Injury",
+   "known": "Only 2 of 32 official depth charts captured (KC, SEA). nfl.com/teams/{club}/depthchart returns 404 \u2014 there is no league-wide official depth endpoint on that path.",
+   "missing": "Depth for the other 30 clubs; positional criticality weighting.",
+   "close": "Per-club depth-chart capture, or a licensed roster feed.",
+   "priority": "No for the framework; yes for the actual scores.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q09"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-022",
+   "question": "Is the NFL spread market efficient enough that a public-data edge exists?",
+   "why": "Market",
+   "known": "Secondary literature is split: Levitt (2004) argues books price to maximise profit, not to balance; Boulier et al. (2006) could not reject efficiency; a 10-season home-underdog test found no variation profitable every year.",
+   "missing": "Whether any inefficiency survives modern limits and vig.",
+   "close": "Our own backtest on a licensed odds archive.",
+   "priority": "Yes \u2014 this is the single biggest risk to the whole effort.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q11"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-023",
+   "question": "What hold are we actually paying, and does the strategy survive it?",
+   "why": "Market",
+   "known": "Computed: -110/-110 implies 52.38% break-even and a 4.76% two-way hold. A 2-leg -110 parlay carries 8.88% effective hold; 6 legs, 24.36%.",
+   "missing": "Our real average price after line shopping.",
+   "close": "Bet-level price log.",
+   "priority": "No \u2014 the threshold is known; we just have to clear it.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q12"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-024",
+   "question": "Which prop markets are both available to us and resistant to the league's manipulation concerns?",
+   "why": "Props",
+   "known": "The NFL publicly opposes low-engagement, manipulation-prone bets, and states its gambling policy covers prediction markets.",
+   "missing": "Which specific markets our provider will actually offer at scale.",
+   "close": "Provider market catalogue.",
+   "priority": "Yes \u2014 scope cannot be set without it.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q13"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-025",
+   "question": "Who is allowed to place a bet, and where?",
+   "why": "Operations",
+   "known": "League policy prohibits all NFL personnel from betting on NFL events; players may bet non-NFL events but not from club facilities.",
+   "missing": "The owner's and any contributor's status. This is a personal legal/eligibility question, not a technical one.",
+   "close": "Owner confirmation, and local jurisdiction rules.",
+   "priority": "Yes \u2014 build a line-publishing product by default; do not build an auto-bettor until answered.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q14"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-026",
+   "question": "What does 'no manual input' mean when the answer requires a purchasing decision?",
+   "why": "Operations",
+   "known": "Nothing in the repo defines budget, vendor approval, or who signs a data contract.",
+   "missing": "Whether the agent may commit spend. It may not.",
+   "close": "Owner statement of a spend ceiling and an approved vendor list.",
+   "priority": "Yes \u2014 this is the one hard blocker the agent cannot clear alone.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q15"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-027",
+   "question": "Should the site show live prices, or only originated lines and analysis?",
+   "why": "Product",
+   "known": "Undecided; both are buildable.",
+   "missing": "Depends on Q03 (rights) and Q15 (spend).",
+   "close": "Answers to Q03 and Q15.",
+   "priority": "Yes.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q16"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-028",
+   "question": "Is the deliverable a research artefact, a product, or a betting syndicate?",
+   "why": "Scope",
+   "known": "The request mixes all three (leaderboard with rewards, own lines, site).",
+   "missing": "Which one is primary. Effort splits very differently.",
+   "close": "Owner prioritisation.",
+   "priority": "Yes \u2014 recommended default: research artefact that publishes lines, not a betting operation.",
+   "status": "2026-11-14",
+   "answered": false,
+   "registers": [
+    "decision-questions:Q17"
+   ],
+   "paths": [
+    "data/decision-questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-029",
+   "question": "What exactly is the market benchmark we score against",
+   "why": "Every gate that mentions closing line value needs a price we are allowed to store and publish",
+   "known": "No usable benchmark for 2026: the mirror carries a closing line for 137 of 148 played games and no timestamp; opening prices exist for 2021 only",
+   "missing": "",
+   "close": "A dated, hashed capture of one agreed consensus page, twice per week, kept for 4 weeks",
+   "priority": "SG-04",
+   "status": "SG-04",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-01"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-030",
+   "question": "Do we have the right to store operator prices at all",
+   "why": "If not, the leaderboard cannot use CLV and must fall back to proper scores alone",
+   "known": "Unverified. No terms were read for the aggregate mirror; the league page for odds does not exist (nfl.com/odds returns 404)",
+   "missing": "",
+   "close": "A read of the source terms recorded in docs/SOURCES.md",
+   "priority": "SG-04",
+   "status": "SG-04",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-02"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-031",
+   "question": "Does an official depth chart exist anywhere in the league",
+   "why": "Three requirements (register, group slots, stale-row flags) all assume one",
+   "known": "No. nfl.com has no depth-chart page; club charts are captioned unofficial by the clubs",
+   "missing": "",
+   "close": "An official artefact that names strings, or a decision to use playing time as the definition",
+   "priority": "SG-02",
+   "status": "SG-02",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-03"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-032",
+   "question": "Is playing time or listed rank the depth definition",
+   "why": "It decides whether the backup-deficiency feature can be built at all",
+   "known": "Recommendation: playing time, because it is measurable and already wrong in the club charts (149 slots carry more than one rank-1 player)",
+   "missing": "",
+   "close": "Snap-share series per team-position-week from CI",
+   "priority": "SG-02",
+   "status": "SG-02",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-04"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-033",
+   "question": "How much is a missing starter actually worth",
+   "why": "A fixed penalty is the single most common modelling error in this space",
+   "known": "Measured: -0.485 points per expected-miss on the margin, 95% CI [-0.719, -0.251], n=2,367 games (2016-2024). A -3.0 point penalty is far outside the interval",
+   "missing": "",
+   "close": "Nothing further for the aggregate; per-position coefficients remain unestimated",
+   "priority": "ablation-injury.json",
+   "status": "ablation-injury.json",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-05"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-034",
+   "question": "What does Questionable mean on a given field",
+   "why": "The label is a feature or it is noise depending on the answer",
+   "known": "Measured on 2016-2024: Questionable plays 64.46% of the time (CI 63.64-65.28, n=13,131); Out 0.02% (n=8,736); Doubtful 0.92% (n=1,522)",
+   "missing": "",
+   "close": "Nothing; the level may now be replaced by the surprise delta",
+   "priority": "designation-calibration.json",
+   "status": "designation-calibration.json",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-06"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-035",
+   "question": "Does 'not listed' mean available",
+   "why": "No. If it does, the availability feed is complete; if it does not, every absent-but-healthy assumption in earlier work is wrong",
+   "known": "No. The report mirror carries only Out/Questionable/Probable/Doubtful; a player on reserve is simply absent (0 reserve rows in 42,179)",
+   "missing": "",
+   "close": "A reserve-list capture per club-week",
+   "priority": "designation-calibration.json",
+   "status": "designation-calibration.json",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-07"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-036",
+   "question": "Are parlays priceable from independence at all",
+   "why": "Ranking a parlay on multiplied marginals is invalid if the legs correlate",
+   "known": "Same-game side and total legs are near independent in the mirror (phi 0.013, n=2,927) so independence is roughly adequate there; prop legs are unmeasured because no prop prices exist",
+   "missing": "",
+   "close": "Prop prices plus a joint outcome feed",
+   "priority": "correlations.json",
+   "status": "correlations.json",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-08"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-037",
+   "question": "What is our sample until a skill claim is defensible",
+   "why": "Under-powered leaderboards are the fastest way to publish noise",
+   "known": "Quantified: at -110 (break-even 52.38%) detecting a 55% bettor at 80% power needs about 2,243 bets; 57% needs 719. On proper scores, 200 graded singles is the escrow floor we chose",
+   "missing": "",
+   "close": "Nothing; the number is frozen in the pre-registration",
+   "priority": "prereg.csv",
+   "status": "prereg.csv",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-09"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-038",
+   "question": "Which week-10 fixture results are official",
+   "why": "A feed with a wrong score poisons the ratings for weeks afterward",
+   "known": "148 of 150 fixtures reconcile exactly to the official standings on W-L-T and PF/PA (32/32 teams). PIT@CIN and LAC@BAL were not final at capture and are carried blank",
+   "missing": "",
+   "close": "A later capture of the same schedule page",
+   "priority": "results-reconciliation.csv",
+   "status": "results-reconciliation.csv",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-10"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-039",
+   "question": "Is the venue in the data the venue that was played",
+   "why": "Totals, weather and rest all hang off the venue",
+   "known": "Partly: the mirror carries Melbourne Cricket Ground for the Week 1 international game, so it does track some venues; the Munich fixture is absent from the mirror and the schedule page's own ticketing widget for that fixture names the home club's stadium",
+   "missing": "",
+   "close": "Per-fixture game-centre capture",
+   "priority": "SG-07",
+   "status": "SG-07",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-11"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-040",
+   "question": "Do we hold any licensed game-level starter data",
+   "why": "The brief asks for game books; the site currently has none",
+   "known": "No. The sample game book carries an explicit media-only copyright notice",
+   "missing": "",
+   "close": "A licence, or a decision to derive starters from playing time only",
+   "priority": "SG-08",
+   "status": "SG-08",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-12"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-041",
+   "question": "Where do immutable captures live",
+   "why": "A static Pages site cannot be the system of record for a growing snapshot history",
+   "known": "Decided for this section: raw bodies out of the published tree, hashes and counts committed; a real object store still needs the owner",
+   "missing": "",
+   "close": "An object-store choice and an alert channel",
+   "priority": "SG-08",
+   "status": "SG-08",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-13"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-042",
+   "question": "Who reconciles six sections into one story",
+   "why": "Six sections publish the same fixtures at different tiers, which is how a reader gets fooled",
+   "known": "This section publishes a readiness register keyed to the brief's own requirement list so the reader can see the gate on every line",
+   "missing": "",
+   "close": "Owner decision on adopting one hub",
+   "priority": "SG-11",
+   "status": "SG-11",
+   "answered": false,
+   "registers": [
+    "fl2-lines:QN-14"
+   ],
+   "paths": [
+    "fl2-lines/data/registers/questions.csv"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-043",
+   "question": "Can we obtain true historical CLOSING lines for spreads, totals and moneylines, and do we know which sportsbook each number came from?",
+   "why": "Any claim of edge is measured against the price actually available. Without a book-level closing line, a strategy can look profitable against a line no one could bet.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q01"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-044",
+   "question": "Do we have player-prop lines and results at the level needed to test prop strategies?",
+   "why": "The request covers player prop single bets and prop combinations. Props need historical lines with over/under prices per player per week \u2014 a different dataset from team lines.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q02"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-045",
+   "question": "How do we measure how much of the sample the model has effectively already seen?",
+   "why": "Strategies tuned on 2015-2024 and reported on 2015-2024 are contaminated. The leaderboard is meaningless unless the held-out period is genuinely untouched.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q04"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-046",
+   "question": "What are the empirically measured correlations between legs we intend to combine, and do they hold out of sample?",
+   "why": "Parlay pricing assumes independence. If legs are positively correlated the true joint probability is higher than the product; the book prices a multiplied edge and we must know the sign and size.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "partially_answered",
+   "answered": true,
+   "registers": [
+    "signal:Q05"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-047",
+   "question": "Does an official game status actually predict whether a player plays, and by how much, by position and by injury type?",
+   "why": "The injury signal is the core of the availability model. If 'Questionable' has a stable play rate, it is a usable probability. If it does not, any weighting is invented.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "partially_answered",
+   "answered": true,
+   "registers": [
+    "signal:Q06"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-048",
+   "question": "When a starter is out, how do we know who replaces him and how large is the drop-off?",
+   "why": "The request specifically asks to track 2nd/3rd/4th string replacements on defense and offense. Without a defensible replacement map, the downgrade is a guess.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "partially_answered",
+   "answered": true,
+   "registers": [
+    "signal:Q07"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-049",
+   "question": "What is our own line, and what is the honest baseline it must beat?",
+   "why": "'Originating our own lines' only means something relative to the market close. If our line is worse than the close, we have produced noise.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q08"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-050",
+   "question": "What are the legal and licensing constraints on publishing lines, model output and historical odds?",
+   "why": "Publishing derived lines and redistributing odds can breach vendor terms. The site is public.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q09"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-051",
+   "question": "Can the pipeline run without manual input, and does it fail loudly?",
+   "why": "The user requires no manual input. Silent data failures would make every downstream number wrong without anyone noticing.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "partially_answered",
+   "answered": true,
+   "registers": [
+    "signal:Q10"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-052",
+   "question": "What exactly is the sign convention of spread_line, and does the convention match the totals?",
+   "why": "A sign error silently inverts every cover result and would invalidate every strategy on the site.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q11"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-053",
+   "question": "How do we separate a genuinely skilful strategy from one that is merely a proxy for information already in the line?",
+   "why": "Many 'edges' are just rediscovering the closing line. The requirement is selectively skill-based strategies, not re-labelled market consensus.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q12"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-054",
+   "question": "Do we have a verified measure of defensive quality by position group, so a backup's impact can be quantified?",
+   "why": "The request asks for 'deficiencies in defenses'. Deficiencies are relative to a baseline of how well the position group performs.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q13"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  },
+  {
+   "uid": "DQ-055",
+   "question": "How much of the injury and depth data is missing or contradictory, and how is that represented on the site?",
+   "why": "The instruction is explicit: if a value cannot be confirmed, leave it blank and flag it. We need a count of how often that happens.",
+   "known": "",
+   "missing": "",
+   "close": "",
+   "priority": "",
+   "status": "open",
+   "answered": false,
+   "registers": [
+    "signal:Q14"
+   ],
+   "paths": [
+    "signal/data/questions.json"
+   ],
+   "n": 1
+  }
+ ],
+ "answers": [
+  {
+   "uid": "DQ-A1",
+   "question": "Is a multi-season archive of the official weekly injury report reachable at all?",
+   "answer": "Yes, from the league's own site, at nfl.com/injuries/league/{year}/reg{week}. Two seasons were rendered today (2025 week 10, 2024 week 10) with the practice and game status columns intact.",
+   "status": "answered 2026-11-17",
+   "evidence": [
+    "EV-05",
+    "EV-06"
+   ],
+   "still_open": "Whether the archived page holds the Friday-final version or the last-saved version of that week is not stated on the page; a backtest that needs the exact Wednesday state still has to capture it going forward."
+  },
+  {
+   "uid": "DQ-A2",
+   "question": "Is the Week 10 corpus complete enough to grade the pre-registered baseline?",
+   "answer": "No. The Monday-night fixture was still live when checked (17-7, Q2), so 148 of 149 games are final. The feed already carries that state instead of guessing.",
+   "status": "answered 2026-11-17",
+   "evidence": [
+    "EV-01",
+    "EV-02"
+   ],
+   "still_open": "Nothing - re-run the capture after the final; this is a timing fact, not a defect."
+  },
+  {
+   "uid": "DQ-A3",
+   "question": "Does an official Week 11 availability report exist before this Thursday's kickoff?",
+   "answer": "Not yet at the time of checking: the 2026 week selector on the official report stops at WEEK 10, and the page still titles itself as Week 10.",
+   "status": "answered 2026-11-17",
+   "evidence": [
+    "EV-04"
+   ],
+   "still_open": "How many report days will exist before the Thursday fixture - one if the page rolls on Wednesday, zero if it rolls Thursday morning."
+  },
+  {
+   "uid": "DQ-A4",
+   "question": "Is the published standings table consistent with the results feed?",
+   "answer": "No. 9 of the 12 clubs sampled on the live page disagree with data/standings.json, and every disagreement is one Week 10 game. The replay computed from the feed agrees with the official page, so the feed is sound and the published table is the stale artefact.",
+   "status": "answered 2026-11-17",
+   "evidence": [
+    "EV-08"
+   ],
+   "still_open": "none"
+  },
+  {
+   "uid": "DQ-A5",
+   "question": "Can a fixture's venue be taken from the official game centre on demand?",
+   "answer": "Partly. The game-centre Stadium field was reached for LAC@BAL (M&T Bank Stadium) but the info chunk for IND@HOU could not be fetched twice at the page reader, so that venue stays unverified and the two repository artefacts still disagree (NRG vs Reliant).",
+   "status": "partly answered 2026-11-17",
+   "evidence": [
+    "EV-09",
+    "EV-01"
+   ],
+   "still_open": "One retry of the game-centre info chunk; until then the value stays blank and flagged."
+  }
+ ],
+ "freshness": {
+  "feed": {
+   "rows": 272,
+   "final": 148,
+   "in_progress": 1,
+   "scheduled": 123,
+   "week10_rows": 14,
+   "week10_final": 12,
+   "open_ids": [
+    "2026_10_PIT_CIN"
+   ]
+  },
+  "price": [
+   {
+    "path": "data/price_snapshots.csv",
+    "rows": 1890,
+    "open": 1114,
+    "close": 1538,
+    "both": 1088,
+    "stamped": 0
+   },
+   {
+    "path": "fl2-lines/data/prices/price-snapshots-2026.csv",
+    "rows": 816,
+    "open": 0,
+    "close": 0,
+    "both": 0,
+    "stamped": 0
+   }
+  ],
+  "replay": {
+   "sampled": 31,
+   "as_is_ok": 29,
+   "as_is_bad": [
+    "CIN",
+    "PIT"
+   ],
+   "with_pending_ok": 31,
+   "with_pending_bad": [],
+   "applied": [
+    "2026_10_PIT_CIN"
+   ],
+   "still_open": [
+    "2026_10_LAC_BAL"
+   ]
+  },
+  "standings": {
+   "rows": [
+    {
+     "team": "ARI",
+     "published": [
+      3,
+      6,
+      0
+     ],
+     "replay": [
+      3,
+      7,
+      0
+     ],
+     "official": [
+      3,
+      7,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "ATL",
+     "published": [
+      3,
+      6,
+      0
+     ],
+     "replay": [
+      3,
+      7,
+      0
+     ],
+     "official": [
+      3,
+      7,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "BAL",
+     "published": [
+      4,
+      5,
+      0
+     ],
+     "replay": [
+      4,
+      5,
+      0
+     ],
+     "official": [
+      4,
+      5,
+      0
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    },
+    {
+     "team": "BUF",
+     "published": [
+      7,
+      1,
+      0
+     ],
+     "replay": [
+      8,
+      1,
+      0
+     ],
+     "official": [
+      8,
+      1,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "CAR",
+     "published": [
+      3,
+      5,
+      0
+     ],
+     "replay": [
+      4,
+      5,
+      0
+     ],
+     "official": [
+      4,
+      5,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "CHI",
+     "published": [
+      7,
+      2,
+      0
+     ],
+     "replay": [
+      7,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    },
+    {
+     "team": "CIN",
+     "published": [
+      6,
+      2,
+      0
+     ],
+     "replay": [
+      6,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": false
+    },
+    {
+     "team": "CLE",
+     "published": [
+      5,
+      4,
+      0
+     ],
+     "replay": [
+      6,
+      4,
+      0
+     ],
+     "official": [
+      6,
+      4,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "DAL",
+     "published": [
+      4,
+      5,
+      0
+     ],
+     "replay": [
+      4,
+      6,
+      0
+     ],
+     "official": [
+      4,
+      6,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "DEN",
+     "published": [
+      7,
+      2,
+      0
+     ],
+     "replay": [
+      7,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    },
+    {
+     "team": "DET",
+     "published": [
+      6,
+      2,
+      0
+     ],
+     "replay": [
+      7,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "GB",
+     "published": [
+      6,
+      3,
+      0
+     ],
+     "replay": [
+      6,
+      4,
+      0
+     ],
+     "official": [
+      6,
+      4,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "HOU",
+     "published": [
+      3,
+      5,
+      0
+     ],
+     "replay": [
+      3,
+      6,
+      0
+     ],
+     "official": [
+      3,
+      6,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "IND",
+     "published": [
+      2,
+      7,
+      0
+     ],
+     "replay": [
+      3,
+      7,
+      0
+     ],
+     "official": [
+      3,
+      7,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "JAX",
+     "published": [
+      6,
+      2,
+      0
+     ],
+     "replay": [
+      7,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "KC",
+     "published": [
+      6,
+      2,
+      0
+     ],
+     "replay": [
+      7,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "LA",
+     "published": [
+      5,
+      4,
+      0
+     ],
+     "replay": [
+      6,
+      4,
+      0
+     ],
+     "official": [
+      6,
+      4,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "LV",
+     "published": [
+      4,
+      5,
+      0
+     ],
+     "replay": [
+      4,
+      6,
+      0
+     ],
+     "official": [
+      4,
+      6,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "MIA",
+     "published": [
+      1,
+      7,
+      0
+     ],
+     "replay": [
+      1,
+      8,
+      0
+     ],
+     "official": [
+      1,
+      8,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "MIN",
+     "published": [
+      6,
+      2,
+      0
+     ],
+     "replay": [
+      7,
+      2,
+      0
+     ],
+     "official": [
+      7,
+      2,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "NE",
+     "published": [
+      5,
+      4,
+      0
+     ],
+     "replay": [
+      5,
+      5,
+      0
+     ],
+     "official": [
+      5,
+      5,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "NO",
+     "published": [
+      3,
+      5,
+      0
+     ],
+     "replay": [
+      3,
+      6,
+      0
+     ],
+     "official": [
+      3,
+      6,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "NYG",
+     "published": [
+      5,
+      3,
+      1
+     ],
+     "replay": [
+      5,
+      3,
+      1
+     ],
+     "official": [
+      5,
+      3,
+      1
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    },
+    {
+     "team": "NYJ",
+     "published": [
+      2,
+      7,
+      0
+     ],
+     "replay": [
+      2,
+      8,
+      0
+     ],
+     "official": [
+      2,
+      8,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "PHI",
+     "published": [
+      2,
+      7,
+      0
+     ],
+     "replay": [
+      2,
+      7,
+      0
+     ],
+     "official": [
+      2,
+      7,
+      0
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    },
+    {
+     "team": "PIT",
+     "published": [
+      6,
+      2,
+      0
+     ],
+     "replay": [
+      6,
+      2,
+      0
+     ],
+     "official": [
+      6,
+      3,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": false
+    },
+    {
+     "team": "SEA",
+     "published": [
+      5,
+      4,
+      0
+     ],
+     "replay": [
+      6,
+      4,
+      0
+     ],
+     "official": [
+      6,
+      4,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "SF",
+     "published": [
+      7,
+      1,
+      0
+     ],
+     "replay": [
+      8,
+      1,
+      0
+     ],
+     "official": [
+      8,
+      1,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "TB",
+     "published": [
+      3,
+      6,
+      0
+     ],
+     "replay": [
+      3,
+      6,
+      0
+     ],
+     "official": [
+      3,
+      6,
+      0
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    },
+    {
+     "team": "TEN",
+     "published": [
+      1,
+      7,
+      0
+     ],
+     "replay": [
+      1,
+      8,
+      0
+     ],
+     "official": [
+      1,
+      8,
+      0
+     ],
+     "pub_ok": false,
+     "rep_ok": true
+    },
+    {
+     "team": "WAS",
+     "published": [
+      3,
+      5,
+      1
+     ],
+     "replay": [
+      3,
+      5,
+      1
+     ],
+     "official": [
+      3,
+      5,
+      1
+     ],
+     "pub_ok": true,
+     "rep_ok": true
+    }
+   ],
+   "sampled": 31,
+   "pub_match": 7,
+   "replay_match": 29,
+   "source_of_official": "decision-desk/data/evidence.json EV-08 / EV-02 (nfl.com Week 10 and Week 11 pages, 2026-11-17)"
+  },
+  "injury_capture": {
+   "rows": 345,
+   "team_sections": 28,
+   "clubs": 28
+  },
+  "delta": {
+   "pairs": [],
+   "clubs": [
+    {
+     "club": "BAL",
+     "a": 8,
+     "b": 10,
+     "d": 2
+    }
+   ],
+   "total_a": 345,
+   "total_b": 347,
+   "same": false,
+   "clubs_a": 28,
+   "clubs_b": 28,
+   "a_date": "2026-11-14",
+   "b_date": "2026-11-16",
+   "day_gap": "2 days",
+   "designated_in_full": 160,
+   "designated_view_rows": 160
+  },
+  "captures": {
+   "data_captures": [
+    "week10-results-2026-11-16.json",
+    "week11-market-2026-11-16.json"
+   ],
+   "linelab_capture_days": [
+    "2026-11-14",
+    "2026-11-16"
+   ]
+  },
+  "forecast": {
+   "n": 13,
+   "generated": "2026-11-16T02:45:00Z",
+   "kickoff": "2026-11-20T01:15:00Z",
+   "gate": "pass (generated before first Week 11 kickoff)",
+   "model": "SB-1.0.0",
+   "commit": "55b94c1",
+   "graded": 0
+  }
+ },
+ "register_inventory": [
+  [
+   "suggestion",
+   "hub",
+   "data/suggestions.json",
+   11,
+   "Ledger / hub"
+  ],
+  [
+   "suggestion",
+   "hub-csv",
+   "data/suggestions.csv",
+   15,
+   "Fourth & Signal root"
+  ],
+  [
+   "suggestion",
+   "fl2-lines",
+   "fl2-lines/data/registers/suggestions.csv",
+   15,
+   "fl2-lines"
+  ],
+  [
+   "suggestion",
+   "docs",
+   "docs/data/suggestions.json",
+   11,
+   "docs dashboard"
+  ],
+  [
+   "suggestion",
+   "signal",
+   "signal/data/suggestions.json",
+   16,
+   "Signal Lab"
+  ],
+  [
+   "question",
+   "data-questions",
+   "data/questions.json",
+   12,
+   "Ledger / hub"
+  ],
+  [
+   "question",
+   "decision-questions",
+   "data/decision-questions.csv",
+   18,
+   "Fourth & Signal root"
+  ],
+  [
+   "question",
+   "fl2-lines",
+   "fl2-lines/data/registers/questions.csv",
+   14,
+   "fl2-lines"
+  ],
+  [
+   "question",
+   "signal",
+   "signal/data/questions.json",
+   14,
+   "Signal Lab"
+  ],
+  [
+   "question",
+   "docs",
+   "docs/data/questions.json",
+   12,
+   "docs dashboard"
+  ],
+  [
+   "suggestion",
+   "html-only",
+   "fl2-dashboard/suggestions.html",
+   22,
+   "FL2 dashboard"
+  ],
+  [
+   "suggestion",
+   "html-only",
+   "fl2-signals/suggestions.html",
+   0,
+   "fl2-signals"
+  ],
+  [
+   "suggestion",
+   "html-only",
+   "ledger/suggestions.html",
+   0,
+   "Ledger"
+  ]
+ ],
+ "collisions": [
+  {
+   "id": "SG01",
+   "members": [
+    "docs:SG-01",
+    "fl2-lines:SG-01",
+    "hub-csv:SG01",
+    "hub:SG-01"
+   ],
+   "titles": [
+    "Add an official depth-chart table per team (starter, first backup, se\u2026",
+    "Publish this site as the decision surface, not a dashboard of numbers",
+    "Run the snapshot workflow before anything else is built",
+    "Add an official depth-chart table per team (starter, first backup, se\u2026"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG02",
+   "members": [
+    "docs:SG-02",
+    "fl2-lines:SG-02",
+    "hub-csv:SG02",
+    "hub:SG-02"
+   ],
+   "titles": [
+    "Separate 'Not injury related' absences from injury analysis",
+    "Treat every number as sourced-or-blank; never interpolate",
+    "Acquire snap counts in CI and stop calling participation a depth meas\u2026",
+    "Separate 'Not injury related' absences from injury analysis"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG03",
+   "members": [
+    "docs:SG-03",
+    "fl2-lines:SG-03",
+    "hub-csv:SG03",
+    "hub:SG-03"
+   ],
+   "titles": [
+    "Add a daily refresh with a last-verified date on every page",
+    "Make 'unverified' a first-class status with its own page",
+    "Fix the depth-chart parser for the 2025/2026 12-column schema",
+    "Add a daily refresh with a last-verified date on every page"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG04",
+   "members": [
+    "docs:SG-04",
+    "fl2-lines:SG-04",
+    "hub-csv:SG04",
+    "hub:SG-04"
+   ],
+   "titles": [
+    "Get a licensed odds archive before any line-making work",
+    "Ship the cross-sectional correlation work now, and label clearly what\u2026",
+    "Decide the price source rather than inheriting a mirror",
+    "Get a licensed odds archive before any line-making work"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG05",
+   "members": [
+    "docs:SG-05",
+    "fl2-lines:SG-05",
+    "hub-csv:SG05",
+    "hub:SG-05"
+   ],
+   "titles": [
+    "Start strategy research with spreads only",
+    "Buy a licensed historical odds archive before writing any bet logic",
+    "Keep the leaderboard empty until escrow fills",
+    "Start strategy research with spreads only"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG06",
+   "members": [
+    "docs:SG-06",
+    "fl2-lines:SG-06",
+    "hub-csv:SG06",
+    "hub:SG-06"
+   ],
+   "titles": [
+    "Adopt the validation gates before any strategy is ranked",
+    "Ingest player-level game logs to unlock prop and parlay work",
+    "Replace the 3-point injury penalty wherever it survives",
+    "Adopt the validation gates before any strategy is ranked"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG07",
+   "members": [
+    "docs:SG-07",
+    "fl2-lines:SG-07",
+    "hub-csv:SG07",
+    "hub:SG-07"
+   ],
+   "titles": [
+    "Define the leaderboard reward before building it",
+    "Pre-register the strategy registry before any backtest runs",
+    "Transcribe venues and game states from the game centre in CI",
+    "Define the leaderboard reward before building it"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG08",
+   "members": [
+    "docs:SG-08",
+    "fl2-lines:SG-08",
+    "hub-csv:SG08",
+    "hub:SG-08"
+   ],
+   "titles": [
+    "Add responsible-gambling guardrails if any wagering use is planned",
+    "Set a hard sample floor before a strategy can be ranked",
+    "Move raw mirrors out of the published tree",
+    "Add responsible-gambling guardrails if any wagering use is planned"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG09",
+   "members": [
+    "docs:SG-09",
+    "fl2-lines:SG-09",
+    "hub-csv:SG09",
+    "hub:SG-09"
+   ],
+   "titles": [
+    "Use one source for each data type and record the source per row",
+    "Automate per-club depth-chart capture for all 32 clubs",
+    "Publish an injury-table re-capture with a per-team row count",
+    "Use one source for each data type and record the source per row"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG10",
+   "members": [
+    "docs:SG-10",
+    "fl2-lines:SG-10",
+    "hub-csv:SG10",
+    "hub:SG-10"
+   ],
+   "titles": [
+    "Add a weekly injury history table to test whether 'Questionable' pred\u2026",
+    "Calibrate injury-designation weights against realised snap counts",
+    "Add the 4th-string column honestly or not at all",
+    "Add a weekly injury history table to test whether 'Questionable' pred\u2026"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG11",
+   "members": [
+    "docs:SG-11",
+    "fl2-lines:SG-11",
+    "hub-csv:SG11",
+    "hub:SG-11"
+   ],
+   "titles": [
+    "Consolidate the two dashboards into one site",
+    "Publish a zero-interest 'negative results' section",
+    "One navigation for the six published sections",
+    "Consolidate the two dashboards into one site"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "data/suggestions.json",
+    "docs/data/suggestions.json",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG12",
+   "members": [
+    "fl2-lines:SG-12",
+    "hub-csv:SG12"
+   ],
+   "titles": [
+    "Add a changelog and a data-retrieval timestamp to every page",
+    "Gate the correlation panel to official numbers only"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG13",
+   "members": [
+    "fl2-lines:SG-13",
+    "hub-csv:SG13"
+   ],
+   "titles": [
+    "Do not build an automated bettor yet",
+    "Give the demotion gate a real trigger now"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG14",
+   "members": [
+    "fl2-lines:SG-14",
+    "hub-csv:SG14"
+   ],
+   "titles": [
+    "Decide the primary deliverable before expanding scope",
+    "Build the fixture-context set from the two dated league announcements"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  },
+  {
+   "id": "SG15",
+   "members": [
+    "fl2-lines:SG-15",
+    "hub-csv:SG15"
+   ],
+   "titles": [
+    "Version the injury snapshot daily during the season",
+    "Add the NWS hourly overlay behind a coverage test"
+   ],
+   "paths": [
+    "data/suggestions.csv",
+    "fl2-lines/data/registers/suggestions.csv"
+   ]
+  }
+ ]
+}

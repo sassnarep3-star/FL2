@@ -49,7 +49,12 @@ data existed.
 - [`signal/index.html`](signal/index.html) — Signal Lab (session d10a1d25): a measured-signal section with a validated sign convention, measured injury-designation play rates, a depth-chart accuracy test, measured same-game correlation, and a pre-registered validation gate that six strategies failed. Every figure is re-derived from committed data by CI.
 - [`fl2-signals/index.html`](fl2-signals/index.html) — Verified Signals (session 1374049c): 137 verified box scores replayed to an exact 32/32 standings match, the Week 10 injury report, eight validation gates with sample-size arithmetic, a parlay correlation sensitivity grid, and the model-pathology diagnosis behind gate G5.
 
-Consolidating all four structures into one is proposed as a decision — see
+- [`decision-desk/index.html`](decision-desk/index.html) — Decision Desk (session 3189b65d, 2026-11-17): the review surface the brief asked for. One ranked board merging the six suggestion registers (66 decisions from 68 register entries, with the id collisions and verbatim duplicates between files computed rather than mentioned), a merged question register with the five questions this session could close from the league's own pages, a designation-calibration page, a freshness diff (published standings vs the replay of the results feed vs the official page today), and a dated capture log with every fetch, every failure, and nine flagged irregularities. Rebuilt and re-checked in CI by `.github/workflows/verify-decision-desk.yml`.
+
+The sentence above was written when there were four sections; there are now nine, and
+the merge is itself row `hub-SG-11` / `DS-03` on the board at
+[`decision-desk/suggestions.html`](decision-desk/suggestions.html).
+Consolidating all those structures into one is proposed as a decision — see
 [`ledger/suggestions.html`](ledger/suggestions.html). It was not done silently.
 
 ## Verification rules

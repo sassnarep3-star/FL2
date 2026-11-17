@@ -1,0 +1,150 @@
+name: verify-decision-desk
+
+# Rebuilds /decision-desk/ from the committed registers and the dated capture, and
+# fails if the committed pages differ from a rebuild. The section's whole purpose is
+# to be a trustworthy queue, so a page that cannot be regenerated from its inputs is a
+# defect, not a detail.
+#
+# No network is required: every input is committed (the registers under data/,
+# fl2-lines/data/, docs/data/, signal/data/ and decision-desk/data/evidence.json).
+# The capture file holds the only hand-authored content, and it is a dated record of
+# what the official pages said - not something to be re-fetched at build time.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "decision-desk/**"
+      - "tools/build_decision_desk.py"
+      - "tools/check_decision_desk.py"
+      - "data/**"
+      - "docs/data/**"
+      - "signal/data/**"
+      - "fl2-lines/data/registers/**"
+      - "research/requirements-v2.md"
+      - ".github/workflows/verify-decision-desk.yml"
+  pull_request:
+    paths:
+      - "decision-desk/**"
+      - "tools/build_decision_desk.py"
+      - "tools/check_decision_desk.py"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild the section
+        run: python3 tools/build_decision_desk.py
+
+      - name: Fail if the rebuild changed anything that was committed
+        run: |
+          if ! git diff --quiet -- decision-desk; then
+            echo "::error::The committed decision-desk pages do not match a rebuild. Commit the regenerated files."
+            git --no-pager diff --stat -- decision-desk
+            exit 1
+          fi
+          echo "Rebuild is reproducible: no drift."
+
+      - name: Check pages, sources, links and the capture log
+        run: python3 tools/check_decision_desk.py
+
+      - name: Assert the claims this section makes about other files
+        run: |
+          python3 - <<'PY'
+          import csv, json, re, sys, os
+          fail = []
+          desk = json.load(open("decision-desk/data/desk.json"))
+
+          # 1. Every board row must trace to a file that still exists, or to the capture.
+          for r in desk["suggestions"]:
+              if not r.get("sources") and not r.get("capture_refs"):
+                  fail.append(f'{r["uid"]} has no register source and no capture')
+              for s in r.get("sources", []):
+                  if s.get("path") and not os.path.exists(s["path"]):
+                      fail.append(f'{r["uid"]} cites a missing file: {s["path"]}')
+
+          # 2. The standings claim is only true while the published table is stale.
+          #    If somebody republished it, this page must be re-derived, not left lying.
+          pub = {t["team"]: (t["w"], t["l"], t["t"])
+                 for d in json.load(open("data/standings.json"))["divisions"] for t in d["teams"]}
+          official = (json.load(open("decision-desk/data/evidence.json"))
+                      .get("official_club_records_2026_11_17", {}).get("records", {}))
+          stale = [t for t, v in official.items() if tuple(v) != pub.get(t)]
+          claimed = desk["freshness"]["standings"]["sampled"] - desk["freshness"]["standings"]["pub_match"]
+          if len(stale) != claimed:
+              fail.append(f"the page reports {claimed} stale standings rows; the files now differ for {len(stale)}")
+
+          # 3. The results feed must reproduce those records from the finals it holds.
+          tally = {}
+          for g in csv.DictReader(open("data/results_feed.csv")):
+              if g.get("status") != "final":
+                  continue
+              a, h = g["away"], g["home"]
+              asc, hsc = int(g["away_score"]), int(g["home_score"])
+              # one pass per game, both teams once: a two-sided loop here was the
+              # origin of a 2x replay that this check must never reproduce
+              if asc == hsc:
+                  for t_ in (a, h):
+                      tally.setdefault(t_, [0, 0, 0])[2] += 1
+              else:
+                  win, los = (a, h) if asc > hsc else (h, a)
+                  tally.setdefault(win, [0, 0, 0])[0] += 1
+                  tally.setdefault(los, [0, 0, 0])[1] += 1
+          # the replay may only fail for a club whose own fixture is still open in the
+          # feed; any other failure means the feed or the capture is wrong
+          open_clubs = set()
+          for g in csv.DictReader(open("data/results_feed.csv")):
+              if g.get("status") != "final":
+                  open_clubs.update([g.get("away"), g.get("home")])
+          mismatch = []
+          for t_, v in official.items():
+              got = tuple(tally.get(t_, (0, 0, 0)))
+              if got[:2] != tuple(v)[:2]:
+                  if t_ not in open_clubs:
+                      mismatch.append(f"{t_}: feed replay {got} vs official {tuple(v)}")
+          if mismatch:
+              fail.append("results feed no longer replays to the official records: " + "; ".join(mismatch[:4]))
+          # and the desk's own page must state the count it actually computed
+          rp = desk["freshness"]["replay"]
+          if rp["as_is_ok"] + len(rp["as_is_bad"]) != rp["sampled"]:
+              fail.append("the reconciliation table does not add up")
+          if rp["with_pending_ok"] != rp["sampled"]:
+              fail.append("applying the decided fixtures should reconcile every sampled club; it does not")
+
+          # 4. A grading run must not be presented while a graded window is incomplete.
+          feed = list(csv.DictReader(open("data/results_feed.csv")))
+          live = [g["game_id"] for g in feed if g.get("status") != "final"
+                  and g.get("gameday", "") <= "2026-11-17"]
+          board = {r["title"] for r in desk["suggestions"]}
+          if live and not any("non-final" in b.lower() for b in board):
+              fail.append(f"{len(live)} fixture(s) are not final but no board row carries the grading refusal")
+
+          # 5. The archive-premise claim must still be true of the register it quotes.
+          ids = desk["stats"].get("archive_premise_ids", [])
+          text = open("research/requirements-v2.md", encoding="utf-8").read()
+          for i in ids:
+              row = re.search(rf"^\| {i} \|.*$", text, re.M)
+              if not row or "blocked" not in row.group(0):
+                  fail.append(f"{i} is quoted as blocked-on-archive but no longer reads that way")
+
+          # 6. Questions merged must equal the sum of what was read, or the merge lied.
+          if desk["stats"]["question_entries"] < desk["stats"]["questions_present"]:
+              fail.append("question entries fewer than merged questions - impossible")
+
+          if fail:
+              for f in fail:
+                  print("::error::" + f)
+              sys.exit(1)
+          print("All Decision Desk claims about other files hold.")
+          PY

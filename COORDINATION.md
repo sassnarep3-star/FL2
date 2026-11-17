@@ -1444,14 +1444,35 @@ into one reviewable surface, and re-verifying the claims they rest on, is this s
 
 | # | Task | Status | Owner | Files in scope (exclusive) | Notes |
 |---|---|---|---|---|---|
-| T40 | Claim + coordination board entry | **in progress** | session-3189b65d | `COORDINATION.md` | this section |
-| T41 | Fresh official-source re-verification of the live claims (Week 10 completion state, Week 11 slate, injury-report roll, Lions designations) with dated captures | **unclaimed** | session-3189b65d | `data/captures/week10-live-2026-11-17.json`, `data/captures/injury-archive-2026-11-17.json` | new files only; existing captures untouched |
-| T42 | Verify whether the past-season injury-report archive is reachable (three requirements are marked blocked on the premise that it is not) | **unclaimed** | session-3189b65d | evidence recorded in T41 capture + `/decision-desk/` | flips R69/R78/R91 blocking premise if confirmed |
-| T43 | Consolidated suggestion review board: every suggestion from every register, deduped, with collision warnings, dependencies, impact/effort, and a recommended path | **unclaimed** | session-3189b65d | `decision-desk/data/suggestions.json`, `decision-desk/suggestions.html`, `tools/build_decision_desk.py` | reads the six registers, edits none of them |
-| T44 | Questions / information / answers register (known-verified vs missing vs how to close, with official links) | **unclaimed** | session-3189b65d | `decision-desk/data/questions.json`, `decision-desk/questions.html` | same dedupe rule |
-| T45 | Executive brief page + freshness/what-changed diff page + session verification log | **unclaimed** | session-3189b65d | `decision-desk/index.html`, `decision-desk/freshness.html`, `decision-desk/sources.html` | |
-| T46 | Checker for the new section (every table row carries a source link; no invented value) | **unclaimed** | session-3189b65d | `tools/check_decision_desk.py` | mirrors the repo's existing CI contract |
-| T47 | Hub nav tile + README entry (integration), run all seven existing checkers green, PR to main, merge, Pages verification | **unclaimed** | session-3189b65d | `index.html`, `README.md` | no other section's page is edited |
+| T40 | Claim + coordination board entry | **done** (2026-11-17) | session-3189b65d | `COORDINATION.md` | claim pushed before any work started |
+| T41 | Fresh official-source re-verification with dated captures (Week 10 state, Week 11 slate, report roll, Lions designations) | **done** (2026-11-17) | session-3189b65d | `decision-desk/data/evidence.json` | 11 dated observations; 2 failed fetches recorded as failures rather than filled |
+| T42 | Test whether the past-season injury-report archive is reachable | **done** (2026-11-17) | session-3189b65d | evidence EV-05, EV-06 | reachable: 2025 W10 and 2024 W10 both render on nfl.com; the 'no archive is reachable' premise behind R69/R91 is refuted, R78 only partly unblocked (no inactives in the report) |
+| T43 | Consolidated suggestion review board with collisions, dependencies and a computed path | **done** (2026-11-17) | session-3189b65d | `decision-desk/data/desk.json`, `decision-desk/suggestions.html`, `tools/build_decision_desk.py` | 67 decisions merged from 68 register entries across 11 registers; 15 colliding ids and one verbatim duplicate register computed, not asserted |
+| T44 | Questions / information / answers register | **done** (2026-11-17) | session-3189b65d | `decision-desk/questions.html` | 55 merged questions from 70 entries; 5 closed by this session with the official capture attached |
+| T45 | Executive brief, freshness diff, calibration page, verification log | **done** (2026-11-17) | session-3189b65d | `decision-desk/{index,freshness,calibration,sources}.html` | includes the 345-vs-347 capture delta, the 29/31 standings replay and the parlay joint-evidence test |
+| T46 | Section checker | **done** (2026-11-17) | session-3189b65d | `tools/check_decision_desk.py` | per-row source links, repo citations must resolve to existing files, anchors resolve, printed counts must equal the artefact, capture-log schema enforced |
+| T47 | Hub tile + README entry, full checker sweep, PR, merge, Pages verification | **done** (2026-11-17) | session-3189b65d | `index.html`, `README.md`, `.github/workflows/verify-decision-desk.yml` | all ten repo checkers green on the combined tree; rebuild is byte-identical, so CI enforces reproducibility |
+
+### Requests logged against files this session does not own
+
+Per the coordination rules these are requests, not edits:
+
+1. **`tools/build_results_feed.py` / `data/results_feed.csv`** (owner: session-65556dd2, claim released).
+   Row `2026_10_PIT_CIN` carries `status=in_progress` with scores written as `0-0`, while the official page has
+   printed `Steelers 18, Bengals 38, FINAL` since Nov 15 (EV-10). Consequence measured today: replaying the feed
+   reproduces the official record for 29 of 31 sampled clubs and fails for exactly the two clubs in that fixture;
+   applying the published 18-38 reconciles 31 of 31. Suggested change: rebuild from a fresh capture, and have the
+   writer emit blank scores (not `0-0`) for non-final rows. `2026_10_LAC_BAL` is labelled `scheduled` while the
+   game was live (17-7, Q2) at 02:32 UTC on 2026-11-17.
+2. **`scripts/make_pages.py` + `docs/*.html`** (owner: session-d263eab0 content, integration-edited since).
+   Regenerating rewrites 11 docs pages and deletes the hand-added `../hub/index.html` cross-link;
+   `tools/repo_audit.py` likewise rewrites `fl2-dashboard/data/repo-audit.json` with the runner's branch and commit.
+   The Pages validate job runs both but never diffs the output. This session reverted its own regeneration; the fix
+   is raised as board row DS-10.
+3. **Open PRs by other sessions at claim time** — #29 (`arena/d0543ac8-fl2`, decision-readiness register) and #24
+   (`arena/74f76e34-fl2`, Line Lab price-coverage self-correction) remain unmerged. Neither was merged, closed or
+   edited by this session; #24's corrected claim (zero 2026 open+close pairs) is treated as true where this desk
+   cites price coverage.
 
 ## Claims
 
@@ -1472,3 +1493,71 @@ shared files listed above.
 * PR #24 `arena/74f76e34-fl2` "Line Lab: correct my own published price-coverage claim
   (272 with open+close -> 0)" — OPEN. It is a self-correction by that session; left to its
   author. This session reads the corrected claim as true (zero 2026 open+close pairs).
+
+## Completion record — session-3189b65d (2026-11-17)
+
+**What was added.** One new section, `/decision-desk/`, six pages generated by
+`tools/build_decision_desk.py` and enforced by `tools/check_decision_desk.py`, plus
+`.github/workflows/verify-decision-desk.yml`. No existing data file, register or page was
+edited except the two shared files the brief assigns to the integration session (`index.html`,
+`README.md`) and this board.
+
+**Sources used, all fetched by this session on 2026-11-17 (UTC):**
+
+| Source | Tier | Used for |
+|---|---|---|
+| https://www.nfl.com/schedules/2026/by-week/week-10 | T1 official | 13 Week-10 finals incl. PIT@CIN 18-38; bye list CHI/DEN/PHI/TB; club records |
+| https://www.nfl.com/games/chargers-at-ravens-2026-reg-10 | T1 official | LAC@BAL live state (LAC 17, BAL 7, Q2 01:56); M&T Bank Stadium |
+| https://www.nfl.com/schedules/2026/by-week/week-11 | T1 official | 6 of 13 fixtures + 12 club records (chunks 1-2 unreachable — recorded, not filled) |
+| https://www.nfl.com/games/colts-at-texans-2026-reg-11 | T1 official | overview chunk only; venue field not reached, so IND@HOU stays unverified |
+| https://www.nfl.com/injuries/ | T1 official | report still titled Week 10; 2026 selector stops at WEEK 10; Lions Out ×3 confirmed |
+| https://www.nfl.com/injuries/league/2025/reg10 · /2024/reg10 | T1 official | past-season archive reachability (8 and 9 chunks, per-player practice + game status) |
+| `data/*.csv|json`, `fl2-lines/data/**`, `docs/data/**`, `signal/data/**`, `research/requirements-v2.md` | repo | the registers consolidated by the board and every number on the freshness page |
+
+**Verification performed**
+
+1. Rebuild is byte-identical over three consecutive runs; CI now enforces that
+   (`Fail if the rebuild changed anything that was committed`).
+2. All ten checkers green on the combined tree: `scripts/check_site.py` (7 pages),
+   `engine/check_site.py` (17 pages, 56 tables, 667 links, jsdom), `tools/check_links.py`,
+   `tools/check_signals_links.py`, `fl2-lines/engine/check.py` (0 failures),
+   `ops/check_readiness.py`, `tools/repo_audit.py` (0 broken links, 0 missing anchors,
+   0 table rows without a source link), `tools/check_decision_desk.py`,
+   `engine/linelab/check_site.py`, plus the generators `scripts/make_pages.py`,
+   `scripts/build_site.py` run and then reverted (see request 2).
+3. Every figure on the new pages is computed from an artefact at build time; the hand-authored
+   content is the capture file, and it is schema-checked (kind, url, observation, consequence,
+   fetch time, state) by the section checker.
+4. Site served locally and every page plus every local link fetched over HTTP: all 200, no
+   broken targets.
+
+**Irregularities found (published on `/decision-desk/sources.html`, I-1 … I-10)**
+
+1. **The archive premise is false.** R69/R78/R91 are recorded as blocked because "no archive is
+   reachable"; that test was run against a mirror, not against the league's own page. Two
+   past-season reports render today. R69 and R91 are unblocked at source; R78 remains partly
+   blocked because the weekly report carries no inactive list.
+2. **The published standings table contradicts the results feed** for 9 of 12 clubs sampled
+   directly, and 24 of 31 clubs overall, purely because it is a dated capture from 2026-11-14.
+3. **The feed holds one decided fixture open with `0-0` placeholder scores** (PIT@CIN), which is
+   exactly why the replay fails for those two clubs and no others.
+4. **Suggestion ids collide across sections** — `SG-01`, `SG-02`, `SG-03` each name two unrelated
+   suggestions, and one register uses `SG01` with no dash at all. 15 colliding ids counted.
+5. **`docs/data/suggestions.json` is a byte-identical copy of `data/suggestions.json`** (11 of 11
+   rows) — a duplicated register rather than a diverged one.
+6. **Three published row counts for one official table** (345 / 347 / 76, README quotes 76); the
+   345-vs-347 difference is exactly +2 Baltimore rows between the two dated captures, and the
+   160-row view was verified to be the designated-row filter, not a different truth.
+7. **Seven of thirteen Week 11 fixtures were not re-verified** by this session (proxy failures);
+   the earlier capture is cited instead and labelled as such.
+8. **IND@HOU venue conflict unresolved** (NRG in the Week-11 capture, Reliant in the results feed);
+   the game-centre field was not reached, so the value stays blank rather than being chosen.
+9. **Two other sessions' PRs remain open** (#24, #29) while the hub describes a "150-game results
+   feed" against 148 verified finals in the file it points at.
+10. **Two generators are not idempotent** against committed output (docs navigation link, audit
+    provenance), and CI runs them without diffing the result.
+
+**What was deliberately not done.** No price data was invented; no CLV number was published; no
+standings table, results row or register owned by another session was rewritten; no backtest
+number was placed on any leaderboard surface; no replacement player was named for an absent
+starter, because inactive lists and snap counts are still not captured for 2026.
