@@ -39,15 +39,16 @@ game_id,club,list_type,pos_raw,jersey,player_raw,source_url
 2026_10_KC_ATL,,not_active,CB,37,R.Longerbeam,https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab582f5b-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_KC_ATL,,not_active,T,73,C.Williams,https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab582f5b-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_KC_ATL,,did_not_play,QB,1,T.Tagovailoa,https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab582f5b-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,LB,0,A.Al-Shaair,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,TE,9,B.Jordan,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,WR,18,M.Harrison,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,RB,32,D.Montgomery,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,DE,3,QB 6 D.Gabriel,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,QB,15,T.Green,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,LB,17,J.Jefferson,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,CB,20,N.Igbinoghene,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_HOU_CLE,,not_active,,,S 33 55 D.Hunter,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,LB,0,A.Al-Shaair,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,TE,9,B.Jordan,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,WR,18,M.Harrison,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,RB,32,D.Montgomery,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,DE,3,QB 6 D.Gabriel,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,QB,15,T.Green,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,LB,17,J.Jefferson,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Houston Texans,not_active,CB,20,N.Igbinoghene,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,Cleveland Browns,not_active,,,S 33,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_HOU_CLE,,not_active,55,,D.Hunter,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_HOU_CLE,,not_active,C/G,66,K.Rutledge,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_HOU_CLE,,not_active,G,75,W.Teller R.Hickman,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_HOU_CLE,,not_active,C,52,P.Brailsford,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
