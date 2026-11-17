@@ -1471,3 +1471,54 @@ session's claimed data files are edited; gaps found in claimed files are logged 
 | Pages deploy | pending |
 | PR link / merge SHA | to be recorded after merge |
 
+
+---
+
+# Session arena/5ab6269e-fl2 — Consolidated dashboard + official venue/schedule capture (current)
+
+Repo: `sassnarep3-star/FL2` · Session: `arena/5ab6269e-fl2` · Branch: `arena/5ab6269e-fl2`
+Base: `main` @ `a636b97` (PR #32, the 2026-11-17 repo review). Started 2026-11-17.
+
+All prior sessions are merged (PRs #1–#32). Two pull requests are still open from earlier
+sessions and are **not** mine: #24 (`arena/74f76e34-fl2`, Line Lab price-coverage correction) and
+#29 (`arena/d0543ac8-fl2`, decision-readiness register). This session does not edit
+`linelab/**`, `fl2-lines/**` or `fl2-dashboard/**`, which those sessions own.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+|---|---|---|---|---|---|
+| D1 | Claim + coordination | **done** (2026-11-17) | arena/5ab6269e-fl2 | `COORDINATION.md` | this board |
+| D2 | Official venue transcription for every Week 10 fixture from the official game centre (closes open defect D-I2 from PR #32) | **in progress** | arena/5ab6269e-fl2 | `data/official/2026-11-17/**`, `dashboard/data/**` | 14 official game centres; Location + Stadium + final score + game-book URL |
+| D3 | Publish the league's dated schedule announcement beside the live schedule page | **done** | arena/5ab6269e-fl2 | `dashboard/schedule.html`, `dashboard/data/**` | 2026 schedule release, 2026-05-14; flexible-scheduling procedures, 2026-04-13 |
+| D4 | Consolidated, category-organised dashboard section (clean landing page + subpages, every row source-linked) | **in progress** | arena/5ab6269e-fl2 | `dashboard/**`, `tools/build_dashboard.py`, `tools/check_dashboard.py` | the brief's "simple dashboard" ask, built from verified artefacts only |
+| D5 | Root landing page rebuilt as the clean dashboard entry point; all eight prior sections kept and linked | **in progress** | arena/5ab6269e-fl2 | `index.html`, `README.md` | integration duty — no prior section's file edited |
+| D6 | Dated weekly "what changed" diff across the committed availability captures | **done** | arena/5ab6269e-fl2 | `dashboard/data/**` | 2026-11-14 → 2026-11-16 → 2026-11-17 |
+| D7 | Official-source verification ledger for this session (line by line, with links) + irregularity register | **done** | arena/5ab6269e-fl2 | `research/verification-ledger-2026-11-17.md`, `dashboard/flagged.html` | every unverified value left blank |
+| D8 | Final integration: re-run every checker, PR, merge, Pages live verification | **in progress** | arena/5ab6269e-fl2 | `.git` (via gh), this file | |
+
+## Claims
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| arena/5ab6269e-fl2 | `dashboard/**`, `data/official/2026-11-17/**`, `tools/capture_official.py`, `tools/build_dashboard.py`, `tools/check_dashboard.py`, `research/verification-ledger-2026-11-17.md`, plus integration edits to `index.html`, `README.md`, `COORDINATION.md` | 2026-11-17 | — |
+
+Non-overlapping by construction: no file under `docs/`, `hub/`, `ledger/`, `signal/`,
+`fl2-signals/`, `fl2-lines/`, `linelab/`, `fl2-dashboard/`, `readiness/`, `ops/`, `engine/`,
+`scripts/`, `review/` or `raw/` is edited by this session. `data/` is not edited either — every
+new artefact lands in `dashboard/data/` or `data/official/2026-11-17/`.
+
+## Log
+
+- 2026-11-17 — Session opened on `arena/5ab6269e-fl2`. Read `COORDINATION.md` before starting.
+  Rebased onto `main` @ `a636b97` (PR #32) so the 2026-11-17 repo review is included.
+- 2026-11-17 — Read `review/REPO-REVIEW-2026-11-17.md` (session `d81dd61b-fl2`) to avoid
+  duplicating it. Its open defect **D-I2 — "Venue not transcribed for any of the 14 Week 10
+  fixtures"** is the gap this session takes, because the brief requires the venue of every
+  fixture to be transcribed from the official game centre. Its D-I3 (standings snapshot is
+  as-of 2026-11-14 and predates the Week 10 Sunday results) is also taken: a dated live capture
+  plus a published delta.
+- 2026-11-17 — Reachability confirmed: the sandbox shell cannot open `www.nfl.com` (TLS EOF);
+  the page-fetch tool can, and can also parse PDFs on `media.nfl.com`. The NFL game-book PDF on
+  `static.www.nfl.com` is **not** retrievable by the fetch layer (HTTP 500) even though the game
+  centre publishes its URL — recorded as a verified blocker, not as a missing value.
