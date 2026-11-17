@@ -1,6 +1,6 @@
 # Game Book capture log - 2026 week 10
 
-Captured 2026-11-17T04:31:39Z. 
+Captured 2026-11-17T04:35:59Z. 
 
 | game | status | book url | sha256 | playtime rows | error |
 |---|---|---|---|---|---|
@@ -17,4 +17,4 @@ Captured 2026-11-17T04:31:39Z.
 | 2026_10_SEA_LV | captured | https://static.www.nfl.com/image/upload/v1794829726/gamecenter/ab78a43c-4feb-11f1-abca-2c54536568a9.pdf | 2e5c44630e0f55fa | 92 |  |
 | 2026_10_SF_DAL | captured | https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab78a748-4feb-11f1-abca-2c54536568a9.pdf | c5378c33a7fcac7c | 94 |  |
 | 2026_10_PIT_CIN | captured | https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf | ac36c23ed9f831d9 | 96 |  |
-| 2026_10_LAC_BAL | captured_no_playtime | https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf | a45221393907245d | 0 |  |
+| 2026_10_LAC_BAL | captured_no_playtime | https://static.www.nfl.com/image/upload/v1794889793/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf | a45221393907245d | 0 | the book for this game is published but carries no Playtime Percentage section yet; starters and inactive lists are captured, snap counts are left blank rather than inferred |
