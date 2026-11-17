@@ -174,6 +174,64 @@ def load_suggestions():
     return rows
 
 
+def placeholder_scores():
+    """Non-final rows that carry numeric scores.
+
+    A fixture that is still open must not be readable as a result by a consumer that
+    ignores the status column, which is why the blank matters more than it looks.
+    """
+    rows = cload("data/results_feed.csv")
+    hits, undisclaimed, placeholders = [], [], []
+    for r in rows:
+        if str(r.get("status")) == "final":
+            continue
+        aw, ho = str(r.get("away_score") or "").strip(), str(r.get("home_score") or "").strip()
+        if not (aw and ho):
+            continue
+        disclaimed = ("not-final" in str(r.get("verified") or "").lower()
+                      or "capture-time" in str(r.get("note") or "").lower())
+        item = {"game_id": r.get("game_id"), "away": r.get("away"), "home": r.get("home"),
+                "score": f"{aw}-{ho}", "status": r.get("status"),
+                "verified": str(r.get("verified") or "")[:60],
+                "note": str(r.get("note") or "")[:120]}
+        hits.append(item)
+        if not disclaimed:
+            undisclaimed.append(item)
+        if aw == "0" and ho == "0":
+            placeholders.append(item)
+    return {"count": len(hits), "rows": hits[:6], "undisclaimed": len(undisclaimed),
+            "undisclaimed_rows": undisclaimed[:6], "placeholders": len(placeholders),
+            "placeholder_rows": placeholders[:6]}
+
+
+def conflict_markers():
+    """Committed merge-conflict markers anywhere in the tree's text files.
+
+    This repository has shipped them twice - once in `.gitignore`, once inside this board -
+    so the scan runs on every build. It is deliberately self-eliminating: when the tree is
+    clean the page says the check ran and found nothing, rather than dropping the row.
+    """
+    try:
+        import subprocess
+        files = subprocess.run(["git", "ls-files", "--", "*.md", "*.html", "*.json", "*.py",
+                                "*.csv", "*.yml", "*.js"],
+                               cwd=ROOT, capture_output=True, text=True).stdout.split()
+    except Exception:
+        return {"scanned": 0, "hits": [], "error": "git ls-files unavailable"}
+    hits = []
+    for rel in files:
+        fp = os.path.join(ROOT, rel)
+        try:
+            with open(fp, encoding="utf-8", errors="ignore") as fh:
+                for ln, line in enumerate(fh, 1):
+                    if line.startswith("<<<<<<< ") or line.startswith(">>>>>>> ") or line.rstrip() == "^<<<<<<<":
+                        hits.append({"path": rel, "line": ln, "text": line.strip()[:70]})
+                        break
+        except Exception:
+            continue
+    return {"scanned": len(files), "hits": hits[:12]}
+
+
 def duplicate_registers():
     """Pairwise comparison of the machine-readable suggestion registers.
 
@@ -336,6 +394,30 @@ def gate_linkage(clusters, readiness):
 # ------------------------------------------------------------- new suggestions
 
 def new_suggestions(ev):
+    ph = placeholder_scores()
+    feed_status = {r.get("game_id"): str(r.get("status")) for r in cload("data/results_feed.csv")}
+    settled = [x["game_id"] for x in (ev.get("pending_fixtures_now_decided") or {}).get("rows", [])
+               if x.get("home_score") is not None and feed_status.get(x["game_id"]) == "final"]
+    settled_txt = (f"The fixture this row was raised about ({', '.join(settled)}) has since been settled in the "
+                   "committed feed by another session, so the record-keeping half of the complaint is closed. "
+                   if settled else "")
+    if ph["count"]:
+        ex = "; ".join(f'{r["game_id"]} at {r["score"]} with status {r["status"]}' for r in ph["rows"])
+        ph_problem = (settled_txt +
+                      f"{ph['count']} row(s) in data/results_feed.csv are not final and carry numeric scores: {ex}. "
+                      f"Of those, {ph['placeholders']} are scoreless placeholders and {ph['undisclaimed']} carry no "
+                      "machine-readable mark that the number is not a result. A live scoreline that says so in a "
+                      "note column is defensible; the hazard is a consumer that reads the score column without "
+                      "reading status or the disclaimer, and a 0-0 placeholder is never defensible.")
+        ph_check = ("Count non-final rows with numeric scores, split into placeholders and undisclaimed: today "
+                    f"{ph['count']} total, {ph['placeholders']} placeholder, {ph['undisclaimed']} undisclaimed; "
+                    "0 in the last two columns closes this row.")
+    else:
+        ph_problem = ("No non-final row in data/results_feed.csv carries numeric scores, so the format rule this row "
+                      "asked for now holds. It was raised because one did: an in-progress fixture written as 0-0, "
+                      "which any consumer ignoring the status column would read as a played game.")
+        ph_check = "Count non-final rows with numeric scores in the feed: today it is 0."
+
     """Suggestions this session can substantiate from its own capture record.
 
     Each row is allowed here only because a captured observation supports it; the
@@ -421,17 +503,15 @@ def new_suggestions(ev):
            "Count rows with both an open and a close for 2026 in the price store: it is 0, and the "
            "readiness register prints the same figure."),
         mk("DS-08",
-           "Do not carry placeholder scores for fixtures that are already decided",
-           "The committed feed holds 2026_10_PIT_CIN at status in_progress with scores written as 0-0, while the "
-           "official page has printed 18-38 FINAL since November 15. Replaying the feed reproduces the official "
-           "record for 29 of 31 sampled clubs and fails for exactly the two clubs in that fixture.",
-           "Rebuild the feed from a fresh dated capture so that fixture becomes final, and change the writer so a "
-           "non-final row carries blank scores rather than 0-0 - a numeric placeholder on an open row is read as a "
-           "result by anything that ignores status. The rebuild belongs to the owning script, so this row asks for "
-           "it rather than editing the file.",
-           "High", "Low", "Medium", "DS-04", ["EV-10"],
-           "Replay the feed's finals against the official records and count the exceptions: it is 2, both from the "
-           "same fixture, and 0 once that fixture is applied."),
+           "A non-final row must not carry numeric scores",
+           ph_problem,
+           "Ask for two things, both cheap: a boolean column that says whether a row's scores are a result, so a "
+           "consumer never has to read the status column correctly to avoid being misled; and a writer rule that a "
+           "non-final row is never given 0-0, which is a placeholder rather than an observation. Recording a live "
+           "scoreline next to an explicit not-a-result mark stays allowed - it is information, and blanking it "
+           "would lose the fact that a game is being played.",
+           "High", "Low", "Medium", "DS-04", ["EV-10", "EV-13"],
+           ph_check),
         mk("DS-09",
            "One canonical count for the official injury table, everything else derived",
            "The same official Week 10 report is published as 345 rows in data/injuries.json, 160 in the "
@@ -444,6 +524,17 @@ def new_suggestions(ev):
            "High", "Medium", "Low", "DS-03", ["EV-07"],
            "Count rows in each of the three artefacts and compare with the live official page; the difference is the "
            "filter each view applies, which should be printed rather than discovered."),
+        mk("DS-11",
+           "Generate clearing numbers from the artefact instead of typing them into the register",
+           "R27 of the readiness register states the availability-ablation coefficient as a hand-written number, and "
+           "the derived artefact that the row is supposed to summarise now computes a different one for the same "
+           "window and the same n. Two pages inside that section therefore publish different betas.",
+           "Have the register's clearing_number be written by the script that computes the ablation, and let the "
+           "pages read the register - then a re-fit cannot leave a stale sentence behind. Until that happens, every "
+           "surface quoting this quantity should cite the artefact value and say the register lags.",
+           "High", "Low", "Low", "DS-03", ["EV-12"],
+           "Compare the number in the register row with the number in the derived artefact on every build; the desk "
+           "does this now and prints the gap when it is non-zero."),
         mk("DS-10",
            "Make the committed pages regenerable without destroying a hand-added link",
            "Running the repository's own generators rewrites 11 docs pages and drops the cross-link another session "
@@ -519,13 +610,15 @@ def freshness(ev=None):
 
     # corpus reconciliation: replay the feed, and replay it again with the fixtures this
     # session found decided applied. Both numbers are computed; neither is asserted.
-    # A captured "pending then decided" fixture may since have become final in the feed
-    # itself (e.g. the Week-10 SNF final captured 2026-11-17); applying such a fixture
-    # again would double-count it, so only still-open fixtures are applied here.
+    feed_rows = cload("data/results_feed.csv")
     pending = (ev.get("pending_fixtures_now_decided") or {}).get("rows", [])
-    final_ids = {r.get("game_id") for r in finals}
+    # only apply a fixture the feed has not yet settled; applying one that has been
+    # corrected upstream would double-count and manufacture a false failure
+    open_ids = {r.get("game_id") for r in feed_rows if str(r.get("status")) != "final"}
     applied = {x["game_id"]: x for x in pending
-               if x.get("home_score") is not None and x["game_id"] not in final_ids}
+               if x.get("home_score") is not None and x["game_id"] in open_ids}
+    settled = [x["game_id"] for x in pending
+               if x.get("home_score") is not None and x["game_id"] not in open_ids]
 
     def replay(extra=None):
         tal = defaultdict(lambda: [0, 0, 0])
@@ -559,7 +652,8 @@ def freshness(ev=None):
     out["replay"] = {
         "sampled": len(official_2026_11_17), "as_is_ok": len(official_2026_11_17) - len(mis0),
         "as_is_bad": sorted(mis0), "with_pending_ok": len(official_2026_11_17) - len(mis1),
-        "with_pending_bad": sorted(mis1), "applied": sorted(applied), "still_open": sorted(
+        "with_pending_bad": sorted(mis1), "applied": sorted(applied),
+        "settled_upstream": sorted(settled), "still_open": sorted(
             x["game_id"] for x in pending if x.get("home_score") is None),
     }
 
@@ -960,8 +1054,8 @@ def build():
     stats = {
         "suggestions_present": len(canon),
         "suggestion_entries": len(present),
-        "registers": len([r for r in inventory if r[3] > 0]),
         "new_from_this_session": len(new),
+        "registers": len([r for r in inventory if r[3] > 0]),
         "collisions": len(collisions),
         "questions_present": len(qcanon),
         "question_entries": len(qrows),
@@ -983,7 +1077,8 @@ def build():
 
     json.dump({"built_by": f"tools/{os.path.basename(__file__)}", "built_date": BUILD_DATE,
                "stats": stats, "suggestions": canon, "questions": qcanon, "answers": answers,
-               "freshness": fresh, "register_inventory": [list(x) for x in inventory],
+               "freshness": fresh, "ablation": ablation_disagreement(),
+               "register_inventory": [list(x) for x in inventory],
                "collisions": collisions},
               open(os.path.join(OUT, "data", "desk.json"), "w", encoding="utf-8"), indent=1)
     print(json.dumps(stats, indent=1))
@@ -1022,6 +1117,7 @@ def build_suggestions(canon, collisions, inventory, stats, ev):
             src or blank("no source file"),
         ])
     dupes = duplicate_registers()
+    ab_lines = []
     drows = [[f"{esc(d['a'])} vs {esc(d['b'])}",
               repo_link(d["a_path"], os.path.basename(d["a_path"])) + " &middot; " +
               repo_link(d["b_path"], os.path.basename(d["b_path"])),
@@ -1033,6 +1129,17 @@ def build_suggestions(canon, collisions, inventory, stats, ev):
               "one of them should be generated from the other, not edited in parallel"]
              for d in dupes]
 
+    ab = ablation_disagreement()
+    if ab.get("found") and not ab.get("agrees"):
+        for h in ab["register"]:
+            ab_lines.append([
+            f'Register row <code>{esc(h["id"])}</code> &middot; column <code>{esc(h["field"])}</code>',
+            f'<span class="bad">{esc(h["beta"])}</span> (CI {esc(h["ci"][0])}&thinsp;to&thinsp;{esc(h["ci"][1])}, n={esc(h["n"])})',
+            f'<b>{esc(ab["artefact"])}</b> (CI {esc(ab["artefact_ci"][0])}&thinsp;to&thinsp;{esc(ab["artefact_ci"][1])}, '
+            f'n={esc(ab["artefact_n"])}, window {esc(ab["artefact_window"])})',
+            f'difference {esc(round(ab["artefact"] - h["beta"], 4))} points per expected miss - the register quotes an '
+            'earlier fit of the same quantity, and the artefact has moved since',
+        ])
     inv_rows = []
     for kind, reg, path, n, section in inventory:
         if reg == "html-only":
@@ -1066,7 +1173,8 @@ machine-readable registers plus three HTML-only pages, using two id formats. The
 first thing to fix, because it makes "adopt SG-05" ambiguous between two unrelated suggestions.</div>
 <h2>Collision check across registers</h2>
 {table(['id used in more than one register','occurrences','titles under that same id','files'], col_rows) if col_rows else '<p class="small">No id is reused for a different suggestion.</p>'}
-<h2>The board &middot; {stats['suggestions_present']} decisions from {stats['suggestion_entries']} register entries</h2>
+<h2>The board &middot; {stats['suggestions_present']} decisions: {stats['suggestions_present'] - stats['new_from_this_session']}
+merged from {stats['suggestion_entries']} register entries, plus {stats['new_from_this_session']} raised by this session</h2>
 {table(['id','suggestion','impact / effort','who acts','state','links to','why it ranks here','source'], rows)}
 <h2>Registers that overlap each other, measured</h2>
 <p class="small">Computed by comparing every pair of machine-readable registers on id and title. A shared id with
@@ -1099,6 +1207,35 @@ def build_questions(qcanon, answers, stats):
                       state_tag(a["status"]),
                       esc(a["still_open"]) or '<span class="small">none</span>',
                       " &middot; ".join(link("sources.html#" + e, e) for e in a["evidence"])])
+    ab = ablation_disagreement()
+    stale = ([str(h["beta"]) for h in ab["register"]] if ab.get("found") and not ab.get("agrees") else [])
+
+    def superseded(cells):
+        """Where a register asserted a number the artefact has since moved, quote the
+        artefact and say so, rather than repeating the stale assertion verbatim.
+
+        The interval travels with the coefficient: swapping only the point estimate would
+        leave a CI that belongs to the old fit sitting next to the new number, which is a
+        different error than the one being fixed.
+        """
+        if not stale:
+            return cells
+        ac = ab.get("artefact_ci") or ["", ""]
+        out = []
+        for c in cells:
+            for s, h in zip(stale, ab["register"]):
+                if s not in c:
+                    continue
+                old_ci = f'{h["ci"][0]}, {h["ci"][1]}'
+                new_ci = f'{ac[0]}, {ac[1]}'
+                note = (f'{ab["artefact"]} <span class="small">(the register still prints '
+                        f'{s} on CI {h["ci"][0]}, {h["ci"][1]}; the artefact is quoted here, '
+                        f'same window and n - {link("sources.html#EV-12", "EV-12")})</span>')
+                c = c.replace(old_ci, "\x00CI\x00").replace(s, note)
+                c = c.replace("\x00CI\x00", new_ci)
+            out.append(c)
+        return out
+
     qrows = []
     for q in qcanon:
         src = " &middot; ".join(repo_link(pth, pth.split("/")[-1]) for pth in q["paths"])
@@ -1111,6 +1248,7 @@ def build_questions(qcanon, answers, stats):
             esc(q["priority"] or "(not stated)") + "<br>" + (state_tag(q["status"]) if q["status"] else '<span class="tag">open</span>'),
             src or blank("no source file"),
         ])
+        qrows[-1] = superseded(qrows[-1])
     body = f"""
 <div class="callout blue"><b>Answered by this session.</b> Five questions that the registers left open could be closed
 from the live official pages, so they are answered here with the capture id attached. The rest stay open on purpose:
@@ -1131,6 +1269,63 @@ artefact behind it, the cell says so instead of repeating the assertion.</p>
          ("closed by this session", len(answers), "each with an official capture"),
          ("register entries read", stats["question_entries"], "five registers"),
          ("blocked requirements", stats["blocked_requirements"], "in the R-register, some premises now false")]))
+
+
+_AB_CACHE = {}
+
+
+def ablation_disagreement():
+    """A number typed into a register versus the artefact that is supposed to hold it.
+
+    R27 of the fl2-lines readiness register carries a clearing number written by hand; the
+    ablation artefact recomputes the same quantity from the same window and the same n. When
+    the two disagree, pages inside one section contradict each other, and nothing in CI
+    notices. This function is the check, so the desk cannot repeat the mistake either.
+    """
+    if _AB_CACHE:
+        return _AB_CACHE["v"]
+    rel = "fl2-lines/data/registers/readiness.csv"
+    art_rel = "fl2-lines/data/derived/ablation-injury.json"
+    out = {"found": False, "agrees": True}
+    _AB_CACHE["v"] = out
+    art = jload(art_rel) or {}
+    coef = art.get("coefficient") or {}
+    beta_art = coef.get("beta_pts_per_expected_miss")
+    if beta_art is None:
+        return out
+    rows = cload(rel)
+    hits = []
+    for r in rows:
+        txt = " ".join(str(v) for v in r.values() if v)
+        m = re.search(r"beta\s+(-?\d+\.\d+)\s+pts per expected miss\s+CI\s*\[\s*(-?\d+\.\d+)\s+(-?\d+\.\d+)", txt)
+        if m:
+            hits.append({"id": r.get("id") or r.get("requirement", ""),
+                         "field": "clearing_number",
+                         "beta": float(m.group(1)), "ci": [float(m.group(2)), float(m.group(3))],
+                         "n": (re.search(r"n=(\d+)", txt) or [None, None])[1]})
+    pages = {}
+    for pg in sorted(os.listdir(p("fl2-lines"))):
+        if not pg.endswith(".html"):
+            continue
+        try:
+            body = open(p("fl2-lines", pg), encoding="utf-8").read()
+        except Exception:
+            continue
+        said = []
+        if hits and re.search(re.escape(f"{hits[0]['beta']}"), body):
+            said.append(f"register value {hits[0]['beta']}")
+        if re.search(re.escape(f"{beta_art}"), body):
+            said.append(f"artefact value {beta_art}")
+        if len(said) == 1:
+            pages[pg] = said[0]
+    out.update({
+        "found": True, "artefact": beta_art, "artefact_ci": coef.get("ci95"),
+        "artefact_n": coef.get("n_games"), "artefact_window": coef.get("window"),
+        "register": hits, "pages": pages,
+        "agrees": bool(hits) and all(abs(h["beta"] - beta_art) < 1e-9 for h in hits),
+    })
+    _AB_CACHE["v"] = out
+    return out
 
 
 def measured_panel():
@@ -1358,13 +1553,18 @@ the same test the results feed was accepted on, re-run today.</p>
 {table(['replay','clubs matching','clubs failing','what it shows','source'], [
  ['feed as committed', f'{rp["as_is_ok"]} of {rp["sampled"]}',
   ", ".join(f'<code>{esc(x)}</code>' for x in rp["as_is_bad"]) or "none",
-  '<span class="bad">two clubs fail, and both belong to the one fixture the feed still holds open</span>',
+  ('<span class="bad">' + str(len(rp["as_is_bad"])) + ' club(s) fail, all of them in fixtures the feed still holds '
+   'open</span>' if rp["as_is_bad"] else
+   '<span class="good">every sampled club reproduces</span> - the exception found earlier today was reconciled by '
+   'the feed rebuild, see ' + link("sources.html#EV-13", "EV-13")),
   repo_link("data/results_feed.csv", "data/results_feed.csv")],
- ['feed plus the fixtures decided since the capture', f'{rp["with_pending_ok"]} of {rp["sampled"]}',
+ ['fixtures this session found decided, applied by hand', f'{rp["with_pending_ok"]} of {rp["sampled"]}',
   ", ".join(f'<code>{esc(x)}</code>' for x in rp["with_pending_bad"]) or "none",
-  f'<span class="good">all sampled clubs reconcile once {esc(", ".join(rp["applied"]) or "nothing")} is applied</span> '
-  f'- the feed pipeline is sound; its newest capture is {cap_age} old',
-  link("sources.html#EV-10", "EV-10")],
+  (f'nothing left to apply - {esc(", ".join(rp["settled_upstream"]))} is final in the feed already, so the desk '
+   'takes the correction rather than repeating it' if not rp["applied"] and rp["settled_upstream"]
+   else (f'all sampled clubs reconcile once {esc(", ".join(rp["applied"]))} is applied'
+         if rp["applied"] else 'no decided-but-open fixture to apply')),
+  link("sources.html#EV-10", "EV-10") + " &middot; " + link("sources.html#EV-13", "EV-13")],
  ['still open after that', f'{rp["with_pending_ok"]} of {rp["sampled"]}', ", ".join(f'<code>{esc(x)}</code>' for x in rp["still_open"]) or "none",
   "the Monday-night fixture was live at 17-7 in the second quarter; it stays ungraded, not estimated",
   link("sources.html#EV-01", "EV-01")],
@@ -1478,15 +1678,24 @@ def build_sources(ev, stats, f_rows):
     hub_txt = ""
     if os.path.exists(p("index.html")):
         hub_txt = open(p("index.html"), encoding="utf-8").read()
+    f_final = sum(1 for r in cload("data/results_feed.csv") if str(r.get("status")) == "final")
+    f_open = sum(1 for r in cload("data/results_feed.csv") if str(r.get("status")) != "final")
     hub_feed = re.search(r"(\d+)-game results feed", hub_txt)
     if hub_feed and int(hub_feed.group(1)) != f_rows:
+        played = [r for r in cload("data/results_feed.csv")
+                  if str(r.get("gameday") or "") and str(r.get("gameday")) <= BUILD_DATE]
+        open_played = sum(1 for r in played if str(r.get("status")) != "final")
+        gap = int(hub_feed.group(1)) - f_rows
+        gap_word = "game" if abs(gap) == 1 else "games"
         irr.append([
-            "I-8", "The hub describes a feed that is larger than the one it points at",
+            "I-8", "The hub's headline count for the results feed does not match the file it points at",
             f"The landing page says \u201c{esc(hub_feed.group(0))}\u201d while data/results_feed.csv holds "
-            f"{f_rows} final rows ({f_rows + 2} rows in total for played weeks, two of them not final). The number "
-            "is not wrong so much as it counts the open fixtures as verified.",
+            f"{f_rows} final rows out of {len(played)} for weeks already played, {open_played} of them not final. "
+            f"The hub is {abs(gap)} {gap_word} from the number of verified finals - which is the open fixture "
+            "being counted as settled, not a missing result.",
             "Left as written - it is another section's sentence about its own claim - and recorded here so the "
-            "owner can decide whether the hub should say \u201c148 finals, 2 open\u201d.",
+            "owner can decide whether the hub should say \u201c" + f"{f_rows} finals, {open_played} not final" +
+            f"\u201d, which is what the feed holds on {BUILD_DATE}.",
             repo_link("index.html", "index.html") + " &middot; " + repo_link("data/results_feed.csv", "results feed")])
     # three published counts of one official table
     counts = []
@@ -1529,6 +1738,37 @@ def build_sources(ev, stats, f_rows):
                     "Each view applies a filter that is not printed on the page. Recorded for the owner; see board row "
                     + ref_ds09 + ".",
                     " &middot; ".join(repo_link(pth, os.path.basename(pth)) for pth, n, why in counts)])
+    ab = ablation_disagreement()
+    if ab.get("found") and not ab.get("agrees"):
+        h0 = ab["register"][0]
+        irr.append(["I-11", "A register row and the artefact behind it disagree on the same coefficient",
+                    f'<code>{esc(h0["id"])}</code> in '
+                    f'<code>fl2-lines/data/registers/readiness.csv</code> carries the clearing number '
+                    f'<b>{esc(h0["beta"])}</b> (CI {esc(h0["ci"][0])} to {esc(h0["ci"][1])}, n={esc(h0["n"])}), while '
+                    f'<code>fl2-lines/data/derived/ablation-injury.json</code> computes '
+                    f'<b>{esc(ab["artefact"])}</b> (CI {esc(ab["artefact_ci"][0])} to {esc(ab["artefact_ci"][1])}, '
+                    f'n={esc(ab["artefact_n"])}, window {esc(ab["artefact_window"])}) - same window, same n, '
+                    f'{esc(round(ab["artefact"] - h0["beta"], 4))} points apart. '
+                    + "Inside that section, " + ("; ".join(f'{esc(k)} prints {esc(v)}' for k, v in sorted(ab["pages"].items()))
+                                                 if ab["pages"] else "no page quotes either value")
+                    + ", so two pages of one section disagree in public.",
+                    "Not edited here: the register and the pages belong to another session. This desk quotes the "
+                    "artefact value wherever it quotes that quantity, raises board row DS-11, and logs a rebuild "
+                    "request so the clearing number is generated from the artefact instead of retyped.",
+                    repo_link("fl2-lines/data/registers/readiness.csv", "readiness.csv") + " &middot; " +
+                    repo_link("fl2-lines/data/derived/ablation-injury.json", "ablation-injury.json") + " &middot; " +
+                    link("sources.html#EV-12", "EV-12")])
+    cm = conflict_markers()
+    irr.append(["I-12", "Committed merge-conflict markers in the tree (a check, not an accusation)",
+                (f'{len(cm["hits"])} file(s) out of {cm["scanned"]} tracked text files still contain a marker line: '
+                 + "; ".join(f'<code>{esc(h["path"])}:{h["line"]}</code> <span class="small">{esc(h["text"])}</span>'
+                             for h in cm["hits"])
+                 if cm.get("hits") else
+                 f'no tracked text file contains a conflict marker - {cm["scanned"]} files scanned on this build '
+                 '(the scan exists because two were committed here earlier this week: `.gitignore` and this board)'),
+                "Each earlier occurrence was resolved by keeping both sides and logging the edit. The scan runs on "
+                "every build so the next one is caught by CI rather than by a reader.",
+                repo_link("scripts/check_site.py", "site checks") + " &middot; " + link("sources.html#EV-14", "EV-14")])
     irr.sort(key=lambda r: int(re.sub(r"\D", "", r[0]) or 0))
     body = f"""
 <div class="callout blue"><b>Everything this session asserted, and where it came from.</b> Each row is a live page this

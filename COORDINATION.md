@@ -1797,14 +1797,10 @@ No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-
 | Repair PR | https://github.com/sassnarep3-star/FL2/pull/41 — Decision Desk post-merge repair (with-pending reconciliation), merged after `verify-decision-desk` failed on the #38 merge commit; both workflows green on the #41 merge commit (runs 44008433009 success, 44008432984 success) |
 | Pages | pages-build-deployment run 44008431935 success; live page verified 2026-11-17 ~04:20Z: the "Week 10 completed — results feed & venue register" section renders with the 14-row venue table (per-row game-centre links) and the refreshed readiness table |
 | Open-PR close-out | PR #24 merged 2026-11-17 (Line Lab price-coverage self-correction; PR #22's branch). PR #29 closed as superseded with documented rationale (its scope delivered by merged PRs #19/#20/#21/#30; branch ~159k lines behind main; would add a fourth overlapping register) |
-<<<<<<< HEAD
-=======
-
 Cross-scope edit log (this session): `fl2-dashboard/data/repo-audit.json` was refreshed
 (2026-11-17) by running `python3 tools/repo_audit.py` during verification; the tool rewrites its own
 committed audit JSON each run (branch/commit stamps, JSON-file count 59→99). No hand edit; content is
 the tool's own output.
->>>>>>> 96e0678 (Coordination: log repo-audit.json tool refresh as cross-scope edit)
 
 ### Post-merge repair (2026-11-17, session b184fdaf)
 
@@ -1817,3 +1813,84 @@ only if it is still non-final in the feed; regenerate the four Desk files. Local
 pushing: the Desk checker OK (pages=6, tables=25, 283 evidenced rows) and the workflow's full assertion
 block exits 0 ("All Decision Desk claims about other files hold"). This is the follow-up PR from this
 branch.
+
+## Second wave — after PR #39 merged (`d1bd0f0`), 2026-11-17
+
+PR #39 shipped the section and merged cleanly (all CI jobs pass, Pages built `d1bd0f0`).
+Four things came out of the merge that needed a second commit:
+
+1. **The register/artefact disagreement is now a computed check (EV-12, I-11, board row DS-11).**
+   `fl2-lines/data/registers/readiness.csv` row R27 carries `-0.485` (CI −0.719 to −0.251, n=2367)
+   as a hand-typed clearing number, while `fl2-lines/data/derived/ablation-injury.json` computes
+   `-0.5174` (CI −0.7357 to −0.2992, same n, same window). Inside that one section,
+   `index.html` + `questions.html` print the register value and `executive-summary.html` +
+   `suggestions.html` print the artefact value; `data/landing_readiness.js`, generated from the
+   register, propagates the stale number into the hub's readiness table. No script in the
+   repository reproduces `-0.485`. **Not edited** — the files belong to session `65556dd2`'s
+   scope. `/decision-desk/questions.html` now quotes the artefact value, moves the interval with it,
+   and says the register lags; `tools/check_decision_desk.py` fails the build if a superseded value
+   is ever quoted bare on these pages, and the comparison is recomputed from the two files on every
+   build, so this note cannot become the only record of it.
+2. **Board arithmetic made self-describing.** The heading now states how the number is built
+   (57 rows merged from 68 register entries + 11 rows raised by this session = 68 on the board),
+   and the checker asserts the arithmetic closes.
+3. **Request 4, for the owner: generate clearing numbers rather than typing them.** If the
+   register's `clearing_number` column were written by the script that fits the ablation, the stale
+   sentence could not survive a re-fit. Raised as `DS-11`.
+4. **`tools/repo_audit.py` reproduced finding I-10 while this session was verifying it** — running
+   it rewrote `fl2-dashboard/data/repo-audit.json` with this branch's name and commit. Reverted
+   again. Two runs, same result: the non-idempotence is not a misreading.
+
+Capture log is now 12 entries (11 observations + the register/artefact comparison), 2 failed
+fetches, 11 irregularities (I-1 … I-11).
+
+## Third wave — merge of main@8a6d908 (PR #38 by session-b184fdaf), 2026-11-17
+
+**The desk's own gate caught the upstream fix.** After PR #39 merged, `verify-decision-desk` went red on
+`main@8a6d908` — not because the fix was wrong, but because another session had carried out request 1 and my
+committed pages were now stale against it. Rebuilding on the merged tree reproduces their work exactly:
+
+- `2026_10_PIT_CIN` is `final` at 18-38, and the feed replay now closes at **31 of 31** sampled clubs
+  (it was 29 of 31 at 02:30 UTC). The desk's reconciliation table says so and records the fixture under
+  *settled upstream* rather than applying it a second time — applying a fixture the feed has already corrected
+  manufactures a false failure, which is the bug this table would have had.
+- Request 1 is therefore **closed** by its owner, not by me: no row of `data/results_feed.csv` was edited here.
+- One row still carries numeric scores while non-final (`2026_10_LAC_BAL`, 17-7, `in_progress`,
+  `verified=not-final-at-capture`). My first draft of a CI rule said "no non-final row may carry scores"; run
+  against the real file, that rule would have forced another session to delete a genuine live observation. The
+  rule and board row DS-08 were narrowed to what is actually indefensible: a `0-0` placeholder, or a score on an
+  open row with **no** machine-readable not-a-result mark. Both counts are 0 today, so the row's remaining ask is
+  a boolean column, not a blanking policy.
+- `data/standings.json` is still the 2026-11-14 table, so I-2 stays open; the venue conflict (I-4) stays open,
+  since `data/captures/week10-venues-2026-11-17.json` covers Week 10 and the disputed fixture is Week 11.
+- I-8 narrows but does not close: the hub still says "150-game results feed" against 149 finals, now one game
+  out rather than two. The wording it *should* have is computed on the page, so it tracks the file.
+
+**One correction to my own record.** EV-13 first claimed the hub had been updated to say 149 finals. It had not —
+that sentence came from my own generated page, and I published the claim without re-reading `index.html`. Fixed in
+the capture log, which is the place where being wrong is visible.
+
+**Also resolved here (shared file, both sides kept):** `main` had committed a merge-conflict block of its own into
+this board (empty `HEAD` side, `>>>>>>> 96e0678`), from the merge of PR #38. The paragraph it wrapped is preserved.
+To stop that class recurring by reading luck, `tools/build_decision_desk.py` now scans every tracked `.md`,
+`.html`, `.json`, `.py`, `.csv`, `.yml`, `.js` file for marker lines on every build (irregularity I-12, 416 files
+scanned) and the CI job fails on any hit; on a clean tree the page states that the scan ran and found nothing, so
+the absence is a result rather than an omission. `EV-14` records it.
+
+**Same fix, two branches — recorded, not quietly taken.** Session `b184fdaf` noticed the identical
+double-count (`with_pending_ok` 29 of 31) and repaired it in PR #41 as commit `8feece8`, branching from PR #39
+before my second wave landed. That repair also *removed* the follow-up work it had not seen: the R27-vs-artefact
+comparison (`ablation_disagreement()`), the rule that a superseded value may not be quoted bare, the board
+arithmetic check, and board row DS-11. The merge keeps both sides where they overlap and mine where they
+duplicate: their `final_ids` guard and my `open_ids` guard compute the same thing, and this branch reinstates the
+checks that their branching order could not have known about. Nothing of theirs in `tools/build_results_feed.py`,
+`data/**`, `engine/**`, `ops/**` or `index.html` was overridden — the desk takes their feed correction as
+authoritative.
+
+Counts after this wave: 68 board rows, 55 open questions, 14 dated captures, 12 irregularities, 2 failed fetches.
+
+*(The `<<<<<<< HEAD` / `>>>>>>> 96e0678` marker lines that had been committed around that paragraph, leaving
+its left side empty, were stripped 2026-11-17 by session-3189b65d; the paragraph itself is unchanged. This is the
+second time a marker block reached `main` — the first was `.gitignore` — so the scan for them is now part of every
+build of `/decision-desk/` (irregularity I-12) and of `verify-decision-desk`, which fails CI on any hit rather than
+waiting for a reader.)*
