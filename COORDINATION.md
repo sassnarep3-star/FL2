@@ -1520,3 +1520,40 @@ Published on the landing page's irregularities table and consolidated in `review
 | Live site | https://sassnarep3-star.github.io/FL2/ |
 
 Concurrency note: session `arena/d81dd61b-fl2` (PR #32, merged as `a636b97`) added `review/REPO-REVIEW-2026-11-17.md` (line-by-line repo review) and fixed the committed `.gitignore` conflict markers; both are in `main` ahead of this session's PRs. No other session's content was discarded.
+
+---
+
+# Session session-22f6b1d9 — Final site integrity and decision-readiness integration
+
+Repo: `sassnarep3-star/FL2` · Session: `session-22f6b1d9` · Branch: `arena/22f6b1d9-fl2`
+Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the final integration session for its own additions and additive root/README integration; all concurrent merged work is preserved.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+|---|---|---|---|---|---|
+| T29 | Claim + coordination | **done** | session-22f6b1d9 | `COORDINATION.md` | initial claim commit was pushed before implementation; rebase kept all newer main records |
+| T30 | Reconcile the root landing page and README with the currently merged site; preserve the readiness view and remove stale headline claims | **in progress** | session-22f6b1d9 | `index.html` (additive final integration), `README.md` | PR #33/#34 landing work preserved; add audit entry and correct README only |
+| T31 | Publish a cross-section integrity audit and decision queue with official links and unresolved gates | **in progress** | session-22f6b1d9 | `review/integration-audit-2026-11-17.html`, `review/integration-audit-2026-11-17.md` | new files; claims are tied to dated committed artifacts |
+| T32 | Add an offline audit for all published internal links and rerun section verification gates | **in progress** | session-22f6b1d9 | `tools/check_integrated_site.py` | new tool; external URLs are not fetched |
+| T33 | Final PR, merge and Pages verification | **unclaimed** | — | `.git` (via `gh`), `COORDINATION.md` | only after all required checks pass |
+| T34 | Repair the one broken `results.html#announcement` fragment identified by the site-wide audit | **in progress** | session-22f6b1d9 | `fl2-lines/engine/build_site.py`, generated `fl2-lines/results.html` | narrow handoff from completed 39dd0836 scope; add the missing target to the existing heading only |
+
+## Claim
+
+| Session | Files claimed | Claimed (UTC) | Released |
+|---|---|---|---|
+| session-22f6b1d9 | `index.html` (additive final integration); `README.md`; `review/integration-audit-2026-11-17.{html,md}`; `tools/check_integrated_site.py`; `fl2-lines/engine/build_site.py` and generated `fl2-lines/results.html` for the single missing fragment; `COORDINATION.md` append only | 2026-11-17 | — |
+
+## Log
+
+- 2026-11-17 — Read `COORDINATION.md` before starting. At initial inspection, `HEAD` was `56453a0a` (PR #31), and the working tree was clean. Claimed T29–T33 and pushed the claim before implementation.
+- 2026-11-17 — While this session worked, main advanced through PRs #32–#35 (sessions `d81dd61b` and `7e474dc8`). `git pull --rebase origin main` exposed an additive conflict in this board. Resolution kept the complete D81 and 7e sections from main and appended this session's record; no other session's work was discarded.
+- 2026-11-17 — The `.gitignore` conflict markers observed at base `56453a0` were already fixed by session `d81dd61b` in PR #32 and are no longer present on rebased main. The audit will mark this as resolved, not open.
+- 2026-11-17 — The new whole-site link audit found one broken fragment in the completed `fl2-lines` section: `fl2-lines/index.html` links to `results.html#announcement`, while the schedule-announcement heading lacked `id="announcement"`. The original `39dd0836` section is complete and merged; a narrow non-destructive T34 handoff claims only the generator heading and its regenerated output so the full-site link check can pass.
+
+## Requests to prior scopes / owner
+
+- F-AUD-01: make `.github/workflows/fl2-lines-snapshot.yml` consistent with the still-open NFL Terms gate; the workflow file declares scheduled NFL-page fetches while `.github/workflows/availability-snapshot.yml` disables its schedule. No workflow edit is made here.
+- F-AUD-02: resolve public/private storage for tracked row-level NFL captures before any further systematic capture or publication. Pages currently uploads the repository root (`.`).
+- Data-vintage crosswalk: reconcile the 148-final ops results feed and the 137-game Line Lab 2026 corpus from one immutable manifest rather than silently rewriting either section's results.
