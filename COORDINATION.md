@@ -1722,8 +1722,6 @@ starter, because inactive lists and snap counts are still not captured for 2026.
 
 No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-17T02:37Z and owns
 `review/` + `.gitignore`; those files are untouched by this session.
-<<<<<<< HEAD
-=======
 
 ## Completion record — B1–B6 (2026-11-17, session b184fdaf)
 
@@ -1798,4 +1796,11 @@ No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-
 | PR | https://github.com/sassnarep3-star/FL2/pull/36 (to be confirmed after `gh pr create`) |
 | Merge | recorded after merge |
 | Pages | recorded after merge |
->>>>>>> 12e3be9 (Coordination: session b184fdaf completion record (sources, verification, flags))
+<<<<<<< HEAD
+=======
+
+Cross-scope edit log (this session): `fl2-dashboard/data/repo-audit.json` was refreshed
+(2026-11-17) by running `python3 tools/repo_audit.py` during verification; the tool rewrites its own
+committed audit JSON each run (branch/commit stamps, JSON-file count 59→99). No hand edit; content is
+the tool's own output.
+>>>>>>> 96e0678 (Coordination: log repo-audit.json tool refresh as cross-scope edit)
