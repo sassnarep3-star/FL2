@@ -107,29 +107,33 @@
           <td class="num">2026-11-14</td>
           <td><span class="badge ok">verified at capture</span></td>
         </tr>
-        <tr>
-          <td>Strategies tested (2011&ndash;2026 out-of-sample)</td>
-          <td class="num">11</td>
-          <td class="src">engine/run_backtest.py &middot; derived</td>
-          <td class="num">—</td>
-          <td><span class="badge bad">0 validated</span></td>
-        </tr>
-        <tr>
-          <td>Model vs market &mdash; Brier skill</td>
-          <td class="num">-8.1%</td>
-          <td class="src">derived from closing lines</td>
-          <td class="num">—</td>
-          <td><span class="badge bad">worse than market</span></td>
-        </tr>
       </tbody>
     </table>
     </div>
   </section>
 
   <section class="block">
+    <h2>Derived findings — not from an official source</h2>
+    <p class="sub">These are produced by the project's own backtest engine, not read from an official site. Per the verification rule they carry no official source link and are not presented as table rows.</p>
+    <div class="grid c2">
+      <div class="card pad">
+        <div class="eyebrow">Derived</div>
+        <strong>Strategies tested</strong>
+        <div class="small">Eleven single-bet strategies run out-of-sample (2011&ndash;2026), eight gates each. <span class="badge bad">0 validated</span>. See <a href="ledger/strategies.html">Strategy Lab</a> and <a href="ledger/method.html">Method</a>.</div>
+      </div>
+      <div class="card pad">
+        <div class="eyebrow">Derived</div>
+        <strong>Model vs market &mdash; Brier skill</strong>
+        <div class="num" style="font-size:20px">-8.1%</div>
+        <div class="small">The project's Elo model scores worse than the closing line on Brier. Derived from closing lines; not an official figure. See <a href="ledger/method.html">Method</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
     <h2>Data currency &amp; irregularities found this session</h2>
     <div class="note warn">
-      <p><strong>This snapshot is dated.</strong> The data bundle is captured <strong>2026-11-14</strong>, before Week 10 kicked off. Live official pages now reflect post-Week-10 results &mdash; for example the standings show Buffalo 8&ndash;1, Cincinnati 7&ndash;2, Detroit 7&ndash;2 and New England 5&ndash;5, whereas the snapshot holds pre-Week-10 records. The snapshot is honest about its timestamp, but treat every table as <em>dated</em>, not live, and re-check nfl.com before acting on any number.</p>
+      <p><strong>This snapshot is dated.</strong> The data bundle is captured <strong>2026-11-14</strong>, before Week 10 kicked off. Live official pages now reflect post-Week-10 results &mdash; for example the standings show Buffalo 8&ndash;1, Cincinnati 7&ndash;2, Detroit 7&ndash;2 and New England 5&ndash;5, whereas the snapshot holds pre-Week-10 records. Treat every table as <em>dated</em>, not live, and re-check nfl.com before acting on any number.</p>
     </div>
     <div class="table-wrap">
     <table>
@@ -143,24 +147,15 @@
         </tr>
         <tr class="flag">
           <td class="num">2</td>
-          <td><strong>No validated strategy.</strong> Eleven ideas were tested with eight gates each; none passed. That is a finding, not a gap &mdash; backtest numbers are not ranked and no picks are offered.</td>
-          <td><span class="badge bad">high</span></td>
-          <td class="src"><a href="ledger/strategies.html">Strategy Lab</a> &middot; <a href="ledger/method.html">Method</a></td>
-        </tr>
-        <tr class="flag">
-          <td class="num">3</td>
-          <td><strong>Depth-chart rank is not published alongside the injury report.</strong> The site cannot say whether a listed replacement is 2nd, 3rd or 4th string; the availability index is a declared position-weight proxy, not a measured starter/backup split.</td>
-          <td><span class="badge bad">high</span></td>
-          <td class="src"><a href="ledger/injuries.html">Injuries &amp; Lineups</a> &middot; <a href="ledger/flagged.html">Flagged for Review</a></td>
-        </tr>
-        <tr class="flag">
-          <td class="num">4</td>
           <td><strong>No official sportsbook price source.</strong> nfl.com/odds/ returns 404; market prices come from an aggregated closing-line file and are labelled, never official.</td>
           <td><span class="badge warn">medium</span></td>
           <td class="src"><a href="https://www.nfl.com/odds/" target="_blank" rel="noopener">nfl.com/odds/ (404)</a> &middot; <a href="ledger/verification.html">Verification tiers</a></td>
         </tr>
       </tbody>
     </table>
+    </div>
+    <div class="note">
+      <p><strong>Also flagged elsewhere (see <a href="ledger/flagged.html">Flagged for Review</a>):</strong> no validated strategy (11 ideas, 8 gates, none passed) and the unpublished depth-chart rank &mdash; the site cannot say whether a listed replacement is 2nd, 3rd or 4th string, so the availability index is a declared proxy, not a measured starter/backup split. See <a href="ledger/injuries.html">Injuries &amp; Lineups</a>.</p>
     </div>
   </section>
 
