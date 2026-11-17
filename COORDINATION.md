@@ -1704,3 +1704,33 @@ edited except the two shared files the brief assigns to the integration session 
 standings table, results row or register owned by another session was rewritten; no backtest
 number was placed on any leaderboard surface; no replacement player was named for an absent
 starter, because inactive lists and snap counts are still not captured for 2026.
+
+## Second wave — after PR #39 merged (`d1bd0f0`), 2026-11-17
+
+PR #39 shipped the section and merged cleanly (all CI jobs pass, Pages built `d1bd0f0`).
+Four things came out of the merge that needed a second commit:
+
+1. **The register/artefact disagreement is now a computed check (EV-12, I-11, board row DS-11).**
+   `fl2-lines/data/registers/readiness.csv` row R27 carries `-0.485` (CI −0.719 to −0.251, n=2367)
+   as a hand-typed clearing number, while `fl2-lines/data/derived/ablation-injury.json` computes
+   `-0.5174` (CI −0.7357 to −0.2992, same n, same window). Inside that one section,
+   `index.html` + `questions.html` print the register value and `executive-summary.html` +
+   `suggestions.html` print the artefact value; `data/landing_readiness.js`, generated from the
+   register, propagates the stale number into the hub's readiness table. No script in the
+   repository reproduces `-0.485`. **Not edited** — the files belong to session `65556dd2`'s
+   scope. `/decision-desk/questions.html` now quotes the artefact value, moves the interval with it,
+   and says the register lags; `tools/check_decision_desk.py` fails the build if a superseded value
+   is ever quoted bare on these pages, and the comparison is recomputed from the two files on every
+   build, so this note cannot become the only record of it.
+2. **Board arithmetic made self-describing.** The heading now states how the number is built
+   (57 rows merged from 68 register entries + 11 rows raised by this session = 68 on the board),
+   and the checker asserts the arithmetic closes.
+3. **Request 4, for the owner: generate clearing numbers rather than typing them.** If the
+   register's `clearing_number` column were written by the script that fits the ablation, the stale
+   sentence could not survive a re-fit. Raised as `DS-11`.
+4. **`tools/repo_audit.py` reproduced finding I-10 while this session was verifying it** — running
+   it rewrote `fl2-dashboard/data/repo-audit.json` with this branch's name and commit. Reverted
+   again. Two runs, same result: the non-idempotence is not a misreading.
+
+Capture log is now 12 entries (11 observations + the register/artefact comparison), 2 failed
+fetches, 11 irregularities (I-1 … I-11).

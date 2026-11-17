@@ -2,14 +2,14 @@
  "built_by": "tools/build_decision_desk.py",
  "built_date": "2026-11-17",
  "stats": {
-  "suggestions_present": 67,
+  "suggestions_present": 68,
   "suggestion_entries": 68,
+  "new_from_this_session": 11,
   "registers": 11,
-  "new_from_this_session": 10,
   "collisions": 15,
   "questions_present": 55,
   "question_entries": 70,
-  "evidence_entries": 11,
+  "evidence_entries": 12,
   "blocked_requirements": 7,
   "readiness_rows": 74,
   "archive_premise_rows": 3,
@@ -21,6 +21,59 @@
   "not_done_readiness": 37
  },
  "suggestions": [
+  {
+   "uid": "DS-03",
+   "order": 60,
+   "who": "engineering",
+   "title": "Give registers one namespace instead of three colliding ones",
+   "problem": "SG-01 means 'add an official depth-chart table per team' in data/suggestions.json and 'run the snapshot workflow before anything else is built' in fl2-lines - the same identifier, two different suggestions, six registers, two formats (SG01 and SG-01). A reviewer cannot approve an id without guessing which file it came from.",
+   "change": "Prefix every id with its owning section (LED-SG-01, LIN-SG-01) at generation time, and let the site-facing id be issued by the consolidator. Do not renumber by hand.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-03"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-03"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R30",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R43",
+     "status": "BLOCKED"
+    },
+    {
+     "id": "R46",
+     "status": "BLOCKED"
+    }
+   ],
+   "capture_refs": [
+    "EV-05"
+   ],
+   "how_to_check": "Run the collision table on the suggestions tab: it is computed by comparing the ids across registers, not asserted.",
+   "breadth": 1,
+   "linked_count": 4,
+   "in_degree": 3,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 14.0,
+   "path_tier": "P0 now"
+  },
   {
    "uid": "fl2-lines-SG-01",
    "order": 27,
@@ -70,59 +123,6 @@
    "evidence_count": 0,
    "cost": 1.0,
    "score": 13.0,
-   "path_tier": "P0 now"
-  },
-  {
-   "uid": "DS-03",
-   "order": 60,
-   "who": "engineering",
-   "title": "Give registers one namespace instead of three colliding ones",
-   "problem": "SG-01 means 'add an official depth-chart table per team' in data/suggestions.json and 'run the snapshot workflow before anything else is built' in fl2-lines - the same identifier, two different suggestions, six registers, two formats (SG01 and SG-01). A reviewer cannot approve an id without guessing which file it came from.",
-   "change": "Prefix every id with its owning section (LED-SG-01, LIN-SG-01) at generation time, and let the site-facing id be issued by the consolidator. Do not renumber by hand.",
-   "effort": "Low",
-   "impact": "High",
-   "risk": "Low",
-   "state": "proposed",
-   "recommendation": "new from this session's audit",
-   "missing": "",
-   "registers": [
-    "decision-desk:DS-03"
-   ],
-   "sources": [
-    {
-     "register": "decision-desk",
-     "path": "decision-desk/data/evidence.json",
-     "id": "DS-03"
-    }
-   ],
-   "linked_rows": [
-    {
-     "id": "R21",
-     "status": "PARTIAL"
-    },
-    {
-     "id": "R30",
-     "status": "PARTIAL"
-    },
-    {
-     "id": "R43",
-     "status": "BLOCKED"
-    },
-    {
-     "id": "R46",
-     "status": "BLOCKED"
-    }
-   ],
-   "capture_refs": [
-    "EV-05"
-   ],
-   "how_to_check": "Run the collision table on the suggestions tab: it is computed by comparing the ids across registers, not asserted.",
-   "breadth": 1,
-   "linked_count": 4,
-   "in_degree": 2,
-   "evidence_count": 1,
-   "cost": 1.0,
-   "score": 12.0,
    "path_tier": "P0 now"
   },
   {
@@ -736,7 +736,7 @@
   },
   {
    "uid": "DS-10",
-   "order": 66,
+   "order": 67,
    "who": "engineering",
    "title": "Make the committed pages regenerable without destroying a hand-added link",
    "problem": "Running the repository's own generators rewrites 11 docs pages and drops the cross-link another session added to their navigation, and rewrites the audit artefact's branch and commit provenance. Nothing in CI notices, because the validate job runs the generators but never diffs what they produce.",
@@ -771,6 +771,51 @@
     "EV-11"
    ],
    "how_to_check": "Run the generators on a clean tree and diff; today that diff is non-empty, which is the defect.",
+   "breadth": 1,
+   "linked_count": 2,
+   "in_degree": 0,
+   "evidence_count": 1,
+   "cost": 1.0,
+   "score": 5.0,
+   "path_tier": "P2 later"
+  },
+  {
+   "uid": "DS-11",
+   "order": 66,
+   "who": "engineering",
+   "title": "Generate clearing numbers from the artefact instead of typing them into the register",
+   "problem": "R27 of the readiness register states the availability-ablation coefficient as a hand-written number, and the derived artefact that the row is supposed to summarise now computes a different one for the same window and the same n. Two pages inside that section therefore publish different betas.",
+   "change": "Have the register's clearing_number be written by the script that computes the ablation, and let the pages read the register - then a re-fit cannot leave a stale sentence behind. Until that happens, every surface quoting this quantity should cite the artefact value and say the register lags.",
+   "effort": "Low",
+   "impact": "High",
+   "risk": "Low",
+   "state": "proposed",
+   "recommendation": "new from this session's audit",
+   "missing": "",
+   "registers": [
+    "decision-desk:DS-11"
+   ],
+   "sources": [
+    {
+     "register": "decision-desk",
+     "path": "decision-desk/data/evidence.json",
+     "id": "DS-11"
+    }
+   ],
+   "linked_rows": [
+    {
+     "id": "R21",
+     "status": "PARTIAL"
+    },
+    {
+     "id": "R30",
+     "status": "PARTIAL"
+    }
+   ],
+   "capture_refs": [
+    "EV-12"
+   ],
+   "how_to_check": "Compare the number in the register row with the number in the derived artefact on every build; the desk does this now and prints the gap when it is non-zero.",
    "breadth": 1,
    "linked_count": 2,
    "in_degree": 0,
@@ -897,7 +942,7 @@
   },
   {
    "uid": "DS-07",
-   "order": 67,
+   "order": 68,
    "who": "engineering",
    "title": "Put the machine-readable copy behind every register page",
    "problem": "Three suggestion surfaces render rows with no source file a checker can read (one static table of 22 rows, one client-side render, one page with no rows at all). A reviewer cannot diff them and CI cannot check them, so they drift first.",
@@ -1165,7 +1210,7 @@
    "evidence_count": 0,
    "cost": 2.0,
    "score": 2.5,
-   "path_tier": "P2 later"
+   "path_tier": "P3 backlog"
   },
   {
    "uid": "fl2-lines-SG-04",
@@ -4435,6 +4480,35 @@
    "model": "SB-1.0.0",
    "commit": "55b94c1",
    "graded": 0
+  }
+ },
+ "ablation": {
+  "found": true,
+  "agrees": false,
+  "artefact": -0.5174,
+  "artefact_ci": [
+   -0.7357,
+   -0.2992
+  ],
+  "artefact_n": 2367,
+  "artefact_window": "2016-2024",
+  "register": [
+   {
+    "id": "R27",
+    "field": "clearing_number",
+    "beta": -0.485,
+    "ci": [
+     -0.719,
+     -0.251
+    ],
+    "n": "2367"
+   }
+  ],
+  "pages": {
+   "executive-summary.html": "artefact value -0.5174",
+   "index.html": "register value -0.485",
+   "questions.html": "register value -0.485",
+   "suggestions.html": "artefact value -0.5174"
   }
  },
  "register_inventory": [

@@ -167,6 +167,24 @@
       "status_after_check": "new finding - reported rather than fixed, because the fix touches other sections' files; board row DS-10 asks for the generator or the link to change, not both",
       "kind": "repository-check",
       "kind_note": "not a league fact: this row records something observed inside the repository, so it cites the file it concerns rather than an official page"
+    },
+    {
+      "id": "EV-12",
+      "object": "A register clearing-number versus the derived artefact it summarises",
+      "url": "https://github.com/sassnarep3-star/FL2/blob/main/fl2-lines/data/derived/ablation-injury.json",
+      "kind": "repository-check",
+      "kind_note": "not a league fact: this row compares two files in this repository; the underlying fit itself rests on the official report rows the artefact describes",
+      "fetched_at_utc": "2026-11-17T03:20:00Z",
+      "observed": "fl2-lines/data/registers/readiness.csv row R27 (status DONE) states its clearing number as 'fitted beta -0.485 pts per expected miss CI [-0.719 -0.251] n=2367'. fl2-lines/data/derived/ablation-injury.json, coefficient block, computes beta_pts_per_expected_miss -0.5174 with se 0.1113, CI95 [-0.7357, -0.2992], n_games 2367, window 2016-2024. Same window, same n, 0.0324 points apart. Scanning the section's own pages: fl2-lines/index.html and fl2-lines/questions.html print -0.485, while fl2-lines/executive-summary.html and fl2-lines/suggestions.html print -0.5174. data/landing_readiness.js, generated from the register, propagates -0.485 to the hub's readiness table.",
+      "consequence": "One section publishes two betas for the same measurement in public, and the hub's landing table carries the older one. The number is not large enough to change the conclusion (both intervals sit below zero, both reject a fixed -3.0 penalty) but it is exactly the kind of drift a reviewer should not have to discover by reading two pages side by side. No script in the repository reproduces -0.485, which is why it is treated as a stale transcription rather than an alternative estimator.",
+      "affects": [
+        "fl2-lines/data/registers/readiness.csv row R27",
+        "fl2-lines/index.html",
+        "fl2-lines/questions.html",
+        "data/landing_readiness.js",
+        "the hub readiness table"
+      ],
+      "status_after_check": "new finding - not edited (another session owns those files); raised as board row DS-11 and as a rebuild request in COORDINATION.md; this desk quotes the artefact value"
     }
   ],
   "official_club_records_2026_11_17": {

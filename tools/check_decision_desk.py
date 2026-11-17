@@ -140,6 +140,14 @@ for pg, value, ctx in checks:
         errors.append(f"{pg}: the printed figure {value!r} does not match the artefact"
                       + (f" near {ctx!r}" if ctx else ""))
 
+# the board's arithmetic must close: merged rows + new rows = rows on the board
+n_new = int(stats.get("new_from_this_session", 0))
+if stats.get("suggestions_present", 0) - n_new > stats.get("suggestion_entries", 0):
+    errors.append(f"suggestions: {stats['suggestions_present'] - n_new} merged rows claimed, but only "
+                  f"{stats['suggestion_entries']} register entries were read")
+if f"{stats.get('suggestions_present')} decisions" not in pages.get("suggestions.html", ""):
+    errors.append("suggestions.html: the heading does not state the board's own row count")
+
 # row counts: the artefact's own row lists must appear the same number of times
 n_sug = len(desk.get("suggestions", []))
 m_sug = len(re.findall(r'<b id="', pages.get("suggestions.html", "")))
@@ -154,6 +162,17 @@ for pg, text in pages.items():
             errors.append(f"{pg}: link to a host outside the allowed set: {host}")
         if "official" in label.lower() and host not in OFFICIAL_HOSTS:
             errors.append(f"{pg}: link labelled 'official' points at {host or 'a local file'}, not nfl.com")
+
+# 6b ------------------------------ a superseded value may never be quoted bare
+abl = desk.get("ablation") or {}
+if abl.get("found") and not abl.get("agrees"):
+    for h in abl.get("register", []):
+        bad_val = str(h.get("beta"))
+        good_val = str(abl.get("artefact"))
+        for pg, text in pages.items():
+            plain = re.sub(r"<[^>]+>", "", text)
+            if bad_val in plain and good_val not in plain:
+                errors.append(f"{pg}: quotes the superseded value {bad_val} without the artefact value {good_val}")
 
 # 7 --------------------------------------------- capture log must be internally sound
 eids = [e.get("id") for e in ev.get("entries", [])]

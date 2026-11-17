@@ -444,6 +444,17 @@ def new_suggestions(ev):
            "High", "Medium", "Low", "DS-03", ["EV-07"],
            "Count rows in each of the three artefacts and compare with the live official page; the difference is the "
            "filter each view applies, which should be printed rather than discovered."),
+        mk("DS-11",
+           "Generate clearing numbers from the artefact instead of typing them into the register",
+           "R27 of the readiness register states the availability-ablation coefficient as a hand-written number, and "
+           "the derived artefact that the row is supposed to summarise now computes a different one for the same "
+           "window and the same n. Two pages inside that section therefore publish different betas.",
+           "Have the register's clearing_number be written by the script that computes the ablation, and let the "
+           "pages read the register - then a re-fit cannot leave a stale sentence behind. Until that happens, every "
+           "surface quoting this quantity should cite the artefact value and say the register lags.",
+           "High", "Low", "Low", "DS-03", ["EV-12"],
+           "Compare the number in the register row with the number in the derived artefact on every build; the desk "
+           "does this now and prints the gap when it is non-zero."),
         mk("DS-10",
            "Make the committed pages regenerable without destroying a hand-added link",
            "Running the repository's own generators rewrites 11 docs pages and drops the cross-link another session "
@@ -955,8 +966,8 @@ def build():
     stats = {
         "suggestions_present": len(canon),
         "suggestion_entries": len(present),
-        "registers": len([r for r in inventory if r[3] > 0]),
         "new_from_this_session": len(new),
+        "registers": len([r for r in inventory if r[3] > 0]),
         "collisions": len(collisions),
         "questions_present": len(qcanon),
         "question_entries": len(qrows),
@@ -978,7 +989,8 @@ def build():
 
     json.dump({"built_by": f"tools/{os.path.basename(__file__)}", "built_date": BUILD_DATE,
                "stats": stats, "suggestions": canon, "questions": qcanon, "answers": answers,
-               "freshness": fresh, "register_inventory": [list(x) for x in inventory],
+               "freshness": fresh, "ablation": ablation_disagreement(),
+               "register_inventory": [list(x) for x in inventory],
                "collisions": collisions},
               open(os.path.join(OUT, "data", "desk.json"), "w", encoding="utf-8"), indent=1)
     print(json.dumps(stats, indent=1))
@@ -1017,6 +1029,7 @@ def build_suggestions(canon, collisions, inventory, stats, ev):
             src or blank("no source file"),
         ])
     dupes = duplicate_registers()
+    ab_lines = []
     drows = [[f"{esc(d['a'])} vs {esc(d['b'])}",
               repo_link(d["a_path"], os.path.basename(d["a_path"])) + " &middot; " +
               repo_link(d["b_path"], os.path.basename(d["b_path"])),
@@ -1028,6 +1041,17 @@ def build_suggestions(canon, collisions, inventory, stats, ev):
               "one of them should be generated from the other, not edited in parallel"]
              for d in dupes]
 
+    ab = ablation_disagreement()
+    if ab.get("found") and not ab.get("agrees"):
+        for h in ab["register"]:
+            ab_lines.append([
+            f'Register row <code>{esc(h["id"])}</code> &middot; column <code>{esc(h["field"])}</code>',
+            f'<span class="bad">{esc(h["beta"])}</span> (CI {esc(h["ci"][0])}&thinsp;to&thinsp;{esc(h["ci"][1])}, n={esc(h["n"])})',
+            f'<b>{esc(ab["artefact"])}</b> (CI {esc(ab["artefact_ci"][0])}&thinsp;to&thinsp;{esc(ab["artefact_ci"][1])}, '
+            f'n={esc(ab["artefact_n"])}, window {esc(ab["artefact_window"])})',
+            f'difference {esc(round(ab["artefact"] - h["beta"], 4))} points per expected miss - the register quotes an '
+            'earlier fit of the same quantity, and the artefact has moved since',
+        ])
     inv_rows = []
     for kind, reg, path, n, section in inventory:
         if reg == "html-only":
@@ -1061,7 +1085,8 @@ machine-readable registers plus three HTML-only pages, using two id formats. The
 first thing to fix, because it makes "adopt SG-05" ambiguous between two unrelated suggestions.</div>
 <h2>Collision check across registers</h2>
 {table(['id used in more than one register','occurrences','titles under that same id','files'], col_rows) if col_rows else '<p class="small">No id is reused for a different suggestion.</p>'}
-<h2>The board &middot; {stats['suggestions_present']} decisions from {stats['suggestion_entries']} register entries</h2>
+<h2>The board &middot; {stats['suggestions_present']} decisions: {stats['suggestions_present'] - stats['new_from_this_session']}
+merged from {stats['suggestion_entries']} register entries, plus {stats['new_from_this_session']} raised by this session</h2>
 {table(['id','suggestion','impact / effort','who acts','state','links to','why it ranks here','source'], rows)}
 <h2>Registers that overlap each other, measured</h2>
 <p class="small">Computed by comparing every pair of machine-readable registers on id and title. A shared id with
@@ -1094,6 +1119,35 @@ def build_questions(qcanon, answers, stats):
                       state_tag(a["status"]),
                       esc(a["still_open"]) or '<span class="small">none</span>',
                       " &middot; ".join(link("sources.html#" + e, e) for e in a["evidence"])])
+    ab = ablation_disagreement()
+    stale = ([str(h["beta"]) for h in ab["register"]] if ab.get("found") and not ab.get("agrees") else [])
+
+    def superseded(cells):
+        """Where a register asserted a number the artefact has since moved, quote the
+        artefact and say so, rather than repeating the stale assertion verbatim.
+
+        The interval travels with the coefficient: swapping only the point estimate would
+        leave a CI that belongs to the old fit sitting next to the new number, which is a
+        different error than the one being fixed.
+        """
+        if not stale:
+            return cells
+        ac = ab.get("artefact_ci") or ["", ""]
+        out = []
+        for c in cells:
+            for s, h in zip(stale, ab["register"]):
+                if s not in c:
+                    continue
+                old_ci = f'{h["ci"][0]}, {h["ci"][1]}'
+                new_ci = f'{ac[0]}, {ac[1]}'
+                note = (f'{ab["artefact"]} <span class="small">(the register still prints '
+                        f'{s} on CI {h["ci"][0]}, {h["ci"][1]}; the artefact is quoted here, '
+                        f'same window and n - {link("sources.html#EV-12", "EV-12")})</span>')
+                c = c.replace(old_ci, "\x00CI\x00").replace(s, note)
+                c = c.replace("\x00CI\x00", new_ci)
+            out.append(c)
+        return out
+
     qrows = []
     for q in qcanon:
         src = " &middot; ".join(repo_link(pth, pth.split("/")[-1]) for pth in q["paths"])
@@ -1106,6 +1160,7 @@ def build_questions(qcanon, answers, stats):
             esc(q["priority"] or "(not stated)") + "<br>" + (state_tag(q["status"]) if q["status"] else '<span class="tag">open</span>'),
             src or blank("no source file"),
         ])
+        qrows[-1] = superseded(qrows[-1])
     body = f"""
 <div class="callout blue"><b>Answered by this session.</b> Five questions that the registers left open could be closed
 from the live official pages, so they are answered here with the capture id attached. The rest stay open on purpose:
@@ -1126,6 +1181,63 @@ artefact behind it, the cell says so instead of repeating the assertion.</p>
          ("closed by this session", len(answers), "each with an official capture"),
          ("register entries read", stats["question_entries"], "five registers"),
          ("blocked requirements", stats["blocked_requirements"], "in the R-register, some premises now false")]))
+
+
+_AB_CACHE = {}
+
+
+def ablation_disagreement():
+    """A number typed into a register versus the artefact that is supposed to hold it.
+
+    R27 of the fl2-lines readiness register carries a clearing number written by hand; the
+    ablation artefact recomputes the same quantity from the same window and the same n. When
+    the two disagree, pages inside one section contradict each other, and nothing in CI
+    notices. This function is the check, so the desk cannot repeat the mistake either.
+    """
+    if _AB_CACHE:
+        return _AB_CACHE["v"]
+    rel = "fl2-lines/data/registers/readiness.csv"
+    art_rel = "fl2-lines/data/derived/ablation-injury.json"
+    out = {"found": False, "agrees": True}
+    _AB_CACHE["v"] = out
+    art = jload(art_rel) or {}
+    coef = art.get("coefficient") or {}
+    beta_art = coef.get("beta_pts_per_expected_miss")
+    if beta_art is None:
+        return out
+    rows = cload(rel)
+    hits = []
+    for r in rows:
+        txt = " ".join(str(v) for v in r.values() if v)
+        m = re.search(r"beta\s+(-?\d+\.\d+)\s+pts per expected miss\s+CI\s*\[\s*(-?\d+\.\d+)\s+(-?\d+\.\d+)", txt)
+        if m:
+            hits.append({"id": r.get("id") or r.get("requirement", ""),
+                         "field": "clearing_number",
+                         "beta": float(m.group(1)), "ci": [float(m.group(2)), float(m.group(3))],
+                         "n": (re.search(r"n=(\d+)", txt) or [None, None])[1]})
+    pages = {}
+    for pg in sorted(os.listdir(p("fl2-lines"))):
+        if not pg.endswith(".html"):
+            continue
+        try:
+            body = open(p("fl2-lines", pg), encoding="utf-8").read()
+        except Exception:
+            continue
+        said = []
+        if hits and re.search(re.escape(f"{hits[0]['beta']}"), body):
+            said.append(f"register value {hits[0]['beta']}")
+        if re.search(re.escape(f"{beta_art}"), body):
+            said.append(f"artefact value {beta_art}")
+        if len(said) == 1:
+            pages[pg] = said[0]
+    out.update({
+        "found": True, "artefact": beta_art, "artefact_ci": coef.get("ci95"),
+        "artefact_n": coef.get("n_games"), "artefact_window": coef.get("window"),
+        "register": hits, "pages": pages,
+        "agrees": bool(hits) and all(abs(h["beta"] - beta_art) < 1e-9 for h in hits),
+    })
+    _AB_CACHE["v"] = out
+    return out
 
 
 def measured_panel():
@@ -1524,6 +1636,26 @@ def build_sources(ev, stats, f_rows):
                     "Each view applies a filter that is not printed on the page. Recorded for the owner; see board row "
                     + ref_ds09 + ".",
                     " &middot; ".join(repo_link(pth, os.path.basename(pth)) for pth, n, why in counts)])
+    ab = ablation_disagreement()
+    if ab.get("found") and not ab.get("agrees"):
+        h0 = ab["register"][0]
+        irr.append(["I-11", "A register row and the artefact behind it disagree on the same coefficient",
+                    f'<code>{esc(h0["id"])}</code> in '
+                    f'<code>fl2-lines/data/registers/readiness.csv</code> carries the clearing number '
+                    f'<b>{esc(h0["beta"])}</b> (CI {esc(h0["ci"][0])} to {esc(h0["ci"][1])}, n={esc(h0["n"])}), while '
+                    f'<code>fl2-lines/data/derived/ablation-injury.json</code> computes '
+                    f'<b>{esc(ab["artefact"])}</b> (CI {esc(ab["artefact_ci"][0])} to {esc(ab["artefact_ci"][1])}, '
+                    f'n={esc(ab["artefact_n"])}, window {esc(ab["artefact_window"])}) - same window, same n, '
+                    f'{esc(round(ab["artefact"] - h0["beta"], 4))} points apart. '
+                    + "Inside that section, " + ("; ".join(f'{esc(k)} prints {esc(v)}' for k, v in sorted(ab["pages"].items()))
+                                                 if ab["pages"] else "no page quotes either value")
+                    + ", so two pages of one section disagree in public.",
+                    "Not edited here: the register and the pages belong to another session. This desk quotes the "
+                    "artefact value wherever it quotes that quantity, raises board row DS-11, and logs a rebuild "
+                    "request so the clearing number is generated from the artefact instead of retyped.",
+                    repo_link("fl2-lines/data/registers/readiness.csv", "readiness.csv") + " &middot; " +
+                    repo_link("fl2-lines/data/derived/ablation-injury.json", "ablation-injury.json") + " &middot; " +
+                    link("sources.html#EV-12", "EV-12")])
     irr.sort(key=lambda r: int(re.sub(r"\D", "", r[0]) or 0))
     body = f"""
 <div class="callout blue"><b>Everything this session asserted, and where it came from.</b> Each row is a live page this
