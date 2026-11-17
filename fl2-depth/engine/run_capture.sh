@@ -30,6 +30,13 @@ python3 -u fl2-depth/engine/capture_gamebooks.py \
 code=$?
 {
   echo "exit=$code"
+  echo "--- header lines around Start Time (per book) ---"
+  for t in /tmp/fl2-depth-work/*.txt; do
+    [ -f "$t" ] || continue
+    echo "== $(basename "$t")"
+    grep -n "Start Time:" "$t" | head -2
+    awk '/Start Time:/{f=NR} f && NR>=f && NR<=f+3' "$t" | head -4 | cat -A | sed 's/\$$//'
+  done
   echo "--- files after ---"
   ls -la "$OUTDIR"
 } >> "$LOG" 2>&1
