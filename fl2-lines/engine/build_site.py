@@ -331,7 +331,7 @@ def p_results(d) -> str:
         "transcribed from a game centre; the other 146 are a capture task, not a judgement call.</div>"
     )
     ann = d["announcement"]
-    body.append("<h2>The dated schedule announcement, beside the live schedule</h2>")
+    body.append('<h2 id="announcement">The dated schedule announcement, beside the live schedule</h2>')
     body.append(table(["item", "value", "source"], [
         [esc("League announcement"), esc(ann["title"]), link(ann["url"], "nfl.com article")],
         [esc("Published"), esc(ann["date"]), link(ann["url"], "article")],

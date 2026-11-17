@@ -1,96 +1,65 @@
-# FL2 — NFL research hub
+# FL2 — NFL decision research hub
 
-**Live site:** https://sassnarep3-star.github.io/FL2/
+**Live site:** <https://sassnarep3-star.github.io/FL2/>
 
-Several agent sessions worked this repository in parallel. All of their work is kept.
-This README explains which section to read and why, without deleting anything.
+**Evidence cutoff:** committed captures are dated individually; the latest central readiness bundle is **2026-11-16**. Official injury, schedule and standings spot-checks performed by parallel sessions on 2026-11-17 are recorded in `COORDINATION.md`; this cross-section audit reran local checks but did not fetch live NFL pages.
 
-## Start here: the Evidence Ledger → [`ledger/overview.html`](ledger/overview.html)
+FL2 is a research dashboard for originating NFL lines and testing signals. It keeps model fair lines, market inputs, results, availability evidence, uncertainty, and blockers separate. It is **not betting advice**. No strategy is currently promoted to live rewards.
 
-The ledger is the **only** section containing verified numeric NFL data:
+## Start here
 
-| What | Where it comes from | Rows |
+- [Overview and integrated decision-readiness table](index.html) — summary, source/gate snapshot, and the landing table with the gate and clearing metric for each integrated requirement.
+- [Executive summary](ledger/summary.html) — headline findings and limitations.
+- [Cross-section integrity audit / Flagged for Review](review/integration-audit-2026-11-17.html) — concrete inconsistencies, unresolved source/rights gates, questions, and proposed next steps.
+- [Suggestions and decision paths](fl2-lines/suggestions.html) — adopt/test/reject/defer proposals, including the information needed to choose.
+- [Questions and answers](fl2-lines/questions.html) — current answers, unknowns, and what would close them.
+
+## Current decision status (as of the committed artifacts)
+
+1. **No live strategy is eligible.** The Line Lab registry lists seven registered strategies as `not_eligible` and paper-only. Originated Lines also keeps its prospective leaderboard empty until its escrow gates are met. These are FL2 model-governance results, not NFL facts; see the [registry](data/linelab/registry.json), [strategy gates](linelab/strategies.html), and [prospective leaderboard](fl2-lines/leaderboard.html).
+2. **Results are available, but their cutoff matters.** The 2026 regular-season feed captured on 2026-11-16 has 148 final scores out of 150 listed fixtures; the other two were left blank/non-final. The feed includes a 32-team standings reconciliation. Check the [results feed](ops/data/results/results_2026_reg.csv), [ops report](readiness/ops.html), and the [official NFL standings](https://www.nfl.com/standings/division/2026/REG).
+3. **Availability and depth remain incomplete.** Two dated Week 10 report captures (2026-11-14 and 2026-11-16) have parsed row counts of 345 and 347; these counts describe the saved captures, not an official NFL total. The Line Lab depth graph contains five clubs, not a verified 32-club source. Actual starters, inactive lists, and per-game snap-based replacement depth still block team-level conclusions. See [availability](linelab/availability.html), [depth](linelab/depth.html), and the [official NFL injury report](https://www.nfl.com/injuries/).
+4. **Price provenance is a gating issue.** Opening and closing market coverage varies by source and season; no official NFL odds feed is recorded. Price-dependent claims must retain their source tier, timestamp, and price-data policy. See [Originated Lines prices](fl2-lines/prices.html), [Line Lab prices](linelab/prices.html), and the [price policy](research/price-data-policy.md).
+5. **Automated NFL-page capture is not treated as authorized.** A prior reading of NFL.com Terms §1.3 recorded a restriction on systematic retrieval to compile a database without express prior written consent. The repository currently has conflicting scheduled/manual-only workflow configurations. This needs written permission or a licensed source, and a consistent public/private data policy. See [Flagged F-AUD-01](review/integration-audit-2026-11-17.html#F-AUD-01) and the [official NFL terms](https://www.nfl.com/legal/terms/).
+6. **Independent sections use different data vintages and definitions.** For example, the 148-final results feed and the Line Lab corpus' 137-game 2026 count are not the same evaluation set. Do not compare scores across sections until their input manifests and cutoffs are aligned. The [integrity audit](review/integration-audit-2026-11-17.html#F-AUD-03) records the discrepancy.
+
+## Site map
+
+| Decision area | Page | What it contains |
 |---|---|---|
-| Week 10 injury report (Out / Doubtful / Questionable) | [nfl.com/injuries](https://www.nfl.com/injuries/) | 76 |
-| 2026 standings — W-L-T, points for/against, streaks | [nfl.com/standings](https://www.nfl.com/standings/) | 32 teams |
-| Team defense — points, yards, takeaways | [Pro-Football-Reference 2026 opp](https://www.pro-football-reference.com/years/2026/opp.htm) | 32 teams |
-| Starting-quarterback decisions | NFL.com news roundups, Nov 11 + Nov 13 | 7 teams (5 confirmed, 2 blank) |
-| 1999–2026 results + closing lines | nflverse `games.csv` | 7,548 games |
+| Integrated overview | [Home](index.html) | Executive snapshot, source/gate table, and 75-row integrated decision-readiness view (generated 2026-11-16). |
+| Requirements | [Originated Lines](fl2-lines/index.html) · [Readiness register](readiness/index.html) · [Line Lab requirements](linelab/requirements.html) | Separate requirement registers with blockers and clearing metrics. They have different scopes/status rules; the audit identifies disagreements instead of hiding them. |
+| Line origination | [Originated lines](fl2-lines/lines.html) · [Evidence Ledger lines](ledger/lines.html) · [Line Lab models](linelab/models.html) | Side → total → moneyline; fair line, market line, residual, probabilities, inputs, and estimator comparisons. These are separate model implementations. |
+| Results and prices | [Verified results](fl2-lines/results.html) · [Price store](fl2-lines/prices.html) · [Ops dashboard](readiness/ops.html) | Captured result feeds, price provenance, opening/closing limitations, and reconciliation. Secondary market data is labelled; it is not an NFL-official odds feed. |
+| Strategy competition | [Strategy evaluation](linelab/strategies.html) · [Prospective leaderboard](fl2-lines/leaderboard.html) · [Pre-registration](fl2-lines/prereg.html) | Proper scores, uncertainty, controls, eligibility gates, signal/staking separation, and prospective escrow. Backtests are not presented as live leaderboard rewards. |
+| Availability and personnel | [Availability graph](fl2-lines/availability.html) · [Injuries](ledger/injuries.html) · [Depth graph](linelab/depth.html) · [Matchup matrix](fl2-lines/matrix.html) | Timestamped injury captures, designation reliability, partial depth evidence, and explicit gaps for starters, inactives, IR, transactions, and snaps. |
+| Decision support | [Questions](fl2-lines/questions.html) · [Suggestions](fl2-lines/suggestions.html) · [Flagged review](review/integration-audit-2026-11-17.html) | Questions answered from existing evidence, missing information, paths to discover it, and unresolved irregularities. |
+| Provenance | [Verification and sources](ledger/verification.html) · [Coordination board](COORDINATION.md) | Source tiers, capture history, reproducibility checks, task ownership, and verification records. |
 
-| Section | Purpose |
-|---|---|
-| [`ledger/suggestions.html`](ledger/suggestions.html) | 10 proposals with options and a recommendation — accept / reject / defer |
-| [`ledger/decisions.html`](ledger/decisions.html) | 20 questions: verified, partial, unknown, or your call |
-| [`ledger/strategies.html`](ledger/strategies.html) | 11 strategies × 8 validation gates, out-of-sample |
-| [`ledger/injuries.html`](ledger/injuries.html) | availability and lineup depletion |
-| [`ledger/lines.html`](ledger/lines.html) | our own total / margin / win probability per game |
-| [`ledger/verification.html`](ledger/verification.html) | every source, with tier and hash |
-| [`ledger/flagged.html`](ledger/flagged.html) | 13 items to review |
-| [`ledger/summary.html`](ledger/summary.html) | executive summary |
-| [`ledger/method.html`](ledger/method.html) | how every number was produced |
+## Source and uncertainty rules
 
-## The headline
+- **NFL official pages** are the primary references for league schedule, standings, injury-report and terms facts. A capture is always tied to its recorded date/time; a link is not proof that the same page still displays the same value today.
+- **Official club pages** may be used for club-published information, but a club depth chart is not a league-verified starter list. The available charts are partial and may contain shared or empty slots.
+- **Secondary datasets and market mirrors** are labelled as such. They do not become official because they are hosted on GitHub or reproduce an NFL field.
+- **Model output is a research result, not an official fact.** It must carry the model definition, input cutoff, probability, score, sample size and uncertainty. Missing official evidence stays blank and flagged.
+- **No result-chasing.** Strategy text, windows and gates are pre-registered; proper-score qualification precedes prospective CLV/ROI escrow; raw win rate or short-run ROI does not establish skill.
 
-Ten single-bet strategies were tested against 16 seasons of closing lines with eight
-validation gates each. **None passed.** A transparent Elo model scores Brier 0.2277
-versus the market's 0.2106 (−8.1% skill) over 4,041 games — so the negative result is
-exactly what model quality predicts. The deliverable is the harness that proves it in
-an afternoon, plus a fully sourced dataset.
+## Rebuild and verify
 
-## Other sections in this repository
-
-These were built by other sessions in parallel. They are careful frameworks that
-deliberately left every NFL value **blank** — correct at the time, before the verified
-data existed.
-
-- [`docs/index.html`](docs/index.html) — NFL Analysis Dashboard (session d263eab0): 16 pages, 345 transcribed injury rows, unit exposure, its own flagged list.
-- [`hub/index.html`](hub/index.html) — NFL Decision Hub (session e70150db + others): requirement coverage, validation gates, luck-vs-skill explainer, repository audit.
-- [`strategy.html`](strategy.html) — Fourth & Signal (session 4a77261b): the original evidence-first blueprint, with [`availability.html`](availability.html), [`data.html`](data.html), [`decisions.html`](decisions.html), [`review.html`](review.html).
-- [`signal/index.html`](signal/index.html) — Signal Lab (session d10a1d25): a measured-signal section with a validated sign convention, measured injury-designation play rates, a depth-chart accuracy test, measured same-game correlation, and a pre-registered validation gate that six strategies failed. Every figure is re-derived from committed data by CI.
-- [`fl2-signals/index.html`](fl2-signals/index.html) — Verified Signals (session 1374049c): 137 verified box scores replayed to an exact 32/32 standings match, the Week 10 injury report, eight validation gates with sample-size arithmetic, a parlay correlation sensitivity grid, and the model-pathology diagnosis behind gate G5.
-
-Consolidating all four structures into one is proposed as a decision — see
-[`ledger/suggestions.html`](ledger/suggestions.html). It was not done silently.
-
-## Verification rules
-
-1. **Source or blank.** A cell either links to an official source or shows an em dash.
-2. **No inference.** Missing values are never derived from nearby values or league averages.
-3. **Flag everything.** Unconfirmed, blocked and resolved items all appear on the Flagged page.
-
-## Rebuild
+The core site is static HTML and the verification scripts use the Python standard library unless noted. From the repository root:
 
 ```bash
-python3 engine/fetch_data.py       # download + hash datasets (needs network)
-python3 engine/run_backtest.py     # 11 strategies, 8 gates, FDR control
-python3 engine/run_parlays.py      # correlations + vig compounding
-python3 engine/build_week10.py     # official injury report + QB decisions
-python3 engine/build_market.py     # totals, margins, win probabilities
-python3 engine/build_site_data.py  # single sanitised bundle for the site
-python3 engine/check_site.py       # render + link gate (needs: npm i jsdom)
+python3 scripts/check_site.py
+python3 tools/check_links.py
+python3 tools/check_signals_links.py
+python3 engine/linelab/check_site.py
+./engine/linelab/build_all.sh
+python3 fl2-lines/engine/check.py
+python3 ops/check_readiness.py
+python3 signal/analysis/verify.py
+python3 tools/check_integrated_site.py
 ```
 
-Docs: [`docs/SOURCES.md`](docs/SOURCES.md) · [`docs/STRATEGY_VALIDATION.md`](docs/STRATEGY_VALIDATION.md) · [`COORDINATION.md`](COORDINATION.md)
+The Pages workflow also rebuilds the `docs/` dashboard with `scripts/make_pages.py` and `scripts/build_site.py`. Live NFL fetching is intentionally not part of these local checks. Do not enable or run an automated NFL-page capture until the terms/permission and private-storage gates in the [integrity audit](review/integration-audit-2026-11-17.html) are resolved.
 
-Research tool, not betting advice.
-
-## Decision readiness (2026-11-16)
-
-The landing page carries a **decision-readiness table** — one row per requirement in the brief,
-with the gate that blocks it and the number that would clear it (75 rows). Session
-`arena/56a33eb6-fl2` re-verified the combined data against the live official pages on 2026-11-16:
-32/32 standings rows reconcile exactly against the official standings once the Week-10 results are
-applied, 96 Week-10 injury rows match the live league report exactly (Out 66 / Doubtful 10 /
-Questionable 84 / blank 185 over 345 rows), and the two-sided "what would change our mind" field
-was added to all 11 strategy entries. See `COORDINATION.md` for the full verification log.
-
-## FL2 Dashboard section (session arena/48561869-fl2)
-
-A second verified-data section lives at [`fl2-dashboard/index.html`](fl2-dashboard/index.html).
-It contains its own verified official-source data (2026 standings for all 32 teams, the Week 10
-schedule, the full Week 10 injury report with 345 rows, and a verified depth-chart example) rendered
-as a clean dashboard with a dedicated suggestions section, a questions/answers register, strategy
-design with validation gates and luck-removal scoring, a leaderboard specification, and a Flagged for
-Review page. Every data row links to the official source used to verify it; values that could not be
-confirmed were left blank and flagged. Its data records live in
-[`fl2-dashboard/data/verified/`](fl2-dashboard/data/verified/) with a fetch log.
+Research record only; not betting advice.
