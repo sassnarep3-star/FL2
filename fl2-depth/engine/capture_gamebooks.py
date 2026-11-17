@@ -179,14 +179,33 @@ def _slot_rows(line: str) -> list:
     return rows
 
 
-def club_split_column(text: str, away: str, home: str):
-    """The column at which the two clubs' printed blocks separate."""
-    for line in text.splitlines():
-        i = line.find(away)
-        j = line.find(home, i + 1) if i >= 0 else -1
-        if i >= 0 and j > i:
-            return (i + len(away) + j) // 2
-    return None
+CLUB_LINE_STOP = re.compile(r"^\s*(?:Percent of playtime|Offense|Defense|Lineups|Paid Attendance)\b")
+
+
+def club_split_column(header: str, away: str, home: str):
+    """The column at which the two clubs' printed blocks separate.
+
+    Both clubs are named on their own line inside the block; the split is the
+    midpoint between where the away name ends and the home name begins. Falls back
+    to the midpoint of the widest run of spaces in the header.
+    """
+    best = None
+    for line in header.splitlines():
+        a = line.find(away)
+        if a < 0:
+            continue
+        h = line.find(home, a + len(away))
+        if h > a:
+            cand = (a + len(away) + h) // 2
+            if best is None or cand > best:
+                best = cand
+    if best is not None:
+        return best
+    gaps = [(gm.start(), gm.end() - gm.start()) for gm in re.finditer(r" {6,}", header)]
+    if gaps:
+        gm = max(gaps, key=lambda g: g[1] * 100 - abs(g[0] - len(header) // 2))
+        return gm[0] + gm[1] // 2
+    return len(header) // 2
 
 
 def parse_lineups(text: str, away: str, home: str) -> list:
@@ -335,10 +354,23 @@ def _col_spans(header_line: str):
 def parse_playtime(text: str, away: str, home: str):
     """Return (rows, unofficial_flag).
 
-    The Playtime Percentage table is fixed-width: name+position on the left, then
-    three (snaps, percent) pairs per club. Columns are located from the printed
-    header, and each data line is read by nearest-match inside each column window,
-    so a blank cell stays blank instead of being filled from the neighbour.
+    The Playtime Percentage table prints both clubs side by side, and it has three
+    traps that a naive fixed-offset read gets wrong:
+
+    1. the two clubs' column headers are NOT aligned with the numbers beneath them
+       (the club-name line is centred over each half, while "Special Teams" is
+       wider than the numbers under it);
+    2. a player who took no snaps in a unit has that column simply *absent*, so
+       later columns shift left;
+    3. after a page break the book prints a second, unheadered block holding the
+       players who appeared on special teams ONLY. That block has one (snaps, pct)
+       pair per club and it is a special-teams figure, not an offensive one.
+
+    Rows are therefore cut using NAME + POSITION + first-number anchors (a club's
+    entry always begins with a name immediately followed by a position and a
+    number), and the numbers on each side are assigned to offense / defense /
+    special teams by monotone alignment against the printed header, which tolerates
+    missing columns.
     """
     m = re.search(r"Playtime Percentage", text)
     if not m:
@@ -346,98 +378,159 @@ def parse_playtime(text: str, away: str, home: str):
     tail = text[m.end():]
     unofficial = bool(re.search(r"\(Unofficial\)", tail[:200], re.I))
 
-    lines = tail.splitlines()
-    hi = None
-    for idx, line in enumerate(lines[:14]):
-        if "Offense" in line and "Defense" in line and "Special" in line:
-            hi = idx
-            break
-    if hi is None:
-        return [], unofficial
-    header = lines[hi]
+    max_dist, skip_cost = 14, 22
+    num_re = re.compile(r"(\d{1,3})(?:\s+(\d{1,3})%)?")
 
-    spans = [(l, p) for (l, p) in _col_spans(header) if l != "Teams"]
-    off_pos = [p for l, p in spans if l == "Offense"]
-    if len(off_pos) < 2:
-        return [], unofficial
-    cut = off_pos[1]
-    left_labels = [(l, p) for l, p in spans if p < cut]
-    right_labels = [(l, p) for l, p in spans if p >= cut]
-
-    def columns(labels, last_bound):
-        """[(key, start, end)] for the three snap/pct column groups of one club."""
-        groups = []
-        for label, pos in labels:
-            key = {"Offense": "off", "Defense": "def", "Special": "st"}[label]
-            if groups and groups[-1][0] == key:
+    def anchors(line: str) -> list:
+        """Character offsets where a player entry begins (name + POS + number)."""
+        toks = [(tm.start(), tm.group(0)) for tm in re.finditer(r"\S+", line)]
+        out = []
+        for i, (pos, tok) in enumerate(toks):
+            if tok not in POS_WORDS or i + 1 >= len(toks):
                 continue
-            groups.append([key, pos, None])
-        for i, g in enumerate(groups):
-            g[2] = groups[i + 1][1] if i + 1 < len(groups) else last_bound
-        return [(k, a, b) for k, a, b in groups]
+            if not re.fullmatch(r"\d{1,3}", toks[i + 1][1]):
+                continue
+            nm, j = [], i - 1
+            while j >= 0 and len(nm) < 3 and not re.fullmatch(r"[\d%]+", toks[j][1]):
+                nm.insert(0, toks[j][1])
+                j -= 1
+            if nm:
+                out.append(toks[j + 1][0])
+        return out
 
-    left_cols = columns(left_labels, cut)
-    right_cols = columns(right_labels, len(header) + 20)
+    def align(cols, matches):
+        """Monotone assignment of numbers to columns, allowing missing columns."""
+        best = [None]
 
-    def name_window(line, lo, hi_):
-        seg = line[lo:hi_].strip()
-        if not seg:
-            return None, None
-        toks = seg.split()
-        # the home club's name window can start inside the away club's last numeric
-        # column; drop leading number/percent tokens rather than mis-reading them
-        while toks and re.fullmatch(r"\d{1,3}%?", toks[0]):
-            toks.pop(0)
-        for ti in range(len(toks) - 1, -1, -1):
-            if toks[ti] in POS_WORDS:
-                if ti == 0:
-                    return None, None
-                return " ".join(toks[:ti]), toks[ti]
-        return None, None
+        def rec(i, j, cost, chosen):
+            if best[0] is not None and cost >= best[0][0]:
+                return
+            if j == len(cols):
+                if best[0] is None or cost < best[0][0]:
+                    best[0] = (cost, list(chosen))
+                return
+            if i < len(matches):
+                d = abs(matches[i][0] - cols[j][1])
+                if d <= max_dist:
+                    chosen.append((cols[j][0], matches[i]))
+                    rec(i + 1, j + 1, cost + d, chosen)
+                    chosen.pop()
+            rec(i, j + 1, cost + skip_cost, chosen)
 
-    num_re = re.compile(r"\d{1,3}\s+\d{1,3}%")
-    rows = []
-    for line in lines[hi + 1:]:
-        if not line.strip():
-            continue
-        if re.match(r"^\s*(Paid Attendance|\*|Miscellaneous|Ten Longest|Possession Detail)", line):
-            break
-        if "Offense" in line and "Defense" in line:
-            continue
-        matches = [(mm.start(), mm.group(0)) for mm in num_re.finditer(line)]
+        rec(0, 0, 0, [])
+        return best[0][1] if best[0] else []
+
+    def sides(line, split):
+        """[(club, cols, base, lo, hi_)] for one printed row, or None."""
+        anch = anchors(line)
+        if not anch:
+            return None
+        if len(anch) >= 2:
+            return anch[1]
+        # a single entry: the away club's name always begins at the left margin, so
+        # an entry that is indented belongs to the home club in a row where the
+        # away club's list has already ended
+        return len(line) if anch[0] <= 2 else anch[0]
+
+    def read_side(seg, cols):
+        """(player, pos, matches) for one club's half of a row."""
+        matches = [(mm.start(), mm.group(1), mm.group(2) or "")
+                   for mm in num_re.finditer(seg)]
         if not matches:
-            continue
-        for club, cols in ((away, left_cols), (home, right_cols)):
-            first_start = min(c[1] for c in cols)
-            last_end = max(c[2] for c in cols)
-            lo = 0 if club == away else min(c[1] for c in left_cols) if left_cols else 0
-            lo = max(lo, 0)
-            if club == home:
-                lo = min(c[1] for c in right_cols) - 24
-            player, pos = name_window(line, max(lo, 0), first_start)
-            if not player or len(player) < 3 or "." not in player:
+            return None
+        toks = seg.split()
+        name_toks = []
+        for t in toks:
+            if re.fullmatch(r"[\d%]+", t):
+                break
+            name_toks.append(t)
+        if len(name_toks) < 2 or name_toks[-1] not in POS_WORDS:
+            return None
+        player, pos = " ".join(name_toks[:-1]), name_toks[-1]
+        if len(player) < 3 or "." not in player:
+            return None
+        return player, pos, matches
+
+    def blank():
+        return {"off_snaps": "", "off_pct": "", "def_snaps": "", "def_pct": "",
+                "st_snaps": "", "st_pct": ""}
+
+    rows = []
+    split = None
+
+    for chunk_no, chunk in enumerate(tail.split("\f")):
+        lines = chunk.splitlines()
+        if chunk_no == 0:
+            hi = None
+            for idx, line in enumerate(lines[:14]):
+                if "Offense" in line and "Defense" in line and "Special" in line:
+                    hi = idx
+                    break
+            if hi is None:
                 continue
-            if not re.fullmatch(r"[A-Z][\w.'\u2019\-]*(?:\s+[A-Z][\w.'\u2019\-]*)*", player):
+            header = lines[hi]
+            header_block = "\n".join(lines[max(0, hi - 4):hi + 1])
+            split = club_split_column(header_block, away, home)
+            spans = [(l, p) for (l, p) in _col_spans(header) if l != "Teams"]
+            left_labels = [(l, p) for l, p in spans if p < split]
+            right_labels = [(l, p) for l, p in spans if p >= split]
+            if not left_labels or not right_labels:
                 continue
-            rec = {"club": club, "player_raw": player, "pos_raw": pos,
-                   "off_snaps": "", "off_pct": "", "def_snaps": "", "def_pct": "",
-                   "st_snaps": "", "st_pct": ""}
-            used = set()
-            for key, cstart, cend in cols:
-                best, bestd = None, 10**9
-                for idx, (mstart, mtext) in enumerate(matches):
-                    if idx in used:
+
+            def columns(labels, last_bound):
+                groups = []
+                for label, pos in labels:
+                    key = {"Offense": "off", "Defense": "def", "Special": "st"}[label]
+                    if groups and groups[-1][0] == key:
                         continue
-                    d = abs(mstart - cstart)
-                    if d < bestd and d <= 10 and mstart >= cstart - 10:
-                        best, bestd = idx, d
-                if best is not None:
-                    used.add(best)
-                    nums = re.match(r"(\d{1,3})\s+(\d{1,3})%", matches[best][1])
-                    rec[f"{key}_snaps"] = nums.group(1)
-                    rec[f"{key}_pct"] = nums.group(2)
-            if any(rec[k] for k in ("off_snaps", "def_snaps", "st_snaps")):
-                rows.append(rec)
+                    groups.append((key, pos))
+                return [(k, p, (groups[i + 1][1] if i + 1 < len(groups) else last_bound))
+                        for i, (k, p) in enumerate(groups)]
+
+            left_cols = [(k, p) for k, p, _e in columns(left_labels, split)]
+            right_cols = [(k, p - split) for k, p, _e in
+                          columns(right_labels, len(header) + 25)]
+            body = lines[hi + 1:]
+            colmap = ((away, left_cols, 0), (home, right_cols, split))
+            st_only = False
+        else:
+            if split is None:
+                continue
+            body = lines
+            colmap = ((away, None, 0), (home, None, split))
+            st_only = True
+
+        for line in body:
+            if not line.strip():
+                continue
+            if re.match(r"^\s*(Paid Attendance|\*|Miscellaneous|Ten Longest|"
+                        r"Possession Detail|National Football League)", line):
+                break
+            if "Offense" in line and "Defense" in line:
+                continue
+            if not num_re.search(line):
+                continue
+            row_split = sides(line, split)
+            if row_split is None:
+                continue
+            for club, cols, base in colmap:
+                lo, hi_ = (0, row_split) if base == 0 else (row_split, len(line) + 4)
+                if hi_ <= lo:
+                    continue
+                seg = line[lo:hi_]
+                got = read_side(seg, cols)
+                if not got:
+                    continue
+                player, pos, matches = got
+                rec = {"club": club, "player_raw": player, "pos_raw": pos}
+                rec.update(blank())
+                if st_only:
+                    rec["st_snaps"], rec["st_pct"] = matches[0][1], matches[0][2]
+                else:
+                    for key, (_p, snaps, pct) in align(cols, matches):
+                        rec[f"{key}_snaps"], rec[f"{key}_pct"] = snaps, pct
+                if any(rec[k] for k in ("off_snaps", "def_snaps", "st_snaps")):
+                    rows.append(rec)
     return rows, unofficial
 
 
@@ -650,26 +743,37 @@ def main() -> int:
 
 
 def self_test() -> int:
-    """Offline tests against synthetic pdftotext -layout output."""
+    """Offline tests against synthetic pdftotext -layout output.
 
-    def pt_row(n1, p1, o1, d1, s1, n2, p2, o2, d2, s2):
-        line = f"{n1} {p1}".ljust(24)
-        line += o1.ljust(13) + d1.ljust(12) + s1.ljust(8)
-        line += f"{n2} {p2}".ljust(14)
-        line += o2.ljust(13) + d2.ljust(12) + s2
-        return line
+    The synthetic table reproduces the real Game Book geometry rather than a tidy
+    one, because the tidy version is what earlier drafts of this parser were
+    written against and it passed while the real books failed. Specifically:
 
-    hdr = " " * 24 + "Offense".ljust(13) + "Defense".ljust(12) + "Special Teams".ljust(22) \
-        + "Offense".ljust(13) + "Defense".ljust(12) + "Special Teams"
+    * the club-name line is centred over each half while the numbers are NOT
+      aligned with the printed column headers;
+    * players omit the units they did not play, so columns shift left;
+    * after a page break the book prints a second, unheadered block of
+      special-teams-only players whose single number pair is a SPECIAL TEAMS
+      figure, not an offensive one.
+    """
+    def row(n1, p1, o1, d1, s1, n2, p2, o2, d2, s2):
+        return ((n1 + " " + p1).ljust(21) + o1.ljust(14) + d1.ljust(14) + s1.ljust(9)
+                + (n2 + " " + p2).ljust(34) + o2.ljust(16) + d2.ljust(14) + s2)
+
+    header = (" " * 20 + "Offense".ljust(13) + "Defense".ljust(11) + "Special Teams"
+              + " " * 34 + "Offense".ljust(15) + "Defense".ljust(10) + "Special Teams")
+    club_line = " " * 14 + "Test Away".ljust(20) + " " * 56 + "Test Home"
 
     txt = (
         "National Football League Game Summary\n"
-        "NFL Copyright (c) 2026 by The National Football League. All rights reserved. This summary and\n"
-        "play-by-play is for the express purpose of assisting media in their coverage of the game; any other\n"
-        "use of this material is prohibited without the written permission of the National Football League.\n"
-        "Date: Sunday, 11/15/2026      Test Away at Test Home at Test Field, Test City, TS      Start Time: 1:02 PM EST\n"
+        "NFL Copyright (c) 2026 by The National Football League. All rights reserved. "
+        "This summary and play-by-play is for the express purpose of assisting media in "
+        "their coverage of the game; any other use of this material is prohibited "
+        "without the written permission of the National Football League.\n"
+        "Date: Sunday, 11/15/2026   Test Away at Test Home at Test Field, Test City, TS"
+        "      Start Time: 1:02 PM EST\n"
         "Game Day Weather\n"
-        "Game Weather: Cloudy                        Temp: 46 F (7.8 C) Humidity: 75%, Wind: NW 15 mph\n"
+        "Game Weather: Cloudy                    Temp: 46 F (7.8 C) Humidity: 75%, Wind: NW 15 mph\n"
         "Open Stadium on Natural Grass\n"
         "Lineups\n"
         "Test Away                       Test Home\n"
@@ -685,10 +789,17 @@ def self_test() -> int:
         "Paid Attendance: 58,342\n"
         "Playtime Percentage\n"
         "Percent of playtime per player on offense, defense and special teams (Unofficial)\n"
-        "                 Test Away                                    Test Home\n"
-        + hdr + "\n"
-        + pt_row("G.Van Roten", "OL", "59 100%", "", "2   7%", "B.Miller", "T", "71 100%", "", "5  18%") + "\n"
-        + pt_row("M.Jones", "CB", "", "64  90%", "4  14%", "R.McCreary", "CB", "", "59 100%", "3  11%") + "\n"
+        + club_line + "\n" + header + "\n\n"
+        + row("G.Van Roten", "OL", "59 100%", "", "2   7%",
+              "B.Miller", "T", "71 100%", "", "5  18%") + "\n"
+        + row("M.Jones", "CB", "", "64  90%", "4  14%",
+              "R.McCreary", "CB", "", "59 100%", "3  11%") + "\n"
+        + row("A.St. Brown", "WR", "47 66%", "", "",
+              "S.LaPorta", "TE", "56 79%", "", "9  32%") + "\n"
+        + "\f"
+        + "J.Ashby        LS   10   36% O.Pappoe    LB   20   71%\n"
+        + "M.Wishnowsky   P    10   36% J.Bates     K    11   39%\n"
+        + " " * 28 + "H.Hatten   LS   9    32%\n"
     )
 
     h = parse_header(txt)
@@ -696,6 +807,7 @@ def self_test() -> int:
     assert h["book_wind"] == "NW 15 mph", h
     assert h["attendance"] == "58342", h
     assert h["book_roof_surface"] == "Open Stadium on Natural Grass", h
+    assert h["book_venue"] == "Test Field, Test City, TS", h
     assert "National Football League" in h["copyright_notice"], h
 
     lu = parse_lineups(txt, "Test Away", "Test Home")
@@ -708,21 +820,30 @@ def self_test() -> int:
     na = parse_named_list(txt, "Not Active", "Test Away", "Test Home")
     assert [r["player_raw"] for r in na] == ["C.Davis", "B.Morton", "B.Schooler"], na
     assert na[0]["pos_raw"] == "CB" and na[0]["jersey"] == "7", na
-    assert [r["player_raw"] for r in parse_named_list(txt, "Did Not Play", "Test Away", "Test Home")] \
-        == ["D.Mills"]
+    assert [r["player_raw"] for r in
+            parse_named_list(txt, "Did Not Play", "Test Away", "Test Home")] == ["D.Mills"]
 
     rows, unofficial = parse_playtime(txt, "Test Away", "Test Home")
-    assert unofficial is True
+    assert unofficial is True, "the league's (Unofficial) caption must be captured"
     by = {(r["club"], r["player_raw"]): r for r in rows}
-    assert by[("Test Away", "G.Van Roten")]["off_snaps"] == "59", rows
-    assert by[("Test Away", "G.Van Roten")]["off_pct"] == "100", rows
-    assert by[("Test Away", "G.Van Roten")]["st_snaps"] == "2", rows
-    assert by[("Test Away", "G.Van Roten")]["def_snaps"] == "", rows
-    assert by[("Test Away", "G.Van Roten")]["pos_raw"] == "OL", rows
-    assert by[("Test Away", "M.Jones")]["def_snaps"] == "64", rows
-    assert by[("Test Away", "M.Jones")]["off_snaps"] == "", rows
-    assert by[("Test Home", "B.Miller")]["off_snaps"] == "71", rows
-    assert by[("Test Home", "R.McCreary")]["def_snaps"] == "59", rows
+    assert len(rows) == 11, rows
+
+    def snap(club, name):
+        r = by[(club, name)]
+        return (r["pos_raw"], r["off_snaps"], r["off_pct"], r["def_snaps"],
+                r["def_pct"], r["st_snaps"], r["st_pct"])
+
+    assert snap("Test Away", "G.Van Roten") == ("OL", "59", "100", "", "", "2", "7")
+    assert snap("Test Away", "M.Jones") == ("CB", "", "", "64", "90", "4", "14")
+    # a surname containing a full stop must not be truncated
+    assert snap("Test Away", "A.St. Brown") == ("WR", "47", "66", "", "", "", "")
+    assert snap("Test Home", "B.Miller") == ("T", "71", "100", "", "", "5", "18")
+    assert snap("Test Home", "R.McCreary") == ("CB", "", "", "59", "100", "3", "11")
+    assert snap("Test Home", "S.LaPorta") == ("TE", "56", "79", "", "", "9", "32")
+    # the post-page-break block is special teams only, never offense
+    assert snap("Test Away", "J.Ashby") == ("LS", "", "", "", "", "10", "36")
+    assert snap("Test Home", "J.Bates") == ("K", "", "", "", "", "11", "39")
+    assert snap("Test Home", "H.Hatten") == ("LS", "", "", "", "", "9", "32")
     print("self-test OK")
     return 0
 
