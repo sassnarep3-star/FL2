@@ -1797,14 +1797,13 @@ No other session has an open claim. Session `d81dd61b` merged PR #32 at 2026-11-
 | Repair PR | https://github.com/sassnarep3-star/FL2/pull/41 — Decision Desk post-merge repair (with-pending reconciliation), merged after `verify-decision-desk` failed on the #38 merge commit; both workflows green on the #41 merge commit (runs 44008433009 success, 44008432984 success) |
 | Pages | pages-build-deployment run 44008431935 success; live page verified 2026-11-17 ~04:20Z: the "Week 10 completed — results feed & venue register" section renders with the 14-row venue table (per-row game-centre links) and the refreshed readiness table |
 | Open-PR close-out | PR #24 merged 2026-11-17 (Line Lab price-coverage self-correction; PR #22's branch). PR #29 closed as superseded with documented rationale (its scope delivered by merged PRs #19/#20/#21/#30; branch ~159k lines behind main; would add a fourth overlapping register) |
-<<<<<<< HEAD
-=======
+
 
 Cross-scope edit log (this session): `fl2-dashboard/data/repo-audit.json` was refreshed
 (2026-11-17) by running `python3 tools/repo_audit.py` during verification; the tool rewrites its own
 committed audit JSON each run (branch/commit stamps, JSON-file count 59→99). No hand edit; content is
 the tool's own output.
->>>>>>> 96e0678 (Coordination: log repo-audit.json tool refresh as cross-scope edit)
+<!-- merged: both sides kept (append-only board), 96e0678 (Coordination: log repo-audit.json tool refresh as cross-scope edit) -->
 
 ### Post-merge repair (2026-11-17, session b184fdaf)
 
@@ -1817,3 +1816,68 @@ only if it is still non-final in the feed; regenerate the four Desk files. Local
 pushing: the Desk checker OK (pages=6, tables=25, 283 evidenced rows) and the workflow's full assertion
 block exits 0 ("All Decision Desk claims about other files hold"). This is the follow-up PR from this
 branch.
+
+
+---
+
+# Session 7e6e153e — Official Game Book depth & availability (section `/fl2-depth/`) — current
+
+Repo: `sassnarep3-star/FL2` · Session: `session-7e6e153e` · Branch: `arena/7e6e153e-fl2`
+Base: `main` @ `56453a0a` (after PR #31). Started 2026-11-17.
+
+**Branch constraint (unchanged from earlier sessions):** Arena pins this session to
+`arena/7e6e153e-fl2`, so the `session-<id>/<task>` worktree scheme is not available. Coordination is
+by non-overlapping file scope, as every prior session has done.
+
+## Why this session exists
+
+Requirement **R77 — "Resolve the depth-order source before building the backup-deficiency feature"**
+told us to evaluate two routes in order and *not* to build the feature until one was verified for all
+32 clubs. Every prior session stopped at route (a) — club depth-chart pages — with 5 of 32 clubs
+acquired, the Texans publishing an image and the Packers prepending jersey numbers, and route (b)
+was recorded as unavailable because `https://www.nfl.com/stats/snap-counts/` returns **404**.
+
+This session completed route (b) against a different official league artefact: the **NFL Game Book
+PDF** published by the league for every game. Its *Playtime Percentage* table carries official
+per-player snap counts (offense / defense / special teams), and its *Lineups*, *Substitutions* and
+*Not Active* rows carry the official starters, the official played-but-did-not-start list and the
+official inactive list. That is the missing T1 source for
+R31/R36/R50/R56/R70/R71/R76/R77/R81/R38/R89.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) |
+|---|---|---|---|---|
+| D01 | Claim + coordination | **done** (2026-11-17) | session-7e6e153e | `COORDINATION.md` |
+| D02 | Route (b) verification: does an official snap-count source exist? | **done** | session-7e6e153e | `fl2-depth/data/verified/route-b-probe.json` |
+| D03 | Week 10 official Game Book capture, 14 games: book URL, venue, roof/surface, weather, attendance | in progress | session-7e6e153e | `fl2-depth/data/verified/gamebooks-w10.csv` |
+| D04 | Official starters (Lineups) per game, both clubs, offense + defense | in progress | session-7e6e153e | `fl2-depth/data/verified/starters-w10.csv` |
+| D05 | Official inactive lists ("Not Active") per game | in progress | session-7e6e153e | `fl2-depth/data/verified/inactives-w10.csv` |
+| D06 | Official snap counts ("Playtime Percentage") per game, every player | in progress | session-7e6e153e | `fl2-depth/data/verified/playtime-w10.csv` |
+| D07 | Depth ladder derived from playing time (1st–4th string), 28 clubs | pending | session-7e6e153e | `fl2-depth/engine/depth_ladder.py`, `fl2-depth/data/derived/depth-ladder-w10.csv` |
+| D08 | Offense vs Defense replacement-deficiency matrix, Week 10 | pending | session-7e6e153e | `fl2-depth/engine/deficiency.py`, `fl2-depth/data/derived/deficiency-w10.csv` |
+| D09 | Availability graph: expected starter vs actually started vs inactive, official only | pending | session-7e6e153e | `fl2-depth/engine/availability.py`, `fl2-depth/data/derived/availability-w10.csv` |
+| D10 | Site section `/fl2-depth/` (landing + category pages, every row sourced) | pending | session-7e6e153e | `fl2-depth/**` |
+| D11 | Cross-scope: one nav link + one tile on the hub `index.html` (logged) | pending | session-7e6e153e | `index.html` (nav/tile only) |
+| D12 | Final: checkers green, PR, merge, Pages live check | pending | session-7e6e153e | this file, `.git` (via gh) |
+
+## Files claimed (exclusive)
+
+`fl2-depth/**` (new section: `engine/`, `data/verified/`, `data/derived/`, `*.html`, `assets/`),
+plus append-only sections of `COORDINATION.md` and one nav/tile edit to the hub `index.html`.
+
+## Files explicitly NOT touched
+
+`docs/**`, `hub/**`, `ledger/**`, `fl2-dashboard/**`, `fl2-signals/**`, `fl2-lines/**`, `linelab/**`,
+`readiness/**`, `ops/**`, `signal/**`, `engine/**`, `tools/**`, `scripts/**`, `data/**`, `raw/**`,
+`research/**`, `.github/workflows/**`, root pages other than the single `index.html` nav/tile edit.
+
+## Environment facts confirmed this session
+
+* `curl https://www.nfl.com/...` from bash still fails (`SSL_ERROR_SYSCALL`, exit 35). All official
+  pages were read with the page-fetch tool.
+* `https://www.nfl.com/stats/snap-counts/` → **404 - Flag on the Play.** (re-confirmed 2026-11-17).
+  nfl.com has no snap-count *page*; snap counts exist only inside the per-game Game Book PDF.
+* `codeload.github.com` reachable (200); `api.github.com` reachable; `raw.githubusercontent.com`
+  unreachable. Consistent with session 74f76e34's note.
+<!-- merged: both sides kept (append-only board) -->
