@@ -12,7 +12,7 @@
 - **Availability is not a complete starter/active/depth dataset.** Two Week 10 report captures have 345 and 347 parsed rows, respectively; those are repository capture counts, not an NFL-published total. The Line Lab depth graph has five clubs. Full 32-club depth, actual starters, official inactives and 2026 per-game snap shares remain incomplete or gated.
 - **A capture policy conflict is open.** The repo's terms note says NFL.com Terms §1.3 restricts systematic retrieval to compile a database absent express prior written consent. The note also says the full terms review was not completed. `fl2-lines-snapshot.yml` has scheduled fetches; `availability-snapshot.yml` explicitly disables its schedule pending that gate. The scheduler was not edited in this integration task because it belongs to a prior session's claimed file scope; a request is recorded in `COORDINATION.md`.
 - **The public/private data boundary is unresolved.** The Pages workflow uploads `.` and the repository tracks row-level injury transcriptions. A `.gitignore` rule for future files does not remove already-tracked data.
-- The README was stale; the latest root landing page already reflects the merged sections, sourced snapshot and one-row-per-requirement view. This integration preserves that landing page and adds only an audit link; the README is rewritten to match.
+- The README was stale; the latest root landing page already reflects the merged sections, sourced snapshot and one-row-per-requirement view. This integration preserves the landing page and its table, adds the audit link, makes missing NFL URLs explicitly render as unverified, and rewrites the README to match.
 - A literal merge-conflict marker set was present in `.gitignore` at the initial base commit `56453a0a`; concurrent session `d81dd61b` fixed it in PR #32. The rebased main copy retains both ignore patterns without markers.
 
 ## Official sources for manual review
@@ -38,7 +38,7 @@
 | F-AUD-06 | Unverified | No official NFL odds feed is recorded for a full opening/closing history. A previous check of the NFL odds path was recorded as unavailable, not rechecked now. | [NFL odds path](https://www.nfl.com/odds/) · [price-data policy](../research/price-data-policy.md) · [price store](../fl2-lines/prices.html) | Select a permitted timestamped/licensed price source; keep opening and closing values distinct, and leave unavailable markets blank. |
 | F-AUD-07 | No promotion | Seven Line Lab strategies are registered; all are `not_eligible` and paper-only. Parlays and prop combos remain behind joint-evidence and operator-rule gates. | [Strategy registry](../data/linelab/registry.json) · [Line Lab methods](../linelab/strategies.html) · [prospective leaderboard](../fl2-lines/leaderboard.html) | Continue pre-registered singles-only shadow records. Require benchmark-relative proper-score skill, game-cluster uncertainty, multiplicity control and the prospective escrow before any reward. |
 | F-AUD-08 | Resolved upstream | The initial base `56453a0a` contained literal `.gitignore` conflict markers; session `d81dd61b` removed them in PR #32 while preserving both intended ignore patterns. | [current `.gitignore`](../.gitignore) · [coordination history](../COORDINATION.md) · [PR #32](https://github.com/sassnarep3-star/FL2/pull/32) | No further action. Preserve `fl2-lines/data/snapshots/` and `private/` if the ignore file is edited again. |
-| F-AUD-09 | Preserved / reconciled | The latest root landing already reflects merged data sections and the one-row-per-requirement table; this task preserves it and adds an audit link. The stale README is rewritten to match. | [Preserved home](../index.html) · [updated README](../README.md) | Keep as-of dates and distinguish NFL facts, secondary data, and FL2 model output on future edits. |
+| F-AUD-09 | Reconciled; readiness view preserved | The landing page and 75-row table were preserved. This pass adds an audit link and makes rows with no NFL URL render as unverified as NFL facts; the rewritten README reflects merged sections and distinct data vintages. | [Preserved home](../index.html) · [75-row source bundle](../data/landing_readiness.js) · [updated README](../README.md) | Keep as-of dates, explicit source-status language, the requirement view, and separate model vintages. |
 | F-AUD-10 | Needs reconciliation | Readiness presentations differ in scope: 75 integrated landing rows, 71 R26–R96 rows at `/readiness/`, 74 R01–R74 rows in `fl2-lines`, and 68 Line Lab requirement rows. | [Landing data](../data/landing_readiness.js) · [R26–R96](../ops/data/requirements_v2.json) · [R01–R74](../fl2-lines/data/registers/readiness.csv) · [Line Lab register](../data/linelab/requirements.json) | Keep historical registers, add a generated crosswalk with canonical IDs, evidence/source tier, status date and explicit disagreement handling. |
 | F-AUD-11 | Cutoff warning | The 148-final result feed and 137-game Line Lab corpus are not aligned; landing summaries now show the cutoff and direct users to the audit. | [Ops feed](../ops/data/results/results_2026_reg.csv) · [Line Lab corpus](../data/linelab/corpus.json) · [NFL standings](https://www.nfl.com/standings/division/2026/REG) | Publish a shared immutable manifest and rebuild before cross-section comparisons. |
 
@@ -63,17 +63,19 @@
 
 ## Checks performed
 
-The following checks ran against committed files on 2026-11-17; they do not establish that an external URL is live today or that its content can be redistributed.
+These checks ran against the post-integration working tree on 2026-11-17, including the repaired announcement fragment. They do not establish that an external URL is live today or that its content can be redistributed. No NFL capture workflow was invoked and no NFL URL was fetched in these checks.
 
 - `python3 scripts/check_site.py` — 7 top-level pages passed.
-- `python3 tools/check_links.py` — 16 hub pages, 22 registered sources passed.
-- `./engine/linelab/build_all.sh` — deterministic rebuild; 12 Line Lab pages passed row-source/link checks; 7 strategies remain not eligible.
-- `python3 fl2-lines/engine/check.py` — 16 pages, 74 requirements; zero failures.
-- `python3 tools/check_signals_links.py` — 18 pages, 101 tables, 1,305 rows and 352 internal links passed.
-- `python3 ops/check_readiness.py` — 3 readiness pages passed.
-- `python3 signal/analysis/verify.py` — 216 checks passed.
-- `python3 engine/linelab/check_site.py` — 12 pages passed.
-- `python3 tools/check_integrated_site.py` — see the live output for page/link counts and any remaining broken local links.
+- `python3 tools/check_links.py` — 16 hub pages and 22 registered sources passed.
+- `python3 fl2-lines/engine/build_site.py` — rendered 16 Originated Lines pages from committed artifacts; generated the repaired `#announcement` target.
+- `./engine/linelab/build_all.sh` — deterministic rebuild; 12 Line Lab pages passed row-source/link checks; all seven strategies remain `not_eligible`.
+- `python3 fl2-lines/engine/check.py` — 16 pages, 74 requirements, 272 feed rows, 1,088 line rows, 816 price rows; zero failures.
+- `python3 tools/check_signals_links.py` — 18 pages, 101 tables, 1,305 table rows and 352 internal links passed.
+- `python3 ops/check_readiness.py` — 3 readiness pages passed source-host and link checks.
+- `python3 signal/analysis/verify.py` — all 216 checks passed.
+- `python3 engine/linelab/check_site.py` — all 12 pages passed.
+- Pages workflow build: `python3 scripts/make_pages.py` wrote 11 pages; `python3 scripts/build_site.py` reported **Build OK**. Generated `docs/*.html` was restored because the known generator drops hand-integrated navigation (F-I1 in `COORDINATION.md`); committed integrated docs remain unchanged.
+- `python3 tools/check_integrated_site.py` — PASS: 115 HTML pages and all 2,477 local href/src targets/fragments resolve; 3,063 external references were not fetched. The 75-row landing register has 46 NFL source URLs, 25 rows with no NFL source (explicitly unverified), and 4 non-NFL references. The evidence path probe found 0 unresolved files.
 
 ## Ownership requests
 

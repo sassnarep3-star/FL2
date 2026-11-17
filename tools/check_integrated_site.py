@@ -190,7 +190,10 @@ def audit_landing_register() -> tuple[list[str], dict[str, int]]:
         if isinstance(evidence, str) and evidence.strip():
             candidate = evidence.strip().split()[0].rstrip(",;:)")
             if "/" in candidate and not urlsplit(candidate).scheme:
-                target = (ROOT / candidate).resolve(strict=False)
+                # Evidence may point to an HTML fragment (for example results.html#announcement).
+                # Validate the file path separately from the fragment; do not report it missing.
+                candidate_path = candidate.split("#", 1)[0]
+                target = (ROOT / candidate_path).resolve(strict=False)
                 try:
                     target.relative_to(ROOT.resolve())
                 except ValueError:

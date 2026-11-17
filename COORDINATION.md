@@ -1533,17 +1533,17 @@ Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the
 | # | Task | Status | Owner | Files in scope (exclusive) | Notes |
 |---|---|---|---|---|---|
 | T29 | Claim + coordination | **done** | session-22f6b1d9 | `COORDINATION.md` | initial claim commit was pushed before implementation; rebase kept all newer main records |
-| T30 | Reconcile the root landing page and README with the currently merged site; preserve the readiness view and remove stale headline claims | **in progress** | session-22f6b1d9 | `index.html` (additive final integration), `README.md` | PR #33/#34 landing work preserved; add audit entry and correct README only |
-| T31 | Publish a cross-section integrity audit and decision queue with official links and unresolved gates | **in progress** | session-22f6b1d9 | `review/integration-audit-2026-11-17.html`, `review/integration-audit-2026-11-17.md` | new files; claims are tied to dated committed artifacts |
-| T32 | Add an offline audit for all published internal links and rerun section verification gates | **in progress** | session-22f6b1d9 | `tools/check_integrated_site.py` | new tool; external URLs are not fetched |
-| T33 | Final PR, merge and Pages verification | **unclaimed** | — | `.git` (via `gh`), `COORDINATION.md` | only after all required checks pass |
-| T34 | Repair the one broken `results.html#announcement` fragment identified by the site-wide audit | **in progress** | session-22f6b1d9 | `fl2-lines/engine/build_site.py`, generated `fl2-lines/results.html` | narrow handoff from completed 39dd0836 scope; add the missing target to the existing heading only |
+| T30 | Reconcile the root landing page and README with the currently merged site; preserve the readiness view and remove stale headline claims | **done** | session-22f6b1d9 | `index.html` (additive final integration), `README.md` | kept the merged landing dashboard and 75-row requirement view; README now maps all sections and preserves source/vintage limits |
+| T31 | Publish a cross-section integrity audit and decision queue with official links and unresolved gates | **done** | session-22f6b1d9 | `review/integration-audit-2026-11-17.html`, `review/integration-audit-2026-11-17.md` | dated, source-linked discrepancies; no live NFL claims introduced |
+| T32 | Add an offline audit for all published internal links and rerun section verification gates | **done** | session-22f6b1d9 | `tools/check_integrated_site.py` | 115 pages / 2,477 local targets pass; external URLs not fetched; section and Pages build gates pass |
+| T33 | Final PR, merge and Pages verification | **in progress** | session-22f6b1d9 | `.git` (via `gh`), `COORDINATION.md` | do not merge until PR checks pass; verify the deployed commit afterward |
+| T34 | Repair the one broken `results.html#announcement` fragment identified by the site-wide audit | **done** | session-22f6b1d9 | `fl2-lines/engine/build_site.py`, generated `fl2-lines/results.html` | added only the missing heading id; deterministic rebuild changed no data or surrounding content |
 
 ## Claim
 
 | Session | Files claimed | Claimed (UTC) | Released |
 |---|---|---|---|
-| session-22f6b1d9 | `index.html` (additive final integration); `README.md`; `review/integration-audit-2026-11-17.{html,md}`; `tools/check_integrated_site.py`; `fl2-lines/engine/build_site.py` and generated `fl2-lines/results.html` for the single missing fragment; `COORDINATION.md` append only | 2026-11-17 | — |
+| session-22f6b1d9 | `index.html` (additive final integration); `README.md`; `review/integration-audit-2026-11-17.{html,md}`; `tools/check_integrated_site.py`; `fl2-lines/engine/build_site.py` and generated `fl2-lines/results.html` for the single missing fragment; `COORDINATION.md` append only; PR/merge/deployment via `gh` | 2026-11-17 | — |
 
 ## Log
 
@@ -1551,6 +1551,11 @@ Rebased base: `main` @ `08ff8e7` (PR #35 merge). Started 2026-11-17. This is the
 - 2026-11-17 — While this session worked, main advanced through PRs #32–#35 (sessions `d81dd61b` and `7e474dc8`). `git pull --rebase origin main` exposed an additive conflict in this board. Resolution kept the complete D81 and 7e sections from main and appended this session's record; no other session's work was discarded.
 - 2026-11-17 — The `.gitignore` conflict markers observed at base `56453a0` were already fixed by session `d81dd61b` in PR #32 and are no longer present on rebased main. The audit will mark this as resolved, not open.
 - 2026-11-17 — The new whole-site link audit found one broken fragment in the completed `fl2-lines` section: `fl2-lines/index.html` links to `results.html#announcement`, while the schedule-announcement heading lacked `id="announcement"`. The original `39dd0836` section is complete and merged; a narrow non-destructive T34 handoff claims only the generator heading and its regenerated output so the full-site link check can pass.
+- 2026-11-17 — T34 repaired only the heading id in `fl2-lines/engine/build_site.py`; `python3 fl2-lines/engine/build_site.py` regenerated 16 pages, and only `fl2-lines/results.html` changed. No schedule, source values, results, model output or other section content changed.
+- 2026-11-17 — Full section gates passed after integration: `scripts/check_site.py` (7 pages); `tools/check_links.py` (16 pages/22 sources); Line Lab deterministic rebuild + `engine/linelab/check_site.py` (12 pages; seven strategies remain `not_eligible`); Originated Lines check (16 pages, 74 requirements, 272 feed, 1,088 lines, 816 prices); signals (18 pages/101 tables/1,305 rows/352 links); ops readiness (3 pages); signal analysis (216 checks); and the integrated audit (115 pages/2,477 local links; no failures). No external links were fetched.
+- 2026-11-17 — The Pages build steps `scripts/make_pages.py` and `scripts/build_site.py` passed (`wrote 11 pages`, `Build OK`). Their generated docs HTML was restored because that known generator drops hand-integrated navigation (F-I1); no generated docs changes are included.
+- 2026-11-17 — Updated the root readiness renderer to label missing NFL URLs explicitly as “No official NFL source recorded — unverified as an NFL fact.” The whole-site checker now strips fragments before filesystem evidence-path validation; `R24`'s `results.html#announcement` reference no longer appears as a missing file.
+- 2026-11-17 — T33 is claimed for PR, merge and Pages confirmation. The PR must not merge until its validation checks pass; after merge, verify the deployment commit and publish URL.
 
 ## Requests to prior scopes / owner
 

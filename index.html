@@ -492,11 +492,11 @@
     td(r.update);
     var src = document.createElement("td");
     var a = document.createElement("a");
-    var href = (typeof r.official_source === "string" &&
-                (r.official_source.indexOf("http") === 0 || r.official_source.indexOf("/") > -1))
-      ? r.official_source : "ledger/verification.html";
+    var hasOfficialSource = typeof r.official_source === "string" &&
+      r.official_source.trim() !== "" && r.official_source.trim() !== "-" && r.official_source.trim() !== "—";
+    var href = hasOfficialSource ? r.official_source : "ledger/verification.html";
     a.setAttribute("href", href);
-    a.textContent = "source";
+    a.textContent = hasOfficialSource ? "source" : "No official NFL source recorded — unverified as an NFL fact";
     src.appendChild(a);
     if (r.evidence) {
       src.appendChild(document.createTextNode(" · " + r.evidence));

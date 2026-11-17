@@ -138,11 +138,11 @@
             <td class="source"><span>Official NFL source: not applicable to repository hygiene.</span><a href="../.gitignore">current .gitignore</a><a href="../COORDINATION.md">PR #32 resolution record</a><a href="https://github.com/sassnarep3-star/FL2/pull/32" target="_blank" rel="noopener">PR #32</a></td>
           </tr>
           <tr id="F-AUD-09" class="flag">
-            <td><strong>F-AUD-09</strong><br><span class="status in-progress">INTEGRATION IN PROGRESS</span></td>
-            <td>The README was stale, while the latest root landing page already contains a new evidence snapshot, section inventory, and one-row-per-requirement table.</td>
-            <td>Replacing the root page wholesale would discard the newer 2026-11-17 sourced figures and the existing 75-row decision view. The README is being rewritten to match the merged site; the landing page is preserved and only receives an audit link.</td>
-            <td>Keep the updated README, the additive landing-page audit link, and the one-row-per-requirement dashboard. Continue using dated values and don't combine differing corpus vintages.</td>
-            <td class="source"><span>Official NFL source: not applicable to site-copy history.</span><a href="../index.html">preserved landing page</a><a href="../README.md">updated README</a><a href="../COORDINATION.md">integration log</a></td>
+            <td><strong>F-AUD-09</strong><br><span class="status resolved">RECONCILED; READINESS VIEW PRESERVED</span></td>
+            <td>The README lagged behind the merged site; the root landing already contains a dated evidence snapshot, section inventory, and the one-row-per-requirement table.</td>
+            <td>The landing page and 75-row table were preserved. This pass adds the audit navigation link and changes the table renderer so rows without NFL URLs say they are unverified as NFL facts. README now reflects the merged sections and separate data vintages.</td>
+            <td>Keep as-of dates, explicit source-status language, the one-row-per-requirement view and separate vintage comparisons. Do not combine model corpora until manifests match.</td>
+            <td class="source"><span>Official NFL source: not applicable to site-copy history.</span><a href="../index.html">preserved landing page</a><a href="../README.md">updated README</a><a href="../data/landing_readiness.js">75-row source bundle</a><a href="../COORDINATION.md">integration log</a></td>
           </tr>
           <tr id="F-AUD-10" class="flag">
             <td><strong>F-AUD-10</strong><br><span class="status partial">NEEDS RECONCILIATION</span></td>
@@ -203,12 +203,13 @@
       <li><code>scripts/check_site.py</code>: seven top-level pages passed.</li>
       <li><code>tools/check_links.py</code>: 16 hub pages and 22 registered sources passed.</li>
       <li><code>./engine/linelab/build_all.sh</code>: deterministic rebuild completed; 12 pages passed source/link checks; all seven strategies remain ineligible.</li>
-      <li><code>fl2-lines/engine/check.py</code>: 16 pages, 74 requirements, 272-feed rows; zero failures.</li>
+      <li><code>fl2-lines/engine/check.py</code>: 16 pages, 74 requirements, 272 feed rows, 1,088 line rows and 816 price rows; zero failures.</li>
       <li><code>tools/check_signals_links.py</code>: 18 pages, 101 tables, 1,305 table rows and 352 internal links passed its checks.</li>
       <li><code>ops/check_readiness.py</code>: three readiness pages passed source-host and link checks.</li>
-      <li><code>signal/analysis/verify.py</code>: 216 measurement and rendering checks passed.</li>
+      <li><code>signal/analysis/verify.py</code>: all 216 measurement and rendering checks passed.</li>
       <li><code>engine/linelab/check_site.py</code>: 12 pages passed row-source, host and link checks.</li>
-      <li><code>tools/check_integrated_site.py</code>: <span id="integrated-link-check-result">result recorded after the full-site link audit.</span></li>
+      <li>Pages build commands <code>python3 scripts/make_pages.py</code> and <code>python3 scripts/build_site.py</code>: 11 pages regenerated; build reported <strong>Build OK</strong>. Generated <code>docs/*.html</code> was restored because the known generator drops hand-integrated navigation (F-I1 in <code>COORDINATION.md</code>); committed integrated docs remain unchanged.</li>
+      <li><code>tools/check_integrated_site.py</code>: PASS — 115 HTML pages; all 2,477 local href/src targets and fragments resolve. It reports 3,063 external references but does not fetch them. The 75-row landing register has 46 NFL URLs, 25 rows explicitly unverified as NFL facts, and 4 non-NFL references. The evidence-path probe reports 0 unresolved paths.</li>
     </ul>
     <div class="audit-note">
       <strong>Limits.</strong> These checks validate the committed files and internal references; they do not prove that external pages are currently live, grant reuse rights, or re-verify NFL values against a live source. External official URLs are included for manual review. The workflow and storage requests above remain open and do not block publication of this clearly flagged audit.
