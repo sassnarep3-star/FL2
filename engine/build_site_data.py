@@ -137,7 +137,28 @@ def build_flags(backtest, parlays, week10, market):
                           "bets at recorded prices.",
             })
 
-    # 7. data that could not be downloaded at all
+    # 7. Week-10 MNF completion pending (results feed at 149/150, 2026-11-17)
+    flags.append({
+        "id": "results-feed-mnf-pending",
+        "category": "Results feed — one game pending",
+        "severity": "medium",
+        "item": "LAC @ BAL (Week 10 MNF) — feed carries 149/150 finals",
+        "detail": "The Monday-night game was live at the 2026-11-17 capture (Q2 00:38, 17-7; halftime "
+                  "17-10 at the last read). The official page publishes no record block for LAC/BAL "
+                  "while the game is live, so both scores and records stay blank. The final is never "
+                  "inferred; a later immutable capture (same format as week10-snf-final-2026-11-17) "
+                  "completes the feed to 150/150 when the game ends.",
+        "value": None,
+        "sources": [
+            "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+            "https://www.nfl.com/schedules/2026/by-week/week-10",
+        ],
+        "action": "Re-read the official game centre after the final whistle, append the final to a new "
+                  "dated capture, rerun tools/build_results_feed.py (self-checks then expect 150 "
+                  "finals), and recompute the ops panels.",
+    })
+
+    # 8. data that could not be downloaded at all
     flags.append({
         "id": "nflverse-assets",
         "category": "Data access — release assets unreachable",
@@ -152,7 +173,7 @@ def build_flags(backtest, parlays, week10, market):
                   "licensed feed.",
     })
 
-    # 8. resolved irregularity, kept visible
+    # 9. resolved irregularity, kept visible
     flags.append({
         "id": "sign-error",
         "category": "Resolved — methodology defect found and fixed",
