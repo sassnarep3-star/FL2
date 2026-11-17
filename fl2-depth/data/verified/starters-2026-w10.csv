@@ -528,9 +528,13 @@ game_id,club,unit,slot,jersey,player_raw,source_url
 2026_10_SF_DAL,Dallas Cowboys,offense,RB,33,J.Williams,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab78a748-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_SF_DAL,Dallas Cowboys,defense,S,24,M.Hooker,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab78a748-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,WR,4,D.Metcalf,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_PIT_CIN,Cincinnati Bengals,offense,WR,1,J.Chase LDE 99,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Pittsburgh Steelers,defense,LB,56,A.Highsmith,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,offense,WR,1,J.Chase,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,defense,LDE,99,M.Murphy,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,LT,76,T.Fautanu,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_PIT_CIN,Cincinnati Bengals,offense,DT,93,J.Allen,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Pittsburgh Steelers,defense,DT,97,C.Heyward,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,offense,LOT,75,O.Brown,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,defense,DT,93,J.Allen,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,LG,66,M.McCormick,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,defense,DT,95,K.Benton,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,offense,LG,63,D.Fairchild,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
@@ -540,9 +544,13 @@ game_id,club,unit,slot,jersey,player_raw,source_url
 2026_10_PIT_CIN,Cincinnati Bengals,offense,C,64,T.Karras,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,defense,DT,92,B.Hill,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,RG,67,B.Hoffman,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_PIT_CIN,Cincinnati Bengals,offense,RG,66,D.Risner RDE 53,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Pittsburgh Steelers,defense,LB,41,P.Wilson,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,offense,RG,66,D.Risner,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,defense,RDE,53,B.Mafe,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,RT,71,M.Iheanachor,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_PIT_CIN,Cincinnati Bengals,offense,LB,49,B.Carter,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Pittsburgh Steelers,defense,LB,6,P.Queen,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,offense,ROT,71,A.Mims,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,defense,LB,49,B.Carter,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,TE,80,D.Washington,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,defense,CB,35,J.Dean,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,offense,TE,88,M.Gesicki,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
@@ -560,4 +568,6 @@ game_id,club,unit,slot,jersey,player_raw,source_url
 2026_10_PIT_CIN,Cincinnati Bengals,offense,QB,9,J.Burrow,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Cincinnati Bengals,defense,S,6,B.Cook,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
 2026_10_PIT_CIN,Pittsburgh Steelers,offense,RB,30,J.Warren,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
-2026_10_PIT_CIN,Cincinnati Bengals,offense,S,27,J.Battle,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Pittsburgh Steelers,defense,S,3,J.Brisker,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,offense,HB,30,C.Brown,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf
+2026_10_PIT_CIN,Cincinnati Bengals,defense,S,27,J.Battle,https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf

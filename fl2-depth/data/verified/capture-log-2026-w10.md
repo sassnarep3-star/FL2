@@ -1,6 +1,6 @@
 # Game Book capture log - 2026 week 10
 
-Captured 2026-11-17T03:45:48Z. 
+Captured 2026-11-17T03:54:40Z. 
 
 | game | status | book url | sha256 | playtime rows | error |
 |---|---|---|---|---|---|
@@ -16,5 +16,5 @@ Captured 2026-11-17T03:45:48Z.
 | 2026_10_LAR_ARI | captured | https://static.www.nfl.com/image/upload/v1794854921/gamecenter/ab78a133-4feb-11f1-abca-2c54536568a9.pdf | 5bc5f89cde8e0cdb | 93 |  |
 | 2026_10_SEA_LV | captured | https://static.www.nfl.com/image/upload/v1794829726/gamecenter/ab78a43c-4feb-11f1-abca-2c54536568a9.pdf | 2e5c44630e0f55fa | 92 |  |
 | 2026_10_SF_DAL | captured | https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab78a748-4feb-11f1-abca-2c54536568a9.pdf | c5378c33a7fcac7c | 94 |  |
-| 2026_10_PIT_CIN | captured | https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf | ac36c23ed9f831d9 | 93 |  |
+| 2026_10_PIT_CIN | captured | https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf | ac36c23ed9f831d9 | 96 |  |
 | 2026_10_LAC_BAL | duplicate_pdf_hash | https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf | 12c818cc26344849 | 0 | byte-identical to the book already captured for 2026_10_WAS_NYG; this game's own book is not being served, so its rows are withheld rather than guessed |
