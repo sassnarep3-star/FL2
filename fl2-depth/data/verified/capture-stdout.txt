@@ -1,0 +1,10 @@
+season=2026 week=10
+seed: 15 lines
+total 40
+drwxr-xr-x 2 runner runner  4096 Nov 17 03:03 .
+drwxr-xr-x 3 runner runner  4096 Nov 17 03:03 ..
+-rw-r--r-- 1 runner runner    35 Nov 17 03:03 capture-stdout.txt
+-rw-r--r-- 1 runner runner  4183 Nov 17 03:03 gamebooks-w10.csv
+-rw-r--r-- 1 runner runner  1269 Nov 17 03:03 gamecenter-seed.csv
+-rw-r--r-- 1 runner runner 12955 Nov 17 03:03 starters-w10.csv
+exit=0
