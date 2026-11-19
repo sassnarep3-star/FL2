@@ -2349,3 +2349,43 @@ This addendum supersedes the matching statements in the completion record above.
 | Open items | CSR-1 to CSR-5 (above) go to the integration session. Owner decisions D1–D5 remain on the review page. |
 
 <!-- session 6e645ee7 S05 record -->
+
+---
+
+# Session c3bfbd81 — final integration audit and live-site readiness (current)
+
+Repo: `sassnarep3-star/FL2` · Session: `c3bfbd81` · Branch: `arena/c3bfbd81-fl2`
+Base: `main` @ `dedc34349a65605cf31c192678da437a92d3f878`. Started 2026-11-19 UTC.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) |
+|---|---|---|---|---|
+| C01 | Claim + coordination | **in progress** | c3bfbd81 | `COORDINATION.md` (append-only) |
+| C02 | Re-audit the integrated site, source links, build checks and outstanding blockers; publish dated integration findings | **in progress** | c3bfbd81 | `review/integration-audit-2026-11-19.md`, `review/integration-audit-2026-11-19.html` |
+| C03 | Surface current executive/readiness status and the dated audit in the public landing/navigation docs | **in progress** | c3bfbd81 | `README.md`, `index.html` (integration-only) |
+| C04 | Final verification, PR, merge and GitHub Pages deployment check | pending | c3bfbd81 | `COORDINATION.md`, `.git` via `gh` |
+
+## Claim
+
+Claimed 2026-11-19 UTC after reading the existing coordination board. This is the final
+integration pass on the current branch, whose base is the integrated `origin/main` tree.
+The scope is restricted to a new dated cross-section audit, its public landing-page
+cross-link, documentation, and this append-only record. Existing subsystem files remain
+owned by their prior merged contributions; any required subsystem change will be logged
+as a request rather than edited outside this scope.
+
+
+
+## Rebase and scope handoff — 2026-11-19 UTC
+
+During integration inspection, `git pull --rebase origin main` fetched the already-merged PR #45 (`arena/1541a85c-fl2`, merge commit `eda52f6`) after this session's initial claim. That session had independently completed the same NFL-capture authorization-gate work. We made no edits to its three workflow files and released that duplicate scope; PR #45 is the authoritative implementation. The rebase conflict was confined to this append-only coordination file and was resolved by keeping both complete session records. This session continues with C02–C04 only.
+
+## Rebase update — 2026-11-19 UTC (PRs #46 and #47)
+
+A later `git pull --rebase origin main` fetched PRs #46 and #47 while this claim was being
+rebased. The conflicts were again limited to append-only `COORDINATION.md`. The resolution
+kept the newly merged `b99036de` record and the post-merge PR #45 deployment verification
+from `origin/main`, as well as this session's C01–C04 entry. No existing session record was
+dropped. The combined file was rebuilt from the current main version plus this session's
+own section; conflict markers were removed. Current rebased base: `a8f161c`.
