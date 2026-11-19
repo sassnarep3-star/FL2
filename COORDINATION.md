@@ -2042,6 +2042,54 @@ be checked).
 
 ---
 
+# Session `b99036de` — Repo review, Terms gate, Lions verification, Pages integration (branch `arena/b99036de-fl2`)
+
+Base: `main` @ `dedc343`. Started 2026-11-19 (UTC).
+
+## Claim (written before any edit)
+
+| Task | Status | Files in scope | Notes |
+|---|---|---|---|
+| B-01 Verify Lions game-status designations (VR-08 / VR-12 brief item) against the official NFL page | **done** | `COORDINATION.md` (record only) | Fetched `https://www.nfl.com/injuries/league/2026/reg10` on 2026-11-19. |
+| B-02 Pause automated nfl.com retrieval that conflicts with Terms §1.3 | **done** (schedules paused; owner decision needed) | `.github/workflows/fl2-depth-capture.yml`, `.github/workflows/fl2-lines-snapshot.yml` (cross-scope: owners' workflows; logged here) | Scheduled runs were active on `main`; the repo's own README says capture must stay manual until consent is recorded. |
+| B-03 Re-sync committed `docs/` with its generator (`scripts/make_pages.py`) | **done** | `docs/**` | `make_pages.py` output differs from the committed `docs/` (one nav link). |
+| B-04 Integration close-out: checks, PR to `main`, merge, Pages deploy record | **in progress** | `COORDINATION.md` | Per the brief. |
+
+Not claimed (other sessions' scopes or blocked by the sandbox): Texans depth image, Packers depth parse, Colts/Baltimore roster-event
+versioning, full availability snapshot automation, legal-rights decisions, and the owner decisions in the suggestions registers.
+
+## Completion record — session b99036de (2026-11-19 UTC)
+
+### Sources (fetched 2026-11-19 with the page-fetch tool; sandbox bash cannot reach nfl.com)
+
+- Official NFL Week 10 injury report: https://www.nfl.com/injuries/league/2026/reg10
+- NFL.com Terms and Conditions (updated May 16, 2024), §1.3 Permitted Uses: https://www.nfl.com/legal/terms/
+
+### Verification performed
+
+- **B-01 Lions.** On the official page, the Lions block of the NE–DET game lists Kerby Joseph (S, Knee, DNP, **Out**), Cade Mays (C, Ankle, DNP, **Out**) and D.J. Reed (CB, Hip, DNP, **Out**). Committed captures, `data/injuries.json`, `docs/data/injuries.json` and the readiness pages already carry Out. Nothing was changed. The blank-cell defect in the brief is **not present** in the committed data; `decision-desk/sources.html` makes the same finding.
+- **B-02 Terms gate.** §1.3 says: "Systematic retrieval of data or other content from the Services, whether to create or compile, directly or indirectly, a collection, compilation, database, or directory, is prohibited absent our express prior written consent." Two scheduled jobs were live on `main`: `fl2-lines-snapshot` (Wed/Thu/Fri, one scheduled run failed) and `fl2-depth-capture` (Tuesdays, ran). Both schedules are now commented out, and so is the depth workflow's push trigger. `workflow_dispatch` is kept. Re-enabling requires written consent or a licensed source. **Merge note:** `main` gained session 1541a85c's stricter fail-closed guard (`FL2_NFL_CAPTURE_AUTHORIZED`) on the same files during this session; the merge keeps main's workflow files unchanged, so this branch's workflow edits are superseded.
+- **B-03 docs/.** `scripts/make_pages.py` regenerated 11 pages. The only substantive change is that the generator no longer emits the committed "Decision Hub" nav link. The Pages workflow regenerates `docs/` before deploy, so the live site already follows the generator.
+- **Checks run locally (all pass):** `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `ops/check_readiness.py`, `tools/check_integrated_site.py`, `tools/check_decision_desk.py`, `scripts/make_pages.py`, `scripts/build_site.py`. The two edited workflow files were parsed with PyYAML: each still has a valid `on:` block.
+
+### Irregularities (published on the Flagged for Review page, `docs/flagged.html`, as F-B01..F-B04)
+
+- **F-B01 (High):** Scheduled nfl.com retrieval conflicted with Terms §1.3. Schedules paused; owner decision needed.
+- **F-B02 (Low):** The official Week 10 page title says "Week 11 of the 2026 Season" while its heading says "Injuries - WEEK 10". Open for a human check.
+- **F-B03 (Info):** Lions designations verified; closed.
+- **F-B04 (Low):** Committed `docs/` drifted from its generator; regenerated. Owner to confirm the Decision Hub nav link.
+
+### Not done this session, and why
+
+The brief lists about 80 requirements. Most were already built and merged by earlier sessions (see the consolidated status above and `research/requirements-v2.md`). I did not build the following, because each is blocked by something this session cannot resolve:
+
+- **Authorized depth source for the Texans image** and **roster-event versioning** (Colts/Baltimore). These need an authorized structured source or official transaction data, not transcription. The sandbox has no route to nfl.com except this page-fetch tool, and Terms §1.3 limits systematic retrieval.
+- **Automated availability snapshots, Wed–Fri.** Blocked by F-B01. Snapshots need written consent or a licensed feed.
+- **Owner decisions** in the suggestions registers and the price-data policy. These cannot be made by an agent.
+
+### Pull request and merge
+
+Recorded below after the PR is opened and merged.
 # Session `arena/1541a85c-fl2` — fail-closed NFL capture authorization gate
 
 **Claimed:** 2026-11-19 UTC · **Branch:** `arena/1541a85c-fl2` · **Base:** `dedc34349a65605cf31c192678da437a92d3f878`.
@@ -2106,4 +2154,53 @@ Official-source values only. A cell is left blank when the official page could n
 **Irregularities (all on Flagged for Review; none block merge)** — FR-01 public raw data on Pages; FR-02 Game Book copyright vs published derived rows; FR-03 scheduled capture vs Terms §1.3, run 44415056441 failed; FR-04 league reserve log omits Willis and Sieler; FR-05 ravens.com unreachable; FR-06 Week 11 forecast timestamps vs commit 55b94c1; FR-07 market capture time not recorded; FR-08/09 register counts vs Week 10 data; FR-10 Colts shared WR slots; FR-11 Cook classification conflict; FR-12 announced-starter dates blank; FR-13 requirement counts disagree; FR-14/15 deferred (injury report, Texans/Packers); FR-16 snap-proxy vs no-inferred-snaps brief conflict; FR-17 docs/ build drift (11 files).
 
 **Corrections made during this session**: the first draft of the roster and flag files contained quotes, jersey numbers, URLs and rank claims that were not read. All were removed and rebuilt from the official pages listed above. Commit history shows the rebuild.
+
+### Pull request and merge result — session b99036de
+
+- **PR #46** `arena/b99036de-fl2` → `main`: merged with a merge commit, `6949980703b3e91d215014a3970c9a9b56e6cb24`, 2026-11-19T05:26:36Z.
+- Before merging, `main` gained PR #45 (session 1541a85c's fail-closed NFL capture guard). A merge conflict appeared on the three workflow files and `COORDINATION.md`. It was resolved by keeping `main`'s workflow files (the stricter guard) and keeping both sides of the board. No other session's entries were removed.
+- Checks: `Validate and publish site` (validate) passed on the PR and on `main`. Pages build and deployment succeeded on the subsequent `main` push (#47, run 44465231695). Deploy for #46 is recorded as success via the same workflow.
+- Irregularity logged in this session: after the merge, the PR-level `verify-decision-desk` run also passed (run 44465202288).
+## Post-merge verification — A01 / PR #45
+
+The fail-closed capture change was merged by PR [#45](https://github.com/sassnarep3-star/FL2/pull/45) at 2026-11-19T05:25:27Z as merge commit `eda52f6c4ed11d4cd8c21c016c7954ddfcd2f00d`. The PR validation check passed. The post-merge `Validate and publish site` run [44465069206](https://github.com/sassnarep3-star/FL2/actions/runs/44465069206) and Pages deployment run [44465068717](https://github.com/sassnarep3-star/FL2/actions/runs/44465068717) both completed successfully. GitHub Pages API reports `built`, and the live root URL https://sassnarep3-star.github.io/FL2/ was fetched successfully at 2026-11-19 UTC.
+
+The live landing page still accurately labels the data as a dated 2026-11-14 capture and presents unresolved/stale items for review; this task did not refresh data or change any model result. The Pages runner emitted a non-failing Node.js 20 deprecation warning for `actions/upload-artifact@v4`; not addressed by this scoped change. No NFL capture was invoked.
+
+## Session `arena/ef0d23b8-fl2` — Live-site verification & official-source cross-check
+
+**Branch:** `arena/ef0d23b8-fl2` (== `main` @ `dedc34349a65605cf31c192678da437a92d3f878`, the integration tip).
+**Session date:** 2026-11-19. **Scope:** root site, `data/standings-2026-w10.csv`, `data/results_feed.csv`, COORDINATION.md only. No other section touched.
+
+### Work performed
+
+1. **Confirmed GitHub Pages live.** `https://sassnarep3-star.github.io/FL2/` status `built`, source branch `main` path `/`, HTTPS enforced (via `gh api repos/.../pages`).
+2. **Re-ran site validators.** `python3 scripts/check_site.py` → OK, 7 pages, all internal links + anchors resolve, every table row carries a source. `python3 tools/check_links.py` → OK, 16 pages, 22 sources.
+3. **Cross-checked committed Week-10 data against live official NFL pages** (reached via page fetch; sandbox `curl` to nfl.com remains blocked by SSL).
+   - `data/results_feed.csv` Week 10 (12 settled finals + 1 in-progress transient): every score matches nfl.com exactly — WAS 24–21 NYG, NE 10–35 DET, KC 35–13 ATL, HOU 24–27 CLE, MIN 30–10 GB, MIA 22–24 IND, CAR 20–17 NO, BUF 31–12 NYJ, JAX 40–23 TEN, LAR 34–6 ARI, SEA 21–13 LV, SF 46–40 DAL. LAC@BAL correctly left `in_progress`/transient at capture (never published as final).
+   - `data/standings-2026-w10.csv` (32 clubs, captured 2026-11-14): internally consistent; `net_points_published == PF − PA` for all 32 rows. W/L/PCT and PF/PA are plausible for the pre-Week-10 snapshot vintage.
+4. **Flagged & fixed one irregularity.** Every standings row carried a stale `note = "MISMATCH: published net points differ from PF-PA"` although computation shows zero mismatches (32/32 match). Corrected the annotation to `verified: net_points_published == PF - PA at this snapshot (no mismatch)`; no measured value was altered. Recorded as irregularity F-EF0D-01 below.
+
+### Irregularity flagged
+
+| ID | Status | Irregularity | Action | Official source |
+|---|---|---|---|---|
+| F-EF0D-01 | FIXED | `data/standings-2026-w10.csv` note column falsely claimed a net-points mismatch on all 32 rows; PF − PA equals `net_points_published` in every row. | Rewrote the annotation to the verified state. No measured value changed. | `https://www.nfl.com/standings/division/2026/REG` (structure) + committed capture cross-check |
+
+### Open items requiring a user decision (not resolved here — no manual input requested)
+
+- F-AUD-01: scheduled NFL-page capture vs NFL Terms §1.3 permission gate — unresolved.
+- F-AUD-02 / F-AUD-06: public/private data layer and licensed odds feed — requires written permission or a licensed source; no official NFL odds feed exists.
+- F-AUD-05: verified 32-club depth/starter route — only 5 clubs covered; playing-time/Game Book evidence not complete.
+- S5 (highest leverage): commit a CSV of closing lines to unlock real edge/CLV measurement and the leaderboard.
+
+### Sources used for this session's verification
+
+- https://www.nfl.com/standings/division/2026/REG (live official 2026 REG standings)
+- https://www.nfl.com/schedules/2026/by-week/week-10 (live official Week 10 schedule + scores)
+- https://www.nfl.com/injuries/ (live official injury report, reachable; not re-published)
+- https://www.nfl.com/legal/terms/ (NFL Terms, referenced for capture-policy gate)
+- Committed artifacts: `data/results_feed.csv`, `data/standings-2026-w10.csv`, `data/games_2026_week10.csv`
+
+<!-- session arena/ef0d23b8-fl2 recorded -->
 
