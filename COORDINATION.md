@@ -2127,3 +2127,41 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 The fail-closed capture change was merged by PR [#45](https://github.com/sassnarep3-star/FL2/pull/45) at 2026-11-19T05:25:27Z as merge commit `eda52f6c4ed11d4cd8c21c016c7954ddfcd2f00d`. The PR validation check passed. The post-merge `Validate and publish site` run [44465069206](https://github.com/sassnarep3-star/FL2/actions/runs/44465069206) and Pages deployment run [44465068717](https://github.com/sassnarep3-star/FL2/actions/runs/44465068717) both completed successfully. GitHub Pages API reports `built`, and the live root URL https://sassnarep3-star.github.io/FL2/ was fetched successfully at 2026-11-19 UTC.
 
 The live landing page still accurately labels the data as a dated 2026-11-14 capture and presents unresolved/stale items for review; this task did not refresh data or change any model result. The Pages runner emitted a non-failing Node.js 20 deprecation warning for `actions/upload-artifact@v4`; not addressed by this scoped change. No NFL capture was invoked.
+
+## Session `arena/ef0d23b8-fl2` — Live-site verification & official-source cross-check
+
+**Branch:** `arena/ef0d23b8-fl2` (== `main` @ `dedc34349a65605cf31c192678da437a92d3f878`, the integration tip).
+**Session date:** 2026-11-19. **Scope:** root site, `data/standings-2026-w10.csv`, `data/results_feed.csv`, COORDINATION.md only. No other section touched.
+
+### Work performed
+
+1. **Confirmed GitHub Pages live.** `https://sassnarep3-star.github.io/FL2/` status `built`, source branch `main` path `/`, HTTPS enforced (via `gh api repos/.../pages`).
+2. **Re-ran site validators.** `python3 scripts/check_site.py` → OK, 7 pages, all internal links + anchors resolve, every table row carries a source. `python3 tools/check_links.py` → OK, 16 pages, 22 sources.
+3. **Cross-checked committed Week-10 data against live official NFL pages** (reached via page fetch; sandbox `curl` to nfl.com remains blocked by SSL).
+   - `data/results_feed.csv` Week 10 (12 settled finals + 1 in-progress transient): every score matches nfl.com exactly — WAS 24–21 NYG, NE 10–35 DET, KC 35–13 ATL, HOU 24–27 CLE, MIN 30–10 GB, MIA 22–24 IND, CAR 20–17 NO, BUF 31–12 NYJ, JAX 40–23 TEN, LAR 34–6 ARI, SEA 21–13 LV, SF 46–40 DAL. LAC@BAL correctly left `in_progress`/transient at capture (never published as final).
+   - `data/standings-2026-w10.csv` (32 clubs, captured 2026-11-14): internally consistent; `net_points_published == PF − PA` for all 32 rows. W/L/PCT and PF/PA are plausible for the pre-Week-10 snapshot vintage.
+4. **Flagged & fixed one irregularity.** Every standings row carried a stale `note = "MISMATCH: published net points differ from PF-PA"` although computation shows zero mismatches (32/32 match). Corrected the annotation to `verified: net_points_published == PF - PA at this snapshot (no mismatch)`; no measured value was altered. Recorded as irregularity F-EF0D-01 below.
+
+### Irregularity flagged
+
+| ID | Status | Irregularity | Action | Official source |
+|---|---|---|---|---|
+| F-EF0D-01 | FIXED | `data/standings-2026-w10.csv` note column falsely claimed a net-points mismatch on all 32 rows; PF − PA equals `net_points_published` in every row. | Rewrote the annotation to the verified state. No measured value changed. | `https://www.nfl.com/standings/division/2026/REG` (structure) + committed capture cross-check |
+
+### Open items requiring a user decision (not resolved here — no manual input requested)
+
+- F-AUD-01: scheduled NFL-page capture vs NFL Terms §1.3 permission gate — unresolved.
+- F-AUD-02 / F-AUD-06: public/private data layer and licensed odds feed — requires written permission or a licensed source; no official NFL odds feed exists.
+- F-AUD-05: verified 32-club depth/starter route — only 5 clubs covered; playing-time/Game Book evidence not complete.
+- S5 (highest leverage): commit a CSV of closing lines to unlock real edge/CLV measurement and the leaderboard.
+
+### Sources used for this session's verification
+
+- https://www.nfl.com/standings/division/2026/REG (live official 2026 REG standings)
+- https://www.nfl.com/schedules/2026/by-week/week-10 (live official Week 10 schedule + scores)
+- https://www.nfl.com/injuries/ (live official injury report, reachable; not re-published)
+- https://www.nfl.com/legal/terms/ (NFL Terms, referenced for capture-policy gate)
+- Committed artifacts: `data/results_feed.csv`, `data/standings-2026-w10.csv`, `data/games_2026_week10.csv`
+
+<!-- session arena/ef0d23b8-fl2 recorded -->
+
