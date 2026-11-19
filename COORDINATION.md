@@ -2363,6 +2363,8 @@ This addendum supersedes the matching statements in the completion record above.
 
 While pushing this claim, `git pull --rebase origin main` fetched concurrent main changes (`6949980..6a3443c`) and found a content conflict in this append-only board. The conflict was resolved by preserving both main's post-merge records for sessions `b99036de` / `1541a85c` and this session's claim; no other session's content was dropped or edited. The rebase completed as commit `d8f7496`.
 
+A final pre-push `git pull --rebase origin main` fetched main through `b56d419` (including the merged session `142f2cd8` records) and conflicted again in this append-only board while replaying this session's claim. Both the new main records and C-01's claim were retained; no other session's text was removed. The rebase completed and the review deliverables were replayed on top of it.
+
 ## Reconciliation result — 2026-11-19
 
 - Current official NFL Week 10 schedule and Chargers–Ravens game centre pages, fetched 2026-11-19 UTC, mark LAC@BAL Final. The immutable root results-feed row remains `in_progress`, captured at `2026-11-17T02:50:00Z`; current local feed counts are 149 final, 122 scheduled, one in-progress overall, with Week 10 at 13 final and one in-progress out of 14. No result or Game Book rows were changed.
