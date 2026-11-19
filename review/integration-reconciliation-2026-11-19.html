@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 10 reconciliation · Flagged for Review · FL2</title>
+<meta name="description" content="Dated NFL source and site-state reconciliation: official Week 10 final status, stale result feed, Game Book coverage, and unresolved data-use gates.">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .audit-hero { padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); }
+  .audit-hero h1 { margin: 0 0 8px; font-size: clamp(24px,4vw,34px); line-height: 1.15; }
+  .audit-hero p { max-width: 86ch; color: var(--ink-2); }
+  .audit-nav { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 0; }
+  .audit-nav a { padding:6px 10px; background:var(--surface-2); border-radius:18px; font-size:12px; }
+  .notice { padding:14px 16px; border-left:4px solid var(--warn); background:var(--warn-bg); border-radius:5px; margin:14px 0; }
+  .notice.danger { border-color:var(--bad); background:var(--bad-bg); }
+  .notice.good { border-color:var(--ok); background:var(--ok-bg); }
+  .notice p:last-child { margin-bottom:0; }
+  .status { font-weight:700; }
+  .status.open { color:var(--bad); }
+  .status.partial { color:var(--warn); }
+  .status.ok { color:var(--ok); }
+  .source { min-width:190px; }
+  .source a { display:inline-block; margin:0 7px 4px 0; }
+  .small { font-size:12px; color:var(--ink-3); }
+  .nowrap { white-space:nowrap; }
+  .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:12px; margin:16px 0; }
+  .metric { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:14px; }
+  .metric .label { color:var(--ink-3); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+  .metric .value { font-size:24px; font-weight:750; margin:4px 0; }
+  .metric .detail { color:var(--ink-2); font-size:12px; }
+  .decision-table td { vertical-align:top; }
+  @media(max-width:680px){.table-wrap{overflow-x:auto}.decision-table{min-width:860px}.gamebook-table{min-width:760px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <div class="brand-row"><div class="brand"><a href="../index.html" style="color:#fff">FL2 <span>· Flagged for Review</span></a></div><div class="brand-sub">Week 10 reconciliation · 2026-11-19 UTC</div></div>
+    <nav class="tabs" aria-label="Review navigation">
+      <a href="../index.html">Overview</a>
+      <a href="../ledger/summary.html">Executive summary</a>
+      <a href="../fl2-lines/index.html">Readiness</a>
+      <a href="../fl2-lines/suggestions.html">Suggestions</a>
+      <a href="../fl2-lines/questions.html">Questions</a>
+      <a href="integration-audit-2026-11-17.html">Historical integration audit</a>
+      <a href="integration-reconciliation-2026-11-19.html" aria-current="page">Current reconciliation</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <section class="audit-hero">
+    <p class="eyebrow">Flagged for Review · dated source check · no new data ingestion</p>
+    <h1>Week 10: reconcile the official page, saved feed, and Game Books</h1>
+    <p>This 2026-11-19 review supersedes older status statements where newer evidence exists. It is a source and repository audit, not a new results capture. NFL pages below were fetched with the page-fetch tool; local counts were recomputed from committed files. The official final score is intentionally not copied into this site's dataset or this report while the source-use/redistribution gate remains unresolved.</p>
+    <div class="audit-nav" aria-label="Audit sections">
+      <a href="#summary">Decision summary</a><a href="#answers">Questions &amp; answers</a><a href="#gamebooks">Game Book register</a><a href="#flags">Flagged irregularities</a><a href="#path">Suggested path</a><a href="#sources">Sources &amp; limits</a>
+    </div>
+  </section>
+
+  <section class="block" id="summary">
+    <h2>Executive result</h2>
+    <div class="notice danger">
+      <strong>The Week 10 results record is stale, not a final-result conflict.</strong>
+      The current official NFL schedule marks Chargers–Ravens <b>Final</b>; the official game-centre page also says <b>Final</b>. The committed feed still holds its 2026-11-17 capture-time state as <code>in_progress</code>. Keep that old capture immutable, do not grade its live value as a result, and do not write a replacement row until the data-use gate is cleared.
+      <span class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official Week 10 schedule</a><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" target="_blank" rel="noopener">Official game centre</a><a href="../data/results_feed.csv">Committed results feed</a></span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="label">Official Week 10 state</div><div class="value">Final</div><div class="detail"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">NFL schedule</a> · <a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" target="_blank" rel="noopener">game centre</a></div></div>
+      <div class="metric"><div class="label">Saved result-feed state</div><div class="value">149 / 150</div><div class="detail">Week 1–10 finals in the committed as-of capture; one row remains in progress. <a href="../data/results_feed.csv">Inspect row-level source and timestamp</a>.</div></div>
+      <div class="metric"><div class="label">Week 10 Game Books</div><div class="value">14 / 14</div><div class="detail">All 14 Week 10 games are present in the committed capture register. <a href="../fl2-depth/sources.html">Official PDF links</a>.</div></div>
+      <div class="metric"><div class="label">Parsed playtime rows</div><div class="value">1,308</div><div class="detail">Repository/parser count, not an NFL-published total; validator reports 23 structural checks passed. <a href="../fl2-depth/engine/validate_depth.py">Validator</a>.</div></div>
+    </div>
+    <div class="notice">
+      <strong>Scope boundary.</strong> The Game Book sample is one week, covering 28 clubs that played. It is not a complete 32-club, multi-season availability history; it does not define a pre-game expected starter or a 1st–4th string depth rank. Game Books are post-kickoff evidence and cannot be used for the same game's forecast without look-ahead leakage.
+    </div>
+  </section>
+
+  <section class="block" id="answers">
+    <h2>Questions, current answers, and missing information</h2>
+    <p class="sub">The source column is direct to an official NFL page when the row states an NFL fact. Project-state rows are labelled as such and link to the relevant repository artifact instead.</p>
+    <div class="table-wrap">
+      <table class="decision-table">
+        <thead><tr><th>Question / decision</th><th>Answer supported now</th><th>Missing information</th><th>Gate / how to discover</th><th>Source / evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Is Chargers–Ravens still pending?</td>
+            <td>No. The official Week 10 schedule and game-centre page mark the game Final. The result feed remains at the earlier live capture; the final score is left blank here pending the source-use gate.</td>
+            <td>A permitted, immutable final capture and a standings replay from the updated corpus.</td>
+            <td>Use a licensed source or documented written permission; append a new capture; rebuild the feed, baselines and luck panel; check all 150 Week 1–10 fixtures and reconcile 32/32 team records.</td>
+            <td class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">NFL Week 10 schedule</a><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" target="_blank" rel="noopener">NFL game centre</a><a href="../data/results_feed.csv">Saved feed</a></td>
+          </tr>
+          <tr>
+            <td>Do the current Game Books show actual starters, inactives and playing time?</td>
+            <td>For Week 10 only: 14 game books, 616 starter rows, 1,308 playtime rows and 205 Not Active / Did Not Play rows; 28 participating clubs. Counts were recomputed locally and each data row carries the source PDF URL.</td>
+            <td>Multi-week/season coverage, four Week 10 bye clubs, pre-game expected starters, roster-event joins, and confirmed rights to store/publish.</td>
+            <td>After the rights gate, build a chronological dataset from permitted official records; preserve shared/empty groups; compare pre-game expected starters with actual Game Book lineups and snap share. Do not infer depth from jersey order or one game.</td>
+            <td class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">NFL Week 10 schedule</a><a href="#gamebooks">14 official Game Book PDFs</a><a href="../fl2-depth/engine/validate_depth.py">Parser validator</a></td>
+          </tr>
+          <tr>
+            <td>Can those snap rows be used in same-week forecasts?</td>
+            <td>No. The Game Book becomes available after the game has kicked off; same-game use would be look-ahead. It may be historical ground truth only after the point-in-time and data-rights gates clear.</td>
+            <td>First-publication timestamps and a multi-season, point-in-time playtime corpus.</td>
+            <td>Record fetch time and source hash; fit on past games only; use chronological holdouts. A missing pre-kickoff source stays blank.</td>
+            <td class="source"><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" target="_blank" rel="noopener">NFL game centre</a><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">NFL Terms</a><a href="../fl2-depth/index.html">Game Book data section</a></td>
+          </tr>
+          <tr>
+            <td>May the site schedule NFL-page capture and publish row-level data?</td>
+            <td>Not cleared. NFL Terms §1.3 says systematic retrieval to compile a collection or database is prohibited absent express prior written consent. The repo has fail-closed capture guards; the variable's current value could not be checked here.</td>
+            <td>Written NFL authorization or a licensed source; retention and redistribution rights; a private store and an explicit rule for allowed derived outputs.</td>
+            <td>Complete a rights review; keep automated capture disabled until permission/licensing is documented; do not treat a manual dispatch as an exemption. Keep raw data outside the public Pages artifact.</td>
+            <td class="source"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">Official NFL Terms §1.3</a><a href="../.github/workflows/pages.yml">Pages publishes repository root</a><a href="../.github/workflows/fl2-depth-capture.yml">Fail-closed Game Book workflow</a></td>
+          </tr>
+          <tr>
+            <td>Can any strategy earn live rewards now?</td>
+            <td>No live strategy is promoted by the committed registry; this is a project-governance state, not an NFL fact.</td>
+            <td>A frozen prospective sample, permitted timestamped market prices, proper-score skill, uncertainty and multiplicity control; for combos, validated joint probabilities and operator push/void rules. The reward definition is also an owner choice.</td>
+            <td>Continue singles-only shadow evaluation; do not rank on win rate or season ROI; keep backtest numbers off the prospective leaderboard. Do not rank parlays/props by multiplying marginal probabilities.</td>
+            <td class="source"><span>Official NFL source: not applicable to project governance.</span><a href="../data/linelab/registry.json">Strategy registry</a><a href="../fl2-lines/leaderboard.html">Leaderboard gates</a><a href="../fl2-lines/prereg.html">Pre-registration</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="gamebooks">
+    <h2>Week 10 Game Book register</h2>
+    <p class="sub">Counts below are parser rows from the committed CSVs, not NFL-published totals. The capture register records 2026-11-17T18:32:57Z for all 14 PDFs. Each row links to the official NFL PDF. The validator passed 23 structural checks, including the parser's ten documented hand-read offensive snap-total checks. This audit did not manually re-read all 1,308 playtime rows; the PDF body could not be parsed by the page-fetch tool.</p>
+    <div class="table-wrap">
+      <table class="gamebook-table">
+        <thead><tr><th>Fixture</th><th>Starter rows</th><th>Playtime rows</th><th>Not Active / DNP rows</th><th>Official NFL Game Book</th></tr></thead>
+        <tbody>
+          <tr><td class="nowrap">WAS @ NYG</td><td>44</td><td>92</td><td>17</td><td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">NE @ DET</td><td>44</td><td>96</td><td>12</td><td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">KC @ ATL</td><td>44</td><td>95</td><td>15</td><td><a href="https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab582f5b-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">HOU @ CLE</td><td>44</td><td>93</td><td>16</td><td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">MIN @ GB</td><td>44</td><td>94</td><td>15</td><td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab788967-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">MIA @ IND</td><td>44</td><td>91</td><td>17</td><td><a href="https://static.www.nfl.com/image/upload/v1794829723/gamecenter/ab789365-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">CAR @ NO</td><td>44</td><td>94</td><td>15</td><td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab789769-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">BUF @ NYJ</td><td>44</td><td>94</td><td>12</td><td><a href="https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab789ac9-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">JAX @ TEN</td><td>44</td><td>94</td><td>14</td><td><a href="https://static.www.nfl.com/image/upload/v1794829722/gamecenter/ab789e15-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">LAR @ ARI</td><td>44</td><td>93</td><td>16</td><td><a href="https://static.www.nfl.com/image/upload/v1794854921/gamecenter/ab78a133-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">SEA @ LV</td><td>44</td><td>92</td><td>16</td><td><a href="https://static.www.nfl.com/image/upload/v1794829726/gamecenter/ab78a43c-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">SF @ DAL</td><td>44</td><td>94</td><td>14</td><td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab78a748-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">PIT @ CIN</td><td>44</td><td>96</td><td>9</td><td><a href="https://static.www.nfl.com/image/upload/v1794829727/gamecenter/ab78aa48-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+          <tr><td class="nowrap">LAC @ BAL</td><td>44</td><td>90</td><td>17</td><td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" target="_blank" rel="noopener">Official PDF</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Totals: 14 books, 616 starter rows, 1,308 playtime rows, 205 inactive/DNP rows; 28 clubs. Source links and hashes are also listed in <a href="../fl2-depth/sources.html">FL2 Depth · Sources &amp; hashes</a>. The totals are arithmetic over the committed per-game rows.</p>
+  </section>
+
+  <section class="block" id="flags">
+    <h2>Flagged irregularities</h2>
+    <div class="table-wrap">
+      <table class="decision-table">
+        <thead><tr><th>ID</th><th>Finding</th><th>Why it matters</th><th>Next action</th><th>Official source / repo evidence</th></tr></thead>
+        <tbody>
+          <tr><td><b>FR-01</b></td><td>Official Week 10 schedule now shows the LAC@BAL game Final; the committed result feed still has its 2026-11-17 `in_progress` capture.</td><td>A backtest must not grade a live snapshot as the final result; the 149/150 state and records replay are stale.</td><td>After authorization/licensing, append a new capture; rebuild and require 150/150 finals and 32/32 team-record replay. Do not overwrite the historical in-progress capture.</td><td class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official NFL schedule</a><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" target="_blank" rel="noopener">Game centre</a><a href="../data/results_feed.csv">Saved feed</a></td></tr>
+          <tr><td><b>FR-02</b></td><td>Decision Desk pages still report zero 2026 snap counts and a live Week 10 game.</td><td>The summaries predate the final 2026-11-17 Game Book capture and now disagree with the committed evidence.</td><td>Final integrator: refresh or date-stamp those summaries after the active Decision Desk PR settles. This session did not touch that scope.</td><td class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official NFL schedule</a><a href="#gamebooks">Official Game Book register</a><a href="../decision-desk/index.html">Decision Desk page</a></td></tr>
+          <tr><td><b>FR-03</b></td><td>An earlier coordination narrative says 1,218 snap rows and 13/14 books with playtime; the committed final register and validator report 1,308 rows and 14/14.</td><td>An append-only capture log can preserve the earlier state, but it must not be mistaken for the final capture.</td><td>Add a dated correction; retain the earlier capture event rather than silently rewriting it.</td><td class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official schedule</a><a href="../fl2-depth/data/verified/capture-log-2026-w10.md">Committed capture log</a><a href="../fl2-depth/engine/validate_depth.py">Validator</a></td></tr>
+          <tr><td><b>FR-04</b></td><td>Pages uploads the repository root and the repo contains row-level NFL-derived files; the authorization-variable state could not be read here (GitHub API 403).</td><td>The public/private data boundary requested in the brief is not demonstrated. This is a rights review flag, not a legal conclusion.</td><td>Keep captures fail-closed; do not add or publish more raw rows until permission or licensed terms and a private store are documented.</td><td class="source"><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">Official NFL Terms §1.3</a><a href="../.github/workflows/pages.yml">Pages workflow</a><a href="../.github/workflows/fl2-depth-capture.yml">Capture guard</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block" id="path">
+    <h2>Suggested path before trusting a team or strategy</h2>
+    <ol>
+      <li><b>Resolve data rights first.</b> Obtain written permission or a licensed feed; document retention and derived-publication rights. Keep all capture jobs fail-closed until verified.</li>
+      <li><b>Use one immutable input manifest.</b> Record source, UTC retrieval time, hash, included game IDs, parser/model version, and conflicts. Corrections are new captures, never silent overwrites.</li>
+      <li><b>Build availability as a time series.</b> Join permitted dated injury/practice reports and official roster/transaction events to pre-game expected starters, game-day inactives, actual Game Book starters, and playing time. Keep shared/empty slots and missing values explicit.</li>
+      <li><b>Do not infer 1st–4th string from one week.</b> Build playing-time features from chronological windows with position/unit groups and time cutoffs; validate across 32 clubs and multiple seasons before any team-level claim.</li>
+      <li><b>Use paired personnel ablations.</b> Compare identical models with/without verified availability features on chronological holdouts; publish the delta, sample size and game-cluster uncertainty. Do not use fixed injury penalties or an injury level as a surprise signal.</li>
+      <li><b>Keep the strategy competition evidence-led.</b> Pre-register, evaluate singles first, publish probabilities with inputs, use proper-score skill and uncertainty before prospective CLV/ROI escrow. Parlays/props require validated joint probabilities and operator-specific push/void rules.</li>
+      <li><b>Keep owner decisions open rather than guessed.</b> Data-use permission, price-source budget/rights, and the meaning of a leaderboard reward need an explicit recorded decision.</li>
+    </ol>
+    <p class="small">For the full questions and suggestions registers, see <a href="../decision-desk/questions.html">Decision Desk · Questions</a> and <a href="../decision-desk/suggestions.html">Decision Desk · Suggestion review</a>. Those pages are flagged here for a freshness update; they were not edited in this scope.</p>
+  </section>
+
+  <section class="block" id="sources">
+    <h2>Sources and verification limits</h2>
+    <ul>
+      <li><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official NFL Week 10 schedule</a> — fetched 2026-11-19; current page marks Chargers–Ravens Final. The final score was not transcribed into the repository in this audit.</li>
+      <li><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" target="_blank" rel="noopener">Official Chargers–Ravens game centre</a> — fetched 2026-11-19; page says Final and links the official Game Book PDF.</li>
+      <li><a href="https://www.nfl.com/standings/division/2026/REG" target="_blank" rel="noopener">Official NFL 2026 standings</a> — fetched 2026-11-19; used as a current official reference, not as a substitute for a new immutable results capture.</li>
+      <li><a href="https://www.nfl.com/legal/terms/" target="_blank" rel="noopener">NFL.com Terms and Conditions</a> — fetched 2026-11-19; §1.3 includes the systematic-retrieval restriction. This page is not legal advice and does not establish permission.</li>
+      <li><a href="../fl2-depth/sources.html">Repository Game Book source register</a> — links all 14 official PDFs above and their captured hashes. The PDF body was not readable through the page-fetch tool in this audit; parser row counts remain repository outputs.</li>
+    </ul>
+    <div class="notice">
+      <strong>What this audit did not do.</strong> It did not run a scheduled NFL fetch, add or edit any result or Game Book row, re-read every value in all 14 PDFs, change the authorization variable, compute a new injury effect/correlation, or change leaderboard eligibility. Local validator and link-check outcomes are recorded in <a href="../COORDINATION.md">COORDINATION.md</a> after the final verification pass.
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <p>FL2 research record · reconciliation date 2026-11-19 UTC · Flagged for Review · not betting advice.</p>
+  <p><a href="../index.html">Site overview</a> · <a href="../ledger/summary.html">Executive summary</a> · <a href="integration-audit-2026-11-17.html">Historical integration audit</a> · <a href="../COORDINATION.md">Coordination board</a></p>
+</footer>
+</body>
+</html>

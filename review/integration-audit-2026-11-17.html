@@ -34,7 +34,8 @@
       <a href="../fl2-lines/index.html">Readiness</a>
       <a href="../fl2-lines/suggestions.html">Suggestions</a>
       <a href="../fl2-lines/questions.html">Questions</a>
-      <a href="integration-audit-2026-11-17.html" aria-current="page">Flagged review</a>
+      <a href="integration-audit-2026-11-17.html" aria-current="page">Historical audit · 2026-11-17</a>
+      <a href="integration-reconciliation-2026-11-19.html">Current reconciliation · 2026-11-19</a>
     </nav>
   </div>
 </header>
@@ -47,6 +48,16 @@
     <div class="audit-nav" aria-label="Audit sections">
       <a href="#decision-summary">Decision summary</a><a href="#F-AUD-01">Capture terms</a><a href="#F-AUD-03">Data vintages</a><a href="#repo-findings">Repository findings</a><a href="#questions">Questions</a><a href="#suggestions">Suggested path</a><a href="#checks">Checks performed</a>
     </div>
+  </section>
+
+  <section class="block" id="current-update" aria-labelledby="current-update-heading">
+    <h2 id="current-update-heading">Superseding update · 2026-11-19</h2>
+    <div class="audit-note danger">
+      <strong>This 2026-11-17 audit is historical. Read the <a href="integration-reconciliation-2026-11-19.html">current 2026-11-19 reconciliation</a> before relying on any status below.</strong>
+      The official NFL Week 10 schedule now marks Chargers–Ravens Final, while the committed results feed still preserves the 2026-11-17 in-progress capture. The Game Book register now has 14 of 14 Week 10 books, 616 starter rows, 1,308 playtime rows and 205 Not Active / Did Not Play rows; these are one-week parser totals across 28 clubs, not a complete depth dataset. This supersedes older text below that says the MNF game is live or that no 2026 snaps / actual starters / inactives are stored.
+      <span class="source"><a href="https://www.nfl.com/schedules/2026/by-week/week-10" target="_blank" rel="noopener">Official NFL Week 10 schedule</a><a href="../fl2-depth/index.html">Week 10 Game Book register</a><a href="integration-reconciliation-2026-11-19.html">Full reconciliation and flags</a></span>
+    </div>
+    <p class="small">The capture authorization gate is now fail-closed in the current workflows, but permission and the public/private data boundary remain unresolved. This notice does not update or overwrite the historical snapshot narrative.</p>
   </section>
 
   <section class="block" id="decision-summary">

@@ -2345,7 +2345,7 @@ This addendum supersedes the matching statements in the completion record above.
 
 | Task | Status | Files in scope (exclusive) | Notes |
 |---|---|---|---|
-| C-01 | Independently reconcile the current official Week 10 final-status page, the committed results-feed capture, and the 2026 Week 10 Game Book dataset; publish a dated review with answers, blockers, source links, and explicit requests for out-of-scope corrections | **in progress** | `review/integration-reconciliation-2026-11-19.md`, `review/integration-reconciliation-2026-11-19.html`, `review/integration-audit-2026-11-17.html` (supersession notice/link only), append-only `COORDINATION.md` | No NFL result rows or raw Game Book data will be added or changed in this claim. |
+| C-01 | Independently reconcile the current official Week 10 final-status page, the committed results-feed capture, and the 2026 Week 10 Game Book dataset; publish a dated review with answers, blockers, source links, and explicit requests for out-of-scope corrections | **done** (2026-11-19) | `review/integration-reconciliation-2026-11-19.md`, `review/integration-reconciliation-2026-11-19.html`, `review/integration-audit-2026-11-17.html` (supersession notice/link only), append-only `COORDINATION.md` | No NFL result rows or raw Game Book data were added or changed. |
 
 ## Scope boundaries
 
@@ -2362,3 +2362,11 @@ This addendum supersedes the matching statements in the completion record above.
 ## Coordination log
 
 While pushing this claim, `git pull --rebase origin main` fetched concurrent main changes (`6949980..6a3443c`) and found a content conflict in this append-only board. The conflict was resolved by preserving both main's post-merge records for sessions `b99036de` / `1541a85c` and this session's claim; no other session's content was dropped or edited. The rebase completed as commit `d8f7496`.
+
+## Reconciliation result — 2026-11-19
+
+- Current official NFL Week 10 schedule and Chargers–Ravens game centre pages, fetched 2026-11-19 UTC, mark LAC@BAL Final. The immutable root results-feed row remains `in_progress`, captured at `2026-11-17T02:50:00Z`; current local feed counts are 149 final, 122 scheduled, one in-progress overall, with Week 10 at 13 final and one in-progress out of 14. No result or Game Book rows were changed.
+- The committed Week 10 Game Book register contains 14 captured PDFs (each `captured_at_utc=2026-11-17T18:32:57Z`), 616 starter rows, 1,308 playtime rows, 205 inactive/DNP rows and 28 participating clubs. `python3 fl2-depth/engine/validate_depth.py` passed 23/23 checks. Counts are local parser output, not league-published totals; the review explicitly limits the dataset to one post-game week.
+- Dated review deliverables: `review/integration-reconciliation-2026-11-19.md` and `.html`; the 2026-11-17 audit has a supersession notice and link only. The review lists four flagged inconsistencies, source links for every evidence row, rights/authorization blockers, and explicit requests for other owners to reconcile their scopes. No other session's files or PRs were edited.
+- Local checks on the completed documentation: `scripts/check_site.py`, `tools/check_links.py`, `tools/check_integrated_site.py`, `tools/check_decision_desk.py`, `tools/check_signals_links.py`, `ops/check_readiness.py`, `fl2-depth/engine/validate_depth.py`, `fl2-lines/engine/check.py`, `signal/analysis/verify.py`, `engine/linelab/check_site.py`, and (after local `npm install --no-save jsdom`) `engine/check_site.py` passed. The new review's three tables were checked row by row for source links, and its 14 Game Book PDF links were matched against the committed register. `git diff --check` passed after the final documentation and coordination edits. No automated NFL capture, GitHub Pages publish, or authorization change was run.
+- `gh variable list` is unsupported in the installed CLI, and Actions variable listing via the GitHub API returned 403; the authorization variable’s state remains unknown. An unrelated local verification script failed before installing `jsdom`; it passed after the local-only install (not recorded in tracked files).
