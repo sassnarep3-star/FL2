@@ -1,0 +1,17 @@
+url,source_type,read_on_utc,read_result,used_for
+https://www.nfl.com/transactions/league/trades/2026/11,official (NFL league transactions log),2026-11-19,ok (single page; Nov 6 to Nov 10 trades read),RE-01; RE-02; RE-03
+https://www.nfl.com/transactions/league/reserve-list/2026/11,official (NFL league transactions log),2026-11-19,ok (pages 1 and 2 read; 11/10 to 11/18 entries; no Willis or Sieler row; Biggers and Phillips 11/17 present),RE-04; RE-05; RE-06; RE-07; FR-04
+https://www.nfl.com/transactions/league/signings/2026/11,official (NFL league transactions log),2026-11-19,ok (page 1 read; Brady Cook 11/17 'Free Agent Signing'; chunk 2 not read),RE-12; FR-11
+https://www.colts.com/news/colts-release-unofficial-depth-chart-for-week-10,official (club website; page is an unofficial depth chart),2026-11-19,ok (chunk 0 of 2 read; Nov 10 2026 4:27 PM; WR listing; traded Allen and Downs; Westbrook-Ikhine signed from practice squad),RE-01; RE-02; colts_wr_chart_vs_gamebook_2026_w10.csv; FR-10
+https://www.miamidolphins.com/news/dolphins-make-roster-moves-x8063,official (club website),2026-11-19,ok (Nov 10 2026 03:59 PM; Sieler and Willis IR; Taylor waived; related-content items read),RE-04; RE-05; RE-06; RE-07; RE-12
+https://www.miamidolphins.com/news/,official (club website; news index),2026-11-19,ok (index page; earlier read),RE-12
+https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start,official (NFL.com article),2026-11-19,ok in earlier read (undated in capture; Willis out Weeks 10-13; McCord starts at IND),RE-04; RE-10; FR-12
+https://www.nfl.com/news/drew-lock-no-injury-designation-seahawks-raiders,official (NFL.com article),2026-11-19,ok in earlier read (undated in capture; Lock starts at LV; no designation),RE-11; FR-12
+https://www.nfl.com/news/ravens-qb-tyler-huntley-out-for-season-turf-toe-injury,official (NFL.com article),2026-11-19,ok in earlier read (undated in capture),RE-09; FR-05
+https://www.nfl.com/news/ravens-lamar-jackson-right-thumb-out-6-9-weeks-expects-to-return-this-season,official (NFL.com article),2026-11-19,ok in earlier read (undated in capture; Jackson IR 6-9 weeks),RE-08; FR-05
+https://www.ravens.com/news/,official (club website),2026-11-19,HTTP 500 (not readable),FR-05
+https://www.ravens.com/depth-chart,official (club website),2026-11-19,HTTP 500 (not readable),FR-05
+https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,official (NFL game centre),2026-11-19,"ok in earlier read (final IND 24, MIA 22; Game Book linked)",RE-10
+https://static.www.nfl.com/image/upload/v1794829723/gamecenter/ab789365-4feb-11f1-abca-2c54536568a9.pdf,"official (NFL Game Book PDF; MIA at IND 11/15/2026)",2026-11-19,"ok (chunk 0 of 8 read; Lineups: QB 14 K.McCord, WR 80 D.Burks, WR 13 L.Treadwell, WR 6 A.Gould; Did Not Play: QB 15 B.Cook, WR 12 N.Westbrook-Ikhine, WR 16 A.Dulin; NFL copyright notice)",RE-10; FR-02; FR-10; colts_wr_chart_vs_gamebook_2026_w10.csv
+https://static.www.nfl.com/image/upload/v1794829726/gamecenter/ab78a43c-4feb-11f1-abca-2c54536568a9.pdf,official (NFL Game Book PDF; SEA at LV 11/15/2026),2026-11-19,ok in earlier read (chunk 0 of 7; Lineups: QB 2 D.Lock; NFL copyright notice),RE-11; FR-02
+https://www.nfl.com/legal/terms/,official (NFL Terms),not read in this session,not read in this session,FR-03
