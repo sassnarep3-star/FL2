@@ -2,13 +2,15 @@ name: fl2-lines-snapshot
 # Dated captures of the official pages this section depends on, kept OUTSIDE the published
 # site (branch `fl2-snapshots`), plus the drift/schema audit that fails loudly when a source
 # changes under us. Requirement lines R21, R29, R30, R39, R46, R54, R55, R61, R63.
+# Authorization gate: no scheduled or manually dispatched capture runs until the repository
+# variable FL2_NFL_CAPTURE_AUTHORIZED is explicitly set to the string "true" after the
+# unresolved F-T1 content-use review is closed. This workflow must not fetch NFL pages by default.
 on:
-  schedule:
-    # 16:00 UTC Wed/Thu/Fri - the league's report cadence runs Wednesday disclosure through
-    # Friday's final cut, so a single weekly read cannot tell a change from a re-render.
-    - cron: "0 16 * * 3"
-    - cron: "0 16 * * 4"
-    - cron: "30 16 * * 5"
+  # schedule intentionally disabled pending F-T1; retain the proposed cadence below for review.
+  # schedule:
+  #   - cron: "0 16 * * 3"
+  #   - cron: "0 16 * * 4"
+  #   - cron: "30 16 * * 5"
   workflow_dispatch:
     inputs:
       week:
@@ -25,6 +27,8 @@ concurrency:
 
 jobs:
   capture:
+    # Fail closed: an unset/false repository variable skips the whole job before any fetch.
+    if: ${{ vars.FL2_NFL_CAPTURE_AUTHORIZED == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

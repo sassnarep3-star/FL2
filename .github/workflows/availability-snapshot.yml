@@ -5,11 +5,10 @@ name: Availability snapshots
 #  - "Automate immutable multi-day availability snapshots ... with retained hashes"
 #  - "Add durable snapshot storage and alerts ... monitor freshness and alert on source/schema changes"
 #
-# GATE F-T1 (session 8326a20d, fl2-dashboard/flagged-review.html): nfl.com Terms §1.3 prohibit
-# systematic retrieval of data to compile a database without express prior written consent.
-# Until the owner resolves that gate (written consent, or derived-counts-only), the schedule
-# is DISABLED and capture runs only on explicit manual dispatch below. The cron line is kept
-# commented so the intended cadence is documented.
+# GATE F-T1 (session 8326a20d, fl2-dashboard/flagged-review.html): authorization remains
+# unresolved. This workflow is inert unless repository variable FL2_NFL_CAPTURE_AUTHORIZED is
+# explicitly set to the string "true" after the content-use review is closed. Manual dispatch
+# is not treated as an exemption. The intended cadence is retained below as a comment only.
 
 on:
   # schedule:
@@ -21,6 +20,8 @@ permissions:
 
 jobs:
   capture:
+    # Fail closed: no network request is made while the authorization variable is unset/false.
+    if: ${{ vars.FL2_NFL_CAPTURE_AUTHORIZED == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
