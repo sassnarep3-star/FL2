@@ -2200,3 +2200,13 @@ aggregate-only page is acceptable under §1.3). Nothing else in the PR is blocke
 - Executive summary, per-team view, public/private split at site level, injury-report time series and the other brief
   items are not addressed in this session.
 - `data/decision_readiness.json` not edited; DR-34 / DR-46 / R71 should be updated by the integration owner from the aggregate result.
+
+### Pull request record — f12b5506 (2026-11-19)
+
+- PR **#48** → https://github.com/sassnarep3-star/FL2/pull/48 (`arena/f12b5506-fl2` → `main`).
+- Checks: `validate` **pass** (scripts/check_site.py); `deploy` skipped on pull requests (expected). Mergeable: **yes**.
+- **Merge result: NOT merged.** Held for an owner decision on Flagged gate **F-T1** (NFL Terms §1.3). The PR's content is
+  aggregate-only, but it is derived from systematic retrieval of NFL.com pages. Merging would resolve F-T1 by agent action,
+  while `main` is fail-closed on NFL capture. Once the owner records a decision (or confirms the aggregate-only page is
+  acceptable), the PR can be merged with `gh pr merge 48 --merge`.
+- Pages deployment: not triggered (no merge). The page is not live.
