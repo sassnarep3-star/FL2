@@ -2039,3 +2039,21 @@ depth model needs more than one week); whether pre-season books carry it; and ho
 after the final whistle a book is published (this sets the earliest time ground truth can
 be checked).
 <!-- merged: both sides kept (append-only board) -->
+
+---
+
+# Session `arena/1541a85c-fl2` — fail-closed NFL capture authorization gate
+
+**Claimed:** 2026-11-19 UTC · **Branch:** `arena/1541a85c-fl2` · **Base:** `dedc34349a65605cf31c192678da437a92d3f878`.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope |
+|---|---|---|---|---|
+| A01 | Reconcile scheduled/automatic NFL-page capture workflows with the unresolved content-use gate; ensure no fetch occurs before documented authorization | **in progress** | `arena/1541a85c-fl2` | `.github/workflows/availability-snapshot.yml`, `.github/workflows/fl2-lines-snapshot.yml`, `.github/workflows/fl2-depth-capture.yml`, this append-only coordination record |
+
+## Claim and scope
+
+This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture schedules. It does not decide NFL terms, claim legal advice, delete historical data, enable any capture, or edit other sessions' model/data/site outputs. The three workflows are in scope only to add a fail-closed authorization guard; `COORDINATION.md` is append-only.
+
+**Basis:** the repository's existing Flagged for Review record quotes NFL Terms §1.3 and marks authorization unresolved: [official NFL Terms](https://www.nfl.com/legal/terms/), [F-T1 record](fl2-dashboard/flagged-review.html#F-T1), [integration finding F-AUD-01](review/integration-audit-2026-11-17.html#F-AUD-01). This task treats that existing unresolved gate conservatively; it does not independently interpret or assert the legal terms.
