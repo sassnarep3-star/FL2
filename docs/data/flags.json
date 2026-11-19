@@ -162,6 +162,52 @@
       "detail": "Pages is configured to serve the docs/ folder on main after the pull request merges. Deployment status is recorded in COORDINATION.md.",
       "source_urls": [],
       "status": "Pending - see COORDINATION.md"
+    },
+    {
+      "id": "F-B01",
+      "category": "Terms / data policy",
+      "severity": "High",
+      "item": "Scheduled nfl.com retrieval conflicted with NFL Terms §1.3",
+      "detail": "NFL Terms §1.3 prohibit 'systematic retrieval of data or other content from the Services, whether to create or compile ... a database', absent express prior written consent. Two workflows still had active cron schedules on main: fl2-lines-snapshot (Wed/Thu/Fri; a scheduled run failed about 6 hours before this check) and fl2-depth-capture (Tuesdays; ran on schedule). The README and availability-snapshot.yml both say capture must stay manual until consent is recorded. Action taken 2026-11-19: this branch paused both cron schedules and the depth push trigger. Session 1541a85c then merged a stricter fail-closed guard to main (job-level `if: vars.FL2_NFL_CAPTURE_AUTHORIZED == 'true'`, which also blocks manual dispatch). This branch keeps main's workflow files unchanged. Owner action needed: obtain written consent or a licensed source before re-enabling.",
+      "source_urls": [
+        "https://www.nfl.com/legal/terms/",
+        "https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/fl2-lines-snapshot.yml",
+        "https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/fl2-depth-capture.yml"
+      ],
+      "status": "Schedules paused and fail-closed guard on main - owner decision needed (written consent or licensed source) before the variable is set"
+    },
+    {
+      "id": "F-B02",
+      "category": "Source irregularity",
+      "severity": "Low",
+      "item": "Official injury page title and heading name different weeks",
+      "detail": "Fetched 2026-11-19 from https://www.nfl.com/injuries/league/2026/reg10: the page title reads 'Official NFL Injury Report for Players - Week 11 of the 2026 Season' while the on-page heading reads 'Injuries - WEEK 10'. The repo's Week 10 captures use the heading. Not resolved here; flagged for a human check of which week the page represents.",
+      "source_urls": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ],
+      "status": "Open - for your review"
+    },
+    {
+      "id": "F-B03",
+      "category": "Verification (closed)",
+      "severity": "Info",
+      "item": "Lions game-status designations (Kerby Joseph, Cade Mays, D.J. Reed) verified",
+      "detail": "The brief reported these three as blank Game Status cells. On 2026-11-19 the official NFL Week 10 injury page shows all three as Out (Joseph: S, Knee, DNP, Out; Mays: C, Ankle, DNP, Out; Reed: CB, Hip, DNP, Out) in the Lions block of the Patriots-Lions game. Committed data already carries Out in every checked file, so no value was changed.",
+      "source_urls": [
+        "https://www.nfl.com/injuries/league/2026/reg10"
+      ],
+      "status": "Resolved - verified against official page"
+    },
+    {
+      "id": "F-B04",
+      "category": "Repo irregularity",
+      "severity": "Low",
+      "item": "Committed docs/ differed from its generator",
+      "detail": "Running scripts/make_pages.py on main (dedc343) changed 11 committed docs/*.html files. The committed header still linked '../hub/index.html' (Decision Hub) and the generator output does not. The Pages workflow regenerates docs/ before deploy, so the live site follows the generator. The committed files were regenerated to match. Owner to confirm whether the Decision Hub link should be restored in scripts/make_pages.py.",
+      "source_urls": [
+        "https://github.com/sassnarep3-star/FL2/blob/main/scripts/make_pages.py"
+      ],
+      "status": "Resolved - regenerated; owner to confirm nav link"
     }
   ]
 }
