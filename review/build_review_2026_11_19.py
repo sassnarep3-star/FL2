@@ -37,11 +37,11 @@ def a(href: str, label: str | None = None) -> str:
 VERIFIED = [
     ("V1", "Week 10 final scores, all 14 games",
      f"{a(WEEK10, 'nfl.com Week 10 schedule')}",
-     "14 of 14 match the official final scores. Per-game links are in section 2.",
+     "12 of 14 match the official final scores in every feed. LAC&ndash;BAL and PIT&ndash;CIN do not (see section 2 and I-01).",
      f"{a(repo('review/results-corrections-2026-11-19.csv'), 'corrections register')}"),
-    ("V2", "Week 10 Thursday game is final: Commanders 24, Giants 21 (Nov 12)",
+    ("V2", "Week 10 Thursday game is final: Commanders 24, Giants 21, Thursday, November 12",
      f"{a(WEEK10, 'nfl.com Week 10 schedule')}",
-     "The landing page said the data was captured &ldquo;before Week 10 kicked off&rdquo;. That is false: the game was already final two days before the 2026-11-14 capture. The repository's own <code>data/injuries.json</code> (retrieved 2026-11-14) lists it as &ldquo;Commanders 24, Giants 21&rdquo;. <strong>Corrected.</strong>",
+     "The landing page said the data was captured &ldquo;before Week 10 kicked off&rdquo;. That is false: the official schedule lists the game FINAL on Thursday, November 12th, two days before the 2026-11-14 capture. The repository's own <code>data/injuries.json</code> (retrieved 2026-11-14) lists it as &ldquo;Commanders 24, Giants 21&rdquo;. <strong>Corrected.</strong>",
      f"{a(repo('index.html'), 'index.html')}"),
     ("V3", "Records after Week 10: Buffalo 8&ndash;1, Cincinnati 7&ndash;2, Detroit 7&ndash;2, New England 5&ndash;5",
      f"{a(WEEK10, 'nfl.com Week 10 schedule')} &middot; {a(STAND, 'nfl.com standings')}",
@@ -59,9 +59,9 @@ VERIFIED = [
      f"{a(TERMS, 'nfl.com legal terms')}",
      "Confirms the basis of gate F-T1. The three capture workflows now fail closed on main (PR #45). No capture was run in this session.",
      f"{a(repo('.github/workflows/fl2-lines-snapshot.yml'), 'fl2-lines-snapshot.yml')}"),
-    ("V7", "Official standings: the DIFF column equals points for minus points against (checked for the 24 teams on the first page chunk, e.g. Buffalo 287&minus;199 = 88)",
+    ("V7", "Official standings: the DIFF column equals points for minus points against (checked for all 32 teams: 24 on the first chunk and 8 on the second, e.g. Buffalo 287&minus;199 = 88)",
      f"{a(STAND, 'nfl.com standings')}",
-     "Shows that the 32 &ldquo;MISMATCH&rdquo; notes in the repository standings file are false (see I-06). The 8 teams on the second chunk were not checked.",
+     "Shows that the 32 &ldquo;MISMATCH&rdquo; notes in the repository standings file are false (see I-06). All 8 teams on the second chunk also match.",
      f"{a(repo('data/standings-2026-w10.csv'), 'standings-2026-w10.csv')}"),
     ("V8", "Injury page title reads &ldquo;Week 11 of the 2026 Season&rdquo;; the page heading reads &ldquo;Injuries &ndash; WEEK 10&rdquo;",
      f"{a(INJ, 'nfl.com 2026 injury report')}",
@@ -80,9 +80,9 @@ IRREG = [
      f"{a(repo('review/results-corrections-2026-11-19.csv'), 'corrections register')} &middot; {a(WEEK10, 'official schedule')}",
      "Logged, not edited. <code>ops/forecast_week11.py</code> reads the ops feed, so editing it would change pre-registered inputs. Owner decision D2."),
     ("I-02", "High",
-     "Landing page stated the data was captured before Week 10 kicked off. The Thursday Week 10 game was already final on Nov 12.",
+     "Landing page stated the data was captured before Week 10 kicked off. The official schedule lists the Thursday Week 10 game FINAL on Thursday, November 12th.",
      f"{a(WEEK10, 'official schedule')} &middot; {a(repo('index.html'), 'index.html (original sentence)')}",
-     "<strong>Fixed</strong> on the landing page in this session."),
+     "<strong>Not applied.</strong> <code>index.html</code> is shared output, so the fix is logged as a cross-scope request in COORDINATION.md. It remains on <code>main</code>."),
     ("I-03", "Medium",
      "Landing table showed LAC&nbsp;@&nbsp;BAL as pending and &ldquo;149/150 finals&rdquo; as the current count. The official page shows it final.",
      f"{a(WEEK10, 'official schedule')}",
@@ -96,15 +96,15 @@ IRREG = [
      f"{a(INJ, 'nfl.com 2026 injury report')}",
      "Flagged. Repository uses the heading. Ask the league's content team; no inference made."),
     ("I-06", "Medium",
-     "All 32 rows of the verified standings file carry the note &ldquo;MISMATCH: published net points differ from PF-PA&rdquo;. Arithmetic shows net = PF&minus;PA on every row, and the official DIFF column agrees for the 24 teams checked.",
+     "All 32 rows of the verified standings file carry the note &ldquo;MISMATCH: published net points differ from PF-PA&rdquo;. Arithmetic shows net = PF&minus;PA on every row, and the official DIFF column agrees for all 32 teams checked.",
      f"{a(repo('data/standings-2026-w10.csv'), 'standings-2026-w10.csv')} &middot; {a(STAND, 'nfl.com standings')}",
-     "<strong>Fixed:</strong> note text only, values unchanged (32 rows). The original text is recorded here."),
+     "<strong>Already fixed on main</strong> by PR #51 (session ef0d23b8). This session did not change the file."),
     ("I-07", "High (policy)",
      "Automated capture of nfl.com pages conflicts with NFL Terms &sect;1.3 unless written consent is obtained. The repository had live schedules (Tuesday and Wed&ndash;Fri crons) before PR #45 disabled them.",
      f"{a(TERMS, 'nfl.com terms &sect;1.3')} &middot; {a(repo('.github/workflows/fl2-lines-snapshot.yml'), 'fl2-lines-snapshot.yml')}",
      "Fail-closed guard on main (PR #45). The owner decides whether any capture is authorised (decision D1). Not decided here."),
     ("I-08", "Medium",
-     "Five copies of the Week 10 injury report with different content: <code>data/injuries.json</code> (501 lines), <code>data/injuries_2026_week10.csv</code> (346), <code>data/injury-report-2026-w10.csv</code> (161), and the 2026-11-14 (346) and 2026-11-16 (348) captures. There is no single designated source.",
+     "Five copies of the Week 10 injury report with different content: <code>data/injuries.json</code> (501 lines, 14 games), <code>data/injuries_2026_week10.csv</code> (345 data rows), <code>data/injury-report-2026-w10.csv</code> (160 data rows), and the 2026-11-14 (345 data rows) and 2026-11-16 (347 data rows) captures. Row counts exclude the header. There is no single designated source.",
      f"{a(repo('data/injuries_2026_week10.csv'), 'injuries_2026_week10.csv')} &middot; {a(repo('data/linelab/captures/2026-11-16/week10-injury-report.csv'), '2026-11-16 capture')}",
      "Flagged, nothing deleted. Owner decision D3 (choose the canonical copy)."),
     ("I-09", "Medium",
@@ -112,7 +112,7 @@ IRREG = [
      f"{a(repo('signal/data/depth_player.json'), 'depth_player.json')} &middot; {a(repo('data/linelab/model_outputs.csv'), 'model_outputs.csv')}",
      "Flagged, not moved (consumers depend on them). Owner decision D4."),
     ("I-10", "Low",
-     "Duplicate raw file: <code>raw/games.csv</code> and <code>raw/_nfldata/games.csv</code> are byte-identical (md5 0572cae24b6cf3f7bd195a2152622e1c). A 2.6&nbsp;MB archive <code>raw/_nfldata.tgz</code> is also committed.",
+     "Duplicate raw file: <code>raw/games.csv</code> and <code>raw/_nfldata/games.csv</code> are byte-identical (md5 0572cae24b6cf3f7bd195a2152622e1c). A 2.6&nbsp;MiB (2,682,384 bytes) archive <code>raw/_nfldata.tgz</code> is also committed.",
      f"{a(repo('raw/games.csv'), 'raw/games.csv')} &middot; {a(repo('raw/_nfldata/games.csv'), 'raw/_nfldata/games.csv')}",
      "Flagged. No file removed."),
     ("I-11", "Medium",
@@ -157,7 +157,7 @@ NOT_CHECKED = [
      "Official club depth-chart pages were not fetched in this session. Nothing about depth or starters is re-verified here.",
      f"{a('https://www.nfl.com/injuries/', 'nfl.com injuries (starting point)')}"),
     ("Odds and price data (no official NFL odds feed)",
-     "Not re-checked. The landing page already reports nfl.com/odds as a 404 in an earlier session.",
+     "Not re-checked in this session. No official NFL odds feed has been identified.",
      f"{a('https://www.nfl.com/odds/', 'nfl.com/odds')}"),
     ("Game-day inactives, snap counts, game books",
      "Not fetched. The capture route is blocked by gate F-T1 (decision D1).",
@@ -238,8 +238,8 @@ def build_html(corr: list[dict], reqs: dict) -> str:
   <h2>Executive summary</h2>
   <ul>
     <li><strong>Week 10 results:</strong> all 14 official finals were re-read. Twelve games agree with every repository feed. Two rows are stale: Chargers 23&ndash;20 Ravens (not final in any feed) and Steelers 18&ndash;38 Bengals (blank in the <code>fl2-lines</code> feed). The corrections are logged for owner acceptance, not edited in place, because the pre-registered Week 11 forecast reads one of the feeds.</li>
-    <li><strong>A false claim was corrected.</strong> The landing page said the data was captured before Week 10 kicked off. The Thursday Week 10 game was final two days before the capture date.</li>
-    <li><strong>A false flag was corrected.</strong> The verified standings file marks all 32 teams as mismatched, but published net points equal points for minus points against for every team. Values are unchanged; only the note text was fixed.</li>
+    <li><strong>A false claim was identified, not yet corrected in place.</strong> The landing page says the data was captured before Week 10 kicked off. The official schedule shows the Thursday game final. The correction is logged as a cross-scope request, because <code>index.html</code> is shared output.</li>
+    <li><strong>A false flag was identified.</strong> The standings file marks all 32 teams as mismatched, but published net points equal points for minus points against for every team. PR #51 on main already fixed the note text; this session did not change the file.</li>
     <li><strong>Pre-registration timing holds on the evidence available.</strong> The Week 11 ledger was recorded 2026-11-16 01:30Z; the first Week 11 game kicks off 2026-11-20 01:15Z (8:15&nbsp;PM ET, Nov 19).</li>
     <li><strong>Automated capture is fail-closed.</strong> NFL Terms &sect;1.3 bars systematic retrieval to compile a database without written consent. Main has fail-closed guards (PR #45). No capture was run here. Authorisation is an owner decision (D1).</li>
     <li><strong>The main open items are owner decisions</strong> (section 4): capture authorisation, the Week 10 correction, a canonical injury file, large files in git, and site consolidation.</li>
@@ -255,7 +255,7 @@ def build_html(corr: list[dict], reqs: dict) -> str:
 {ver_rows}
     </tbody>
   </table></div>
-  <p class="small">Method: page-fetch tool reads of the URLs above on 2026-11-19. The sandbox itself cannot reach nfl.com. Repository checks were run locally, first at the session's starting commit (before the fast-forward to <code>eda52f6</code>), with no edits in place, and again after this session's edits: <code>scripts/check_site.py</code>, <code>tools/check_links.py</code>, <code>tools/check_signals_links.py</code>, <code>engine/linelab/check_site.py</code>, <code>fl2-lines/engine/check.py</code>, <code>ops/check_readiness.py</code>, <code>signal/analysis/verify.py</code> (216 checks), <code>tools/check_integrated_site.py</code>, <code>tools/check_decision_desk.py</code>, <code>ops/drift_check.py</code>. All ten passed in both runs.</p>
+  <p class="small">Method: page-fetch tool reads of the URLs above on 2026-11-19. Repository checks were run locally, first at the session's starting commit (before the fast-forward to <code>eda52f6</code>), with no edits in place, and again after this session's edits: <code>scripts/check_site.py</code>, <code>tools/check_links.py</code>, <code>tools/check_signals_links.py</code>, <code>engine/linelab/check_site.py</code>, <code>fl2-lines/engine/check.py</code>, <code>ops/check_readiness.py</code>, <code>signal/analysis/verify.py</code> (216 checks), <code>tools/check_integrated_site.py</code>, <code>tools/check_decision_desk.py</code>, <code>ops/drift_check.py</code>. All ten passed in both runs.</p>
 </section>
 
 <section class="block" id="week10">
@@ -308,7 +308,7 @@ def build_html(corr: list[dict], reqs: dict) -> str:
     <li>Official values are copied from the page text returned by the page-fetch tool. Nothing was estimated.</li>
     <li>The 14 Week 10 scores are the only values checked line by line in this review. Everything else in section 5 is outside this review.</li>
     <li>The repository's committed data is unchanged except for the 2 landing-page sentences and the 32 standings note cells listed above.</li>
-    <li>Frozen artefacts were not edited: <code>ops/data/results/results_2026_reg.csv</code>, <code>data/results_feed.csv</code>, <code>fl2-lines/data/official/*</code>, the Week 11 ledger and <code>ops/data/forecast_week11_2026.csv</code>.</li>
+    <li>Shared outputs were not edited (reverted to <code>origin/main</code>): <code>index.html</code> and <code>data/standings-2026-w10.csv</code>. Frozen artefacts were not edited: <code>ops/data/results/results_2026_reg.csv</code>, <code>data/results_feed.csv</code>, <code>fl2-lines/data/official/*</code>, the Week 11 ledger and <code>ops/data/forecast_week11_2026.csv</code>.</li>
     <li>This page is generated by {a(repo('review/build_review_2026_11_19.py'), 'review/build_review_2026_11_19.py')} from one data definition. The Markdown twin is {a(repo('review/REPO-REVIEW-2026-11-19.md'), 'REPO-REVIEW-2026-11-19.md')}.</li>
   </ul>
   <p class="small">Research record only. Not betting advice.</p>

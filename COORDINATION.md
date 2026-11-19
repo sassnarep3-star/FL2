@@ -2128,6 +2128,43 @@ The fail-closed capture change was merged by PR [#45](https://github.com/sassnar
 
 The live landing page still accurately labels the data as a dated 2026-11-14 capture and presents unresolved/stale items for review; this task did not refresh data or change any model result. The Pages runner emitted a non-failing Node.js 20 deprecation warning for `actions/upload-artifact@v4`; not addressed by this scoped change. No NFL capture was invoked.
 
+## Session `arena/ef0d23b8-fl2` — Live-site verification & official-source cross-check
+
+**Branch:** `arena/ef0d23b8-fl2` (== `main` @ `dedc34349a65605cf31c192678da437a92d3f878`, the integration tip).
+**Session date:** 2026-11-19. **Scope:** root site, `data/standings-2026-w10.csv`, `data/results_feed.csv`, COORDINATION.md only. No other section touched.
+
+### Work performed
+
+1. **Confirmed GitHub Pages live.** `https://sassnarep3-star.github.io/FL2/` status `built`, source branch `main` path `/`, HTTPS enforced (via `gh api repos/.../pages`).
+2. **Re-ran site validators.** `python3 scripts/check_site.py` → OK, 7 pages, all internal links + anchors resolve, every table row carries a source. `python3 tools/check_links.py` → OK, 16 pages, 22 sources.
+3. **Cross-checked committed Week-10 data against live official NFL pages** (reached via page fetch; sandbox `curl` to nfl.com remains blocked by SSL).
+   - `data/results_feed.csv` Week 10 (12 settled finals + 1 in-progress transient): every score matches nfl.com exactly — WAS 24–21 NYG, NE 10–35 DET, KC 35–13 ATL, HOU 24–27 CLE, MIN 30–10 GB, MIA 22–24 IND, CAR 20–17 NO, BUF 31–12 NYJ, JAX 40–23 TEN, LAR 34–6 ARI, SEA 21–13 LV, SF 46–40 DAL. LAC@BAL correctly left `in_progress`/transient at capture (never published as final).
+   - `data/standings-2026-w10.csv` (32 clubs, captured 2026-11-14): internally consistent; `net_points_published == PF − PA` for all 32 rows. W/L/PCT and PF/PA are plausible for the pre-Week-10 snapshot vintage.
+4. **Flagged & fixed one irregularity.** Every standings row carried a stale `note = "MISMATCH: published net points differ from PF-PA"` although computation shows zero mismatches (32/32 match). Corrected the annotation to `verified: net_points_published == PF - PA at this snapshot (no mismatch)`; no measured value was altered. Recorded as irregularity F-EF0D-01 below.
+
+### Irregularity flagged
+
+| ID | Status | Irregularity | Action | Official source |
+|---|---|---|---|---|
+| F-EF0D-01 | FIXED | `data/standings-2026-w10.csv` note column falsely claimed a net-points mismatch on all 32 rows; PF − PA equals `net_points_published` in every row. | Rewrote the annotation to the verified state. No measured value changed. | `https://www.nfl.com/standings/division/2026/REG` (structure) + committed capture cross-check |
+
+### Open items requiring a user decision (not resolved here — no manual input requested)
+
+- F-AUD-01: scheduled NFL-page capture vs NFL Terms §1.3 permission gate — unresolved.
+- F-AUD-02 / F-AUD-06: public/private data layer and licensed odds feed — requires written permission or a licensed source; no official NFL odds feed exists.
+- F-AUD-05: verified 32-club depth/starter route — only 5 clubs covered; playing-time/Game Book evidence not complete.
+- S5 (highest leverage): commit a CSV of closing lines to unlock real edge/CLV measurement and the leaderboard.
+
+### Sources used for this session's verification
+
+- https://www.nfl.com/standings/division/2026/REG (live official 2026 REG standings)
+- https://www.nfl.com/schedules/2026/by-week/week-10 (live official Week 10 schedule + scores)
+- https://www.nfl.com/injuries/ (live official injury report, reachable; not re-published)
+- https://www.nfl.com/legal/terms/ (NFL Terms, referenced for capture-policy gate)
+- Committed artifacts: `data/results_feed.csv`, `data/standings-2026-w10.csv`, `data/games_2026_week10.csv`
+
+<!-- session arena/ef0d23b8-fl2 recorded -->
+
 ---
 
 # Session `arena/6e645ee7-fl2` — line-by-line review, official re-verification, Week 10 correction register, landing-page corrections (current)
@@ -2205,4 +2242,48 @@ No active claims remain on the board. Session `1541a85c` (PR #45) is complete. T
 |------|--------|
 | PR | pending (opened next, from `arena/6e645ee7-fl2` to `main`) |
 | Merge | pending |
+| Pages deploy | pending |
+
+## Addendum — session 6e645ee7 (2026-11-19): scope correction, verification, cross-scope requests
+
+This addendum supersedes the matching statements in the completion record above. That record is kept unedited because the board is append-only.
+
+### What changed after the first record
+
+- **`index.html` and `data/standings-2026-w10.csv` reverted to `origin/main`.** Both are shared outputs, and the integration-only rule applies. They are not changed on this branch. The requests are below.
+- **Standings note:** already fixed on `main` by PR #51 (session `ef0d23b8`, commit `aa889c2`). This session did not change that file, so it does not need its own fix.
+- **Review generator corrected** (`review/build_review_2026_11_19.py`): V1 now reads "12 of 14 match" (LAC–BAL and PIT–CIN do not). Removed the unverified "sandbox cannot reach nfl.com", the "nfl.com/odds 404 in an earlier session" line, and the "two days before the capture" claim. Re-counted the injury files: `injuries_2026_week10.csv` 345 data rows, `injury-report-2026-w10.csv` 160, the 2026-11-14 capture 345, the 2026-11-16 capture 347, `injuries.json` 501 lines. The 2.6 MB archive is 2,682,384 bytes.
+- **Branch history:** `c234b01` (merge of `origin/main`) was committed with conflict markers in COORDINATION.md. `72ab170` removed them. This is a forward fix, not a history rewrite. Main's text is untouched.
+
+### Verification performed this addendum (2026-11-19, page-fetch tool)
+
+- **Week 10 Thursday game:** https://www.nfl.com/schedules/2026/by-week/week-10 lists "Commanders 24, Giants 21, FINAL, Thursday, November 12th". The Nov 12 date is now confirmed from an official page. It was previously unverified.
+- **Standings, all 32 teams:** DIFF = PF − PA holds for all 32. Chunk 0 covered 24 teams and chunk 1 covered the other 8 (CAR −17, TB 24, NO −34, ATL −57, SF 85, SEA 48, LA 61, AZ −105). The 32 "MISMATCH" notes were false. Source: https://www.nfl.com/standings/
+- **Injury report, Week 10:** chunks 0 and 1 read (https://www.nfl.com/injuries/league/2026/reg10). They cover Lions, Falcons, Chiefs, Vikings, Packers, Jaguars and Titans. The **Out and Doubtful totals (66 / 10 on the landing page) are NOT verified.** Counting all 8 chunks was not completed. Left as unverified.
+
+### Cross-scope requests (logged, not edited)
+
+| ID | Target | Request | Why | Owner |
+|---|---|---|---|---|
+| CSR-1 | `index.html` (shared, integration) | (a) Replace the sentence that the data was "captured before Week 10 kicked off". The official schedule shows the Thursday game FINAL on Nov 12, before the 2026-11-14 capture. (b) Set the LAC–BAL row to the official 23–20 final, with a note that the feeds lag. (c) Add the review link. | False claim and stale row. Sources: schedule page (above), https://www.nfl.com/games/commanders-at-giants-2026-reg-10 is linked from it. | integration session |
+| CSR-2 | `ops/data/results/results_2026_reg.csv`, `data/results_feed.csv`, `fl2-lines/data/official/nflcom-week10-results.csv` (frozen feeds) | LAC–BAL is not final in any feed (ops blank, fl2-lines blank, `data/results_feed.csv` 17–7 `in_progress`). PIT–CIN is blank in fl2-lines only. Official finals: 23–20 and 18–38 (schedule page). | `ops/forecast_week11.py` reads the ops file. The Week 11 forecast is pre-registered. Changing the input changes a registered output. | owner decision D2 |
+| CSR-3 | `data/standings-2026-w10.csv` | None. Already fixed on `main` by PR #51. | Closed. | — |
+| CSR-4 | landing page (`index.html`) and any table citing 66 Out / 10 Doubtful | Mark as unverified until all 8 injury-report chunks are counted against the official page. | Counts not yet verified. | integration session |
+| CSR-5 | `data/injuries.json`, `data/injuries_2026_week10.csv`, `data/injury-report-2026-w10.csv`, `data/linelab/captures/2026-11-14/`, `data/linelab/captures/2026-11-16/` | Name one canonical Week 10 injury file. | Five files with different row counts (345, 160, 345, 347, and 501 lines in JSON). | owner decision D3 |
+
+### Task board update (replaces the S02–S04 rows above)
+
+| # | Task | Status |
+|---|---|---|
+| S02 | Week 10 re-verification and corrections register | done. Feeds unchanged; corrections logged (CSR-2). |
+| S03 | Line-level review | done (targeted). Full line audit not claimed. Injury totals not verified (CSR-4). |
+| S04 | Landing-page correction | **not applied on this branch.** Moved to integration as CSR-1, because `index.html` is shared output. |
+| S05 | PR to `main`, merge, Pages check, record | in progress; see the PR record below. |
+
+## PR and merge — session 6e645ee7 (S05), current
+
+| Item | Record |
+|------|--------|
+| PR | https://github.com/sassnarep3-star/FL2/pull/52 (`arena/6e645ee7-fl2` → `main`). Scope now: `review/*` and COORDINATION.md only. |
+| Merge | pending (see the line below, added after the merge) |
 | Pages deploy | pending |
