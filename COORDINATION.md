@@ -2335,3 +2335,26 @@ This addendum supersedes the matching statements in the completion record above.
 - **Not done here:** no NFL-page capture was run. The Ravens pages could not be read. The docs/ rebuild drift is flagged as FR-17 and was not committed.
 - **Open for the owner:** FR-01 through FR-17 on the Flagged for Review pages. None of them blocks merge.
 
+---
+
+# Session `arena/cfd77824-fl2` — post-Week-10 source and site reconciliation
+
+**Base:** `main` @ `6949980` (2026-11-19). **Current branch:** `arena/cfd77824-fl2`.
+
+## Claim (written before edits)
+
+| Task | Status | Files in scope (exclusive) | Notes |
+|---|---|---|---|
+| C-01 | Independently reconcile the current official Week 10 final-status page, the committed results-feed capture, and the 2026 Week 10 Game Book dataset; publish a dated review with answers, blockers, source links, and explicit requests for out-of-scope corrections | **in progress** | `review/integration-reconciliation-2026-11-19.md`, `review/integration-reconciliation-2026-11-19.html`, `review/integration-audit-2026-11-17.html` (supersession notice/link only), append-only `COORDINATION.md` | No NFL result rows or raw Game Book data will be added or changed in this claim. |
+
+## Scope boundaries
+
+- No edits to `index.html` (active PR #48), `README.md` or `decision-desk/**` (active PR #40), capture workflows (the authorization-guard work is recorded in PRs #45/#46; PR #44 is a parallel open request), or the raw/derived results and Game Book datasets. These are deliberately excluded to avoid collision and because authorization to systematically collect or republish NFL data is unresolved.
+- No PRs from other sessions are merged, closed, or edited by this claim. The review page records the current official-source discrepancy and requests that a final integrator reconcile affected summaries after the active scopes settle.
+
+## Evidence to check
+
+- Official NFL Week 10 schedule and Chargers–Ravens game centre, fetched with the page-fetch tool on 2026-11-19 UTC.
+- Official NFL Terms and Conditions §1.3, fetched with the page-fetch tool on 2026-11-19 UTC.
+- Committed Week 10 Game Book register and its per-row official PDF links; run the section's validator before publishing any counts.
+- Current committed results-feed row and its immutable capture timestamps. A one-off audit is not authorization to resume a scheduled capture or publish new NFL-derived rows.
