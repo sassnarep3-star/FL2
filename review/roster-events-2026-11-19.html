@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roster events check, 2026-11-19 | FL2</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;margin:0;background:#f7f8fa;color:#1d2433;line-height:1.45}
+header,main{max-width:1200px;margin:0 auto;padding:18px}
+header{padding-bottom:0}
+nav a{margin-right:14px;color:#1f4e9a}
+h1{font-size:1.5rem;margin:.4rem 0}
+.kpi{display:inline-block;background:#fff;border:1px solid #d9dee8;border-radius:8px;padding:10px 14px;margin:4px 8px 4px 0}
+.kpi b{font-size:1.3rem}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #d9dee8;font-size:.9rem}
+th,td{border-bottom:1px solid #e6e9f0;padding:8px;text-align:left;vertical-align:top}
+th{background:#eef2f8}
+.badge{padding:2px 8px;border-radius:10px;font-weight:600;white-space:nowrap}
+.ok{background:#dff5e5;color:#1d6b33} .warn{background:#fff0d6;color:#8a5200}
+.note{background:#fff;border-left:4px solid #1f4e9a;padding:10px 14px;margin:14px 0}
+</style></head>
+<body>
+<header>
+<nav><a href="../index.html">Home</a><a href="../review.html">Review</a><a href="integration-audit-2026-11-17.html">Integration audit</a></nav>
+<h1>Roster events check (Flagged for Review), 2026-11-19</h1>
+<p>Checks on the depth and availability items the brief marks as open: the Colts' receiver trades, the Ravens' quarterback injured-reserve moves, and Malik Willis. Each row carries the page it was read from. Blank or unconfirmed values are not filled in.</p>
+<div class="kpi"><b>5</b> verified</div>
+<div class="kpi"><b>1</b> conflict</div>
+<div class="kpi"><b>1</b> unverified</div>
+<div class="note">This page covers roster-event records only. It is not a starter list, a depth rank, a snap share, or an injury-report capture. Row-level evidence and its limits are in <code>data/captures/official-roster-events-2026-11-19.json</code>. Source tiers: <i>official NFL</i> = nfl.com; <i>official club</i> = the club's own site; <i>secondary (press)</i> = a news outlet, not confirmed against an official page.</div>
+</header>
+<main>
+<table>
+<thead><tr><th>ID</th><th>Claim</th><th>Status</th><th>Source tier</th><th>What the source said</th><th>Note</th><th>Source link</th></tr></thead>
+<tbody>
+<tr><td>RE-01</td><td>Colts WR Josh Downs traded IND to KC, dated 11/10</td><td><span class='badge ok'>Verified</span></td><td>official NFL</td><td>Official NFL 2026 November Trades table: 11/10, Josh Downs, Colts to Chiefs, &#x27;Traded&#x27;.</td><td>Second of the two Colts receiver trades cited in the brief&#x27;s Week 10 item (RE-02).</td><td><a href='https://www.nfl.com/transactions/' rel='noopener'>www.nfl.com/transactions/</a></td></tr>
+<tr><td>RE-02</td><td>Colts WR Keenan Allen traded IND to SF, dated 11/10</td><td><span class='badge ok'>Verified</span></td><td>official NFL</td><td>Official NFL 2026 November Trades table: 11/10, Keenan Allen, Colts to 49ers, &#x27;Traded&#x27;.</td><td>Together with RE-01 this confirms the two receiver trades as dated league events. The brief&#x27;s &#x27;same article as its depth chart&#x27; link was not re-checked here.</td><td><a href='https://www.nfl.com/transactions/' rel='noopener'>www.nfl.com/transactions/</a></td></tr>
+<tr><td>RE-03</td><td>Jacoby Brissett traded ARI to BAL, dated 11/06</td><td><span class='badge ok'>Verified</span></td><td>official NFL</td><td>Official NFL 2026 November Trades table: 11/06, Jacoby Brissett, Cardinals to Ravens, &#x27;Traded&#x27;.</td><td>The Ravens&#x27; own 11/05 article says the trade was being finalized, so the league date and the club narrative agree.</td><td><a href='https://www.nfl.com/transactions/' rel='noopener'>www.nfl.com/transactions/</a></td></tr>
+<tr><td>RE-04</td><td>Ravens placed QBs Lamar Jackson and Tyler Huntley on injured reserve on Thursday, 11/05</td><td><span class='badge ok'>Verified</span></td><td>official club</td><td>Ravens article dated Nov 05, 2026 04:35 PM: &#x27;officially placed quarterbacks Lamar Jackson and Tyler Huntley on injured reserve Thursday.&#x27; Jackson: right thumb. Huntley: toe. Both &#x27;will miss a minimum of four games&#x27;. QB Austin Reed signed to the 53-man roster.</td><td>Club-published. The reserve list page checked in RE-05 does not show this move.</td><td><a href='https://www.baltimoreravens.com/news/lamar-jackson-tyler-huntley-injured-reserve-austin-reed-adisa-isaac-jake-moody' rel='noopener'>www.baltimoreravens.com/news/lamar-jackson-tyler-huntley-injured-reserve-austin-reed-adisa-isaac-jake-moody</a></td></tr>
+<tr><td>RE-05</td><td>Official NFL reserve list for November 2026 carries the Ravens&#x27; 11/05 IR moves</td><td><span class='badge warn'>Conflict (flagged)</span></td><td>official NFL</td><td>Both pages of the November 2026 reserve list were read. Entries run from 11/18 down to 11/10 (Jordan Whittington, LA). No Baltimore row appears. No row is dated 11/05 to 11/09.</td><td>The official log is missing the Jackson and Huntley IR moves in RE-04. Flagged; the club article is kept as the source for the move and the league log is not used to contradict it.</td><td><a href='https://www.nfl.com/transactions/league/reserve-list/2026/11' rel='noopener'>www.nfl.com/transactions/league/reserve-list/2026/11</a></td></tr>
+<tr><td>RE-06</td><td>Dolphins placed QB Malik Willis on injured reserve, dated 11/10</td><td><span class='badge warn'>Unverified (flagged)</span></td><td>secondary (press)</td><td>NBC Sports (Pro Football Talk), dated Nov 10, 2026: &#x27;The Dolphins placed quarterback Malik Willis on injured reserve, the team announced.&#x27; NFLTradeRumors (https://nfltraderumors.co/dolphins-placing-qb-malik-willis-on-ir) reports the same. The official NFL reserve list for November 2026 (https://www.nfl.com/transactions/league/reserve-list/2026/11) has no Willis row.</td><td>No official Dolphins or NFL page confirming the move was found in this check. The Dolphins news page fetched on 2026-11-19 shows the later IR moves for Zeek Biggers and Jordan Phillips (RE-07) but not Willis in its first chunk. Marked unverified, not confirmed.</td><td><a href='https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/report-dolphins-to-place-qb-malik-willis-on-ir-with-core-muscle-injury' rel='noopener'>www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/report-dolphins-to-place-qb-malik-willis-on-ir-with-core-muscle-injury</a></td></tr>
+<tr><td>RE-07</td><td>Dolphins placed DL Zeek Biggers and DL Jordan Phillips on injured reserve, dated 11/17</td><td><span class='badge ok'>Verified</span></td><td>official club</td><td>Dolphins news item: the team &#x27;announced today that they have placed defensive linemen Zeek Biggers and Jordan Phillips on the injured reserve list.&#x27; The NFL reserve list (RE-05 source) shows both rows dated 11/17.</td><td>Cross-check. The club and league sources agree for this move, which shows the league list captures some club IR moves but not the Ravens&#x27; or Willis&#x27;s.</td><td><a href='https://www.miamidolphins.com/news/dolphins-make-roster-moves-x7086' rel='noopener'>www.miamidolphins.com/news/dolphins-make-roster-moves-x7086</a></td></tr>
+</tbody></table>
+<p>Captured 2026-11-19. Manual page-fetch tool reads of named pages on 2026-11-19 (one read per URL, no scheduled or automated crawl). The tool does not return a clock time, so only the date is recorded. Raw page bytes are not stored in the repo.</p>
+</main></body></html>
