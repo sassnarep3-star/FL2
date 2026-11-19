@@ -2209,4 +2209,4 @@ Repo: `sassnarep3-star/FL2` · Branch: `arena/dd82dd34-fl2` · Base: `main` @ `d
 
 ## Pull request
 
-See the PR recorded under "Pull request and merge result" below once opened.
+PR #49 https://github.com/sassnarep3-star/FL2/pull/49 (`arena/dd82dd34-fl2` → `main`), **open, not merged**: the brief's merge step applies only after the full integration, and most of the brief's ~100 lines are not complete in this session.
