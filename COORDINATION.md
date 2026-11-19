@@ -2136,7 +2136,7 @@ Coordination note: at claim time, PR #44 (`arena/03babc1b-fl2`), PR #46 (`arena/
 | R05 | Review pages (HTML) for R02–R04, built from the CSVs by a deterministic script | done (`review/roster-events-2026-11-19.html`, `review/flagged-for-review-2026-11-19.html`) | arena/142f2cd8-fl2 | `review/*-2026-11-19.html`, `tools/build_review_2026_11_19.py` |
 | R06 | Offline checker for R02–R05 (hosts, required fields, repo paths exist, internal links resolve) | done (`tools/check_review_2026_11_19.py`, passes) | arena/142f2cd8-fl2 | `tools/check_review_2026_11_19.py` |
 | R07 | README: one additive "Start here" line pointing at the new pages and checker | done (commit 5d717ad) | arena/142f2cd8-fl2 | `README.md` (additive lines only) |
-| R08 | Final checks, PR to `main`, merge, GitHub Pages check, record here | pending | arena/142f2cd8-fl2 | this section, `.git` (via `gh`) |
+| R08 | Final checks, PR to `main`, merge, GitHub Pages check, record here | done (PR #53 merged 2026-11-19 as 792ee1a; Pages build and deployment success; review pages live) | arena/142f2cd8-fl2 | this section, `.git` (via `gh`) |
 
 ## Scope rule for this session
 
@@ -2326,3 +2326,12 @@ This addendum supersedes the matching statements in the completion record above.
 | PR | https://github.com/sassnarep3-star/FL2/pull/52 (`arena/6e645ee7-fl2` → `main`). Scope now: `review/*` and COORDINATION.md only. |
 | Merge | pending (see the line below, added after the merge) |
 | Pages deploy | pending |
+
+## Result (session 142f2cd8)
+
+- **PR #53** (`arena/142f2cd8-fl2` → `main`): merged with a merge commit (`792ee1ae45e9b9a7ad8e27738de8815e22345924`), no approval, per the brief. The first merge attempt showed a conflict on COORDINATION.md after main moved (PRs #50 and #51). Both sides were kept and checked line by line (0 main lines lost). The branch was then merged with origin/main, not rebased, so the push was a fast-forward.
+- **Pages:** `validate-and-publish-site` (`Validate and publish site`, run 44466406841) success; `pages build and deployment` (run 44466405646) success. Confirmed live: `https://sassnarep3-star.github.io/FL2/review/flagged-for-review-2026-11-19.html` and `https://sassnarep3-star.github.io/FL2/review/roster-events-2026-11-19.html`.
+- **Checks on the PR head:** `tools/check_review_2026_11_19.py` OK (13 cited URLs in source register); `scripts/check_site.py` OK; `tools/check_links.py` OK.
+- **Not done here:** no NFL-page capture was run. The Ravens pages could not be read. The docs/ rebuild drift is flagged as FR-17 and was not committed.
+- **Open for the owner:** FR-01 through FR-17 on the Flagged for Review pages. None of them blocks merge.
+
