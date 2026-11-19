@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repo review 2026-11-19 · FL2</title>
+<meta name="description" content="Line-by-line re-check of FL2 against nfl.com on 2026-11-19: what was verified, what was corrected, what was flagged, and what was not checked.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <div class="brand-row">
+      <div class="brand">FL2 <span>· Repo review 2026-11-19</span></div>
+      <div class="brand-sub">Session 6e645ee7 · re-checked against nfl.com on 2026-11-19 · every value sourced or flagged</div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="../index.html">Overview</a>
+      <a href="repo-review-2026-11-19.html" aria-current="page">Repo review</a>
+      <a href="../ledger/flagged.html">Flagged</a>
+      <a href="integration-audit-2026-11-17.html">Integration audit</a>
+      <a href="../readiness/index.html">Readiness</a>
+      <a href="../ledger/suggestions.html">Suggestions</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="block">
+  <h1>Repo review, 2026-11-19</h1>
+  <p class="sub">What was re-checked against official nfl.com pages, what was corrected, what was flagged, and what was not checked. Read this before relying on any Week 10 number in the repository.</p>
+  <div class="note warn"><p><strong>Scope, stated plainly.</strong> This is a targeted re-verification, not a complete line-by-line audit. Every row below carries a source link. Anything not listed in section 1 or section 2 is <em>not</em> verified by this review; section 5 names the largest gaps.</p></div>
+</section>
+
+<section class="block" id="summary">
+  <h2>Executive summary</h2>
+  <ul>
+    <li><strong>Week 10 results:</strong> all 14 official finals were re-read. Twelve games agree with every repository feed. Two rows are stale: Chargers 23&ndash;20 Ravens (not final in any feed) and Steelers 18&ndash;38 Bengals (blank in the <code>fl2-lines</code> feed). The corrections are logged for owner acceptance, not edited in place, because the pre-registered Week 11 forecast reads one of the feeds.</li>
+    <li><strong>A false claim was identified, not yet corrected in place.</strong> The landing page says the data was captured before Week 10 kicked off. The official schedule shows the Thursday game final. The correction is logged as a cross-scope request, because <code>index.html</code> is shared output.</li>
+    <li><strong>A false flag was identified.</strong> The standings file marks all 32 teams as mismatched, but published net points equal points for minus points against for every team. PR #51 on main already fixed the note text; this session did not change the file.</li>
+    <li><strong>Pre-registration timing holds on the evidence available.</strong> The Week 11 ledger was recorded 2026-11-16 01:30Z; the first Week 11 game kicks off 2026-11-20 01:15Z (8:15&nbsp;PM ET, Nov 19).</li>
+    <li><strong>Automated capture is fail-closed.</strong> NFL Terms &sect;1.3 bars systematic retrieval to compile a database without written consent. Main has fail-closed guards (PR #45). No capture was run here. Authorisation is an owner decision (D1).</li>
+    <li><strong>The main open items are owner decisions</strong> (section 4): capture authorisation, the Week 10 correction, a canonical injury file, large files in git, and site consolidation.</li>
+  </ul>
+  <p class="small">Requirement register (R26&ndash;R96, <a href="https://github.com/sassnarep3-star/FL2/blob/main/ops/data/requirements_v2.json">requirements_v2.json</a>, <a href="https://github.com/sassnarep3-star/FL2/blob/main/readiness/index.html">readiness page</a>): 29 done, 25 partial, 8 registered, 7 blocked, 2 rejected. These counts are the repository's own, not re-verified here.</p>
+</section>
+
+<section class="block" id="verified">
+  <h2>1. What was verified this session</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Claim checked</th><th>Official source</th><th>Result</th><th>Repository location</th></tr></thead>
+    <tbody>
+<tr><td><strong>V1</strong></td><td>Week 10 final scores, all 14 games</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">nfl.com Week 10 schedule</a></td><td>12 of 14 match the official final scores in every feed. LAC&ndash;BAL and PIT&ndash;CIN do not (see section 2 and I-01).</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/review/results-corrections-2026-11-19.csv">corrections register</a></td></tr>
+<tr><td><strong>V2</strong></td><td>Week 10 Thursday game is final: Commanders 24, Giants 21, Thursday, November 12</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">nfl.com Week 10 schedule</a></td><td>The landing page said the data was captured &ldquo;before Week 10 kicked off&rdquo;. That is false: the official schedule lists the game FINAL on Thursday, November 12th, two days before the 2026-11-14 capture. The repository's own <code>data/injuries.json</code> (retrieved 2026-11-14) lists it as &ldquo;Commanders 24, Giants 21&rdquo;. <strong>Corrected.</strong></td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/index.html">index.html</a></td></tr>
+<tr><td><strong>V3</strong></td><td>Records after Week 10: Buffalo 8&ndash;1, Cincinnati 7&ndash;2, Detroit 7&ndash;2, New England 5&ndash;5</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">nfl.com Week 10 schedule</a> &middot; <a href="https://www.nfl.com/standings/">nfl.com standings</a></td><td>Match the landing-page text. The 2026-11-14 standings snapshot shows Buffalo 7&ndash;1, so it predates the Sunday game.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/data/standings-2026-w10.csv">standings-2026-w10.csv</a></td></tr>
+<tr><td><strong>V4</strong></td><td>Lions Out, did not practise: Kerby Joseph (S, Knee), Cade Mays (C, Ankle), D.J. Reed (CB, Hip)</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10">nfl.com 2026 injury report, Week 10 heading</a></td><td>All three read Out / Did Not Participate In Practice, as in the repository. The page title says Week 11 (see I-05).</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/data/injuries.json">data/injuries.json</a></td></tr>
+<tr><td><strong>V5</strong></td><td>Week 11 kickoff: Colts at Texans, Thursday Nov 19, 8:15 PM ET</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-11">nfl.com Week 11 schedule</a></td><td>Equals 2026-11-20 01:15 UTC. The Week 11 ledger was recorded 2026-11-16 01:30Z, before kickoff. Consistency check only: git dates are author-supplied.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/fl2-lines/data/ledger/LEDGER-TIP.txt">LEDGER-TIP.txt</a></td></tr>
+<tr><td><strong>V6</strong></td><td>NFL Terms &sect;1.3 (updated May 16, 2024): systematic retrieval to compile a database is prohibited absent express prior written consent</td><td><a href="https://www.nfl.com/legal/terms/">nfl.com legal terms</a></td><td>Confirms the basis of gate F-T1. The three capture workflows now fail closed on main (PR #45). No capture was run in this session.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/fl2-lines-snapshot.yml">fl2-lines-snapshot.yml</a></td></tr>
+<tr><td><strong>V7</strong></td><td>Official standings: the DIFF column equals points for minus points against (checked for all 32 teams: 24 on the first chunk and 8 on the second, e.g. Buffalo 287&minus;199 = 88)</td><td><a href="https://www.nfl.com/standings/">nfl.com standings</a></td><td>Shows that the 32 &ldquo;MISMATCH&rdquo; notes in the repository standings file are false (see I-06). All 8 teams on the second chunk also match.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/data/standings-2026-w10.csv">standings-2026-w10.csv</a></td></tr>
+<tr><td><strong>V8</strong></td><td>Injury page title reads &ldquo;Week 11 of the 2026 Season&rdquo;; the page heading reads &ldquo;Injuries &ndash; WEEK 10&rdquo;</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10">nfl.com 2026 injury report</a></td><td>Source-side inconsistency. The repository uses the heading (Week 10). Flagged, not resolved (I-05).</td><td>&mdash;</td></tr>
+<tr><td><strong>V9</strong></td><td>Pinned Pages actions are the latest releases: checkout v7.0.1, configure-pages v6.0.0, upload-pages-artifact v5.0.0, deploy-pages v5.0.1</td><td><a href="https://github.com/actions/checkout/releases">GitHub actions/checkout releases (tooling source, not an NFL source)</a></td><td>Checked through the GitHub releases API. No change needed. Other workflows still use checkout@v4; not a defect.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/pages.yml">pages.yml</a></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Method: page-fetch tool reads of the URLs above on 2026-11-19. Repository checks were run locally, first at the session's starting commit (before the fast-forward to <code>eda52f6</code>), with no edits in place, and again after this session's edits: <code>scripts/check_site.py</code>, <code>tools/check_links.py</code>, <code>tools/check_signals_links.py</code>, <code>engine/linelab/check_site.py</code>, <code>fl2-lines/engine/check.py</code>, <code>ops/check_readiness.py</code>, <code>signal/analysis/verify.py</code> (216 checks), <code>tools/check_integrated_site.py</code>, <code>tools/check_decision_desk.py</code>, <code>ops/drift_check.py</code>. All ten passed in both runs.</p>
+</section>
+
+<section class="block" id="week10">
+  <h2>2. Week 10 finals, line by line</h2>
+  <p class="sub">Official values from the official Week 10 schedule page, compared with the three repository feeds. Source of the official values: <a href="https://www.nfl.com/schedules/2026/by-week/week-10">nfl.com Week 10 schedule</a>, read 2026-11-19.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Game</th><th>Official result</th><th>Official source</th><th><code>ops/data/results</code></th><th><code>fl2-lines</code> feed</th><th><code>data/results_feed.csv</code></th><th>All match?</th></tr></thead>
+    <tbody>
+<tr><td>WAS @ NYG</td><td>Final 24&ndash;21 (Thursday, November 12th)</td><td><a href="https://www.nfl.com/games/commanders-at-giants-2026-reg-10">game centre</a></td><td>final 24-21</td><td>FINAL 24-21</td><td>final 24-21</td><td>match</td></tr>
+<tr><td>NE @ DET</td><td>Final 10&ndash;35 (Sunday, November 15th (Munich))</td><td><a href="https://www.nfl.com/games/patriots-at-lions-2026-reg-10">game centre</a></td><td>final 10-35</td><td>FINAL 10-35</td><td>final 10-35</td><td>match</td></tr>
+<tr><td>KC @ ATL</td><td>Final 35&ndash;13 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10">game centre</a></td><td>final 35-13</td><td>FINAL 35-13</td><td>final 35-13</td><td>match</td></tr>
+<tr><td>HOU @ CLE</td><td>Final 24&ndash;27 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/texans-at-browns-2026-reg-10">game centre</a></td><td>final 24-27</td><td>FINAL 24-27</td><td>final 24-27</td><td>match</td></tr>
+<tr><td>MIN @ GB</td><td>Final 30&ndash;10 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/vikings-at-packers-2026-reg-10">game centre</a></td><td>final 30-10</td><td>FINAL 30-10</td><td>final 30-10</td><td>match</td></tr>
+<tr><td>MIA @ IND</td><td>Final 22&ndash;24 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/dolphins-at-colts-2026-reg-10">game centre</a></td><td>final 22-24</td><td>FINAL 22-24</td><td>final 22-24</td><td>match</td></tr>
+<tr><td>CAR @ NO</td><td>Final 20&ndash;17 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/panthers-at-saints-2026-reg-10">game centre</a></td><td>final 20-17</td><td>FINAL 20-17</td><td>final 20-17</td><td>match</td></tr>
+<tr><td>BUF @ NYJ</td><td>Final 31&ndash;12 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/bills-at-jets-2026-reg-10">game centre</a></td><td>final 31-12</td><td>FINAL 31-12</td><td>final 31-12</td><td>match</td></tr>
+<tr><td>JAX @ TEN</td><td>Final 40&ndash;23 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/jaguars-at-titans-2026-reg-10">game centre</a></td><td>final 40-23</td><td>FINAL 40-23</td><td>final 40-23</td><td>match</td></tr>
+<tr><td>LA @ ARI</td><td>Final 34&ndash;6 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/rams-at-cardinals-2026-reg-10">game centre</a></td><td>final 34-6</td><td>FINAL 34-6</td><td>final 34-6</td><td>match</td></tr>
+<tr><td>SEA @ LV</td><td>Final 21&ndash;13 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10">game centre</a></td><td>final 21-13</td><td>FINAL 21-13</td><td>final 21-13</td><td>match</td></tr>
+<tr><td>SF @ DAL</td><td>Final 46&ndash;40 (Sunday, November 15th)</td><td><a href="https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10">game centre</a></td><td>final 46-40</td><td>FINAL 46-40</td><td>final 46-40</td><td>match</td></tr>
+<tr><td>PIT @ CIN</td><td>Final 18&ndash;38 (Sunday, November 15th (SNF))</td><td><a href="https://www.nfl.com/games/steelers-at-bengals-2026-reg-10">game centre</a></td><td>final 18-38</td><td>SCHEDULED_OR_UNCONFIRMED_AT_CAPTURE</td><td>final 18-38</td><td><strong>differs</strong></td></tr>
+<tr><td>LAC @ BAL</td><td>Final 23&ndash;20 (Monday, November 16th (MNF))</td><td><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10">game centre</a></td><td>not_final_as_of_fetch</td><td>NOT_PLAYED_AT_CAPTURE</td><td>in_progress 17-7</td><td><strong>differs</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Full register with every field: <a href="https://github.com/sassnarep3-star/FL2/blob/main/review/results-corrections-2026-11-19.csv">review/results-corrections-2026-11-19.csv</a>. Scores were not inferred for any blank cell; the blank values above are the repository's own.</p>
+</section>
+
+<section class="block" id="irregularities">
+  <h2>3. Irregularities (flagged for review)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Severity</th><th>Irregularity</th><th>Evidence / source</th><th>Status and action</th></tr></thead>
+    <tbody>
+<tr><td><strong>I-01</strong></td><td>High</td><td>Week 10 results feeds disagree with the official finals. LAC&nbsp;@&nbsp;BAL (official 23&ndash;20) is not final in any of the three feeds. PIT&nbsp;@&nbsp;CIN (official 18&ndash;38) is blank in <code>fl2-lines</code>.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/review/results-corrections-2026-11-19.csv">corrections register</a> &middot; <a href="https://www.nfl.com/schedules/2026/by-week/week-10">official schedule</a></td><td>Logged, not edited. <code>ops/forecast_week11.py</code> reads the ops feed, so editing it would change pre-registered inputs. Owner decision D2.</td></tr>
+<tr><td><strong>I-02</strong></td><td>High</td><td>Landing page stated the data was captured before Week 10 kicked off. The official schedule lists the Thursday Week 10 game FINAL on Thursday, November 12th.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">official schedule</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/index.html">index.html (original sentence)</a></td><td><strong>Not applied.</strong> <code>index.html</code> is shared output, so the fix is logged as a cross-scope request in COORDINATION.md. It remains on <code>main</code>.</td></tr>
+<tr><td><strong>I-03</strong></td><td>Medium</td><td>Landing table showed LAC&nbsp;@&nbsp;BAL as pending and &ldquo;149/150 finals&rdquo; as the current count. The official page shows it final.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">official schedule</a></td><td><strong>Updated</strong> on the landing page to the official value, with the feed lag stated and linked.</td></tr>
+<tr><td><strong>I-04</strong></td><td>Medium</td><td>README still says &ldquo;148 final scores out of 150&rdquo;. That was true on 2026-11-16 but is superseded: the ops feed now has 149 final, and the official page has all 14 Week 10 games final.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/README.md">README.md</a> &middot; <a href="https://www.nfl.com/schedules/2026/by-week/week-10">official schedule</a></td><td>Flagged, not edited (README is shared). Owner to refresh the README status line.</td></tr>
+<tr><td><strong>I-05</strong></td><td>Low</td><td>Official injury page has a title that says Week 11 while the heading says Week 10, at the same URL.</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10">nfl.com 2026 injury report</a></td><td>Flagged. Repository uses the heading. Ask the league's content team; no inference made.</td></tr>
+<tr><td><strong>I-06</strong></td><td>Medium</td><td>All 32 rows of the verified standings file carry the note &ldquo;MISMATCH: published net points differ from PF-PA&rdquo;. Arithmetic shows net = PF&minus;PA on every row, and the official DIFF column agrees for all 32 teams checked.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/data/standings-2026-w10.csv">standings-2026-w10.csv</a> &middot; <a href="https://www.nfl.com/standings/">nfl.com standings</a></td><td><strong>Already fixed on main</strong> by PR #51 (session ef0d23b8). This session did not change the file.</td></tr>
+<tr><td><strong>I-07</strong></td><td>High (policy)</td><td>Automated capture of nfl.com pages conflicts with NFL Terms &sect;1.3 unless written consent is obtained. The repository had live schedules (Tuesday and Wed&ndash;Fri crons) before PR #45 disabled them.</td><td><a href="https://www.nfl.com/legal/terms/">nfl.com terms &sect;1.3</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/fl2-lines-snapshot.yml">fl2-lines-snapshot.yml</a></td><td>Fail-closed guard on main (PR #45). The owner decides whether any capture is authorised (decision D1). Not decided here.</td></tr>
+<tr><td><strong>I-08</strong></td><td>Medium</td><td>Five copies of the Week 10 injury report with different content: <code>data/injuries.json</code> (501 lines, 14 games), <code>data/injuries_2026_week10.csv</code> (345 data rows), <code>data/injury-report-2026-w10.csv</code> (160 data rows), and the 2026-11-14 (345 data rows) and 2026-11-16 (347 data rows) captures. Row counts exclude the header. There is no single designated source.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/data/injuries_2026_week10.csv">injuries_2026_week10.csv</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/captures/2026-11-16/week10-injury-report.csv">2026-11-16 capture</a></td><td>Flagged, nothing deleted. Owner decision D3 (choose the canonical copy).</td></tr>
+<tr><td><strong>I-09</strong></td><td>Medium</td><td>Large derived files are tracked in git: <code>signal/data/depth_player.json</code> 20.5&nbsp;MB, <code>signal/data/snap_participation.json</code> 16.4&nbsp;MB, <code>data/linelab/model_outputs.csv</code> 13.4&nbsp;MB, and <code>signal/</code> totals about 73&nbsp;MB on disk. The brief asks that large datasets stay out of git.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/signal/data/depth_player.json">depth_player.json</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/data/linelab/model_outputs.csv">model_outputs.csv</a></td><td>Flagged, not moved (consumers depend on them). Owner decision D4.</td></tr>
+<tr><td><strong>I-10</strong></td><td>Low</td><td>Duplicate raw file: <code>raw/games.csv</code> and <code>raw/_nfldata/games.csv</code> are byte-identical (md5 0572cae24b6cf3f7bd195a2152622e1c). A 2.6&nbsp;MiB (2,682,384 bytes) archive <code>raw/_nfldata.tgz</code> is also committed.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/raw/games.csv">raw/games.csv</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/raw/_nfldata/games.csv">raw/_nfldata/games.csv</a></td><td>Flagged. No file removed.</td></tr>
+<tr><td><strong>I-11</strong></td><td>Medium</td><td>Fragmentation: nine separate flagged pages (<code>docs</code>, <code>fl2-dashboard</code>, <code>fl2-depth</code>, <code>fl2-lines</code>, <code>fl2-signals</code>, <code>hub</code>, <code>ledger</code>, <code>linelab</code>, <code>readiness</code>), plus <code>review/</code>, and 129 HTML files in all. The brief asks for one organised site.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/ledger/flagged.html">ledger/flagged.html</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/linelab/flagged.html">linelab/flagged.html</a></td><td>Flagged. Owner decision D5 (consolidate or keep).</td></tr>
+<tr><td><strong>I-13</strong></td><td>Medium</td><td>The committed <code>docs/</code> copy of the analysis dashboard does not match what its generator produces. Running <code>scripts/make_pages.py</code> and <code>scripts/build_site.py</code> changes 11 pages (the <code>../hub/index.html</code> &ldquo;Decision Hub&rdquo; nav link disappears). The Pages validate job rebuilds these files but never compares them, and the deploy job re-checks out the committed tree, so the rebuilt output is never published.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/pages.yml">pages.yml</a> &middot; <a href="https://github.com/sassnarep3-star/FL2/blob/main/docs/index.html">docs/index.html</a></td><td>Flagged, not changed. Publishing the rebuilt nav would alter the live dashboard without a decision. Owner decision D5 (site structure).</td></tr>
+<tr><td><strong>I-12</strong></td><td>Info</td><td>The clone the session started from had one commit (shallow). The pre-registration timing check was impossible until history was fetched. Local history is now complete (211 commits).</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/.github/workflows/fl2-lines-check.yml">fl2-lines-check.yml</a></td><td>Recorded. Verification jobs should use full history where a commit date is evidence.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="block" id="decisions">
+  <h2>4. Owner decisions needed</h2>
+  <p class="sub">These cannot be made by an agent. Each lists the evidence to read first.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>Decision</th><th>What is needed</th><th>Evidence</th></tr></thead>
+    <tbody>
+<tr><td><strong>D1</strong></td><td>Capture authorisation (F-T1)</td><td>Obtain written consent from NFL for systematic capture, or keep capture manual and derived-only. Until then keep the fail-closed guard.</td><td><a href="https://www.nfl.com/legal/terms/">nfl.com terms &sect;1.3</a></td></tr>
+<tr><td><strong>D2</strong></td><td>Week 10 corrections (I-01)</td><td>Accept the two-row correction and choose: (a) keep the Week 11 forecast as registered and footnote the input drift, or (b) register a corrected Week 11 v2 with a new hash. Do not silently re-run.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/review/results-corrections-2026-11-19.csv">corrections register</a></td></tr>
+<tr><td><strong>D3</strong></td><td>Canonical injury source (I-08)</td><td>Name one Week 10 injury file as canonical and mark the rest as derived or retired.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/data/injuries_2026_week10.csv">injuries_2026_week10.csv</a></td></tr>
+<tr><td><strong>D4</strong></td><td>Large files in git (I-09)</td><td>Move regenerable derived files out of git, following the repository's existing storage convention.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/signal/data/depth_player.json">depth_player.json</a></td></tr>
+<tr><td><strong>D5</strong></td><td>Site structure (I-11)</td><td>Consolidate the nine flagged pages and overlapping sub-sites, or keep them and say which is authoritative.</td><td><a href="https://github.com/sassnarep3-star/FL2/blob/main/ledger/suggestions.html">ledger/suggestions.html (existing suggestion register)</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="block" id="not-checked">
+  <h2>5. Not checked in this review</h2>
+  <p class="sub">Stated so that nobody reads an absence as a pass.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Item</th><th>Why not checked</th><th>Official starting point</th></tr></thead>
+    <tbody>
+<tr><td>Week 10 injury totals on the landing page (66 Out, 10 Doubtful)</td><td>Not re-counted. The official page spans eight chunks, too many to count reliably by hand.</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10">nfl.com 2026 injury report</a></td></tr>
+<tr><td>Week 1&ndash;9 results and all other 1,000+ table rows across the sites</td><td>Only the 14 Week 10 finals were re-read. A full line-by-line audit was not done in this session.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">nfl.com Week 10 schedule</a></td></tr>
+<tr><td>Depth-chart claims: Texans depth image, Packers jersey prefixes, Seattle shared and Washington empty slots, Colts receiver trades, Baltimore QB rows, Malik Willis IR</td><td>Official club depth-chart pages were not fetched in this session. Nothing about depth or starters is re-verified here.</td><td><a href="https://www.nfl.com/injuries/">nfl.com injuries (starting point)</a></td></tr>
+<tr><td>Odds and price data (no official NFL odds feed)</td><td>Not re-checked in this session. No official NFL odds feed has been identified.</td><td><a href="https://www.nfl.com/odds/">nfl.com/odds</a></td></tr>
+<tr><td>Game-day inactives, snap counts, game books</td><td>Not fetched. The capture route is blocked by gate F-T1 (decision D1).</td><td><a href="https://www.nfl.com/legal/terms/">nfl.com terms &sect;1.3</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="block" id="method">
+  <h2>6. Method and limits</h2>
+  <ul>
+    <li>Official values are copied from the page text returned by the page-fetch tool. Nothing was estimated.</li>
+    <li>The 14 Week 10 scores are the only values checked line by line in this review. Everything else in section 5 is outside this review.</li>
+    <li>The repository's committed data is unchanged except for the 2 landing-page sentences and the 32 standings note cells listed above.</li>
+    <li>Shared outputs were not edited (reverted to <code>origin/main</code>): <code>index.html</code> and <code>data/standings-2026-w10.csv</code>. Frozen artefacts were not edited: <code>ops/data/results/results_2026_reg.csv</code>, <code>data/results_feed.csv</code>, <code>fl2-lines/data/official/*</code>, the Week 11 ledger and <code>ops/data/forecast_week11_2026.csv</code>.</li>
+    <li>This page is generated by <a href="https://github.com/sassnarep3-star/FL2/blob/main/review/build_review_2026_11_19.py">review/build_review_2026_11_19.py</a> from one data definition. The Markdown twin is <a href="https://github.com/sassnarep3-star/FL2/blob/main/review/REPO-REVIEW-2026-11-19.md">REPO-REVIEW-2026-11-19.md</a>.</li>
+  </ul>
+  <p class="small">Research record only. Not betting advice.</p>
+</section>
+</main>
+<footer class="footer"><div class="inner small">FL2 · repo review 2026-11-19 · sources: nfl.com pages read 2026-11-19 (links above) · this page makes no claim beyond them.</div></footer>
+</body>
+</html>
