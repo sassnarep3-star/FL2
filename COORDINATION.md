@@ -2067,3 +2067,29 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 **Basis and source:** the existing F-T1 record is linked to [NFL Terms](https://www.nfl.com/legal/terms/) and states that authorization is unresolved. The workflow change is a conservative control based on that existing recorded gate; it is not a fresh legal interpretation. No NFL pages were fetched in this session.
 
 **Verification:** statically checked that each of the three capture jobs has the same exact authorization condition and that none has an active `schedule` trigger; the depth-capture workflow also has no `push` trigger. Re-ran the repository's offline checks: `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`, `signal/analysis/verify.py`, `tools/check_integrated_site.py`, and `tools/check_decision_desk.py` all pass on the unchanged data/site tree. GitHub Actions execution/deploy is still to be verified by the PR checks.
+
+
+---
+
+# Session `arena/142f2cd8-fl2` — roster events, starter evidence, requirement-status reconciliation, Flagged for Review (2026-11-19)
+
+**Claimed:** 2026-11-19 UTC · **Branch:** `arena/142f2cd8-fl2` · **Base:** `main` @ `eda52f6` (includes PR #45 fail-closed capture).
+
+Coordination note: at claim time, PR #44 (`arena/03babc1b-fl2`), PR #46 (`arena/b99036de-fl2`) and PR #45 (merged) already cover the Terms §1.3 scheduled-capture pause, the Lions Week 10 designation check and the docs re-sync. **This session does not touch** `.github/workflows/**`, `docs/**`, `fl2-lines/**`, `fl2-depth/**`, `ops/**`, `data/linelab/**` or `data/injuries*`. No NFL-page capture is scheduled or run by this session; every official page was read by hand with the page-fetch tool and is cited per row.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) |
+|---|---|---|---|---|
+| R01 | Claim + coordination entry | **done** (this entry) | arena/142f2cd8-fl2 | `COORDINATION.md` (this section only) |
+| R02 | Roster / transaction event register: Colts receiver trades, Baltimore QB IR moves, Malik Willis IR, Brissett trade, announced starters (McCord, Lock); each row with the official URL it was read from | in progress | arena/142f2cd8-fl2 | `data/roster_events_2026.csv` |
+| R03 | Requirement-status reconciliation: every row of the 74-row fl2-lines register checked against what is now on `main`; contradictions listed with the path that proves them | in progress | arena/142f2cd8-fl2 | `data/brief_status_reconciliation_2026-11-19.csv` |
+| R04 | Flagged for Review page (labelled), consolidated from this session's findings with links | in progress | arena/142f2cd8-fl2 | `data/review_flags_2026-11-19.csv` |
+| R05 | Review pages (HTML) for R02–R04, built from the CSVs by a deterministic script | in progress | arena/142f2cd8-fl2 | `review/*-2026-11-19.html`, `tools/build_review_2026_11_19.py` |
+| R06 | Offline checker for R02–R05 (hosts, required fields, repo paths exist, internal links resolve) | in progress | arena/142f2cd8-fl2 | `tools/check_review_2026_11_19.py` |
+| R07 | README: one additive "Start here" line pointing at the new pages and checker | pending | arena/142f2cd8-fl2 | `README.md` (additive lines only) |
+| R08 | Final checks, PR to `main`, merge, GitHub Pages check, record here | pending | arena/142f2cd8-fl2 | this section, `.git` (via `gh`) |
+
+## Scope rule for this session
+
+Official-source values only. A cell is left blank when the official page could not be read; the reason is written in the `note` column. Nothing is inferred from a mirror, a depth-chart caption, or a media article unless the row says so and labels it as secondary.
