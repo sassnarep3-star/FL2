@@ -2107,3 +2107,6 @@ file). This session did the review, the verification spot-checks, and one policy
 1. Confirm S-02 (the pause) and decide whether `fl2-depth-capture` should stay paused.
 2. Decide the S-03 gate: obtain written permission, or use a licensed source, before any scheduled capture.
 3. Re-capture the Week 11 injury report only after that decision, and retain the hash.
+
+**PR record (this session):** https://github.com/sassnarep3-star/FL2/pull/44 — opened, **not merged**
+(merge gate not met; see "Not done" above).
