@@ -2078,10 +2078,71 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 
 | # | Task | Status | Owner | Files in scope |
 |---|------|--------|-------|----------------|
-| S01 | Claim + board record | in progress | `arena/6e645ee7-fl2` | `COORDINATION.md` (append-only) |
-| S02 | Re-verify Week 10 finals (14 games) and the Week 11 kickoff against nfl.com; record every mismatch | in progress | `arena/6e645ee7-fl2` | `review/results-corrections-2026-11-19.csv` (new) |
-| S03 | Line-level repo review: run every offline check, classify irregularities, publish with source links | in progress | `arena/6e645ee7-fl2` | `review/repo-review-2026-11-19.html` + `.md` (new) |
-| S04 | Landing-page correction: false "captured before Week 10 kicked off" sentence; stale LAC@BAL row; link to S03 | in progress | `arena/6e645ee7-fl2` | `index.html` (additive edits only) |
-| S05 | PR to `main`, merge, GitHub Pages check, record PR and merge result here | pending | `arena/6e645ee7-fl2` | `COORDINATION.md` |
+| S01 | Claim + board record | done | `arena/6e645ee7-fl2` | `COORDINATION.md` (append-only) |
+| S02 | Re-verify Week 10 finals (14 games) and the Week 11 kickoff against nfl.com; record every mismatch | done (corrections logged, feeds not edited) | `arena/6e645ee7-fl2` | `review/results-corrections-2026-11-19.csv` (new) |
+| S03 | Line-level repo review: run every offline check, classify irregularities, publish with source links | done (targeted; full line audit not claimed) | `arena/6e645ee7-fl2` | `review/repo-review-2026-11-19.html` + `.md` + `build_review_2026_11_19.py` (new) |
+| S04 | Landing-page correction: false "captured before Week 10 kicked off" sentence; stale LAC@BAL row; link to S03 | done | `arena/6e645ee7-fl2` | `index.html` (additive edits only) |
+| S05 | PR to `main`, merge, GitHub Pages check, record PR and merge result here | in progress | `arena/6e645ee7-fl2` | `COORDINATION.md` |
 
 **Frozen artefacts not touched:** `ops/data/results/results_2026_reg.csv` is read by `ops/forecast_week11.py`; `data/results_feed.csv`, `fl2-lines/data/official/*`, the Week 11 ledger (`fl2-lines/data/ledger/*`), and `ops/data/forecast_week11_2026.csv` are not edited. Changing their inputs after the Week 11 pre-registration would change a registered output. Corrections are logged in S02 for owner acceptance instead.
+
+## Completion record — S01–S04 (2026-11-19)
+
+### Starting state (measured, not assumed)
+
+- Branch was 3 commits behind `origin/main`; fast-forwarded to `eda52f6` (PR #45 fail-closed capture guard). No local work was lost.
+- The clone was **shallow** (one commit). Fetched full history (`git fetch --unshallow`), now 211 commits locally. This was needed to test pre-registration timing.
+- Baseline: all ten offline checks passed at the starting commit `dedc343`, before the fast-forward and before any edit, and again after this session's edits (`scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`, `signal/analysis/verify.py` (216 checks), `tools/check_integrated_site.py`, `tools/check_decision_desk.py`, `ops/drift_check.py`).
+
+### Sources used (all read 2026-11-19 with the page-fetch tool; the sandbox cannot reach nfl.com directly)
+
+- Week 10 schedule and final scores (14 games, chunks 0–1): https://www.nfl.com/schedules/2026/by-week/week-10
+- Week 11 schedule (first kickoff): https://www.nfl.com/schedules/2026/by-week/week-11
+- Week 10 injury report (Lions designations; title/heading check): https://www.nfl.com/injuries/league/2026/reg10
+- Standings (DIFF column, 24 of 32 teams on chunk 0): https://www.nfl.com/standings/
+- NFL Terms §1.3 (gate F-T1 basis; updated May 16, 2024): https://www.nfl.com/legal/terms/
+- GitHub Actions pins (tooling source, not an NFL source): GitHub releases API for `actions/checkout`, `actions/configure-pages`, `actions/upload-pages-artifact`, `actions/deploy-pages`.
+
+### Verification performed
+
+- Each of the 14 official finals was compared with the three repository feeds. Result: 12 agree everywhere; LAC@BAL is not final in any feed; PIT@CIN is blank in `fl2-lines`. Per-game official URLs were checked against the feeds' `game_centre_url`/`source_url`: 14 of 14 identical.
+- Week 11: official kickoff 8:15 PM ET Thu Nov 19 (= 2026-11-20 01:15Z). Ledger `LEDGER-TIP.txt` records 2026-11-16 01:30Z. Consistent. Git dates are author-supplied, so this is a consistency check only.
+- Standings: `net_points_published` equals PF−PA on all 32 rows; the 32 "MISMATCH" notes were false.
+- Duplicate check: `raw/games.csv` and `raw/_nfldata/games.csv` have identical md5.
+- Injury copies: five Week 10 injury files with different md5 and row counts.
+- Large tracked files: the largest is 20.5 MB (`signal/data/depth_player.json`).
+- Link and anchor check on `review/repo-review-2026-11-19.html` and `index.html`: 0 broken. Every data row in the review tables carries a source link (header rows excluded).
+
+### Changes made in this session
+
+- `review/results-corrections-2026-11-19.csv` (new): 14-row register. Official value, official URL, and the three feed values for each game.
+- `review/repo-review-2026-11-19.html`, `review/REPO-REVIEW-2026-11-19.md`, `review/build_review_2026_11_19.py` (new): the review and the script that generates both copies from one data definition.
+- `index.html`: (a) corrected the false "captured before Week 10 kicked off" sentence; (b) LAC@BAL row set to the official final, labelled as not yet in the feeds; (c) the "149/150" paragraph now states the 2026-11-19 official re-read and links the register; (d) new "Repo review 2026-11-19" nav link and summary block.
+- `data/standings-2026-w10.csv`: the `note` column only, 32 rows. Values unchanged; verified by parsing old and new versions and comparing every other column.
+
+### Deliberately NOT changed (and why)
+
+- `ops/data/results/results_2026_reg.csv`, `data/results_feed.csv`, `fl2-lines/data/official/*`: not edited. `ops/forecast_week11.py` reads the first; editing it would change pre-registered Week 11 inputs. Owner decision D2.
+- Week 11 ledger and forecast files: not touched.
+- `ledger/flagged.html` and other JS-rendered ledger pages: not regenerated. They are built from `data/site_data.js` by `engine/build_site_data.py`, which this session did not run. The new review page is linked from the landing page and the nav instead.
+- No capture was run. No workflow changed (PR #45 already gates them).
+
+### Irregularities (full table with sources in the review page)
+
+I-01 Week 10 feed disagreement (High, logged for owner) · I-02 false capture-date sentence (High, fixed) · I-03 stale LAC@BAL on landing (Medium, updated) · I-04 README "148 of 150" superseded (Medium, flagged) · I-05 official injury page title says Week 11 while heading says Week 10 (Low, flagged) · I-06 32 false MISMATCH notes (Medium, fixed) · I-07 NFL Terms §1.3 vs automated capture (High policy, owner decision D1) · I-08 five Week 10 injury files, no canonical (Medium, owner D3) · I-09 large derived files in git (Medium, owner D4) · I-10 duplicate raw games.csv (Low) · I-11 nine flagged pages and 129 HTML files (Medium, owner D5) · I-12 shallow clone (Info) · I-13 committed `docs/` differs from its generator; CI rebuilds but never publishes or compares it (Medium, flagged, owner D5).
+
+### Not verified in this session (stated on the review page, section 5)
+
+66 Out / 10 Doubtful counts; Week 1–9 results; the depth-chart items in the brief (Texans image, Packers prefixes, shared/empty slots, Colts trades, Baltimore QB rows, Malik Willis IR); odds; inactives; snap counts; game books. Nothing in these was re-verified and nothing was inferred.
+
+### Handoff
+
+No active claims remain on the board. Session `1541a85c` (PR #45) is complete. This session's open items are owner decisions D1–D5 in the review page.
+
+## PR and merge — session 6e645ee7 (S05)
+
+| Item | Record |
+|------|--------|
+| PR | pending (opened next, from `arena/6e645ee7-fl2` to `main`) |
+| Merge | pending |
+| Pages deploy | pending |
