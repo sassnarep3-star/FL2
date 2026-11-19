@@ -1,21 +1,16 @@
 name: FL2 depth capture (official Game Books)
 
-# Captures official NFL Game Books for a season/week and commits the parsed CSVs
-# plus a SHA-256 manifest. Runs only when dispatched or on the weekly schedule.
+# Captures official NFL Game Books for a season/week and commits parsed CSVs
+# plus a SHA-256 manifest. Capture is disabled unless repository variable
+# FL2_NFL_CAPTURE_AUTHORIZED is explicitly set to the string "true" after the
+# unresolved F-T1 content-use review is closed. Manual dispatch is not an exemption.
 #
-# Why this runs in CI: the agent sandbox has no route to www.nfl.com, so the
-# capture cannot be performed from the workspace. GitHub-hosted runners can.
-#
-# Data policy: only www.nfl.com and static.www.nfl.com are contacted. Every row
-# written carries the URL of the exact PDF it was parsed from. The Playtime
-# Percentage table is captioned "(Unofficial)" by the league; the caption is
-# stored with the data, not dropped.
+# Why the authorization guard is required: the agent sandbox cannot fetch nfl.com;
+# a GitHub-hosted runner could, so this guard prevents inadvertent off-sandbox retrieval.
+# Every row carries the URL of its source PDF. The Playtime Percentage table is
+# captioned "(Unofficial)" by the league; the caption is retained with the data.
 
 on:
-  push:
-    paths:
-      - 'fl2-depth/engine/**'
-      - '.github/workflows/fl2-depth-capture.yml'
   workflow_dispatch:
     inputs:
       season:
@@ -26,15 +21,16 @@ on:
         description: Week number
         required: true
         default: "10"
-  schedule:
-    # Tuesdays 09:15 UTC, after Monday Night Football is final
-    - cron: "15 9 * * 2"
+  # schedule intentionally disabled pending F-T1. The former weekly cadence was
+  # Tuesdays 09:15 UTC, after Monday Night Football is final.
 
 permissions:
   contents: write
 
 jobs:
   capture:
+    # Fail closed: no source access or capture side effects unless authorization is explicit.
+    if: ${{ vars.FL2_NFL_CAPTURE_AUTHORIZED == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

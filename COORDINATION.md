@@ -2057,3 +2057,13 @@ be checked).
 This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture schedules. It does not decide NFL terms, claim legal advice, delete historical data, enable any capture, or edit other sessions' model/data/site outputs. The three workflows are in scope only to add a fail-closed authorization guard; `COORDINATION.md` is append-only.
 
 **Basis:** the repository's existing Flagged for Review record quotes NFL Terms §1.3 and marks authorization unresolved: [official NFL Terms](https://www.nfl.com/legal/terms/), [F-T1 record](fl2-dashboard/flagged-review.html#F-T1), [integration finding F-AUD-01](review/integration-audit-2026-11-17.html#F-AUD-01). This task treats that existing unresolved gate conservatively; it does not independently interpret or assert the legal terms.
+
+## Completion — A01
+
+**Status:** done (2026-11-19). All three NFL-page capture workflows now fail closed unless the repository variable `FL2_NFL_CAPTURE_AUTHORIZED` is explicitly set to the exact string `true`; when unset, the capture job is skipped before any source request. The active schedules were removed/commented, manual dispatch is not an exemption, and the Game Book workflow no longer starts a capture on pushes. The documented cadence remains only as comments. No repository variable was set and no capture was run.
+
+**Files changed:** `.github/workflows/availability-snapshot.yml`, `.github/workflows/fl2-lines-snapshot.yml`, `.github/workflows/fl2-depth-capture.yml`, and this append-only record.
+
+**Basis and source:** the existing F-T1 record is linked to [NFL Terms](https://www.nfl.com/legal/terms/) and states that authorization is unresolved. The workflow change is a conservative control based on that existing recorded gate; it is not a fresh legal interpretation. No NFL pages were fetched in this session.
+
+**Verification:** statically checked that each of the three capture jobs has the same exact authorization condition and that none has an active `schedule` trigger; the depth-capture workflow also has no `push` trigger. Re-ran the repository's offline checks: `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`, `signal/analysis/verify.py`, `tools/check_integrated_site.py`, and `tools/check_decision_desk.py` all pass on the unchanged data/site tree. GitHub Actions execution/deploy is still to be verified by the PR checks.
