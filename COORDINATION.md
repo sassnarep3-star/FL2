@@ -2116,6 +2116,12 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 
 **Verification:** statically checked that each of the three capture jobs has the same exact authorization condition and that none has an active `schedule` trigger; the depth-capture workflow also has no `push` trigger. Re-ran the repository's offline checks: `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`, `signal/analysis/verify.py`, `tools/check_integrated_site.py`, and `tools/check_decision_desk.py` all pass on the unchanged data/site tree. GitHub Actions execution/deploy is still to be verified by the PR checks.
 
+### Pull request and merge result — session b99036de
+
+- **PR #46** `arena/b99036de-fl2` → `main`: merged with a merge commit, `6949980703b3e91d215014a3970c9a9b56e6cb24`, 2026-11-19T05:26:36Z.
+- Before merging, `main` gained PR #45 (session 1541a85c's fail-closed NFL capture guard). A merge conflict appeared on the three workflow files and `COORDINATION.md`. It was resolved by keeping `main`'s workflow files (the stricter guard) and keeping both sides of the board. No other session's entries were removed.
+- Checks: `Validate and publish site` (validate) passed on the PR and on `main`. Pages build and deployment succeeded on the subsequent `main` push (#47, run 44465231695). Deploy for #46 is recorded as success via the same workflow.
+- Irregularity logged in this session: after the merge, the PR-level `verify-decision-desk` run also passed (run 44465202288).
 ## Post-merge verification — A01 / PR #45
 
 The fail-closed capture change was merged by PR [#45](https://github.com/sassnarep3-star/FL2/pull/45) at 2026-11-19T05:25:27Z as merge commit `eda52f6c4ed11d4cd8c21c016c7954ddfcd2f00d`. The PR validation check passed. The post-merge `Validate and publish site` run [44465069206](https://github.com/sassnarep3-star/FL2/actions/runs/44465069206) and Pages deployment run [44465068717](https://github.com/sassnarep3-star/FL2/actions/runs/44465068717) both completed successfully. GitHub Pages API reports `built`, and the live root URL https://sassnarep3-star.github.io/FL2/ was fetched successfully at 2026-11-19 UTC.
