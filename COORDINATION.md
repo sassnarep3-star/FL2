@@ -2068,7 +2068,7 @@ versioning, full availability snapshot automation, legal-rights decisions, and t
 ### Verification performed
 
 - **B-01 Lions.** On the official page, the Lions block of the NE–DET game lists Kerby Joseph (S, Knee, DNP, **Out**), Cade Mays (C, Ankle, DNP, **Out**) and D.J. Reed (CB, Hip, DNP, **Out**). Committed captures, `data/injuries.json`, `docs/data/injuries.json` and the readiness pages already carry Out. Nothing was changed. The blank-cell defect in the brief is **not present** in the committed data; `decision-desk/sources.html` makes the same finding.
-- **B-02 Terms gate.** §1.3 says: "Systematic retrieval of data or other content from the Services, whether to create or compile, directly or indirectly, a collection, compilation, database, or directory, is prohibited absent our express prior written consent." Two scheduled jobs were live on `main`: `fl2-lines-snapshot` (Wed/Thu/Fri, one scheduled run failed) and `fl2-depth-capture` (Tuesdays, ran). Both schedules are now commented out, and so is the depth workflow's push trigger. `workflow_dispatch` is kept. Re-enabling requires written consent or a licensed source.
+- **B-02 Terms gate.** §1.3 says: "Systematic retrieval of data or other content from the Services, whether to create or compile, directly or indirectly, a collection, compilation, database, or directory, is prohibited absent our express prior written consent." Two scheduled jobs were live on `main`: `fl2-lines-snapshot` (Wed/Thu/Fri, one scheduled run failed) and `fl2-depth-capture` (Tuesdays, ran). Both schedules are now commented out, and so is the depth workflow's push trigger. `workflow_dispatch` is kept. Re-enabling requires written consent or a licensed source. **Merge note:** `main` gained session 1541a85c's stricter fail-closed guard (`FL2_NFL_CAPTURE_AUTHORIZED`) on the same files during this session; the merge keeps main's workflow files unchanged, so this branch's workflow edits are superseded.
 - **B-03 docs/.** `scripts/make_pages.py` regenerated 11 pages. The only substantive change is that the generator no longer emits the committed "Decision Hub" nav link. The Pages workflow regenerates `docs/` before deploy, so the live site already follows the generator.
 - **Checks run locally (all pass):** `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `ops/check_readiness.py`, `tools/check_integrated_site.py`, `tools/check_decision_desk.py`, `scripts/make_pages.py`, `scripts/build_site.py`. The two edited workflow files were parsed with PyYAML: each still has a valid `on:` block.
 
@@ -2090,3 +2090,28 @@ The brief lists about 80 requirements. Most were already built and merged by ear
 ### Pull request and merge
 
 Recorded below after the PR is opened and merged.
+# Session `arena/1541a85c-fl2` — fail-closed NFL capture authorization gate
+
+**Claimed:** 2026-11-19 UTC · **Branch:** `arena/1541a85c-fl2` · **Base:** `dedc34349a65605cf31c192678da437a92d3f878`.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope |
+|---|---|---|---|---|
+| A01 | Reconcile scheduled/automatic NFL-page capture workflows with the unresolved content-use gate; ensure no fetch occurs before documented authorization | **in progress** | `arena/1541a85c-fl2` | `.github/workflows/availability-snapshot.yml`, `.github/workflows/fl2-lines-snapshot.yml`, `.github/workflows/fl2-depth-capture.yml`, this append-only coordination record |
+
+## Claim and scope
+
+This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture schedules. It does not decide NFL terms, claim legal advice, delete historical data, enable any capture, or edit other sessions' model/data/site outputs. The three workflows are in scope only to add a fail-closed authorization guard; `COORDINATION.md` is append-only.
+
+**Basis:** the repository's existing Flagged for Review record quotes NFL Terms §1.3 and marks authorization unresolved: [official NFL Terms](https://www.nfl.com/legal/terms/), [F-T1 record](fl2-dashboard/flagged-review.html#F-T1), [integration finding F-AUD-01](review/integration-audit-2026-11-17.html#F-AUD-01). This task treats that existing unresolved gate conservatively; it does not independently interpret or assert the legal terms.
+
+## Completion — A01
+
+**Status:** done (2026-11-19). All three NFL-page capture workflows now fail closed unless the repository variable `FL2_NFL_CAPTURE_AUTHORIZED` is explicitly set to the exact string `true`; when unset, the capture job is skipped before any source request. The active schedules were removed/commented, manual dispatch is not an exemption, and the Game Book workflow no longer starts a capture on pushes. The documented cadence remains only as comments. No repository variable was set and no capture was run.
+
+**Files changed:** `.github/workflows/availability-snapshot.yml`, `.github/workflows/fl2-lines-snapshot.yml`, `.github/workflows/fl2-depth-capture.yml`, and this append-only record.
+
+**Basis and source:** the existing F-T1 record is linked to [NFL Terms](https://www.nfl.com/legal/terms/) and states that authorization is unresolved. The workflow change is a conservative control based on that existing recorded gate; it is not a fresh legal interpretation. No NFL pages were fetched in this session.
+
+**Verification:** statically checked that each of the three capture jobs has the same exact authorization condition and that none has an active `schedule` trigger; the depth-capture workflow also has no `push` trigger. Re-ran the repository's offline checks: `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`, `signal/analysis/verify.py`, `tools/check_integrated_site.py`, and `tools/check_decision_desk.py` all pass on the unchanged data/site tree. GitHub Actions execution/deploy is still to be verified by the PR checks.
