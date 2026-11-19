@@ -2039,3 +2039,71 @@ depth model needs more than one week); whether pre-season books carry it; and ho
 after the final whistle a book is published (this sets the earliest time ground truth can
 be checked).
 <!-- merged: both sides kept (append-only board) -->
+
+---
+
+# Session `arena/03babc1b-fl2` — repository review, scraper pause, and verification record (2026-11-19)
+
+Repo: `sassnarep3-star/FL2` · Branch: `arena/03babc1b-fl2` · Base: `main` @ `dedc343`.
+This session did **not** claim the whole brief. The brief lists about 80 separate items, most of
+which earlier sessions already built in some form (see the consolidated table at the top of this
+file). This session did the review, the verification spot-checks, and one policy fix.
+
+## Claim and scope (exclusive)
+
+| Task | Status | Files in scope |
+|---|---|---|
+| R1 Repo review; re-run every committed check | **done** | none (read-only) |
+| R2 Official-source spot checks, with links | **done** | `review/verification-2026-11-19.md` (new) |
+| R3 Stop unauthorised scheduled NFL.com collection (F-T1 / F-AUD-01) | **done** | `.github/workflows/fl2-lines-snapshot.yml`, `.github/workflows/fl2-depth-capture.yml` |
+| R4 Log this session | **done** | `COORDINATION.md` (append only) |
+| Everything else in the brief (new data, site pages, leaderboard, PR merge to `main`) | **not claimed** | — |
+
+## What changed
+
+- **Schedules paused.** `fl2-lines-snapshot.yml` (Wed/Thu/Fri 16:00 UTC) and `fl2-depth-capture.yml`
+  (Tue 09:15 UTC, plus a `push` trigger on `fl2-depth/engine/**`) are now manual-only, matching
+  `availability-snapshot.yml`. Reason: the repo's own gate F-T1 / F-AUD-01 records that NFL.com
+  Terms §1.3 prohibit systematic retrieval without written consent, and no consent is on file.
+  The `push` trigger was also removed because the edit itself would have fired a scrape.
+  Re-enable only after written permission or a licensed feed is recorded.
+- **Manual evidence.** One fetch each of https://www.nfl.com/injuries/ and
+  https://www.nfl.com/legal/terms/ (2026-11-19 UTC). Details, quoted text and irregularities are in
+  `review/verification-2026-11-19.md`.
+
+## Irregularities (needs review, not hidden)
+
+| ID | Irregularity | Status |
+|---|---|---|
+| S-01 | Latest committed injury data is Week 10 (2026-11-14 and 2026-11-16 captures). https://www.nfl.com/injuries/ shows **Week 11** on 2026-11-19, so the site is one week behind the official page. | needs review |
+| S-02 | Two scheduled workflows contacted NFL.com while the repo's own gate said that was not authorised. | **paused in this session**; owner to confirm |
+| S-03 | Terms §1.3 requires written consent for systematic retrieval. The complete Terms review is not recorded. | needs review (open gate F-T1) |
+| S-04 | README item 5 describes inconsistent workflow configurations. After S-02 they are consistent, but README is integration-owned and was not edited. | needs review (integration) |
+
+## Verification performed
+
+- All nine committed check scripts pass on the workspace, both before and after the workflow edits
+  (`scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`,
+  `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`,
+  `signal/analysis/verify.py`, `tools/check_integrated_site.py`, `tools/check_decision_desk.py`).
+- Both edited workflow files parse as YAML, and their `on:` blocks now list only `workflow_dispatch`.
+  The only remaining `push` trigger is on `fl2-lines-check` (its own paths, no NFL.com fetch).
+- `git grep nfl.com` in `.github/workflows/`: `availability-snapshot.yml` and the depth capture are
+  the only matches; both are now manual-only.
+- The "conflict marker" hit in `.gitignore` noted in D-I1 is resolved; the only match left in this
+  file is the quoted D-I1 record itself.
+
+## Not done, and why
+
+- **No new data was captured or added.** Adding Week 11 rows would need a permitted source (S-03),
+  and the brief requires every row to link to an official page.
+- **No new site pages.** Shared outputs (landing page, navigation, `README.md`) are changed only by the
+  final integration session.
+- **No PR merge.** The brief's merge gate is "all tasks done, and the integration session has verified the
+  combined data and build". That is not met. The branch is pushed; a PR to `main` is opened for the owner.
+
+## Handoff for the integration session
+
+1. Confirm S-02 (the pause) and decide whether `fl2-depth-capture` should stay paused.
+2. Decide the S-03 gate: obtain written permission, or use a licensed source, before any scheduled capture.
+3. Re-capture the Week 11 injury report only after that decision, and retain the hash.
