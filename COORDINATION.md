@@ -2039,3 +2039,21 @@ depth model needs more than one week); whether pre-season books carry it; and ho
 after the final whistle a book is published (this sets the earliest time ground truth can
 be checked).
 <!-- merged: both sides kept (append-only board) -->
+
+---
+
+# Session `b99036de` — Repo review, Terms gate, Lions verification, Pages integration (branch `arena/b99036de-fl2`)
+
+Base: `main` @ `dedc343`. Started 2026-11-19 (UTC).
+
+## Claim (written before any edit)
+
+| Task | Status | Files in scope | Notes |
+|---|---|---|---|
+| B-01 Verify Lions game-status designations (VR-08 / VR-12 brief item) against the official NFL page | **in progress** | `COORDINATION.md` (record only) | Fetched `https://www.nfl.com/injuries/league/2026/reg10` on 2026-11-19. |
+| B-02 Pause automated nfl.com retrieval that conflicts with Terms §1.3 | **in progress** | `.github/workflows/fl2-depth-capture.yml`, `.github/workflows/fl2-lines-snapshot.yml` (cross-scope: owners' workflows; logged here) | Scheduled runs were active on `main`; the repo's own README says capture must stay manual until consent is recorded. |
+| B-03 Re-sync committed `docs/` with its generator (`scripts/make_pages.py`) | **in progress** | `docs/**` | `make_pages.py` output differs from the committed `docs/` (one nav link). |
+| B-04 Integration close-out: checks, PR to `main`, merge, Pages deploy record | **in progress** | `COORDINATION.md` | Per the brief. |
+
+Not claimed (other sessions' scopes or blocked by the sandbox): Texans depth image, Packers depth parse, Colts/Baltimore roster-event
+versioning, full availability snapshot automation, legal-rights decisions, and the owner decisions in the suggestions registers.
