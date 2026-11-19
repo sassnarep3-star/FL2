@@ -12,10 +12,12 @@ name: FL2 depth capture (official Game Books)
 # stored with the data, not dropped.
 
 on:
-  push:
-    paths:
-      - 'fl2-depth/engine/**'
-      - '.github/workflows/fl2-depth-capture.yml'
+  # push trigger PAUSED (session b99036de): it performed the same nfl.com retrieval on every
+  # engine change. See the schedule note below.
+  # push:
+  #   paths:
+  #     - 'fl2-depth/engine/**'
+  #     - '.github/workflows/fl2-depth-capture.yml'
   workflow_dispatch:
     inputs:
       season:
@@ -26,9 +28,12 @@ on:
         description: Week number
         required: true
         default: "10"
-  schedule:
-    # Tuesdays 09:15 UTC, after Monday Night Football is final
-    - cron: "15 9 * * 2"
+  # SCHEDULE PAUSED (session b99036de, 2026-11-19): nfl.com Terms §1.3 prohibit systematic
+  # retrieval to compile a database absent express prior written consent. Re-enable only after
+  # that consent is recorded in COORDINATION.md. Manual workflow_dispatch remains available.
+  # schedule:
+  #   # Tuesdays 09:15 UTC, after Monday Night Football is final
+  #   - cron: "15 9 * * 2"
 
 permissions:
   contents: write
