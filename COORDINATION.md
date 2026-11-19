@@ -2335,3 +2335,17 @@ This addendum supersedes the matching statements in the completion record above.
 - **Not done here:** no NFL-page capture was run. The Ravens pages could not be read. The docs/ rebuild drift is flagged as FR-17 and was not committed.
 - **Open for the owner:** FR-01 through FR-17 on the Flagged for Review pages. None of them blocks merge.
 
+
+## Result record — session 6e645ee7 (S05): PR #52 merged; Pages result
+
+| Item | Record |
+|------|--------|
+| PR | https://github.com/sassnarep3-star/FL2/pull/52 (`arena/6e645ee7-fl2` → `main`), title "Repo review 2026-11-19: Week 10 re-verification, corrections register, cross-scope requests" |
+| Merge | **merged** 2026-11-19 05:38:04Z, merge commit `ca4da2f`, `gh pr merge 52 --merge`. No approval was requested or waited for. Mergeability was checked first: `MERGEABLE`, `CLEAN`. |
+| Checks before merge | "Validate and publish site" passed (run 44466367901). The ten offline checks passed locally on the merged tree. |
+| Merge-time conflicts | PR #52 conflicted with PR #51 (`aa889c2`) on COORDINATION.md and `data/standings-2026-w10.csv`. Resolved by keeping main's text and appending only this session's sections. The shared files were reverted to `origin/main`. |
+| Pages deploy | Build for `ca4da2f` reported `errored` (`Page build failed.`, no detail from the API). A later build of `b56d419` (PR #54, session 142f2cd8, which includes `ca4da2f`) reported `built` at 2026-11-19 05:38:21Z. The live site therefore carries this PR's content. The error was not reproduced. The sandbox cannot reach `github.io` (curl returns 000), so the live URL was not checked from here. |
+| Gates | `FL2_NFL_CAPTURE_AUTHORIZED` left unset. No NFL capture run. No workflow changed. |
+| Open items | CSR-1 to CSR-5 (above) go to the integration session. Owner decisions D1–D5 remain on the review page. |
+
+<!-- session 6e645ee7 S05 record -->
