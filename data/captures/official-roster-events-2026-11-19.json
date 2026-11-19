@@ -1,0 +1,71 @@
+{
+  "capture_id": "roster-events-2026-11-19",
+  "captured_utc_date": "2026-11-19",
+  "capture_method": "Manual page-fetch tool reads of named pages on 2026-11-19 (one read per URL, no scheduled or automated crawl). The tool does not return a clock time, so only the date is recorded. Raw page bytes are not stored in the repo.",
+  "scope": "Roster-event (transaction and IR) checks behind the brief's open items: Colts receiver trades, Ravens QB injured-reserve moves, Malik Willis IR, and whether the official reserve list carries them. Nothing here is a starter or depth-rank claim.",
+  "rows": [
+    {
+      "id": "RE-01",
+      "claim": "Colts WR Josh Downs traded IND to KC, dated 11/10",
+      "status": "verified",
+      "source_tier": "official NFL",
+      "source_url": "https://www.nfl.com/transactions/",
+      "observed": "Official NFL 2026 November Trades table: 11/10, Josh Downs, Colts to Chiefs, 'Traded'.",
+      "note": "Second of the two Colts receiver trades cited in the brief's Week 10 item (RE-02)."
+    },
+    {
+      "id": "RE-02",
+      "claim": "Colts WR Keenan Allen traded IND to SF, dated 11/10",
+      "status": "verified",
+      "source_tier": "official NFL",
+      "source_url": "https://www.nfl.com/transactions/",
+      "observed": "Official NFL 2026 November Trades table: 11/10, Keenan Allen, Colts to 49ers, 'Traded'.",
+      "note": "Together with RE-01 this confirms the two receiver trades as dated league events. The brief's 'same article as its depth chart' link was not re-checked here."
+    },
+    {
+      "id": "RE-03",
+      "claim": "Jacoby Brissett traded ARI to BAL, dated 11/06",
+      "status": "verified",
+      "source_tier": "official NFL",
+      "source_url": "https://www.nfl.com/transactions/",
+      "observed": "Official NFL 2026 November Trades table: 11/06, Jacoby Brissett, Cardinals to Ravens, 'Traded'.",
+      "note": "The Ravens' own 11/05 article says the trade was being finalized, so the league date and the club narrative agree."
+    },
+    {
+      "id": "RE-04",
+      "claim": "Ravens placed QBs Lamar Jackson and Tyler Huntley on injured reserve on Thursday, 11/05",
+      "status": "verified",
+      "source_tier": "official club",
+      "source_url": "https://www.baltimoreravens.com/news/lamar-jackson-tyler-huntley-injured-reserve-austin-reed-adisa-isaac-jake-moody",
+      "observed": "Ravens article dated Nov 05, 2026 04:35 PM: 'officially placed quarterbacks Lamar Jackson and Tyler Huntley on injured reserve Thursday.' Jackson: right thumb. Huntley: toe. Both 'will miss a minimum of four games'. QB Austin Reed signed to the 53-man roster.",
+      "note": "Club-published. The reserve list page checked in RE-05 does not show this move."
+    },
+    {
+      "id": "RE-05",
+      "claim": "Official NFL reserve list for November 2026 carries the Ravens' 11/05 IR moves",
+      "status": "conflict",
+      "source_tier": "official NFL",
+      "source_url": "https://www.nfl.com/transactions/league/reserve-list/2026/11",
+      "observed": "Both pages of the November 2026 reserve list were read. Entries run from 11/18 down to 11/10 (Jordan Whittington, LA). No Baltimore row appears. No row is dated 11/05 to 11/09.",
+      "note": "The official log is missing the Jackson and Huntley IR moves in RE-04. Flagged; the club article is kept as the source for the move and the league log is not used to contradict it."
+    },
+    {
+      "id": "RE-06",
+      "claim": "Dolphins placed QB Malik Willis on injured reserve, dated 11/10",
+      "status": "unverified",
+      "source_tier": "secondary (press)",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/report-dolphins-to-place-qb-malik-willis-on-ir-with-core-muscle-injury",
+      "observed": "NBC Sports (Pro Football Talk), dated Nov 10, 2026: 'The Dolphins placed quarterback Malik Willis on injured reserve, the team announced.' NFLTradeRumors (https://nfltraderumors.co/dolphins-placing-qb-malik-willis-on-ir) reports the same. The official NFL reserve list for November 2026 (https://www.nfl.com/transactions/league/reserve-list/2026/11) has no Willis row.",
+      "note": "No official Dolphins or NFL page confirming the move was found in this check. The Dolphins news page fetched on 2026-11-19 shows the later IR moves for Zeek Biggers and Jordan Phillips (RE-07) but not Willis in its first chunk. Marked unverified, not confirmed."
+    },
+    {
+      "id": "RE-07",
+      "claim": "Dolphins placed DL Zeek Biggers and DL Jordan Phillips on injured reserve, dated 11/17",
+      "status": "verified",
+      "source_tier": "official club",
+      "source_url": "https://www.miamidolphins.com/news/dolphins-make-roster-moves-x7086",
+      "observed": "Dolphins news item: the team 'announced today that they have placed defensive linemen Zeek Biggers and Jordan Phillips on the injured reserve list.' The NFL reserve list (RE-05 source) shows both rows dated 11/17.",
+      "note": "Cross-check. The club and league sources agree for this move, which shows the league list captures some club IR moves but not the Ravens' or Willis's."
+    }
+  ]
+}

@@ -2121,3 +2121,92 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 The fail-closed capture change was merged by PR [#45](https://github.com/sassnarep3-star/FL2/pull/45) at 2026-11-19T05:25:27Z as merge commit `eda52f6c4ed11d4cd8c21c016c7954ddfcd2f00d`. The PR validation check passed. The post-merge `Validate and publish site` run [44465069206](https://github.com/sassnarep3-star/FL2/actions/runs/44465069206) and Pages deployment run [44465068717](https://github.com/sassnarep3-star/FL2/actions/runs/44465068717) both completed successfully. GitHub Pages API reports `built`, and the live root URL https://sassnarep3-star.github.io/FL2/ was fetched successfully at 2026-11-19 UTC.
 
 The live landing page still accurately labels the data as a dated 2026-11-14 capture and presents unresolved/stale items for review; this task did not refresh data or change any model result. The Pages runner emitted a non-failing Node.js 20 deprecation warning for `actions/upload-artifact@v4`; not addressed by this scoped change. No NFL capture was invoked.
+
+---
+
+# Session `arena/dd82dd34-fl2` — Roster-event verification & repo review (2026-11-19)
+
+Repo: `sassnarep3-star/FL2` · Branch: `arena/dd82dd34-fl2` · Base: `main` @ `dedc343`
+
+## Scope and constraints (read first)
+
+- The brief asks for one session branch per task and a worktree per session. Arena pins this session to
+  `arena/dd82dd34-fl2`, so every commit here is on that branch. Scopes below are kept disjoint from other boards.
+- The brief asks for ~100 requirement lines. Most already have a register row, an artefact, or a flag from
+  earlier sessions (checked by grep on 2026-11-19). This session did not rebuild them. It verified the items
+  the registers still list as open, using official pages, and recorded what it could not confirm.
+- Sandbox bash cannot reach nfl.com. Official pages were read with the page-fetch tool, one read per URL, on 2026-11-19.
+  Nothing was scraped on a schedule.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope (exclusive) | Notes |
+|---|---|---|---|---|---|
+| RE1 | Claim + coordination entry | **done** (2026-11-19) | arena/dd82dd34-fl2 | `COORDINATION.md` (this section) | |
+| RE2 | Verify roster events behind the open items: Colts WR trades, Ravens QB IR, Malik Willis IR, reserve-list coverage | **done** (2026-11-19) | arena/dd82dd34-fl2 | `data/captures/official-roster-events-2026-11-19.json`, `tools/build_roster_events.py`, `review/roster-events-2026-11-19.html` | 7 rows: 5 verified, 1 conflict, 1 unverified |
+| RE3 | Repo baseline: run all nine checkers on this branch | **done** (2026-11-19) | arena/dd82dd34-fl2 | none (read-only) | all green, see below |
+| RE4 | Flag the live scheduled NFL fetch (irregularity I-1) | **done — found resolved on main (7e21aad); no workflow edited here** | arena/dd82dd34-fl2 | none | see I-1 |
+
+## Sources used (page-fetch tool, 2026-11-19)
+
+| Source | URL | Used for |
+|---|---|---|
+| NFL 2026 Transactions, Trades, November | https://www.nfl.com/transactions/ | RE-01, RE-02, RE-03 |
+| NFL 2026 Reserve List, November (2 pages) | https://www.nfl.com/transactions/league/reserve-list/2026/11 | RE-05, RE-06, RE-07 |
+| NFL 2026 Reserve List, October and September (page 1 read) | https://www.nfl.com/transactions/league/reserve-list/2026/10 · …/2026/09 | checked for Willis/Jackson/Huntley: none found |
+| Ravens article, Nov 5 2026 | https://www.baltimoreravens.com/news/lamar-jackson-tyler-huntley-injured-reserve-austin-reed-adisa-isaac-jake-moody | RE-04 |
+| Dolphins news page | https://www.miamidolphins.com/news/ | RE-07 (item linked); Willis article not found in first chunk |
+| NFL injury report, Week 11 (for context only) | https://www.nfl.com/injuries/ | not used for any row |
+| Press (secondary, not official) | nbcsports.com PFT and nfltraderumors.co, Nov 10 2026 | RE-06 only, labelled secondary |
+
+## Verification performed
+
+- Each row was checked against the page it cites. The NFL reserve-list pages were read in full for November.
+  The September and October pages were read in part (chunk 1 for each, plus chunk 0 for September), so
+  "not found" for Willis/Jackson/Huntley in those months is a statement about the parts read.
+- The builder refuses any row with an empty field, a non-https source, or an unknown status (exit 1).
+- The nine repo checkers were run before any edit (RE3). Results are listed below.
+
+## Irregularities (published on `review/roster-events-2026-11-19.html`)
+
+- **I-1 — Live scheduled nfl.com fetch: found at base, resolved on `main` by another session (not by this one).**
+  At base `dedc343`, `fl2-lines-snapshot.yml` had an active Wed/Thu/Fri 16:00 UTC cron calling
+  `snapshot_capture.py --fetch` (requests `https://www.nfl.com/injuries/`), and its gh run list showed a
+  scheduled **failure**. That conflicted with the F-T1 gate (nfl.com Terms §1.3). Commit `7e21aad`
+  ("ci: fail closed until NFL capture authorization", merged via PR #45 on `main`) disables that cron, and
+  adds a job-level guard `vars.FL2_NFL_CAPTURE_AUTHORIZED == 'true'` to `availability-snapshot.yml` and
+  `fl2-lines-snapshot.yml`. This session made **no** change to the workflows. Still open for the owner: F-T1
+  itself, and whether `fl2-depth-capture.yml` (Game Book capture) also needs the same review. Source: https://www.nfl.com/legal/terms/
+- **I-2 — The NFL reserve list omits IR moves the club published.** Ravens' Jackson and Huntley (club article dated
+  Nov 5) do not appear, and no row is dated 11/05–11/09 on the November page. Source: https://www.nfl.com/transactions/league/reserve-list/2026/11 ·
+  https://www.baltimoreravens.com/news/lamar-jackson-tyler-huntley-injured-reserve-austin-reed-adisa-isaac-jake-moody
+- **I-3 — Malik Willis IR is unconfirmed by an official source.** Two press reports say the Dolphins announced it on
+  Nov 10. The NFL November reserve list has no Willis row. Status: unverified. Source: https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/report-dolphins-to-place-qb-malik-willis-on-ir-with-core-muscle-injury
+- **I-4 — Cross-check that holds.** For Biggers and Phillips (11/17), the club article and the league list agree. Source: https://www.miamidolphins.com/news/dolphins-make-roster-moves-x7086
+- **I-5 — Brief items not addressed here (carried, not hidden).** Texans depth as an image, Packers prefixed jersey
+  numbers, Seattle/Washington shared or empty slots, the Lock/McCord/Brissett announced-starter items, and the
+  Baltimore depth rows still showing Jackson and Huntley at QB (no per-club depth chart was read in this session).
+  Their existing status stays as recorded by earlier sessions in `readiness/` and `ops/data/requirements_v2.json`.
+
+## Repo baseline (RE3) — checkers on `arena/dd82dd34-fl2` before any edit
+
+| Checker | Result |
+|---|---|
+| `scripts/check_site.py` | OK, 7 pages |
+| `tools/check_links.py` | OK, 16 pages, 22 sources |
+| `tools/check_signals_links.py` | OK |
+| `engine/linelab/check_site.py` | OK |
+| `fl2-lines/engine/check.py` | OK, 0 failures (272 feed rows, 1,088 lines, 816 prices) |
+| `ops/check_readiness.py` | OK |
+| `signal/analysis/verify.py` | OK, 216/216 |
+| `tools/check_integrated_site.py` | PASS |
+| `tools/check_decision_desk.py` | OK (6 pages, 25 tables, 67 suggestions, 55 questions) |
+
+## Requests to the integration session (not edited here)
+
+1. Link `review/roster-events-2026-11-19.html` from the hub's Flagged-for-Review page (`index.html` and `review.html` are shared files).
+2. Owner: close F-T1 (or record written permission) before any automated nfl.com capture is re-enabled; I-1 is fail-closed on main meanwhile.
+
+## Pull request
+
+See the PR recorded under "Pull request and merge result" below once opened.
