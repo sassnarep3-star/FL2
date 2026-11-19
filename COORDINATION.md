@@ -2067,3 +2067,21 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 **Basis and source:** the existing F-T1 record is linked to [NFL Terms](https://www.nfl.com/legal/terms/) and states that authorization is unresolved. The workflow change is a conservative control based on that existing recorded gate; it is not a fresh legal interpretation. No NFL pages were fetched in this session.
 
 **Verification:** statically checked that each of the three capture jobs has the same exact authorization condition and that none has an active `schedule` trigger; the depth-capture workflow also has no `push` trigger. Re-ran the repository's offline checks: `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `fl2-lines/engine/check.py`, `ops/check_readiness.py`, `signal/analysis/verify.py`, `tools/check_integrated_site.py`, and `tools/check_decision_desk.py` all pass on the unchanged data/site tree. GitHub Actions execution/deploy is still to be verified by the PR checks.
+
+---
+
+# Session `arena/6e645ee7-fl2` — line-by-line review, official re-verification, Week 10 correction register, landing-page corrections (current)
+
+**Claimed:** 2026-11-19 UTC · **Branch:** `arena/6e645ee7-fl2` (fast-forwarded to `origin/main` @ `eda52f6`, which includes PR #45 fail-closed capture gate) · **Constraint:** the session runs on this one branch only, so the `session-<id>/<task>` worktree scheme is not used; scopes are kept disjoint instead.
+
+## Task board
+
+| # | Task | Status | Owner | Files in scope |
+|---|------|--------|-------|----------------|
+| S01 | Claim + board record | in progress | `arena/6e645ee7-fl2` | `COORDINATION.md` (append-only) |
+| S02 | Re-verify Week 10 finals (14 games) and the Week 11 kickoff against nfl.com; record every mismatch | in progress | `arena/6e645ee7-fl2` | `review/results-corrections-2026-11-19.csv` (new) |
+| S03 | Line-level repo review: run every offline check, classify irregularities, publish with source links | in progress | `arena/6e645ee7-fl2` | `review/repo-review-2026-11-19.html` + `.md` (new) |
+| S04 | Landing-page correction: false "captured before Week 10 kicked off" sentence; stale LAC@BAL row; link to S03 | in progress | `arena/6e645ee7-fl2` | `index.html` (additive edits only) |
+| S05 | PR to `main`, merge, GitHub Pages check, record PR and merge result here | pending | `arena/6e645ee7-fl2` | `COORDINATION.md` |
+
+**Frozen artefacts not touched:** `ops/data/results/results_2026_reg.csv` is read by `ops/forecast_week11.py`; `data/results_feed.csv`, `fl2-lines/data/official/*`, the Week 11 ledger (`fl2-lines/data/ledger/*`), and `ops/data/forecast_week11_2026.csv` are not edited. Changing their inputs after the Week 11 pre-registration would change a registered output. Corrections are logged in S02 for owner acceptance instead.
