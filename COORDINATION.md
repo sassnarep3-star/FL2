@@ -2042,6 +2042,54 @@ be checked).
 
 ---
 
+# Session `b99036de` — Repo review, Terms gate, Lions verification, Pages integration (branch `arena/b99036de-fl2`)
+
+Base: `main` @ `dedc343`. Started 2026-11-19 (UTC).
+
+## Claim (written before any edit)
+
+| Task | Status | Files in scope | Notes |
+|---|---|---|---|
+| B-01 Verify Lions game-status designations (VR-08 / VR-12 brief item) against the official NFL page | **done** | `COORDINATION.md` (record only) | Fetched `https://www.nfl.com/injuries/league/2026/reg10` on 2026-11-19. |
+| B-02 Pause automated nfl.com retrieval that conflicts with Terms §1.3 | **done** (schedules paused; owner decision needed) | `.github/workflows/fl2-depth-capture.yml`, `.github/workflows/fl2-lines-snapshot.yml` (cross-scope: owners' workflows; logged here) | Scheduled runs were active on `main`; the repo's own README says capture must stay manual until consent is recorded. |
+| B-03 Re-sync committed `docs/` with its generator (`scripts/make_pages.py`) | **done** | `docs/**` | `make_pages.py` output differs from the committed `docs/` (one nav link). |
+| B-04 Integration close-out: checks, PR to `main`, merge, Pages deploy record | **in progress** | `COORDINATION.md` | Per the brief. |
+
+Not claimed (other sessions' scopes or blocked by the sandbox): Texans depth image, Packers depth parse, Colts/Baltimore roster-event
+versioning, full availability snapshot automation, legal-rights decisions, and the owner decisions in the suggestions registers.
+
+## Completion record — session b99036de (2026-11-19 UTC)
+
+### Sources (fetched 2026-11-19 with the page-fetch tool; sandbox bash cannot reach nfl.com)
+
+- Official NFL Week 10 injury report: https://www.nfl.com/injuries/league/2026/reg10
+- NFL.com Terms and Conditions (updated May 16, 2024), §1.3 Permitted Uses: https://www.nfl.com/legal/terms/
+
+### Verification performed
+
+- **B-01 Lions.** On the official page, the Lions block of the NE–DET game lists Kerby Joseph (S, Knee, DNP, **Out**), Cade Mays (C, Ankle, DNP, **Out**) and D.J. Reed (CB, Hip, DNP, **Out**). Committed captures, `data/injuries.json`, `docs/data/injuries.json` and the readiness pages already carry Out. Nothing was changed. The blank-cell defect in the brief is **not present** in the committed data; `decision-desk/sources.html` makes the same finding.
+- **B-02 Terms gate.** §1.3 says: "Systematic retrieval of data or other content from the Services, whether to create or compile, directly or indirectly, a collection, compilation, database, or directory, is prohibited absent our express prior written consent." Two scheduled jobs were live on `main`: `fl2-lines-snapshot` (Wed/Thu/Fri, one scheduled run failed) and `fl2-depth-capture` (Tuesdays, ran). Both schedules are now commented out, and so is the depth workflow's push trigger. `workflow_dispatch` is kept. Re-enabling requires written consent or a licensed source. **Merge note:** `main` gained session 1541a85c's stricter fail-closed guard (`FL2_NFL_CAPTURE_AUTHORIZED`) on the same files during this session; the merge keeps main's workflow files unchanged, so this branch's workflow edits are superseded.
+- **B-03 docs/.** `scripts/make_pages.py` regenerated 11 pages. The only substantive change is that the generator no longer emits the committed "Decision Hub" nav link. The Pages workflow regenerates `docs/` before deploy, so the live site already follows the generator.
+- **Checks run locally (all pass):** `scripts/check_site.py`, `tools/check_links.py`, `tools/check_signals_links.py`, `engine/linelab/check_site.py`, `ops/check_readiness.py`, `tools/check_integrated_site.py`, `tools/check_decision_desk.py`, `scripts/make_pages.py`, `scripts/build_site.py`. The two edited workflow files were parsed with PyYAML: each still has a valid `on:` block.
+
+### Irregularities (published on the Flagged for Review page, `docs/flagged.html`, as F-B01..F-B04)
+
+- **F-B01 (High):** Scheduled nfl.com retrieval conflicted with Terms §1.3. Schedules paused; owner decision needed.
+- **F-B02 (Low):** The official Week 10 page title says "Week 11 of the 2026 Season" while its heading says "Injuries - WEEK 10". Open for a human check.
+- **F-B03 (Info):** Lions designations verified; closed.
+- **F-B04 (Low):** Committed `docs/` drifted from its generator; regenerated. Owner to confirm the Decision Hub nav link.
+
+### Not done this session, and why
+
+The brief lists about 80 requirements. Most were already built and merged by earlier sessions (see the consolidated status above and `research/requirements-v2.md`). I did not build the following, because each is blocked by something this session cannot resolve:
+
+- **Authorized depth source for the Texans image** and **roster-event versioning** (Colts/Baltimore). These need an authorized structured source or official transaction data, not transcription. The sandbox has no route to nfl.com except this page-fetch tool, and Terms §1.3 limits systematic retrieval.
+- **Automated availability snapshots, Wed–Fri.** Blocked by F-B01. Snapshots need written consent or a licensed feed.
+- **Owner decisions** in the suggestions registers and the price-data policy. These cannot be made by an agent.
+
+### Pull request and merge
+
+Recorded below after the PR is opened and merged.
 # Session `arena/1541a85c-fl2` — fail-closed NFL capture authorization gate
 
 **Claimed:** 2026-11-19 UTC · **Branch:** `arena/1541a85c-fl2` · **Base:** `dedc34349a65605cf31c192678da437a92d3f878`.
