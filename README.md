@@ -10,6 +10,7 @@ FL2 is a research dashboard for originating NFL lines and testing signals. It ke
 
 - [Overview and integrated decision-readiness table](index.html) — summary, source/gate snapshot, and the landing table with the gate and clearing metric for each integrated requirement.
 - [Executive summary](ledger/summary.html) — headline findings and limitations.
+- [Roster events and requirement status (2026-11-19)](review/roster-events-2026-11-19.html) and [Flagged for Review (2026-11-19)](review/flagged-for-review-2026-11-19.html) — official-source roster events, the Colts receiver check against the Game Book, and the unverified items. Checked offline by `tools/check_review_2026_11_19.py`.
 - [Cross-section integrity audit / Flagged for Review](review/integration-audit-2026-11-17.html) — concrete inconsistencies, unresolved source/rights gates, questions, and proposed next steps.
 - [Suggestions and decision paths](fl2-lines/suggestions.html) — adopt/test/reject/defer proposals, including the information needed to choose.
 - [Questions and answers](fl2-lines/questions.html) — current answers, unknowns, and what would close them.
