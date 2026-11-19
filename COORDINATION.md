@@ -2358,3 +2358,7 @@ This addendum supersedes the matching statements in the completion record above.
 - Official NFL Terms and Conditions §1.3, fetched with the page-fetch tool on 2026-11-19 UTC.
 - Committed Week 10 Game Book register and its per-row official PDF links; run the section's validator before publishing any counts.
 - Current committed results-feed row and its immutable capture timestamps. A one-off audit is not authorization to resume a scheduled capture or publish new NFL-derived rows.
+
+## Coordination log
+
+While pushing this claim, `git pull --rebase origin main` fetched concurrent main changes (`6949980..6a3443c`) and found a content conflict in this append-only board. The conflict was resolved by preserving both main's post-merge records for sessions `b99036de` / `1541a85c` and this session's claim; no other session's content was dropped or edited. The rebase completed as commit `d8f7496`.
