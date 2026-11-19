@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Official transactions &amp; stale depth · FL2</title>
+<meta name="description" content="Aggregate review of official NFL transaction pages for Oct–Nov 2026, joined to club depth charts. Every figure links to its official nfl.com page.">
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#1d2330;background:#f7f8fa;line-height:1.5}
+header{background:#0b2545;color:#fff;padding:14px 20px}
+header a{color:#cfe3ff;margin-right:14px}
+main{max-width:1080px;margin:0 auto;padding:20px}
+h1{font-size:1.6rem;margin:.2rem 0} h2{font-size:1.2rem;margin-top:28px}
+.cards{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.card{background:#fff;border:1px solid #dde2ea;border-radius:8px;padding:10px 14px;min-width:170px;font-size:.9rem}
+.card b{display:block;font-size:1.4rem}
+.box{background:#fff;border:1px solid #dde2ea;border-radius:8px;padding:12px 16px}
+.flag{background:#fff7e0;border:1px solid #f0c75e;border-radius:8px;padding:12px 16px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:.92rem;margin:8px 0 18px}
+th,td{border-bottom:1px solid #e6e9ef;padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#eef2f7}
+a{color:#0b5cad}
+.note{color:#4a5566;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+<strong>FL2</strong> &nbsp;
+<a href="../index.html">Hub</a><a href="../readiness/index.html">Readiness</a><a href="../fl2-depth/index.html">Depth &amp; Game Books</a><a href="../readiness/flagged.html">Flagged</a>
+</header>
+<main>
+<h1>Official transactions &amp; stale depth — aggregate view</h1>
+<p class="note">Built 2026-11-19 (UTC) by <code>tools/build_transactions_page.py</code>. This page publishes counts,
+findings and links only. The row-level NFL.com content is held in a private store, not in this site, because
+NFL Terms §1.3 is an open owner gate (Flagged F-T1). Nothing here is inferred: a value the official page does not
+state is left out and listed under “Not verified”.</p>
+
+<div class="cards">
+<div class="card">Official rows reviewed<b>75</b></div>
+<div class="card">Trades (Nov)<b>12</b></div>
+<div class="card">Reserve/injured (Nov)<b>25</b></div>
+<div class="card">Reserve/injured (Oct, 10/24–10/31 only)<b>25</b></div>
+<div class="card">Terminations (Nov)<b>13</b></div>
+<div class="card">Depth rows stale after capture<b>2</b></div>
+<div class="card">Same-day, order unknown<b>2</b></div>
+<div class="card">Pre-capture, not cleared<b>1</b></div>
+</div>
+
+<h2>1 · Depth charts vs. official roster events</h2>
+<div class="flag">
+<p><strong>Rule.</strong> A club depth chart carries a capture date, not a page date. An official roster event that
+names a player on that chart and is dated <em>after</em> the capture means the chart row cannot reflect it, so the row
+is flagged stale. A same-day event has unknown order and is not counted. An earlier event is not cleared, because the
+chart's own date is not published.</p>
+<p><strong>Scope.</strong> Only the 5 of 32 clubs whose depth charts are held (NE, DET, GB, KC, SF). Baltimore and
+Indianapolis depth charts are not held, so the Baltimore and Colts items cannot be tested.</p>
+</div>
+<h3>Stale after capture (2)</h3>
+<ul><li><strong>DET</strong> · defense EDGE, depth rank 1: the chart captured 2026-11-14 lists <em>Aidan Hutchinson</em>. The official NFL.com reserve list dates a Reserve/Injured entry to 2026-11-18 (<a href="https://www.nfl.com/transactions/league/reserve-list/2026/11" rel="noopener">official page</a>). Club chart (captioned unofficial by the club): <a href="https://www.detroitlions.com/team/depth-chart" rel="noopener">link</a>.</li><li><strong>KC</strong> · offense TE, depth rank 3: the chart captured 2026-11-14 lists <em>Jared Wiley</em>. The official NFL.com reserve list dates a Reserve/Injured entry to 2026-11-18 (<a href="https://www.nfl.com/transactions/league/reserve-list/2026/11" rel="noopener">official page</a>). Club chart (captioned unofficial by the club): <a href="https://www.chiefs.com/team/depth-chart" rel="noopener">link</a>.</li></ul>
+<h3>Same day as capture, order unknown — not counted (2)</h3>
+<ul><li><strong>NE</strong> · offense RB, depth rank 2: the chart captured 2026-11-14 lists <em>TreVeyon Henderson</em>. The official NFL.com reserve list dates a Reserve/Injured entry to 2026-11-14 (<a href="https://www.nfl.com/transactions/league/reserve-list/2026/11" rel="noopener">official page</a>). Club chart (captioned unofficial by the club): <a href="https://www.patriots.com/team/depth-chart" rel="noopener">link</a>.</li><li><strong>GB</strong> · offense TE, depth rank 4: the chart captured 2026-11-14 lists <em>81 Josh Whyle</em>. The official NFL.com reserve list dates a Reserve/Injured entry to 2026-11-14 (<a href="https://www.nfl.com/transactions/league/reserve-list/2026/11" rel="noopener">official page</a>). Club chart (captioned unofficial by the club): <a href="https://www.packers.com/team/depth-chart" rel="noopener">link</a>.</li></ul>
+<h3>Earlier than capture, not cleared (1)</h3>
+<ul><li><strong>KC</strong> · offense WR, depth rank 3: the chart captured 2026-11-14 lists <em>Josh Downs</em>. The official NFL.com reserve list dates a Trade entry to 2026-11-10 (<a href="https://www.nfl.com/transactions/league/trades/2026/11" rel="noopener">official page</a>). Club chart (captioned unofficial by the club): <a href="https://www.chiefs.com/team/depth-chart" rel="noopener">link</a>.</li></ul>
+
+<h2>2 · Not verified — left blank, not inferred</h2>
+<table>
+<thead><tr><th>Item</th><th>Why it is not verified here</th><th>Official page checked</th></tr></thead>
+<tbody>
+<tr><td>Lamar Jackson, BAL, injured reserve (brief VR-17)</td><td>No matching row in the captured reserve-list pages. The October page is capped at 25 rows beginning 10/24, so an earlier move cannot be ruled out. No Baltimore depth chart is held.</td><td><a href="https://www.nfl.com/transactions/league/reserve-list/2026/10">reserve list · Oct 2026</a></td></tr>
+<tr><td>Tyler Huntley, BAL (brief VR-26)</td><td>No matching row in the captured reserve-list pages.</td><td><a href="https://www.nfl.com/transactions/league/reserve-list/2026/10">reserve list · Oct 2026</a></td></tr>
+<tr><td>Malik Willis, injured reserve (brief VR-25, VQ-06)</td><td>No matching row in the captured reserve-list pages.</td><td><a href="https://www.nfl.com/transactions/league/reserve-list/2026/11">reserve list · Nov 2026</a></td></tr>
+<tr><td>Drew Lock / Kyle McCord starter change (brief VR-24)</td><td>No signing or trade row for these players in the captured window. The signings page was read only partly, so this is incomplete.</td><td><a href="https://www.nfl.com/transactions/league/signings/2026/11">signings · Nov 2026</a></td></tr>
+<tr><td>Colts starting-receiver trades (brief: Downs, Allen)</td><td>Trade rows exist on the official page (11/10), but no Colts depth chart is held, so no depth row can be flagged.</td><td><a href="https://www.nfl.com/transactions/league/trades/2026/11">trades · Nov 2026</a></td></tr>
+<tr><td>Texans depth chart (brief: depth published as an image)</td><td>The NFL.com per-club depth URL returns a 404 page (checked 2026-11-19). No structured official source is held.</td><td><a href="https://www.nfl.com/teams/houston-texans/depthchart">nfl.com Texans depth (404)</a></td></tr>
+</tbody>
+</table>
+
+<h2>3 · Irregularities for review</h2>
+<ul>
+<li>The monthly reserve-list pages each display exactly 25 rows, and October's begins at 10/24. This looks like a display cap. Appending <code>?page=2</code> returns the same page. Completeness is therefore unverified.</li>
+<li>The official reserve-list pages publish no position for any row.</li>
+<li>The NFL publishes no official depth chart. The per-club nfl.com depth URL returns 404; the club charts are captioned “Unofficial” by the clubs.</li>
+<li>Depth-chart pages carry no date of their own (<code>page_date: null</code>), so staleness is judged against the capture date.</li>
+<li>Terms §1.3 gate: row-level capture of NFL.com content is held private until the owner records consent or a licensed source is found (Flagged F-T1).</li>
+</ul>
+
+<p class="note">Method: the official pages above were read on 2026-11-19 and counts were checked against the rows each page
+displayed. Scripts: <code>tools/build_txn_stale_flags.py</code> (private join) and <code>tools/build_transactions_page.py</code>.</p>
+</main>
+</body>
+</html>

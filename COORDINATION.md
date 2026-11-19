@@ -2121,3 +2121,62 @@ This narrow safety task addresses F-AUD-01, F-T1 and the conflicting capture sch
 The fail-closed capture change was merged by PR [#45](https://github.com/sassnarep3-star/FL2/pull/45) at 2026-11-19T05:25:27Z as merge commit `eda52f6c4ed11d4cd8c21c016c7954ddfcd2f00d`. The PR validation check passed. The post-merge `Validate and publish site` run [44465069206](https://github.com/sassnarep3-star/FL2/actions/runs/44465069206) and Pages deployment run [44465068717](https://github.com/sassnarep3-star/FL2/actions/runs/44465068717) both completed successfully. GitHub Pages API reports `built`, and the live root URL https://sassnarep3-star.github.io/FL2/ was fetched successfully at 2026-11-19 UTC.
 
 The live landing page still accurately labels the data as a dated 2026-11-14 capture and presents unresolved/stale items for review; this task did not refresh data or change any model result. The Pages runner emitted a non-failing Node.js 20 deprecation warning for `actions/upload-artifact@v4`; not addressed by this scoped change. No NFL capture was invoked.
+# Session f12b5506 — Official transactions log & stale-depth flags (`/transactions/`) — branch `arena/f12b5506-fl2`
+
+Base: `main` @ `dedc343`. Branch fixed by Arena for this session (the `session-<id>/<task>` worktree
+scheme is not available; scope is kept non-overlapping instead, as in earlier sections).
+
+## Scope claimed (exclusive)
+
+| Task | Status | Files |
+|---|---|---|
+| T-TXN-1 Capture official NFL transaction rows (trades, reserve/injured, terminations; Oct–Nov 2026) with per-row source URL | **done** | `data/official/transactions-2026-oct-nov.csv` |
+| T-TXN-2 Join official roster events to club depth charts; flag stale rows (versioned against the last official roster event) | **done** (5 of 32 clubs have depth charts, so coverage is partial) | `tools/build_txn_stale_flags.py`, `data/official/stale-depth-flags.csv` |
+| T-TXN-3 Publish page with row-level source links, a "not verified" table, and an irregularities list | **done** | `tools/build_transactions_page.py`, `transactions/index.html` |
+| Hub tile for the new page (one tile, integration-style edit) | **done** | `index.html` (one `<a class="tile">` added; nothing else changed) |
+
+## Sources (all fetched 2026-11-19 with `fetch_page`, official NFL.com)
+
+- https://www.nfl.com/transactions/league/trades/2026/11 — 12 rows
+- https://www.nfl.com/transactions/league/reserve-list/2026/11 — 25 rows (2 chunks)
+- https://www.nfl.com/transactions/league/reserve-list/2026/10 — 25 rows (2 chunks; dates 10/24–10/31)
+- https://www.nfl.com/transactions/league/terminations/2026/11 — 13 rows
+- https://www.nfl.com/transactions/league/signings/2026/11 — read chunk 1 of 2 only; **not captured**
+- https://www.nfl.com/transactions/ — index page (confirms the monthly category URLs above)
+- https://www.nfl.com/injuries/league/2026/reg10 — re-read for Lions rows (Kerby Joseph, Cade Mays, D.J. Reed all show game status **Out**; the repo's rows match)
+- https://www.nfl.com/teams/houston-texans/depthchart — **404** ("404 - Flag on the Play.")
+- https://www.nfl.com/league/reserve-list/2026/11 — **404** (wrong path; the working path is under `/transactions/`)
+- https://www.nfl.com/transactions/league/reserve-list/2026/10?page=2 — returned the same page (no pagination)
+
+## Verification performed
+
+- Row counts: 12 / 25 / 25 / 13 transcribed rows, matching the rows each official page showed. `build_transactions_page.py` fails if counts drift from these numbers.
+- Every transaction row has an `official_source_url` on `www.nfl.com/transactions/`. The page builder fails otherwise.
+- Every data row in the generated page carries an `href` to nfl.com (checked by the builder).
+- Stale-depth join: depth rows come only from `data/depth_charts.json` (5 clubs, `retrieved_utc` 2026-11-14). The match is on normalised names with digits and punctuation removed. This matched the Packers' `81 Josh Whyle` row, so the jersey-number prefix was handled.
+- Existing gates still pass: `scripts/check_site.py`, `tools/check_links.py`, `ops/check_readiness.py`.
+
+## Results
+
+- **STALE-AFTER-CAPTURE (2):** Aidan Hutchinson, DET, depth EDGE rank 1, placed on reserve/injured 2026-11-18; the Lions chart was captured 2026-11-14. Jared Wiley, KC, depth TE rank 3, reserve/injured 2026-11-18; the Chiefs chart was captured 2026-11-14.
+- **SAME-DAY-UNRESOLVED (2):** TreVeyon Henderson (NE RB2) and Josh Whyle (GB TE4), both reserve/injured 2026-11-14, the same day as the capture. Order cannot be determined, so they are not counted as stale.
+- **PRE-CAPTURE-UNCLEARED (1):** Josh Downs (KC WR3), traded IND→KC 2026-11-10. The depth page's own date is not published, so this is not cleared.
+
+## Irregularities (published on the page, §4; not hidden)
+
+1. The monthly reserve-list pages each show exactly 25 rows. October's begins at 10/24, so earlier October moves are not in this log. `?page=2` does not paginate. Completeness is unverified.
+2. The official reserve-list rows publish no position. The position column on the page is omitted rather than filled.
+3. The NFL publishes no official depth chart. The per-club nfl.com depth URL returns 404 (checked for NE in an earlier session and for HOU today). The club charts are captioned "Unofficial" by the clubs.
+4. Depth charts have no page date (`page_date: null`), so staleness is judged against the capture date only.
+5. Brief items **not verified here** (left blank, listed on the page §3): Lamar Jackson IR and Tyler Huntley (BAL; no BAL depth chart captured, and no reserve row in the visible October window); Malik Willis IR (no row in the captured window); Drew Lock / Kyle McCord starter change (no row; signings page only partly read); Texans depth image (no structured official source found).
+
+## Not done, and named
+
+- Signings page chunk 2 not read (signings are not in the log).
+- Depth coverage remains 5 of 32 clubs; the 32-team sweep is not complete, so the depth-order source decision (DR-52) is still open.
+- The public/private data split, the executive summary, the per-team view, and the other items in the brief are not addressed in this session.
+- Decision-readiness register (`data/decision_readiness.json`) not edited; DR-34, DR-46 and R71 should be updated by the integration session from the new flags.
+
+## Pull request and merge
+
+Recorded below after the PR is opened and merged (see next entry).
