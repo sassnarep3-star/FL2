@@ -2389,3 +2389,26 @@ kept the newly merged `b99036de` record and the post-merge PR #45 deployment ver
 from `origin/main`, as well as this session's C01–C04 entry. No existing session record was
 dropped. The combined file was rebuilt from the current main version plus this session's
 own section; conflict markers were removed. Current rebased base: `a8f161c`.
+
+## Scope amendment — C03 landing-page contention; C05 stale-PR takeover
+
+**C03 scope adjustment.** PR [#48](https://github.com/sassnarep3-star/FL2/pull/48), owned by
+`arena/f12b5506-fl2`, currently claims `index.html` for the transactions tile and its check
+reports a merge conflict. I release `index.html` from my active edit scope and will not modify
+it while that task is in progress. I request that the transaction-session owner leave the
+integration audit link/status notice for the final integration session, or confirm when its
+landing edit is complete. To keep the audit discoverable without that shared file, this
+session adds the already-linked root `review.html` to its integration scope alongside
+`README.md`.
+
+| # | Task | Status | Owner | Files in scope (exclusive) |
+|---|---|---|---|---|
+| C05 | Take over stale Decision Desk follow-up PR #40 for integration/merge if its changes remain clean on the current base | **in progress** | c3bfbd81 | `.github/workflows/verify-decision-desk.yml`, `decision-desk/**`, `tools/build_decision_desk.py`, `tools/check_decision_desk.py`, `README.md`, `COORDINATION.md` (merge/handoff record only) |
+
+**Takeover basis:** PR #40's last update is 2026-11-17T03:17:29Z (more than 60 minutes before
+this review), the board marks the original T40–T47 work done, and its `validate` and
+`verify-decision-desk` checks passed. The follow-up corrects a register/artefact coefficient
+disagreement and adds a computed guard against publishing the superseded value. This
+session will not edit its implementation; it will verify mergeability/checks, merge only
+if GitHub accepts the merge cleanly, and record the result. Its README and append-only-board
+changes are intentionally integrated before this session's own README update.
